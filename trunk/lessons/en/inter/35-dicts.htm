@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>35. An other kind of definition</title>
+</head>
+<body>
+<h2 class="title">35. An other kind of definition</h2>
+<p>Do you think the following is a good definition for
+Reeborg?<br>
+<br>
+<b>robot</b>: a machine that can automatically do tasks normally
+controlled by humans and mostly is used to perform repetitive
+tasks.</p>
+<p>Knowing how to look up the definition of a word in a
+dictionary is very useful when you want to write a story. Python
+has its own kind of dictionaries that are very useful when you
+are writing programs.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">How many eggs was it?</h3>
+<p>Our list of ingredients was very useful... However, without
+looking, do you remember how many eggs we needed? Could you find
+out without printing the whole list if you didn't remember?
+Unless you remembered in which order the ingredients came, you
+might find it difficult. However, if we had used a different
+Python object, namely a <i>dict</i>, it would have been very
+easy. Here's an example:</p>
+<pre>
+&gt;&gt;&gt; ingredients2 = { <span class="string">'eggs'</span> : 4,  <span class= "comment"># notice the curly bracket after the = sign?</span>
+...     <span class="string">'sugar'</span>: <span class="string">'100 g'</span>,
+...     <span class="string">'cocoa powder'</span>: <span class=
+"string">'30 ml'</span>,
+...     <span class="string">'semi-sweet chocolate'</span>: <span
+class="string">'250 g'</span>} <span class= "comment"># curly bracket here too.</span>
+&gt;&gt;&gt; <span class="keyword">print</span> ingredients2
+{<span class="string">'eggs'</span>: 4, <span class=
+"string">'semi-sweet chocolate'</span>: <span class=
+"string">'250 g'</span>, <span class=
+"string">'cocoa powder'</span>: <span class=
+"string">'30 ml'</span>, <span class=
+"string">'sugar'</span>: <span class="string">'100 g'</span>}
+</pre>
+<p>Each entry in a dict is of the form "key : value", with a comma separating each entry from the next. Notice how,
+when we <span class="keyword">print</span> <tt>ingredients2</tt>, the
+order in which the items appear is different from the order in
+which we put them in.</p>
+<p>Now, if we want the number of eggs, we simply do:</p>
+<pre>
+&gt;&gt;&gt; <span class=
+"keyword">print</span> ingredients2['eggs']
+4
+</pre>
+<p>If we want to find out all the values contained in
+<tt>ingredients2</tt>, we can do the following:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> key <span class=
+"keyword">in</span> ingredients2:
+...     <span class="keyword">print</span> ingredients2[key]
+...    
+4
+250 g
+30 ml
+100 g
+</pre>
+<p>We can also do the following:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> key <span class=
+"keyword">in</span> ingredients2:
+...     <span class="keyword">print</span> str(key) + <span
+class="string">":"</span> + str(ingredients2[key])
+    
+eggs:4
+semi-sweet chocolate:250 g
+cocoa powder:30 ml
+sugar:100 g
+</pre>
+<p>We have used the built-in function <tt>str()</tt> which
+converts any object into a string, so that we could do the proper
+string concatenation when we printed.</p>
+<p>Oh-oh... it appears that I forgot the topping again! Let's
+add it:</p>
+<pre>
+&gt;&gt;&gt; ingredients2[<span class=
+"string">"whipped cream"</span>] = <span class=
+"string">"Lots!"</span>
+</pre>
+<p>Try it!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Not any object can be a key</h3>
+<p>While we can put any object as a value in a dict, only
+<i>immutable</i> objects can be used as keys. We will see a bit
+later what that means; for now, it means that, of all the objects
+we have seen, only strings and numbers can be used for keys in a dict. You
+can not use lists and you can not use other dicts. Try various combinations of these objects as either key or value in a dict, and see what Python tells you!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Mini-quiz</h3>
+<p>Can you guess how to remove an entry from a dict? If so, try
+it. If not, it probably means that you haven't paid much
+attention in last lesson. Go back and read it, especially the
+part where we explained how to remove an item from a list.</p>
+<center><a href="34-lists.htm"><img alt="previous" src=
+"../../images/previous.png">Chocolate Mousse Cake Recipe.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"36-tuples.htm">Our last sequence<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

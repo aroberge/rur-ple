@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>31. Globalization is a bad thing</title>
+</head>
+<body>
+
+<h2 class="title">31. <span class="pykeyword">
+<font color="#006600" face="Times New Roman">Globalle&#351;tirme kötü bir &#351;eydir</font> global</span>ization is a bad thing.</h2>
+<p>Bir arkada&#351;&#305;n&#305;zla birlikte uzun bir program yazd&#305;&#287;&#305;n&#305;z&#305; varsay&#305;n. &#304;yi bir 
+programc&#305; oldu&#287;unuz için de&#287;i&#351;ken adlar&#305;n&#305; olu&#351;tururken onlar&#305; aç&#305;klayan adlar 
+kullan&#305;rs&#305;n&#305;z. Sonra &#351;unu dü&#351;ünebilirsiniz: <i>Arkada&#351;&#305;m da benim seçti&#287;im 
+adlar&#305; seçerse ve ben de&#287;i&#351;kenimin ald&#305;&#287;&#305; de&#287;eri de&#287;i&#351;tirirsem onun 
+de&#287;i&#351;kenlerinin de&#287;eri de o istemedi&#287;i halde de&#287;i&#351;ir mi?</i></p>  
+<p>Bu tip problemlerden kaç&#305;nmak için Python'da <i>namespaces </i>kullan&#305;l&#305;r. 
+Böylelikle program&#305;n bir bölümdeki bir de&#287;i&#351;kenin de&#287;erinin de&#287;i&#351;tirilmesi ba&#351;ka 
+bir bölümdeki ayn&#305; isimdeki bir de&#287;i&#351;kenin de&#287;erini etkilemez. Bu derste 
+namespaces'leri ö&#287;renece&#287;iz.</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Yerel De&#287;i&#351;kenler</h3>
+<p>Basit bir örnekle ba&#351;layal&#305;m:</p>
+<pre>
+&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; <span class="keyword">def</span> my_function():
+...     a = 3
+...     <span class="keyword">print</span> a
+...    
+
+&gt;&gt;&gt; my_function()
+3
+
+&gt;&gt;&gt; <span class="keyword">print</span> a
+1
+</pre>
+<p> <tt>a</tt>'n&#305;n de&#287;erinin de&#287;i&#351;memesi sizin için bir sürpriz oldu mu? Burada 
+ne oldu&#287;unu aç&#305;klayal&#305;m.</p>
+<p>Önce "<tt>a</tt>" de&#287;i&#351;kenini tan&#305;mlad&#305;n&#305;z ve ona 1 de&#287;erini verdiniz. Sonra, 
+bir fonksiyonun içerisinde &quot;<tt>a</tt>" ya 3 de&#287;erini verdiniz. Gerçekte olan 
+&#351;ey, fonksiyonun içerisinde "<tt>a</tt>&quot; ad&#305;nda yeni bir de&#287;i&#351;ken tan&#305;mlamak ve 
+ona 3 de&#287;erini vermektir. Di&#287;er&nbsp; "<tt>a</tt>&quot; n&#305;n de&#287;eri bundan etkilenmez.&nbsp; </p>
+<p>Python her fonksiyonun içerisinde otomatik olarak namespace'leri yarat&#305;r. 
+Bunlar bu fonksiyonun d&#305;&#351;&#305;nda ayn&#305; adla tan&#305;mlanm&#305;&#351; de&#287;i&#351;kenlerden 
+ba&#287;&#305;ms&#305;zd&#305;rlar. Namespace'i Python'un tüm de&#287;i&#351;ken adlar&#305;n&#305; takip etti&#287;i bir not 
+defterine benzetebiliriz. Python her bir fonksiyon için ayr&#305; bir not defteri 
+olu&#351;turdu&#287;undan ayn&#305; de&#287;i&#351;kenin ba&#351;ka bir fonksiyonda kullan&#305;lmas&#305; bizi art&#305;k 
+endi&#351;elendirmez. </p>
+<p>Fonksiyonun içerisinde tan&#305;mlanm&#305;&#351; olan de&#287;i&#351;kenler, fonksiyonun çal&#305;&#351;mas&#305; 
+bitti&#287;inde geçerliliklerini kaybederler, buna <i>alan d&#305;&#351;&#305; (out of scope)</i> 
+denir. </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> simple_function():
+...     local_variable = <span class="string">"I'm here!"</span>
+...     <span class="keyword">print</span> local_variable
+...    
+&gt;&gt;&gt; simple_function()
+I'm here!
+
+&gt;&gt;&gt; <span class="keyword">print</span> local_variable
+Traceback (most recent call last):
+  File "&lt;input&gt;", line 1, in ?
+NameError: name <span class="string">'local_variable'</span> is not defined
+</pre>
+<p>Namespace kullanarak bu i&#351;i yapabiliyoruz, ancak bir fonksiyonun içerisindeki 
+bir de&#287;i&#351;kenin de&#287;erini de&#287;i&#351;tirmek isterseniz ne yapmal&#305;s&#305;n&#305;z? Örne&#287;in, bir 
+fonksiyonu kaç kez ça&#287;&#305;rd&#305;&#287;&#305;m&#305;z&#305; takip etmek isteyelim. Bunu Python komutu olan&nbsp; <span class="pykeyword">global</span>'i 
+kullanarak yapabiliriz: </p>
+<pre>
+&gt;&gt;&gt; number_of_times = 0
+&gt;&gt;&gt; <span class="keyword">def</span> two_year_old_child():
+...     <span class="keyword">global</span> number_of_times
+...     number_of_times += 1
+...     <span class="keyword">print</span> <span class="string">"Why?     %s times"</span> % number_of_times
+...    
+&gt;&gt;&gt; two_year_old_child()
+Why?          1 times
+
+&gt;&gt;&gt; two_year_old_child()
+Why?          2 times
+
+&gt;&gt;&gt; two_year_old_child()
+Why?          3 times
+
+&gt;&gt;&gt; <span class="keyword">print</span> number_of_times
+3
+</pre>
+<p>&nbsp;<span class="pykeyword">global </span>komutunu kullanarak, Python'a 
+de&#287;i&#351;kenin yeni bir versiyonunu fonksiyonun içinde yeniden yaratmamas&#305;n&#305; ve daha 
+önceden yarat&#305;lm&#305;&#351; olan versiyonunu kullanmas&#305;n&#305; söylüyoruz. </p>
+<p> <span class="pykeyword">global</span> tan&#305;mlanm&#305;&#351; de&#287;i&#351;kenleri kullanmaktan 
+her zaman kaç&#305;n&#305;n, çünkü bunlar program&#305;n&#305;z&#305;n ba&#351;ka k&#305;s&#305;mlar&#305;nda sizin 
+istemedi&#287;iniz de&#287;i&#351;ikliklere yol açabilir.&nbsp;  
+Programlamada, <span class="pykeyword">global</span>le&#351;tirme istenmeyen ve 
+kaç&#305;n&#305;lmas&#305; gereken bir &#351;eydir.</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Alan D&#305;&#351;&#305; (Out of scope)</h3>
+<p>Larry ve Curly keyifle yürüyordular. Birden Moe onlar&#305; uzaktan gördü ve 
+onlara do&#287;ru ko&#351;maya ba&#351;lad&#305;. Tam onlar&#305; yakalayacakken alan d&#305;&#351;&#305; oldu ve 
+ekrandan kayboldu. Moe'nun arkada&#351;lar&#305;na ula&#351;mas&#305;n&#305; istiyorsan&#305;z, a&#351;a&#287;&#305;daki&nbsp; <span class="comment">#</span> 
+sembollerini kald&#305;rmal&#305;s&#305;n&#305;z. </p>
+
+<pre>
+Larry = UsedRobot(colour=<span class="string">'blue'</span>)
+Curly = UsedRobot(1, 3, colour=<span class="string">'green'</span>)
+
+<span class="comment"># Using two keywords you haven't seen yet!</span>
+<span class="keyword">for</span> i <span class="keyword">in</span> range(3):
+    Larry.move()
+    Curly.move()
+
+<span class="keyword">def</span> wait_for_me():
+    <span class="comment">#global Moe</span>
+    Moe = UsedRobot(1, 2, colour=<span class="string">'yellow'</span>)
+    <span class="comment"># Using two same new keywords again!</span>
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(3):
+        Moe.move()
+        Larry.move()
+        Moe.move()
+        Curly.move()
+
+wait_for_me()
+<span class="comment"># first image below; Moe is there.</span>
+Larry.move()
+<span class="comment"># second image below; Moe is gone.</span>
+Curly.move()
+<span class="comment">#Moe.move()</span>
+Larry.move()
+Curly.move()
+<span class="comment">#Moe.move()</span>
+Larry.turn_off()
+</pre>
+
+<p><img alt="Moe there"  src="../../images/future/scope1.png"></p>
+<p><img alt="Moe gone"  src="../../images/future/scope2.png"></p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Deneyin!</h3>
+<p>Bu program&#305; Reeborg'un dünyas&#305;nda kendi kendinize deneyin ve gerekli 
+de&#287;i&#351;iklikleri yaparak Moe'nun arkada&#351;lar&#305;na ula&#351;mas&#305;n&#305; sa&#287;lay&#305;n.</p>
+
+<center><a href="30-dot.htm"><img alt="previous" src=
+"../../images/previous.png">Nesneye dayal&#305; programlama:&nbsp; &quot;nokta&quot;&nbsp;kullan&#305;m&#305;.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"32-return.htm">Many returns<img alt="next"
+src="../../images/next.png"></a></center>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+# Spiral harvesting solution
+# original idea from Evelyne S.R.
+
+# modification to count the number
+# of robot moves required
+
+nb_moves = 0
+def move_1():
+    global nb_moves
+    move()
+    nb_moves +=1
+
+def left():
+    global nb_moves
+    turn_left()
+    nb_moves += 1
+
+def pick():
+    global nb_moves
+    pick_beeper()
+    nb_moves += 1
+
+def move_and_pick():
+    move_1()
+    pick()
+
+# end of definitions
+
+repeat(move_and_pick, 6)
+left()
+repeat(move_and_pick, 5)
+left()
+repeat(move_and_pick, 5)
+left()
+repeat(move_and_pick, 4)
+left()
+repeat(move_and_pick, 4)
+left()
+repeat(move_and_pick, 3)
+left()
+repeat(move_and_pick, 3)
+left()
+repeat(move_and_pick, 2)
+left()
+repeat(move_and_pick, 2)
+left()
+move_and_pick()
+left()
+move_and_pick()
+
+print nb_moves
+
+turn_off()

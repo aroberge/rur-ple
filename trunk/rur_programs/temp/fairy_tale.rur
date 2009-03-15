@@ -1,0 +1,132 @@
+# a robot fairy tale
+def Alex_is_restless():
+    for i in range(4):
+        Alex.move()
+        for j in range(5):
+            Alex.turn_left()
+
+def Alex_travels():
+    Alex.move()
+    Alex.turn_left()
+    Alex.move()
+    Alex.move()
+    Alex.turn_right()
+    Alex.move()
+    Alex.move()
+    Alex.turn_left()
+    for i in range(3):
+        Alex.move()
+
+def Alex_proposes_and_wait():
+    Alex.put_beeper()
+    Alex.put_beeper()
+    Alex.turn_right()
+    Alex.move()
+    Alex.turn_left()
+    Alex.move()
+    Alex.turn_left()
+
+def Anna_accepts():
+    Anna.move()
+    Anna.pick_beeper()
+    Anna.turn_left()
+    Anna.move()
+    Alex.turn_left()
+    Anna.turn_left()
+
+def Alex_and_Anna_dance():
+    Anna.turn_right()
+    Anna.move()
+    Alex.move()
+    Alex.turn_left()
+    for i in range(4):
+        Anna.turn_left()
+        Anna.move()
+        Alex.move()
+        Alex.turn_left()
+    Anna.turn_left()
+    Anna.move()
+    Anna.turn_right()
+    Alex.move()
+
+def time_passes():
+    for i in range(5):
+        Alex.move()
+        Anna.move()
+
+def Alexina_is_born():
+    global Alexina
+    Anna.move()
+    Anna.move()
+    Anna.turn_right()
+    Anna.move()
+    Alexina = RefurbishedRobot(12, 6, 's', colour='green')
+    Alex.turn_right()
+
+def family_is_happy():
+    global Alexina
+    while Alex.front_is_clear():
+        Alex.move()
+        Anna.move()
+        Alexina.move()
+
+
+'''A long time ago, in RobotLand, lived a
+young Robot Scholar, named Alex.'''
+
+Alex = RefurbishedRobot(1, 1, beepers=2, colour='blue')
+
+''''Unhappy, the young Scholar was spending his days 
+wandering around his parents' domain, hoping to find more to learn.'''
+Alex.set_trace_style(2, 'black') #unhappy
+Alex_is_restless()
+
+'''Soon, the young Scholar set out to explore
+the world, traveling far and wide. Even as he started out,
+his mood brightened considerably.'''
+Alex.set_trace_style(1, 'blue')
+Alex_travels()
+
+'''One day, as he entered a foreign land,
+the young Scholar heard an unusual noise that made him stop.
+His heart did the same when a fearless Warrior, 
+named Anna, appeared seemingly out of nowhere.
+She had come investigate news that 
+a stranger had come to her land.'''
+Anna = RefurbishedRobot(4, 7, 's', colour='purple')
+Anna.set_trace_style(2, 'red')
+
+'''The Scholar knew that his quest was over; 
+no further did he need to search.
+Approaching the Warrior, he took out the one and only Ring, 
+which he happened to carry, 
+and asked Anna if she would marry him.'''
+Alex_proposes_and_wait()
+
+'''The Scholar's erudite use of magical words
+were such that, much to Alex's delight, Anna
+took the Ring he had offered her.'''
+Anna_accepts()
+# Historical note: the imprint of the Ring
+# can still be seen in RobotLand where Alex proposed to Anna,
+# as shown below.
+# It has also been confirmed that, from that day, 
+# Anna always wore her Ring.
+
+'''The young couple celebrated their happiness,
+by dancing all day and all night.'''
+Alex_and_Anna_dance()
+
+'''Years went by.  Alex and Anna were happy
+traveling together, side by side.'''
+time_passes()
+
+'''A few years later, young Alexina was born.'''
+Alexina_is_born()
+
+'''For many years afterwards, the happy family
+pursued their travels to the edge of Robotland.'''
+family_is_happy()
+
+'''The End.'''
+Alex.turn_off()

@@ -1,0 +1,34 @@
+# amazing6.rur
+# as per lesson
+#
+# This program instructs Reeborg to go around his world 
+# counterclockwise, stopping when he comes  
+# back to his starting point. 
+
+def turn_right(): 
+    repeat(turn_left, 3) 
+
+def mark_starting_point_and_move(): 
+    put_beeper() 
+    while not front_is_clear(): 
+        turn_left() 
+    move() 
+
+def follow_right_wall(): 
+    if right_is_clear():  
+        turn_right() 
+        move() 
+    elif front_is_clear():  
+        move() 
+    else:  
+        turn_left() 
+
+found_starting_point = next_to_a_beeper # beeper marks the starting point. 
+
+#=== End of definitions; begin solution 
+mark_starting_point_and_move() 
+
+while not found_starting_point():  
+    follow_right_wall() 
+
+turn_off()

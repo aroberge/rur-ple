@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Making a left turn</title>
+</head>
+<body>
+<h2 class="title">6. Making a left turn.</h2>
+<p>As we have mentioned before, Reeborg can turn in any direction ...
+provided it is to his left, and by 90 degrees at that. This is because his
+creators were too cheap to implement a better steering mechanism. To ask
+Reeborg to turn left you write ... <tt>turn_left()</tt>!</p>
+<p>For example, if Reeborg is starting from his usual initial position, this
+simple program</p>
+<pre>
+move()
+turn_left()
+move()
+turn_off()
+</pre>
+<p>will give rise to the following display.</p>
+<img alt="simple left turn" src="../../images/intro/turn_left_end.png">
+<h3 class="try">Your turn</h3>
+<p>Have Reeborg trace a simple square, using the following program:</p>
+<pre>
+move()
+turn_left()
+move()
+turn_left()
+move()
+turn_left()
+move()
+turn_left()
+turn_off()
+</pre>
+<p>Remember that you must save your program before you can use it. <b>Try
+it!</b></p>
+<p>Note that, if English is not your favourite language, you can always
+create a synonym in your language, as long as you define it first, before
+using it. However, the synonym you introduce must use the English alphabet
+(letters without any accents). For example, in French, one might
+<b>define</b> <tt>vire_a_gauche = turn_left</tt> and <b>use</b>
+<tt>vire_a_gauche()</tt> to instruct the robot to turn left.</p>
+<h3 class="try">Your turn again!</h3>
+<p>Write a program that will make Reeborg turn counterclockwise around a
+square, taking 2 steps forward then turning left and repeating until he is
+back at his starting point facing east, his original direction, as
+illustrated below.</p>
+<img alt="left square" src="../../images/intro/left_square2.png">
+<h3><font color="#663333">Experiment!</font></h3>
+<p>Feel free to try to write other programs to make Reeborg move along
+various paths in his world.</p>
+<!--==================================================-->
+<hr width="50%">
+<a name="Home" id="Home"></a>
+<h3 class="section">Going home</h3>
+<p>When you enter Reeborg's world, Reeborg is usually standing on the corner
+of the first avenue and the first street, facing East. Click on the
+"Show/Hide world file" button <img alt="Show/Hide world file" src=
+"../../images/intro/btn_show_world_file.png">, which is at the extreme right.
+You will see the display below change, with some text appearing on the right
+hand side. In particular, note the line that says <tt>robot = (1, 1, 'E',
+0)</tt>. This indicates the position of Reeborg in his world. The first
+number is the avenue on which Reeborg is standing, the second is the street,
+and the letter between the quotes indicates the direction that Reeborg is
+facing (E = East, N = North, W = West, S = South), East being facing right,
+North facing up, etc.. The fourth number (0) is the number of
+<em>beepers</em> that Reeborg carries; we will learn about beepers a bit
+later.</p>
+<p>As you have seen before, you can make Reeborg move by using the up and
+left arrow keys on your computer keyboard. When you so move Reeborg, he
+doesn't leave any trace of his movements. You should notice however that the
+text between the parentheses in <tt>robot = (...)</tt> changes as Reeborg
+moves, to reflect his new position in his world.</p>
+<h3 class="try">Your turn</h3>
+<p>Using the keyboard, move Reeborg until he is standing at the corner of the
+third avenue and the fourth street, facing South, as indicated below. Then,
+write a program that will make Reeborg start from this new position and go
+back to the corner of the first avenue and the first street, facing East as
+indicated below. Try to have Reeborg take fewer steps and turns to do this
+than we have shown below.</p>
+<p><img alt="back home start" src="../../images/intro/back_home_start.png">
+<img alt="lead to" src="../../images/lead_to.png"> <img alt="back home end"
+src="../../images/intro/back_home.png"></p>
+<center>
+<a href="5-comments.htm"><img alt="previous" src=
+"../../images/previous.png"> Any comments? <i>Avez-vous des
+commentaires?</i></a> - <a href="../lessons_toc.htm"><img alt="home" src=
+"../../images/home.png"></a> - <a href="7-beepers.htm">Beepers <img alt=
+"next" src="../../images/next.png"></a>
+</center>
+</body>
+</html>

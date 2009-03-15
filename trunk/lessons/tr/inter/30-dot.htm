@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>30. Object-Oriented Programming:  "dot" notation</title>
+</head>
+<body>
+<h2 class="title">30. Nesneye dayal&#305; programlama: &quot;nokta&quot; kullan&#305;m&#305;</h2>
+<p>Birazdan modern bir programlama sitili olan Nesneye Dayal&#305; Programlamay&#305; (<em>Object-Oriented Programming</em> [OOP])ö&#287;reneceksiniz. 
+&#350;imdiye kadar gördüklerimizden her ne kadar anla&#351;&#305;lmam&#305;&#351; olsa da Python bir OOP 
+dilidir. Nesneye dayal&#305; programlar&#305; yazmaya ba&#351;lamadan önce, bu i&#351;te kullan&#305;lan 
+yaz&#305;m kurallar&#305;n&#305; ö&#287;renece&#287;iz. </p>
+<!-- ======================== -->
+<hr width="50%">
+<h3 class="section">Bir köpe&#287;in s&#305;radan bir günü</h3>
+<p>Fido bir köpektir. S&#305;radan bir günde pek çok i&#351; yapar: yemek yer, ko&#351;ar, uyur 
+v.b. Bunlar&#305; nesneye dayal&#305; bir programc&#305; a&#351;a&#287;&#305;daki gibi yazabilir: </p>
+<pre>
+Fido = Dog()
+Fido.eats()
+Fido.runs()
+Fido.sleeps()
+</pre>
+<p>Bunlar&#305;n yan&#305; s&#305;ra Fido'nun pek çok özelli&#287;i vard&#305;r. Bunlar daha önceden 
+gördü&#287;ümüz de&#287;i&#351;kenlerdir, ancak bunlar Fido'ya aittirler. Fido uzundur ve 
+saçlar&#305; siyaht&#305;r. Bunlar&#305; bir programc&#305; a&#351;a&#287;&#305;daki gibi ifade edebilir: </p>
+<pre>
+Fido.size = <span class="string">"tall"</span>
+Fido.hair_colour = <span class="string">"black"</span>
+</pre>
+<p>Nesneye dayal&#305; programlamada a&#351;a&#287;&#305;dakiler vard&#305;r: </p>
+<ul>
+<li><tt>Köpek(Dog) </tt><i>s&#305;n&#305;fa</i> bir örnektir. </li>
+<li>
+<p class="MsoNormal"><tt style="font-family: Courier New">
+<span style="font-size: 12.0pt">Fido</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;"> 
+</span><span style="font-size:12.0pt;"> 
+Dog</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;"> 
+<i>s&#305;n&#305;f&#305;nda</i> bir <i>gerçeklemedir</i>.</span></tt></p>
+</li>
+<li>
+<p class="MsoNormal"><tt style="font-family: Courier New">
+<span style="font-size: 12.0pt; font-family: Times New Roman">Bir s&#305;n&#305;f 
+gerçeklemeler yaratan özel bir fonksiyon olarak dü&#351;ünülebilir.</span></tt></p>
+</li>
+<li>
+<p class="MsoNormal"><span style="font-size:12.0pt"><font face="Courier New">eats(), runs()</font> ve 
+<font face="Courier New">sleeps() </font>Dog <i>s&#305;n&#305;f&#305;n&#305;n</i>
+<i>metotlar&#305;d&#305;r</i>, metotlar temelde daha önceden gördü&#287;ümüz fonksiyonlara 
+benzerler (tek fark metotlar&#305;n bir s&#305;n&#305;f veya gerçeklemeye ait olmas&#305;d&#305;r).</span></p>
+</li>
+<li>
+<p class="MsoNormal"><span style="font-size:12.0pt"><font face="Courier New">size</font> ve 
+<font face="Courier New">hair_colour</font> bir gerçekleme veya 
+nesnenin <i>özellikleridir</i>, özellikler normal bir de&#287;i&#351;kenin alabilece&#287;i 
+de&#287;erleri al&#305;rlar.</span></p></li>
+<li>
+<p class="MsoNormal"><span style="font-size:12.0pt">Özellikler veya metotlar ile 
+nesneler aras&#305;ndaki ba&#287;lant&#305; aralar&#305;na
+<font face="Courier New">&#8220;nokta&#8221; (&#8220;.&#8221;)</font> 
+konularak sa&#287;lan&#305;r.</span></p></li>
+</ul>
+<p>Nesneler kendisine ait olan, kendi metot ve özellikleri olan ba&#351;ka nesneleri 
+de kullanabilirler:</p>
+<pre>
+Fido.tail.wags()
+Fido.tail.type = <span class="string">"bushy"</span>
+Fido.left_front_paw.moves()
+Fido.head.mouth.teeth.canine.hurt()
+</pre>
+<p>Bunun nas&#305;l çal&#305;&#351;t&#305;&#287;&#305;n&#305; ileride görece&#287;iz. &#350;imdi Reeborg'un &quot;nokta&quot; y&#305; nas&#305;l 
+kulland&#305;&#287;&#305;n&#305; görelim. </p>
+<hr width="50%">
+<h3 class="try">Kullan&#305;lm&#305;&#351; bir robot ad&#305;n&#305; al&#305;yor</h3>
+<p>&#350;imdiye kadar yazd&#305;&#287;&#305;m&#305;z programlarda Nesneye Dayal&#305; Programlamay&#305; 
+kullanmad&#305;k. Basit bir örnekle ba&#351;layal&#305;m:</p>
+<p>Önce, bo&#351; bir dünya ile i&#351;e ba&#351;layaca&#287;&#305;z, e&#287;er gerekliyse robot kald&#305;r/ekle <img alt="add/remove robot" src=
+"../../images/intro/btn_add_robot.png">&nbsp; butonuna basarak robotu da 
+kald&#305;raca&#287;&#305;z. </p>
+<p>RUR-PLE' daki RUR'un Roberge's Used Robot (Roberge'&#305;n Kullan&#305;lm&#305;&#351; Robotu) 
+anlam&#305;na geldi&#287;ini hat&#305;rl&#305;yor olabilirsiniz; bizim kulland&#305;&#287;&#305;m&#305;z robotlar ya&#351;l&#305; 
+ve hatal&#305;d&#305;rlar. <small>[Nas&#305;l tamir edilece&#287;ini ileride görece&#287;iz]. </small>
+<tt>UsedRobot</tt> s&#305;n&#305;f&#305;n&#305;n ilk gerçeklemesini yarataca&#287;&#305;z ve ona uygun bir 
+isim verece&#287;iz: Reeborg! Sonra ona bir ad&#305;m atmas&#305; ve kendini kapatmas&#305;n&#305; 
+söyleyece&#287;iz.</p>
+<pre>
+Reeborg = UsedRobot()
+Reeborg.move()
+Reeborg.turn_off()
+</pre>
+<p><b>Deneyin!</b></p>
+<hr width="50%">
+<h3 class="try">Daha Fazla Robot</h3>
+<p>Metotlarda, fonksiyonlar&#305;n da kulland&#305;&#287;&#305; gibi parametreler kullanabilirler. Bo&#351; 
+bir dünya ile ba&#351;lay&#305;n ve a&#351;a&#287;&#305;dakini deneyin: </p>
+<pre>
+<span class=
+"comment"># ba&#351;lang&#305;ç noktas&#305;na (varsay&#305;lan-default) bir robot ekle, ama rengi farkl&#305; olsun</span>
+Larry = UsedRobot(colour=<span class="string">'blue'</span>)
+<span class=
+"comment"># ikinci robot, default renk (gri) yüzü kuzeye dönük</span>
+Curly = UsedRobot(1, 3, <span class="string">'N'</span>)
+<span class="comment">#  üçüncü robot bip ta&#351;&#305;yor</span>
+Moe = UsedRobot(1, 2, beepers=9, colour=<span class="string">'yellow'</span>)
+
+Larry.move()
+Curly.move()
+Moe.move()
+Larry.move()
+Curly.move()
+Moe.move()
+
+Curly.turn_left()
+Larry.move()
+Curly.move()
+<span class="comment"># Herhangi bir robotu kapatmak program&#305; sonland&#305;r&#305;r.</span>
+Moe.turn_off()
+</pre>
+<p>Robotlar&#305;n farkl&#305; renkleri vard&#305;r: grey (gri, default), yellow (sar&#305;), blue 
+(mavi),
+light blue (aç&#305;k mavi), green (ye&#351;il) ve purple (mor). Herhangi bir yere 
+yerle&#351;tirilebilirler (ayn&#305; noktaya birden fazla robot koyulabilir), dört yönden 
+birisine bakabilirler ('E' <small>[varsay&#305;lan-by default]</small>, 'N', 'S', 'W') veya bip 
+ta&#351;&#305;yabilirler. &#304;ki adland&#305;r&#305;lm&#305;&#351; parametre
+(beepers ve colour) ve üç adland&#305;r&#305;lmam&#305;&#351; parametre (street, avenue and
+orientation) oldu&#287;una dikkat edin.Adland&#305;r&#305;lm&#305;&#351; iki parametre sonda yer 
+almal&#305;d&#305;r (e&#287;er adlar&#305;n&#305; yazarsan&#305;z kendi aralar&#305;nda yer de&#287;i&#351;tirebilirler), 
+adland&#305;r&#305;lmam&#305;&#351; parametreler ise&nbsp; ba&#351;ta ayn&#305; s&#305;ra muhafaza edilerek yer 
+almal&#305;d&#305;r. Bu nedenle, bir yön (orientation) belirtmek istersek, öncelikle cadde 
+(street) ve soka&#287;&#305; (avenue) belirtmeliyiz.&nbsp; </p>
+<p>A&#351;a&#287;&#305;dakiler geçerlidir:</p>
+<pre>
+R1 = UsedRobot(2) <span class=
+"comment"># 2. cadde, 1.sokak, yüzü do&#287;uya dönük</span>
+R2 = UsedRobot(2, 3) <span class=
+"comment"># 2. cadde, 3. sokak, yüzü do&#287;uya dönük</span>
+R3 = UsedRobot(3, 1, <span class="string">'S'</span>) <span class=
+"comment"># 3. cadde, 1. sokak, yüzü güneye dönük</span>
+R4 = UsedRobot(5, colour=<span class="string">'yellow'</span>) <span class=
+"comment"># 5. cadde, 1. sokak, yüzü do&#287;uya dönük, rengi sar&#305;</span></pre>
+<p>A&#351;a&#287;&#305;dakiler geçerli <b>de&#287;ildir</b>:</p>
+<pre>
+R5 = UsedRobot(3, <span class="string">'S'</span>) <span class=
+"comment"># yön 3. parametre de&#287;il</span>
+R6 = UsedRobot(colour=<span class="string">'yellow'</span>, 5) <span class=
+"comment"># adland&#305;r&#305;lmam&#305;&#351; parametre, adland&#305;r&#305;lm&#305;&#351;tan sonra kullan&#305;lmaz</span></pre>
+
+<center><a href="29-strings.htm"><img alt="previous" src=
+"../../images/previous.png">Ad&#305;n&#305;z nedir?</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="31-global.htm">Globalle&#351;tirme kötü bir &#351;eydir<img alt="next"
+src="../../images/next.png"></a></center>
+
+</body>
+</html>

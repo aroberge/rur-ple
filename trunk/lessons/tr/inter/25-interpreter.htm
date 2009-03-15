@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>25. Python already knows how to add.</title>
+</head>
+<body>
+<h2 class="title">25. Python toplama yapmay&#305; zaten biliyordu.</h2>
+<p>Bir önceki derste Reeborg'a iki say&#305;y&#305; toplatabilmek için bir hayli 
+u&#287;ra&#351;mam&#305;z gerekti. Bu derste Python'da iki say&#305;y&#305; toplaman&#305;n ne kadar kolay 
+oldu&#287;unu göreceksiniz, dahas&#305; di&#287;er matematiksel i&#351;lemleri de rahatl&#305;kla 
+yapt&#305;rabileceksiniz. </p> 
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">&#304;lk yap&#305;lacak i&#351;</h3>
+<p>Python yorumlay&#305;c&#305;s&#305;n&#305; (Python: Code and Learn) üçüncü sekmeye t&#305;klayarak 
+seçin. Görünüm a&#351;a&#287;&#305;dakine benzer olmal&#305;d&#305;r(Frans&#305;zca 
+d&#305;&#351;&#305;nda). </p>
+<p><img alt="Python interpreter" src=
+"../../images/inter/interpreter.png"></p>
+<br>
+<p>&#304;lk iki sat&#305;r&#305; &#351;imdilik görmezden gelin üçüncü sat&#305;rda gördü&#287;ünüz üç tane 
+yan yana koyulmu&#351; &#351;ey&nbsp; &quot;&gt;&gt;&gt;&quot; Python <i>prompt</i>'udur.</p>
+<pre>
+&gt;&gt;&gt;
+</pre>
+<p>&#350;imdi Python'un toplamay&#305; Reeborg'dan daha kolay yap&#305;p yapamad&#305;&#287;&#305;n&#305; görelim. 
+&#304;mleci üçüncü sat&#305;ra koyun ve&nbsp; "Add 8
+and 4" yaz&#305;p "enter" tu&#351;una bas&#305;n. Python size kendi dili ile cevap verecektir. </p>
+<pre>
+&gt;&gt;&gt;Add 8 <span class="keyword">and</span> 4
+  File <span class="string">"&lt;input&gt;"</span>, line 1
+    Add 8 <span class="keyword">and</span> 4
+        ^
+SyntaxError: invalid syntax
+&gt;&gt;&gt;
+</pre>
+<p>Python yorumlay&#305;c&#305;s&#305; ingilizce emirleri anlamaz. Ancak Python komutlar&#305;n&#305; 
+anlayabildi&#287;ini farketmi&#351; olmal&#305;s&#305;n&#305;z, örne&#287;in&nbsp;<span class="pykeyword">and</span> farkl&#305; bir renkle gösteriliyor. </p>
+<p>A&#351;a&#287;&#305;da prompt'un haz&#305;r olarak bekledi&#287;ini göreceksiniz. Bu defa "8+4" yaz&#305;n 
+ve enter'a bas&#305;n. A&#351;a&#287;&#305;daki gibi bir görüntü elde etmelisiniz.</p>
+<pre>
+&gt;&gt;&gt; 8+4
+12
+&gt;&gt;&gt; 
+</pre>
+<p>Ba&#351;ard&#305;k! Python iki say&#305;y&#305; hemen toplad&#305; (bunu Reeborg'a yapt&#305;rmak çok zordu). 
+Prompt yeni komutlar&#305; girilmesi için yine haz&#305;r olarak bekliyor. A&#351;a&#287;&#305;dakileri 
+de deneyin.</p>
+<pre>
+&gt;&gt;&gt; 8+4
+12
+&gt;&gt;&gt; 8-4
+4
+&gt;&gt;&gt; 8*4
+32
+&gt;&gt;&gt; 8/4
+2
+</pre>
+<p>Gördü&#287;ünüz gibi Python toplama, ç&#305;karma, çarpma ve bölme yapmay&#305; biliyor.</p>
+<h3 class="section">Say&#305;sal i&#351;lemlere devam</h3>
+<p>Python kendisine bir dizi matematiksel i&#351;lem verildi&#287;inde hangisini önce 
+(i&#351;lem önceli&#287;i) yapmas&#305; gerekti&#287;ini bilir. Önce bölme ve çarpmalar, sonra toplama ve ç&#305;karmalar yap&#305;l&#305;yor. 
+A&#351;a&#287;&#305;daki örnekleri inceleyin.</p>
+<pre>
+&gt;&gt;&gt; 2+3*5
+17
+&gt;&gt;&gt; 2+ (3*5)   <span class=
+"comment"># bo&#351;luk b&#305;rakman&#305;z bir &#351;eyi de&#287;i&#351;tirmez</span>
+17
+&gt;&gt;&gt; (2+3)*5
+25
+&gt;&gt;&gt; 2*4/8
+1
+&gt;&gt;&gt; 2+1-4
+-1
+</pre>
+<p>Kendiniz de denemeler yap&#305;n, sizi &#351;a&#351;&#305;rtacak bir sonuç buldunuz mu?</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">&#350;a&#351;&#305;rt&#305;c&#305; bölme</h3>
+<p>E&#287;er &#351;a&#351;&#305;rt&#305;c&#305; bir sonuç bulamad&#305;ysan&#305;z, yeteri kadar deneme 
+yapmam&#305;&#351;s&#305;n&#305;zd&#305;r. <tt>7/3 </tt>ve <tt>1/2 </tt>i&#351;lemlerini deneyin.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Tam say&#305;l&#305; bölme</h3>
+<p>Python farkl&#305; tipteki say&#305;lar&#305; tan&#305;yabilir. En basit tip tamsay&#305;lard&#305;r. 
+Python bir tamsay&#305;y&#305; bir ba&#351;ka tamsay&#305; ile böldü&#287;ünde kalan&#305; atar ve sonucu tam 
+say&#305; olarak verir. Bu nedenle 7'yi 3'le böldü&#287;ümüzde Python 2 sonucunu verir. 
+Kalan&#305; elde etmek için <tt>% </tt> sembolü kullan&#305;l&#305;r.</p>
+<pre>
+&gt;&gt;&gt; 7/3
+2
+&gt;&gt;&gt; 7%3
+1
+&gt;&gt;&gt; 1/2
+0
+&gt;&gt;&gt; 1%2
+1
+</pre>
+<p>Bekledi&#287;imiz gibi bir sonuç elde edebilmek için Python'a gerçek say&#305;lar(<i>floats</i>) 
+kulland&#305;&#287;&#305;m&#305;z&#305; belirtmeliyiz. Bunu say&#305;lardan en az birisinin sonuna nokta 
+ekleyerek sa&#287;layabiliriz. </p>
+<pre>
+&gt;&gt;&gt; 1./2
+0.5
+&gt;&gt;&gt; 1/2.
+0.5
+&gt;&gt;&gt; 1.00000/2
+0.5
+</pre>
+<h3 class="section">Biraz daha matematik</h3>
+<p>Python temel matematiksel i&#351;lemlerden daha fazlas&#305;n&#305; bilir. Anlayabilmeniz 
+için örnekler a&#351;a&#287;&#305;da. </p>
+<pre>
+&gt;&gt;&gt; 3*3*3*3
+81
+&gt;&gt;&gt; 3**4  <span class="comment"># üs alma</span>
+81
+&gt;&gt;&gt; 7.3 % 3  <span class="comment"># kalan</span>
+1.2999999999999998
+</pre>
+<p>En son sonuç neredeyse umdu&#287;umuz gibi 1.3'e e&#351;ittir. 1.3 ile 
+1.2999999999999998 aras&#305;ndaki fark çok küçüktür, fark olmas&#305;n&#305;n nedeni 
+bilgisayarlar&#305;n ondal&#305;kla say&#305;larla çal&#305;&#351;ma &#351;eklinden kaynaklan&#305;r. Bunun 
+nedenini biraz daha bilgisayar programlama ö&#287;rendikten sonra, ilerideki 
+derslerde aç&#305;klayaca&#287;&#305;m.&nbsp; Pratikte aradaki fark büyük bir sorun yaratmaz. 
+A&#351;a&#287;&#305;daki komutu kullanarak görüntüyü daha iyi hale getirebiliriz.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> 7.3 % 3
+1.3
+</pre>
+<p><span class="pykeyword">print</span> komutu Python'a hesaplaman&#305;n sonucunu 
+bize göstermesini söyler ve bunu&nbsp; ak&#305;ll&#305;ca yapar. Python bazen yapt&#305;&#287;&#305; 
+hesaplamalar&#305;n sonucunu bize göstermez. <span class="pykeyword">print</span> 
+komutunu kullanarak bu hesaplar&#305;n sonucunu da görebiliriz.</p>
+<p>Merakl&#305; m&#305;s&#305;n&#305;z? Bir Reeborg program&#305;nda <span class=
+"pykeyword">print</span> komutunu kullan&#305;rsan&#305;z ne olur?...</p>
+<h3 class="section">Büyük Say&#305;lar</h3>
+<p>A&#351;a&#287;&#305;dakini deneyin:</p>
+<pre>
+&gt;&gt;&gt;2147483648
+2147483648L</pre>
+<p>Dikkatle bak&#305;n: cevab&#305;n sonundaki &quot;L&quot; harfini görüyor musunuz? L, <i>Long</i> 
+integer (uzun tamsay&#305;) anlam&#305;na gelir, bu say&#305;lar bilgisayar&#305;n haf&#305;zas&#305;nda 
+kolayca gösterilemezler. 32 bitlik çipi olan bir bilgisayar için, benim ve 
+muhtemelen sizin kulland&#305;&#287;&#305;n&#305;z, tüm pozitif say&#305;lar 32 bitin kombinasyonlar&#305; 
+olarak temsil edilirler ve en büyük tamsay&#305; <img alt=
+"2^31" src="../../images/inter/2_31.png">-1 = 2147483647'dir. Bundan büyük bir 
+tamsay&#305; Pyhon'un (veya di&#287;er bilgisayar programlama dillerinin) matematiksel 
+i&#351;lemleri yapabilmesi için geli&#351;mi&#351; teknikler kullanmas&#305;n&#305; gerektirir. Bu ise 
+bilgisayar&#305;n yava&#351;lamas&#305;na neden olur. Python büyük say&#305;lar&#305;n sonuna L koyarak 
+bunu bize hat&#305;rlat&#305;r. E&#287;er gerçekten ihtiyac&#305;n&#305;z yoksa, çok büyük say&#305;lar&#305; 
+kullanmaktan kaç&#305;n&#305;n. </p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">1,000 büyük bir say&#305; de&#287;ildir</h3>
+<p>A&#351;a&#287;&#305;dakini deneyin:</p>
+<pre>
+&gt;&gt;&gt; 1,000
+(1, 0)
+&gt;&gt;&gt; 1,000,000,000
+(1, 0, 0, 0)
+</pre>
+<p>Ne oluyor? &#350;imdilik söyleyece&#287;im, binler hanesini &#304;ngilizce konu&#351;ulan 
+ülkelerde oldu&#287;u gibi virgül ile ay&#305;rmaman&#305;zd&#305;r. Python'da virgülün ne anlama 
+geldi&#287;ini daha sonra görece&#287;iz. Bu arada virgül <span class="pykeyword">print</span> 
+komutu ile kullan&#305;l&#305;rsa ne oldu&#287;unu a&#351;a&#287;&#305;da görebilirsiniz:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> 5,4
+5 4
+&gt;&gt;&gt; <span class="keyword">print</span> 5,              4
+5 4
+</pre>
+<p>Print komutunda virgül kullan&#305;ld&#305;&#287;&#305; zaman iki say&#305;n&#305;n aras&#305;nda bir bo&#351;luk 
+b&#305;rak&#305;l&#305;r ve verilen komuttaki di&#287;er bo&#351;luklar önemsenmez.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Bilimsel gösterim (Scientific notation)</h3>
+<p>Bilimsel gösterim hakk&#305;nda daha önceden bilginiz olabilir: </p>
+<p><img alt="scientific notation" src="../../images/inter/sci_not.png"></p>
+<p>Bu gösterim çok küçük ve çok büyük say&#305;lar&#305;n uygun bir &#351;ekilde yaz&#305;lmas&#305;n&#305; 
+sa&#287;lar.&nbsp; Python'da bilimsel gösterimi kullan&#305;r, ancak <tt>x 10</tt> yerine 
+E harfini kullan&#305;r. </p>
+<pre>
+&gt;&gt;&gt; 2e3
+2000.0
+&gt;&gt;&gt; 2.5E-1
+0.25
+</pre>
+<p>Deneyin!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Di&#287;er say&#305; tipleri</h3>
+<p>Python ile karma&#351;&#305;k say&#305;lar, sekiz ve 16 taban&#305;ndaki say&#305;larla da i&#351;lem 
+yapabilirsiniz. &#304;leride 16 taban&#305;ndaki say&#305;larla i&#351;lem yapaca&#287;&#305;z. </p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Say&#305;lar&#305; kar&#351;&#305;la&#351;t&#305;rmak</h3>
+<p>Python say&#305;lar&#305; kar&#351;&#305;la&#351;t&#305;r&#305;p birinin di&#287;erinden küçük (<tt>&lt;</tt>) , 
+büyük
+(<tt>&gt;</tt>) , e&#351;it (<tt>==</tt>) veya e&#351;it olmad&#305;klar&#305;n&#305;(<tt>!=</tt>) da 
+bulabilir. </p>
+<pre>
+&gt;&gt;&gt; 1&lt;2
+True
+&gt;&gt;&gt; 3&lt;2
+False
+&gt;&gt;&gt; 1&gt;2
+False
+&gt;&gt;&gt; 3&gt;2
+True
+&gt;&gt;&gt; 2==2
+True
+&gt;&gt;&gt; 3==2
+False
+&gt;&gt;&gt; 2!=2
+False
+&gt;&gt;&gt; 3!=2
+True
+</pre>
+<p>Deneyin! Say&#305;lar&#305;n e&#351;it oldu&#287;unu test etmek için iki e&#351;ittir i&#351;aretinin yan 
+yana kullan&#305;ld&#305;&#287;&#305;na dikkat edin. E&#287;er tek bir e&#351;ittir i&#351;areti kullan&#305;l&#305;rsa 
+Python yak&#305;nacakt&#305;r.&nbsp; [Ba&#351;ka kar&#351;&#305;la&#351;t&#305;rma operatörleri de vard&#305;r:
+<tt>&lt;&gt;, &lt;=, &gt;=</tt>. Bunlar&#305; deneyip ne i&#351;e yarad&#305;klar&#305;n&#305; 
+bulabilirsiniz.]</p>
+<center><a href="../intro/24-adding.htm"><img alt="previous" src=
+"../../images/previous.png">Reeborg'a toplama yapmay&#305; ö&#287;retmek</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<a href=
+"26-interpreter2.htm">Python komutlar&#305;n&#305;n yorumlanmas&#305;.<img alt="next"
+src="../../images/next.png"></a></center>
+
+</body>
+</html>

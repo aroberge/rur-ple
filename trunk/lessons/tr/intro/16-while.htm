@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>For a while</title>
+</head>
+<body>
+<h2 class="title">16. Bir süre için-For a <span class="pykeyword">while</span> ...</h2>
+<p>Bir &#351;art do&#287;ru veya yanl&#305;&#351; oluncaya kadar tekrar edilmesi gereken komutlar 
+varsa bunu daha kolay yapmak için Python'da
+<span class="pykeyword">while</span> komutu kullan&#305;l&#305;r. Bunu daha önceden 
+gördü&#287;ümüz bir örne&#287;in&nbsp; <i>pseudocode</i> 'unu uyarlayarak aç&#305;klayal&#305;m. <br>
+<br>
+While not next to beeper,<br>
+...&nbsp; yürümeye devam et;<br>
+otherwise,<br>
+... dur.<br>
+<br>
+Bunu Python koduna çevirirsek:</p>
+<pre>
+<span class="keyword">while not</span> next_to_a_beeper():
+    move()
+ 
+turn_off()           
+</pre>
+<p>Tekrar etmeye (repeat komutuna) art&#305;k gerek kalmad&#305;. <b>Deneyin!</b></p>
+<hr width="50%">
+<h3 class="try">S&#305;ra sizde</h3>
+<p><span class="pykeyword">while</span> ve <span class=
+"pykeyword">not</span> kullanarak engel atlama program&#305;n&#305; tekrar yaz&#305;n 
+ve art&#305;k tekrarlama komutuna (repeat) ihtiyac&#305;n&#305;z kalmas&#305;n. Program&#305;n&#305;z&#305;n 
+temeli a&#351;a&#287;&#305;daki gibi olabilir. </p>
+<pre>
+<span class="keyword">while not</span> next_to_a_beeper():
+    move_or_jump()
+ 
+turn_off()           
+</pre>
+<h3 class="suggested">Ekme biçme zaman&#305;</h3>
+<p>Yine bahar geldi. Reeborg'un babas&#305; sonbaharda hasat etmek için bahçeye havuç 
+tohumlar&#305; atm&#305;&#351;t&#305;. A&#351;a&#287;&#305;da gördü&#287;ünüz gibi 
+yine baz&#305; yerlerde iki filiz ç&#305;karken baz&#305; 
+yerlerde hiç filiz ç&#305;kmam&#305;&#351;. (dünya dosyas&#305;: harvest4.wld)</p>
+<p><img alt="weeding" src="../../images/intro/harvest4.png"></p>
+<p>Reeborg'a filizleri düzenlemesi için yard&#305;m edin ve her yerde filiz say&#305;s&#305;n&#305;n 
+bir tane olmas&#305;n&#305; sa&#287;lay&#305;n.</p>
+<p>
+<span class="pykeyword">while </span>kullanarak kodlaman&#305;n bir bölümü için tavsiye: </p>
+<pre>
+next_to_a_carrot = next_to_a_beeper
+plant_carrot = put_beeper
+pick_carrot = pick_beeper
+
+<span class="keyword">def</span> one_carrot_only():
+    <span class="keyword">while</span> next_to_a_carrot():
+        pick_carrot()                 
+    plant_carrot()         
+</pre>
+<p>Bu kod di&#287;erinden daha k&#305;sa (tan&#305;mlamada yaln&#305;zca üç sat&#305;r kullan&#305;lm&#305;&#351;). 
+Bunun yan&#305; s&#305;ra bir noktada ikiden fazla filiz olsa da bu kod do&#287;ru olarak 
+çal&#305;&#351;&#305;r. <b>Deneyin!</b><br>
+&nbsp;</p>
+<center><a href="15-not.htm"><img alt="previous" src=
+"../../images/previous.png"> Do&#287;ru de&#287;il Not true!?</a> - 
+<a href="../lessons_toc.htm"><img alt=
+"home" src="../../images/home.png"></a> - <A href="17-amazing1.htm">Uygulama - bölüm 1 <img alt="next" src="../../images/next.png"></a></center>
+</body>
+</html>

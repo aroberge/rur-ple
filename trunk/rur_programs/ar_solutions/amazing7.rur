@@ -1,0 +1,32 @@
+# amazing7.rur
+# as per lesson
+#
+# This program instructs Reeborg follow the right wall
+# stopping when he finds a beeper.
+
+def turn_right(): 
+    repeat(turn_left, 3) 
+
+def move_from_starting_point(): 
+    while not front_is_clear(): 
+        turn_left() 
+    move() 
+
+def follow_right_wall(): 
+    if right_is_clear():  
+        turn_right() 
+        move() 
+    elif front_is_clear():  
+        move() 
+    else:  
+        turn_left() 
+
+found_starting_point = next_to_a_beeper # beeper marks the starting point. 
+
+#=== End of definitions; begin solution 
+move_from_starting_point() 
+
+while not found_starting_point():  
+    follow_right_wall() 
+
+turn_off()

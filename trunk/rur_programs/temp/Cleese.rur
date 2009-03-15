@@ -1,0 +1,3 @@
+Cleese = Robot(3,4)
+Cleese.move()
+Cleese.turn_off()

@@ -1,0 +1,22 @@
+# amazing5.rur
+# as per lesson
+
+def turn_right(): 
+    repeat(turn_left, 3) 
+
+#begin execution
+put_beeper() 
+
+while not front_is_clear(): 
+    turn_left() 
+move() 
+
+while not next_to_a_beeper(): 
+    if right_is_clear(): 
+        turn_right() 
+        move() 
+    elif front_is_clear(): 
+        move() 
+    else: 
+        turn_left() 
+turn_off()

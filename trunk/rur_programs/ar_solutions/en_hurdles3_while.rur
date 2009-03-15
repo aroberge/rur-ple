@@ -1,0 +1,27 @@
+# hurdles3.wld solver
+# uses while keyword
+
+def turn_right():
+    repeat(turn_left, 3)
+
+def jump_one_hurdle():
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
+
+def move_or_jump():
+    if front_is_clear():
+        move()
+    else:
+        jump_one_hurdle()
+
+# === end of definitions
+
+while not next_to_a_beeper():
+    move_or_jump()
+
+turn_off()

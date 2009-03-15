@@ -1,0 +1,38 @@
+# rain2.rur
+# Find solution to rain2.wld.
+
+def turn_right():
+    repeat(turn_left, 3)
+
+def turn_around():
+    turn_left()
+    turn_left()
+
+def step_back():
+    turn_around()
+    move()
+    turn_around()
+
+# enter the house and mark starting point
+move()
+put_beeper()
+turn_right()
+move()
+
+while not next_to_a_beeper():  # not returned to starting point
+    if right_is_clear(): # is it a window?
+        move()
+        if right_is_clear(): # it was a corner
+            step_back()
+            turn_right()
+        else:      # it was a window
+            step_back()
+            put_beeper()
+        move()
+    if not front_is_clear():
+        turn_left()
+    move()
+
+pick_beeper()
+turn_right()
+turn_off()

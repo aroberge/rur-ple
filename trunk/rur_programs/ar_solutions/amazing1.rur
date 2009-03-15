@@ -1,0 +1,11 @@
+# amazing1.rur
+# as per lesson
+
+put_beeper() 
+
+while not next_to_a_beeper(): 
+    if front_is_clear(): 
+        move() 
+    else: 
+        turn_left() 
+turn_off()

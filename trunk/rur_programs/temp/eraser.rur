@@ -1,0 +1,9 @@
+class eraser(RefurbishedRobot):
+    def __init__(self):
+        RefurbishedRobot.__init__(self)
+        self.set_trace_style(5, 'white')
+
+Sneaky = eraser()
+while Sneaky.front_is_clear():
+    Sneaky.move()
+Sneaky.turn_off()

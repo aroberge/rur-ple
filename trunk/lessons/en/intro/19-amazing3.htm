@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Amazing - part 3</title>
+</head>
+<body>
+<h2 class="title">19. Amazing - part 3</h2>
+<p>As you should have noticed the program doesn't work. What happens is that
+Reeborg gets in an infinite loop when there is no wall around him. We need to
+have him <tt>move()</tt> after turning right, as indicated below:</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+put_beeper()
+move()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> right_is_clear():
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+<!--================================================-->
+<hr width="50%">
+<h3 class="section">More complicated world</h3>
+<p>Now, consider the world illustrated below. Will our program work?</p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around3start.png"></p>
+<p>As you probably guessed, unfortunately the answer is no. 
+Try to figure out why before reading any further.</p>
+<center><a href="18-amazing2.htm"><img alt="previous" src=
+"../../images/previous.png"> Amazing - part2</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"20-amazing4.htm">Amazing - part 4 <img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

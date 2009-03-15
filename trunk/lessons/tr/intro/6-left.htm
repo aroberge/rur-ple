@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Making a left turn</title>
+</head>
+<body>
+<h2 class="title">6. Sola Dönü&#351; yapmak</h2>
+<p>Önceden bahsetti&#287;imiz gibi, Reeborg herhangi bir yönde dönebilir... bu dönü&#351; 
+sola do&#287;ru olacakt&#305;r ve her defas&#305;nda 90 derecelik bir dönü&#351; olacakt&#305;r. Çünkü 
+onu yaratanlar daha geli&#351;mi&#351; bir mekanizmay&#305; yapamayacak kadar cimridirler! 
+Reeborg'un sola dönmesini sa&#287;lamak için &#351;u komut verilmelidir:&nbsp; <tt>turn_left()</tt></p>
+<p>Örne&#287;in Reeborg ba&#351;lang&#305;ç pozisyonundayken a&#351;a&#287;&#305;daki program ile</p>
+<pre>
+move()
+turn_left()
+move()
+turn_off()
+</pre>
+<p>&#351;ekilde gösterilen hareketi yapacakt&#305;r. </p>
+<img alt="simple left turn" src="../../images/intro/turn_left_end.png">
+<h3 class="try">S&#305;ra sizde</h3>
+<p>Reeborg'un bir karenin kenarlar&#305;n&#305; takip edecek &#351;ekilde hareket etmesini 
+a&#351;a&#287;&#305;daki program ile sa&#287;lay&#305;n&#305;z.</p>
+<pre>
+move()
+turn_left()
+move()
+turn_left()
+move()
+turn_left()
+move()
+turn_left()
+turn_off()
+</pre>
+<p>Program&#305;n&#305;z&#305; kullanmadan önce onu kaydetmeniz gerekti&#287;ini unutmay&#305;n.&nbsp; <b>
+Deneyin!</b></p>
+<p>E&#287;er &#304;ngilizce sizin favori diliniz de&#287;ilse komutlar&#305; her zaman kendi 
+dilinizde de tan&#305;mlayabilirsiniz, ancak kendi dilinizde tan&#305;mlad&#305;&#287;&#305;n&#305;z komutlar&#305; 
+olu&#351;tururken yaln&#305;zca &#304;ngiliz alfabesindeki 26 harfi kullanabilirsiniz. Örne&#287;in 
+Türkçede sola dönü&#351; için <tt>sola_don = turn_left</tt> kullan&#305;lmal&#305;d&#305;r (ö yerine 
+o kullan&#305;lm&#305;&#351; dikkat ediniz). Bu tan&#305;mlamay&#305; yapt&#305;ktan sonra Reeborg'u sola 
+döndürmek için <font face="Courier New" size="2">sola_don()</font> komutunu 
+kullanabilirsiniz. </p>
+<h3 class="try">Yine s&#305;ra sizde!</h3>
+<p>Reeborg'u a&#351;a&#287;&#305;daki &#351;ekilde oldu&#287;u gibi saatin dönü&#351; yönünün 
+tersinde bir 
+kare etraf&#305;nda dola&#351;mas&#305;n&#305; sa&#287;lay&#305;n&#305;z. Ba&#351;lang&#305;ç pozisyonundan itibaren iki ad&#305;m 
+ileri sonra sola dön ve bunu ba&#351;lang&#305;ç pozisyonuna gelip yüzünü do&#287;uya 
+çevirinceye kadar tekrarla. </p>
+<img alt="left square" src="../../images/intro/left_square2.png">
+<h3><font color="#663333">Deney!</font></h3>
+<p>Reeborg'a birbirinden farkl&#305; çe&#351;itli yollar&#305; dola&#351;t&#305;rabilirsiniz.</p>
+<!--==================================================-->
+<hr width="50%">
+<a name="Home" id="Home"></a>
+<h3 class="section">Eve dönü&#351;</h3>
+<p>Reeborg ilk çal&#305;&#351;t&#305;r&#305;ld&#305;&#287;&#305;nda birinci cadde ile soka&#287;&#305;n kesi&#351;imindeki, kö&#351;ede 
+yüzü do&#287;uya dönük bir &#351;ekilde kar&#351;&#305;n&#305;za gelir. Ekran&#305;n en sa&#287;&#305;ndaki &quot;dünya 
+dosyas&#305;n&#305; Göster/Gizle&quot; <img alt="Show/Hide world file" src=
+"../../images/intro/btn_show_world_file.png"> butonuna bas&#305;ld&#305;&#287;&#305;nda ekran&#305;n 
+sa&#287;&#305;nda baz&#305; bilgiler görüntülenir. Bunlardan birisi <tt>robot = (1, 1, 'E', 0</tt><font face="Times New Roman"><tt><font face="Times New Roman">) 
+'d&#305;r</font></tt>.</font> Bu Reeborg'un pozisyonunu gösterir. &#304;lk say&#305; Reeborg'un 
+bulundu&#287;u soka&#287;&#305;, ikinci say&#305; caddeyi, t&#305;rnak içindeki harf Reeborg'un yüzünün 
+hangi yöne do&#287;ru bakt&#305;&#287;&#305;n&#305; (E = East, Do&#287;u, N = North, Kuzey, W = West, Bat&#305;, S = South, 
+Güney) gösterir. Dördüncü say&#305; (0) Reeborg'un kaç tane bip ta&#351;&#305;d&#305;&#287;&#305;n&#305; gösterir; 
+bipleri daha sonra ö&#287;renece&#287;iz.</p>
+<p>Daha önceden de bildi&#287;iniz gibi, Reeborg'u yön tu&#351;lar&#305; ile hareket 
+ettirebilirsiniz. Hareket ettirdi&#287;inizde Reeborg arkas&#305;nda bir iz b&#305;rakmaz. 
+Ancak bir &#351;eye dikkat edin. Reeborg hareket ettikçe&nbsp; <tt>robot = (...)</tt> 
+de&#287;erleri de&#287;i&#351;erek Reeborg'un yeni pozisyonunu gösterirler.</p>
+<h3 class="try">S&#305;ra sizde</h3>
+<p>Klavyenizi kullanarak, a&#351;a&#287;&#305;da gösterildi&#287;i gibi Reeborg'u 3. sokak ile 4. 
+caddenin kö&#351;esine yüzü güneye bakacak &#351;ekilde yerle&#351;tirin. Sonra 
+a&#351;a&#287;&#305;daki ikinci &#351;ekilde gösterildi&#287;i gibi bir rota takip ederek ba&#351;lang&#305;ç 
+pozisyonuna ula&#351;mas&#305;n&#305; sa&#287;lay&#305;n. Bunu yapt&#305;ktan sonra alternatif yollar&#305; da 
+dü&#351;ünebilirsiniz.</p>
+<p><img alt="back home start" src="../../images/intro/back_home_start.png">
+<img alt="lead to" src="../../images/lead_to.png"> <img alt="back home end"
+src="../../images/intro/back_home.png"></p>
+<center>
+<a href="5-comments.htm"><img alt="previous" src=
+"../../images/previous.png"> Aç&#305;klaman&#305;z var m&#305;? <i>Avez-vous des commentaires?</i></a> - <a href="../lessons_toc.htm"><img alt="home" src=
+"../../images/home.png"></a> - <a href="7-beepers.htm">Bipler <img alt=
+"next" src="../../images/next.png"></a>
+</center>
+</body>
+</html>

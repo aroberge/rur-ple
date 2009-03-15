@@ -1,0 +1,122 @@
+# a robot fairy tale
+def Alex_is_restless():
+    for i in range(4):
+        Alex.move()
+        for j in range(5):
+            Alex.turn_left()
+
+def Alex_travels():
+    Alex.turn_left()
+    for i in range(3):
+        Alex.move()
+
+def Alex_proposes_and_wait():
+    Alex.put_beeper()
+    Alex.put_beeper()
+    Alex.turn_right()
+    Alex.move()
+    Alex.turn_left()
+    Alex.move()
+    Alex.turn_left()
+
+def Anna_accepts():
+    Anna.move()
+    Anna.pick_beeper()
+    Anna.turn_left()
+    Anna.move()
+    Alex.turn_left()
+    Anna.turn_left()
+
+def Alex_and_Anna_dance():
+    Anna.turn_right()
+    Anna.move()
+    Alex.move()
+    Alex.turn_left()
+    for i in range(4):
+        Anna.turn_left()
+        Anna.move()
+        Alex.move()
+        Alex.turn_left()
+    Anna.turn_left()
+    Anna.move()
+    Anna.turn_right()
+    Alex.move()
+
+def time_passes():
+    for i in range(5):
+        Alex.move()
+        Anna.move()
+
+def Alexina_is_born():
+    global Alexina
+    Anna.move()
+    Anna.move()
+    Anna.turn_right()
+    Anna.move()
+    Alexina = RefurbishedRobot(9, 4, 's', colour='green')
+    Alex.turn_right()
+
+def family_is_happy():
+    global Alexina
+    for i in range(3):
+        Alex.move()
+        Anna.move()
+        Alexina.move()
+
+
+'''A long time ago, in RobotLand, 
+lived an erudite young Robot Prince,
+named Alex.'''
+
+Alex = RefurbishedRobot(1, 1, beepers=2, colour='blue')
+Alex.set_trace_style(1, 'blue')
+
+'''Unhappy, the Prince was spending
+his days, wandering around his father's
+kingdom, finding very little to keep
+his interest.'''
+Alex_is_restless()
+
+'''One day, the Prince set out to see
+the world, travelling far and wide, 
+in search of knowledge.'''
+Alex_travels()
+
+'''Suddenly, hearing a strong noise,
+the young Prince stopped.  His heart
+did the same when a young Princess Warrior, 
+named Anna, appeared seemingly out of nowhere,
+to find out who dared trespass on her domain.'''
+Anna = RefurbishedRobot(1, 5, 's', colour='purple')
+Anna.set_trace_style(2, 'red')
+
+'''It was love at first sight for the young Prince.
+He immediately took out the Regal Ring,
+which he happened to carry, and asked Princess Anna, 
+in his erudite way, if she would marry him.'''
+Alex_proposes_and_wait()
+
+'''Much to Alex's delight, the young
+Princess took the ring he had offered her.'''
+Anna_accepts()
+# Historical note: the imprint of the Regal Ring
+# can still be seen in RobotLand where Alex
+# proposed to Anna.
+
+'''The young couple celebrated in happiness,
+by dancing all night.'''
+Alex_and_Anna_dance()
+
+'''Years went by.  Alex and Anna were happy
+traveling together, side by side.'''
+time_passes()
+
+'''A few years later, young Alexina was born.'''
+Alexina_is_born()
+
+'''For many years afterwards, the happy family
+pursued their travels to the edge of Robotland.'''
+family_is_happy()
+
+'''The End.'''
+Alex.turn_off()

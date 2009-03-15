@@ -1,0 +1,23 @@
+# hurdles1 solution used
+# to produce image
+left = turn_left
+def right():
+ left()
+ left()
+ left()
+
+def jump():
+ move()
+ left()
+ move()
+ right()
+ move()
+ right()
+ move()
+ left()
+
+set_trace_style(5) 
+
+repeat(jump, 4)
+move()
+turn_off()

@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Definitely avoiding repetitions</title>
+</head>
+<body>
+<h2 class="title">10. Tekrardan kesinlikle kaç&#305;n&#305;n</h2>
+<p>Haz&#305;rl&#305;kl&#305; olun, bu oldukça uzun bir ders. Yeni komutlar&#305;n nas&#305;l 
+tan&#305;mlanaca&#287;&#305;n&#305; ö&#287;renece&#287;iz. Bunun yan&#305;nda program yazarken uyulmas&#305; gereken 
+üçüncü kural&#305;da ö&#287;renece&#287;iz:</p>
+<dl>
+<dt><b>Kural # 3</b></dt>
+<dd><b><font color="#FF0000" face="Arial">Bilgisayar program&#305; yazarken ayn&#305; kodlar&#305; tekrar yazmay&#305;n.</font></b><br>
+Tekrar ediyorum: <b>ayn&#305; kodlar&#305; tekrar yazmay&#305;n!</b></dd>
+</dl>
+<!--=============================================-->
+<hr width="50%">
+<a name="Three" id="Three"></a>
+<h3 class="section">Üç sol bir sa&#287; yapar</h3>
+<p>Reeborg'a ayn&#305; noktadayken ard&#305; ad&#305;na üç sol dönü&#351; yapt&#305;r&#305;rsan&#305;z onu sa&#287;a 
+döndürmü&#351; olursunuz. A&#351;a&#287;&#305;daki program&#305;n ne yapt&#305;&#287;&#305;n&#305; bilgisayar&#305; kullanmadan 
+bir ka&#287;&#305;t üzerinde çizerek bulmaya çal&#305;&#351;&#305;n.</p>
+<pre>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+turn_left()
+turn_left()
+turn_off()
+</pre>
+<h3 class="try">S&#305;ra sizde</h3>
+<p>Yukar&#305;daki program&#305; yaz&#305;n, kaydedin ve çal&#305;&#351;t&#305;r&#305;n. Reeborg sizin tahmin 
+etti&#287;iniz gibi bir hareket yapt&#305; m&#305;?</p>
+<h3 class="try">Yine s&#305;ra sizde!</h3>
+<p>Az önce kaydetti&#287;iniz program&#305; Reeborg'u saatin dönü&#351; yönünde a&#351;a&#287;&#305;daki 
+&#351;ekilde oldu&#287;u gibi hareket edecek &#351;ekilde de&#287;i&#351;tirin. </p>
+<p><img alt="square with right turns" src=
+"../../images/intro/square2right.png"></p>
+<!--=====================================================-->
+<hr width="50%">
+<a name="Define" id="Define"></a>
+<h3 class="section">Sa&#287;a dönü&#351;ü tan&#305;mlamak</h3>
+<p>Reeborg'un sa&#287;a dönü&#351;ü, ard&#305; ard&#305;na üç sol dönü&#351; yaparak yapt&#305;&#287;&#305;n&#305; biliyoruz. 
+E&#287;er ard&#305; ard&#305;na sa&#287;a dönü&#351;ler yapt&#305;rmak istersek gerekli program&#305; yazman&#305;n ne 
+kadar s&#305;k&#305;c&#305; olabilece&#287;ini tahmin edebilirsiniz. Bunun nedeni birbiriyle ayn&#305; 
+kodlar&#305;n program&#305;n farkl&#305; yerlerinde tekrar edilmesinden dolay&#305;d&#305;r. Reeborg'un 
+Python yard&#305;m&#305;yla programlanabilir olmas&#305; sayesinde bu tekrarlardan 
+kaç&#305;nabiliriz. </p>
+<p>Python'da bir dizi komuta basit bir ad verilebilir. Örne&#287;in sa&#287;a dönü&#351;ü 
+a&#351;a&#287;&#305;daki gibi bir komutla <i>tan&#305;mlayabiliriz</i>: (define tan&#305;mla anlam&#305;na 
+gelir, def define'&#305;n k&#305;salt&#305;lm&#305;&#351;&#305;d&#305;r)</p>
+<p><img alt="defining turn right" src=
+"../../images/intro/turnright_txt.png"></p>
+<p>Burada be&#351; tane önemli &#351;ey vard&#305;r:</p>
+<ul>
+<li>Daha önceden anlatt&#305;&#287;&#305;m&#305;z gibi <tt><span class=
+"comment">#</span></tt><font face="Times New Roman"><tt><font face="Times New Roman">
+</font></tt></font>sembolü bu sat&#305;r&#305;n takip eden k&#305;sm&#305;n&#305;n Reeborg (veya 
+Python) 
+taraf&#305;ndan okunmayaca&#287;&#305;n&#305; gösterir. Bunlara <b>aç&#305;klama</b> denir ve di&#287;er 
+programc&#305;lara ya da kendimize onu takip eden sat&#305;r veya sat&#305;rlar&#305;n&nbsp; ne i&#351; 
+yapt&#305;&#287;&#305;n&#305; anlatmak için kullan&#305;l&#305;rlar. Ye&#351;ille gösterilmi&#351; olmalar&#305; onlar&#305; 
+komutlardan kolayca ay&#305;rt etmemizi sa&#287;larlar. Python ve Reeborg bu aç&#305;klamalar&#305; dikkate almaz.</li>
+<li>Tan&#305;mlama Python komutu olan ve editörün maviyle gösterdi&#287;i <span class=
+"pykeyword">def</span> ile ba&#351;lar. Bir Python komutu Python'un kendisi taraf&#305;ndan 
+tan&#305;mlanm&#305;&#351; özel bir kelimedir.&nbsp; <span class="pykeyword">def </span> 
+komutunu, yeni komutun ad&#305;, iki parantez ve iki nokta üst üste takip eder. </li>
+<li>Bir komut tan&#305;mlamak daha önceden yapt&#305;&#287;&#305;m&#305;z gibi bir komutu bir ba&#351;kas&#305;na 
+e&#351;itlemekten farkl&#305;d&#305;r. Komutu bir ba&#351;ka kelimeyle kullan&#305;rken arada e&#351;ittir 
+kullan&#305;p parantezleri kald&#305;rm&#305;&#351;t&#305;k.</li>
+<li>Yeni tan&#305;mlaman&#305;n parças&#305; olan tüm komutlar <b>e&#351;it miktarda içe girik</b> 
+yaz&#305;lm&#305;&#351;lard&#305;r. E&#287;er buna uymazsan&#305;z Python bir hata mesaj&#305; verecek ya da 
+program&#305;n&#305;zda bir bug olacakt&#305;r. <b>&#304;çe girik</b> derken kastetti&#287;im her sat&#305;r&#305;n 
+ba&#351;&#305;nda belli miktarda bo&#351;luk b&#305;rakmakt&#305;r, genellikle dört bo&#351;luk b&#305;rak&#305;l&#305;r. 
+Editör a&#351;a&#287;&#305;daki &#351;ekilde oldu&#287;u gibi noktal&#305; çizgileri 4'erli bo&#351;luklar&#305; 
+gösterecek &#351;ekilde otomatik olarak yerle&#351;tirmeye ayarlanm&#305;&#351;t&#305;r.<img alt="Showing indentation guides" src=
+"../../images/intro/indentation.png"></li>
+<li><span class="pykeyword">def</span>
+komutunun kullan&#305;ld&#305;&#287;&#305; sat&#305;r&#305;n sonunda "<tt>:</tt>" vard&#305;r, bu bizim Python'a 
+blok halinde kodlar yazaca&#287;&#305;m&#305;z&#305; belirtir, içe girik yazd&#305;&#287;&#305;m&#305;z komutlar bu 
+blo&#287;a aittirler. Bunu di&#287;er baz&#305; komutlarla da kullan&#305;r&#305;z örne&#287;in 
+daha sonra ö&#287;renece&#287;imiz <span class="pykeyword">if</span> 
+de oldu&#287;u gibi. </li>
+</ul>
+<p>Bir defada oldukça fazla bilgi verdim. Anlay&#305;p anlamad&#305;&#287;&#305;n&#305;z&#305; test etmek için 
+iyi bir zaman. </p>
+<h3 class="try">S&#305;ra sizde</h3>
+<p>A&#351;a&#287;&#305;daki &#351;artlar&#305; sa&#287;layan bir program yaz&#305;n&#305;z:</p>
+<p>1) Sa&#287;a dönü&#351; komutunu tan&#305;mlay&#305;n 2)
+Bu yeni komutu kullanarak Reeborg'un daha önceden yapt&#305;&#287;&#305;n&#305;z gibi saat yönünde 
+kare &#351;eklinde hareket etmesini sa&#287;lay&#305;n. Program&#305;n&#305;z&#305;n daha önceden yazd&#305;&#287;&#305;n&#305;z 
+programa göre daha k&#305;sa oldu&#287;una ve daha kolay okundu&#287;una dikkat edin.</p>
+<h3 class="try">Yine s&#305;ra sizde!</h3>
+<p> <tt>step_back()</tt>(geri ad&#305;m) ad&#305;nda yeni bir komut tan&#305;mlay&#305;n.</p>
+<pre>
+<span class="comment"># step_back() yukar&#305;da tan&#305;mland&#305;</span>
+move()
+step_back()
+turn_off()
+</pre>
+<p>bu komut a&#351;a&#287;&#305;da gösterildi&#287;i gibi Reeborg'un bir ad&#305;m ileri atmas&#305;n&#305; ve 
+ba&#351;lad&#305;&#287;&#305; yere geri gelmesini ve yüzünün de ba&#351;lang&#305;ç pozisyonundaki yöne dönük 
+olmas&#305;n&#305; sa&#287;las&#305;n. </p>
+<p><img alt="back up" src="../../images/intro/back_up.png"></p>
+<p><em>&#304;p ucu</em>: Yeni tan&#305;mlaman&#305;z&#305;n parças&#305; olan komutlar&#305; içe girik yazmay&#305; 
+unutmay&#305;n.</p>
+<h3 class="try">Tekrar s&#305;ra sizde!</h3>
+<p> <tt>turn_around()</tt>(geri dön) ad&#305;nda yeni bir komut tan&#305;mlay&#305;n. 
+Böylece a&#351;a&#287;&#305;daki tan&#305;mlamalar bekledi&#287;iniz gibi çal&#305;&#351;abilsin. </p>
+<pre>
+<span class="keyword">def</span> step_back():
+    turn_around()
+    move()
+    turn_around()
+
+<span class="keyword">def</span> turn_right():
+    turn_around()
+    turn_left()
+</pre>
+<!--===========================================================-->
+<hr width="50%">
+<a name="Newspaper" id="Newspaper"></a>
+<h3 class="section">Gazete da&#287;&#305;t&#305;m&#305; tekrar ziyaret ediliyor</h3>
+<p>Bir önceki derste yapt&#305;&#287;&#305;n&#305;z son al&#305;&#351;t&#305;rmalardan bir tanesi gazete da&#287;&#305;t&#305;m&#305; 
+program&#305;yd&#305;. Size hat&#305;rlatmak için Reeborg'un ne yapt&#305;&#287;&#305;n&#305; a&#351;a&#287;&#305;daki &#351;ekillerde 
+gösteriyorum:</p>
+<center><img alt="newspaper start" src=
+"../../images/intro/newspaper_start.png"></center>
+<center><img alt="lead to" src="../../images/lead_to.png"> <img alt=
+"newspaper end" src="../../images/intro/newspaper_end.png"></center>
+<p>Çözümünüz muhtemelen a&#351;a&#287;&#305;daki gibiydi:</p>
+<pre>
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># put down newspaper and turn around</span>
+put_beeper()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># move away and stop</span>
+move()
+turn_off()
+</pre>
+<p>Bu çok uzun bir program ve pek çok tekrarlama var. Program&#305;n sonuna 
+geldi&#287;inizde program&#305;n ba&#351;lang&#305;c&#305;n&#305; ekranda göremiyorsunuz. Aç&#305;klamalar&#305;n nas&#305;l 
+eklendi&#287;ine dikkat etmi&#351; olmal&#305;s&#305;n&#305;z. Bu aç&#305;klamalar probleme çözüm getirirken 
+nas&#305;l dü&#351;ündü&#287;ümüzü gösterir diyebiliriz:</p>
+<ul>
+<li>Dört basamak ç&#305;k.&nbsp; Climb (up) four stairs.</li>
+<li>Gazeteyi b&#305;rak.&nbsp; Drop the newspaper.</li>
+<li>Geriye dön. Turn around</li>
+<li>Dört basamak in.Climb (down) four stairs.</li>
+</ul>
+Bunu <em>Pythonic</em> bir &#351;ekilde yazal&#305;m:
+<pre>
+ 
+climb_up_four_stairs()
+put_beeper()
+turn_around()
+climb_down_four_stairs()
+</pre>
+<p>Bu tam bir çözüm de&#287;il [örne&#287;in
+<tt>turn_off()</tt> kullan&#305;lmam&#305;&#351;] ancak çözüme oldukça yak&#305;n ve öncekilere göre 
+okumas&#305; çok daha kolay, e&#287;er yeni komutlar&#305; tan&#305;mlanm&#305;&#351; varsayarsak.&nbsp; 
+A&#351;a&#287;&#305;da ihtiyaç duyulan tan&#305;mlamalar&#305;n bir kaç&#305;n&#305; verdik: </p>
+<pre>
+<span class="keyword">def</span> turn_around():
+    turn_left()
+    turn_left()
+
+<span class="keyword">def</span> turn_right():
+    turn_left()
+    turn_left()      
+    turn_left()
+
+<span class="keyword">def</span> climb_up_one_stair():
+    turn_left()
+    move()
+    turn_right()
+    move()
+    move()
+
+<span class="keyword">def</span> climb_up_four_stairs():
+    climb_up_one_stair()
+    climb_up_one_stair()
+    climb_up_one_stair()
+    climb_up_one_stair()
+</pre>
+<h3 class="try">S&#305;ra sizde</h3>
+<p>Eksik olan tan&#305;mlamalar&#305; da yap&#305;n ve program&#305;n&#305;z yukar&#305;da<em> Pythonic</em> 
+&#351;ekilde verildi&#287;i gibi olsun. Bir kaç basit komut daha eklemeniz gerekecek, 
+sonda <tt>turn_off()</tt> gibi. Program&#305;n&#305;z&#305; farkl&#305; bir isimle kaydetmeyi 
+unutmay&#305;n. </p>
+<h3 class="try">Yine s&#305;ra sizde!</h3>
+<p>Yazd&#305;&#287;&#305;n&#305;z program&#305; bundan önce yazd&#305;&#287;&#305;n&#305;z gazete da&#287;&#305;tma program&#305;yla 
+kar&#351;&#305;la&#351;t&#305;r&#305;n. Okunmas&#305; en kolay olan hangisi?</p>
+<!--=================================================-->
+<hr width="50%">
+<a name="ReadChallenge" id="ReadChallenge"></a>
+<h3 class="suggested">Program okuma</h3>
+<p>&#304;yi seçilmi&#351; adlar bir program&#305;n ne i&#351; yapt&#305;&#287;&#305;n&#305; anlamakta çok yard&#305;mc&#305; 
+olurlar. Kötü seçilmi&#351; adlar ise program&#305;n anla&#351;&#305;lmas&#305;n&#305; zorla&#351;t&#305;r&#305;rlar. [Kural # 
+2'ye 
+bak&#305;n.] Bilgisayar kullanmadan a&#351;a&#287;&#305;daki program&#305;n ne yapt&#305;&#287;&#305;n&#305; anlamaya 
+çal&#305;&#351;&#305;n.</p>
+<pre>
+<span class="keyword">def</span> a():
+    turn_left()
+    turn_left()
+
+<span class="keyword">def</span> b():
+    turn_left()
+    a()
+
+<span class="keyword">def</span> c():
+    move()
+    move()
+
+<span class="keyword">def</span> d():
+    c()
+    b()
+
+<span class="keyword">def</span> e():
+    d()
+    d()
+    d()
+    d()
+
+turn_left()
+e()
+b()
+turn_off()
+</pre>
+<p><tt>a(), b(), c(), d(),</tt> ve <tt>e()</tt>yerine daha aç&#305;klay&#305;c&#305; adlar 
+kullanman&#305;n daha iyi olaca&#287;&#305;n&#305; anlam&#305;&#351;s&#305;n&#305;zd&#305;r.<font face="Times New Roman"><tt>&nbsp; </tt>
+</font></p>
+<center>
+<a href="9-walls.htm"><img alt="previous" src=
+"../../images/previous.png"> Duvarlar&#305; yapmak</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="11-repeat.htm">Tekrardan kaç&#305;n&#305;n, tekrar!<img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

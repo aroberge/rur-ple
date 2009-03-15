@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>34. Chocolate Mousse Cake Recipe</title>
+</head>
+<body>
+<h2 class="title">34. Çukulatal&#305; kek tarifi</h2>
+<p>Sizi bilmiyorum, ama benim karn&#305;m ac&#305;kt&#305;. Güzel bir çukulatal&#305; kek olsayd&#305; 
+iyi olurdu.</p>
+<ul><li><u>Malzemeler</u></li>
+<ul>
+<li>4 yumurta</li>
+<li>100 g &#351;eker</li>
+<li>250 g çikolata</li>
+<li>30 g kakao</li>
+</ul>
+</ul>
+<p>Keki yapabilmek için a&#351;a&#287;&#305;dakine benzer bir tarife ihtiyac&#305;m&#305;z var:</p>
+<ul>
+<li>F&#305;r&#305;n&#305; 180 C'ye kadar &#305;s&#305;t.</li>
+<li>Yumurtalar&#305;n aklar&#305;n&#305; sar&#305;lar&#305;ndan ay&#305;r.</li>
+<li>v.b.</li>
+</ul>
+<p>Tarif bir bilgisayar program&#305;na benzer: istenen sonucu elde etmek için ad&#305;m 
+ad&#305;m eksiksiz uygulanmas&#305; gereken bir dizi emir. Bu noktada Python'a geri 
+dönüyorum.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Listeler (Lists)</h3>
+<p>A&#351;a&#287;&#305;dakini Python yorumlay&#305;c&#305;s&#305; ile deneyebilirisiniz: </p>
+<pre>
+&gt;&gt;&gt; malzemeler = [<span class="string">"4 yumurta"</span>, <span class="string">"100 g &#351;eker"</span>, 
+...     <span class="string">"250 g çikolata"</span>, <span class="string">"30 g kakao"</span>]
+&gt;&gt;&gt; 
+</pre>
+<p><tt>malzemeler </tt>Pythonda kullan&#305;lan <i>listelere</i> bir örnektir. Bir 
+liste herhangi bir say&#305;da eleman içerebilir. Az önceki örnekte tüm elemanlar 
+string seçilmi&#351;ler, listenin elemanlar&#305; say&#305;lar, ba&#351;ka listeler veya henüz 
+görmedi&#287;imiz Python nesneleri de olabilir. &#350;imdi a&#351;a&#287;&#305;dakini deneyin: </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> eleman <span class=
+"keyword">in</span> malzemeler:
+...    <span class="keyword">print</span> eleman
+4 yumurta
+100 g &#351;eker
+250 g çikolata
+30 g kakao
+
+&gt;&gt;&gt; malzemeler[0]
+<span class="string">'4 yumurta'</span>
+
+&gt;&gt;&gt; malzemeler[0:2]
+[<span class="string">'4 yumurta'</span>, <span class="string">'100 g &#351;eker'</span>]
+</pre>
+<p>Daha önceden gördüklerimizden biraz farkl&#305; olsa da bunlar tan&#305;d&#305;k gelmi&#351; 
+olmal&#305;. A&#351;a&#287;&#305;dakini de deneyin: </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> harf <span class="keyword">in</span> malzemeler[0]:
+...     <span class="keyword">print</span> harf
+...    
+4
+
+y
+u
+m
+u
+r
+t
+a 
+
+&gt;&gt;&gt; malzemeler[0][2]
+<span class="string">'y'</span>
+
+&gt;&gt;&gt; <span class="string">'4 yumurta'</span>[2]
+<span class="string">'y'</span>
+</pre>
+<p>Daha önce gördü&#287;ümüz gibi burada <tt>malzemeler[0]</tt> <span class="string">'4 
+yumurta' </span>ile e&#351; anlaml&#305;d&#305;r; bu nedenle <tt>malzemeler[0][2]</tt> <span class="string">'4 
+yumurta'</span>daki üçüncü (Python saymaya 0'dan ba&#351;lar, hat&#305;rlay&#305;n) 
+karakterdir. </p>
+
+<p>Yukar&#305;daki tarifte önemli bir malzemeyi unuttum: kekin üzerine sürece&#287;imiz 
+krema. Bunu listeye ekleyebilir ve eklendi&#287;ini a&#351;a&#287;&#305;daki gibi kontrol 
+edebilirim: </p>
+<pre>
+&gt;&gt;&gt; malzemeler.append(<span class="string">&quot;krema"</span>)
+&gt;&gt;&gt; <span class="keyword">print</span> malzemeler
+[<span class="string">'4 yumurta'</span>, <span class="string">'100 g &#351;eker'</span>, <span class="string">'250 g çukulata'</span>, <span class="string">'30 g kakao'</span>, <span class="string">'krema'</span>]
+</pre>
+<p><tt>append()</tt> liste s&#305;n&#305;f&#305;n&#305;n bir metodudur. <tt>malzemeler </tt>bu 
+s&#305;n&#305;f&#305;n bir örne&#287;idir. Daha önceki derslerde gördü&#287;ümüz gibi, <tt>malzemeler </tt> 
+örne&#287;indeki <tt>append</tt> metodunu araya nokta koyarak kullan&#305;yoruz. <tt>append</tt>'in 
+parametresi listeye eklemek istedi&#287;imiz nesnedir. Ekleme her zaman listenin 
+sonuna yap&#305;l&#305;r. </p>
+<p>Listelerin ba&#351;ka metotlar&#305; da vard&#305;r; bunlar&#305; yeri geldi&#287;inde aç&#305;klayaca&#287;&#305;m. 
+E&#287;er bunlar&#305; görmek istiyorsan&#305;z Python yorumlay&#305;c&#305;s&#305;nda <tt>dir([])</tt> yaz&#305;n 
+ve Enter'a bas&#305;n. Burada&nbsp; <tt>[]</tt> bo&#351; bir listedir, onun yerine 
+herhangi bir liste de kullan&#305;lsa ayn&#305; sonuç al&#305;n&#305;r. <tt>append </tt>metodunu 
+görebildiniz mi. </p>
+<p>Listeye eleman eklemeyi ö&#287;rendik, &#351;imdi s&#305;ra silmede. Bunun için <span class="pykeyword">del </span>komutunu 
+kullanaca&#287;&#305;z.
+<pre>
+&gt;&gt;&gt; <span class="keyword">del</span> malzemeler[3]
+&gt;&gt;&gt; <span class="keyword">print</span> malzemeler
+[<span class="string">'4 yumurta'</span>, <span class="string">'100 g &#351;eker'</span>, <span class="string">'250 g çukulata'</span>, <span class="string">'krema'</span>]
+</pre>
+<p> <span class="pykeyword">del</span> komutu listelerden eleman silmekten ba&#351;ka 
+i&#351;lerde yapar. Örne&#287;in, tan&#305;mlanm&#305;&#351; bir de&#287;i&#351;keni silebilir.&nbsp;
+</p>
+<pre>
+&gt;&gt;&gt; a = 3
+&gt;&gt;&gt; <span class="keyword">print</span> a
+3
+&gt;&gt;&gt; <span class="keyword">del</span> a
+&gt;&gt;&gt; <span class="keyword">print</span> a
+Traceback (most recent call last):
+  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+NameError: name <span class="string">'a'</span> is not defined
+</pre>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Deneyin!</h3>
+<p>Reeborg'un dünyas&#305;nda kendine özgü adlar&#305; olan iki tane robot yarat&#305;n, biraz 
+dola&#351;malar&#305;n&#305; sa&#287;lay&#305;n ve daha sonra robotlardan birisinin <span class="pykeyword">del</span> 
+komutu ile yok olmas&#305;n&#305; sa&#287;lay&#305;n. Robot ekrandan kaybolmadan önce di&#287;er robotun 
+en az&#305;ndan bir ad&#305;m daha atmas&#305;na ihtiyac&#305;n&#305;z olabilir.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section"> <tt>range()</tt>hakk&#305;nda bir s&#305;r</h3>
+<p> <tt>range()</tt>hakk&#305;nda bir s&#305;r ö&#287;renmeye haz&#305;rs&#305;n&#305;z:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> range(6)
+[0, 1, 2, 3, 4, 5]
+</pre>
+<p>Do&#287;ru: <tt>range()</tt> bir liste yarat&#305;r!</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Liste, tamsay&#305; ve stringlerin birbirine dönü&#351;türülmesi</h3>
+<p>Bir <i>veri tipini</i> di&#287;er bir <i>veri tipine</i> dönü&#351;türmekte kullan&#305;lan 
+Python fonksiyonlar&#305; a&#351;a&#287;&#305;da verilmi&#351;tir:</p>
+<pre>
+&gt;&gt;&gt;  first_number = 1304
+&gt;&gt;&gt;  second_number = 987
+&gt;&gt;&gt;  
+&gt;&gt;&gt;  <span class="comment"># str() ile tamsay&#305;n&#305;n string'e dönü&#351;türülmesi</span>
+&gt;&gt;&gt;  first_string = str(first_number)
+&gt;&gt;&gt;  first_string
+'1304'
+&gt;&gt;&gt;  second_string = str(second_number)
+&gt;&gt;&gt;  second_string
+'987'
+
+&gt;&gt;&gt;  <span class="comment"># int() ile stringin tamsay&#305;ya dönü&#351;türülmesi</span>
+&gt;&gt;&gt;  int(first_string)
+1304
+
+&gt;&gt;&gt;  <span class="comment"># list() ile bir stringin listeye dönü&#351;türülmesi</span>
+&gt;&gt;&gt;  first_list = list(first_string)
+&gt;&gt;&gt;  first_list
+['1', '3', '0', '4']
+
+&gt;&gt;&gt;  second_list = list(second_string)
+&gt;&gt;&gt;  second_list
+['9', '8', '7']
+
+&gt;&gt;&gt;  <span class="comment"># join() ile string aralar&#305;n&#305;n doldurulmas&#305;</span>
+&gt;&gt;&gt;  '...'.join(second_string)
+'9...8...7'
+&gt;&gt;&gt;  '-'.join(first_string)
+'1-3-0-4'
+&gt;&gt;&gt;  <span class="comment"># bo&#351; stringle '' eski haline getirmek</span>
+&gt;&gt;&gt;  ''.join(first_string)
+&gt;&gt;&gt;  '1304'
+&gt;&gt;&gt;  ''.join(second_string)
+&gt;&gt;&gt;  '987'
+
+&gt;&gt;&gt;  <span class="comment"># pop() ile listenin son eleman&#305;n&#305;n al&#305;n&#305;p silinmesi</span>
+&gt;&gt;&gt;  <span class="comment"># Not: pop() append()'in bir anlamda tersidir </span>
+&gt;&gt;&gt;  first_list
+['1', '3', '0', '4']
+&gt;&gt;&gt;  last_element = first_list.pop()
+&gt;&gt;&gt;  last_element
+'4'
+&gt;&gt;&gt;  first_list
+['1', '3', '0']
+
+&gt;&gt;&gt;  <span class="comment"># len() fonksiyonu bir listedeki </span>
+&gt;&gt;&gt;  <span class="comment"># eleman say&#305;s&#305;n&#305; verir </span>
+&gt;&gt;&gt;  len(first_list)
+3
+</pre>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Liste, string ve tamsay&#305;lar&#305; kullanarak Reeborg'a toplama 
+yapt&#305;rmak</h3>
+<p>A&#351;a&#287;&#305;da gösterildi&#287;i gibi Reeborg'a liste, string ve tamsay&#305;lar&#305; kullanarak 
+toplama yapmas&#305; için yard&#305;mc&#305; olun. </p>
+<p><img alt="before addition" src=
+"../../images/inter/add34_start.png"></p>
+<p><img alt="after addition" src=
+"../../images/inter/add34_end.png"></p>
+<center><a href="33-for.htm"><img alt="previous" src=
+"../../images/previous.png"></a><A href="34-lists.htm">Çukulatal&#305; kek tarifi</a>&nbsp; - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="35-dicts.htm">Farkl&#305; bir tan&#305;mlama<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Simple square - version 1
+move()
+turn_left()
+move()
+turn_left()
+move()
+turn_left()
+move()
+turn_left()
+turn_off()

@@ -1,0 +1,12 @@
+# solution with beepers1.wld
+move()
+move()
+pick_beeper()
+move()
+move()
+turn_left()
+move()
+move()
+put_beeper()
+move()
+turn_off()

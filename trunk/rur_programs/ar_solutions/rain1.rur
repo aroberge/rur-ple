@@ -1,0 +1,22 @@
+# rain1.rur
+# Find solution to rain1.wld.
+
+def turn_right():
+    repeat(turn_left, 3)
+
+# enter the house and mark starting point
+move()
+put_beeper()
+turn_right()
+move()
+
+while not next_to_a_beeper():  # not returned to starting point
+    if right_is_clear(): #close window
+        put_beeper()
+    if not front_is_clear():
+        turn_left()
+    move()
+
+pick_beeper()
+turn_right()
+turn_off()
