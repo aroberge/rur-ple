@@ -1,0 +1,26 @@
+# hurdles3.wld solver
+# uses elif keyword
+
+def turn_right():
+    repeat(turn_left, 3)
+
+def jump_one_hurdle():
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
+
+def move_jump_or_finish():
+    if next_to_a_beeper(): # end of race
+        turn_off()
+    elif front_is_clear(): # not finished, and no hurdle to jump
+        move()
+    else:
+        jump_one_hurdle()
+
+# === end of definitions
+
+repeat(move_jump_or_finish, 20)

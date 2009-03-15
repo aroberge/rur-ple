@@ -1,0 +1,23 @@
+# adding - base 10
+base = 10
+
+def turn_right():
+    repeat(turn_left, 3)
+
+def turn_around():
+    turn_left()
+    turn_left()
+
+def put_beeper_move():
+    put_beeper()
+    if front_is_clear():
+        move()
+
+turn_left()
+
+repeat(move, base-1)
+turn_right()
+
+repeat(put_beeper_move, 8)
+
+turn_off()

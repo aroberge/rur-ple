@@ -1,0 +1,11 @@
+Reeborg = UsedRobot()
+
+def Reeborg_turn_right():
+    for i in range(3):
+        Reeborg.turn_left()
+
+Reeborg.turn_left()
+Reeborg.move()
+Reeborg_turn_right()
+Reeborg.turn_off()
+

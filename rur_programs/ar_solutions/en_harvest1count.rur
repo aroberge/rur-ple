@@ -1,0 +1,46 @@
+# Back and forth harvesting solution
+
+nb_moves = 0
+def turn_right():
+    global nb_moves
+    repeat(turn_left, 3)
+    nb_moves += 3
+
+def pick_and_move():
+    global nb_moves
+    pick_beeper()
+    move()
+    nb_moves += 2
+
+def harvest_one_row():
+    global nb_moves
+    repeat(pick_and_move, 5)
+    pick_beeper()
+    nb_moves += 1
+
+
+def harvest_two_rows():
+    global nb_moves
+    harvest_one_row()
+    # move to next row
+    turn_left()
+    move()
+    turn_left()
+    nb_moves += 3
+    # harvest it
+    harvest_one_row()
+    # move to the next row
+    turn_right()
+    move()
+    turn_right()
+    nb_moves += 3
+
+# end of definitions
+
+move()
+nb_moves += 1
+repeat(harvest_two_rows, 3)
+
+print nb_moves
+
+turn_off()

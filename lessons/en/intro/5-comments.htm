@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Any comments?</title>
+</head>
+<body>
+<h2 class="title">5. Any comments? <i>Avez-vous des
+commentaires?</i></h2>
+<p>Open the first program that you have written. You did save it and keep it
+as I asked you to, didn't you? If not, rewrite it while I wait for you.</p>
+<p>Ok, your program should now be displayed in the program window. Now,
+remember what I told you was the most important thing to do when writing a
+computer program? If not, go back to the very beginning and read again.</p>
+<p>I'm waiting ...</p>
+<p>Got it? Right, the most important thing to do is to make it easy for other
+people to read your program. This takes a lot of practice and usually
+requires a fair bit of thinking. However, we can use a trick of writing notes
+meant for other humans only (and not for the computer) inside the program. We
+call these notes <em>comments</em>. There are a few ways to write comments in
+a program. I'm going to teach you the simplest way used in Python. Add the
+following text as the first line of your program:</p>
+<pre>
+# My first program
+</pre>
+<p>So that it should now look like the following:</p>
+<pre>
+<span class="comment"># My first program</span>
+move()
+move()
+turn_off()
+</pre>
+<p>If you are not colour blind, you will see that the line which begins with
+the symbol <tt><span class="comment">#</span></tt>, appears in green. This
+symbol indicates that the rest of the line is a <em>comment</em> which is
+ignored by Reeborg (or Python). Having the text for comments shown in green
+helps us distinguish comments from instructions. There is no special reason
+for the colour choice; I just chose to write RUR-PLE so that it would appear
+like that.</p>
+<h3><span class="try">Your turn</span></h3>
+<p>What happens if you put the symbol # at the beginning of a <b>command</b>
+line? Try it, save the resulting program and run it by clicking on the
+<img alt="run program button" src="../../images/intro/btn_run.png"> button to
+see what Reeborg makes of it.</p>
+<!--==============================================-->
+<hr width="50%">
+
+<h3 class="section">Teaching Reeborg some French</h3>
+<p>While the creators of Reeborg designed him so that he obeys instructions
+in English, they realised that not everyone understands English. So, they
+gave him the ability to easily learn a second language. For example, if we
+want to tell someone to "move forward" in French, we would say "avance". We
+can tell Reeborg that "avance" is a synonym of "move" simply by writing<br />
+<tt>avance = move</tt>.<br />
+The order here is important; the known command has to be on the right, and
+the new one has to be on the left. Note that we don't have any parentheses
+"<tt>()</tt>" appearing since the parentheses would tell Reeborg that we want
+him to obey an instruction; here, we are simply teaching him a new word. When
+we want Reeborg to follow the new instruction, we will use
+<tt>avance()</tt>.</p>
+<h3 class="try">Your turn</h3>
+<p>Write a program with the following instructions:</p>
+<pre>
+avance = move
+avance()
+turn_off()
+</pre>
+<p>and save it under "avance.rur". Now, try your new program.</p>
+<h3 class="suggested">Experiment!</h3>
+<p>If you want, you can also teach Reeborg a synonym for <tt>turn_off</tt>.
+Or, you may give synonyms in a language other than French if you prefer, even
+creating your own language. Then, watch Reeborg as he obeys instructions
+written in <em>your</em> language.</p>
+<center><a href="4-errors.htm"><img alt="previous" src=
+"../../images/previous.png"> Dealing with eRRoRs</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"6-left.htm">Making a left turn <img alt="next" src=
+"../../images/next.png"></a></center>
+</body>
+</html>

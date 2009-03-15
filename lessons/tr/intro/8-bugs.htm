@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>8. Darn bugs!</title>
+</head>
+<body>
+<h2 class="title">8. Buglar! <img src="../../images/intro/b_shake.gif"
+alt="darn bugs"></h2>
+<p>(Bug böcek demektir, ancak bunu Türkçele&#351;tirmek yerine aynen kullanmay&#305; 
+tercih ediyorum, zaten Türkçede de bilgisayar programc&#305;lar&#305; bu kelimeyi bug 
+olarak kullan&#305;yorlar) Buglar hakk&#305;nda konu&#351;maktan hiç kimse ho&#351;lanmaz. Bu 
+nedenle bu dersi k&#305;sa tutaca&#287;&#305;m. Sizden istedi&#287;im yaln&#305;zca okuman&#305;z, konu ile 
+ilgili uygulama yapt&#305;rmayaca&#287;&#305;m. </p>
+<h3 class="section">Bug nedir?</h3>
+<p>Harvard Üniversitesinde Mark II bilgisayar&#305;n&#305;n içine girmeyi ba&#351;aran bir güve 
+bu bilgisayar&#305;n çal&#305;&#351;mas&#305;n&#305; durdurmu&#351;, bug kelimesinin kökü i&#351;te buraya 
+dayan&#305;yor. Güve&nbsp; Grace Murray Hopper taraf&#305;ndan bulunmu&#351;. Güve eski 
+sistemlerde bilgi kaydetmeye yarayan bantlardan birisinin içine girmi&#351;. 
+A&#351;a&#287;&#305;daki resimde güveyi bant&#305;n üstünde, yan&#305;na al&#305;nm&#305;&#351; notlarla birlikte 
+görebilirsiniz, notlarda&nbsp; "First actual case of bug
+being found.&quot; yaz&#305;s&#305;n&#305; da görüyorsunuz. </p>
+<p><img src="../../images/intro/first_bug.jpg" alt="first bug"></p>
+<h6>Picture adapted from the public archive of the 
+<a href="http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm">
+U.S. Naval Historical Center </a></h6>
+<h3 class="section">Buglar&#305; gidermek</h3>
+<p>Bug program&#305;n beklenilmeyen bir &#351;ekilde çal&#305;&#351;mas&#305;na neden olan hatad&#305;r. E&#287;er 
+bilgisayar programlar&#305; yaz&#305;yorsan&#305;z eninde sonunda buglarla kar&#351;&#305;la&#351;acaks&#305;n&#305;z.&nbsp; 
+&#304;yi programc&#305;lar programlar&#305; beklenilmeyen bir &#351;ekilde çal&#305;&#351;t&#305;&#287;&#305;nda buglar&#305; 
+tespit edip giderirler. </p>
+<p>RUR-PLE buglar&#305; bulacak &#351;ekilde tasarland&#305;.</p>
+<ol>
+<li>
+<p>Robotun hareket ettikten sonra arkas&#305;nda b&#305;rakt&#305;&#287;&#305; iz (ye&#351;il çizgi- bu 
+robotun ya&#287; kaç&#305;rmas&#305;ndan kaynaklan&#305;yor!) komutlar&#305;n do&#287;ru olarak yerine 
+getirilip getirilmedi&#287;ini anlamak için kullan&#305;labilir. </p>
+<p><img src="../../images/intro/turn_left_end.png"alt="simple left turn"></p>
+</li>
+<li>
+<p>Her komut [örne&#287;in a&#351;a&#287;&#305;daki <tt>pick_beeper()</tt> gibi], i&#351;letilirken 
+parlak gösterilir.</p>
+<p><img src="../../images/intro/highlight.png"alt="highlighted instruction"></p>
+<p><b><font color="#CC0000">Parlak göstermek bazen problemlere neden olabilir; 
+parlak göstermeyi </font></b> <img src="../../images/intro/btn_highlight.png" alt="highlight button"><b><font color="#CC0000">&nbsp; 
+butonunu kullanarak aç&#305;p kapatabilirsiniz. </font></b></p>
+</li>
+<li>
+<p>Çal&#305;&#351;an program&#305;n&#305;z&#305;&nbsp;
+<img src="../../images/intro/btn_pause.png" alt="pause button"> butonuna basarak 
+durdurabilirsiniz. Bu bilgisayar programlamada &quot;durma noktas&#305;&quot; olarak bilinen 
+&#351;eyle ayn&#305;d&#305;r.</p>
+</li>
+<li>
+<p>Program&#305;n&#305;z&#305; ad&#305;m ad&#305;m (komut komut) çal&#305;&#351;t&#305;rmak için <img src=
+"../../images/intro/btn_step.png" alt="step button"> butonunu kullanabilirsiniz.</p>
+</li>
+<li>
+<p>H&#305;z kontrolleri <img src="../../images/intro/btn_speed.png" alt="speed button">butonunu 
+kullanarak program&#305;n&#305;z&#305;n çal&#305;&#351;ma h&#305;z&#305;n&#305; artt&#305;rabilir ya da azaltabilirsiniz. 
+H&#305;z&#305; program&#305;n&#305;z&#305; çal&#305;&#351;t&#305;rmadan önce ayarlamal&#305;s&#305;n&#305;z, çal&#305;&#351;ma esnas&#305;nda h&#305;z 
+de&#287;i&#351;ikli&#287;i yap&#305;lmaz. Uzun programlar&#305;n&#305;z varsa program&#305;n&#305;z&#305; h&#305;zl&#305; çal&#305;&#351;acak 
+&#351;ekilde ba&#351;lat&#305;p bug'&#305;n oldu&#287;u yere yakla&#351;t&#305;&#287;&#305;nda durdurup, daha sonrada ad&#305;m 
+ad&#305;m çal&#305;&#351;t&#305;rabilirisiniz. </p>
+</li>
+<li>
+<p>Program&#305;n&#305;z&#305;n çal&#305;&#351;mas&#305;n&#305; bitirmek için <img src=
+"../../images/intro/btn_stop.png" alt="stop button"> butonunu kullanabilirsiniz. </p>
+</li>
+<li>
+<p>Pencerenin en alt&#305;nda dört bölümden olu&#351;an bir durum çubu&#287;u vard&#305;r: 1) hangi 
+program&#305;n yüklü oldu&#287;unu; 2) program&#305;n durumunu; 3) robotun kaç tane bip 
+ta&#351;&#305;d&#305;&#287;&#305;n&#305;; 4) hangi dünya dosyas&#305;n&#305;n yüklü oldu&#287;unu gösterirler.<br>
+<img src="../../images/intro/status_bar.png" alt="status bar"></p>
+</li>
+<li>
+<p>Bir dünya dosyas&#305; yüklendi&#287;inde robotun bir pozisyonu vard&#305;r, program 
+çal&#305;&#351;t&#305;r&#305;l&#305;nca robotun pozisyonu de&#287;i&#351;ir, e&#287;er robotu ba&#351;lang&#305;c&#305;ndaki 
+pozisyonuna getirmek istiyorsan&#305;z&nbsp;
+<img src="../../images/intro/btn_reset_world.png" alt="reset button"> butonunu 
+kullan&#305;n.</p>
+</li>
+</ol>
+<p>&#350;imdilik bu kadar&#305; fazlas&#305;yla yeterlidir. Programlama hakk&#305;nda 
+ö&#287;rendikleriniz artt&#305;kça, buglar&#305; bulman&#305;za yarayacak yeni bilgiler de 
+ö&#287;reneceksiniz!</p>
+<center>
+<p><a href="7-beepers.htm"><img src="../../images/previous.png"
+alt="previous">Biplers</a> -
+<a href="../lessons_toc.htm"><img src="../../images/home.png"
+alt="home"></a> - <a href="9-walls.htm">Duvarlar&#305; Yapmak<img src="../../images/next.png"
+alt="next"></a>
+</p></center>
+</body>
+</html>

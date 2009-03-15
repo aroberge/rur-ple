@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>28. Variables and functions.</title>
+</head>
+<body>
+<h2 class="title">28. De&#287;i&#351;kenler ve fonksiyonlar</h2>
+
+<p>De&#287;i&#351;kenler fonksiyon tan&#305;mlamalar&#305;nda çok i&#351;e yararlar. <tt>print2</tt> 
+fonksiyonunu hat&#305;rlay&#305;n. </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print2():
+...     <span class="keyword">print</span> 2
+...    
+&gt;&gt;&gt; print2()
+2
+</pre>
+<p>Bunu genelle&#351;tirirsek:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print_number(n):
+...     <span class="keyword">print</span> n
+...    
+&gt;&gt;&gt; print_number(2)
+2
+&gt;&gt;&gt; print_number(78)
+78
+</pre>
+<p>Bir fonksiyon tan&#305;mlan&#305;rken bir de&#287;i&#351;keni (bu durumda n) fonksiyonun ad&#305;ndan 
+hemen sonra parantez içerisinde yazarak, buna parametre diyece&#287;iz, Python'a 
+fonksiyon ça&#287;r&#305;l&#305;rken parantez içerisinde verilen de&#287;er neyse onu n'e atamas&#305;n&#305; 
+söylemi&#351; oluruz. </p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Say&#305;lar&#305; ve Stringleri (Karakterler/Cümleler) birlikte 
+kullanmak</h3>
+<p>Say&#305;lar&#305; ve stringleri bir arada yazmak istedi&#287;imizi dü&#351;ünelim. Demek 
+istedi&#287;im &#351;ey <tt>print_number()</tt>fonksiyonu çal&#305;&#351;t&#305;&#287;&#305;nda a&#351;a&#287;&#305;daki gibi bir 
+sonuç vermesi: </p>
+<pre>
+The number you have chosen is 2.
+</pre>
+<p>Daha sonra görece&#287;iniz gibi bunu yapman&#305;n <b>pek çok</b> yolu vard&#305;r. &#304;&#351;te 
+bunlardan birisi, kolay anla&#351;&#305;lmayan ama çok kullan&#305;&#351;l&#305; bir yol. </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print_number(n):
+....    <span class="keyword">print</span> <span class=
+"string">"The number you have chosen is %s."</span> % n
+....    
+&gt;&gt;&gt; print_number(3)
+The number you have chosen is 3.
+</pre>
+<p>Python string'in içerisindeki %s'i string'i takip eden %'ten sonraki 
+de&#287;i&#351;kenin de&#287;eri ile de&#287;i&#351;tirir. Bunu kendiniz deneyin ve okumaya devam edin. </p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">&#304;&#351;i biraz zorla&#351;t&#305;ral&#305;m</h3>
+<p> <tt>greater()</tt> fonksiyonuna geri dönelim ve onu daha genel bir hale 
+getirelim. Bunu a&#351;a&#287;&#305;daki gibi yapabiliriz: </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> greater(first, second):
+...     <span class="keyword">if</span> first &gt; second:
+...         <span class="keyword">print</span> <span class=
+"string">"%s is greater than %s"</span> % (first, second)
+...     <span class="keyword">else</span>:
+...         <span class="keyword">print</span> <span class=
+"string">"%s is greater than %s"</span> % (second, first)
+...     
+&gt;&gt;&gt; greater(5, 4)
+5 is greater than 4
+&gt;&gt;&gt; greater(0, 10)
+10 is greater than 0
+</pre>
+<p>String'in içerisindeki %s'lere kar&#351;&#305;l&#305;k gelen de&#287;i&#351;kenleri parantez 
+içerisinde belirtmeliyiz ve ba&#351;&#305;nada % i&#351;areti koymal&#305;y&#305;z, böylece Python'a %s'lere 
+kar&#351;&#305;l&#305;k gelen de&#287;i&#351;kenlerin neler oldu&#287;unu söylemi&#351; oluruz. </p>
+<p><b>Deneyin!</b></p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">&#304;&#351;i biraz daha zorla&#351;t&#305;ral&#305;m</h3>
+<p> <tt>greater()</tt> fonksiyonunu de&#287;i&#351;kenler kullanarak sürekli ayn&#305; iki 
+say&#305;y&#305; kar&#351;&#305;la&#351;t&#305;r&#305;r halden herhangi iki say&#305;y&#305; kar&#351;&#305;la&#351;t&#305;r&#305;r hale getirdik. 
+Fonksiyon bu hali ile kar&#351;&#305;la&#351;t&#305;rmay&#305; yapmak için her zaman iki parametre 
+gerektirir. Baz&#305; say&#305;lar&#305;n 0'dan büyük olup olmad&#305;&#287;&#305;n&#305; bulan bir fonksiyon 
+yazmak isteyelim. Bu i&#351;i yapan bir ba&#351;ka fonksiyon yazabiliriz, ya da elimizdeki 
+fonksiyonda küçük de&#287;i&#351;iklikler yaparsak: </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> greater(first, second=0):
+...     <span class="keyword">if</span> first &gt; second:
+...         <span class="keyword">print</span> <span class=
+"string">"%s is greater than %s"</span> % (first, second)
+...     <span class="keyword">else</span>:
+...         <span class="keyword">print</span> <span class=
+"string">"%s is greater than %s"</span> % (second, first)
+...     
+&gt;&gt;&gt; greater(5, 4)
+5 is greater than 4
+&gt;&gt;&gt; greater(1, 10)
+10 is greater than 1
+greater(5)
+&gt;&gt;&gt; 5 is greater than 0
+greater(-2)
+&gt;&gt;&gt; 0 is greater than -2
+</pre>
+<p>Fonksiyonu tan&#305;mlarken parantez içerisinde "<tt>second=0</tt>" yazarak, 
+fonksiyonu yaln&#305;zca bir parametre ile ça&#287;&#305;rd&#305;&#287;&#305;m&#305;zda, ikinci de&#287;i&#351;kenin 
+de&#287;erinin 0 olmas&#305;n&#305; sa&#287;l&#305;yoruz. Buna <i>ba&#351;lang&#305;ç</i> (<i>default</i> de&#287;er) de&#287;eri de denir. 
+Bir parametreye bu &#351;ekilde bir ba&#351;lang&#305;ç de&#287;eri verildi&#287;inde buna 
+<i>adland&#305;r&#305;lm&#305;&#351; 
+parametre </i>denilir. </p>
+<p><i>Adland&#305;r&#305;lm&#305;&#351;</i> parametreler (birden fazla olabilirler) <b>her zaman </b>
+<i>adland&#305;r&#305;lmam&#305;&#351;</i> parametrelerden <b>sonra</b> kullan&#305;l&#305;rlar. Bu kurala göre 
+a&#351;a&#287;&#305;daki tan&#305;mlamalar geçerlidir: </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a, b, c, d=33):
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a, b, c=7, d=2):
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a, b=1, c=3, d=56):
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a=4, b=1, c=3, d=0):
+</pre>
+<p>Ancak a&#351;a&#287;&#305;dakiler geçerli de&#287;ildir:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a=1, b, c, d=33):
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a, b=2, c, d=33):
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a=5, b=1, c=3, d):
+</pre>
+<p>Bunlar&#305; kendi fonksiyonlar&#305;n&#305;zda deneyin. </p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Önemli bir not</h3>
+<p>Python komutlar&#305; de&#287;i&#351;ken ismi olarak kullan&#305;lmaz. A&#351;a&#287;&#305;dakini deneyin: </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> = 2
+</pre>
+<p>ve ne oldu&#287;unu görün!</p>
+
+<center><a href="27-variables.htm"><img alt="previous" src=
+"../../images/previous.png">De&#287;i&#351;kenler</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<a href=
+"29-strings.htm">Ad&#305;n&#305;z nedir?<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

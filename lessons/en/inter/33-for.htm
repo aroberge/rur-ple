@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>33. Repeat() is hiding some Python keywords</title>
+</head>
+<body>
+<h2 class="title">33. Repeat() is hiding some Python keywords</h2>
+<p>Remember how, many lessons ago, we asked Reeborg to repeat some
+instructions?</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+</pre>
+<p>In this lesson, we are going to see how we can define our own
+<tt>repeat()</tt> function. <!--==============================--></p>
+<hr width="50%">
+<h3 class="section">Two new keywords.</h3>
+<p>Try the following:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> letter <span class=
+"keyword">in</span> <span class="string">"Reeborg"</span>:
+...     <span class="keyword">print</span> letter
+...     
+R
+e
+e
+b
+o
+r
+g
+</pre>
+<p><span class="pykeyword">for</span> each letter that appeared <span class=
+"pykeyword">in</span> the string <span class="string">Reeborg</span>, we
+asked the Python interpreter to <span class="pykeyword">print</span> it on a
+new line. If we do not want each letter to be printed on a new line, but
+simply spaced out on a line, we use a comma, as we mentioned before in a
+different situation.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> letter <span class=
+"keyword">in</span> <span class="string">"Reeborg"</span>:
+...     <span class="keyword">print</span> letter,
+...     
+R e e b o r g
+</pre>
+<p>Pretty neat! This will work with any string! Now, what if we wanted Python
+to count numbers instead? We could also use a <span class=
+"pykeyword">for</span> loop, together with the useful function
+<tt>range()</tt></p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> number <span class=
+"keyword">in</span> range(3):
+...     <span class="keyword">print</span> number
+...     
+0
+1
+2
+&gt;&gt;&gt; <span class="keyword">for</span> number <span class=
+"keyword">in</span> range(14):
+...     <span class="keyword">print</span> number,
+...    
+0 1 2 3 4 5 6 7 8 9 10 11 12 13
+</pre>
+<p>Feel free to try some more examples on your own!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Defining <tt>repeat()</tt></h3>
+<p>We now have all the Python ingredients required to define our own
+<tt>repeat()</tt> function:</p>
+<ul>
+<li>We know how to define functions with some arguments.</li>
+<li>We know how to use variables.</li>
+<li>We know how to count using <span class="pykeyword">for</span> loops.</li>
+</ul>
+<p>What are we waiting for?</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> repeat(f, n):
+...     <span class="keyword">for</span> i <span class=
+"keyword">in</span> range(n):
+...         f()
+...
+&gt;&gt;&gt; <span class="keyword">def</span> f():
+...     <span class="keyword">print</span> <span class=
+"string">"It's fun!"</span>
+...    
+&gt;&gt;&gt; repeat(f, 3)
+It's fun!
+It's fun!
+It's fun!
+</pre>
+<p>Actually what we have just done is some pretty advanced Python
+programming! We have <i>passed</i> an argument to the function
+<tt>repeat()</tt> that was itself a function. To do this, we need to put the
+name of the function without the parentheses. [Look back at how we had
+defined <tt>turn_right()</tt> in Reeborg's world.] We also passed another
+argument (<tt>n</tt>) which was to be a numerical value (if <tt>range()</tt>
+was to give us what we wanted.) When we defined the function
+<tt>repeat()</tt>, Python didn't care (and didn't know!) that one of the
+arguments was going to be a function, and the other a number.</p>
+<p>Note also that the variable names I chose (<tt>f, n, i</tt>) are not very
+descriptive. Programmers often use single letters as variables that are used
+within a short loop (like we had above) or a short function where we can see
+all at once all the places where the variable is used. However, if the
+variables have a special meaning, it is always preferable to give them a
+longer, more descriptive name. If you don't believe this, go back and try
+again the reading challenge at the end of lesson <a href=
+"../intro/10-def.htm">10. Definitely avoiding repetitions.</a></p>
+<p>So, I should perhaps have defined <tt>repeat()</tt> as follows:</p>
+<pre>
+<span class="keyword">def</span> repeat(function, number_of_times):
+    <span class="keyword">for</span> number <span class="keyword">in</span> range(number_of_times):
+        function()
+</pre>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Try it!</h3>
+<p>Go back to Reeborg's world. Choose you favourite exercise, as long as it
+is one where you used <tt>repeat()</tt> at least twice in your solution.
+Replace <tt>repeat()</tt> everywhere in your solution by a <span class=
+"pykeyword">for</span> loop. Make sure that your new solution works!</p>
+
+<center><a href="32-return.htm"><img alt="previous" src=
+"../../images/previous.png">Many returns.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"34-lists.htm">Chocolate Mousse Cake Recipe<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Amazing - part 5</title>
+</head>
+<body>
+<h2 class="title">21. Uygulama - bölüm 5</h2>
+<h3 class="section">Daha karma&#351;&#305;k durumlar</h3>
+<p>A&#351;a&#287;&#305;daki &#351;ekilde bir dünya ile kar&#351;&#305;la&#351;&#305;rsan&#305;z: </p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around4start.png"></p>
+<p>Bir önceki derste yazd&#305;&#287;&#305;n&#305;z program çal&#305;&#351;&#305;r m&#305;? Deneyin!</p>
+<p>Sizin de tahmin etti&#287;iniz gibi, çal&#305;&#351;m&#305;yor. Çal&#305;&#351;mas&#305; için
+<span class="pykeyword">if</span>'i <span class=
+"pykeyword">while </span>ile de&#287;i&#351;tirmeniz gerekir. Deneyin ve program&#305; 
+kaydedin.</p>
+<!--=====================================-->
+<hr width="50%">
+<h3 class="section">Amac&#305;m&#305;z nedir</h3>
+<p>Kar&#351;&#305;la&#351;abilece&#287;imiz her türlü durumda çal&#305;&#351;abilecek bir program olu&#351;turuldu. 
+Bu program Reeborg'un herhangi bir dünyas&#305;nda bir tur atmas&#305;n&#305; sa&#287;lar. Program 
+k&#305;sa ve temiz bir yap&#305;ya sahip olmas&#305;na ra&#287;men, bunu ilk kez gören birisi için 
+kolay anla&#351;&#305;l&#305;r olmayabilir.&nbsp; Bu programa aç&#305;klamalar 
+eklemek anla&#351;&#305;lmas&#305;n&#305; kolayla&#351;t&#305;racakt&#305;r.</p>
+<pre>
+<span class="comment"># sa&#287;a dönmek için bir tan&#305;mlama yap&#305;yoruz.</span>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+<span class=
+"comment"># ba&#351;lang&#305;ç noktas&#305;n&#305; bir bip koyarak i&#351;aretliyoruz.</span>
+put_beeper()
+
+<span class=
+"comment"># Önün bo&#351; oldu&#287;unu kontrol edip harekete ba&#351;l&#305;yoruz.</span>
+<span class="keyword">while not</span> front_is_clear():
+    turn_left()
+move()
+
+<span class="comment"># i&#351;aret olarak b&#305;rakt&#305;&#287;&#305;m&#305;z bip'e ula&#351;t&#305;&#287;&#305;m&#305;zda</span>
+<span class="comment"># turun tamamland&#305;&#287;&#305;n&#305; anl&#305;yoruz.</span>
+
+<span class="keyword">while not</span> next_to_a_beeper():
+    <span class="keyword">if</span> right_is_clear(): <span class=
+"comment"># sa&#287;&#305; kontrol et</span>
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear(): <span class=
+"comment"># ön bo&#351; mu</span>
+        move()
+    <span class="keyword">else</span>:<span class=
+"comment"> # sola dön </span>
+        turn_left()
+
+turn_off()
+</pre>
+<p>Bu aç&#305;klamalar komutlar yard&#305;m&#305;yla ne yapt&#305;&#287;&#305;m&#305;z&#305; aç&#305;klamas&#305;na ra&#287;men 
+problemin çözümünde kullan&#305;lan metodun (algoritman&#305;n) aç&#305;klanmas&#305;n&#305; sa&#287;lamaz. Bu 
+nedenle bu aç&#305;klamalar bu program&#305; okuyan ba&#351;ka bir ki&#351;iye umdu&#287;umuz kadar 
+yard&#305;mc&#305; olmayabilir. Program&#305;m&#305;z iki k&#305;s&#305;mdan olu&#351;uyor: <br>
+1) ba&#351;lang&#305;ç noktas&#305;n&#305; i&#351;aretle. <br>
+2) sa&#287;daki duvar&#305; ba&#351;lang&#305;ç noktas&#305;na gelinceye kadar takip et. <br>
+Aç&#305;klamalar&#305; daha farkl&#305; yazarak bu iki k&#305;sm&#305; daha aç&#305;kça ifade edecek &#351;ekilde 
+program&#305; yeniden yazal&#305;m. </p>
+<pre>
+<span class=
+"comment"># Bu program Reeborg'a dünyas&#305;n&#305;n etraf&#305;nda bir tur att&#305;r&#305;r. </span>
+<span class="comment"># saat yönünün z&#305;tt&#305;nda ve ba&#351;lang&#305;ç noktas&#305;na geldi&#287;inde</span>
+<span class="comment">#  durmas&#305;n&#305; sa&#287;layarak. </span>
+
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+<span class="keyword">def</span> mark_starting_point_and_move():
+    put_beeper()
+    <span class="keyword">while not</span> front_is_clear():
+        turn_left()
+    move()
+
+<span class="keyword">def</span> follow_right_wall():
+    <span class="keyword">if</span> right_is_clear(): 
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear(): 
+        move()
+    <span class="keyword">else</span>: 
+        turn_left()
+
+found_starting_point = next_to_a_beeper   <span class=
+"comment"># bip ba&#351;lang&#305;ç noktas&#305;n&#305; i&#351;aret eder.</span>
+
+<span class="comment">#=== Tan&#305;mlamalar&#305;n sonu; çözüm ba&#351;l&#305;yor</span>
+
+mark_starting_point_and_move()
+            
+<span class="keyword">while not</span> found_starting_point(): 
+    follow_right_wall()
+      
+turn_off()
+</pre>
+<p>Bu program daha anla&#351;&#305;l&#305;r de&#287;il mi? &#350;imdi program&#305;m&#305;z&#305; çal&#305;&#351;t&#305;rd&#305;&#287;&#305;m&#305;zda her 
+kö&#351;ede bir bip oldu&#287;unu varsayal&#305;m. Bu durumda ba&#351;lang&#305;ç noktam&#305;z&#305; bir bip'i 
+yerinden alarak belirleyebilirdik. Tan&#305;mlamalarda ufak de&#287;i&#351;iklikler yapmam&#305;z 
+da gerekirdi ama bulmu&#351; oldu&#287;umuz çözümü de&#287;i&#351;tirmeye gerek kalmazd&#305;. </p>
+<!--======================================-->
+<hr width="50%">
+<h3 class="try">&#304;lk Sürpriz</h3>
+<p>Yukar&#305;daki programdan&nbsp; <tt>put_beeper()</tt>
+komutunu kald&#305;r&#305;n, kaydedin ve bu program&#305; a&#351;a&#287;&#305;daki engelli ko&#351;uda deneyin. (dosya: hurdles3.wld).</p>
+<p><img alt="hurdles" src="../../images/intro/hurdles3_start.png"></p>
+<p>Sürpriz! Bu program engelli ko&#351;u problemini çözüyor, tek s&#305;ra d&#305;&#351;&#305; durum 
+yar&#305;&#351;ma tamamland&#305;&#287;&#305;nda Reeborg'un yüzünün farkl&#305; bir yöne dönük olmas&#305; (belki 
+yar&#305;&#351;may&#305; tamamlad&#305;ktan sonra seyircileri selaml&#305;yordur!) . Bu program a&#351;a&#287;&#305;da 
+oldu&#287;u gibi birbiriyle e&#351;it olmayan engellerle de çal&#305;&#351;&#305;r&nbsp; (dosya: hurdles4.wld). 
+Daha önceden engelli ko&#351;u için yazm&#305;&#351; oldu&#287;umuz program&#305;n a&#351;a&#287;&#305;daki durumda 
+çal&#305;&#351;mayaca&#287;&#305; göz önüne al&#305;n&#305;rsa oldukça iyi bir i&#351; ortaya ç&#305;kartt&#305;&#287;&#305;m&#305;z&#305; 
+söyleyebiliriz. </p>
+<p><img alt="hurdles" src="../../images/intro/hurdles4_start.png"></p>
+<!--======================================-->
+<hr width="50%">
+<h3 class="try">&#350;a&#351;&#305;rt&#305;c&#305; sürpriz</h3>
+<p>Az önceki program&#305; ilk derslerde bahsetti&#287;imiz labirent problemine uygulay&#305;n (dosya: maze1.wld).</p>
+<p><img alt="maze" src="../../images/intro/maze1_start.png"></p>
+<p>Görece&#287;iniz gibi program labirentin ç&#305;k&#305;&#351;&#305;n&#305; da bulabiliyor, &#351;a&#351;&#305;rt&#305;c&#305; de&#287;il 
+mi.</p>
+<!--======================================-->
+<hr width="50%">
+<h3 class="section">Sonuç</h3>
+<p>Basit bir problemin çözümüyle ba&#351;lad&#305;k (dikdörtgen bir dünyan&#305;n etraf&#305;nda bir 
+tur atmak) ve bu program&#305; ad&#305;m ad&#305;m geli&#351;tirerek, görünü&#351;te birbirinden farkl&#305; 
+durumlar içeren problemlere çözüm getirdik. Her ad&#305;mda küçük de&#287;i&#351;iklikler 
+yapt&#305;k, karma&#351;&#305;k problemlere ba&#351;lamadan önce, program&#305;m&#305;z&#305;n de&#287;i&#351;ikliklerden 
+sonra hala çal&#305;&#351;&#305;yor oldu&#287;undan emin olduk. Bunun yan&#305;nda algoritman&#305;n daha iyi 
+anla&#351;&#305;labilmesini ve program&#305;n daha kolay okunabilir hale gelmesini sa&#287;lamak 
+için aç&#305;klamalar ve aç&#305;klay&#305;c&#305; isimler kulland&#305;k. Kendi programlar&#305;n&#305;z&#305; 
+yazarken sizde böyle bir strateji uygulay&#305;n. </p>
+<dl>
+<dt><b>Kural # 4</b></dt>
+<dd><b><font color="#FF0000">Bir program yazarken takip edilecek ad&#305;mlar:</dd>
+</font></b>
+<ul>
+<li>basit ba&#351;la;</li>
+<li>Küçük de&#287;i&#351;iklikleri bir defada bir tane olacak &#351;ekilde ekle; </li>
+<li>yapt&#305;&#287;&#305;n de&#287;i&#351;ikliklerin program&#305;n&#305;n çal&#305;&#351;mas&#305;n&#305; bozmad&#305;&#287;&#305;ndan emin ol;</li>
+<li>her komutun ne i&#351; yapt&#305;&#287;&#305;n&#305; tekrarlamayan, uygun aç&#305;klamalarla yaz. ; ve</li>
+<li>aç&#305;klay&#305;c&#305; adlar seç.</li>
+</dl>
+</ul>
+<center><a href="20-amazing4.htm"><img alt="previous" src=
+"../../images/previous.png"> Uygulama - </a><A href="17-amazing1.htm">
+bölüm</a><A href="20-amazing4.htm"> 4</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="22-rain.htm">Ya&#287;mur Ya&#287;&#305;yor! <img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

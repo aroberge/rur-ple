@@ -1,0 +1,17 @@
+# Spiral harvesting solution
+# original idea from Evelyne S.R.
+
+def move_and_pick():
+    move()
+    pick_beeper()
+
+nb_steps = [6, 5, 5, 4, 4, 3, 3, 2, 2, 1]
+
+# end of definitions
+
+for i in nb_steps:
+    repeat(move_and_pick, i)
+    turn_left()
+
+move_and_pick()
+turn_off()

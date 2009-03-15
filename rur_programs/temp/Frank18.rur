@@ -1,0 +1,70 @@
+# definitions
+
+def turn_right():
+    repeat(turn_left, 3)
+    
+def turn_around():
+    turn_left()
+    turn_left()
+    
+def facing_south():   # not built-in yet
+    turn_around()
+    answer = facing_North()
+    turn_around()
+    return answer
+
+def go_south_west_corner():
+    while not facing_south():
+        turn_left()
+    while front_is_clear():
+        move()
+    turn_right()
+    while front_is_clear():
+        move()
+    turn_right()  # thus facing north
+
+def go_north_east_corner():
+    while not facing_North():
+        turn_left()
+    while front_is_clear():
+        move()
+    turn_right()
+    while front_is_clear():
+        move()
+
+def pickup_column_and_come_back(): # normally facing north
+    while front_is_clear():
+        while next_to_a_beeper():
+            pick_beeper()
+        move()
+        while next_to_a_beeper():
+            pick_beeper()
+    turn_around()                  # now facing south
+    while front_is_clear():
+        move()
+
+
+# end of definitions
+# =================
+# begin instructions per se
+
+go_south_west_corner()
+
+while facing_North():   
+    pickup_column_and_come_back()  # ends facing south
+    turn_left()          # now facing east, perhaps exiting loop
+    if front_is_clear():
+        move()
+        turn_left()               # face north, and continue
+
+# exits at south-east corner, facing east
+
+turn_left()
+while front_is_clear():
+    move()
+
+while carries_beepers():
+    put_beeper()
+    
+go_south_west_corner()
+turn_off()

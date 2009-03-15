@@ -1,0 +1,71 @@
+# adding 8+4 !
+
+def turn_right():
+    repeat(turn_left, 3)
+def turn_around():
+    repeat(turn_left, 2)
+# create line of beepers on 10th street
+turn_left()
+repeat(move, 9)
+turn_right()
+while front_is_clear():
+    put_beeper()
+    move()
+put_beeper()
+# move to 1st street and face north
+turn_right()
+while front_is_clear():
+    move()
+turn_around()
+
+# collect beepers to add
+while next_to_a_beeper():
+    pick_beeper()
+move()
+while next_to_a_beeper():
+    pick_beeper()
+# go back to the 1st street
+turn_around()
+move()
+turn_around()
+# spread the beepers vertically
+while carries_beepers():
+    put_beeper()
+    move()
+# move back to origin
+turn_around()
+while front_is_clear():
+    move()
+turn_around()
+
+while front_is_clear():
+    if next_to_a_beeper():
+        pick_beeper()
+    else:
+        break
+    if next_to_a_beeper(): # reached line
+        while carries_beepers():
+            put_beeper()
+    move()
+turn_around()
+while front_is_clear():
+    move()
+    if next_to_a_beeper(): # carry over
+        pick_beeper()
+        while front_is_clear():
+            move()
+        while carries_beepers():
+            put_beeper()
+        pick_beeper()
+        turn_right()
+        move()
+        put_beeper() # carry-over
+        turn_left()  # so as to face wall and exit loop
+# drop any left-over (if sum < 10)
+while carries_beepers():
+    put_beeper()
+# move out of the way
+turn_right()
+move()
+turn_around()
+turn_off()

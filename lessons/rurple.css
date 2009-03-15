@@ -1,0 +1,13 @@
+/* rurple.css */
+
+
+/* Basic Python Elements */
+.keyword{color: #336699; font-weight: bold;}
+.number{color: #FF0000;}
+.comment{color: #009900;}
+.string{color: #660066;}
+.variable{color: #000000;}
+.op{font-weight: bold;}
+.linenumber{font-size: small; color: #666666;}
+.try{color: #006600;}
+.suggested{color: #663333;}

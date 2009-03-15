@@ -1,0 +1,325 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Definitely avoiding repetitions</title>
+</head>
+<body>
+<h2 class="title">10. Definitely avoiding repetitions</h2>
+<p>Be prepared: this is a fairly long lesson.  
+We will learn how to define some new robot commands. We
+will also see a third useful rule when writing computer programs:</p>
+<dl>
+<dt><b>Rule # 3</b></dt>
+<dd>When writing computer programs, do not repeat yourself.<br>
+I repeat: <b>do not repeat yourself!</b></dd>
+</dl>
+<!--=============================================-->
+<hr width="50%">
+<a name="Three" id="Three"></a>
+<h3 class="section">Three lefts can make a right</h3>
+<p>If you think carefully about it, you will conclude that having Reeborg
+make three left turns in a row gives the same final result as if he were to
+make a single right turn. Try to figure out, by drawing on a sheet of paper,
+what the following program would have Reeborg do, without using your
+computer.</p>
+<pre>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+turn_left()
+turn_left()
+turn_off()
+</pre>
+<h3 class="try">Your turn</h3>
+<p>Write and save the program above, and see if Reeborg does what you
+expected him to do.</p>
+<h3 class="try">Your turn again!</h3>
+<p>Change the program you just saved so that it will make Reeborg turn
+clockwise around a square as illustrated below.</p>
+<p><img alt="square with right turns" src=
+"../../images/intro/square2right.png"></p>
+<!--=====================================================-->
+<hr width="50%">
+<a name="Define" id="Define"></a>
+<h3 class="section">Defining what is right</h3>
+<p>We have seen before how Reeborg can make a right turn by combining three
+left turns in a row. If we want to make a series of right turns, it becomes
+quite tedious to write and read the resulting code. This is because we repeat
+ourselves; in other words, the same sequence of instructions appears in many
+different places in the program. To avoid such duplication, Reeborg's ability
+to be programmed in Python is very useful.</p>
+<p>In Python, one can give a simple name to a series of instructions. For
+example, we could <b>define</b> a right turn command for Reeborg as
+follows:</p>
+<p><img alt="defining turn right" src=
+"../../images/intro/turnright_txt.png"></p>
+<p>There are at least five important things are to be noted:</p>
+<ul>
+<li>As we have seen before, the symbol <tt><span class=
+"comment">#</span></tt>, which appears in green, indicates that the rest of
+the line can be ignored by Reeborg (or Python). The text that follows
+<tt><span class="comment">#</span></tt> is called a <b>comment</b> and it is
+used to explain to other <b>programmers</b>, or as a reminder to ourselves,
+what a particular line or series of lines of code does. It is also shown in
+green, which helps us distinguish comments from instructions. Python, and
+Reeborg, ignore these comments.</li>
+<li>Second, the definition begins by the Python <b>keyword</b> <span class=
+"pykeyword">def</span> which appears in blue in the editor. A python
+<b>keyword</b> is a word whose meaning is defined by Python itself. The
+keyword <span class="pykeyword">def</span> is followed by the new command
+name, two parentheses, and a colon.</li>
+<li>Third, defining an instruction is not the same as creating a synonym
+like we have seen before. (When we create a synonym, we do it with an equal
+sign "=" between the synonyms, and the lack of parentheses indicates that it
+isn't an instruction.)</li>
+<li>Fourth, each of the instructions that is meant to be part of the new
+definition is <b>indented</b>, by the <b>same amount</b>. If it is not,
+Python will complain or will not do what we expect it to do. By indentation,
+we mean that we leave a number of blank spaces at the beginning of each line.
+It is customary to use an indentation of four spaces for a given <i>block of
+code</i>.  To help you, I have set up the program editor so that it shows dotted lines at intervals equal to four spaces.<br />
+<img alt="Showing indentation guides" src=
+"../../images/intro/indentation.png"></li>
+<li>Fifth, at the end of line with the <span class="pykeyword">def</span>
+keyword, we add a colon "<tt>:</tt>" which indicates to Python that
+a block of code is going to start.  We do this with other keywords that start
+blocks of code, like <span class="pykeyword">if</span> in the picture above
+which we will introduce properly in a few lessons.</li>
+</ul>
+<p>This is quite a bit of information presented all at once. It is probably a
+good time to check your understanding of how to use this keyword.</p>
+<h3 class="try">Your turn</h3>
+<p>Write a program that 1) defines this new command to turn right and 2)
+makes use of it to have Reeborg trace a clockwise square as done previously.
+You should notice that the final program is shorter than the original and
+that it is easier to figure out the path taken by Reeborg.</p>
+<h3 class="try">Your turn again!</h3>
+<p>Define the instruction <tt>step_back()</tt> so that the following
+program</p>
+<pre>
+<span class="comment"># step_back() defined up here</span>
+move()
+step_back()
+turn_off()
+</pre>
+<p>has Reeborg take a step forward and then come back to its starting
+position <em>facing in the same direction as it did at the beginning</em>, as
+illustrated below.</p>
+<p><img alt="back up" src="../../images/intro/back_up.png"></p>
+<p><em>Hint</em>: Make sure you don't forget to indent the commands that are
+part of your new definition.</p>
+<h3 class="try">Your turn, yet again!</h3>
+<p>Define the instruction <tt>turn_around()</tt> so that the following new
+commands would work as you expect them to.</p>
+<pre>
+<span class="keyword">def</span> step_back():
+    turn_around()
+    move()
+    turn_around()
+
+<span class="keyword">def</span> turn_right():
+    turn_around()
+    turn_left()
+</pre>
+<!--===========================================================-->
+<hr width="50%">
+<a name="Newspaper" id="Newspaper"></a>
+<h3 class="section">Newspaper delivery, revisited</h3>
+<p>In the previous chapter, one of the last exercises you had to do was to
+write a program to have Reeborg deliver a newspaper. As a reminder, here's
+graphically what Reeborg had to do:</p>
+<center><img alt="newspaper start" src=
+"../../images/intro/newspaper_start.png"></center>
+<center><img alt="lead to" src="../../images/lead_to.png"> <img alt=
+"newspaper end" src="../../images/intro/newspaper_end.png"></center>
+<p>Your solution to this exercise probably looked like the following</p>
+<pre>
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># put down newspaper and turn around</span>
+put_beeper()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># move away and stop</span>
+move()
+turn_off()
+</pre>
+<p>That's a lot of typing ... and there is a lot of repetitions. By the time
+you reached the end of the program, you can't see the beginning of it on the
+screen. You probably noticed that I added a few comments which helped me to
+keep track of where I was in the task. These comments are closer to what we
+could think of when coming up with the outline of a solution:</p>
+<ul>
+<li>Climb (up) four stairs.</li>
+<li>Drop the newspaper.</li>
+<li>Turn around.</li>
+<li>Climb (down) four stairs.</li>
+</ul>
+Let us try to write this outline in a <em>Pythonic</em> form:
+<pre>
+ 
+climb_up_four_stairs()
+put_beeper()
+turn_around()
+climb_down_four_stairs()
+</pre>
+<p>This is not quite a complete solution [for example, there is a missing
+<tt>turn_off()</tt> instruction], but it is pretty close to it and is much
+easier to read than what we had before, assuming that these new instructions
+are defined. Here are a few of the needed definitions:</p>
+<pre>
+<span class="keyword">def</span> turn_around():
+    turn_left()
+    turn_left()
+
+<span class="keyword">def</span> turn_right():
+    turn_left()
+    turn_left()      
+    turn_left()
+
+<span class="keyword">def</span> climb_up_one_stair():
+    turn_left()
+    move()
+    turn_right()
+    move()
+    move()
+
+<span class="keyword">def</span> climb_up_four_stairs():
+    climb_up_one_stair()
+    climb_up_one_stair()
+    climb_up_one_stair()
+    climb_up_one_stair()
+</pre>
+<h3 class="try">Your turn</h3>
+<p>Add the missing definitions so that the final program looks like what I
+called the <em>Pythonic</em> version. You will need to add a few more simple
+instructions, including <tt>turn_off()</tt> at the end. Remember to save your
+program; use a different name from your original solution.</p>
+<h3 class="try">Your turn again!</h3>
+<p>Take the time to compare your original solution to the newspaper delivery
+program as well as this latest one. Which one is the easiest to read?</p>
+<!--=================================================-->
+<hr width="50%">
+<a name="ReadChallenge" id="ReadChallenge"></a>
+<h3 class="suggested">Reading challenge</h3>
+<p>Well chosen names can really help to understand what a program is doing.
+Likewise, poorly chosen names can make it really difficult. [See Rule # 4.]
+Try to make sense of the following program without using the computer to run
+it.</p>
+<pre>
+<span class="keyword">def</span> a():
+    turn_left()
+    turn_left()
+
+<span class="keyword">def</span> b():
+    turn_left()
+    a()
+
+<span class="keyword">def</span> c():
+    move()
+    move()
+
+<span class="keyword">def</span> d():
+    c()
+    b()
+
+<span class="keyword">def</span> e():
+    d()
+    d()
+    d()
+    d()
+
+turn_left()
+e()
+b()
+turn_off()
+</pre>
+<p>You may find it useful to find more descriptive names for the commands
+<tt>a(), b(), c(), d(),</tt> and <tt>e().</tt></p>
+<center>
+<a href="9-walls.htm"><img alt="previous" src=
+"../../images/previous.png"> Building walls</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"11-repeat.htm">Avoiding repetitions, again! <img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

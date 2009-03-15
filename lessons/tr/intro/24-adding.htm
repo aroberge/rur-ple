@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Teaching Reeborg to add.</title>
+<style>
+<!--
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0cm; margin-right:0cm; margin-top:0cm}
+-->
+</style>
+</head>
+<body>
+<h2 class="title">24. Reeborg'a toplama yapmay&#305; ö&#287;retmek</h2>
+<p>Bu derste Reeborg'a iki say&#305;y&#305; toplamay&#305; ö&#287;retece&#287;iz. Bunu 10 taban&#305;na göre 
+yapaca&#287;&#305;z, ancak ayn&#305; yöntemi farkl&#305; tabandaki say&#305;lar&#305; toplamak için de 
+kullanabiliriz. </p>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="try">Is&#305;nma turlar&#305;</h3>
+<ol>
+<li>Reeborg' a 3+2 i&#351;lemini a&#351;a&#287;&#305;daki gibi yapt&#305;ran bir program yaz&#305;n&#305;z. <br>
+<img alt="3+2" src="../../images/intro/add3_2_start.png"><img alt="lead to"
+src="../../images/lead_to.png"> <img alt="5" src=
+"../../images/intro/add3_2_end.png"><br>
+Bu program&#305;n 1+4 i&#351;lemini de yapmas&#305;n&#305; sa&#287;lay&#305;n.</li>
+<li>Program&#305;n&#305;z&#305; a&#351;a&#287;&#305;da oldu&#287;u gibi 13+22 i&#351;lemini de yapar hale getirin.<br>
+<img alt="13+22" src="../../images/intro/add13_22_start.png"><img alt=
+"lead to" src="../../images/lead_to.png"> <img alt="35" src=
+"../../images/intro/add13_22_end.png"><br></li>
+<li>Hem 3+2' yi hem de a&#351;a&#287;&#305;daki gibi 8+4'ü toplayan bir program 
+yazabilir misiniz.<br>
+<p><img alt="8+4" src="../../images/intro/add8_4_start.png"><img alt=
+"lead to" src="../../images/lead_to.png"> <img alt="12" src=
+"../../images/intro/add8_4_end.png"></p>
+<br>
+Yeni program&#305;n&#305;z 2+5 ve 9+9 i&#351;lemini de do&#287;ru olarak yapmal&#305;. Yapabildiniz mi? 
+Yapamad&#305;ysan&#305;z cesaretinizi kaybetmeyin okumaya devam edin.</li>
+</ol>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="section">Toplamay&#305; gözden geçirelim</h3>
+<p>&#304;ki rakam&#305; geleneksel yolla toplayal&#305;m:</p>
+<pre>
+  528
++ 634
+------
+   12  # önce birler basama&#287;&#305;n&#305; topluyoruz (8+4)
+</pre>
+<p>Elde bir var ve bunu onlar basama&#287;&#305;na eklememiz gerekiyor. Eldeki bir 
+program&#305;n&#305;zda problem yaratan k&#305;s&#305;m olabilir. Bunu yine geleneksel &#351;ekilde 
+yazal&#305;m ve devam edelim.</p>
+<pre>
+   1
+  528
++ 634
+------
+ 1162  
+</pre>
+<p>Biraz özet oldu, ama anla&#351;&#305;ld&#305;&#287;&#305;ndan eminim. Reeborg'un dünyas&#305;nda a&#351;a&#287;&#305;daki 
+gibi toplamalar yapaca&#287;&#305;z.</p>
+<p><img alt="adding start" src="../../images/intro/add_start.png"><img alt=
+"lead to" src="../../images/lead_to.png"> <img alt="adding end" src=
+"../../images/intro/add_end.png"></p>
+<p>Önce basit bir problem olan 8+4 ile ba&#351;layal&#305;m.</p>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="section">10 taban&#305;nda 8+4 i&#351;lemi</h3>
+<p><span class="warning">Uyar&#305;:</span> A&#351;a&#287;&#305;daki al&#305;&#351;t&#305;rma biraz zor 
+olabilir.Dersin geri kalan&#305;n&#305; okuyun ve al&#305;&#351;t&#305;rmay&#305; yap&#305;p yapmamaya, ya da biraz 
+daha Python ö&#287;renmeye <span style="font-size: 12.0pt; font-family: Univers">
+(Python bilginizi biraz daha geli</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#351;</span><span style="font-size: 12.0pt; font-family: Univers">tirmeye)
+</span>siz karar verin.</p>
+<p>Bahsetti&#287;imiz gibi, her bir bip kümesi bir basama&#287;&#305; temsil ederken toplama 
+yap&#305;ld&#305;&#287;&#305;nda (10 taban&#305;nda) problem toplam&#305;n 9'dan büyük olmas&#305;d&#305;r. Toplanan 
+say&#305;lara ba&#287;&#305;ml&#305; kalmaks&#305;z&#305;n, bir &#351;ekilde bu sihirli say&#305; (10) takip 
+edilmelidir. 10 taban&#305;nda (veya 16 taban&#305;nda) kapasitede bir dünya dosyas&#305; (adding_world.wld) 
+yaratt&#305;m. Bu dosyay&#305; yükleyin, size toplama yapmay&#305; sa&#287;layan bir program 
+yazman&#305;za yard&#305;m edece&#287;im. </p>
+<p>Dosyay&#305; yükledikten sonra durum çubu&#287;una bakarsan&#305;z Reeborg'un 8 tane bip 
+ta&#351;&#305;d&#305;&#287;&#305;n&#305; göreceksiniz. Reeborg'un a&#351;a&#287;&#305;daki &#351;ekildeki gibi 8 tane bip'i 10. 
+caddeye b&#305;rakmas&#305;n&#305; sa&#287;layan bir program yaz&#305;n. (program&#305;n çal&#305;&#351;mas&#305; bittikten 
+sonra, ok tu&#351;lar&#305;n&#305; kullanarak Reeborg'un yerini de&#287;i&#351;tirdim, böylece Reeborg'u 
+en son b&#305;rakt&#305;&#287;&#305; bip'in üzerinden alm&#305;&#351; oldum ve a&#351;a&#287;&#305;daki görüntü olu&#351;tu)</p>
+<p><img alt="line of beepers accross 10th street" src=
+"../../images/intro/accross10.png"></p>
+<p>&#350;imdi, daha ileriye gitmeden, program&#305;n&#305;z&#305; kaydedin. <br>
+<br>
+Dünya dosyas&#305;n&#305; tekrar yükleyin (Böylece Reeborg ba&#351;lang&#305;ç pozisyonunda [1.cadde 
+ile 1. soka&#287;&#305;n kesi&#351;iminde] olsun ve bo&#351; bir dünyas&#305; olsun) ve a&#351;a&#287;&#305;daki &#351;ekilde 
+oldu&#287;u gibi sa&#287; alt kö&#351;eye bipleri yerle&#351;tirin. (Reeborg hala ba&#351;lang&#305;ç 
+pozisyonunda).</p>
+<p><img alt="8+4" src="../../images/intro/add8_4_start.png"></p>
+<p>Reeborg'a a&#351;a&#287;&#305;dakileri yapt&#305;r&#305;n:</p>
+<ol>
+<li>10. caddeye daha önceden oldu&#287;u gibi bipleri yerle&#351;tirin. </li>
+<li>Ekran&#305;n sa&#287; alt&#305;na gidin, ve bipleri (8 ve 4) al&#305;n. </li>
+<li>Elinizdeki 12 bip'i a&#351;a&#287;&#305;daki &#351;ekilde oldu&#287;u gibi dikey bir kolon &#351;eklinde 
+yerle&#351;tirin.</li>
+</ol>
+<p><img alt="8+4 spread vertically" src=
+"../../images/intro/vertical12.png"></p>
+<p>&#350;imdi 10. caddenin yukar&#305;s&#305;nda iki tane bip var, 10. caddede ise ekstra bir bip 
+var. Yapman&#305;z gereken ise: </p>
+<ol>
+<li>10. caddenin alt&#305;ndaki 9 bip'i almak ve bir yerlere atmak 
+<span style="font-size: 12.0pt; font-family: Univers">(belkide bunlar</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#305;</span><span style="font-size: 12.0pt; font-family: Univers"> 
+10. caddeye b</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">rakarak) 
+bunu a</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#351;</span><span style="font-size: 12.0pt; font-family: Univers">a</span>&#287;<span style="font-size: 12.0pt; font-family: Times New Roman">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">daki 
+ad</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">mlar</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#305;</span><span style="font-size: 12.0pt; font-family: Univers"> 
+yerine getirerek yapabilirsiniz: </span>&nbsp;<ol>
+<li>bir bip al </li>
+<li><span style="font-size: 12.0pt; font-family: Univers">ba</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#351;</span><span style="font-size: 12.0pt; font-family: Univers">ka 
+alacak bir bip olup olmad</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#305;&#287;&#305;</span><span style="font-size: 12.0pt; font-family: Univers">n</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#305;</span><span style="font-size: 12.0pt; font-family: Univers"> 
+kontrol et, e</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#287;</span><span style="font-size: 12.0pt; font-family: Univers">er 
+yoksa </span></li>
+<li><span style="font-size: 12.0pt; font-family: Univers">birden fazla bip 
+alacak bir k</span><span style="font-size: 12.0pt; font-family: Times New Roman">ö&#351;</span><span style="font-size: 12.0pt; font-family: Univers">eye 
+gelinceye kadar hareketini devam ettir... </span></li>
+</ol>
+<span style="font-size: 12.0pt; font-family: Univers">birden fazla say</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">da 
+bip al</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">nabilecek 
+bir k</span><span style="font-size: 12.0pt; font-family: Times New Roman">ö&#351;</span><span style="font-size: 12.0pt; font-family: Univers">eye 
+geldi</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#287;</span><span style="font-size: 12.0pt; font-family: Univers">inde 
+10. caddeye gelmi</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#351;</span><span style="font-size: 12.0pt; font-family: Univers"> 
+olursun. Bu k</span><span style="font-size: 12.0pt; font-family: Times New Roman">ö&#351;</span><span style="font-size: 12.0pt; font-family: Univers">eye 
+t</span><span style="font-size: 12.0pt; font-family: Times New Roman">ü</span><span style="font-size: 12.0pt; font-family: Univers">m 
+biplerini b</span><span style="font-size: 12.0pt; font-family: Times New Roman">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">rakabilirsin.
+</span></li>
+<li>
+<p class="MsoNormal"><span style="font-size: 12.0pt; font-family: Univers">
+Reeborg'un kuzeye do</span><span style="font-size: 12.0pt">&#287;</span><span style="font-size: 12.0pt; font-family: Univers">ru 
+gitmesini, (kalan iki bip'i almas</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">n</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">) 
+ve a</span><span style="font-size: 12.0pt">&#351;</span><span style="font-size: 12.0pt; font-family: Univers">a</span><span style="font-size: 12.0pt">&#287;&#305;</span><span style="font-size: 12.0pt; font-family: Univers">daki
+</span><span style="font-size: 12.0pt">&#351;</span><span style="font-size: 12.0pt; font-family: Univers">ekilde 
+oldu</span><span style="font-size: 12.0pt">&#287;</span><span style="font-size: 12.0pt; font-family: Univers">u 
+gibi 13. caddeye gelmesini sa</span><span style="font-size: 12.0pt">&#287;</span><span style="font-size: 12.0pt; font-family: Univers">lay</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">n</span>:<br>
+<br>
+</p>
+<p><img alt="8+4" src="../../images/intro/add8_4_middle.png"><br></p>
+</li>
+<li>
+<p class="MsoNormal"><span style="font-size: 12.0pt; font-family: Univers">
+Reeborg'u geriye d</span><span style="font-size: 12.0pt">ö</span><span style="font-size: 12.0pt; font-family: Univers">nd</span><span style="font-size: 12.0pt">ü</span><span style="font-size: 12.0pt; font-family: Univers">r</span><span style="font-size: 12.0pt">ü</span><span style="font-size: 12.0pt; font-family: Univers">n 
+ve </span>10. caddeden bir bip almas&#305;n&#305; ve dokuzuncu caddeye gelmesini sa&#287;lay&#305;n, 
+bunu yapt&#305;rd&#305;&#287;&#305;n&#305;zda Reeborg&#8217;un cebinde 3 tane bip'i olmal&#305;.</li>
+<li>
+<p class="MsoNormal"><span style="font-size: 12.0pt; font-family: Univers">Reeborg'un bu bipleri a</span><span style="font-size: 12.0pt">&#351;</span><span style="font-size: 12.0pt; font-family: Univers">a</span><span style="font-size: 12.0pt">&#287;&#305;</span><span style="font-size: 12.0pt; font-family: Univers">daki 
+duvara ula</span><span style="font-size: 12.0pt">&#351;&#305;</span><span style="font-size: 12.0pt; font-family: Univers">ncaya 
+kadar ta</span><span style="font-size: 12.0pt">&#351;&#305;</span><span style="font-size: 12.0pt; font-family: Univers">mas</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">n</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers"> 
+sa</span><span style="font-size: 12.0pt">&#287;</span><span style="font-size: 12.0pt; font-family: Univers">lay</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">n;</span></li>
+<li>
+<p class="MsoNormal"><span style="font-size: 12.0pt; font-family: Univers">Reeborg'un ta</span><span style="font-size: 12.0pt">&#351;&#305;</span><span style="font-size: 12.0pt; font-family: Univers">d</span><span style="font-size: 12.0pt">&#305;&#287;&#305;</span><span style="font-size: 12.0pt; font-family: Univers"> 
+3 bip' buraya b</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">rakmas</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">n</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">, 
+daha sonra bunlardan birisini almas</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">n</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">(elde 
+var bir), do</span><span style="font-size: 12.0pt">&#287;</span><span style="font-size: 12.0pt; font-family: Univers">uya 
+gitmesini ve ta</span><span style="font-size: 12.0pt">&#351;&#305;</span><span style="font-size: 12.0pt; font-family: Univers">d</span><span style="font-size: 12.0pt">&#305;&#287;&#305;</span><span style="font-size: 12.0pt; font-family: Univers"> 
+bip'i buraya b</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">rakmas</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">n</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers"> 
+sa</span><span style="font-size: 12.0pt">&#287;</span><span style="font-size: 12.0pt; font-family: Univers">lay</span><span style="font-size: 12.0pt">&#305;</span><span style="font-size: 12.0pt; font-family: Univers">n.
+</span></li>
+</ol>
+<p class="MsoNormal"><span style="font-size: 12.0pt; font-family: Univers">
+Geriye kalan tek </span><span style="font-size: 12.0pt">&#351;</span><span style="font-size: 12.0pt; font-family: Univers">ey 
+i</span><span style="font-size: 12.0pt">&#351;</span><span style="font-size: 12.0pt; font-family: Univers">lemin 
+sonucunun g</span><span style="font-size: 12.0pt">ö</span><span style="font-size: 12.0pt; font-family: Univers">z</span><span style="font-size: 12.0pt">ü</span><span style="font-size: 12.0pt; font-family: Univers">kebilmesi 
+i</span><span style="font-size: 12.0pt">ç</span><span style="font-size: 12.0pt; font-family: Univers">in 
+Reeborg'u kenara </span><span style="font-size: 12.0pt">ç</span><span style="font-size: 12.0pt; font-family: Univers">ekmektir.</span></p>
+<br>
+<br>
+<p><img alt="8+4" src="../../images/intro/add8_4_end.png"></p>
+<p>Bu be&#351; ad&#305;m&#305; yerine getirmek için oldukça fazla kod yazman&#305;z gerekecek ve 
+bunu do&#287;ru olarak yapmakta biraz zorlanabilirsiniz. Ancak sistemli olarak 
+ilerlerseniz ba&#351;araca&#287;&#305;n&#305;zdan eminim. Deneyin! </p>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="suggested">3+5 Toplama &#304;&#351;lemi</h3>
+<p>Sonunda 8+4 i&#351;lemini hesaplayabilen bir program yazd&#305;n&#305;z. Ayn&#305; program&#305; 3+5 
+i&#351;leminde deneyin. Çal&#305;&#351;t&#305; m&#305;? Çal&#305;&#351;mam&#305;&#351;d&#305;r, çünkü bu i&#351;lemde elde yok. Buna 
+bir çare bulabilir misiniz? Belkide yaln&#305;zca &#351;u ana dek ö&#287;rendi&#287;iniz komutlar&#305; 
+kullan&#305;yorsunuzdur... Benim çözümümde henüz görmedi&#287;iniz
+<span class="pykeyword">break</span> komutunu kullanmam gerekti. </p>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="suggested">Son a&#351;ama</h3>
+<p>E&#287;er 10 taban&#305; d&#305;&#351;&#305;ndaki tabanlarda da toplama yapmay&#305; biliyorsan&#305;z, 
+program&#305;n&#305;zda gerekli de&#287;i&#351;iklikleri yaparak farkl&#305; tabanlarda da toplam&#305; i&#351;lemi 
+yapt&#305;rabilirsiniz. </p>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="section">S&#305;rada ne var?</h3>
+<p>&#350;imdiye kadar gördü&#287;ümüz Python komutlar&#305;: <span class="pykeyword">def, elif, else, if, not, pass, while</span>. 
+Reeborg'a iki say&#305;y&#305; toplatabilen oldukça komplike bir program yazarak bu bölümü 
+bitirdik. &#350;imdi Reeborg'u b&#305;rakaca&#287;&#305;z ve gerçek Python'da iki say&#305;n&#305;n nas&#305;l 
+toplanabilece&#287;ini görece&#287;iz. Üzülmeyin, arada s&#305;rada Reeborg'un dünyas&#305;na geri 
+dönece&#287;iz ve artan Python bilgimizin Reeborg'a nas&#305;l yard&#305;m etti&#287;ini görece&#287;iz.</p>
+<center><a href="23-trash.htm"><img alt="previous" src=
+"../../images/previous.png">F&#305;rt&#305;na sonras&#305;</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<a href="../inter/25-interpreter.htm">Python toplama yapmay&#305; zaten biliyordu.<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

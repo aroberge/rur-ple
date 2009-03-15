@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Amazing - part 2</title>
+</head>
+<body>
+<h2 class="title">18. Amazing - part 2</h2>
+<p>Here's the cause of the problem we had at the end of part 1: we put down a
+beeper and, before we had the chance to move, tested to see if we were not
+next to a beeper. Since we were next to a beeper, 
+we never go the chance to get in the
+<span class="pykeyword">while</span> <i>loop.</i> Perhaps we can change the
+program to add a <tt>move()</tt> before we start the loop, as follows:</p>
+<pre>
+put_beeper()
+move()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+<p><b>Try it!</b></p>
+<!--================================================-->
+<hr width="50%">
+<h3 class="section">Not so simple world</h3>
+<p>Let's try the program we wrote on a slightly more complicated world, like
+the one below which you can easily reproduce.  You may want to save the world
+to a world file before you try your program.</p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around2start.png"></p>
+<p>When you try your program, you will see that the result is not exactly
+what we wanted: Reeborg takes a shortcut, and
+doesn't go all the way around.</p>
+<p><img alt="around the world: end" src=
+"../../images/intro/around2end.png"></p>
+<p>The problem is that we assumed that Reeborg only had to move forward or
+turn left to go around the world; we never took into account situations where
+we would have wanted him to make a right turn. What Reeborg needs to do is
+first to check on his right to see if there is still a wall; if not, we have
+him make a right turn. Here's a modified program that <i>attempts</i>
+to do just that:</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+put_beeper()
+move()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> right_is_clear():
+        turn_right()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+<p>Does it work? Read it carefully to decide for yourself. Then try it to
+confirm your opinion, or make any change you think appropriate.</p>
+<center><a href="17-amazing1.htm"><img alt="previous" src=
+"../../images/previous.png">Amazing - part1</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<a href="19-amazing3.htm">Amazing - part 3 <img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

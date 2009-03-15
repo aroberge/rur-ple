@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Fractions - part 3</title>
+</head>
+<body>
+<h2 class="title">Fractions - part 3</h2>
+<p>Did you find the redundant line of code in the previous lesson? Just in
+case you did not, it was line 22. We were asking Python to simplify two
+integers before returning a new <tt>Fraction</tt> object. However, in calling
+<tt>Fraction()</tt>, we automatically ask Python to simplify [line 10] the
+arguments. We want to keep line 10, as it gives the required result for our
+test on line 43; so, we can eliminate the call to <tt>simplify()</tt> on line
+22.</p>
+<p>Now, we are ready to add a division method. To divide two fractions, we
+multiply the first fraction by the <i>multiplicative inverse</i> of the
+second; Something like this:</p>
+<pre>
+1   3     1   4     4     2
+- / -  =  - * -  =  -  =  -
+2   4     2   3     6     3
+</pre>
+<p>The multiplicative inverse of a fraction is obtained by interchanging the
+numerator with the denominator ("flipping" the fraction upside down). Let's
+see how we do that with Python.</p>
+<!--=============================================-->
+<hr width="50%">
+<h3 class="section">Dividing two fractions</h3>
+<p>To tell Python to understand that the using the symbol "<tt>/</tt>"
+between two fractions means that we want to divide these two fractions, we
+make the appropriate definition for the function <tt>__div__()</tt>. Here are
+the relevant parts of our new code:</p>
+<pre>
+<span class='linenumber'>  8 </span><span class=
+'keyword'>class</span> Fraction(object):
+<span class='linenumber'>  9 </span>    <span class=
+'keyword'>def</span> __init__(self, numerator, denominator=<span class=
+'number'>1</span>):
+<span class=
+'linenumber'> 10 </span>        num, denom = self.simplify(numerator, denominator)
+<span class='linenumber'> 11 </span>        self.num = num
+<span class='linenumber'> 12 </span>        self.denom = denom
+
+<span class='newlinenumber'> 24 </span>    <span class=
+'keyword'>def</span> __div__(self, other):
+<span class='newlinenumber'> 25 </span>        num = self.num * other.denom
+<span class='newlinenumber'> 26 </span>        denom = self.denom * other.num
+<span class='newlinenumber'> 27 </span><span class=
+'keyword'>        return</span> Fraction(num, denom)
+
+<span class='linenumber'> 38 </span><span class=
+'keyword'>if</span> __name__ ==<span class='string'> "__main__"</span>:
+<span class='linenumber'> 39 </span>    a = Fraction(<span class=
+'number'>1</span>,<span class='number'> 2</span>)
+<span class='linenumber'> 40 </span>    b = Fraction(<span class=
+'number'>3</span>,<span class='number'> 1</span>)
+<span class='linenumber'> 41 </span><span class=
+'keyword'>    assert</span> str(a) ==<span class='string'> "(1/2)"</span>
+<span class='linenumber'> 42 </span><span class=
+'keyword'>    assert</span> str(b) ==<span class='string'> "(3)"</span>
+<span class='linenumber'> 43 </span><span class=
+'keyword'>    assert</span> str(a*b) ==<span class='string'> "(3/2)"</span>
+<span class='linenumber'> 44 </span>    c = Fraction(<span class=
+'number'>1</span>,<span class='number'> 3</span>)
+<span class='linenumber'> 45 </span><span class=
+'keyword'>    assert</span> str(b*c) ==<span class='string'> "(1)"</span>
+<span class='linenumber'> 46 </span>    d = Fraction(<span class=
+'number'>5</span>,<span class='number'> 10</span>)
+<span class='linenumber'> 47 </span><span class=
+'keyword'>    assert</span> str(d) ==<span class='string'> "(1/2)"</span>
+<span class='newlinenumber'> 48 </span><span class=
+'keyword'>    print</span> a/b
+<span class='newlinenumber'> 49 </span><span class=
+'keyword'>    print</span> a/a
+</pre>
+<p>The result is</p>
+<pre>
+(1/6)
+(1)
+</pre>
+<p>as desired. All we need to do is convert the <span class=
+"pykeyword">print</span> statements [lines 48 and 49] into <span class=
+"pykeyword">assert</span> statements and we are ready to continue.</p>
+<!--=============================================-->
+<hr width="50%">
+<h3 class="section">Adding and subtracting</h3>
+<p>The next thing we want to do is add and substract fractions. We will start
+with the addition. However, this time we will proceed differently: we will
+first start by using <span class="pykeyword">assert</span> to express results
+that we would expect, if Python knew how to add two fractions. Of course, it
+will fail by raising an exception. We will then go back, write the code
+required to make the tests work.</p>
+<p>This approach is known as <i>Test driven development</i>. It is a modern
+way to used to write computer programs and is getting more and more popular
+as it really helps to prevent bugs.</p>
+<pre>
+<span class='linenumber'> 38 </span><span class=
+'keyword'>if</span> __name__ ==<span class='string'> "__main__"</span>:
+<span class='linenumber'> 39 </span>    a = Fraction(<span class=
+'number'>1</span>,<span class='number'> 2</span>)
+<span class='linenumber'> 40 </span>    b = Fraction(<span class=
+'number'>3</span>,<span class='number'> 1</span>)
+<span class='linenumber'> 41 </span><span class=
+'keyword'>    assert</span> str(a) ==<span class='string'> "(1/2)"</span>
+<span class='linenumber'> 42 </span><span class=
+'keyword'>    assert</span> str(b) ==<span class='string'> "(3)"</span>
+<span class='linenumber'> 43 </span><span class=
+'keyword'>    assert</span> str(a*b) ==<span class='string'> "(3/2)"</span>
+<span class='linenumber'> 44 </span>    c = Fraction(<span class=
+'number'>1</span>,<span class='number'> 3</span>)
+<span class='linenumber'> 45 </span><span class=
+'keyword'>    assert</span> str(b*c) ==<span class='string'> "(1)"</span>
+<span class='linenumber'> 46 </span>    d = Fraction(<span class=
+'number'>5</span>,<span class='number'> 10</span>)
+<span class='linenumber'> 47 </span><span class=
+'keyword'>    assert</span> str(d) ==<span class='string'> "(1/2)"</span>
+<span class='linenumber'> 48 </span><span class=
+'keyword'>    assert</span> str(a/b) ==<span class='string'> "(1/6)"</span>
+<span class='linenumber'> 49 </span><span class=
+'keyword'>    assert</span> str(a/a) ==<span class='string'> "(1)"</span>
+<span class='newlinenumber'> 50 </span><span class=
+'keyword'>    assert</span> str(a+a) ==<span class='string'> "(1)"</span>
+<span class='newlinenumber'> 51 </span><span class=
+'keyword'>    assert</span> str(b+b) ==<span class='string'> "(6)"</span>
+<span class='newlinenumber'> 52 </span><span class=
+'keyword'>    assert</span> str(a+b) ==<span class='string'> "(7/2)"</span>
+<span class='newlinenumber'> 53 </span><span class=
+'keyword'>    assert</span> str(c+c) ==<span class='string'> "(2/3)"</span>
+</pre>
+<p>And here's the required addition to the <span class="pykeyword">class</span> <tt>Fraction</tt>:</p>
+<pre>
+<span class='newlinenumber'> 29 </span>    <span class=
+'keyword'>def</span> __add__(self, other):
+<span class='newlinenumber'> 30 </span>        denom = self.denom * other.denom
+<span class='newlinenumber'> 31 </span>        num = self.num*other.denom + self.denom*other.num
+<span class='newlinenumber'> 32 </span><span class=
+'keyword'>        return</span> Fraction(num, denom)
+</pre>
+<p>Try it!</p>
+<!--=============================================-->
+<hr width="50%">
+<h3 class="try">Your turn</h3>
+<p>You now should be able to make Python subtract two fractions.  Use <tt>__sub__()</tt>, and check your results!</p>
+<!--=============================================-->
+<hr width="50%">
+<h3 class="section">1 + 1 = ?</h3>
+<p>Before going on to the next lesson, try the following:</p>
+<pre>
+one = Fraction(1)
+<span class="keyword">print</span> one + 1
+</pre>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>26. Interpreting the Python keywords</title>
+</head>
+<body>
+<h2 class="title">26. Python komutlar&#305;n&#305;n yorumlanmas&#305;</h2>
+<p>Son derste Python yorumlay&#305;c&#305;s&#305;n&#305; kullanarak basit matematiksel hesaplamalar&#305; 
+nas&#305;l yapaca&#287;&#305;m&#305;z&#305; ö&#287;rendik. Bu derste Reeborg'un dünyas&#305;nda gördü&#287;ümüz Python 
+komutlar&#305;n&#305;n Python yorumlay&#305;c&#305;s&#305; taraf&#305;ndan nas&#305;l i&#351;lendi&#287;ini görece&#287;iz. </p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Sat&#305;rlar&#305;n ayr&#305;lmas&#305;</h3>
+<p>Basit bir i&#351;lemle ba&#351;layal&#305;m: <tt>3*(2+2)</tt><font face="Times New Roman"><tt>ifadesini 
+girin ve Enter'a bas&#305;n. </tt></font>Sonuç a&#351;a&#287;&#305;daki gibi olmal&#305;d&#305;r: </p>
+<pre>
+&gt;&gt;&gt; 3*(2+2)
+12
+&gt;&gt;&gt;
+</pre>
+<p>&#350;imdi ifadenin bir bölümünü
+<tt>3*(</tt> girin ve Enter'a bas&#305;n. Sonuç a&#351;a&#287;&#305;daki gibi olmal&#305;d&#305;r:</p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     |
+</pre>
+<p>dikey çizgi&nbsp; "|" yan&#305;p sönen imleçtir (körs&#305;r). Burada dikkat edilecek 
+bir kaç nokta vard&#305;r:</p>
+<ul>
+<li>Prompt&nbsp; <tt>&gt;&gt;&gt;</tt> den <tt>...</tt>'ya de&#287;i&#351;ti.&nbsp; Python 
+bu<i><b> farkl&#305; </b></i>prompt ile bizi yar&#305;m b&#305;rakt&#305;&#287;&#305;m&#305;z ifadeyi tamamlamaya 
+davet ediyor ve girdi&#287;imiz ifadenin eksik oldu&#287;unu dü&#351;ünüyor.</li>
+<li>&#304;mleç prompt'un hemen yan&#305;nda de&#287;il 4 bo&#351;luk ilerisinde bekliyor. 
+Python girilen ifadenin tam olmad&#305;&#287;&#305;n&#305; dü&#351;ündü&#287;ünde, kullan&#305;c&#305;n&#305;n ifadenin 
+devam&#305;n&#305; girebilmesi için imleci içeride bekletir, bu &#351;ekilde istenirse bir blok 
+da olu&#351;turulabilir. (Örne&#287;in fonksiyonlar&#305; tan&#305;mlad&#305;&#287;&#305;m&#305;zda da böyle bir yap&#305;yla 
+kar&#351;&#305;la&#351;m&#305;&#351;t&#305;k.)</li>
+</ul>
+<p>&#304;fadenin geri kalan&#305;n&#305; a&#351;a&#287;&#305;daki gibi girelim ve Enter tu&#351;una basal&#305;m. </p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     2+2)
+12
+&gt;&gt;&gt;
+</pre>
+<p>Python ifadenin tamam&#305;n&#305; girdi&#287;imize karar verdi ve i&#351;lemi yap&#305;p do&#287;ru sonucu 
+(12) verdi. Prompt normal haline geldi, ve yeni komutlar girmemizi bekliyor.</p>
+<p>&#350;imdi, <tt>3* </tt> ifadesini yaz&#305;p enter tu&#351;una bas&#305;n. Benim elde etti&#287;im 
+sonuç:</p>
+<pre>
+&gt;&gt;&gt; 3*
+  File <span class="string">"&lt;input&gt;"</span>, line 1
+    3*
+      ^
+SyntaxError: invalid syntax
+&gt;&gt;&gt;
+</pre>
+<p>Buradaki fark Python'a ifadenin devam&#305; oldu&#287;una dair bir ipucu vermemi&#351; 
+olmam&#305;zd&#305;r. &#304;lk durumda, parantez açm&#305;&#351;t&#305;k ve kapatmadan enter'a basm&#305;&#351;t&#305;k. 
+Python parantezin aç&#305;lm&#305;&#351; olmas&#305;n&#305;, ifadenin henüz tamamlanmam&#305;&#351; olmas&#305; olarak 
+alg&#305;lar, en az&#305;ndan aç&#305;lm&#305;&#351; bir parantezin kapanmas&#305; gereklidir, ve kullan&#305;c&#305;ya 
+bunu tamamlama f&#305;rsat&#305;n&#305; farkl&#305; bir prompt ve imleci içeride bekleterek verir.&nbsp; <tt>3* </tt>
+yazd&#305;&#287;&#305;m&#305;zda Python ba&#351;ka eklenecek bir &#351;ey olmad&#305;&#287;&#305;n&#305; varsay&#305;p ifadeyi i&#351;letti 
+ve bu ifadeden bir sonuç alamad&#305;&#287;&#305;n&#305; bize söyledi. </p>
+<p>&#350;imdi a&#351;a&#287;&#305;daki örne&#287;i deneyin:</p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     2+2
+...
+...
+...     )
+12
+&gt;&gt;&gt;
+</pre>
+<p>Python ifadeyi tamamlamad&#305;&#287;&#305;m&#305;z&#305; dü&#351;ündü&#287;ü müddetçe farkl&#305; bir prompt sunarak 
+ifadeyi tamamlamam&#305;z&#305; bekler, Enter tu&#351;una üst üste bas&#305;lsa dahi bu de&#287;i&#351;mez. 
+A&#351;a&#287;&#305;daki örnekle devam edelim:</p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     2+2
+...     )+(
+...     1+1
+...     )
+14
+&gt;&gt;&gt;
+</pre>
+<p>okumas&#305; ve anlamas&#305; oldukça zor, bunun yerine a&#351;a&#287;&#305;dakini yazmak daha 
+ak&#305;ll&#305;ca olur.</p>
+<pre>
+&gt;&gt;&gt; 3*(2 + 2) + (1 + 1)
+14
+&gt;&gt;&gt;
+</pre>
+<p>A&#351;a&#287;&#305;daki bölüme geçmeden önce biraz daha örnek yapabilirsiniz.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Fonksiyonlar&#305;n Tan&#305;mlanmas&#305;</h3>
+<p>Reeborg'un dünyas&#305;nda gördü&#287;ümüz Python komutlar&#305;n&#305; (ve konular&#305;n&#305;) yeniden 
+incelemek için haz&#305;r durumday&#305;z. &#304;lk komut&nbsp; <span class=
+"pykeyword">def</span>. 2 say&#305;s&#305;n&#305; yazan bir fonksiyon tan&#305;mlayal&#305;m. A&#351;a&#287;&#305;daki 
+tan&#305;mlamay&#305; sizde yap&#305;n.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print2():
+...     <span class="keyword">print</span> 2
+...    
+&gt;&gt;&gt; print2()
+2
+&gt;&gt;&gt; print2()
+2
+&gt;&gt;&gt;
+</pre>
+<p>Tan&#305;mlama sat&#305;r&#305; yaz&#305;l&#305;p enter'a bas&#305;ld&#305;ktan sonra Python'un prompt'u 
+de&#287;i&#351;tirdi&#287;ine ve içe girik oldu&#287;una dikkat ettiniz mi? Bo&#351; bir sat&#305;r b&#305;rak&#305;p 
+enter'a bas&#305;ld&#305;&#287;&#305;nda da (enter'a üst üste 2 kez 
+bas&#305;ld&#305;&#287;&#305;nda) Python'un bunu tan&#305;mlamam&#305;z&#305; bitirdi&#287;imiz &#351;eklinde 
+alg&#305;lad&#305;&#287;&#305;na da dikkat etmi&#351; olmal&#305;s&#305;n&#305;z. Bu arada 
+<font face="Courier New"><b>print2() </b></font>ile <tt><span class="pykeyword">print</span> 2</tt>'nin 
+fark&#305;n&#305; da görmü&#351; olmal&#305;s&#305;n&#305;z.&nbsp; </p>
+<p>&#350;imdi a&#351;a&#287;&#305;dakini deneyelim:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print_many():
+...     <span class="keyword">print</span> 3
+...     <span class="keyword">print</span> 2
+...     <span class="keyword">print</span> 1
+...     <span class="keyword">print</span> 0
+...    
+&gt;&gt;&gt; print_many()
+3
+2
+1
+0
+&gt;&gt;&gt;
+</pre>
+<p>Fonksiyonu tan&#305;mlarken bo&#351; sat&#305;r b&#305;rakmad&#305;&#287;&#305;m&#305;z müddetçe, Python yeni sat&#305;r 
+giri&#351;leri yapmam&#305;z&#305; bekler. Bo&#351; bir sat&#305;r b&#305;rakt&#305;&#287;&#305;m&#305;zda da Python fonksiyonu 
+tamamlad&#305;&#287;&#305;m&#305;z&#305; kabul eder. Bu nedenle bo&#351; sat&#305;rlar&#305;n Python yorumlay&#305;c&#305;s&#305;nda 
+anlam&#305; vard&#305;r. Ama bu durum Reeborg'un dünyas&#305; için geçerli de&#287;ildir. 
+Program&#305;n&#305;z&#305; Python yorumlay&#305;c&#305;s&#305;nda yazm&#305;yorsan&#305;z da durum farkl&#305; olacakt&#305;r. 
+Her iki durumda da bo&#351; sat&#305;rlar i&#351;leme kat&#305;lmayacakt&#305;r.&nbsp; </p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">&nbsp;E&#287;er kafan&#305;z kar&#305;&#351;t&#305;ysa (<span class="pykeyword">if</span> you are confused)</h3>
+<p>Bo&#351; sat&#305;rlar kafan&#305;z&#305; kar&#305;&#351;t&#305;rd&#305; m&#305;? Umutsuzlu&#287;a kap&#305;lmay&#305;n, k&#305;sa zamanda 
+buna al&#305;&#351;acaks&#305;n&#305;z. &#350;imdi daha önceden görmü&#351; oldu&#287;umuz Python komutlar&#305;yla 
+devam ediyorum ve<span class="pykeyword"> if</span>&nbsp; komutu ile ba&#351;l&#305;yorum. </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...     <span class="keyword">print</span> 5 &gt; 4
+...    
+True
+&gt;&gt;&gt;
+</pre>
+<p>5, 4'ten büyük oldu&#287;u için Python&nbsp;
+<span class="pykeyword">if</span> blo&#287;unun içindeki ifadeyi yerine getirdi ve 5 
+&gt; 4 'ün sonucunu &quot;True&quot; olarak verdi. Ama bizim istedi&#287;imiz genelde bu de&#287;ildir. 
+A&#351;a&#287;&#305;dakini deneyin. </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...     <span class="keyword">print</span> <span class=
+"string">"5 &gt; 4"</span>
+...    
+5 &gt; 4
+&gt;&gt;&gt;
+</pre>
+<p>&#304;fadeleri çift t&#305;rnak (&quot;....&quot;) içine alarak Python'da <i>string</i> ad&#305; 
+verilen ve s&#305;radan yaz&#305; olarak i&#351;lem gören (hesaplanmayan) ifadeyi elde ettik. 
+Çift t&#305;rna&#287;&#305;n içerisinde ne varsa bir i&#351;leme tabi tutulmadan ekranda 
+görüntülenir. A&#351;a&#287;&#305;daki gibi de string kullanabiliriz:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...     <span class="keyword">print</span> <span class=
+"string">'5 is greater than 4'</span>
+...    
+5 is greater than 4
+</pre>
+<p>burada matematiksel semboller yerine kelimeler kulland&#305;k, bunun yan&#305; s&#305;ra çift 
+t&#305;rnak yerine tek t&#305;rnak ('....') kulland&#305;k. Python çift t&#305;rnak ve tek t&#305;rnak 
+kullan&#305;m&#305;n&#305; ayn&#305; &#351;ekilde de&#287;erlendirir. Ancak tek t&#305;rnak ile ba&#351;lat&#305;lan bir 
+ifade tek t&#305;rnakla, çift t&#305;rnakla ba&#351;lat&#305;lan bir ifade de çift t&#305;rnakla 
+bitirilmelidir. Bu esnekli&#287;i a&#351;a&#287;&#305;daki örneklerde oldu&#287;u gibi tek t&#305;rnakla 
+ba&#351;lat&#305;lm&#305;&#351; bir ifadenin içerisinde çift t&#305;rnak veya çift t&#305;rnakla ba&#351;lat&#305;lan 
+bir ifadenin içerisinde tek t&#305;rnak yazd&#305;rmak için kullanabiliriz. </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> "It's easy."
+It's easy.
+&gt;&gt;&gt; <span class="keyword">print</span> 'He said: "It is easy".'
+He said: "It is easy".
+</pre>
+<p>Bir string'in içerisinde ba&#351;lang&#305;ç ve biti&#351;te kullan&#305;lan t&#305;rna&#287;&#305;n ayn&#305;s&#305;n&#305;n 
+yaz&#305;n&#305;n içerisinde de gösterilmesi isteniyorsa bu durumda ters sla&#351; (\) 
+kullan&#305;l&#305;r, a&#351;a&#287;&#305;daki örneklerde oldu&#287;u gibi ters sla&#351; t&#305;rnak i&#351;aretinden hemen 
+önce koyulmal&#305;d&#305;r. </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> 'She said: "It\'s easy".'
+She said: "It's easy".
+</pre>
+<p> <span class="pykeyword">if</span>'e geri dönelim ve&nbsp;
+<span class="pykeyword">else</span> ile birlikte kullanal&#305;m. </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...    <span class="keyword">print</span> <span class=
+"string">"5 is greater than 4"</span>
+... <span class="keyword">else</span>:
+...    <span class="keyword">print</span> <span class=
+"string">"4 is greater than 4"</span>
+...    
+5 is greater than 4
+</pre>
+<p>Yukar&#305;daki ç&#305;kt&#305; sizin için bir sürpriz olmamal&#305;. Ancak bu kodlar&#305; kendiniz 
+de mutlaka denemelisiniz. <span class="pykeyword">else</span>'i <span class="pykeyword">&nbsp;if'</span>le 
+ayn&#305; hizaya getirmek için backspace tu&#351;unu kullanman&#305;z gerekecek. </p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Biraz daha fonksiyon tan&#305;mlayal&#305;m</h3>
+<p>Az önce yazd&#305;&#287;&#305;m&#305;z kodu daha yararl&#305; hale getirelim: </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> greater():
+...     <span class="keyword">if</span> 5 &gt; 4:
+...         <span class="keyword">print</span> <span class=
+"string">"5 is greater than 4"</span>
+...     <span class="keyword">else</span>:
+...         <span class="keyword">print</span> <span class=
+"string">"4 is greater than 5"</span>
+...    
+&gt;&gt;&gt; <span class="comment"># &#351;imdi kullanal&#305;m!</span>
+&gt;&gt;&gt; greater()
+5 is greater than 4
+</pre>
+<p>&#304;lerideki konulara geçmeden önce yukar&#305;daki örne&#287;i mutlaka kendiniz deneyin, 
+ve hizalamalara dikkat edin.</p>
+<p>Yukar&#305;daki fonksiyon herhangi iki say&#305;y&#305; kar&#351;&#305;la&#351;t&#305;rabilseydi daha iyi olmaz 
+m&#305;yd&#305;? Bunu yapabilmek için de&#287;i&#351;kenlerin kullan&#305;m&#305;n&#305; ö&#287;renmeliyiz. </p><center>
+<a href="25-interpreter.htm"><img alt="previous" src=
+"../../images/previous.png">Python toplama yapmay&#305; zaten biliyordu</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<a href=
+"27-variables.htm">De&#287;i&#351;kenler<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

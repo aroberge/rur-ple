@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>27. Variables</title>
+</head>
+<body>
+<h2 class="title">27. De&#287;i&#351;kenler</h2>
+<p>Be&#351;inci derste Reeborg'a Türkçe ö&#287;retmi&#351;tik. git = move komutunu vererek 
+git'i move ile e&#351;anlaml&#305; hale getirmi&#351;tik. Bu e&#351;itlikten sonra move yerine git 
+kullan&#305;labilmi&#351;ti. </p>
+<p>E&#351;anlaml&#305;lar say&#305;lar için de kullan&#305;labilirler.</p>
+<pre>
+&gt;&gt;&gt; n = 3
+&gt;&gt;&gt; <span class="keyword">print</span> n
+3
+&gt;&gt;&gt; 2*n
+6
+&gt;&gt;&gt; n*n
+9
+</pre>
+<p>Güzel, de&#287;il mi? E&#351;anlaml&#305;n&#305;n de&#287;erini ihtiyaç duydu&#287;umuzda de&#287;i&#351;tirebiliriz.</p>
+<pre>
+&gt;&gt;&gt; n = 3
+&gt;&gt;&gt; <span class="keyword">print</span> n
+3
+&gt;&gt;&gt; n = 2
+&gt;&gt;&gt; <span class="keyword">print</span> n
+2
+</pre>
+<p>E&#351;anlaml&#305;n&#305;n de&#287;erini de&#287;i&#351;tirebildi&#287;imiz için ona <i><b>de&#287;i&#351;ken</b></i> 
+denir. Bir e&#351;anlaml&#305; yarat&#305;l&#305;rken, bir de&#287;i&#351;kene de&#287;er <i>atanm&#305;&#351;</i> olur. &quot;=&quot; 
+sembolü e&#351;ittir &#351;eklinde de&#287;il, e&#351;anlaml&#305;s&#305;d&#305;r &#351;eklinde okunmal&#305;d&#305;r. Bunun 
+nedeni, &quot;e&#287;er n 2'ye e&#351;itse, 2'de n'e e&#351;ittir diyebiliriz&quot;, oysa bunu Python'da 
+denedi&#287;inizde durumun farkl&#305; oldu&#287;unu göreceksiniz. A&#351;a&#287;&#305;daki kodu inceleyin. </p>
+<pre>
+&gt;&gt;&gt; n = 2    <span class="comment"># bu geçerlidir</span>
+&gt;&gt;&gt; 2 = n
+SyntaxError: can't assign to literal
+</pre>
+<p>E&#287;er klavyede e&#351;ittir i&#351;areti yerine a&#351;a&#287;&#305;daki gibi bir sembol olsayd&#305;</p>
+<pre>
+&gt;&gt;&gt; n <font size="6">&larr;</font> 3
+&gt;&gt;&gt; <span class="keyword">print</span> n
+3
+</pre>
+<p>Python'un yarat&#305;c&#305;s&#305; Guido van Rossum bu i&#351;areti e&#351;ittir i&#351;areti yerine 
+kullan&#305;rd&#305;. Bu ayn&#305; zamanda iki say&#305;y&#305; kar&#351;&#305;la&#351;t&#305;r&#305;rken neden "<tt>==</tt>" 
+kulland&#305;&#287;&#305;m&#305;z&#305; da aç&#305;kl&#305;yor.</p>
+<p>K&#305;saca yukar&#305;da gördü&#287;ümüz gibi, bir say&#305; bir de&#287;i&#351;kene atand&#305;ktan sonra bu 
+de&#287;i&#351;ken aynen say&#305;y&#305; kulland&#305;&#287;&#305;m&#305;z &#351;ekilde kullan&#305;labilir. Örne&#287;in:</p>
+<pre>
+&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; b = 2
+&gt;&gt;&gt; c = a + b
+&gt;&gt;&gt; <span class="keyword">print</span> c
+3
+</pre>
+<p>Buraya kadar gördüklerimiz kolay anla&#351;&#305;l&#305;r olmal&#305;. A&#351;a&#287;&#305;daki kod ise 
+ba&#351;lang&#305;çta biraz zor görünebilir:</p>
+<pre>
+&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; a = a + a   <span class="comment"># Sürpriz?</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+2
+</pre>
+<p>"<tt>=</tt>" 'in e&#351;anlaml&#305;s&#305;d&#305;r &#351;eklinde okunmas&#305; gerekti&#287;ini hat&#305;rlay&#305;n. Bu 
+nedenle sürpriz sat&#305;r a&#351;a&#287;&#305;daki gibi okunmal&#305;d&#305;r:</p>
+<il>
+<li>&quot;=&quot; i&#351;aretinin sa&#287;&#305;ndakileri al [burada, <tt>a + a</tt>.]</li>
+<li>Bunun de&#287;erini hesapla.&nbsp; [2; 1 + 1'den dolay&#305;].</li>
+<li>Soldaki de&#287;i&#351;ken [<tt>a</tt>] hesaplanan de&#287;erin (2) e&#351;anlaml&#305;s&#305;d&#305;r.</li>
+</ul>
+<p>Bu &#351;ekilde aç&#305;klayarak, sanki i&#351;i daha anla&#351;&#305;lmaz hale getirdim. Ama bu 
+kullan&#305;ma da k&#305;sa zamanda al&#305;&#351;acaks&#305;n&#305;z.</p>
+<p>Bu yap&#305; çok s&#305;k kullan&#305;ld&#305;&#287;&#305;ndan dolay&#305;, Python'da ayn&#305; i&#351;i a&#351;a&#287;&#305;da oldu&#287;u 
+gibi de yapabilirsiniz:</p>
+<pre>
+&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; a += 3       <span class="comment"># </span><span class="string">"a = a + 3"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+4
+
+&gt;&gt;&gt; a -= 2       <span class="comment"># </span><span class="string">"a = a - 2"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+2
+
+&gt;&gt;&gt; a *= 5       <span class="comment"># </span><span class="string">"a = a * 5"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+10
+
+&gt;&gt;&gt; a /= 2       <span class="comment"># </span><span class="string">"a = a/2"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+5
+</pre>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">S&#305;ra sizde</h3>
+<p>10 taban&#305;nda iki say&#305;y&#305; Reeborg'a toplatman&#305;n ne kadar zor oldu&#287;unu 
+hat&#305;rlay&#305;n. Haf&#305;zan&#305;z&#305; tazelemek gerekirse, yap&#305;lacak i&#351; a&#351;a&#287;&#305;da oldu&#287;u gibi 
+Reeborg'a toplamalar&#305; yapt&#305;rmak.</p>
+<p>
+3+2=5 <img alt="3+2" src="../../images/intro/add3_2_start.png"><img alt="lead to"
+src="../../images/lead_to.png"> <img alt="5" src=
+"../../images/intro/add3_2_end.png">
+</p>
+<p>
+8+4=12 <img alt="8+4" src="../../images/intro/add8_4_start.png"><img alt=
+"lead to" src="../../images/lead_to.png"> <img alt="12" src=
+"../../images/intro/add8_4_end.png"></p>
+<p> &#304;&#351;inizi kolayla&#351;t&#305;rmak için de&#287;i&#351;kenler kullanabilirsiniz, bu durumda daha 
+önceden oldu&#287;u gibi özel bir dünyaya ve bip ta&#351;&#305;maya ihtiyac&#305;n&#305;z olmayacak. Bir 
+kaç tavsiye:</p>
+<ul>
+<li>toplam ad&#305;nda ve ilk de&#287;eri s&#305;f&#305;ra e&#351;itlenmi&#351; bir de&#287;i&#351;ken kullan&#305;n.</li>
+<li>Reeborg'a bipleri birer birer toplat&#305;n ve her defas&#305;nda toplam'&#305;n de&#287;erini 
+bir artt&#305;r&#305;n, <tt>toplam += 1 gibi.</tt></li>
+<li>Reeborg i&#351;ini tamamlad&#305;&#287;&#305;nda iki durumu dü&#351;ünün: toplam 10'dan büyük mü, 
+de&#287;il mi? E&#287;er büyükse bip toplam&#305;ndan 10'u ç&#305;kart&#305;n ve kalan say&#305;da 
+bip'i b&#305;rak&#305;p bir sola ilerleyin ve oraya da eldeki bir'i b&#305;rak&#305;n. De&#287;ilse, tüm 
+bipleri b&#305;rak&#305;n.</li>
+<li><span class="warning">Önemli bir tavsiye:</span> <tt>turn_right()</tt>'dan 
+ba&#351;ka bir fonksiyon tan&#305;mlamay&#305;n, bunun nedenini ilerleyen derslerde 
+göreceksiniz. </li>
+</ul>
+
+<center><a href="26-interpreter2.htm"><img alt="previous" src=
+"../../images/previous.png">Python komutlar&#305;n&#305;n yorumlanmas&#305;</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="28-variables2.htm">De&#287;i&#351;kenler ve Fonksiyonlar<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

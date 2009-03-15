@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Listen to me ... or else ...</title>
+</head>
+<body>
+<h2 class="title">13. Beni dinle yoksa ... <span class="pykeyword">else</span>
+...</h2>
+<p>Programlamay&#305; ö&#287;renmek e&#287;lenceli olabilir, ancak tüm zaman&#305;n&#305;z&#305; bilgisayar&#305;n 
+kar&#351;&#305;s&#305;nda harcamay&#305;n. E&#287;er ya&#287;mur ya&#287;&#305;yorsa çal&#305;&#351;maya devam edin, ya&#287;m&#305;yorsa 
+d&#305;&#351;ar&#305;ya ç&#305;k&#305;n ve oynay&#305;n. (Evet, büyükbaba sende!)</p>
+<!--===========================================-->
+<hr width="50%">
+<h3 class="section">Seçimleri yapmak</h3>
+<p><b>If</b> ile ba&#351;layan cümle ile biraz e&#287;lenelim.</p>
+<p><b>If</b> ya&#287;mur ya&#287;arsa,<br>
+... çal&#305;&#351;maya devam et,<br>
+<b>de&#287;ilse</b>,<br>
+... d&#305;&#351;ar&#305; ç&#305;k ve oyna!</p>
+<p>Bu küçük bir bilgisayar program&#305; gibi gözükmeye ba&#351;lad&#305;. &#350;imdi onu bir 
+Python 
+program&#305; gibi yazal&#305;m. </p>
+<pre>
+<span class="keyword">if</span> it_rains():
+    keep_reading()
+<span class="keyword">else</span>:
+    go_outside_and_play()
+</pre>
+<p>Yeni bir Python komutu ö&#287;rendiniz, <span class=
+"pykeyword">else</span>. E&#287;er ya&#287;mur ya&#287;&#305;yorsa, okumaya devam edin, ya&#287;m&#305;yorsa 
+ne yapaca&#287;&#305;n&#305;z&#305; biliyorsunuz.</p>
+<!--======================================-->
+<hr width="50%">
+<h3 class="section">Reeborg görüyor</h3>
+<p>Reeborg biplerin yan&#305;nda oldu&#287;unu anlamas&#305;n&#305;n yan&#305; s&#305;ra, önünde yolunu 
+kapatan bir duvar olup olmad&#305;&#287;&#305;n&#305; da görebilir. Kafas&#305;n&#305; sa&#287;a yada sola çevirip 
+orada bir duvar olup olmad&#305;&#287;&#305;n&#305; da görebilir. A&#351;a&#287;&#305;daki &#351;artlar&#305; kullanarak 
+bunlar&#305; test edebilirsiniz. </p>
+<pre>
+front_is_clear()  <span class=
+"comment"># True e&#287;er duvar yoksa, False e&#287;er duvar varsa</span>
+left_is_clear() <span class=
+"comment">  # True e&#287;er solunda duvar yoksa, False e&#287;er solunda duvar varsa</span>
+right_is_clear()<span class=
+"comment">  # True e&#287;er sa&#287;&#305;nda duvar yoksa, False e&#287;er sa&#287;&#305;nda duvar varsa</span>
+</pre>
+<p>&#304;lkini Reeborg'un dünyas&#305;n&#305; ke&#351;fetmek için kullanal&#305;m. Reeborg e&#287;er önünde 
+engel yoksa bir ad&#305;m ileriye gidecek, varsa sola dönecek. A&#351;a&#287;&#305;daki program ile 
+bunu yapt&#305;rabiliriz:</p>
+<pre>
+<span class="keyword">if</span> front_is_clear():
+    move()
+<span class="keyword">else</span>:
+    turn_left()
+      
+turn_off()
+</pre>
+<p>A&#351;a&#287;&#305;daki resimlerde program&#305;n iki farkl&#305; durumda çal&#305;&#351;t&#305;r&#305;lm&#305;&#351; halini 
+görüyorsunuz. E&#287;er bu program&#305; denerseniz&nbsp; <span class="pykeyword">else</span> komutundan 
+sonraki <b>:</b> 'y&#305; unutmay&#305;n!.</p>
+<p><img alt="start if" src="../../images/intro/if1start.png"> <img alt=
+"lead to" src="../../images/lead_to.png"> <img alt="end if" src=
+"../../images/intro/if1end.png"></p>
+<p><img alt="start if" src="../../images/intro/if2start.png"> <img alt=
+"lead to" src="../../images/lead_to.png"> <img alt="end if" src=
+"../../images/intro/if2end.png"></p>
+<p>&#350;imdi bu program&#305; 20 kez üst üste tekrarlatal&#305;m: </p>
+<pre>
+<span class="keyword">def</span> move_or_turn():
+    <span class="keyword">if</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+repeat(move_or_turn, 20)      
+turn_off()
+</pre>
+<p>A&#351;a&#287;&#305;daki küçük dünyada bu program&#305;n uygulanm&#305;&#351; halini görüyorsunuz. </p>
+<p><img alt="around" src="../../images/intro/around1.png"></p>
+<p>Bu program&#305; daha ilginç bir hale getirebiliriz. Reeborg e&#287;er önünde engel 
+yoksa dans edecek (4 kez sola dönerek) sonra bir ad&#305;m ileriye gidecek, varsa 
+sola dönecek ve bir bip b&#305;rakacak A&#351;a&#287;&#305;daki program ile bunu yapt&#305;rabiliriz:</p>
+<pre>
+<span class="keyword">def</span> dance():
+    repeat(turn_left, 4)
+<span class="keyword">def</span> move_or_turn():
+    <span class="keyword">if</span> front_is_clear():
+        dance()
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+        put_beeper()
+
+repeat(move_or_turn, 18)      
+turn_off()
+</pre>
+<p>Reeborg'un bu görevi yerine getirmek için yeterli say&#305;da bip'i oldu&#287;undan 
+emin olun. Reeborg'a yeterli say&#305;da bip vermek için
+<img alt="beepers button" src="../../images/intro/btn_beepers.png"> butonunu 
+kullanabilirsiniz. </p>
+
+<p> <tt>dance()</tt> ve <tt>move()</tt>komutlar&#305;n&#305;n ait olduklar&#305; <span class="pykeyword">if</span> 
+'den sonra ayn&#305; düzeyde içe girik yaz&#305;ld&#305;klar&#305;na dikkat edin, bu &#351;ekildeki yaz&#305;m 
+onlar&#305;n ayn&#305; blo&#287;a ait oldu&#287;unu gösterir. Benzer &#351;ekilde<tt> turn_left()</tt> ve
+<tt>put_beeper()</tt> komutlar&#305; da ait olduklar&#305; <span class=
+"pykeyword">else</span> den sonra&nbsp; içe girik yaz&#305;lm&#305;&#351;lard&#305;r. Program 
+çal&#305;&#351;t&#305;r&#305;ld&#305;&#287;&#305;nda ne oldu&#287;unu a&#351;a&#287;&#305;daki &#351;ekilden görebilirsiniz. </p>
+<img alt="around" src="../../images/intro/around2.png">
+<p>Peki a&#351;a&#287;&#305;da oldu&#287;u gibi, <tt>put_beeper()</tt>
+komutunu <tt>turn_left()</tt>komutu ile hizalamak yerine&nbsp;&nbsp; <span class=
+"pykeyword">else</span> ile hizalarsak ne olur. </p>
+<pre>
+<span class="keyword">def</span> dance():
+    repeat(turn_left, 4)
+<span class="keyword">def</span> move_or_turn():
+    <span class="keyword">if</span> front_is_clear():
+        dance()
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+    put_beeper()
+
+repeat(move_or_turn, 18)      
+turn_off()
+</pre>
+<p>Bu durumda <tt>move_or_turn() </tt>tan&#305;mlamas&#305; önce
+<span class="pykeyword">if</span>/<span class="pykeyword">else</span>
+deki durumlardan birini yerine getirecek yani dans edip bir ad&#305;m atacak <b>veya</b> 
+sola dönecek sonrada bir &#351;arta ba&#287;l&#305; olmayan <tt>put_beeper()</tt>komutunu 
+yerine getirecektir. Dolay&#305;s&#305;yla <tt>put_beeper()</tt>komutu <tt>move_or_turn()</tt>her 
+çal&#305;&#351;t&#305;r&#305;ld&#305;&#287;&#305;nda bir &#351;arta ba&#287;l&#305; olmaks&#305;z&#305;n yerine getirilecektir. Program bu 
+hali ile çal&#305;&#351;t&#305;r&#305;ld&#305;&#287;&#305;nda ne oldu&#287;unu a&#351;a&#287;&#305;daki &#351;ekilden görebilirsiniz. </p>
+<img alt="around" src="../../images/intro/around3.png">
+<p>&#350;ekilden de gördü&#287;ünüz gibi her ad&#305;m at&#305;ld&#305;ktan sonra bir bip b&#305;rak&#305;lm&#305;&#351;t&#305;r. 
+Kö&#351;elerde ise iki tane bip vard&#305;r. &#304;lki dans edip ad&#305;m att&#305;ktan sonra, ikincisi 
+sola döndükten sonra koyulmu&#351;tur, yani <tt>put_beeper()</tt>komutu <tt>move_or_turn()</tt>her 
+çal&#305;&#351;t&#305;r&#305;ld&#305;&#287;&#305;nda bir &#351;arta ba&#287;l&#305; olmaks&#305;z&#305;n yerine getirilmi&#351;tir.</p>
+<p>&#350;imdi <tt>put_beeper()</tt>'&#305; a&#351;a&#287;&#305;daki gibi en ba&#351;a hizalayal&#305;m: </p>
+<pre>
+<span class="keyword">def</span> dance():
+    repeat(turn_left, 4)
+<span class="keyword">def</span> move_or_turn():
+    <span class="keyword">if</span> front_is_clear():
+        dance()
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+put_beeper()
+
+repeat(move_or_turn, 18)      
+turn_off()
+</pre>
+<p>Yani art&#305;k
+<font face="Courier New" size="2">move_or_turn()</font> tan&#305;mlamas&#305;na ait 
+olmas&#305;n. Bu haliyle <tt>put_beeper()</tt> ilk yerine getirilecek komut olur, 
+daha sonra&nbsp; <font face="Courier New" size="2">move_or_turn()</font>18 kez 
+tekrarlan&#305;r. Sonuç a&#351;a&#287;&#305;daki gibi olur:</p>
+<p><img alt="around" src="../../images/intro/around4.png"></p>
+<p>&#304;çe girik yazma ile Reeborg'a pek çok bilgi verilebiliyor, bo&#351;luklar i&#351;e 
+yar&#305;yor. Python'un bu özelli&#287;inden dolay&#305; yaz&#305;lan programlar kolay okunur olur 
+ve programlar daha kolay anla&#351;&#305;l&#305;r.&nbsp; </p>
+<hr width="50%">
+<h3 class="try">Engel atlama</h3>
+<p>Reeborg engel atlamada oldukça iyi bir duruma geldi. Art&#305;k uzun ve k&#305;sa 
+mesafeli yar&#305;&#351;lara kat&#305;l&#305;yor. Bir bip'e ula&#351;t&#305;&#287;&#305;nda yar&#305;&#351;&#305; tamamlad&#305;&#287;&#305;n&#305; 
+biliyor. A&#351;a&#287;&#305;da iki yar&#305;&#351; pistini görüyorsunuz, dünya dosyalar&#305; hurdles1.wld ve hurdles2.wld.</p>
+<p><img alt="hurdles start" src="../../images/intro/hurdles1_start.png"></p>
+<br>
+<p><img alt="hurdles start" src="../../images/intro/hurdles2_start.png"></p>
+<p>Yar&#305;&#351;lar&#305;n 20 birimden daha uzun olmad&#305;&#287;&#305;n&#305; varsayarak a&#351;a&#287;&#305;daki gibi bir 
+tan&#305;mlama yap&#305;n:</p>
+<pre>
+<span class="keyword">def</span> move_jump_or_finish():
+    <span class="keyword">if</span> next_to_a_beeper(): <span class=
+"comment"># yar&#305;&#351;&#305;n sonu</span>
+        turn_off()
+    <span class="keyword">else</span>:
+        <span class="keyword">if</span> front_is_clear(): <span class=
+"comment"># engel yok, yar&#305;&#351; devam ediyor</span>
+            move()
+        <span class="keyword">else</span>:
+            jump_one_hurdle()
+</pre>
+<p>uygun bir <tt>jump_one_hurdle()</tt> tan&#305;mlamas&#305;yla Reeborg'a yaln&#305;zca 
+a&#351;a&#287;&#305;daki komutu vererek yar&#305;&#351;&#305; tamamlamas&#305;n&#305; sa&#287;layabilirsiniz.<br>
+<tt>repeat(move_jump_or_finish, 20)</tt>.</p>
+<p>&#304;lave testler eklendikçe kodun daha da içeriye girerek yaz&#305;ld&#305;&#287;&#305;na dikkat 
+edin.</p>
+<center><a href="12-if.htm"><img alt="previous" src=
+"../../images/previous.png">&nbsp; Reeborg kendi kendine karar verebilseydi ...</a>
+- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> -
+<a href="14-elif.htm">If, else, if, else, ....<img alt="next" src=
+"../../images/next.png"></a></center>
+</body>
+</html>

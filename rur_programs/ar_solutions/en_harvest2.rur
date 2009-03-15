@@ -1,0 +1,31 @@
+# Spiral harvesting solution
+# original idea from Evelyne S.R.
+
+def move_and_pick():
+    move()
+    pick_beeper()
+
+# end of definitions
+
+repeat(move_and_pick, 6)
+turn_left()
+repeat(move_and_pick, 5)
+turn_left()
+repeat(move_and_pick, 5)
+turn_left()
+repeat(move_and_pick, 4)
+turn_left()
+repeat(move_and_pick, 4)
+turn_left()
+repeat(move_and_pick, 3)
+turn_left()
+repeat(move_and_pick, 3)
+turn_left()
+repeat(move_and_pick, 2)
+turn_left()
+repeat(move_and_pick, 2)
+turn_left()
+move_and_pick()
+turn_left()
+move_and_pick()
+turn_off()

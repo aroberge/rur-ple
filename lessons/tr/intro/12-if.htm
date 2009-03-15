@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>If only Reeborg could decide on his own ...</title>
+</head>
+<body>
+<h2 class="title">12. <span class="pykeyword">If</span> E&#287;er Reeborg kendi 
+kendine karar verebilseydi...</h2>
+<p><span class="pykeyword">if</span>, <span class=
+"pykeyword"><small>if</small></span> ...</p>
+<p>Bir dakika! Reeborg baz&#305; kararlar alabilir. Bunu size söylememi&#351; miydim?</p>
+<!--=================================================-->
+<hr width="50%">
+<h3 class="section">&#304;lk kararlar</h3>
+<p>Do&#287;ruyu söylemek gerekirse Reeborg'un karar vermek için biraz yard&#305;ma 
+ihtiyac&#305; var: neye karar verece&#287;ini belirlemek için ona seçenekler 
+sunmal&#305;s&#305;n&#305;z. Örne&#287;in, Reeborg bir bip'in yan&#305;nda oldu&#287;unda bip'i almas&#305;n&#305; 
+a&#351;a&#287;&#305;daki kodla sa&#287;layabilirsiniz: </p>
+<pre>
+<span class="keyword">if</span> next_to_a_beeper():
+    pick_beeper()
+</pre>
+<p>Yukar&#305;daki kodun ne anlama geldi&#287;ini aç&#305;klayal&#305;m: </p>
+<ul>
+<li>Python komutu <span class="pykeyword">if </span> Reeborg'a bir <i>ko&#351;ul</i> 
+oldu&#287;unu söyler; ko&#351;ul <tt>True</tt>(do&#287;ru) ya da <tt>False</tt>(yanl&#305;&#351;) de&#287;erini 
+al&#305;r. </li>
+<li><tt>next_to_a_beeper()</tt> bir ko&#351;uldur (veya testtir de diyebiliriz) ve 
+e&#287;er Reeborg bir bip ile ayn&#305; pozisyonda ise <tt>True </tt> (do&#287;ru) farkl&#305; 
+pozisyonda ise <tt>False</tt>(yanl&#305;&#351;) de&#287;erini alacakt&#305;r.</li>
+<li>&#304;ki nokta üst üste (:) den sonra içe girik olarak yaz&#305;lan kodlar e&#287;er ko&#351;ul <tt>True </tt> 
+(do&#287;ru) ise yerine getirilecektir.</li>
+</ul>
+<p>Bu aç&#305;klamay&#305; okudu&#287;unuzda biraz kar&#305;&#351;&#305;k gibi gözükebilir, ancak&nbsp; <span class="pykeyword">if</span> 
+yap&#305;s&#305;n&#305; kullanmak oldukça kolayd&#305;r. Basit bir örnekle aç&#305;klamaya çal&#305;&#351;al&#305;m. 
+Reeborg'a 9 ad&#305;m att&#305;rmak istedi&#287;imizi ve ad&#305;mlar&#305;n&#305; atarken yolunun üstündeki 
+bipleride toplamas&#305;n&#305; istedi&#287;imizi dü&#351;ünelim. (Bir pozisyonda en çok bir bip 
+oldu&#287;unu varsay&#305;yoruz) Mesela ba&#351;lang&#305;ç pozisyonu a&#351;a&#287;&#305;daki gibi olsun:</p>
+<img alt="move_pick_start" src="../../images/intro/move_pick_start.png">
+<p>ve tamamlad&#305;&#287;&#305;nda pozisyonunun a&#351;a&#287;&#305;daki gibi olmas&#305;n&#305; istedi&#287;imizi 
+varsayal&#305;m.</p>
+<p><img alt="move_pick_start" src="../../images/intro/move_pick_end.png"></p>
+<p>Yani Reeborgtan &#351;unu yapmas&#305;n&#305; istiyoruz:</p>
+<ul>
+<li>Bir ad&#305;m ileriye at;</li>
+<li>Bir bip olup olmad&#305;&#287;&#305;n&#305; kontrol et;</li>
+<li>E&#287;er bip varsa onu al; yoksa yoluna devam et;</li>
+</ul>
+<p>bunu 9 kere tekrarla. E&#287;er Reeborg'a bip bulunmayan bir yerdeyken bip'i 
+almas&#305;n&#305; isterseniz bir hata ile kar&#351;&#305;la&#351;t&#305;&#287;&#305;n&#305;z&#305; unutmay&#305;n! Bunu &#351;u &#351;ekilde 
+yapt&#305;rabiliriz:</p>
+<pre>
+<span class="keyword">def</span> move_and_pick():
+    move()
+    <span class="keyword">if</span> next_to_a_beeper():
+        pick_beeper()
+
+repeat(move_and_pick, 9)
+turn_off()
+</pre>
+<p><b>Bunu deneyin!</b></p>
+<hr width="50%">
+<!--==================================================-->
+<h3 class="try">Hasat zaman&#305; Tekrar!</h3>
+<p>Yine hasat zaman&#305;. Ama bu defa baz&#305; havuçlar eksik. Reeborg'un bahçesindeki 
+tüm havuçlar&#305; toplamas&#305;n&#305; sa&#287;lay&#305;n. Dünya dosyas&#305; harvest3.wld. 
+Bundan iki önce yapt&#305;&#287;&#305;n&#305;z hasat zaman&#305; al&#305;&#351;t&#305;rmas&#305;na bak&#305;n. De&#287;i&#351;tirmeniz 
+gereken tek &#351;ey&nbsp; <tt>harvest_one_row()</tt> tan&#305;mlamas&#305;n&#305; yukar&#305;daki&nbsp;
+<tt>move_and_pick()</tt> tan&#305;mlamas&#305;na benzetmek olacakt&#305;r. Ancak, ba&#351;ka 
+de&#287;i&#351;ikli&#287;ede ihtiyac&#305;n&#305;z olabilir.&nbsp; [Örne&#287;in benim hasat zaman&#305; problemi 
+çözümümde, <tt>pick_and_move()</tt>tan&#305;mlamas&#305; yapt&#305;m ve bir kaç küçük 
+de&#287;i&#351;iklik gerekli oldu.]</p>
+<p><img alt="harvest start" src="../../images/intro/harvest3.png"></p>
+<p>Yeni yazd&#305;&#287;&#305;n&#305;z program harvest1.wld dosyas&#305; ile de çal&#305;&#351;mal&#305;d&#305;r, deneyin. </p>
+<center><a href="11-repeat.htm"><img alt="previous" src=
+"../../images/previous.png">&nbsp; Tekrardan kaç&#305;n&#305;n, tekrar!</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="13-else.htm">Beni dinle yoksa&nbsp; ... or else
+....<img alt="next" src=
+"../../images/next.png"></a></center>
+</body>
+</html>
