@@ -50,9 +50,9 @@ languages = {
     'german': [my_encode(u'Deutsch'), {}, 'de', 'german.po'],
     'spanish': [my_encode(u'Español'), {}, 'es', 'spanish.po'],
     'turkish': [my_encode(u'Türkçe'), {}, 'tr', 'turkish.po'],
-    'welsh': [my_encode('Welsh'), {}, 'cy', 'welsh.po']
+    'welsh': [my_encode('Welsh'), {}, 'cy', 'welsh.po'],
+    'Chinese': [my_encode('Simplified Chinese'), {}, 'zh_CN', 'chinese.po']
 }
-language_code = 'en'
 
 #============
 #
@@ -62,29 +62,18 @@ language_code = 'en'
 # If a directory named "locale" exists, wxPython assumes it uses the
 # standard 'gettext' approach and expects some standard functions to
 # be defined - which they are not in my customized version.
-rur_locale = os.path.join(misc.HOME, "rur_locale")
+language_code = 'en'
+_selected = None
 
-def select(choice):
-    global _selected, _changed, language_code
-    _selected = 'en'
-    for lang in languages:
-        if languages[lang][0] == choice:
-            if languages[lang][1] == {}:
-                filename = os.path.join(rur_locale, languages[lang][2],
-                                                    languages[lang][3])
-                languages[lang][1] = build_dict(filename)
-            _selected = languages[lang][1]
-            language_code = languages[lang][2]
-            if not _first_time:
-                _save_language(choice)
+_user_dir = os.path.join(os.path.expanduser("~"), ".rurple")
+if not os.path.exists(_user_dir):  # first time ever
+    try:
+        os.makedirs(_user_dir)
+    except:
+        print "Could not create the user directory."
+        _user_dir = None
 
-def _(message):
-    key = message.replace("\n","")  # message is a key in a dict
-    if key in _selected:
-        return _selected[key]
-    else:
-        return message
-
+_user_file = os.path.join(_user_dir, "rurple.lang")
 
 def build_dict(filename):
     translation = {}
@@ -119,37 +108,53 @@ def build_dict(filename):
                 msgstr = False
     return translation
 
-#--- initialisation
-_first_time = True
-_user_dir = os.path.join(os.path.expanduser("~"), ".rurple")
-if not os.path.exists(_user_dir):  # first time ever
-    try:
-        os.makedirs(_user_dir)
-    except:
-        print "Could not create the user directory."
-        _user_dir = None
+rur_locale = os.path.join(misc.HOME, "rur_locale")
+for lang in languages:
+    filename = os.path.join(rur_locale, languages[lang][2], languages[lang][3])
+    languages[lang][1] = build_dict(filename)
 
-_user_file = os.path.join(_user_dir, "rurple.lang")
+def _select_code(lang_code):
+    global _selected, _changed, language_code
+    for lang in languages:
+        if languages[lang][2] == lang_code:
+            _selected = languages[lang][1]
+            language_code = lang_code
+            _save_language(lang_code)
+
+def select(language):
+    for lang in languages:
+        if language == languages[lang][0]:
+            _select_code(languages[lang][2])
+
+def _(message):
+    global _selected
+    if _selected is None:
+        _selected = 'en'
+    key = message.replace("\n","")  # message is a key in a dict
+    if key in _selected:
+        return _selected[key]
+    else:
+        return message
 
 def _save_language(lang):
-    global _first_time
     try:
         f = open(_user_file, 'w')
         f.write(lang)
         f.close()
     except:
         print "Could not save language preference"
+        print "lang = ", lang
+        print "_user_file = ", _user_file
         pass
 
 def _load_default():
-    global _first_time
     global language_code
     try:
         lang = open(_user_file, 'r').read()
     except:
         print "Language preference not found; default to English."
-        lang = 'English'
-    select(lang)
-    _first_time = False
+        lang = 'en'
+    _select_code(lang)
 
 _load_default()  # import the default language at the start
+

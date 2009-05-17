@@ -34,7 +34,7 @@ class rurChoiceWindow(wx.ScrolledWindow):
                           _("Give beepers to robot"), 
                           _("Remove/add robot from/to world"),
                           _("Toggle world file view"),
-                          "Load new images for robot"]
+                          _("Load new images for robot")]
 
         button_list1 = [
             [wx.NewId(), True, self.ggp.OpenProgramFile, images.OPEN_PROGRAM,
@@ -135,7 +135,7 @@ class rurChoiceWindow(wx.ScrolledWindow):
                           _("Give beepers to robot"), 
                           _("Remove/add robot from/to world"),
                           _("Toggle world file view"),
-                          "Load new images for robot"]
+                          _("Load new images for robot")]
         for i in range(len(tip_list)):
             self.btn_list[i].SetToolTipString(tip_list[i])
         self.ggp.slider_speed.SetToolTipString(tip_list[9])
@@ -240,3 +240,4 @@ class pythonChoiceWindow(wx.Panel):
                          _("Clear text")]
         for i in range(len(tip_list)):
             self.btn_list[i].SetToolTipString(tip_list[i])
+
