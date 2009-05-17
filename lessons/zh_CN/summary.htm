@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content=
+"text/html; charset=utf-8">
+<link rel='stylesheet' href='rurple.css' type='text/css'>
+<title>指令和规测简要</title>
+</head>
+<body>
+<h2 class="title">学习Python: 儿童利用RUR-PLE玩游戏！</h2>
+<h6>André Roberge, © 2005, 2006</h6>
+<h3 class="section">指令和规测简要</h3>
+<p>Reeborg的动作</p>
+<pre>
+move()
+turn_left()
+pick_beeper()
+put_beeper()
+turn_off()
+</pre>
+测试:
+<pre>
+front_is_clear()
+left_is_clear()
+right_is_clear()
+facing_north()
+carries_beepers()
+on_beeper() <span class="comment"># 等于:</span> next_to_a_beeper()
+</pre>
+一些特别的本来附带的功能：
+<pre>
+repeat(function, number_of_times)
+<span class="comment"># 要注意的是这个是等于</span>
+<span class="keyword">给</span> 数字 <span class="keyword">在</span> 一个范围里(number_of_times):
+    功能()
+</pre>
+<p>目标为本的编程:</p>
+<pre>
+Reeborg = UsedRobot()
+Reeborg.move()
+Reeborg.turn_left()
+Reeborg.pick_beeper()
+Reeborg.put_beeper()
+Reeborg.front_is_clear()
+Reeborg.left_is_clear()
+Reeborg.right_is_clear()
+Reeborg.facing_north()
+Reeborg.carries_beepers()
+Reeborg.on_beeper() <span class="comment"># 等于:</span> Reeborg.next_to_a_beeper()
+</pre>
+<p>高级选项:</p>
+<pre>
+set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
+<span class="comment"># 任何颜色可被wxPython认可的</span>
+<span class="comment"># 形式是[1, 2, 3, 4, 5]其中一个</span>
+
+set_delay(次数)
+<span class="comment"># 0 &lt; 次数 &lt; 10 (秒)</span>
+
+Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span class="string">'E'</span>,
+                 beepers=0, name=<span class="string">'robot'</span>, colour=<span class="string">'grey'</span>)
+<span class="comment"># orient_key 是以下其中一个 <span class="string">'E'</span> 或 <span class="string">'e'</span>, <span class="string">'W'</span> 或 <span class="string">'w'</span>, <span class="string">'S'</span> 或 <span class="string">'s'</span>, <span class="string">'N'</span> 或 <span class="string">'n'</span>.</span>
+
+<span class="comment"># 可选择的 <b>机械人</b> 颜色有: <span class="string">'yellow'</span>, 
+# <span class="string">'blue'</span>, <span class="string">'light blue'</span>, <span class="string">'purple'</span> 和 <span class="string">'green'</span>.  
+# 其他颜色将成为默认颜色 (<span class="string">'grey'</span>) 来使用 </span>
+
+<span class="comment"># 需要留意的是一个"serial number"有可能设定一个或多个路径
+# 机械人的"name",每个机械人在整个游戏过程/工作期间
+# 跟rur-ple将会有一个独特的名字。</span>
+
+Reeborg.set_trace_style(style=1, colour=<span class="string">'sea green'</span>) 
+Reeborg.set_delay(time)
+</pre>
+<p>新改善以后的机械人！</p>
+<pre>
+Guido = RefurbishedRobot()  <span class="comment"># 从UsedRobot继承</span>
+
+<span class="comment"># 其它方法:</span>
+Guido.turn_right()
+Guido.facing_east()
+Guido.facing_south()
+Guido.facing_west()
+Guido.roll_dice(n=6) <span class="comment"># 随机整数在1和n之间。</span>
+</pre>
+
+<center><a href="rur.htm"><img alt="home" src=
+"../images/home.png"></a></center>
+</body>
+</html>
