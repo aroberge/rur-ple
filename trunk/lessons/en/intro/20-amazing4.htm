@@ -1,15 +1,94 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>Amazing - part 4</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href="down a beeper.
+
+
+We need to check if there is a wall preventing him from moving first.
+
+
+Here's a solution to the problem.
+
+
+<s0>def</s0> turn_right():
+
+
+repeat(turn_left, 3)
+
+put_beeper()
+<s1># begin changes</s1>
+<s2>if not</s2> front_is_clear():
+
+
+turn_left()
+<s3># end changes</s3>
+move()
+<s4>while not</s4> on_beeper():
+
+
+<s5>if</s5> right_is_clear():
+
+
+turn_right()
+
+
+move()
+
+
+<s6>elif</s6> front_is_clear():
+
+
+move()
+
+
+<s7>else</s7>:
+
+
+turn_left()
+
+turn_off()
+
+
+Test it now and see that it works.
+
+
+Can you imagine situations where it might not work?
+
+
+19-amazing3.htm
+
+
+previous
+
+
+../../images/previous.png
+
+
+../lessons_toc.htm
+
+
+home
+
+
+../../images/home.png
+
+
+21-amazing5.htm
+
+
+next
+
+
+../../images/next.png
+
+
+<a0><i1> Amazing - part3</a0> - <a2><i3></a2> - <a4>Amazing - par" type='text/css'>
+<title>神奇-第四部分</title>
 </head>
 <body>
-<h2 class="title">20. Amazing - part 4</h2>
-<p>As you most likely found out, we were too hasty in asking Reeborg to move
-forward after putting down a beeper. We need to check if there is a wall
-preventing him from moving first. Here's a solution to the problem.</p>
+<h2 class="title">20. 神奇-第四部分</h2>
+<p>你可能已经发现了，当机器人放下beeper后，我们太匆忙就让他前进了。 我们应当首先检查一下是否有墙阻碍他前进。 这里有一个解决方案。</p>
 <pre>
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
@@ -31,8 +110,7 @@ move()
 
 turn_off()
 </pre>
-<p>Test it now and see that it works. Can you imagine situations where it
-might not work?</p>
+<p>现在试一下这个程序，可以发现它成功了！ 你可以想象出在哪种情况下它是不能工作的吗？</p>
 <center><a href="19-amazing3.htm"><img alt="previous" src=
 "../../images/previous.png"> Amazing - part3</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=

@@ -1,15 +1,105 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>Amazing - part 3</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href="rogram doesn't work.
+
+
+What happens is that Reeborg gets in an infinite loop when there is no wall around him.
+
+
+We need to have him <t0>move()</t0> after turning right, as indicated below:
+
+
+<s0>def</s0> turn_right():
+
+
+repeat(turn_left, 3)
+
+put_beeper()
+move()
+<s1>while not</s1> on_beeper():
+
+
+<s2>if</s2> right_is_clear():
+
+
+turn_right()
+
+
+move()
+
+
+<s3>elif</s3> front_is_clear():
+
+
+move()
+
+
+<s4>else</s4>:
+
+
+turn_left()
+
+turn_off()
+
+
+More complicated world
+
+
+Now, consider the world illustrated below.
+
+
+Will our program work?
+
+
+around the world: start
+
+
+../../images/intro/around3start.png
+
+
+As you probably guessed, unfortunately the answer is no.
+
+
+Try to figure out why before reading any further.
+
+
+18-amazing2.htm
+
+
+previous
+
+
+../../images/previous.png
+
+
+../lessons_toc.htm
+
+
+home
+
+
+../../images/home.png
+
+
+20-amazing4.htm
+
+
+next
+
+
+../../images/next.png
+
+
+<a0><i1> Amazing - part2</a0> - <a2><i3></a2> - <a4>Amazing - part 4 <i5></a4>
+
+" type='text/css'>
+<title>神奇-第三部分</title>
 </head>
 <body>
-<h2 class="title">19. Amazing - part 3</h2>
-<p>As you should have noticed the program doesn't work. What happens is that
-Reeborg gets in an infinite loop when there is no wall around him. We need to
-have him <tt>move()</tt> after turning right, as indicated below:</p>
+<h2 class="title">19. 神奇-第三部分</h2>
+<p>你或许已经注意到，程序不能工作。 当乐跑机器人的周围没有墙时，机器人就陷入了一个无限循环中。 我们要让他在右转后 <tt>move()</tt>，如下所示：</p>
 <pre>
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
@@ -26,15 +116,14 @@ move()
         turn_left()
 
 turn_off()
-</pre>
-<!--================================================-->
+</pre><!--================================================-->
+
 <hr width="50%">
-<h3 class="section">More complicated world</h3>
-<p>Now, consider the world illustrated below. Will our program work?</p>
+<h3 class="section">更复杂的世界</h3>
+<p>现在，我们考虑如下所示的世界。 你的程序还可以工作吗？</p>
 <p><img alt="around the world: start" src=
 "../../images/intro/around3start.png"></p>
-<p>As you probably guessed, unfortunately the answer is no. 
-Try to figure out why before reading any further.</p>
+<p>正如你猜测的那样，答案是不能。 在往下看之前自己尝试着想想这是为什么。</p>
 <center><a href="18-amazing2.htm"><img alt="previous" src=
 "../../images/previous.png"> Amazing - part2</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=

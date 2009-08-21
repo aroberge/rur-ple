@@ -1,37 +1,173 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>Amazing</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href="lesson, we are going to write a complete program to solve problems of increasing complexity.
+
+
+Amazing solution: first steps
+
+
+Let us start by considering a simple problem: having Reeborg go around his world once, assuming there is no obstacle on the way.
+
+
+We have done this before, when we introduced the <t0>front_is_clear()</t0> test.
+
+
+Here's the outline of a solution which supposes that Reeborg carries at least one beeper at the beginning:
+
+
+1.
+
+
+Put down a beeper to mark the starting point.
+
+
+2.
+
+
+Move forward until facing a wall.
+
+
+3.
+
+
+Turn left when facing a wall.
+
+
+4.
+
+
+Repeat steps 2.
+
+
+and 3.
+
+
+until we find the beeper we had put down.
+
+
+5.
+
+
+Turn off when finding the beeper.
+
+
+The key step is 4, where we have a repeating instruction with a test.
+
+
+This instruction can be written as:
+
+
+<s0>while not</s0> on_beeper():
+
+
+following which should be steps 2 and 3 Let's now translate the entire solution in proper code:
+
+
+put_beeper()
+<s0>while not</s0> on_beeper():
+
+
+<s1>if</s1> front_is_clear():
+
+
+move()
+
+
+<s2>else</s2>:
+
+
+turn_left()
+
+turn_off()
+
+
+Take the time to think about what the above program instructs Reeborg to do, if the starting position is the one illustrated below:
+
+
+around the world: start
+
+
+../../images/intro/around1start.png
+
+
+We did not get the desired result, which is indicated below.
+
+
+Did you figure out why?
+
+
+If not, go back and think about it.
+
+
+around the world: start
+
+
+../../images/intro/around1end.png
+
+
+16-while.htm
+
+
+previous
+
+
+../../images/previous.png
+
+
+../lessons_toc.htm
+
+
+home
+
+
+../../images/home.png
+
+
+18-amazing2.htm
+
+
+next
+
+
+../../images/next.png
+
+
+<a0><i1>For a while</a0> - <a2><i3></a2> - <a4
+
+Amazing
+
+
+17.
+
+
+Amazing - part 1
+
+
+In this multi-part lesso" type='text/css'>
+<title>神奇</title>
 </head>
 <body>
 <a name="amazing" id="amazing"></a>
-<h2 class="title">17. Amazing - part 1</h2>
-<p>In this multi-part lesson, we are going to write a complete program to
-solve problems of increasing complexity.</p>
-<!--===================================================-->
+<h2 class="title">17. 神奇-第一部分</h2>
+<p>在这堂课中，我们要写一段完整的程序，目的是降低程序的复杂度。</p><!--===================================================-->
+
 <hr width="50%">
-<h3 class="section">Amazing solution: first steps</h3>
-<p>Let us start by considering a simple problem: having Reeborg go around his
-world once, assuming there is no obstacle on the way. We have done this
-before, when we introduced the <tt>front_is_clear()</tt> test. Here's the
-outline of a solution which supposes that Reeborg carries at least one beeper
-at the beginning:</p>
+<h3 class="section">神奇的解决方案：第一步</h3>
+<p>首先，我们来考虑一个简单的问题：让乐跑机器人环绕他的世界一次，假设一路上没有任何障碍。 在外面引入<tt>front_is_clear()</tt>时，曾经做过这个。 假设机器人一开始就携带了至少一个beeper，如下列出了解决方案的大纲：</p>
 <pre>
-1. Put down a beeper to mark the starting point.
-2. Move forward until facing a wall.
-3. Turn left when facing a wall.
-4. Repeat steps 2. and 3. until we find the beeper we had put down.
-5. Turn off when finding the beeper.
+1. 放下一个beeper，标志起点。
+2. 保持前进直到遇到一面墙
+3. 遇到墙时左转。
+4. 重复步骤2 和3 直到我们发现已经放下的那个beeper。
+5. 发现beeper时停止程序。
 </pre>
-<p>The key step is 4, where we have a repeating instruction with a test. This
-instruction can be written as:</p>
+<p>关键步骤是第四步，那里我们使用了一个重复指令。 这个指令可以这样写：</p>
 <pre>
 <span class="keyword">while not</span> on_beeper():
 </pre>
-<p>following which should be steps 2 and 3 Let's now translate the entire
-solution in proper code:</p>
+<p>步骤2和3应该紧随其后，现在我们用合适的代码来写下整个方案：</p>
 <pre>
 put_beeper()
 <span class="keyword">while not</span> on_beeper():
@@ -42,12 +178,10 @@ put_beeper()
 
 turn_off()
 </pre>
-<p>Take the time to think about what the above program instructs Reeborg to
-do, if the starting position is the one illustrated below:</p>
+<p>如果开始位置是如下所示的情况，根据上述程序，乐跑机器人会怎么做呢？</p>
 <p><img alt="around the world: start" src=
 "../../images/intro/around1start.png"></p>
-<p>We did not get the desired result, which is indicated below. Did you
-figure out why? If not, go back and think about it.</p>
+<p>我们不会得到我们想要的结果，实际情况如下： 你知道为什么吗？ 还没明白的话，回头看看程序再思考一下。</p>
 <p><img alt="around the world: start" src=
 "../../images/intro/around1end.png"></p>
 <center><a href="16-while.htm"><img alt="previous" src=
