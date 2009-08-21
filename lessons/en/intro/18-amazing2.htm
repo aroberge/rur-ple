@@ -1,18 +1,142 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>Amazing - part 2</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href="ad at the end of part 1: we put down a beeper and, before we had the chance to move, tested to see if we were not next to a beeper.
+
+
+Since we were next to a beeper, we never go the chance to get in the <s0>while</s0> <i1>loop.</i1> Perhaps we can change the program to add a <t2>move()</t2> before we start the loop, as follows:
+
+
+put_beeper()
+move()
+<s0>while not</s0> on_beeper():
+
+
+<s1>if</s1> front_is_clear():
+
+
+move()
+
+
+<s2>else</s2>:
+
+
+turn_left()
+
+turn_off()
+
+
+Try it!
+
+
+Not so simple world
+
+
+Let's try the program we wrote on a slightly more complicated world, like the one below which you can easily reproduce.
+
+
+You may want to save the world to a world file before you try your program.
+
+
+around the world: start
+
+
+../../images/intro/around2start.png
+
+
+When you try your program, you will see that the result is not exactly what we wanted: Reeborg takes a shortcut, and doesn't go all the way around.
+
+
+around the world: end
+
+
+../../images/intro/around2end.png
+
+
+The problem is that we assumed that Reeborg only had to move forward or turn left to go around the world; we never took into account situations where we would have wanted him to make a right turn.
+
+
+What Reeborg needs to do is first to check on his right to see if there is still a wall; if not, we have him make a right turn.
+
+
+Here's a modified program that <i0>attempts</i0> to do just that:
+
+
+<s0>def</s0> turn_right():
+
+
+repeat(turn_left, 3)
+
+put_beeper()
+move()
+<s1>while not</s1> on_beeper():
+
+
+<s2>if</s2> right_is_clear():
+
+
+turn_right()
+
+
+<s3>elif</s3> front_is_clear():
+
+
+move()
+
+
+<s4>else</s4>:
+
+
+turn_left()
+
+turn_off()
+
+
+Does it work?
+
+
+Read it carefully to decide for yourself.
+
+
+Then try it to confirm your opinion, or make any change you think appropriate.
+
+
+17-amazing1.htm
+
+
+previous
+
+
+../../images/previous.png
+
+
+../lessons_toc.htm
+
+
+home
+
+
+../../images/home.png
+
+
+19-amazing3.htm
+
+
+next
+
+
+../../images/next.png
+
+
+<a0><i1>Amazing - part1</a0> - <a2><i3></a2> - <a4>Amazing - part 3 <i5></a4>
+
+" type='text/css'>
+<title>神奇-第二部分</title>
 </head>
 <body>
-<h2 class="title">18. Amazing - part 2</h2>
-<p>Here's the cause of the problem we had at the end of part 1: we put down a
-beeper and, before we had the chance to move, tested to see if we were not
-next to a beeper. Since we were next to a beeper, 
-we never go the chance to get in the
-<span class="pykeyword">while</span> <i>loop.</i> Perhaps we can change the
-program to add a <tt>move()</tt> before we start the loop, as follows:</p>
+<h2 class="title">18. 神奇-第二部分</h2>
+<p>这是我们在上一部分结尾所遇问题的原因：我们放下一个beeper，在我们移动之前，先测试看看我们是否在一个beeper旁边。 一旦我们是在一个beeper旁边，我们不再有机会进入到 <span class="pykeyword">while</span> <i>循环</i>中去。或许我们可以在开始循环前加上一个 <tt>move()</tt>。如下所示：</p>
 <pre>
 put_beeper()
 move()
@@ -24,28 +148,19 @@ move()
 
 turn_off()
 </pre>
-<p><b>Try it!</b></p>
-<!--================================================-->
+<p><b>试试看！</b></p><!--================================================-->
+
 <hr width="50%">
-<h3 class="section">Not so simple world</h3>
-<p>Let's try the program we wrote on a slightly more complicated world, like
-the one below which you can easily reproduce.  You may want to save the world
-to a world file before you try your program.</p>
+<h3 class="section">复杂一点的世界</h3>
+<p>现在，我们要基于一个略有些复杂的世界运行这个程序，这个世界如下所示： 在你开始程序前，你可以将这个世界保持到一个世界文件。</p>
 <p><img alt="around the world: start" src=
 "../../images/intro/around2start.png"></p>
-<p>When you try your program, you will see that the result is not exactly
-what we wanted: Reeborg takes a shortcut, and
-doesn't go all the way around.</p>
+<p>一旦试了程序，你就会发现，结果并不是我们希望的那样：机器人走了一个捷径，而非环游了全世界。</p>
 <p><img alt="around the world: end" src=
 "../../images/intro/around2end.png"></p>
-<p>The problem is that we assumed that Reeborg only had to move forward or
-turn left to go around the world; we never took into account situations where
-we would have wanted him to make a right turn. What Reeborg needs to do is
-first to check on his right to see if there is still a wall; if not, we have
-him make a right turn. Here's a modified program that <i>attempts</i>
-to do just that:</p>
+<p>问题就在于，我们只是假设他周游世界时只有前进和左转两个动作，而忽视了让他右转的情况。 机器人应当首先检查他的右边是否有一堵墙，否则的话，我们让他右转。 这里有一个修改后的程序，<i>预期</i>可以实现这样的功能：</p>
 <pre>
-<span class="keyword">def</span> turn_right():
+‘<span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
 
 put_beeper()
@@ -60,8 +175,7 @@ move()
 
 turn_off()
 </pre>
-<p>Does it work? Read it carefully to decide for yourself. Then try it to
-confirm your opinion, or make any change you think appropriate.</p>
+<p>成功了吗？ 仔细地读读。 试试看，或者你觉得合适的话，可以做一些改变。</p>
 <center><a href="17-amazing1.htm"><img alt="previous" src=
 "../../images/previous.png">Amazing - part1</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
