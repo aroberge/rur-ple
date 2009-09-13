@@ -1,232 +1,69 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href="to have Reeborg keep walking until he finds a beeper, and then turn himself off.
-
-
-An example of a starting position is below:
-
-
-stop at beeper
-
-
-../../images/intro/stop_at_beeper.png
-
-
-One way to do this- in <i0>pseudocode</i0>- would be as follows:<br1>
-
-
-<br2>
-
-
-If on beeper,<br3>
-
-
-... stop;<br4>
-
-
-otherwise,<br5>
-
-
-... keep moving.<br6>
-
-
-<br7>
-
-
-Using what we have seen so far, we could translate this as:
-
-
-<s0>if</s0> on_beeper():
-
-
-turn_off()
-<s1>else</s1>:
-
-
-move()
-
-
-This is only part of the solution as we have not told Reeborg to keep on repeating.
-
-
-Let's ignore this for now.
-
-
-Instead, consider the equivalent <i0>pseudocode</i0> formulation:<br1>
-
-
-<br2>
-
-
-If not on beeper,<br3>
-
-
-...keep moving;<br4>
-
-
-otherwise,<br5>
-
-
-...stop.<br6>
-
-
-<br7>
-
-
-While we have reversed the order of &quot;keep moving&quot; and &quot;stop&quot;, you should agree that the two ways are equivalent.
-
-
-The key point is the use of the negation <s8>not</s8> after the <s9>if</s9> in the second case.
-
-
-Python also allows us to negate some tests as follows:
-
-
-<s0>if not</s0> on_beeper():
-
-
-move()
-<s1>else</s1>:
-
-
-turn_off()
-
-
-To transform this into a complete program, using what we have seen so far, we could need to <s0>def</s0>ine an instruction, and then have it repeated often enough to ensure that Reeborg can complete its task.
-
-
-Your turn
-
-
-Use the new Python keyword <s0>not</s0> and rewrite your jumping hurdle program.
-
-
-Weeding and seeding time
-
-
-It is spring time.
-
-
-Reeborg's father has seeded the garden for the fall harvest.
-
-
-In some places, two seeds have sprouted whereas in others none have.
-
-
-A typical situation is shown below (file: harvest4.wld).
-
-
-weeding
-
-
-../../images/intro/harvest4.png
-
-
-Help Reeborg weed the garden, so that there are no places where two carrots (beepers) are, and reseed so that there is no places with no carrots.
-
-
-The final situation should look as follows:
-
-
-weeding
-
-
-../../images/intro/harvest1.png
-
-
-Here's a <i0>suggestion</i0> for part of the code:
-
-
-<s0># introducing vocabulary related to the problem</s0>
-next_to_a_carrot = on_beeper
-plant_carrot = put_beeper
-pick_carrot = pick_beeper
-
-<s1>def</s1> one_carrot_only():
-
-
-<s2>if not</s2> next_to_a_carrot():
-
-
-plant_carrot()      <s3># replace missing seed</s3>
-
-
-<s4>else</s4>:
-
-
-pick_carrot()
-
-
-<s5>if not</s5> next_to_a_carrot(): <s6># oops!</s6>
-
-
-plant_carrot()  <s7># we had removed the only one</s7>
-
-
-Note that, in reality, it is <b0>not</b0> a good idea to remove seedlings and replant them right away!
-
-
-14-elif.htm
-
-
-previous
-
-
-../../images/previous.png
-
-
-../lessons_toc.htm
-
-
-home
-
-
-../../images/home.png
-
-
-16-while.htm
-
-
-next
-
-
-../../images/next.png
-
-
-<a0><i1> If, else, if, else, ....</a0> - <a2><i3></a2> - <a4>For a while <i5></a4" type='text/css'>
-<title>不是真的!?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Not true!?</title>
 </head>
 <body>
 
-<h2 class="title">15. <span class="pykeyword">不是</span>真的!?</h2>
-<p>假设我们希望机器人持续前进直到它遇到一个beeper然后停下来。 一个开始位置的例子如下所示：</p>
+<h2 class="title">15. <span class="pykeyword">not</span> true!?</h2>
+<p>Suppose we want to have Reeborg keep walking until he finds a beeper, and
+then turn himself off. An example of a starting position is below:</p>
 <img alt="stop at beeper" src="../../images/intro/stop_at_beeper.png">
-<p>做这个的一种方法- 在 <i>pseudocode</i>中-如下所示:<br> <br> 如果在beeper上,<br> ... 停止;<br> 否则,<br> ...保持移动.<br> <br> 用迄今为止我们已经学习的知识，我们可以将这翻译为：</p>
+<p>One way to do this- in <i>pseudocode</i>- would be as follows:<br>
+<br>
+If on beeper,<br>
+... stop;<br>
+otherwise,<br>
+... keep moving.<br>
+<br>
+Using what we have seen so far, we could translate this as:</p>
 <pre>
 <span class="keyword">if</span> on_beeper():
     turn_off()
 <span class="keyword">else</span>:
     move()           
-</pre>这只是解决方案的一部分因为我们还没有告诉机器人要保持重复。 现在我们暂时忽视这个。 现在，考虑 相同的<i>pseudocode</i> 规则:<br> <br> 如果不在beeper上，<br> ...保持前进;<br> 否则,<br> ...停止.<br> <br> 当我们翻转了命令 "保持前进" 和 "停止",你应当承认这两种方法是等价的。 关键点在于，在第二个例子中，我们在 <span class="pykeyword">if</span>后面用了<span class="pykeyword">not</span>。 Python也允许我们否定一些文本，如下：<pre>
+</pre>
+This is only part of the solution as we have not told Reeborg to keep on
+repeating. Let's ignore this for now. Instead, consider the equivalent
+<i>pseudocode</i> formulation:<br>
+<br>
+If not on beeper,<br>
+...keep moving;<br>
+otherwise,<br>
+...stop.<br>
+<br>
+While we have reversed the order of "keep moving" and "stop", you should
+agree that the two ways are equivalent. The key point is the use of the
+negation <span class="pykeyword">not</span> after the <span class="pykeyword">if</span> in the second case. Python also allows us to
+negate some tests as follows:
+<pre>
 <span class="keyword">if not</span> on_beeper():
     move()
 <span class="keyword">else</span>:
     turn_off()          
 </pre>
-<p>用迄今我们所学的知识将将这翻译成完整的程序, 我们可能需要 <span class="pykeyword">定义</span>一个指令, 然后使得它重复足够多次以确保机器人能够完成它的任务。</p>
-<h3 class="try">轮到你了</h3>
-<p>使用新的Python关键词 <span class="pykeyword">not</span>，重写一遍你的跨栏程序。</p>
+<p>To transform this into a complete program, using what we have seen so far,
+we could need to <span class="pykeyword">def</span>ine an instruction, and
+then have it repeated often enough to ensure that Reeborg can complete its
+task.</p>
+<h3 class="try">Your turn</h3>
+<p>Use the new Python keyword <span class="pykeyword">not</span> and rewrite
+your jumping hurdle program.</p>
 <hr width="50%">
-<h3 class="suggested">除草和播种时间</h3>
-<p>春天到了。 乐跑机器人的爸爸在花园里播种了。 在有些地方两个种子都发芽了，而在有些地方，一个也没有。 如下显示了一个典型情况 (文件: harvest4.wld).</p>
+<h3 class="suggested">Weeding and seeding time</h3>
+<p>It is spring time. Reeborg's father has seeded the garden for the fall
+harvest. In some places, two seeds have sprouted whereas in others none have.
+A typical situation is shown below (file: harvest4.wld).</p>
 <img alt="weeding" src="../../images/intro/harvest4.png">
-<p>帮助乐跑机器人给花园除草，使得没有一个地方是有两个胡萝卜，而在没有胡萝卜的地方重新播种。 最后的情况应当如下所示：</p>
+<p>Help Reeborg weed the garden, so that there are no places where two
+carrots (beepers) are, and reseed so that there is no places with no carrots.
+The final situation should look as follows:</p>
 <img alt="weeding" src="../../images/intro/harvest1.png">
-<p>对于部分程序，这里有个 <i>建议</i>：</p>
+<p>Here's a <i>suggestion</i> for part of the code:</p>
 <pre>
-<span class="comment">#根据问题引进一个库、</span>
+<span class="comment"># introducing vocabulary related to the problem</span>
 next_to_a_carrot = on_beeper
 plant_carrot = put_beeper
 pick_carrot = pick_beeper
@@ -234,13 +71,14 @@ pick_carrot = pick_beeper
 <span class="keyword">def</span> one_carrot_only():
     <span class="keyword">if not</span> next_to_a_carrot():
         plant_carrot()      <span class=
-"comment"># 丢失种子的地方重新播种</span>
+"comment"># replace missing seed</span>
     <span class="keyword">else</span>:
         pick_carrot()
         <span class="keyword">if not</span> next_to_a_carrot(): <span class="comment"># oops!</span>
-            plant_carrot()  <span class="comment">#我们已经移掉了唯一的一个</span>
+            plant_carrot()  <span class="comment"># we had removed the only one</span>
 </pre>
-<p>注意，事实上，移除种子重新播种并 <b>不是</b> 一个好主意！</p>
+<p>Note that, in reality, it is <b>not</b> a good idea to remove seedlings
+and replant them right away!</p>
 <center><a href="14-elif.htm"><img alt="previous" src=
 "../../images/previous.png"> If, else, if, else, ....</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=

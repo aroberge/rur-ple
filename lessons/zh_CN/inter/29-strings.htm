@@ -1,0 +1,126 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>29. 你叫什么名字？</title>
+</head>
+<body>
+<h2 class="title">29. 你叫什么名字？</h2>
+<p>我们已经知道了怎么给变量赋值。我们同样也可以给字符串赋值，例如：</p>
+<pre>
+&gt;&gt;&gt; FirstName = &quot;Andre&quot;
+&gt;&gt;&gt; LastName = &quot;Roberge&quot;
+&gt;&gt;&gt; FullName = FirstName + LastName
+&gt;&gt;&gt; <span class="keyword">print</span> FullName
+AndreRoberge
+</pre>
+<p>注意Python是怎么用加号(<tt>+</tt>)把两个字符串连结到一起了，这个操作我们成为字符串连结。注意一下名和姓中间没有空格的。我们可以通过在两个字符串中间插入第三个由单个空格组成的字符串来更正这个名字。</p>
+<pre>
+&gt;&gt;&gt; FullName = FirstName + <span class=
+"string">&quot; &quot;</span> + LastName
+&gt;&gt;&gt; <span class="keyword">print</span> FullName
+Andre Roberge
+</pre>
+<p>还有一种方法可以得到相同的结果，就是用我们用过的 <tt>%s</tt> ，来把多个变量放到一个字符串内。</p>
+<pre>
+&gt;&gt;&gt; name = <span class=
+"string">&quot;%s %s&quot;</span> % (FirstName, LastName)
+&gt;&gt;&gt; <span class="keyword">print</span> name
+Andre Roberge
+</pre>
+<p>最后，我们可以比较两个字符串是否相等。</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> name == FullName
+True
+</pre>
+<p>最后，我们可以比较两个字符串是否相等。</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">分割</h3>
+<p>有时候我们仅仅需要使用字符串里的单个字符。为此，我们需要学习<i>分割</i>。 </p>
+<p>我会给你们三条规则，一条关于表示方法的提示，和一系列例子的结果。这些例子你可以自己用Python解释器来尝试。除了这三条规则，我<b>不会</b> 
+给你任何别的解释，因此你需要自己仔细观察来完全理解发生了什么。</p>
+<ol>
+<li>Python从0开始计数。</li>
+<li>在计数的时候，python不会包括你所期待的最后的数字。</li>
+<li>Python能按一定步长计数。</li>
+</ol>
+<ul><li>有用的表达方法： <tt>[</tt>first<tt>:</tt>last<tt>:</tt>step<tt>]</tt></li>;三个都是可选的。</ul>
+<p>这儿有一些例子。</p>
+<pre>
+&gt;&gt;&gt; alphabet = <span class="string">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
+&gt;&gt;&gt; digits = <span class="string">&#39;0123456789&#39;</span>
+
+&gt;&gt;&gt; alphabet[0]
+&#39;a&#39;
+
+&gt;&gt;&gt; alphabet[1]
+&#39;b&#39;
+
+&gt;&gt;&gt; alphabet[5]
+&#39;f&#39;
+
+&gt;&gt;&gt; digits[0]
+&#39;0&#39;
+
+&gt;&gt;&gt; digits[7]
+&#39;7&#39;
+
+&gt;&gt;&gt; digits[-1]
+&#39;9&#39;
+
+&gt;&gt;&gt; digits[-2]
+&#39;8&#39;
+
+&gt;&gt;&gt; alphabet[-3]
+&#39;x&#39;
+
+&gt;&gt;&gt; digits[0:3]
+&#39;012&#39;
+
+&gt;&gt;&gt; digits[0:4]
+&#39;0123&#39;
+
+&gt;&gt;&gt; digits[0:5]
+&#39;01234&#39;
+
+&gt;&gt;&gt; digits[2:5]
+&#39;234&#39;
+
+&gt;&gt;&gt; alphabet[2:5]
+&#39;cde&#39;
+
+&gt;&gt;&gt; digits[0:10:2]
+&#39;02468&#39;
+
+&gt;&gt;&gt; digits[0::2]
+&#39;02468&#39;
+
+&gt;&gt;&gt; digits[0::3]
+&#39;0369&#39;
+
+&gt;&gt;&gt; digits[::3]
+&#39;0369&#39;
+
+&gt;&gt;&gt; digits[::-1]
+&#39;9876543210&#39;
+
+&gt;&gt;&gt; digits[::-2]
+&#39;97531&#39;
+
+&gt;&gt;&gt; digits[::-3]
+&#39;9630&#39;
+
+&gt;&gt;&gt; alphabet[:10:2]
+&#39;acegi&#39;
+</pre>
+<p>组成你自己的字符串并且尝试更多的例子吧！</p>
+
+<center><a href="28-variables2.htm"><img alt="previous" src=
+"../../images/previous.png">变量和函数</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"30-dot.htm">面向对象编程：“点”符号<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

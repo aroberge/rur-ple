@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>26. 解释Python关键字</title>
+</head>
+<body>
+<h2 class="title">26. 解释Python关键字</h2>
+<p>上一节课我们看到怎样让Python解释器来执行一些简单的算术命令。这一课里，我们来看看Python解释器对我们在乐跑世界里所用的Python 
+关键字是怎么处理的吧。</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Breaking lines</h3>
+<p>我们先从简单的开始吧：在解释器的提示出，输入 <tt>3*(2+2)</tt>，并按下回车，结果如下：</p>
+<pre>
+&gt;&gt;&gt; 3*(2+2)
+12
+&gt;&gt;&gt;
+</pre>
+<p>这次，输入上面表达式的一部分：<tt>3*(</tt>，点击回车。结果如下：</p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     |
+</pre>
+<p>这里的&quot;|&quot;代表闪烁的光标。下面是需要注意的重要事项：</p>
+<ul>
+<li> 提示从<tt>&gt;&gt;&gt;</tt> 变成了<tt>...</tt>。Python给提示我们需要多输入一些文字。Python用他自己的方式<b><i>特别</i></b>提示我们之前输入的短语不够完整。</li>
+<li>光标不是直接接在提示后面，而是向右移动了四个空格。当Python认为输入的表达式不完整，他会提供一些包含提示内容的尖括号来指出一些<i>可能</i>需要添加我们想要执行的指令的地方（就像我们定义例子的函数时所见到的那样）。</li>
+</ul>
+<p>我们接下来在下一行输入剩下的短语，回车，看看我电脑上的结果吧。</p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     2+2)
+12
+&gt;&gt;&gt;
+</pre>
+<p>Python 判断我们已经输入了完整的表达式，从而计算出相应的正确的结果（12），同时用提示告诉我们他已经做好了我们输入更多的表达式的准备。</p>
+<p>现在输入<tt>3*</tt>，回车，结果如下： </p>
+<pre>
+&gt;&gt;&gt; 3*
+  File <span class="string">&quot;&lt;input&gt;&quot;</span>, line 1
+    3*
+      ^
+SyntaxError: invalid syntax
+&gt;&gt;&gt;
+</pre>
+<p>不同之处在于我们并没有给Python 提示我们想要输入更多的内容。第一个例子，我们是有一个左括号&quot;(&quot;，而没有对应的右括号&quot;)&quot;，Python 
+依此推测我们是要输入跟多的内容，最少是&quot;)&quot;……并且它给了我们机会来做这件事情。第二个例子里，Python 
+认为我们没有东西要加了，然后试着推断我们写下的内容——<tt>3*</tt>——的意义，并告诉我们它没有意义。 </p>
+<p>我们下面再试试这个例子：</p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     2+2
+...
+...
+...     )
+12
+&gt;&gt;&gt;
+</pre>
+<p>只要Python认为我们还没有完成输入，他就不会计算表达式，并且继续为我们提供修改提示符。我们可以再用个“傻瓜的”例子试试看。</p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     2+2
+...     )+(
+...     1+1
+...     )
+14
+&gt;&gt;&gt;
+</pre>
+<p>上面这个对我们来说没有什么意义，倒不如下面这个简单的</p>
+<pre>
+&gt;&gt;&gt; 3*(2 + 2) + (1 + 1)
+14
+&gt;&gt;&gt;
+</pre>
+<p>现在你们可以自己试试看啦。</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Defining functions</h3>
+<p>W是时候让我们来复习一下乐跑世界里Python的关键词（和概念）了。第一个关键词是<span class=
+"pykeyword">def</span>。我们来试试简单的print2。看看能不能得到下面的结果。 </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print2():
+...     <span class="keyword">print</span> 2
+...    
+&gt;&gt;&gt; print2()
+2
+&gt;&gt;&gt; print2()
+2
+&gt;&gt;&gt;
+</pre>
+<p>现在大家自己试试看吧。</p>
+<p>注意到在我们的函数的代码中，Python的缩进功能的作用了吗？注意一下他是如何理解我们用来结尾的空行了。注意&quot;<tt>print2</tt>&quot;中间是没有空格的，与&quot;print 
+2&quot;也是不同的。<br>
+&quot;<tt><span class="pykeyword">print</span> 2</tt>&quot;?</p>
+<p>现在看看下面的：</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print_many():
+...     <span class="keyword">print</span> 3
+...     <span class="keyword">print</span> 2
+...     <span class="keyword">print</span> 1
+...     <span class="keyword">print</span> 0
+...    
+&gt;&gt;&gt; print_many()
+3
+2
+1
+0
+&gt;&gt;&gt;
+</pre>
+<p>
+只要我们在函数体中输入非空行的内容，Python就会提示我们输入更多内容。只要我们输入空行Python就断定我们结束了。因此，空行对Python解释器来说有更多的意义，这与乐跑的世界里的情况不同。在Python解释器外的程序里也不是这样的（在上面的两个例子里，空行就是被直接忽略的）。注意，Python解释器对空行的处理（在函数定义中）与对于之前的我们使用了一个左括号而没有对应的右括号的处理是不一样的；之前我们使用一个左括号，而没有对应的右括号，Python就会知道我们还有东西要加上去从而直接忽略空行。</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section"><span class="pykeyword">如果</span> 你觉得很迷惑</h3>
+<p>你是不是发现空行很容易混淆？没关系，很快就会习惯的。下面来看看其他的Python关键词，从<span class="pykeyword">if</span>开始。</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...     <span class="keyword">print</span> 5 &gt; 4
+...    
+True
+&gt;&gt;&gt;
+</pre>
+<p>由于5&gt;4 是个真命题，因此Python会执行<span class="pykeyword">if</span>函数体内的内容，也就是打印5&gt;4 <b>
+的结果</b><br>，输出时“true”。但这可能不是我们想要的结果。换下面的试试看：</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...     <span class="keyword">print</span> <span class=
+"string">&quot;5 &gt; 4&quot;</span>
+...    
+5 &gt; 4
+&gt;&gt;&gt;
+</pre>
+<p>使用引用符号，可以将一些内容变为一个<i>字符串</i>。Python称这种字符串为规则内容（也就是不会去进行计算的内容）。我们也可以这么写：</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...     <span class="keyword">print</span> <span class=
+"string">&#39;5 is greater than 4&#39;</span>
+...    
+5 is greater than 4
+</pre>
+<p>我们需要用一些语句来代替算术符号。更重要的是，我们用的是单引号<tt>(&#39;)</tt>而不是双引号<tt>(&quot;)</tt>
+。Python让我们可以自由选择是要用单引号还是双引号的权利。这也就使得我们可以在需要显示的内容里包括单引号或者双引号。</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> &quot;It&#39;s easy.&quot;
+It&#39;s easy.
+&gt;&gt;&gt; <span class="keyword">print</span> &#39;He said: &quot;It is easy&quot;.&#39;
+He said: &quot;It is easy&quot;.
+</pre>
+<p>如果我们想在一串文本中使用两种引号，我们需要用在引号（或者是双引号）前面输入一个反划线<tt>(\)</tt>作为<i>转义</i>字符，因为如果不输入这样的转移字符，Python解释器会认为这个引号是一个字符串的开始或结束。</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> &#39;She said: &quot;It\&#39;s easy&quot;.&#39;
+She said: &quot;It&#39;s easy&quot;.
+</pre>
+<p>Let&#39;s go back to <span class="pykeyword">if</span> and include
+<span class="pykeyword">else</span> also.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...    <span class="keyword">print</span> <span class=
+"string">&quot;5 is greater than 4&quot;</span>
+... <span class="keyword">else</span>:
+...    <span class="keyword">print</span> <span class=
+"string">&quot;4 is greater than 4&quot;</span>
+...    
+5 is greater than 4
+</pre>
+<p>如果你看上面出现的内容，你就不会奇怪了。但是你还是应该自己试试：你需要用退格键把关键词<span class="pykeyword">else</span>和关键词 <span class="pykeyword">
+if</span>对齐.</p>
+<p>Make sure you try it before going further.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section"><span class="pykeyword">定义</span>更多函数</h3>
+<p>我们可以把之前的片段代码<i>变成</i> 有用的函数。</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> greater():
+...     <span class="keyword">if</span> 5 &gt; 4:
+...         <span class="keyword">print</span> <span class=
+"string">&quot;5 is greater than 4&quot;</span>
+...     <span class="keyword">else</span>:
+...         <span class="keyword">print</span> <span class=
+"string">&quot;4 is greater than 5&quot;</span>
+...    
+&gt;&gt;&gt; <span class="comment"># now let&#39;s use it!</span>
+&gt;&gt;&gt; greater()
+5 is greater than 4
+</pre>
+<p>Y你得自己想办法得出上面的结果（并且学会正确的使用缩进）。</p>
+<p>现在，如果你可以用函数<tt>greater()</tt> 来自动地比较两个数字大小，那不是很美妙吗？要做到这一步，我们需要学习变量了。</p>
+<center><a href="25-interpreter.htm"><img alt="previous" src=
+"../../images/previous.png">Python已经知道了如何做加法</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"27-variables.htm">变量。<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

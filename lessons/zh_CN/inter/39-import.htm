@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content=
+"text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Avoiding repetitions - the important stuff</title>
+</head>
+<body>
+
+
+<h2 class="section">Avoiding repetitions: the <span class="pykeyword">import</span>ant stuff</h2>
+
+<p>Remember the rule about avoiding repetitions:</p>
+
+<dl> <dt><b>Rule # 3 </b></dt><dd> When writing computer programs, do not repeat yourself. <br/>
+ I repeat: <b>do not repeat yourself!</b></dd> 
+</dl>
+<p>What we are going to see in this chapter is a way to avoid "reinventing the wheel".</p>
+
+
+<h3 class="section">1. Remember: three lefts can make a right</h3>
+
+<p>
+Remember when we introduced the <tt>turn_right()</tt> instruction:</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+</pre>
+<p>We did that to avoid having to type <tt>turn_left()</tt> three times in a row every time we wanted to instruct Reeborg to turn right.  However, we still have a lot of repetition since almost every time we write a new program, we end up defining <tt>turn_right()</tt> again.  There is, however, a way to avoid this.  Create the following program and try to run it.</p>
+<pre>
+<span class="keyword">from</span> useful <span class="keyword">import</span> turn_right
+
+turn_right()
+turn_off()
+</pre>
+
+<h3 class="section">2. About <i>useful</i></h3>
+
+<p>I have created for you a fake <i>module</i> named "useful" containing some newly <tt><span class="pykeyword">def</span></tt>ined instructions.  Rather than explaining what each new instruction does, here's a sample program with the corresponding screen capture.</p>
+
+
+<pre>
+<span class="keyword">from</span> useful <span class="keyword">import</span> *
+
+turn_left()
+move()
+set_trace_style(1, <span class="string">'red'</span>)
+turn_right()
+set_trace_style(2, <span class="string">'blue'</span>)
+move()
+set_trace_style(1, <span class="string">'green'</span>)
+climb_up_east()
+set_trace_style(2, <span class="string">'blue'</span>)
+move()
+set_trace_style(1, <span class="string">'orange'</span>)
+turn_around()
+set_trace_style(2, <span class="string">'sea green'</span>)
+climb_up_west()
+set_trace_style(1, <span class="string">'red'</span>)
+turn_around()
+set_trace_style(0, <span class="string">'blue'</span>) <span class="comment"># 0 = invisible</span>
+repeat(move, 4)
+set_trace_style(1, <span class="string">'green'</span>)
+climb_down_east()
+set_trace_style(2, <span class="string">'blue'</span>)
+move()
+set_trace_style(1, <span class="string">'black'</span>)
+turn_around()
+set_trace_style(2, <span class="string">'red'</span>)
+climb_down_west()
+turn_off()
+</pre>
+<p><img alt="import"  src="../../images/intro/import.png"></p>
+<p>Rather than importing every new instruction one by one, as we did in the first example with <tt>turn_right()</tt>, we have use the "*" notation to indicate "all definitions".  Before going any further, I should probably make a few comments:</p>
+<ol>
+<li>For those that know about Python <i>modules</i>, "useful" is not a true module, but a fake one that will only work within Reeborg's world.  You will not be allowed to import any "real" modules and use them in RUR programs.  This has been done for safety reasons.</li>
+<li>A new instruction, <tt>set_trace_style()</tt> has been used.  I could have called it<br />
+ <tt>set_leaking_oil_colour_and_quantity()</tt>, which might have made more sense in Reeborg's world ... but not in general programming jargon.  Roughly speaking, a program <i>trace</i> is a way to follow the sequence of instructions as they are executed. In general, you should have no use for this instruction ... but it can become useful in tracking bugs, or in examples like the one I used.</li>
+<li><span class="keyword">from</span> and <span class="keyword">import</span> are two Python keywords, as can be gathered from the colour used to write them.</li>
+<li>In spite of their names, some of the instructions defined within "useful" can lead to unexpected results if the robot is not in the expected orientation to start with.  Something similar can happen when you import "real" Python modules; you have to be aware of the assumptions that are made for proper use of the module.  I will <b>not</b> tell you about the assumptions made within the fake module "useful". You can find out by trying to write various programs on your own.</li>
+<li>You can normally read the Python (or C) code for real-life Python modules, if you try looking for it.  This can be useful in the absence of documentation, or to learn about how more experienced programmers write their code.</li>
+<li>Because of the restricted nature of the fake import module, some legitimate statements (for example, when the keyword <span class="keyword">import</span> appear in a comment) <i>may</i> lead to an error being reported by rur-ple.</li>
+</ol>
+
+<h3 class="section">3. What if I want to use the same name.</h3>
+<p>Suppose you want to use the name "turn_right" to mean something other than what is defined within useful.  There are a few ways to do this.</p>
+<ol>
+<li>You can use the statement <tt><span class="keyword">import</span> useful</tt>.  When you do this, you need to add <tt>useful.</tt> before the name of each instruction.  For example<br />
+<tt>useful.turn_right()</tt> and <br />
+<tt>turn_right()</tt><br />
+represent two different commands.  The first one is defined within the module "useful" whereas the second would have to be defined by yourself elsewhere.  By <i>prepending</i> <tt>useful.</tt> before each instruction, a reader can immediately refer that these instructions are defined elsewhere.  [<i>We will see another meaning of having something like  <tt>useful.</tt> added to the name of an instruction later when we talk about Object Oriented Programming (OOP).</i>]<br />
+
+</li>
+<li>A second way of doing a similar thing is the following:<br />
+<pre>
+<span class="comment"># The following is useful for French speakers:</span>
+<span class="keyword">from</span> useful <span class="keyword">import</span> turn_right <span class="keyword">as</span> vire_a_droite
+
+<span class="comment"># Use it:</span>
+vire_a_droite()
+turn_off()
+</pre>
+</li>
+</ol>
+The word <tt><span class="keyword">as</span></tt> is <i>almost</i> a Python keyword.  It is very likely that it will become a keyword in a later version of Python.  We will explain what is meant by this statement when we talk about <i>variables.</i>
+
+<h3 class="section">4. Perhaps not so useful after all ...</h3>
+
+<p>If you consider the potential usefulness of the module "useful" in writing your own programs ... you might think that it is too limited to be useful after all.  You can reflect that by writing the following:</p>
+<p>
+<pre>
+<span class="comment"># Importing the module</span>
+<span class="keyword">import</span> useful <span class="keyword">as</span> not_so_useful_after_all
+
+<span class="comment"># Use the various instructions:</span>
+not_so_useful_after_all.turn_right()
+not_so_useful_after_all.turn_around()
+turn_off()
+</pre>
+In real life, the normal use of this type of <tt><span class="keyword">import</span></tt> statement is more along the following lines:
+<pre>
+<span class="comment"># Importing the module</span>
+<span class="keyword">import</span> module_with_very_very_very_long_name <span class="keyword">as</span> short_name
+
+<span class="comment"># Use the various instructions:</span>
+short_name.instruction1()
+short_name.instruction2()
+</pre>
+</p>
+
+<h3 class="section">5. Why import at all?</h3>
+<p>It is often said that Python comes with <i>batteries included</i>.  That is to say, Python includes many useful modules written by very smart people.  These modules have been thoroughly tested to be free of bugs and written very efficiently.  When you learn more about Python and you want to write your own "complicated" programs, it will be really worthwhile to first determine if any relevant module already exists and which could help you in your task.  I will introduce you to a few useful modules in later lessons.</p>
+
+<p>Important note to teachers: as alluded to above, the reason to restrict the usage of import statements is to avoid someone getting hold of an unsafe script and passing it along to an unsuspecting victim. Note that this can still be done in the Python editor window but, hopefully, by then students will know enough to check programs given by "friends" before trying them out.  That being said, if you are familiar with Python it is fairly easy to introduce a small change in the source code of rur-ple to allow arbitrary import statements.  This can be useful in a classroom setting.  Please contact the author if you have a need to do this, and cannot figure it out on your own.</p>
+
+<center><a href="38-class2.htm"><img alt="previous" src=
+"../../images/previous.png">A touch of class.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"40-random.htm">Random escapes.<img alt="next"
+src="../../images/next.png"></a></center>
+
+</body>
+</html>
