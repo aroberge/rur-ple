@@ -1,144 +1,26 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href=" <s1>if, else,</s1></s0>...
-
-
-The previous hurdles exercise <s0>(you did try it, didn't you?)</s0> required to write an <s1>if</s1>/<s2>else</s2> within another one, all this because we wanted to give three choices to Reeborg: finish, move or jump.
-
-
-You may have noticed that this forced us to indent the code further and further.
-
-
-Imagine what would happen if we wanted to give Reeborg 10 mutually exclusive choices; the resulting code would become hard to read.
-
-
-To help us in such situations, Guido van Rossum, the creator of Python, has chosen a keyword that represents the combination of an <s3>else</s3> statement followed by an <s4>if</s4> clause.
-
-
-That keyword is <s5>elif</s5>, which we can think of as an abbreviation for <s6>else if</s6>.
-
-
-With this new keyword, the above code can be written as:
-
-
-<s0>def</s0> move_jump_or_finish():
-
-
-<s1>if</s1> on_beeper():
-
-
-turn_off()
-
-
-<s2>elif</s2> front_is_clear():
-
-
-move()
-
-
-<s3>else</s3>:
-
-
-jump_one_hurdle()
-
-
-We can now better see, as they are indented the same way, that there are three possible choices.
-
-
-The <s0>else</s0> condition is executed only if all the previous conditions are false, so there is no condition associated with it.
-
-
-If we have more than three choices, all we need to do is add other <s1>elif</s1> statements
-
-
-<s0>def</s0> move_jump_or_finish():
-
-
-<s1>if</s1> on_beeper():
-
-
-turn_off()
-
-
-<s2>elif</s2> front_is_clear():
-
-
-move()
-
-
-<s3>elif</s3> right_is_clear(): <s4># always false</s4>
-
-
-<s5>pass</s5>
-
-
-<s6>else</s6>:
-
-
-jump_one_hurdle()
-
-
-As Reeborg follows the bottom wall, <t0>right_is_clear()</t0> is always false, so the <s1>pass</s1> instruction (Python's equivalent of &quot;do nothing&quot;) is always ignored.
-
-
-Note that if we had used <t2>left_is_clear()</t2> instead, Reeborg would have gotten stuck forever as soon as it had reached the first hurdle.
-
-
-<b3>Try it for yourself!</b3>
-
-
-Your turn
-
-
-Try to write a program using <s0>if, elif, else</s0> that works properly with the previous two hurdles courses as well as with the following (in file hurdles3.wld):
-
-
-hurdles start
-
-
-../../images/intro/hurdles3_start.png
-
-
-13-else.htm
-
-
-previous
-
-
-../../images/previous.png
-
-
-../lessons_toc.htm
-
-
-home
-
-
-../../images/home.png
-
-
-15-not.htm
-
-
-next
-
-
-../../images/next.png
-
-
-<a0><i1> Listen to me ... or else ....</a0> - <a2><i3></a2> - <a4>Not true!?
-
-
-" type='text/css'>
-<title>如果，否则，如果，否则 ....</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>If, else, if, else, ....</title>
 </head>
 <body>
-<h2 class="title">14. <span class="pykeyword">如果，否则， 如果，否则，</small></span>...</h2>
-<p>之前的跨栏练习<small>(你已经做过了，是吧?)</small>要求我们写 <span class="pykeyword">if</span>/<span class=
-"pykeyword">else</span>以及另一个命令 , 这都是因为我们想给乐跑机器人三个选择：结束、移动或者跳跃。 你或许已经意识到这迫使我们的代码越嵌越深。 想象一下，如果我们要给机器人10个相互独立的选择，结果代码要变得多么的难读。 为了在这种情况下有所帮助, Guido van Rossum,Python的创造者,选择了一个关键词，它代表了一个<span class="pykeyword">else</span>状态紧跟一个 <span class="pykeyword">if</span> 子句的结合. 这个关键词就是 <span class=
-"pykeyword">elif</span>,我们可以将它看成是<span class="pykeyword">else if</span>的缩写. 用这个新的关键词，以上的代码可以写为：</p>
+<h2 class="title">14. <span class="pykeyword">if, else, <small>if,
+else,</small></span>...</h2>
+<p>The previous hurdles exercise <small>(you did try it, didn't you?)</small>
+required to write an <span class="pykeyword">if</span>/<span class=
+"pykeyword">else</span> within another one, all this because we wanted to
+give three choices to Reeborg: finish, move or jump. You may have noticed
+that this forced us to indent the code further and further. Imagine what
+would happen if we wanted to give Reeborg 10 mutually exclusive choices; the
+resulting code would become hard to read. To help us in such situations,
+Guido van Rossum, the creator of Python, has chosen a keyword that represents
+the combination of an <span class="pykeyword">else</span> statement followed
+by an <span class="pykeyword">if</span> clause. That keyword is <span class=
+"pykeyword">elif</span>, which we can think of as an abbreviation for
+<span class="pykeyword">else if</span>. With this new keyword, the above code
+can be written as:</p>
 <pre>
 <span class="keyword">def</span> move_jump_or_finish():
     <span class="keyword">if</span> on_beeper():
@@ -148,7 +30,11 @@ next
     <span class="keyword">else</span>:
         jump_one_hurdle()
 </pre>
-<p>现在我们可以更清楚的看到，由于它们可以在同一列排列，看起来就有三个可能的选择。 只有当前面所有的条件都是假时，<span class="pykeyword">else</span>才会执行，所以它不跟任何条件。 当我们有多于三个选择时，我们所要做的就是加上其它 <span class="pykeyword">elif</span>状态。</p>
+<p>We can now better see, as they are indented the same way, that there are
+three possible choices. The <span class="pykeyword">else</span> condition is
+executed only if all the previous conditions are false, so there is no
+condition associated with it. If we have more than three choices, all we need
+to do is add other <span class="pykeyword">elif</span> statements</p>
 <pre>
 <span class="keyword">def</span> move_jump_or_finish():
     <span class="keyword">if</span> on_beeper():
@@ -156,14 +42,20 @@ next
     <span class="keyword">elif</span> front_is_clear():
         move()
     <span class="keyword">elif</span> right_is_clear(): <span class=
-"comment"># 总是假</span>
+"comment"># always false</span>
         <span class="keyword">pass</span> 
     <span class="keyword">else</span>:
         jump_one_hurdle()
 </pre>
-<p>当机器人沿着墙走时，<tt>right_is_clear()</tt>总是为假，于是<span class="pykeyword">pass</span> 命令 (Python就相当于“什么也不做”)就总是被忽略。 注意，如果我们已经用了 <tt>left_is_clear()</tt>, 一旦机器人遇到了第一个栏杆，它将永远被黏在原地。 <b>自己尝试一下！</b></p>
-<h3 class="try">轮到你了</h3>
-<p>尝试用<span class="pykeyword">if, elif, else</span>写一个程序，使得它能够如同前两个跨栏课程中的那样运行成功(见文件hurdles3.wld):</p>
+<p>As Reeborg follows the bottom wall, <tt>right_is_clear()</tt> is always
+false, so the <span class="pykeyword">pass</span> instruction (Python's
+equivalent of "do nothing") is always ignored. Note that if we had used
+<tt>left_is_clear()</tt> instead, Reeborg would have gotten stuck forever as
+soon as it had reached the first hurdle. <b>Try it for yourself!</b></p>
+<h3 class="try">Your turn</h3>
+<p>Try to write a program using <span class="pykeyword">if, elif, else</span>
+that works properly with the previous two hurdles courses as well as with the
+following (in file hurdles3.wld):</p>
 <img alt="hurdles start" src="../../images/intro/hurdles3_start.png">
 <center><a href="13-else.htm"><img alt="previous" src=
 "../../images/previous.png"> Listen to me ... or else ....</a> - <a href=

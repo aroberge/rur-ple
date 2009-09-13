@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>25. Python已经知道了如何做加法。</title>
+</head>
+<body>
+<h2 class="title">25. Python已经知道了如何做加法。</h2>
+<p>上一堂课里我们已经看到让乐跑把两个数字相加是多么的复杂。这一课里，让我们来看看Python做加法和其他数学计算是如何的简单。</p> 
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">首先要做的事情</h3>
+<p>点击第三个制表以选择Python解释器(Python: Code and 
+Learn)。显示的内容应该和下图的类似，而不是得到用法语做缺省语言（而不是选择法语作为GUI的默认语言）。</p>
+<p><img alt="Python interpreter" src=
+"../../images/inter/interpreter.png"></p>
+<br>
+<p>暂时忽略这个窗口的前两行。第三行是Python<i>提示</i></p>
+<pre>
+&gt;&gt;&gt;
+</pre>
+<p>现在让我们看看Python可不可以比乐跑更简单地把两个数字相加。把光标放到第三行，点击并选择它，输入&quot;Add 8 and 
+4&quot;，然后点回车键。Python会用它自己的语言-也许看起来会有点冒犯的语言来回答你！</p>
+<pre>
+&gt;&gt;&gt;Add 8 <span class="keyword">and</span> 4
+  File <span class="string">&quot;&lt;input&gt;&quot;</span>, line 1
+    Add 8 <span class="keyword">and</span> 4
+        ^
+SyntaxError: invalid syntax
+&gt;&gt;&gt;
+</pre>
+<p>那么，Python解释器听不懂英语的命令。但是，你应该注意到他识别不出Python 类似<span class="pykeyword">and</span>这种关键词，因为它把这些命令用颜色和其他文字其别开了（和我们之前选择的颜色也区别开了，但没有大关系）。
+<p>这就<u>促使</u>我们要想一些新的输入方法。这次，试试输入简单一点的“8+4”，回车确认。你会看到下面的页面：</p>
+<pre>
+&gt;&gt;&gt; 8+4
+12
+&gt;&gt;&gt; 
+</pre>
+<p>成功了！Python马上就把这两个数字加起来了（这对乐跑来说却比较困难）。这就再次促使你给他更多指令。你可以按照我从解释器里复制过来的下面的内容来做</p>
+<pre>
+&gt;&gt;&gt; 8+4
+12
+&gt;&gt;&gt; 8-4
+4
+&gt;&gt;&gt; 8*4
+32
+&gt;&gt;&gt; 8/4
+2
+</pre>
+<p>正像你看到的那样，Python知道怎么加、减、乘、除。</p>
+<h3 class="section">处理更多的数的计算</h3>
+<p>Python知道算数里的<i>先后顺序</i>。这就意味着，当你在做算术时，Python知道从左到右，先乘除、后加减，等等。下面让我们看看实际的例子，也许可以更好地说明问题。</p>
+<pre>
+&gt;&gt;&gt; 2+3*5
+17
+&gt;&gt;&gt; 2+ (3*5)   <span class=
+"comment"># Python忽略空格</span>
+17
+&gt;&gt;&gt; (2+3)*5
+25
+&gt;&gt;&gt; 2*4/8
+1
+&gt;&gt;&gt; 2+1-4
+-1
+</pre>
+<p>你们自己来试试别的例子吧。看看你是不是能发现一些有趣的东西。</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">奇怪的除法</h3>
+<p>如果你没有得出一些奇怪的结果的话，说明你试的例子还不够多。例如，试试 <tt>7/3</tt>. 你能理解这个结果吗？再试试 <tt>1/2</tt>.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">整除</h3>
+<p>Python可以识别出不同种类的数字。最简单的就是整数了。Python在用一个整数除以另一个整数时总是把余数舍去，给出一个整数的结果。因此，当我们用7除以3时得到的答案是2（余数是1）。为了得到余数部分，我们利用<tt>%</tt>符号。</p>
+<pre>
+&gt;&gt;&gt; 7/3
+2
+&gt;&gt;&gt; 7%3
+1
+&gt;&gt;&gt; 1/2
+0
+&gt;&gt;&gt; 1%2
+1
+</pre>
+<p>为了得到需要的结果，我们必须告诉Python使用实数或者<i>浮点数</i>。</p>
+<pre>
+&gt;&gt;&gt; 1./2
+0.5
+&gt;&gt;&gt; 1/2.
+0.5
+&gt;&gt;&gt; 1.00000/2
+0.5
+</pre>
+<h3 class="section">更多的数学计算</h3>
+<p>Python 知道的不只是简单的算术。你可以试试下面的算术。</p>
+<pre>
+&gt;&gt;&gt; 3*3*3*3
+81
+&gt;&gt;&gt; 3**4  <span class="comment"># 指数</span>
+81
+&gt;&gt;&gt; 7.3 % 3  <span class="comment"># 余数，再次计算</span>
+1.2999999999999998
+</pre>
+<p>最后得到的结果<i>约</i> 等于1.3。1.3和1.2999999999999998的区别很小…并且是因电脑对小数部分的处理方式产生的。在后面你们对电脑编程有了整体了解之后，我会再做解释这些问题。注意，在实际生活中，这个“确切”的结果和Python（或者是其他电脑的语言）给出的结果不会有太大关系。其实Python可以显示更准确的结果，按照下图输入： </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> 7.3 % 3
+1.3
+</pre>
+<p>关键字 <span class="pykeyword">print</span> 智能地让Python把计算的结果告诉我们。有时候Python只进行计算，而不显示结果。利用<span class="pykeyword">
+print</span>这个关键字就可以将这些隐藏的计算结果显示出来。 </p>
+<p>很好奇吧？如果在把 <span class="pykeyword">print</span>这个关键词放在乐跑的程序里会发生什么呢？ </p>
+<h3 class="section">大数的计算</h3>
+<p>试试下面的程序：</p>
+<pre>
+&gt;&gt;&gt; 2147483647 + 1
+2147483648L
+</pre>
+<p>看仔细了：是不是注意到答案后面的奇怪的“L”了？它表示的是<i>长</i>整数，也即是在电脑内存中无法简单地表示的整数。对于一个所谓的32位芯片的电脑，很类似与你现在正在用的，如one I电脑，所有正数都是使用一些32“位”的组合来表示的。用这种方法，能表示的最大的正数是<img alt=
+"2^31" src="../../images/inter/2_31.png">-1 = 2147483647. 
+<!--  wxHtml does not support the <sup> tag  -->
+任何大于这个数的整数需要Python（或者其他计算机语言）使用高级技术对这些数来进行数学计算。这减慢了计算速度；Python使用结尾的L字母提醒我们注意这些数。如果你不是你真的需要，那就试着避开使用这些非常大的数吧。</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">1000不是一个大数</h3>
+<p>试试下面的程序：</p>
+<pre>
+&gt;&gt;&gt; 1,000
+(1, 0)
+&gt;&gt;&gt; 1,000,000,000
+(1, 0, 0, 0)
+</pre>
+<p>发生了什么？我想告诉你，你不应该像大多数英语国家一样在千位后面加逗号。后面我们会看到逗号对Python来说有什么含义。现在，我们来看看放在<span class="pykeyword">print</span> 命令里的逗号意味着什么：</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> 5,4
+5 4
+&gt;&gt;&gt; <span class="keyword">print</span> 5,              4
+5 4
+</pre>
+<p>Python 把逗号的理解成在两个数字中间加一个空格的意思（同时会忽略其他空格）。</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">科学记数法</h3>
+<p>也许你对科学记数法已经相当了解了：</p>
+<p><img alt="scientific notation" src="../../images/inter/sci_not.png"></p>
+<p>如果是这样，那么你应该知道这个记数法可以让我们很方便地记录极大或极小的数。【<small>如果你不知道科学记数法，可以直接跳过这部分</small>】Python也知道科学计数法，但是用字母E（或者e）代替 <tt>x 10</tt></p>
+<pre>
+&gt;&gt;&gt; 2e3
+2000.0
+&gt;&gt;&gt; 2.5E-1
+0.25
+</pre>
+<p>试试吧！</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">其他类型的数</h3>
+<p>Python 也知道计算更<i>复杂</i>的包括<i>8进制</i>、<i>16进制</i>在内的数字。即使你不知道也不必担心。我们只需要知道16进制就可以了，这个我们会在后面学到。</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">比较数的大小</h3>
+<p>Python知道如何对比两个数字，判断出他们是<i>大于</i>
+(<tt>&gt;</tt>) 、<i>小于</i> (<tt>&lt;</tt>) 、等于(<tt>==</tt>)还是不等于(<tt>!=</tt>)的关系。 </p>
+<pre>
+&gt;&gt;&gt; 1&lt;2
+True
+&gt;&gt;&gt; 3&lt;2
+False
+&gt;&gt;&gt; 1&gt;2
+False
+&gt;&gt;&gt; 3&gt;2
+True
+&gt;&gt;&gt; 2==2
+True
+&gt;&gt;&gt; 3==2
+False
+&gt;&gt;&gt; 2!=2
+False
+&gt;&gt;&gt; 3!=2
+True
+</pre>
+<p>试试看吧！记住只有当我们使用两个等于号的时候，才是在比较两个数字是否相等。如果你只用了一个等于号Python会理解成另一种意思。【还有<tt>&lt;&gt;, &lt;=, &gt;=</tt>这三个比较符，你可以试试看看他们都是什么意思。】</p>
+<center><a href="../intro/24-adding.htm"><img alt="previous" src=
+"../../images/previous.png">教会Reeborg做加法</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"26-interpreter2.htm">解释Python关键字<img alt="next"
+src="../../images/next.png"></a></center>
+
+</body>
+</html>
