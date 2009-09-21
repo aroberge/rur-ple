@@ -1,28 +1,23 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>Building walls</title>
+<title>砌墙</title>
 </head>
 <body>
-<h2 class="title">9. Building walls</h2>
-<p>You can easily change Reeborg's world by adding walls. To do so, you click
-on <img alt="edit walls button" src="../../images/intro/btn_walls.png"> and
-the display changes to look like this:</p>
+<h2 class="title">9. 砌墙</h2>
+<p>你可以给Reeborg的世界添加更多的墙壁。你只需要点击<img alt="edit walls button" src="../../images/intro/btn_walls.png"> 
+显示就变成了这个样子:</p>
 <center><img alt="buildwalls" src=
 "../../images/intro/buildwalls.png"></center>
-<p>By clicking on the red dotted line between two "pillars" you can either
-add or delete a wall. Note that you can't remove walls on the border.</p>
+<p>点击两个结点之间的红色虚线你可以创建或删除一面墙。注意，你不能拆除边界的墙壁。</p>
 <center><img alt="wall1img" src="../../images/intro/wall1img.png"></center>
-<p>When you click on <img alt="edit walls button" src=
-"../../images/intro/btn_walls.png"> again, the pillars are removed and the
-red dotted lines disappear, but the new wall remains.</p>
-<h3 class="try">Your turn</h3>
-<p>Create a world like the one indicated below (and <span class=
-"important">save</span> it, as you've seen how a few lessons ago) and then
-write a program that guides Reeborg to emerge at the bottom of the simple
-maze following the path indicated.</p>
+<p>当你再次点击 <img alt="edit walls button" src=
+"../../images/intro/btn_walls.png"> 结点以及红色的虚线就消失了，但是新的墙壁留下了。</p>
+<h3 class="try">轮到你了！</h3>
+<p>创建一个和下面一样的世界（并且 <span class=
+"important">保存</span> 它, 就像你之前做过的一样) 然后写一个程序让Reeborg从屏幕下方的出口走出来。</p>
 <div><img alt="loopstart" src="../../images/intro/loopstart.png"> <br />
 <img alt="lead to" src="../../images/lead_to.png"> <img alt="loopend" src=
 "../../images/intro/loopend.png"></div>
@@ -30,58 +25,40 @@ maze following the path indicated.</p>
 <!--=====================================================-->
 <hr width="50%">
 
-<h3 class="suggested">Challenges</h3>
-<p>We end this lesson with a few exercises. The exercises in this lesson
-should not be too difficult to do; actually, at this stage, they might even
-feel a bit tedious ... but they will <b>really</b> help you in the following
-lessons.</p>
-<h3 class="quiz">Newspaper delivery</h3>
-<p>Reeborg delivers newspapers in his local neighbourhood. Have him climb the
-stairs to the front door of a house, drop the newspaper (represented by a
-beeper) on the top step, and return to his starting point as illustrated
-below. The world file is newspaper.wld.</p>
+<h3 class="suggested">挑战</h3>
+<p>我们通过一些练习结束这一课。这些练习并不难，事实上，可能有些乏味，但是它们<b>真的</b> 会为后面的课程打下基础。</p>
+<h3 class="quiz">分发报纸</h3>
+<p>Reeborg给他的邻居送报纸。让他爬上前门的楼梯，在最高的台阶上放下报纸（用响铃来表示），然后回到他的出发点。你需要先加载文件newspaper.wld.</p>
 <center><img alt="newspaper start" src=
 "../../images/intro/newspaper_start.png"></center>
 <center><img alt="lead to" src="../../images/lead_to.png"> <img alt=
 "newspaper end" src="../../images/intro/newspaper_end.png"></center>
-<p>To accomplish this task, you will find that you need Reeborg to follow
-more than 50 commands, which requires a fair bit of typing. The more typing
-one does, the more errors (bugs!) can occur. In the next chapter we will see 
-how to use Python to simplify considerably the solution to this exercise.</p>
+<p>为了完成这个任务，你需要Reeborg完成50多个指令，需要打很多字。输入越多，错误(bugs)就越可能发生。
+下一章我们将学习如何简化这个程序。</p>
 <hr width="50%">
-<h3 class="quiz">Jumping hurdles</h3>
-<p>Reeborg has entered a hurdles race. Write a program that have him follow
-the path indicated below in his way to the finish line. The world file is
-hurdles1.wld.</p>
+<h3 class="quiz">跨越障碍</h3>
+<p>Reeborg参加了障碍赛。写一个程序让他沿着下面所示的路径跑到终点。你需要先加载文件hurdles1.wld.</p>
 <center><img alt="hurdles start" src=
 "../../images/intro/hurdles1_start.png"></center>
 <center><img alt="lead to" src="../../images/lead_to.png"> <img alt=
 "hurdles end" src="../../images/intro/hurdles1_end.png"></center>
-<p>In the next lesson we will see how to write a short program to accomplish
-the same task. Later, we will learn how to teach Reeborg to automatically
-jump over hurdles of different heights and unevenly spaced.</p>
+<p>下一课我们将学习怎样写一个短程序来完成同样的任务。之后，我们将教会Reeborg自动跳过高度不同、距离不同的障碍。</p>
 <hr width="50%">
-<h3 class="quiz">Harvest time</h3>
-<p>It's harvest time! Have Reeborg pick up all the carrots (represented by
-beepers) in this garden. The world file is harvest1.wld.</p>
+<h3 class="quiz">丰收</h3>
+<p>现在是丰收的时节。让Reeborg捡起菜地里的所有胡萝卜（把响铃想象成胡萝卜）。你需要先加载文件harvest1.wld.</p>
 <img alt="harvest start" src="../../images/intro/harvest1.png">
-<p>Later, we will learn how to write a much shorter program to accomplish the
-same task. Then, we will teach Reeborg how to handle on his own situations
-where there are missing carrots at arbitrary places in the garden.</p>
+<p>之后我们将学习写一个更短的程序来完成同样的任务。然后教会Reeborg捡起漏在菜地里任何位置的胡萝卜。</p>
 <hr width="50%">
-<h3 class="quiz">Amazing escape</h3>
-<p>Reeborg is lost in a maze. Help him find his way out. The shortest
-possible path is indicated below. The world file is maze1.wld.</p>
+<h3 class="quiz">惊险的逃脱</h3>
+<p>Reeborg在迷宫中走失了。帮助他找出来的路。最短的路径如下图。你需要先加载文件maze1.wld.</p>
 <div><img alt="maze start" src="../../images/intro/maze1_start.png">
 <img alt="lead to" src="../../images/lead_to.png"> <img alt="maze end" src=
 "../../images/intro/maze1_end.png"></div>
-<p>In a later lesson, we will see how to have Reeborg find his way out on his
-own, alwayd using the <b>same</b> program to get out of many different mazes.</p>
+<p>在之后的课程里，你将学习怎样让Reeborg自己找到出路，使用<b>同样</b> 的程序走出不同的迷宫。</p>
 <center><a href="8-bugs.htm"><img alt="previous" src=
-"../../images/previous.png"> Darn bugs!</a> - 
+"../../images/previous.png"> 修补漏洞</a> - 
 <a href="../lessons_toc.htm"><img alt=
-"home" src="../../images/home.png"></a> - <a href="10-def.htm">Definitely
-avoiding repetitions <img alt="next" src=
+"home" src="../../images/home.png"></a> - <a href="10-def.htm">避免循环<img alt="next" src=
 "../../images/next.png"></a></center>
 </body>
 </html>
