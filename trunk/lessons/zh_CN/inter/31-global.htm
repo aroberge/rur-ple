@@ -2,20 +2,20 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>31. Globalization is a bad thing</title>
+<title>31. 全局是坏事</title>
 </head>
 <body>
 
-<h2 class="title">31. <span class="pykeyword">global</span>ization is a bad thing.</h2>
-<p>Suppose you are writing a long program together with a friend.  Because you have learned good programming practices, you are always trying to use descriptive names for your variables.  But then you start thinking: <i>What if my friend uses the same name as I use for one of her variables?  If I make a change to the value of my variable, will it change hers in an unwanted way?</i></p>  
-<p>Python has ways to help you avoid this kind of problem by the use of <i>namespaces</i>.  This prevents variable that we want to use in a small part of a program to affect other parts.  We will start learning about namespaces in this lesson.</p>
+<h2 class="title">31. <span class="pykeyword">全球化</span>是坏事.</h2>
+<p>假设你正在和朋友写一个长的程序d.  因为你学习过良好的编程习惯, 所以你的变量名会使用描述性名称.  但是你会想: <i>那么我的朋友会不会使用了相同的变量名呢?  如果我改了我的变量的值, 那会不会不小心把它的变量的值给改了呢?</i></p>  
+<p>Python 有一种方法来避免这样的问题： <i>命名空间</i>.  这可以避免程序片断中的变量互相影响.  我们在这节课中学习一下命名空间.</p>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">Locally defined variables.</h3>
-<p>Here's a simple example to try:</p>
+<h3 class="section">局部变量.</h3>
+<p>这里有一个简单的例子:</p>
 <pre>
 &gt;&gt;&gt; a = 1
 &gt;&gt;&gt; <span class="keyword">def</span> my_function():
@@ -29,10 +29,10 @@
 &gt;&gt;&gt; <span class="keyword">print</span> a
 1
 </pre>
-<p>Are you surprised that the value of <tt>a</tt> did not change?  Here's what's happened.</p>
-<p>You started by defining a variable names "<tt>a</tt>" with its value set to 1.  Then, inside a function, you "apparently" changed the value of "<tt>a</tt>" to 3.  Actually, what you did was to create a <u>new</u> variable "<tt>a</tt>" inside the function, and gave it a value of 3.  The value of the other variable "<tt>a</tt>" was left unchanged.</p>
-<p>Python automatically creates a <i>namespace</i> inside each function, where the names of variables defined take a unique value, independent of how other variables with the same name outside the function might be defined.  A namespace is like a little notebook in which Python keeps track of all the variable names.  It is as though Python create a unique notebook for each function, so that you don't have to worry if other variables with the same name exist elsewhere.</p>
-<p>The variables used inside a function are no longer defined when the function ends; we say that they are <i>out of scope</i>.</p>
+<p>你是否感到惊奇，变量 <tt>a</tt> 的值没有改变?  我们看看发生了什么.</p>
+<p>最初， 你定义了变量 "<tt>a</tt>" 并把它的值设置成 1.  然后在一个函数中, 你 "显然地" 把变量 "<tt>a</tt>" 的值设置成了 3.  事实上, 你所作的是在函数中创建了一个 <u>新变量</u>  "<tt>a</tt>" , 然后把它的值设置成了 3.  函数之外的其他变量 "<tt>a</tt>" 并没有被改变.</p>
+<p>Python 在每个函数的内部自动创建了一个 <i>命名空间</i> , 使得变量名是一个唯一值, 这样他与函数之外的同名变量就独立开来.  命名空间就像一个小的记事本,使 Python 可以跟踪所有的变量名.  你可以想象成 Python 为每个函数创建了唯一的记事本, 这样你就不用担心有变量名重复的问题了.</p>
+<p>在一个函数内部定义的变量，在函数执行完之后就会失效; 我们说他们 <i>越界</i>.</p>
 <pre>
 &gt;&gt;&gt; <span class="keyword">def</span> simple_function():
 ...     local_variable = <span class="string">"I'm here!"</span>
@@ -46,7 +46,7 @@ Traceback (most recent call last):
   File "&lt;input&gt;", line 1, in ?
 NameError: name <span class="string">'local_variable'</span> is not defined
 </pre>
-<p>This namespace trick is nice, but what if we want to change the value of a variable inside a function?  For example, suppose we want to keep track of how many times we are calling a certain function.  We can do that, using the Python keyword <span class="pykeyword">global</span>.</p>
+<p>上面显示了命名空间的使用错误, 但是我们究竟应该如何修改一个函数内部的变量呢?  比如, 我们想记录一下一个函数被调用了多少次. 我们当然做得到, 我们可以使用 Python 的关键字 <span class="pykeyword">global</span>.</p>
 <pre>
 &gt;&gt;&gt; number_of_times = 0
 &gt;&gt;&gt; <span class="keyword">def</span> two_year_old_child():
@@ -66,14 +66,14 @@ Why?          3 times
 &gt;&gt;&gt; <span class="keyword">print</span> number_of_times
 3
 </pre>
-<p><small>[I know, it should be "1 time", without a final 's'.]</small></p>
-<p>By using the keyword <span class="pykeyword">global</span>, we tell Python <u>not</u> to create a new version of the variable locally inside the function, but rather use the variable with that name "outside", in the so-called "global" environment.</p>
-<p>You should always try to find ways to avoid using <span class="pykeyword">global</span> variables if you can, as they can introduce unwanted changes in other parts of the program.  In programming, <span class="pykeyword">global</span>ization is usually a bad thing.</p>
+<p><small>[当然，我们应该显示 "1 time", 不应该有那个l 's'.]</small></p>
+<p>通过使用关键字 <span class="pykeyword">global</span>, 我们告诉 Python <u>不要</u> 不要在函数中创建局部变量, 而使用函数"外面"的变量, 我们称他为 "全局" 环境.</p>
+<p>如有可能，你应该设法避免使用 <span class="pykeyword">全局变量</span>, 因为他们可能导致你不期望的对变量的修改.  在编程中, <span class="pykeyword">全局</span>通常是不好的.</p>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">Out of scope</h3>
-<p>Larry and Curly are walking merrily together.  Suddenly, Moe sees his friends from a distance and starts running towards them.   Just as Moe finally catches up with Larry and Curly, he goes out of scope and disappears from the screen. If you want for him to keep up with his friends, you need to remove three <span class="comment">#</span> symbols.</p>
+<h3 class="section">越界</h3>
+<p>Larry 和 Curly 一起兴冲冲的走着.  突然, Moe 朝着他的朋友们从远处跑来.   正当 Moe 马上就要遇上 Larry 和 Curly的时候, 他越界了并从屏幕消失. 如果你想要他遇上他的朋友们, 你需要删除那三个 <span class="comment">#</span> .</p>
 
 <pre>
 Larry = UsedRobot(colour=<span class="string">'blue'</span>)
@@ -110,13 +110,13 @@ Larry.turn_off()
 <p><img alt="Moe gone"  src="../../images/future/scope2.png"></p>
 <!--==============================-->
 <hr width="50%">
-<h3 class="try">Try it!</h3>
-<p>Try this program on your own, in Reeborg's world, and then change it so that Moe can keep up with his friends!</p>
+<h3 class="try">试试看!</h3>
+<p>在乐跑机器人的世界,亲自尝试一下这个程序, 做一些改变,使得Moe遇上他的朋友!</p>
 
 <center><a href="30-dot.htm"><img alt="previous" src=
-"../../images/previous.png">Object-Oriented Programming:�"dot"�notation.</a> - <a href=
+"../../images/previous.png">面向对象的编程:  "点" 记数法.</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
-"32-return.htm">Many returns<img alt="next"
+"32-return.htm">很多返回<img alt="next"
 src="../../images/next.png"></a></center>
 
 </body>
