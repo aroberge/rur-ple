@@ -1,38 +1,38 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>34. Chocolate Mousse Cake Recipe</title>
+<title>34. 巧克力慕斯蛋糕食谱</title>
 </head>
 <body>
-<h2 class="title">34. Chocolate mousse cake recipe</h2>
-<p>I don't know about you, but I'm getting hungry.  It would be so nice to have some delicious chocolate mousse cake to eat.  We need:</p>
-<ul><li><u>List of ingredients</u></li>
+<h2 class="title">34. 巧克力慕斯蛋糕食谱</h2>
+<p>我不知道你怎么样,但是我饿了.  如果有个美味的巧克力慕斯蛋糕,那就太好了.  我们需要:</p>
+<ul><li><u>主料表</u></li>
 <ul>
-<li>4 eggs</li>
-<li>100 g of sugar</li>
-<li>250 g of dark semi-sweet chocolate</li>
-<li>30 ml of cocoa powder</li>
+<li>4 个鸡蛋</li>
+<li>100 克糖</li>
+<li>250 克黑巧克力</li>
+<li>30 毫升可可粉</li>
 </ul>
 </ul>
-<p>To actually make the cake, we need the recipe.  Something like:</p>
+<p>T此外,我们还需要:</p>
 <ul>
-<li>Preheat the oven to 180 C (350 F).</li>
-<li>Separate the egg whites from the yolks.</li>
-<li>etc.</li>
+<li>预加热到180摄氏度 .</li>
+<li>分离蛋黄和蛋清.</li>
+<li>等等.</li>
 </ul>
-<p>A recipe is very much like a computer program: it's a series of instructions that one needs to follow in a precise order to accomplish a desired result.  I think we have enough to learn about programming, that I will end the cooking lesson at this point and go back to Python.</p>
+<p>食谱和程序很相近: 他们都是一套指令,精确的按照一定的顺序,以期待得到想要的结果.  我想我们已经学习了很多编程, 我们结束烹调课,回到Python学习.</p>
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">Lists</h3>
-<p>Here's a little something for you to try with the Python interpreter:</p>
+<h3 class="section">清单</h3>
+<p>这里有些东西你可以尝试一下:</p>
 <pre>
 &gt;&gt;&gt; ingredients = [<span class="string">"4 eggs"</span>, <span class="string">"100 g of sugar"</span>, 
 ...     <span class="string">"250 g of dark semi-sweet chocolate"</span>, <span class="string">"30 ml of cocoa powder"</span>]
 &gt;&gt;&gt; 
 </pre>
-<p><tt>ingredients</tt> is an example of a Python <i>list</i>.  A list in Python can include any number of items.  It the example we have chosen, all the ingredients are strings; however, list <i>items</i> could be numbers, or even other lists and other Python objects that we have yet to see.  Now, try the following:</p>
+<p><tt>ingredients</tt> 是一个 Python <i>list</i>的范例.  一个 list 可以包括很多条目.  在范例中, 所有的 ingredients 都是字符串; 当然, list <i>条目</i>可以是数字, 甚至于其他 Python对象, 当然,我们还没有接触到.  现在,试试下面的:</p>
 <pre>
 &gt;&gt;&gt; <span class="keyword">for</span> each_item <span class=
 "keyword">in</span> ingredients:
@@ -48,7 +48,7 @@
 &gt;&gt;&gt; ingredients[0:2]
 [<span class="string">'4 eggs'</span>, <span class="string">'100 g of sugar'</span>]
 </pre>
-<p>It should look familiar, yet slightly different from what we have seen before.   Try also the following:</p>
+<p>看上去有些眼熟, 和我们以前见过的只有细小的差别.   再试试下面这个:</p>
 <pre>
 &gt;&gt;&gt; <span class="keyword">for</span> character <span class="keyword">in</span> ingredients[0]:
 ...     <span class="keyword">print</span> character
@@ -66,23 +66,23 @@ s
 &gt;&gt;&gt; <span class="string">'4 eggs'</span>[2]
 <span class="string">'e'</span>
 </pre>
-<p>As we had just seen previously, <tt>ingredients[0]</tt> is a synonym for the string <span class="string">'4 eggs'</span>; so <tt>ingredients[0][2]</tt> is the third character (remember Python starts counting at zero) in the string <span class="string">'4 eggs'</span>.</p>
+<p>如我们先前看到的, <tt>ingredients[0]</tt> 等同于字符串 <span class="string">'4 eggs'</span>; 因此, <tt>ingredients[0][2]</tt> 就是字符串<span class="string">'4 eggs'</span>的第三个字母 (记住,Python是从0开始计数的).</p>
 
-<p>Now, in the recipe above, I forgot one nice ingredient: <i>whipped cream</i> to be used as a topping.  I can add it, and verify that it's been added as follows:</p>
+<p>现在,在上面的食谱中, 我忘了一个重要的主料: <i>奶油</i> .  我可以添加上他, 然后验证它通过如下办法添加上了:</p>
 <pre>
 &gt;&gt;&gt; ingredients.append(<span class="string">"whipped cream"</span>)
 &gt;&gt;&gt; <span class="keyword">print</span> ingredients
 [<span class="string">'4 eggs'</span>, <span class="string">'100 g of sugar'</span>, <span class="string">'250 g of dark semi-sweet chocolate'</span>, <span class="string">'30 ml of cocoa powder'</span>, <span class="string">'whipped cream'</span>]
 </pre>
-<p><tt>append()</tt> is a method that is part of the class "list".  <tt>ingredients</tt> is an instance of that class.  We <i>invoke</i> the method <tt>append</tt> on the instance <tt>ingredients</tt> by connecting it with a ".", as we have seen in the previous lesson.  The <i>argument</i> of <tt>append</tt> is the object we want to add to the list.  It is always appended at the end of the list. </p>
-<p>Lists have many other methods; I will introduce them when needed.  If you want to see them all, just type <tt>dir([])</tt> at the Python interpreter; note that <tt>[]</tt> is an empty list - any list would give the same result here.  See if you can spot the method name <tt>append</tt>.</p>
-<p>Now that we know how to add items to lists, we need to know how to remove them.  To do this, we need to use the Python keyword <span class="pykeyword">del</span>.
+<p><tt>append()</tt> 是 "list" 类的一个方法.  <tt>ingredients</tt> 是一个list类的实例.  我们在实例<tt>ingredients</tt>上 <i>执行</i> 方法 <tt>append</tt> ,我们使用符号 "."来表示, 在前面的课程中我们也见过.   <tt>append</tt> 的<i>参数</i>, 是我们打算添加到list对象中的. 他总是添加在 list的尾部. </p>
+<p>List有很多其他方法; 需要的时候我会介绍.  如果你想知道所有的方法,只需要输入 <tt>dir([])</tt>; 注意 <tt>[]</tt> 是一个空的 list - 任何的list都会给出异样的结果.  看看我们能否发现<tt>append</tt>方法.</p>
+<p>现在,我们知道如何往list里面添加东西了, 接下来我们需要知道如何删除他们.  我们需要使用Python的关键字 <span class="pykeyword">del</span>.
 <pre>
 &gt;&gt;&gt; <span class="keyword">del</span> ingredients[3]
 &gt;&gt;&gt; <span class="keyword">print</span> ingredients
 [<span class="string">'4 eggs'</span>, <span class="string">'100 g of sugar'</span>, <span class="string">'250 g of dark semi-sweet chocolate'</span>, <span class="string">'whipped cream'</span>]
 </pre>
-<p>The Python keyword <span class="pykeyword">del</span> can do much more than removing items in a list.  For example, it can make Python forget about a variable that had been defined.
+<p> Python 关键字<span class="pykeyword">del</span>可以做的不仅仅是删除一个条目.  比如, 我们可以让 Python 删除一个已经定义的变量.
 </p>
 <pre>
 &gt;&gt;&gt; a = 3
@@ -96,22 +96,22 @@ NameError: name <span class="string">'a'</span> is not defined
 </pre>
 <!--==============================-->
 <hr width="50%">
-<h3 class="try">Try it!</h3>
-<p>In Reeborg's world, write a simple program that creates two robots, each with its own name, have them take a few steps and try to make one of them disappear using the keyword <span class="pykeyword">del</span>.  You may need to have the remaining robot take at least one more step (before turning it off) to have the other robot disappear from the screen.</p>
+<h3 class="try">试试看!</h3>
+<p>在乐跑机器人世界, 写一个简单的程序创建两个机器人, 给他们不同的名字, 然后要他们走几步, 然后用关键字 <span class="pykeyword">del</span>使他们中的一个消失.  你需要让另外一个机器人至少走一步,才能够使另外一个机器人从屏幕消失.</p>
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">A word about <tt>range()</tt></h3>
-<p>You are now ready to learn a secret about the Python function <tt>range()</tt>:</p>
+<h3 class="section">介绍一下 <tt>range()</tt></h3>
+<p>Y我们来学习一下Python的函数<tt>range()</tt>:</p>
 <pre>
 &gt;&gt;&gt; <span class="keyword">print</span> range(6)
 [0, 1, 2, 3, 4, 5]
 </pre>
-<p>That's right: <tt>range()</tt> simply creates a list!</p>
+<p>没错: <tt>range()</tt> 创建了一个list!</p>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">Converting between lists, integers and strings</h3>
-<p>Here are a few useful built-in functions to help converting between one <i>data type</i> and another.</p>
+<h3 class="section">在list, 整数, 字符串之间转换</h3>
+<p>这里有一些内置函数来转换<i>数据类型</i>.</p>
 <pre>
 &gt;&gt;&gt;  first_number = 1304
 &gt;&gt;&gt;  second_number = 987
@@ -165,16 +165,16 @@ second_list = list(second_string)
 </pre>
 <!--==============================-->
 <hr width="50%">
-<h3 class="try">Help Reeborg to add using lists, strings and integers</h3>
+<h3 class="try">不好意思, 这个作业看不明白,请讲过这课的老师看一下Help Reeborg to add using lists, strings and integers</h3>
 <p>Help Reeborg to add two numbers, like illustrated below, using what we just saw about lists, strings and integers.</p>
 <p><img alt="before addition" src=
 "../../images/inter/add34_start.png"></p>
 <p><img alt="after addition" src=
 "../../images/inter/add34_end.png"></p>
 <center><a href="33-for.htm"><img alt="previous" src=
-"../../images/previous.png">Repeat()is hiding some Python keywords</a> - <a href=
+"../../images/previous.png">Repeat() 隐蔽了一些 Python 的关键字</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
-"35-dicts.htm">An other kind of definition<img alt="next"
+"35-dicts.htm">另外一种定义<img alt="next"
 src="../../images/next.png"></a></center>
 </body>
 </html>

@@ -2,15 +2,14 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content=
-"text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>A touch of class</title>
+<title>38. 体验类</title>
 </head>
 <body>
 
-<h2 class="title">A touch of <span class="pykeyword">class</span></h2>
-<p>We have seen how we can add a new method to an existing class, where we wanted to repair the robot so that it knew how to turn right.  Here's another example of adding a method to an existing class.<p>
+<h2 class="title">38. 体验类 "<span class="pykeyword">class</span>"</h2>
+<p>我们已经看到如何为一个已经存在的class增加方法--我们维修了机器人，使得它能够右转.  下面是另外一个位已经存在的类增加方法.<p>
 <pre>
 <span class="keyword">class</span> Amazing(RefurbishedRobot):
     <span class="keyword">def</span> diag(self):
@@ -31,9 +30,9 @@ Magician.move()
 Magician.turn_off()
 </pre>
 <p><img alt="magic"  src="../../images/future/magic.png"></p>
-<p>The new robot knows all the existing methods that the existing <tt>RefurbishedRobot</tt> knew [for example, <tt>move(), turn_off()</tt>] as well as a new one [<tt>diag()</tt>].</p>
-<h3 class="section">Designing a new <span class="pykeyword">class</span></h3>
-<p>Sometimes, we want to create a new class that changes the basic behaviour of an existing one.  To do so, we need to redefine a special method [<tt>__init__()</tt>].  The following example is such a case, where we "fix the oil leak", so that the new robot does not leave a trail.  Actually, we do more than this as we have it leave a white trail (instead of a sea green one, which is the default), centered on the street or avenue where the robot moves [defined as style number 5] so that it effectively covers the grey dotted line, as though the robot was erasing it.</p>
+<p>T新的机器人知道所有 <tt>RefurbishedRobot</tt> 知道的方法 [比如, <tt>move(), turn_off()</tt>] ,此外他还有一个新方法 [<tt>diag()</tt>].</p>
+<h3 class="section">设计一个新<span class="pykeyword">class</span></h3>
+<p>S有时候我们想创建一个新的类,这个新的类修改了已有的类所定义的基本行为.  为此, 我们需要重新定义一个特别的方法[<tt>__init__()</tt>].  下面的例子中, 我们 "修正了漏油问题", 这样新的机器人将不会留下踪迹. 事实上, 我们做的就是留下白色的踪迹,而不是原来的海绿色踪迹, 同时划在大街的中央 [定义为风格 5] 因此它会被灰色的点线所覆盖, 就好像被机器人涂掉了一样.</p>
 <pre>
 <span class="keyword">class</span> Eraser(RefurbishedRobot):
     <span class="keyword">def</span> __init__(self):
@@ -49,11 +48,11 @@ Sneaky.turn_off()
 <center>
 <a href="../lessons_toc.htm"><img alt="home"  src="../../images/home.png"></a>
 </center>
-<p>You may want to modify this to try other style numbers (1 to 5) with other colours.</p>
+<p>你也许想用其他的风格 (1 到 5)来显示成其它颜色.</p>
 <center><a href="37-class.htm"><img alt="previous" src=
-"../../images/previous.png">Fixing up Reeborg</a> - <a href=
+"../../images/previous.png">修补乐跑机器人</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
-"39-import.htm">Avoiding repetitions - the important stuff.<img alt="next"
+"39-import.htm">避免重复 - Import.<img alt="next"
 src="../../images/next.png"></a></center>
 
 </body>
