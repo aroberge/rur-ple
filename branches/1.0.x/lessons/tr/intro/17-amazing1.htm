@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Amazing</title>
+</head>
+<body>
+<a name="amazing" id="amazing"></a>
+<h2 class="title">17. Uygulama - bölüm 1</h2>
+<p>Uygulama bölümlerinde zorlu&#287;u giderek artan programlar yazaca&#287;&#305;z.</p>
+<!--===================================================-->
+<hr width="50%">
+<h3 class="section">&#304;lk ad&#305;mlar</h3>
+<p>Basit bir problemle ba&#351;layal&#305;m: Reeborg'un önünde hiç bir engel olmad&#305;&#287;&#305;n&#305; 
+varsayarak tam bir tur atmas&#305;n&#305; sa&#287;layaca&#287;&#305;z. Bunu daha önceden <tt>front_is_clear()</tt> 
+testini anlatt&#305;&#287;&#305;m&#305;zda yapm&#305;&#351;t&#305;k. Reeborg'un en az bir tane bip ta&#351;&#305;d&#305;&#287;&#305;n&#305; 
+varsayarsak çözüm &#351;öyle olabilir:</p>
+<pre>
+<font face="Times New Roman" size="3">1. Bip'i nereden ba&#351;lad&#305;&#287;&#305;n&#305; unutmamak için bulundu&#287;un noktaya b&#305;rak
+2. Bir duvarla kar&#351;&#305;la&#351;&#305;ncaya kadar yürü.
+3. Duvarla kar&#351;&#305;la&#351;&#305;nca sola dön.
+4. 2. ve 3. ad&#305;mlar&#305; ba&#351;lang&#305;çta b&#305;rakt&#305;&#287;&#305;n biple kar&#351;&#305;la&#351;&#305;ncaya kadar tekrar et.
+5. Bip'i bulunca kendini kapat. </font>
+</pre>
+<p>Burada tekrarlaman&#305;n yap&#305;ld&#305;&#287;&#305; 4. ad&#305;m önemlidir, bunu &#351;u &#351;ekilde 
+kodlayabiliriz:</p>
+<pre>
+<span class="keyword">while not</span> next_to_a_beeper():
+</pre>
+<p>bunu 2 ve 3. ad&#305;mlar takip etmelidir, tam çözümü &#351;öyle yazabiliriz: </p>
+<pre>
+put_beeper()
+<span class="keyword">while not</span> next_to_a_beeper():
+    <span class="keyword">if</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+<p>E&#287;er ba&#351;lang&#305;ç pozisyonu a&#351;a&#287;&#305;daki gibiyse yukar&#305;daki program 
+çal&#305;&#351;t&#305;r&#305;ld&#305;&#287;&#305;nda ne olur bunu uzun uzun dü&#351;ünün.</p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around1start.png"></p>
+<p>A&#351;a&#287;&#305;da oldu&#287;u gibi bir sonuç elde edemedik, de&#287;il mi? Neden oldu&#287;unu 
+bulabildiniz mi? Bulamad&#305;ysan&#305;z dü&#351;ünmeye devam edin.</p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around1end.png"></p>
+<center><a href="16-while.htm"><img alt="previous" src=
+"../../images/previous.png">Bir süre için For a while</a> - 
+<a href="../lessons_toc.htm"><img alt=
+"home" src="../../images/home.png"></a> - <A href="18-amazing2.htm">Uygulama - </a>
+<A href="17-amazing1.htm">
+bölüm</a><A href="18-amazing2.htm"> 2<img alt="next" src="../../images/next.png"></a>
+</center>
+</body>
+</html>

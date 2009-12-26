@@ -1,0 +1,21 @@
+# random maze solver
+# exit identified by beeper
+setBackgroundColour('black')
+colour_list=['red', 'green', 'blue', 'yellow',    'purple', 'orange', 'sea green', 'pink', 'white',    'brown']
+nb = len(colour_list)
+i = 0
+G = RefurbishedRobot()
+G.set_delay(0.03) # moving fast
+while True:
+    if G.front_is_clear():
+        G.move()
+        if G.next_to_a_beeper():
+            G.turn_off()
+    r = G.roll_dice()
+    if r in [1, 2]:
+        G.turn_left()
+    elif r in [3, 4]:
+        G.turn_right()
+    G.set_trace_style(colour=colour_list[i%nb])
+    i += 1
+

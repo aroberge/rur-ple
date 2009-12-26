@@ -1,0 +1,6 @@
+try:
+    repeat(move, 20)
+except HitWallException:
+    repeat(turn_left, 6)
+move()
+turn_off()

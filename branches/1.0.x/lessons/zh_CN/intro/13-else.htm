@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href="../rurple.css" type='text/css'>
+<title>听我的...或者...</title>
+</head>
+<body>
+<h2 class="title">13. 听我的 ...<span class="pykeyword">或者</span> ...</h2>
+<p>当觉得如何变成有趣时，你不应当在电脑面前花费你所有的时间。 <b>如果</b>外面下雨了，那就一直读书，否则，出去玩吧！ （是的，即使是你的祖母！）</p><!--===========================================-->
+
+<hr width="50%">
+<h3 class="section">做决定</h3>
+<p>让我们来看些以 <b>if</b>开头的句子.</p>
+<p><b>If</b>下雨了,<br> ... 一直读书吧,<br> <b>否则</b>,<br> ...出去玩吧！</p>
+<p>这一开始看起来像一个小电脑程序。 假设这是个python程序，我们来写写看。</p>
+<pre>
+<span class="keyword">if</span> it_rains():
+    keep_reading()
+<span class="keyword">else</span>:
+    go_outside_and_play()
+</pre>
+<p>你刚刚学到了一个新的python关键词, <span class=
+"pykeyword">else</span>. 所以，如果外面下雨了，那就读书；否则，你知道该怎么做了！</p><!--======================================-->
+
+<hr width="50%">
+<h3 class="section">"我懂了...", 机器人说.</h3>
+<p>除了能够发现他自己是否是站在一个或更多beeper的旁边，机器人也可以看到他面前是否有面墙挡住了他的路。 他也可以将头转到他的左边或者右边看那里是否也有一面墙。 你可以用以下的命令来让他看：</p>
+<pre>
+front_is_clear()  <span class=
+"comment">#当前面没有墙时为真，否则为假</span>
+left_is_clear()
+right_is_clear()
+</pre>
+<p>我们先用第一个指令来让机器人探索他的世界。 当前面没有墙时，我们用前进的命令使得机器人沿着世界的边界前进，否则就左转。 下面的简单程序是基础：</p>
+<pre>
+<span class="keyword">if</span> front_is_clear():
+    move()
+<span class="keyword">else</span>:
+    turn_left()
+      
+turn_off()
+</pre>
+<p>下面显示了两种不同情况下程序运行的结果。 在尝试时，确保你不要忘记 关键词<span class="pykeyword">else</span>后面的冒号 (<tt>:</tt>) .</p>
+<p><img alt="start if" src="../../images/intro/if1start.png"> <img alt=
+"lead to" src="../../images/lead_to.png"> <img alt="end if" src=
+"../../images/intro/if1end.png"></p>
+<p><img alt="start if" src="../../images/intro/if2start.png"> <img alt=
+"lead to" src="../../images/lead_to.png"> <img alt="end if" src=
+"../../images/intro/if2end.png"></p>
+<p>现在，我们来多次重复使用 <i>条件</i> 指令使得机器人环游世界。</p>
+<pre>
+<span class="keyword">def</span> move_or_turn():
+    <span class="keyword">if</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+repeat(move_or_turn, 20)      
+turn_off()
+</pre>
+<p>现在，在一个小地图上，给出了如下最后的结果：</p>
+<p><img alt="around" src="../../images/intro/around1.png"></p>
+<p>我们可以使得这更有趣，比如让机器人在前进时“跳舞”，而在转弯时放下一个beeper。 下面的程序可以让机器人实现这个功能：</p>
+<pre>
+<span class="keyword">def</span> dance():
+    repeat(turn_left, 4)
+<span class="keyword">def</span> move_or_turn():、
+    <span class="keyword">if</span> front_is_clear():
+        dance()
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+        put_beeper()
+
+repeat(move_or_turn, 18)      
+turn_off()
+</pre>
+<p>确认机器人携带了足以完成任务的beeper。 试着按<br/> <img alt="beepers button" src="../../images/intro/btn_beepers.png">按钮，可以给机器人一些携带的beeper.</p>
+
+<p>注意指令 <tt>dance()</tt>和<tt>move()</tt> 是排列在 <span class="pykeyword">if</span> 状态后面的，这说明它们是属于同一个 <i>指令结构</i>. 指令 <tt>turn_left()</tt> 和 <tt>put_beeper()</tt> 也是类似地排列, 在 <span class=
+"pykeyword">else</span> 状态后面。 运行这个程序的结果如下所示。</p>
+<img alt="around" src="../../images/intro/around2.png">
+<p>现在，如果我们不是将<tt>put_beeper()</tt>排列在 <tt>turn_left()</tt>同一列,而是把它放在 <span class=
+"pykeyword">else</span> 状态的那列，那会发生什么呢？</p>
+<pre>
+<span class="keyword">def</span> dance():
+    repeat(turn_left, 4)
+<span class="keyword">def</span> move_or_turn():、
+    <span class="keyword">if</span> front_is_clear():
+        dance()
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+    put_beeper()
+
+repeat(move_or_turn, 18)      
+turn_off()
+</pre>
+<p>现在，定义 <tt>move_or_turn()</tt>包括一个选择 <span class="pykeyword">if</span>/<span class="pykeyword">else</span>，结果不是跳舞前进， <b>就是</b>一个左转并且执行 <tt>put_beeper()</tt>命令. 程序运行的结果如下所示:</p>
+<img alt="around" src="../../images/intro/around3.png">
+<p>如你所见到的，每前进一步，就有一个beeper被放下来了。 每个角落都有了两个beeper：一个来自于到达角落前的移动，一个来自于离开角落时左转的动作。</p>
+<p>现在，假设我们将 <tt>put_beeper()</tt>命令和 <span class="pykeyword">def</span>状态排列在同一行，如下所示：</p>
+<pre>
+<span class="keyword">def</span> dance():
+    repeat(turn_left, 4)
+<span class="keyword">def</span> move_or_turn():、
+    <span class="keyword">if</span> front_is_clear():
+        dance()
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+put_beeper()
+
+repeat(move_or_turn, 18)      
+turn_off()
+</pre>
+<p>现在，由于 <tt>put_beeper()</tt>已经不再和定义中其它的指令平行排列，它就不再属于这个定义了。 这是一个单独的指令, 是机器人在执行了<tt>move_or_turn()</tt>指令18次以后第一个要执行的指令。 结果如下：</p>
+<p><img alt="around" src="../../images/intro/around4.png"></p>
+<p>所以，你可以看到，空格（也就是指令前面的空格）也给予了机器人很多信息。 通过练习，你将学习如何最好地使用这个，并且意识到Python能够让你通过内嵌指令写出非常具有可读性的代码。</p>
+<hr width="50%">
+<h3 class="try">跨栏</h3>
+<p>机器人已经变得很擅长跨栏了。 现在，他参加了不同距离的比赛：短杆和长跑。 他明白当他在一个beeper旁边时，他就到了终点线。 在下面，你将发现两个这样的比赛课程； 地图文件是 hurdles1.wld 和 hurdles2.wld.</p>
+<p><img alt="跨栏开始了" src="../../images/intro/hurdles1_start.png"></p>
+<br>
+<p><img alt="跨栏开始了" src="../../images/intro/hurdles2_start.png"></p>
+<p>假设没有比20个点更长的比赛。 定义一个差不多如下所示的指令：</p>
+<pre>
+<span class="keyword">def</span> move_jump_or_finish():
+    <span class="keyword">if</span> on_beeper(): <span class=
+"comment"># end of race</span>
+        turn_off()
+    <span class="keyword">else</span>:
+        <span class="keyword">if</span> front_is_clear(): <span class=
+"comment"># not finished, and no hurdle to jump</span>
+            move()
+        <span class="keyword">else</span>:
+            jump_one_hurdle()
+</pre>
+<p>通过一个合适的 <tt>jump_one_hurdle()</tt>指令, 于是不同于其它的指令, 机器人唯一要遵循的指令是<br> <tt>repeat(move_jump_or_finish, 20)</tt>.</p>
+<p>注意，在上面的定义中，由于我们引入了额外的文本，代码越来越内嵌了。</p>
+<center><a href="12-if.htm"><img alt="否则previous" src=
+"../../images/previous.png"> 如果乐跑可以自己作决定... </a>
+- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> -
+<a href="14-elif.htm">如果，否则，如果，否则 ....<img alt="next" src=
+"../../images/next.png"></a></center>
+</body>
+</html>

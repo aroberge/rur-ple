@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>First program</title>
+</head>
+<body>
+<h2 class="title">3. First program</h2>
+<p>As mentioned previously, there are two main windows used to interact with
+Reeborg. To the left is a program window; this is where you write the
+instructions for Reeborg to follow. To the right is the actual "graphical
+world" window in which Reeborg moves according to the instructions
+received.</p>
+<p>Click on the Open Program button <img alt="open program button" src=
+"../../images/intro/btn_open_program.png"> and select the file "move1.rur".
+(<span class="warning">Note:</span> dependings on the settings on your
+computer, you may or may not see the ".rur" extension.) You should see the
+following <em>computer code</em>, or <em>code</em> for short, appear in the
+program window.</p>
+<pre>
+move()
+turn_off()
+</pre>
+<p>The word <em>code</em> is synonymous with "program text". A
+<em>program</em> is a series of <em>instructions</em>. In this case, the code
+consists of two <em>instructions</em>:</p>
+<ul>
+<li><tt>move()</tt>: instructs Reeborg to move forward one "step".<br></li>
+<li><tt>turn_off()</tt>: tells Reeborg that we have no more instructions to
+give him and that he can turn itself off, to save energy.</li>
+</ul>
+<p>Reeborg recognizes instructions as commands that he must obey by the
+presence of two parentheses <tt>()</tt> which follow the words making up the
+instructions.</p>
+<p>Now, click on the <img alt="run program button" src=
+"../../images/intro/btn_run.png"> button and watch Reeborg move in his
+world.</p>
+<h3 class="try">Your turn</h3>
+<p>Change the program by adding a second <tt>move()</tt> instruction as
+follows:</p>
+<pre>
+move()
+move()
+turn_off()
+</pre>
+<p>Click on the Save button <img alt="save program button" src=
+"../../images/intro/btn_save_program.png"> and give it the name "move2" (the
+program will automatically add the ".rur" extension). Congratulations! You
+have just created your first program. Now, ask Reeborg to <em>execute</em> or
+to <em>run</em> the program by clicking on the <img alt="run program button"
+src="../../images/intro/btn_run.png"> button.</p>
+<h3 class="suggested">Experiment!</h3>
+<p>You can ask Reeborg to take more than two steps. What happens if you ask
+Reeborg to take so many steps that he has to move beyond the world boundary?
+In particular, look at the program window; you should have noticed by now
+that instructions are highlighted as they are being executed by Reeborg.</p>
+<center>
+<a href="2-explore.htm"><img alt="previous" src=
+"../../images/previous.png"> Reeborg explore its world;</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"4-errors.htm">Dealing with eRRoRs <img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

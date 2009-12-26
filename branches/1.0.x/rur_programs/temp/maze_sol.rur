@@ -1,0 +1,20 @@
+def turn_right(): 
+    repeat(turn_left, 3) 
+
+def follow_right_wall(): 
+    if right_is_clear():  
+        turn_right() 
+        move() 
+    elif front_is_clear():  
+        move() 
+    else:  
+        turn_left() 
+
+found_exit = next_to_a_beeper # beeper marks the starting point. 
+
+#=== End of definitions; begin solution 
+
+while not found_exit():  
+    follow_right_wall() 
+
+turn_off() 

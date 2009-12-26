@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>35. An other kind of definition</title>
+</head>
+<body>
+<h2 class="title">35. Farkl&#305; bir tan&#305;mlama</h2>
+<p>Sizce a&#351;a&#287;&#305;daki Reeborg için iyi bir tan&#305;mlama m&#305;?<br>
+<br>
+<b>robot</b>: &#304;nsanlar taraf&#305;ndan kontrol edilen ve kendisine verilen görevleri 
+otomatik olarak yerine getiren bir makine, daha çok tekrarlayan i&#351;ler için 
+kullan&#305;l&#305;r.</p>
+<p>Bir hikaye yazmak istedi&#287;iniz zaman, sözlükten bir kelimenin anlam&#305;na nas&#305;l 
+bak&#305;laca&#287;&#305;n&#305; bilmek i&#351;inize çok yarayacakt&#305;r. Python'un da kendine özgü bir 
+sözlü&#287;ü vard&#305;r ve program yazarken i&#351;inize çok yarar.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Kaç tane yumurta gerekliydi?</h3>
+<p>Malzeme listesine bakmadan kaç tane yumurtaya ihtiyaç oldu&#287;unu 
+hat&#305;rlayabilir misiniz? E&#287;er hat&#305;rlayamad&#305;ysan&#305;z,&nbsp; listenin tamam&#305;n&#305; 
+yazd&#305;rmadan bunu bulabilir misiniz? Listede malzemelerin hangi s&#305;rayla 
+yaz&#305;ld&#305;&#287;&#305;n&#305; hat&#305;rlam&#305;yorsan&#305;z bu da size zor gelecektir. Python'da bu tür 
+durumlarda sözlükler (dictionaries) kullan&#305;l&#305;r, a&#351;a&#287;&#305;daki örne&#287;i inceleyin: </p>
+<pre>
+&gt;&gt;&gt; malzemeler2 = { <span class="string">'yumurta'</span> : 4,  <span class= "comment"># ='den sonra k&#305;vr&#305;ml&#305; parantez kullan&#305;ld&#305;&#287;&#305;na dikkat edin</span>
+...     <span class="string">'&#351;eker'</span>: <span class="string">'100 g'</span>,
+...     <span class="string">'kakao'</span>: <span class=
+"string">'30 g'</span>,
+...     <span class="string">'çukulata'</span>: <span
+class="string">'250 g'</span>} <span class= "comment"># burada da k&#305;vr&#305;ml&#305; parantez kullan&#305;l&#305;r.</span>
+&gt;&gt;&gt; <span class="keyword">print</span> malzemeler2
+{<span class="string">'yumurta'</span>: 4, <span class=
+"string">'çukulata'</span>: <span class=
+"string">'250 g'</span>, <span class=
+"string">'kakao'</span>: <span class=
+"string">'30 g'</span>, <span class=
+"string">'&#351;eker'</span>: <span class="string">'100 g'</span>}
+</pre>
+<p>Sözlükteki her bir giri&#351; &quot;anahtar:de&#287;er&quot; &#351;eklindedir ve 
+elemanlar birbirlerinden 
+virgül ile ayr&#305;l&#305;rlar. <span class="keyword">print</span> ile <tt>malzemeler2 </tt>
+yazd&#305;r&#305;ld&#305;&#287;&#305;nda s&#305;ralaman&#305;n, giri&#351;teki s&#305;ralamadan farkl&#305; oldu&#287;una dikkat edin.</p>
+<p>E&#287;er kaç tane yumurtaya ihtiyaç oldu&#287;unu bulmak istersek: </p>
+<pre>
+&gt;&gt;&gt; <span class=
+"keyword">print</span> malzemeler2['yumurta']
+4
+</pre>
+<p>E&#287;er <tt>malzemeler2</tt>'nin içindeki tüm de&#287;erleri bulmak istersek: </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> anahtar <span class=
+"keyword">in</span> malzemeler2:
+...     <span class="keyword">print</span> malzemeler2[anahtar]
+...    
+4
+250 g
+30 g
+100 g
+</pre>
+<p>Hem anahtarlar&#305;, hem de de&#287;erleri a&#351;a&#287;&#305;daki gibi görüntüleyebiliriz:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> anahtar <span class=
+"keyword">in</span> malzemeler2:
+...     <span class="keyword">print</span> str(anahtar) + <span
+class="string">":"</span> + str(malzemeler2[anahtar])
+    
+yumurta:4
+çukulata:250 g
+kakao:30 g
+&#351;eker:100 g
+</pre>
+<p>Burada herhangi bir nesneyi stringe dönü&#351;türen <tt>str()</tt>fonksiyonunu 
+kulland&#305;k, böylece yukar&#305;daki görüntüyü elde ettik.</p>
+<p>Olamaz, kremay&#305; eklemeyi yine unuttuk, hadi ekleyelim: </p>
+<pre>
+&gt;&gt;&gt; malzemeler2[<span class=
+"string">"krema"</span>] = <span class=
+"string">"Çok miktarda"</span>
+</pre>
+<p>Deneyin!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Her nesne anahtar olamaz</h3>
+<p>Sözlüklerde herhangi bir nesneyi de&#287;er olarak kullanabiliriz, ancak bu durum 
+anahtarlar için farkl&#305;d&#305;r, anahtarlar yaln&#305;zca sabit nesnelerden olu&#351;mal&#305;d&#305;r. 
+Bunun ne anlama geldi&#287;ini daha sonra aç&#305;klayaca&#287;&#305;m; &#351;imdilik &#351;u ana kadar 
+gördü&#287;ümüz nesnelerin içerisinde yaln&#305;zca string ve say&#305;lar&#305;n anahtar olarak 
+kullanabilece&#287;ini söyleyebiliriz. Listeler veya di&#287;er sözlükler anahtar olarak 
+kullan&#305;lamazlar. Bu nesneleri farkl&#305; kombinasyonlarda, anahtar ve de&#287;er olarak, 
+kullanarak denemeler yap&#305;n ve konuyu daha iyi anlamaya çal&#305;&#351;&#305;n.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Küçük test</h3>
+<p>Sözlükten bir girdinin nas&#305;l silinebilece&#287;ini tahmin edebiliyor 
+musunuz? 
+Tahmin edebiliyorsan&#305;z, deneyin. Tahmin edemiyorsan&#305;z, büyük olas&#305;l&#305;kla 
+bir önceki dersi 
+dikkatle çal&#305;&#351;mad&#305;n&#305;z demektir. Geriye dönün ve tekrar okuyun, özellikle bir 
+listeden bir eleman&#305;n nas&#305;l silindi&#287;ini anlatan k&#305;sm&#305;. </p>
+<center><a href="34-lists.htm"><img alt="previous" src=
+"../../images/previous.png">Çukulatal&#305; Kek Tarifi.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<a href=
+"36-tuples.htm">Son s&#305;ram&#305;z<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

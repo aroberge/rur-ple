@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>37. 修补乐跑机器人</title>
+</head>
+<body>
+
+<h2 class="title">37. 修补乐跑机器人</h2>
+<p>我们已经看到,我们可以这样创建机器人</p>
+<pre>
+Reeborg = UsedRobot()
+Erdna = UsedRobot(2, 2)
+</pre>
+<p>当然，这些机器人和以前的无名机器人一样:只能够向左转.  要教会他们向右转, 我们可以像以前一样定义个函数:</p>
+<pre>
+<span class="keyword">def</span> Reeborg_turn_right():
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(3):
+        Reeborg.turn_left()
+</pre>
+<p>这种做法至少有两个问题:</p>
+<ul>
+<li>我们需要给每一个机器人定义这个函数 (Reeborg, Erdna, ...).</li>
+<li>对于我们定义的函数 [to turn right]<tt>Reeborg</tt> 和 <tt>turn</tt> 用一个下滑线隔开 "<tt>_</tt>"， 此外对于内置的方法 [to turn left]使用点号 "<tt>.</tt>" .  这看上去不太对...</li>
+</ul>
+<p>一个更好的方式是定义一个新的 <span class="pykeyword">class</span>("类")， 他会 <i>继承</i> 另外一个class <tt>UsedRobot</tt>. 这是我们接下来要做的.</p>
+
+<h3 class="section"设计一个新类"<span class="pykeyword">class</span>"</h3>
+<p>我首先向你展示如何修补一个机器人，使他知道如何右转t, 然后再作解释.</p>
+<pre>
+<span class="keyword">class</span> RepairedRobot(UsedRobot):
+    <span class="keyword">def</span> turn_right(<span class="warning">synonym_used_to_refer_to_this_object</span>):
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(3):
+            <span class="warning">synonym_used_to_refer_to_this_object</span>.turn_left()
+</pre>
+<p>下面是我们如何使用这个新 <span class="pykeyword">class</span> :</p>
+<pre>
+newReeborg = RepairedRobot()
+newErdna = RepairedRobot(2, 2)
+
+newReeborg.turn_left()    <span class="comment"># as before</span>
+newReeborg.turn_right()   <span class="comment"># new method!</span>
+
+newErdna.turn_right()     <span class="comment"># this one works too!</span>
+</pre>
+<p>现在, 我来进行解释. Python的关键字 <span class="pykeyword">class</span> 指出我们打算定义一个新的 "函数", 这个函数可以创建对象. 跟在 <span class="pykeyword">class</span> 后面的是: <tt>RepairedRobot(UsedRobot)</tt>. <tt>RepairedRobot</tt> 是新的类 "<span class="pykeyword">class</span>"的名字; 通过括号和它里面的<tt>UsedRobot</tt> , 我们确认新的类 "<span class="pykeyword">class</span>"  <tt>RepairedRobot</tt> <i>继承了</i>  <tt>UsedRobot</tt> 所有的方法与特性. 因此，当我们这么写:</p>
+<pre>
+newReeborg = RepairedRobot()
+</pre>
+<p>我们建立了一个新的机器人 "叫做" <tt>newReeborg</tt>， 它至少可以做所有的就机器人能做的</p>
+<pre>
+Reeborg = UsedRobot()
+</pre>
+<p></p>
+<p>下面，在新的 <span class="pykeyword">class</span>中, 我们定义了新的方法 -- <tt>turn_right()</tt>.  通过在 <span class="pykeyword">class</span>中的定义, 我们可以做到， 任何通过 <tt>RepairedRobot()</tt> 创建的机器人可以向右转!</p>
+<p>另外一个需要做的，就是告诉 Python这个方法仅仅 "属于" 特定的对象（用这个class创建的）.  为了做到这一点, 我们使用变量 <tt>synonym_used_to_refer_to_this_object</tt>指向 newReeborg, newErdna, 等等., 具体指向谁，取决于你创建了什么对象. 我们么这么写</p>
+<pre>
+newReeborg = RepairedRobot()
+</pre>
+<p>Python 会创建class <tt>RepairedRobot</tt> 的一个实例，并定义所有的方法, 用新实例名称(<tt>newReeborg</tt>)替代参数 (<tt>synonym_used_to_refer_to_this_object</tt>) .</p>
+<p>现在, <tt>synonym_used_to_refer_to_this_object</tt>是一个有些长的名字.  根据习惯, 我们使用另外一个变量: <tt>self</tt>.  因此，我们应该这么写:</p>
+<pre>
+<span class="keyword">class</span> RepairedRobot(UsedRobot):
+    <span class="keyword">def</span> turn_right(self):
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(3):
+            self.turn_left()
+</pre>
+
+<center><a href="36-tuples.htm"><img alt="previous" src=
+"../../images/previous.png">最后的序列</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"38-class2.htm">体验类.<img alt="next"
+src="../../images/next.png"></a></center>
+
+</body>
+</html>

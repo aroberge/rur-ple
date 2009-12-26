@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Amazing - part 2</title>
+</head>
+<body>
+<h2 class="title">18. Uygulama - Bölüm 2</h2>
+<p>Bir önceki problemde sorun ya&#351;amam&#305;z&#305;n nedeni önce bip'i b&#305;rakt&#305;&#287;&#305;m&#305;zdan 
+dolay&#305;
+<span class="pykeyword">while</span> döngüsünün hiç bir zaman çal&#305;&#351;mamas&#305;d&#305;r.
+<span class="pykeyword">while </span>döngüsünün çal&#305;&#351;abilmesi için bir bip'in 
+yan&#305;nda olmamam&#305;z gerekiyor, oysa biz hep bir bip'in yan&#305;nda kal&#305;yoruz. Bir <tt>move()</tt>komutu 
+ekleyerek bu hatay&#305; giderebiliriz.</p>
+<pre>
+put_beeper()
+move()
+<span class="keyword">while not</span> next_to_a_beeper():
+    <span class="keyword">if</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+<p><b>Deneyin!</b></p>
+<!--================================================-->
+<hr width="50%">
+<h3 class="section">Biraz daha zor bir dünya</h3>
+<p>Yazd&#305;&#287;&#305;m&#305;z program&#305; a&#351;a&#287;&#305;daki dünyada deneyelim. Bu dünyay&#305; kendiniz 
+kolayl&#305;kla yaratabilirsiniz, yarat&#305;n ve kaydedin. </p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around2start.png"></p>
+<p>Program&#305; denedi&#287;inizde tam olarak istedi&#287;inizi yapmad&#305;&#287;&#305;n&#305; göreceksiniz. 
+Reeborg a&#351;a&#287;&#305;da oldu&#287;u gibi yolunu k&#305;sa yoldan tamamlar.</p>
+<p><img alt="around the world: end" src=
+"../../images/intro/around2end.png"></p>
+<p>Reeborg ileriye gitmeye veya sola dönmeye programland&#305;&#287;&#305;ndan, program 
+istedi&#287;imiz gibi çal&#305;&#351;maz. Böyle durumlarla kar&#351;&#305;la&#351;t&#305;&#287;&#305;nda Reeborg'un sa&#287;a 
+dönmesi gereklidir. Önce sa&#287;&#305;nda duvar olup olmad&#305;&#287;&#305;n&#305; kontrol etmeli ve e&#287;er 
+yoksa sa&#287;a dönmelidir. A&#351;a&#287;&#305;da bunu yapmaya çal&#305;&#351;an bir program görüyorsunuz:</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+put_beeper()
+move()
+<span class="keyword">while not</span> next_to_a_beeper():
+    <span class="keyword">if</span> right_is_clear():
+        turn_right()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+<p>Çal&#305;&#351;t&#305; m&#305;? Program&#305; dikkatlice inceleyin ve e&#287;er gerekiyorsa gerekli 
+de&#287;i&#351;ikli&#287;i yap&#305;n.</p>
+<center><a href="17-amazing1.htm"><img alt="previous" src=
+"../../images/previous.png">Uygulama - bölüm 1</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="19-amazing3.htm">Uygulama - </a><A href="17-amazing1.htm">
+bölüm</a><A href="19-amazing3.htm"> 3 <img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

@@ -1,0 +1,33 @@
+# Back and forth harvesting solution
+
+def turn_right():
+    repeat(turn_left, 3)
+
+def pick_and_move():
+    pick_beeper()
+    move()
+
+
+def harvest_one_row():
+    repeat(pick_and_move, 5)
+    pick_beeper()
+
+
+def harvest_two_rows():
+    harvest_one_row()
+    # move to next row
+    turn_left()
+    move()
+    turn_left()
+    # harvest it
+    harvest_one_row()
+    # move to the next row
+    turn_right()
+    move()
+    turn_right()
+
+# end of definitions
+
+move()
+repeat(harvest_two_rows, 3)
+turn_off()

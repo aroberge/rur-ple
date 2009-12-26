@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>教会Reeborg做加法</title>
+</head>
+<body>
+<h2 class="title">24. 教会Reeborg做加法</h2>
+<p>在这一课里，我会指导大家来完成一个让Reeborg 做加法的程序。我就像我们通常使用10进制的数座加法一样，我们可以用这个程序轻松地完成其他进制的数相加。</p>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="try">热身</h3>
+<ol>
+<li>用下面的方法让Reeborg把3+2算出来。<br>
+<img alt="3+2" src="../../images/intro/add3_2_start.png"><img alt="lead to"
+src="../../images/lead_to.png"> <img alt="5" src=
+"../../images/intro/add3_2_end.png"><br>
+再写一个让Reeborg把1和4加起来。</li>
+<li>修改你的程序使得Reeborg可以通过以下的方法把13和22加起来，在下面每一组铃铛代表了一个数字。<br>
+<img alt="13+22" src="../../images/intro/add13_22_start.png"><img alt=
+"lead to" src="../../images/lead_to.png"> <img alt="35" src=
+"../../images/intro/add13_22_end.png"><br></li>
+<li>你能不能编写一个程序，让Reeborg可以像下面一样把3和2，<b>以及</b>8和4加在一起？<br>
+<p><img alt="8+4" src="../../images/intro/add8_4_start.png"><img alt=
+"lead to" src="../../images/lead_to.png"> <img alt="12" src=
+"../../images/intro/add8_4_end.png"></p>
+<br>
+你的新的程序应该也要使得2和5，9和9加在一起。你明白怎么做到吗？如果会，就去试试吧……如果你不会，没关系，不要灰心，接着往下学习吧！</li>
+</ol>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="section">回顾</h3>
+<p>让我们用“传统的方式”从做到有把两个数字加到一起，从左至右。</p>
+<pre>
+  528
++ 634
+------
+   12  # 首先进行个位数相加 (8+4)
+</pre>
+<p>注意到我们要在十位加上进位的1.在处理这个“进位”时，你的程序可能会遇到困难。让我们重新用一般使用的方法编写程序并且继续进行加法计算。</p>
+<pre>
+   1
+  528
++ 634
+------
+ 1162  
+</pre>
+<p>好，似乎清楚些了，但我必须确认你能够跟上？在Reeborg的世界里，我们希望这个加法看起来如下图所示：</p>
+<p><img alt="adding start" src="../../images/intro/add_start.png"><img alt=
+"lead to" src="../../images/lead_to.png"> <img alt="adding end" src=
+"../../images/intro/add_end.png"></p>
+<p>我们先解决简单的8加4问题。</p>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="section">在十进制里用8加上4</h3>
+<p><span class="warning">警告：</span> 
+下面的练习可能有点困难，它更多的被用来作为一个挑战。读完这堂课剩下的部分，自己决定是否要进行这个练习或者选择跳过来继续学习Python.</p>
+<p>
+正如我们提到的那样，在十进制中，使用一个铃铛代表一个数字，当两个数之和大于9时，无论是哪两个数字相加，我们的程序都会遇到问题。不管怎样，我们必须注意这个神奇的数字（10）。我创造了一个新的地图（文件名：adding_world.wld），这个地图大得能够进行7位10进制数相加（甚至是16进制！）。调出这个文件，我将指导你们如何编写可以additions的程序。</p>
+<p>
+调出这个世界的文件后，如果你看看屏幕的下方，你会看到Reeborg带了8个铃铛。编写一个程序，让Reeborg把铃铛摆成一条直线，10号街的每个十字路口各放置一个（如下图所示）。在程序结束之后，我用光标把Reeborg移出来了，所以他在最后一列的铃铛上方。这也就是为什么你在下面的图上看不到他。</p>
+<p><img alt="line of beepers accross 10th street" src=
+"../../images/intro/accross10.png"></p>
+<p>现在，在进入下一步之前先保存程序。<br>
+<br>
+现在重新载入地图文件，保证地图是空的，Reeborg也站在最原始的位置上[1号大道和1号街拐弯处]。把铃铛放置在右下角，如下图（但Reeborg在最开始的位置）。</p>
+<p><img alt="8+4" src="../../images/intro/add8_4_start.png"></p>
+<p>让Reeborg做下面的动作：</p>
+<ol>
+<li>像之前一样在10号街上摆放一排铃铛。</li>
+<li>走到屏幕的右下角把这两个铃铛（8和4）收集起来。</li>
+<li>像下面的图一样把这12个铃铛摆成竖直的一列。</li>
+</ol>
+<p><img alt="8+4 spread vertically" src=
+"../../images/intro/vertical12.png"></p>
+<p>现在，我们在这竖铃铛之外有两个铃铛（12那一组），和水平线外的另外一个铃铛（我们可以把它当作十进制下的进位）。现在你需要做的是：</p>
+<ol>
+<li>让Reeborg把在水平线下的这9个铃铛捡起来并把他们放在不同地方（你可以把他们都放在水平线上）；你可以通过重复下面的步骤来完成：<ol>
+<li>捡起铃铛</li>
+<li>检查一下是不是还有别的铃铛没有捡起来，如果没有</li>
+<li>移动…直到移动到另外一个有铃铛的转弯处</li>
+</ol>
+在你到达铃铛的水平线的时候，你可以把他们都放在那个转角处……</li>
+<li>让Reeborg一直走，至少超过最后一个铃铛—如下图示：<br>
+<br>
+<p><img alt="8+4" src="../../images/intro/add8_4_middle.png"><br></p>
+</li>
+<li>
+让Reeborg掉头，捡起一个铃铛继续往前，如此重复，直到Reeborg走到没有铃铛的转弯处（低于水平线）；到这时，Reeborg应该已经收集了三个铃铛了。</li>
+<li>让Reeborg带着这几个铃铛往下走，走到墙角。</li>
+<li>让Reeborg把三个铃铛都放下来，再捡起十进制进位的那一个铃铛，然后朝西走、把这个铃铛放下来。 </li>
+</ol>
+接下来把Reeborg移出来，我们就可以看到结果了。<br>
+<br>
+<p><img alt="8+4" src="../../images/intro/add8_4_end.png"></p>
+<p>事实上，这5个步骤要写的编码很多，也许要完全正确会有一定难度。但只要你按步骤来，就一定可以做到。去试试吧！</p>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="suggested">Adding 3+5</h3>
+<p>
+那么，最终你的程序能够把8+4的结果算出来。那么3+5呢？也可以算出来吗？答案是：不。因为这不需要进一位。你能想出解决的办法么？可能你只能用我们迄今为止学过的东西。<i>我</i>之前写到过，这个可以通过一个我们还没有见过的Python关键词：<span class="pykeyword">break</span>来解决。 </p>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="suggested">终极挑战</h3>
+<p>如果你了解到用其他进位制做加法的意义的话，也许你就会试着去改变你的程序（或者是你的世界文件）以实现用别的进位制做加法。</p>
+<!--=========================================-->
+<hr width="50%">
+<h3 class="section">下一步干嘛？</h3>
+<p>目前为止，我们在Reeborg的世界里看到过一下Python关键词：<br>
+<span class="pykeyword">def, elif, else, if, not, pass, while</span>. 
+我们最后编写了一个相当复杂的程序，来让Reeborg可以把两个数字相加。是时候离开Reeborg的世界、用纯粹的Python 
+来更简单地把两个数字相加啦！不用担心，我们会时不时地回到Reeborg的世界，来看看我们对Python的了解可以如何帮助Reeborg。</p>
+<center><a href="23-trash.htm"><img alt="previous" src=
+"../../images/previous.png">暴风雨过后</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"../inter/25-interpreter.htm">Python已经知道了如何做加法。<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

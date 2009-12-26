@@ -1,0 +1,12 @@
+Lightning Compiler (LC) is a simple wxPython based editor designed for testing 
+code snippets.  It includes an embedded Python shell.
+
+LC is a single module (lightning.py) that can be run entirely on its own.
+It can also be embedded in other apps; an example is given with 
+test_import_lightning.py.
+
+LC includes the ability to run doctests with, or without external test files.
+A sample file (toy_test.py) with additional tests (toy_test.txt) is included
+in this package.
+
+Please feel free to send your comments to andre.roberge@gmail.com

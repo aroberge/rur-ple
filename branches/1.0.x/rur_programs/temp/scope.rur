@@ -1,0 +1,23 @@
+Larry = UsedRobot(colour='blue')
+Curly = UsedRobot(1, 3, colour='green')
+
+for i in range(3):
+    Larry.move()
+    Curly.move()
+
+def wait_for_me():
+    #global Moe
+    Moe = UsedRobot(1, 2, colour='yellow')
+    for i in range(3):
+        Moe.move()
+        Larry.move()
+        Moe.move()
+        Curly.move()
+
+wait_for_me()
+Larry.move()
+Curly.move()
+Larry.move()
+Curly.move()
+#Moe.move()
+Larry.turn_off()

@@ -1,0 +1,7 @@
+C = RefurbishedRobot()
+
+C.move()
+if C.front_is_clear():
+   C.move()
+
+C.turn_off()

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>40. 随机离开</title>
+</head>
+<body>
+
+<h2 class="title">40. 随机离开</h2>
+<p>乐跑机器人 <code>RefurbishedRobot</code> 带着个 "电子骰子". 它可以 "抛骰子" 决定接下来怎么做.  这样的由抛骰子做出决定， 叫做 <em>随机</em> 决定.  我们打算写一些程序，要乐跑机器人 <em>最终</em> 通过随机决定走出迷宫.  这里是一些基本法则:</p>
+<ul>
+<li>乐跑机器人检查他是否可以向前走.</li>
+<ul>
+<li>如果是，他就向前走, 并检查他是否走出了迷宫.</li>
+<ul>
+<li>如果是，那么它将关掉自己.</li>
+<li>如果不是，他将继续试图走出迷宫.</li>
+</ul>
+</ul>
+<li>乐跑机器人没有走出迷宫; 他抛掷他的骰子决定他下一步的方向 (左,右,或者原始的方向),如果需要, 将转弯.</li>
+<li>乐跑机器人回到法则的开始, 检查是否可以往前走</li>
+</ul>
+
+W我们使用两种不同的方法来实现这个法则, 来对付潜在的问题.
+
+
+<h3 class="section">随机离开 1</h3>
+<p>我们第一个程序将基于迄今为止我们学到的技术. 我们要乐跑机器人检查前面是否有墙, 只有前面没有墙的时候再移动. 这被描述为<i>先看后走</i> (LBYL) 的执行方式.</p>
+<pre>
+G = RefurbishedRobot()
+G.set_delay(0) <span class="comment"># moving as fast as possible</span>
+<span class="keyword">while</span> True:
+    <span class="keyword">if</span> G.front_is_clear():
+        G.move()
+        <span class="keyword">if</span> G.on_beeper():
+            G.turn_off()
+    r = G.roll_dice()
+    <span class="keyword">if</span> r <span class="keyword">in</span> [1, 2]:
+        G.turn_left()
+    <span class="keyword">elif</span> r <span class="keyword">in</span> [3, 4]:
+        G.turn_right()
+</pre>
+
+我们把延时设到了最小值(意味着, 最快的速度) 这样能很快找到出口! 当乐跑机器人 "抛掷骰子", 可能有6 个不同的结果 (数字 1 到 6).  下面是一个可能的结果.
+
+<p><img alt="random maze solution" src="../../images/future/random_maze.png"></p>
+
+<h3 class="section">例外</h3>
+<p>为了对付一些不常见的情形, Python 程序员经常需要对付 "例外". 当你打算用0作除数, Python将这样提示:</p>
+<pre>
+&gt;&gt;&gt; x = 1/0
+Traceback (most recent call last):
+  File "&lt;input&gt;", line 1, in ?
+ZeroDivisionError: integer division or modulo by zero
+</pre>
+<p>Python 通过 by "抛出"一个 "Exception"(异常) (ZeroDivisionError)做出反应，引起异常的原因会在错误消息中显示出来.  这种 "抛出" 异常的方式， 是Python提示用户的一种途径， 当他遇到一种不知道如何处理的情景的时候. 我们可以用关键字 <span class="keyword">raise</span>仿真这种操作</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">raise</span> ZeroDivisionError
+Traceback (most recent call last):
+  File "&lt;input&gt;", line 1, in ?
+ZeroDivisionError
+</pre>
+<p>当我们知道一个异常可能被抛出时, 我们可以 "捕获" 它， 并做出恰当的处理. 下面是我们怎样做的:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">try</span>:
+...     x = 1/0
+... <span class="keyword">except</span>:
+...     <span class="keyword">print</span> "You have attempted to divide by zero. This is not allowed."
+...
+You have attempted to divide by zero. This is not allowed.
+</pre>
+<p>让我们用这种方式， 写另外一种实现， 帮助机器人走出迷宫.</p>
+<h3 class="section">随机离开 2</h3>
+<p>当乐跑机器人遇到了问题(撞墙, 试图捡一个不存在的beeper, 等等.), 一个异常将被抛出.  这通常会结束机器人程序,并且被RUR-PLE "捕获" 并显示一个错误信息对话框.  我们可以写一个自己的程序 "捕获" 这个异常, 忽略这个错误使得程序可以继续运行.  这就是我们下面的程序所作的. 有时候这被描述为 <i>请求宽容,而不是请求许可</i> (BAFP) 的执行方式.
+</p>
+<pre>
+G = RefurbishedRobot()
+G.set_delay(0) <span class="comment"># moving as fast as possible</span>
+<span class="keyword">while</span> True:
+    <span class="keyword">try</span>:
+        G.move()
+        <span class="keyword">if</span> G.next_to_a_beeper():
+            G.turn_off()
+    <span class="keyword">except</span> HitWallException:
+        <span class="keyword">pass</span>
+    r = G.roll_dice(3) <span class="comment"># possible values: 1, 2, 3</span>
+    <span class="keyword">if</span> r == 1:
+        G.turn_left()
+    <span class="keyword">elif</span> r == 2:
+        G.turn_right()
+</pre>
+<p>上面的例子中, 我们已经用了不同的骰子, 抛掷结果有三种可能.  你可以要乐跑机器人使用任意的骰子，抛掷骰子可以有不同的可能的结果.</p>
+<h3 class="section">哪种实现方式你更喜欢呢?</h3>
+<p>如果异常条件不经常发生, 那么 BAFP的方式更合适.  否则的话,LBYL的方式，也就是我们的第一种方案，更加被推荐.</p>
+
+<center><a href="39-import.htm"><img alt="previous" src=
+"../../images/previous.png">避免重复 - Import.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> </center>
+
+</body>
+</html>

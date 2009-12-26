@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>33. Repeat() is hiding some Python keywords</title>
+</head>
+<body>
+<h2 class="title">33. repeat() baz&#305; Python komutlar&#305;n&#305; gizler</h2>
+<p>Pek &ccedil;ok ders &ouml;nce Reeborg'a baz&#305; i&#351;leri nas&#305;l tekrar ettirdi&#287;imizi 
+hat&#305;rlay&#305;n. </p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+</pre>
+<p>Bu derste kendi
+<tt>repeat()</tt>fonksiyonumuzu nas&#305;l tan&#305;mlayaca&#287;&#305;m&#305;z&#305; g&ouml;rece&#287;iz.&nbsp; <!--==============================--></p>
+<hr width="50%">
+<h3 class="section">&#304;ki yeni komut</h3>
+<p>A&#351;a&#287;&#305;dakini deneyin:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> letter <span class=
+"keyword">in</span> <span class="string">"Reeborg"</span>:
+...     <span class="keyword">print</span> letter
+...     
+R
+e
+e
+b
+o
+r
+g
+</pre>
+<p><span class="string">Reeborg </span>kelimesindeki t&uuml;m harflerin tek tek yeni 
+bir sat&#305;rda yaz&#305;lmas&#305;n&#305; Pyton'a s&ouml;ylemi&#351; olduk. E&#287;er harflerin her birinin yeni 
+bir sat&#305;rda g&ouml;r&uuml;nt&uuml;lenmesini istemezsek virg&uuml;l kullan&#305;r&#305;z.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> letter <span class=
+"keyword">in</span> <span class="string">"Reeborg"</span>:
+...     <span class="keyword">print</span> letter,
+...     
+R e e b o r g
+</pre>
+<p>Olduk&ccedil;a d&uuml;zenli! Bu herhangi bir string ile &ccedil;al&#305;&#351;&#305;r! Bunun yerine Python'un 
+say&#305;lar&#305; saymas&#305;n&#305; isteseydik? <span class=
+"pykeyword">for</span> d&ouml;ng&uuml;s&uuml;n&uuml;
+<tt>range() </tt>fonksiyonu ile birlikte kullanabiliriz.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> number <span class=
+"keyword">in</span> range(3):
+...     <span class="keyword">print</span> number
+...     
+0
+1
+2
+&gt;&gt;&gt; <span class="keyword">for</span> number <span class=
+"keyword">in</span> range(14):
+...     <span class="keyword">print</span> number,
+...    
+0 1 2 3 4 5 6 7 8 9 10 11 12 13
+</pre>
+<p>Kendi kendinize benzer &ouml;rnekleri deneyin!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section"><tt>repeat()</tt>'in tan&#305;mlanmas&#305; </h3>
+<p>Art&#305;k kendi
+<tt>repeat()</tt>fonksiyonumuzu tan&#305;mlamak i&ccedil;in gerekli malzemeye sahibiz:.</p>
+<ul>
+<li>Parametre kullanarak fonksiyon tan&#305;mlamay&#305; biliyoruz.</li>
+<li>De&#287;i&#351;kenlerin nas&#305;l kullan&#305;laca&#287;&#305;n&#305; biliyoruz.</li>
+<li> <span class="pykeyword">for</span> d&ouml;ng&uuml;leri ile nas&#305;l say&#305; say&#305;laca&#287;&#305;n&#305; 
+biliyoruz.</li>
+</ul>
+<p>Neden bekliyoruz ki?</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> repeat(f, n):
+...     <span class="keyword">for</span> i <span class=
+"keyword">in</span> range(n):
+...         f()
+...
+&gt;&gt;&gt; <span class="keyword">def</span> f():
+...     <span class="keyword">print</span> <span class=
+"string">"It's fun!"</span>
+...    
+&gt;&gt;&gt; repeat(f, 3)
+It's fun!
+It's fun!
+It's fun!
+</pre>
+<p>Asl&#305;nda bu yapt&#305;&#287;&#305;m&#305;z olduk&ccedil;a geli&#351;mi&#351; bir d&uuml;zeyde Python programlamad&#305;r.
+<tt>repeat()</tt> fonksiyonuna kendiside bir fonksiyon olan bir parametre 
+g&ouml;nderdik. Bunu yapabilmek i&ccedil;in fonksiyonun ad&#305;ndan sonra parantez 
+kullanmamal&#305;y&#305;z. [Geriye d&ouml;n&uuml;n ve <tt>turn_right()</tt>'&#305; Reeborg'un d&uuml;nyas&#305;nda 
+nas&#305;l tan&#305;mlad&#305;&#287;&#305;m&#305;za bir bak&#305;n.] Bunun yan&#305;nda say&#305;sal bir de&#287;er alan ba&#351;ka bir 
+parametre (<tt>n</tt>) daha g&ouml;nderdik.
+<tt>repeat()</tt>fonksiyonu tan&#305;mland&#305;&#287;&#305;nda parametrelerden birisinin bir 
+fonksiyon, di&#287;erinin bir say&#305; olaca&#287;&#305;n&#305; Python dikkate almaz (ve bilmez de!). </p>
+<p>Se&ccedil;ti&#287;im de&#287;i&#351;ken isimlerinin (<tt>f, n, i</tt>) &ccedil;ok a&ccedil;&#305;klay&#305;c&#305; olmad&#305;&#287;&#305;na 
+dikkat edin. Programc&#305;lar k&uuml;&ccedil;&uuml;k d&ouml;ng&uuml;lerde (az &ouml;nceki gibi) veya k&uuml;&ccedil;&uuml;k 
+fonksiyonlarda tek harfli de&#287;i&#351;kenler kullan&#305;rlar b&ouml;ylece de&#287;i&#351;kenlerin 
+kullan&#305;ld&#305;klar&#305; yerler &ccedil;ok daha kolayl&#305;kla g&ouml;r&uuml;lebilir. Ancak de&#287;i&#351;kenlerin &ouml;zel 
+bir anlam&#305; varsa onlara daha uzun ve a&ccedil;&#305;klay&#305;c&#305; adlar vermek tercih edilir. E&#287;er 
+buna inanm&#305;yorsan&#305;z, <a href=
+"../intro/10-def.htm">10. Tekrardan kesinlikle ka&ccedil;&#305;n&#305;n.</a>dersine gidin ve 
+dersin sonundaki Program okuma k&#305;sm&#305;n&#305; yeniden deneyin. </p>
+<p>Belki de <tt>repeat()</tt> fonksiyonunu a&#351;a&#287;&#305;daki gibi tan&#305;mlamal&#305;yd&#305;m:</p>
+<pre>
+<span class="keyword">def</span> repeat(function, number_of_times):
+    <span class="keyword">for</span> number <span class="keyword">in</span> range(number_of_times):
+        function()
+</pre>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Deneyin!</h3>
+<p>Reeborg'un d&uuml;nyas&#305;na gidin. &#304;&ccedil;inde <tt>repeat()</tt>'in en az iki kez 
+kullan&#305;lm&#305;&#351; oldu&#287;u herhangi bir al&#305;&#351;t&#305;rmay&#305; se&ccedil;in. <tt>repeat()</tt>lerin yerine <span class=
+"pykeyword">for</span> d&ouml;ng&uuml;leri kullanarak &ccedil;&ouml;z&uuml;me ula&#351;&#305;n. </p>
+
+<center><a href="32-return.htm"><img alt="previous" src=
+"../../images/previous.png">Many returns.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="34-lists.htm">&Ccedil;ukulatal&#305; kek tarifi</a> <a href=
+"34-lists.htm"><img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

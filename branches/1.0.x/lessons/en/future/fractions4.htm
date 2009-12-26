@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Fractions - part 4</title>
+</head>
+<body>
+<h2 class="title">Fractions - part 4</h2>
+<p>As you should have checked at the end of the previous lesson, Python does not know how to add an integer to a <tt>Fraction</tt>.  We can correct that easily enough by doing the following: </p>
+<ol>
+<li>Before doing a mathematical operation [+, *, /, -], check to see if the "other" object is a Fraction, if not convert it before doing the operation.</li>
+<li>Tell Python how to convert integers to Fractions.</li>
+</ol>
+<p>The second step can be accomplished with a function <i>like</i> the following:</p>
+<pre>
+<span class='keyword'>def</span> convertToFraction(object):
+    <span class='comment'>'''Converts "int" and "long" to Fractions'''</span>
+<span class='keyword'>    if</span> isinstance(object, (int, long)):
+        <span class='keyword'>return</span> Fraction(object)
+    <span class='keyword'>else</span>:
+        <span class='keyword'>raise</span> NotImplementedError
+</pre>
+<p>We first check if the object is an integer [<tt>int</tt> or perhaps <tt>long</tt>] and, if so, create a new Fraction from it (the integer will be the numerator of the new Fraction).  Since we want fractions to be of the form (integer/integer), we will not allow any other kind of object; by raising an exception, we inform the user that the attempted operation is not permitted.</p>
+<p>The first step will be something that we will add at the beginning of every operation.  Here's the new code that does just that.  [Note that we included the conversion to Fractions as a method of that class.]</p>
+<pre>
+<span class='linenumber'>  1 </span><span class=
+'keyword'>def</span> gcd(a, b):
+<span class='linenumber'>  2 </span>    <span class=
+'comment'>'''gcd returns the greatest common divisor 
+<span class='linenumber'>  3 </span>        of given 2 integers.'''</span>
+<span class='linenumber'>  4 </span><span class='keyword'>    while</span> b:
+<span class='linenumber'>  5 </span>        a, b = b, a%b
+<span class='linenumber'>  6 </span>    <span class='keyword'>return</span> a
+<span class='linenumber'>  7 </span>
+<span class='linenumber'>  8 </span><span class=
+'keyword'>class</span> Fraction(object):
+<span class='linenumber'>  9 </span>    <span class=
+'keyword'>def</span> __init__(self, numerator, denominator=<span class=
+'number'>1</span>):
+<span class=
+'linenumber'> 10 </span>        num, denom = self.simplify(numerator, denominator)
+<span class='linenumber'> 11 </span>        self.num = num
+<span class='linenumber'> 12 </span>        self.denom = denom
+<span class='linenumber'> 13 </span>        
+<span class='linenumber'> 14 </span>    <span class=
+'keyword'>def</span> __str__(self):
+<span class='linenumber'> 15 </span>        <span class=
+'keyword'>if</span> self.denom ==<span class='number'> 1</span>:
+<span class='linenumber'> 16 </span>            <span class=
+'keyword'>return</span><span class='string'> "(%s)"</span>%self.num
+<span class='linenumber'> 17 </span>        <span class=
+'keyword'>return</span><span class=
+'string'> "(%s/%s)"</span>%(self.num, self.denom)
+<span class='linenumber'> 18 </span>
+<span class='linenumber'> 19 </span>    <span class=
+'keyword'>def</span> __mul__(self, other):
+<span class='newlinenumber'> 20 </span>        <span class=
+'keyword'>if</span><span class=
+'keyword'> not</span> isinstance(other, Fraction):
+<span class=
+'newlinenumber'> 21 </span>            other = self.convertToFraction(other)
+<span class='linenumber'> 22 </span>        num = self.num * other.num
+<span class='linenumber'> 23 </span>        denom = self.denom * other.denom
+<span class='linenumber'> 24 </span><span class=
+'keyword'>        return</span> Fraction(num, denom)
+<span class='linenumber'> 25 </span>
+<span class='linenumber'> 26 </span>    <span class=
+'keyword'>def</span> __div__(self, other):
+<span class='newlinenumber'> 27 </span>        <span class=
+'keyword'>if</span><span class=
+'keyword'> not</span> isinstance(other, Fraction):
+<span class=
+'newlinenumber'> 28 </span>            other = self.convertToFraction(other)
+<span class='linenumber'> 29 </span>        num = self.num * other.denom
+<span class='linenumber'> 30 </span>        denom = self.denom * other.num
+<span class='linenumber'> 31 </span><span class=
+'keyword'>        return</span> Fraction(num, denom)
+<span class='linenumber'> 32 </span>
+<span class='linenumber'> 33 </span>    <span class=
+'keyword'>def</span> __add__(self, other):
+<span class='newlinenumber'> 34 </span>        <span class=
+'keyword'>if</span><span class=
+'keyword'> not</span> isinstance(other, Fraction):
+<span class=
+'newlinenumber'> 35 </span>            other = self.convertToFraction(other)
+<span class='linenumber'> 36 </span>        denom = self.denom * other.denom
+<span class=
+'linenumber'> 37 </span>        num = self.num*other.denom + self.denom*other.num
+<span class='linenumber'> 38 </span><span class=
+'keyword'>        return</span> Fraction(num, denom)
+<span class='linenumber'> 39 </span>
+<span class='linenumber'> 40 </span>    <span class=
+'keyword'>def</span> __sub__(self, other):
+<span class='newlinenumber'> 41 </span>        <span class=
+'keyword'>if</span><span class=
+'keyword'> not</span> isinstance(other, Fraction):
+<span class=
+'newlinenumber'> 42 </span>            other = self.convertToFraction(other)
+<span class='linenumber'> 43 </span>        denom = self.denom * other.denom
+<span class=
+'linenumber'> 44 </span>        num = self.num*other.denom - self.denom*other.num
+<span class='linenumber'> 45 </span><span class=
+'keyword'>        return</span> Fraction(num, denom)
+<span class='linenumber'> 46 </span>
+<span class='linenumber'> 47 </span>    <span class=
+'keyword'>def</span> simplify(self, a, b):
+<span class='linenumber'> 48 </span>        <span class=
+'comment'>'''divides two integers by their common factor.'''</span>
+<span class='linenumber'> 49 </span>        common_factor = gcd(a, b)
+<span class='linenumber'> 50 </span>        a /= common_factor
+<span class='linenumber'> 51 </span>        b /= common_factor
+<span class='linenumber'> 52 </span><span class=
+'keyword'>        return</span> a, b
+<span class='linenumber'> 53 </span>
+<span class='newlinenumber'> 54 </span>    <span class=
+'keyword'>def</span> convertToFraction(self, object):
+<span class='newlinenumber'> 55 </span>        <span class=
+'comment'>'''Converts "int" and "long" to Fractions'''</span>
+<span class='newlinenumber'> 56 </span><span class=
+'keyword'>        if</span> isinstance(object, (int, long)):
+<span class='newlinenumber'> 57 </span>            <span class=
+'keyword'>return</span> Fraction(object)
+<span class='newlinenumber'> 58 </span>        <span class=
+'keyword'>else</span>:
+<span class='newlinenumber'> 59 </span>            <span class=
+'keyword'>raise</span> NotImplementedError
+<span class='linenumber'> 60 </span>
+<span class='linenumber'> 61 </span><span class=
+'comment'>#== testing area below===
+</span><span class='linenumber'> 62 </span>
+<span class='linenumber'> 63 </span><span class=
+'keyword'>if</span> __name__ ==<span class='string'> "__main__"</span>:
+<span class='linenumber'> 64 </span>    a = Fraction(<span class=
+'number'>1</span>,<span class='number'> 2</span>)
+<span class='linenumber'> 65 </span>    b = Fraction(<span class=
+'number'>3</span>,<span class='number'> 1</span>)
+<span class='linenumber'> 66 </span><span class=
+'keyword'>    assert</span> str(a) ==<span class='string'> "(1/2)"</span>
+<span class='linenumber'> 67 </span><span class=
+'keyword'>    assert</span> str(b) ==<span class='string'> "(3)"</span>
+<span class='linenumber'> 68 </span><span class=
+'keyword'>    assert</span> str(a*b) ==<span class='string'> "(3/2)"</span>
+<span class='linenumber'> 69 </span>    c = Fraction(<span class=
+'number'>1</span>,<span class='number'> 3</span>)
+<span class='linenumber'> 70 </span><span class=
+'keyword'>    assert</span> str(b*c) ==<span class='string'> "(1)"</span>
+<span class='linenumber'> 71 </span>    d = Fraction(<span class=
+'number'>5</span>,<span class='number'> 10</span>)
+<span class='linenumber'> 72 </span><span class=
+'keyword'>    assert</span> str(d) ==<span class='string'> "(1/2)"</span>
+<span class='linenumber'> 73 </span><span class=
+'keyword'>    assert</span> str(a/b) ==<span class='string'> "(1/6)"</span>
+<span class='linenumber'> 74 </span><span class=
+'keyword'>    assert</span> str(a/a) ==<span class='string'> "(1)"</span>
+<span class='linenumber'> 75 </span><span class=
+'keyword'>    assert</span> str(a+a) ==<span class='string'> "(1)"</span>
+<span class='linenumber'> 76 </span><span class=
+'keyword'>    assert</span> str(b+b) ==<span class='string'> "(6)"</span>
+<span class='linenumber'> 77 </span><span class=
+'keyword'>    assert</span> str(a+b) ==<span class='string'> "(7/2)"</span>
+<span class='linenumber'> 78 </span><span class=
+'keyword'>    assert</span> str(c+c) ==<span class='string'> "(2/3)"</span>
+<span class='linenumber'> 79 </span><span class=
+'keyword'>    assert</span> str(a-a) ==<span class='string'> "(0)"</span>
+<span class='linenumber'> 80 </span><span class=
+'keyword'>    assert</span> str(a-b) ==<span class='string'> "(-5/2)"</span>
+<span class='linenumber'> 81 </span><span class=
+'keyword'>    assert</span> str(a-c) ==<span class='string'> "(1/6)"</span>
+<span class='newlinenumber'> 82 </span><span class=
+'keyword'>    assert</span> str(a+<span class=
+'number'>1</span>) ==<span class='string'> "(3/2)"</span>
+<span class='newlinenumber'> 83 </span><span class=
+'keyword'>    assert</span> str(a*<span class=
+'number'>2</span>) ==<span class='string'> "(1)"</span>
+<span class='newlinenumber'> 84 </span><span class=
+'keyword'>    assert</span> str(b-<span class=
+'number'>1</span>) ==<span class='string'> "(2)"</span>
+<span class='newlinenumber'> 85 </span><span class=
+'keyword'>    assert</span> str(b/<span class=
+'number'>3</span>) ==<span class='string'> "(1)"</span>
+</pre>
+<!--=============================================-->
+<hr width="50%">
+<h3 class="section">1 + 1 = ?</h3>
+<p>If you think we are done, try the following:</p>
+<pre>
+one = Fraction(1)
+<span class="keyword">print</span> 1 + one
+</pre>
+<p>Can you think of what make this go wrong?</p>
+</body>
+</html>

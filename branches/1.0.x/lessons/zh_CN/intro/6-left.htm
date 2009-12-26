@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>左转</title>
+</head>
+<body>
+<h2 class="title">6. 左转。</h2>
+<p>我们之前提过，你可以让Reeborg转向任何方向... 但之提供了向左转的功能，及向左侧转90度。
+主要是因为他的创造者太吝啬没有实现一个很好的转向机制。想让Reeborg左转你可以写 ...  <tt>turn_left()</tt>！</p>
+<p>例如，假设Reeborg从他默认的初始位置开始，下面这段简单的程序</p>
+<pre>
+move()
+turn_left()
+move()
+turn_off()
+</pre>
+<p>会让他走到下面的位置。</p>
+<img alt="简单的左转" src="../../images/intro/turn_left_end.png">
+<h3 class="try">
+该你了
+</h3>
+<p>下面的程序，可以让Reeborge行走路线画成一个正方形：</p>
+<pre>
+move()
+turn_left()
+move()
+turn_left()
+move()
+turn_left()
+move()
+turn_left()
+turn_off()
+</pre>
+<p>记住一定要先将程序保存，然后再运行。<b>试试看！</b></p>
+<p>别忘了，如果英语不是你最喜欢的语言，你可以用你自己的语言创建一个同义词，只要使用之前你定义了。
+
+不过，你创建的同义词必须是英文字母组成（不带重音符号的字母）。
+
+比如，在法语中，你可以<b>定义成</b> <tt>vire_a_gauche = turn_left</tt> 然后 <b>使用</b> 
+<tt>vire_a_gauche()</tt> 来控制机器人左转。
+
+</p>
+<h3 class="try">又该你了，试试看！</h3>
+<p>编一个程序让Reeborg绕一个正方形顺时针旋转，走两步然后一直左转，并重复知道回到初始位置面朝右
+（朝东），如下面的图所示。</p>
+<img alt="左正方形" src="../../images/intro/left_square2.png">
+<h3><font color="#663333">小实验
+
+</font></h3>
+<p>由你来决定，让Reeborge延不同的路线移动。</p>
+<!--==================================================-->
+
+<hr width="50%">
+<a name="Home" id="Home"></a>
+<h3 class="section">回家</h3>
+<p>当进入Reeborg的世界时，Reeborge通常站在第一大街的第一大道，面朝右（朝东）。
+
+点击“显示／隐藏世界文件”按钮 <img alt="显示／隐藏世界文件" src="../../images/intro/btn_show_world_file.png">，在最右边的那个。
+
+你将看到下面显示的变化，右边会显示一些文字。
+
+注意那一行显示，<tt>robot = (1, 1, 'E', 0)</tt>。
+
+这说明了Reeborg在他的世界里的位置。
+
+
+第一个数字是Reeborg所在的大街，第二个是大道，引号中间的字母表示方向（E = East 东, N = North 北, W = West 西, S = South 南），
+东就是右，北就是上，以此类推...
+
+
+第四个数字 (0) 是Reeborg携带的 <em>铃铛</em> 数量； 我们以后会学习怎么使用铃铛。</p>
+<p>我们知道，可以通过键盘的“向上”和“向左”键来控制Reeborg移动。当你这样移动Reeborg时，
+他不会留下移动的痕迹。 但你应该能注意到，Reeborg移动时括号中的信息 <tt>robot = (...)</tt> 
+是随之变化的。这实时的反应了Reeborg在他的世界里的位置。</p>
+
+<h3 class="try">
+该你了
+</h3>
+<p>使用键盘，移动Reeborg知道他处在第三大街第四大道，面朝南，如下面显示的。然后，
+编写一个程序使Reeborge从这里回到第一大街第一大道，面朝东。尝试使Reeborg用更少的步伐和转身来完成这个路线。
+</p>
+<p><img alt="back home start" src="../../images/intro/back_home_start.png">
+<img alt="lead to" src="../../images/lead_to.png"> <img alt="back home end"
+src="../../images/intro/back_home.png"></p>
+<center>
+<a href="5-comments.htm"><img alt="前一课" src="../../images/previous.png"> 
+代码注释?<i>Avez-vous des commentaires?</i></a> - <a href="../lessons_toc.htm">
+<img alt="" src="../../images/home.png"></a> - <a href="7-beepers.htm">响铃 <img alt=
+"后一课" src="../../images/next.png"></a>
+</center>
+</body>
+</html>

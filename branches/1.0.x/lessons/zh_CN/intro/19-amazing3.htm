@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href="../rurple.css" type='text/css'>
+<title>神奇-第三部分</title>
+</head>
+<body>
+<h2 class="title">19. 神奇-第三部分</h2>
+<p>你或许已经注意到，程序不能工作。 当乐跑机器人的周围没有墙时，机器人就陷入了一个无限循环中。 我们要让他在右转后 <tt>move()</tt>，如下所示：</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+put_beeper()
+move()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> right_is_clear():
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre><!--================================================-->
+
+<hr width="50%">
+<h3 class="section">更复杂的世界</h3>
+<p>现在，我们考虑如下所示的世界。 你的程序还可以工作吗？</p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around3start.png"></p>
+<p>正如你猜测的那样，答案是不能。 在往下看之前自己尝试着想想这是为什么。</p>
+<center><a href="18-amazing2.htm"><img alt="previous" src=
+"../../images/previous.png"> 神奇-第二部分</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"20-amazing4.htm">神奇-第四部分 <img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

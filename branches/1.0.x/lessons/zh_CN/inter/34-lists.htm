@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>34. 巧克力慕斯蛋糕食谱</title>
+</head>
+<body>
+<h2 class="title">34. 巧克力慕斯蛋糕食谱</h2>
+<p>我不知道你怎么样,但是我饿了.  如果有个美味的巧克力慕斯蛋糕,那就太好了.  我们需要:</p>
+<ul><li><u>主料表</u></li>
+<ul>
+<li>4 个鸡蛋</li>
+<li>100 克糖</li>
+<li>250 克黑巧克力</li>
+<li>30 毫升可可粉</li>
+</ul>
+</ul>
+<p>T此外,我们还需要:</p>
+<ul>
+<li>预加热到180摄氏度 .</li>
+<li>分离蛋黄和蛋清.</li>
+<li>等等.</li>
+</ul>
+<p>食谱和程序很相近: 他们都是一套指令,精确的按照一定的顺序,以期待得到想要的结果.  我想我们已经学习了很多编程, 我们结束烹调课,回到Python学习.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">清单</h3>
+<p>这里有些东西你可以尝试一下:</p>
+<pre>
+&gt;&gt;&gt; ingredients = [<span class="string">"4 eggs"</span>, <span class="string">"100 g of sugar"</span>, 
+...     <span class="string">"250 g of dark semi-sweet chocolate"</span>, <span class="string">"30 ml of cocoa powder"</span>]
+&gt;&gt;&gt; 
+</pre>
+<p><tt>ingredients</tt> 是一个 Python <i>list</i>的范例.  一个 list 可以包括很多条目.  在范例中, 所有的 ingredients 都是字符串; 当然, list <i>条目</i>可以是数字, 甚至于其他 Python对象, 当然,我们还没有接触到.  现在,试试下面的:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> each_item <span class=
+"keyword">in</span> ingredients:
+...    <span class="keyword">print</span> each_item
+4 eggs
+100 g of sugar
+250 g of dark semi-sweet chocolate
+30 ml of cocoa powder
+
+&gt;&gt;&gt; ingredients[0]
+<span class="string">'4 eggs'</span>
+
+&gt;&gt;&gt; ingredients[0:2]
+[<span class="string">'4 eggs'</span>, <span class="string">'100 g of sugar'</span>]
+</pre>
+<p>看上去有些眼熟, 和我们以前见过的只有细小的差别.   再试试下面这个:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> character <span class="keyword">in</span> ingredients[0]:
+...     <span class="keyword">print</span> character
+...    
+4
+ 
+e
+g
+g
+s
+
+&gt;&gt;&gt; ingredients[0][2]
+<span class="string">'e'</span>
+
+&gt;&gt;&gt; <span class="string">'4 eggs'</span>[2]
+<span class="string">'e'</span>
+</pre>
+<p>如我们先前看到的, <tt>ingredients[0]</tt> 等同于字符串 <span class="string">'4 eggs'</span>; 因此, <tt>ingredients[0][2]</tt> 就是字符串<span class="string">'4 eggs'</span>的第三个字母 (记住,Python是从0开始计数的).</p>
+
+<p>现在,在上面的食谱中, 我忘了一个重要的主料: <i>奶油</i> .  我可以添加上他, 然后验证它通过如下办法添加上了:</p>
+<pre>
+&gt;&gt;&gt; ingredients.append(<span class="string">"whipped cream"</span>)
+&gt;&gt;&gt; <span class="keyword">print</span> ingredients
+[<span class="string">'4 eggs'</span>, <span class="string">'100 g of sugar'</span>, <span class="string">'250 g of dark semi-sweet chocolate'</span>, <span class="string">'30 ml of cocoa powder'</span>, <span class="string">'whipped cream'</span>]
+</pre>
+<p><tt>append()</tt> 是 "list" 类的一个方法.  <tt>ingredients</tt> 是一个list类的实例.  我们在实例<tt>ingredients</tt>上 <i>执行</i> 方法 <tt>append</tt> ,我们使用符号 "."来表示, 在前面的课程中我们也见过.   <tt>append</tt> 的<i>参数</i>, 是我们打算添加到list对象中的. 他总是添加在 list的尾部. </p>
+<p>List有很多其他方法; 需要的时候我会介绍.  如果你想知道所有的方法,只需要输入 <tt>dir([])</tt>; 注意 <tt>[]</tt> 是一个空的 list - 任何的list都会给出异样的结果.  看看我们能否发现<tt>append</tt>方法.</p>
+<p>现在,我们知道如何往list里面添加东西了, 接下来我们需要知道如何删除他们.  我们需要使用Python的关键字 <span class="pykeyword">del</span>.
+<pre>
+&gt;&gt;&gt; <span class="keyword">del</span> ingredients[3]
+&gt;&gt;&gt; <span class="keyword">print</span> ingredients
+[<span class="string">'4 eggs'</span>, <span class="string">'100 g of sugar'</span>, <span class="string">'250 g of dark semi-sweet chocolate'</span>, <span class="string">'whipped cream'</span>]
+</pre>
+<p> Python 关键字<span class="pykeyword">del</span>可以做的不仅仅是删除一个条目.  比如, 我们可以让 Python 删除一个已经定义的变量.
+</p>
+<pre>
+&gt;&gt;&gt; a = 3
+&gt;&gt;&gt; <span class="keyword">print</span> a
+3
+&gt;&gt;&gt; <span class="keyword">del</span> a
+&gt;&gt;&gt; <span class="keyword">print</span> a
+Traceback (most recent call last):
+  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+NameError: name <span class="string">'a'</span> is not defined
+</pre>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">试试看!</h3>
+<p>在乐跑机器人世界, 写一个简单的程序创建两个机器人, 给他们不同的名字, 然后要他们走几步, 然后用关键字 <span class="pykeyword">del</span>使他们中的一个消失.  你需要让另外一个机器人至少走一步,才能够使另外一个机器人从屏幕消失.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">介绍一下 <tt>range()</tt></h3>
+<p>Y我们来学习一下Python的函数<tt>range()</tt>:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> range(6)
+[0, 1, 2, 3, 4, 5]
+</pre>
+<p>没错: <tt>range()</tt> 创建了一个list!</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">在list, 整数, 字符串之间转换</h3>
+<p>这里有一些内置函数来转换<i>数据类型</i>.</p>
+<pre>
+&gt;&gt;&gt;  first_number = 1304
+&gt;&gt;&gt;  second_number = 987
+&gt;&gt;&gt;  
+&gt;&gt;&gt;  <span class="comment"># converting an integer to a string using str()</span>
+&gt;&gt;&gt;  first_string = str(first_number)
+&gt;&gt;&gt;  first_string
+'1304'
+&gt;&gt;&gt;  second_string = str(second_number)
+&gt;&gt;&gt;  second_string
+'987'
+
+&gt;&gt;&gt;  <span class="comment"># converting a string to a number using int()</span>
+&gt;&gt;&gt;  int(first_string)
+1304
+
+&gt;&gt;&gt;  <span class="comment"># converting a string to a list using list()</span>
+&gt;&gt;&gt;  first_list = list(first_string)
+&gt;&gt;&gt;  first_list
+['1', '3', '0', '4']
+
+second_list = list(second_string)
+&gt;&gt;&gt;  second_list
+&gt;&gt;&gt;  ['9', '8', '7']
+
+&gt;&gt;&gt;  <span class="comment"># using join() to create a string from a list of strings</span>
+&gt;&gt;&gt;  '...'.join(second_string)
+'9...8...7'
+&gt;&gt;&gt;  '-'.join(first_string)
+'1-3-0-4'
+&gt;&gt;&gt;  <span class="comment"># use the empty string '' to join the elements...</span>
+&gt;&gt;&gt;  ''.join(first_string)
+&gt;&gt;&gt;  '1304'
+&gt;&gt;&gt;  ''.join(second_string)
+&gt;&gt;&gt;  '987'
+
+&gt;&gt;&gt;  <span class="comment"># extracting the last element of a list with pop()</span>
+&gt;&gt;&gt;  <span class="comment"># Note: pop() is, in a way, the opposite of append() </span>
+&gt;&gt;&gt;  first_list
+['1', '3', '0', '4']
+&gt;&gt;&gt;  last_element = first_list.pop()
+&gt;&gt;&gt;  last_element
+'4'
+&gt;&gt;&gt;  first_list
+['1', '3', '0']
+
+&gt;&gt;&gt;  <span class="comment"># the function len() gives the number </span>
+&gt;&gt;&gt;  <span class="comment"># of items in a list </span>
+&gt;&gt;&gt;  len(first_list)
+3
+</pre>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">不好意思, 这个作业看不明白,请讲过这课的老师看一下Help Reeborg to add using lists, strings and integers</h3>
+<p>Help Reeborg to add two numbers, like illustrated below, using what we just saw about lists, strings and integers.</p>
+<p><img alt="before addition" src=
+"../../images/inter/add34_start.png"></p>
+<p><img alt="after addition" src=
+"../../images/inter/add34_end.png"></p>
+<center><a href="33-for.htm"><img alt="previous" src=
+"../../images/previous.png">Repeat() 隐蔽了一些 Python 的关键字</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"35-dicts.htm">另外一种定义<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

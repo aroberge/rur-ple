@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>32. 很多"返回"</title>
+</head>
+<body>
+
+<h2 class="title">32.很多 <span class="pykeyword">"返回"</span>s</h2>
+<p>如你所直, 乐跑机器人身体不太好. 他只会左转,还漏油, 只有墙在他的右侧他才看得到, 朝着墙走走到了才听得到声音. 乐跑机器人也有个指南针帮助他找北(虽然有些毛病了), 只能告诉他他朝着北边...或者没朝着北边. 如何知道他是否朝着北呢? 你可以要乐跑机器人做一个测试 <tt>facing_north()</tt>. </p> 
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">试试看!</h3>
+<p>写一个短小的程序， 来确认乐跑机器人朝左转，直到他朝北然后关掉自己, 无论最初他朝哪边.</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Getting results from a function</h3>
+<p>乐跑机器人的测试实际上是执行了一个Python函数.  不像我们一直以来所看到的，这些函数的结果并不是打印一些值, 而是获得一个答案 (真或者假) ，这个答案会接下来被使用.  为了做这些, 我们需要一个 Python 的关键字 <span class="pykeyword">return</span>.  这里是一个范例:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> add(a, b):
+...     answer = a + b
+...     <span class="keyword">return</span> answer
+...
+&gt;&gt;&gt; c = add(4, 5)
+&gt;&gt;&gt; <span class="keyword">print</span> c
+9
+&gt;&gt;&gt; <span class="comment"> # We can print directly the output of the function.</span>
+&gt;&gt;&gt; <span class="keyword">print</span> add(1, 1)
+2
+</pre>
+<p>上面的例子中, 我们可以用一行代码来定义一个函数 <tt>add()</tt> , 如下:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> add(a, b):
+...     <span class="keyword">return</span> a + b
+...
+&gt;&gt;&gt; c = add(4, 5)
+&gt;&gt;&gt; <span class="keyword">print</span> c
+9
+</pre>
+<p>因此 <span class="pykeyword">return</span> 可以 "返回" 任何有效的 Python 表达式n, 不仅仅是值或者变量. 如果你想要返回的表达式"return"很短,你可能并不想要一个额外的变量 (比如上面的 <tt>answer</tt> ).  当然, 随后你会看到, 有时候你可以 "返回" 不只一个变量... 那么, 用变量而不是Python表达式会更加容易读一些.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section"><span class="pykeyword">返回</span>乐跑机器人世界</h3>
+
+<p>我们在最开始提到,乐跑机器人有个有毛病的罗盘. 他只能知道他是否朝着北边. 当然，我们知道他的记性还凑或, 我们可以教会他如何找方向. 比如: </p>
+<pre>
+<span class="keyword">def</span> facing_south():
+    turn_left()
+    turn_left()
+    answer = facing_north()
+    turn_left()
+    turn_left()
+    <span class="keyword">return</span> answer
+</pre>
+<p>我们来用下面两个例子来看看这个程序是如何工作的:</p>
+<ul><li><b>假设乐跑机器人是朝南的.</b> 两次左转之后, 他朝北了.  这个时候测试 <tt>facing_north()</tt> 会给出一个值 "<tt>True（真）</tt>" ， “真”是变量 <tt>answer</tt>的值.  再左转两次, 乐跑机器人再次朝南了 (回到了他原来的方向), 我们返回一个值 "<tt>True（真）</tt>"!</li>
+<li><b>架设乐跑机器人<u>不是</u>朝南的.</b> 那么，左转两次之后, 他<u>不再</u>朝北了, 那么测试 <tt>facing_north()</tt>会给出一个值 "<tt>False（假）</tt>" “假”是变量<tt>answer</tt>的值.  再左转两次, <p align="left"></p>, 乐跑机器人再次回到了他原来的方向, 这个时候他不是朝南的，  我们返回一个值"<tt>False（假）</tt>"!</li>
+</ul>
+<p>因此我们可以使用新的测试来使机器人朝南:</p>
+<pre>
+<span class="keyword">while</span> <span class="keyword">not</span> facing_south():
+    turn_left()
+</pre>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">小测验</h3>
+<p>写一个程序，不管机器人本来朝哪边，使得机器人朝西.  用各种不同的初始方向进行测试.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">小测验 2</h3>
+<p>把机器人放在任意位置, 在一个空旷的空间， 面朝任意位置. 写一段程序使得乐跑机器人回到原点--他平常的出发点, 面朝西.  即使你把机器人放在原点，程序也应该正常工作.</p>
+
+<center><a href="31-global.htm"><img alt="previous" src=
+"../../images/previous.png">全球化是坏事</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"33-for.htm">Repeat() 隐蔽了一些 Python 的关键字<img alt="next"
+src="../../images/next.png"></a></center>
+
+</body>
+</html>

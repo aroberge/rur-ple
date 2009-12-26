@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href="../rurple.css" type='text/css'>
+<title>假如乐跑可以自己决定...</title>
+</head>
+<body>
+<h2 class="title">12. <span class="pykeyword">if</span>乐跑机器人可以自己决定...</h2>
+<p><span class="pykeyword">if</span>, <span class=
+"pykeyword"><small>if</small></span> ...</p>
+<p>等等！ 机器人确实可以由自己来做出一些决定。 难道我没有告诉过你们吗？</p><!--=================================================-->
+
+<hr width="50%">
+<h3 class="section">第一个决定</h3>
+<p>说实话，机器人做决定时确实需要一些帮助：你必须给他一些选择，他才能做决定。 例如，当机器人在一个beeper的右边，所以在屏幕上看起来他就在这个beeper上，你可以给他一些做法的选择：你可以叫他把它捡起来：</p>
+<pre>
+<span class="keyword">if</span> on_beeper():
+    pick_beeper()
+</pre>
+<p>让我们来看看上述代码的意思：</p>
+<ul>
+<li> python 的关键词 <span class="pykeyword">if</span>告诉了机器人某个 <i>条件</i>,  这个条件是<tt>真</tt> 或者 <tt>假</tt>是要被后面的程序用到的。</li>
+<li>当机器人在一个beeper的旁边时（屏幕上显示是在同一个位置）<tt>on_beeper()</tt>是个值为 <tt>真</tt>的条件，而情况相反时，就为 <tt>假</tt> <br/><span class="important">[注意，在之前rur-ple的版本中，这个文本被称为 <tt>next_to_a_beeper()</tt>]</span></li>
+<li>冒号 (:) 必须放在 <b>当</b> 条件是 <tt>真实</tt>的情况下机器人要遵循的指令的前面。</li>
+<li>如同我们在定义时一样，这一系列的指令是已经设定好的。</li>
+</ul>
+<p>这段解释读起来好像很复杂，但事实上使用 <span class="pykeyword">if</span> 命令是很简单的. 让我们在一个简单例子中看看。 假设我们希望机器人走9步，并且要把所有沿途的beeper都捡起来。 （假设在给定的一点上最多有一个beeper。例如，开始的位置可能如下所示：</p>
+<img alt="move_pick_start" src="../../images/intro/move_pick_start.png">
+<p>and we want the final position to be:</p>
+<p><img alt="move_pick_start" src="../../images/intro/move_pick_end.png"></p>
+<p>所以，我们希望机器人要做的是：</p>
+<ul>
+<li>向前走一步；</li>
+<li>检查是否有beeper；</li>
+<li>如果有一个beeper，则将它捡起来；否则继续前进；</li>
+</ul>
+<p>重复以上的步骤9次。 记住，当地上没有beeper而我们命令机器人执行捡这个动作时，他就会停下来不再继续执行命令。 如下是我们要做的：</p>
+<pre>
+<span class="keyword">def</span> move_and_pick():
+    move()
+    <span class="keyword">if</span> on_beeper():
+        pick_beeper()
+
+repeat(move_and_pick, 9)
+turn_off()
+</pre>
+<p><b>试试看！</b></p>
+<hr width="50%"><!--==================================================-->
+
+<h3 class="try">又是收获时刻！</h3>
+<p>哈，又是收获时刻了！ 这次，并不是所有的种子都发芽了，并且一些胡萝卜不见了。 让机器人捡起花园里所有的胡萝卜（用beeper表示的） 地图文件是harvest3.wld. 回头看看上次你做的倒数第二个收获练习;你所有要做的就是改变指令 <tt>harvest_one_row()</tt>使得它看起来类似于上面的<tt>move_and_pick()</tt>指令; 然而，很可能你将需要一些更多的改变。 [例如，在我的收获问题的解决问题中，我已经定义了一个 <tt>pick_and_move()</tt> 指令，这也需要一些细微的调整。]</p>
+<p><img alt="harvest start" src="../../images/intro/harvest3.png"></p>
+<p>注意，你的新程序应该 <b>也和</b> 我们之前用的世界文件harvest1.wld一样工作。 试试看！</p>
+<center><a href="11-repeat.htm"><img alt="previous" src=
+"../../images/previous.png">消除重复</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"13-else.htm">听我的 ... 或者（else） ....<img alt="next" src=
+"../../images/next.png"></a></center>
+</body>
+</html>

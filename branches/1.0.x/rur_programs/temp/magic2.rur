@@ -1,0 +1,14 @@
+class amazing(RefurbishedRobot):
+    def diag(self):
+        self.set_trace_style(1, 'white')
+        self.turn_left()
+        self.move()
+        self.turn_right()
+        self.move()
+        self.set_trace_style(1, 'sea green')
+
+Magician = amazing()
+repeat(Magician.move, 2)
+repeat(Magician.diag, 2)
+repeat(Magician.move, 2)
+Magician.turn_off()

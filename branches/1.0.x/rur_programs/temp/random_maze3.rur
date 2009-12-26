@@ -1,0 +1,15 @@
+# random maze solver
+# exit identified by beeper
+
+G = RefurbishedRobot()
+while True:
+    if G.front_is_clear():
+        G.move()
+        if G.next_to_a_beeper():
+            G.turn_off()
+    r = G.roll_dice()
+    if r in [1, 2]:
+        G.turn_left()
+    elif r in [3, 4]:
+        G.turn_right()
+

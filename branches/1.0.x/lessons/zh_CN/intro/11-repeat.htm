@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>再次强调，不要重复！</title>
+</head>
+<body>
+<h2 class="title">11. 再次强调，不要重复！</h2>
+<p>规则 #3 在前面一堂课中我们所看到的内容很重要，所以这里我认为有必要再重复一下，这样可以使你们更好地记住它。</p>
+<dl>
+<dt><b>规则 # 3</b></dt>
+<dd>在写电脑程序的时候，自己不要重复。 我再说一遍: <b>不要重复！</b></dd>
+</dl><!--================================================-->
+
+<hr width="50%">
+<a name="Repeat" id="Repeat"></a>
+<h3 class="section">重复！</h3>
+<p>在上一次报纸投递的练习中，仍然有不少重复。 例如, 命令 <tt>turn_left()</tt> 可能在定义 <tt>turn_right()</tt>的定义中出现了三次. 而 <tt>climb_up_one_stair()</tt>可能在 <tt>climb_up_four_stairs()</tt>的定义中出现了四次. 这似乎和我们所说的“不要重复”的规则是相悖的。 一种防止这种重复的方法是使机器人通过一个特殊的命令来重复指令。</p>
+<p>我们用命令 <tt>repeat()</tt> 来让机器人重复一个指令： <tt>repeat(</tt> <em>指令名称</em>, 次数<tt>)</tt></p>
+<p>注意 <em>指令的名称</em>的后面是没有圆括号（）的。 例如，我们要写：</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+</pre>
+<h3 class="try">轮到你了</h3>
+<p>在报纸问题中，到处利用 <tt>repeat()</tt>命令，你可以写出一个更短的版本来。  当然要确认你的新程序和预期效果一样。</p><!--============================================-->
+
+<hr width="50%">
+<a name="Challenges2" id="Challenges2"></a>
+<h3 class="suggested">挑战来了！</h3>
+<p>这堂课的最后我们要布置一些小练习。 根据本堂课的主题（而不是标题！），首先两个练习是重复筑墙那堂课最后我们进行的两个练习。 你必须使用这堂课和上堂课所学的新概念 [<span class="pykeyword">def</span>, <tt>repeat()</tt>] 来解决问题。</p>
+<h3 class="suggested">跨栏</h3>
+<p>乐跑机器人参加了一个跨栏比赛。 请写一个程序让它根据如下所示的路径到达终点线。 文件是 hurdles1.wld.</p>
+<center><img alt="hurdles start" src=
+"../../images/intro/hurdles1_start.png"></center>
+<center><img alt="lead to" src="../../images/lead_to.png"> <img alt=
+"hurdles end" src="../../images/intro/hurdles1_end.png"></center>
+<p>这里,我们可以根据如下所示的路径定义一个新命令 <tt>jump_hurdle()</tt></p>
+<center><img alt="jump one hurdle start" src=
+"../../images/intro/jump1start.png"> <img alt="lead to" src=
+"../../images/lead_to.png"> <img alt="jump one hurdle end" src=
+"../../images/intro/jump1end.png"></center>
+<p>将你的新程序和原来的进行比较。 [你确认已经将它保存了，是吧?]</p>
+<hr width="50%">
+<h3 class="suggested">丰收时刻</h3>
+<p>现在是丰收时刻！ 如下图所示，机器人要捡起花园里所有的胡萝卜（图中用圆圈表示） 文件是 harvest1.wld.</p>
+<p><img src="../../images/intro/harvest1.png" alt="harvest start"></p>
+<p>你的程序应该定义如下指令：</p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+</pre>
+<p>你可能想更深一步细化这些指；例如，你 <b><i>可以</i></b> ：</p>
+<pre>
+<span class="keyword">def</span> harvest_two_rows():
+    harvest_one_row()
+    move_left_to_next_row()
+    harvest_one_row()
+</pre>
+<p>前提是要给 <code>harvest_one_row()</code>一个合适的定义. 然而，你可以用你自己的方法来细化这些必要的指令。 有了这三个必要的指令，我的程序如下所示：（当然还是有一点重复的）</p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+turn_off()
+</pre>
+<p>现在，再次将你的新程序和以前的收获问题的程序进行比较。</p>
+<h3 class="suggested">又是收获时刻了！</h3>
+<p>哈哈，又到了收获时刻！ 然而，这次花园里的胡萝卜是对角摆放的。 如下图所示，机器人要捡起花园里所有的胡萝卜（图中用圆圈表示） 文件是 harvest4.wld.</p>
+<p><img src="../../images/intro/harvest2.png" alt="harvest start"></p>
+<p>像之前的例子，你的程序应该定义了如下的指令：</p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+</pre>
+<p>这些指令将 <b><u>不再</u></b>像之前定义的一样。 然而，一旦这些指令已经定义好了，你的程序可能就和之前的例子中的是一样的：</p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+turn_off()
+</pre>
+<p>注意千万不要撞墙！ 考虑一下你想从哪里开始收获和你准备收获的方向。 或许在一张纸上画一张草图是有益处的。</p>
+<center><a href="10-def.htm"><img alt="previous" src=
+"../../images/previous.png"> 明确的避免重复</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"12-if.htm">如果乐跑可以自己作决定... <img alt="next" src=
+"../../images/next.png"></a></center>
+</body>
+</html>

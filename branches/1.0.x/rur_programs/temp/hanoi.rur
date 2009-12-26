@@ -1,0 +1,84 @@
+
+def turn_around():
+    turn_left()
+    turn_left()
+
+def turn_right():
+    turn_around()
+    turn_left()
+
+def measure_tower_size():
+    i = 0
+    while next_to_a_beeper():
+        pick_beeper()
+        i += 1
+    while carries_beepers():
+        put_beeper()
+    return i
+
+def pick_from_top(): # assumed to be facing North
+    while next_to_a_beeper():
+        move()
+    turn_around()
+    move()
+    while next_to_a_beeper(): # pick pile = disk
+        pick_beeper()
+    while front_is_clear():
+        move()
+    turn_around()  # at bottom, facing North again
+
+def put_at_top(): # assumed to be facing North
+    while next_to_a_beeper():
+        move()
+    while carries_beepers():
+        put_beeper()
+    turn_around()
+    while front_is_clear():
+        move()
+    turn_around()  # at bottom, facing North again
+
+def robotMove_from_to(current, target):
+    global robot_position
+    if current > target:
+        turn_left()
+        while current > target:
+            move()
+            current -= 1
+        turn_right()  # face North at dest
+    else:
+        turn_right()
+        while current < target:
+            move()
+            current += 1
+        turn_left() # face North at dest
+        # keep track of where robot is
+    robot_position = current
+
+def move_disk(source, dest):
+    robotMove_from_to(robot_position, source)
+    pick_from_top()
+    robotMove_from_to(source, dest)
+    put_at_top()
+
+def move_pile(n, source, dest, temp):
+    if n == 1:
+        move_disk(source, dest)
+    else:
+        move_pile(n-1, source, temp, dest)
+        move_pile(1, source, dest, temp)
+        move_pile(n-1, temp, dest, source)
+
+def hanoi():
+    global robot_position
+    set_trace_style(0)
+    move() # column with beeper
+    robot_position = 2 # column with beepers
+    turn_left() # face North
+    n = measure_tower_size()
+    move_pile(n, 2, 3, 4)
+
+
+hanoi()
+turn_left()
+move()
+turn_off()

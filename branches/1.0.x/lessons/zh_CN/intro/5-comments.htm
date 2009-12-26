@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>代码注释？</title>
+</head>
+<body>
+<h2 class="title">5. 代码注释？<i>Avez-vous des commentaires?</i></h2>
+<p>打开你编写的第一个程序。你肯定按我要求的保存了把？如果没保存，就重新写一遍，我等着。</p>
+<p>好了，你的程序应该显示在程序窗口里了。现在，回忆一下我之前告诉你的，编写计算机程序最重要的原则是什么？如果不记得了，那就从最开始重新读一遍。</p>
+<p>我等着...</p>
+<p>明白了吗？没错，最重要的原则是让别人容易读懂你的程序。这需要大量的练习，也需要动脑筋。不过，我们可以用一些写笔记的方法来帮助其他人（而不是电脑）理解你的计算机程序。我们把这些笔记叫做<em>注释</em>. 有多种方法可以在程序中写注释。我会教你们在Python中最简单的一种。在程序中加入下面这样的一行：</p>
+<pre>
+# 我的第一个程序
+</pre>
+<p>看起来应该是：</p>
+<pre>
+<span class="comment"># 我的第一个程序</span>
+move()
+move()
+turn_off()
+</pre>
+<p>如果你不是色盲，你会看到<tt><span class="comment">#</span></tt>号开始的那一行显示成绿色。这个符号表示这一行剩下的部分是<em>comment</em>，会被Reeborg机器人（或者Python）忽略掉。注释的文字显示成绿色，来帮助我们区分注释和指令。选这个颜色没有什么特殊原因；我就是这么设计的。</p>
+<h3><span class="try">
+该你了
+</span></h3>
+<p>如够在<b>命令</b>的一行之前加上#号会怎么样呢？试试看，保存这个程序并点击<img alt="运行程序按钮" src="../../images/intro/btn_run.png">按钮，看看Reeborg机器人如何执行。</p><!--==============================================-->
+
+<hr width="50%">
+
+<h3 class="section">教Reeborg一些法语</h3>
+<p>虽然Reeborg的设计者让他服从英语的指令，但不是所有的人都懂英语。所以，他们赋予了Reeborge学习其他语言的能力。比如，如果我们告诉别人法语的“move forward”（向前走），我们会说“avance”。我们用下面的写法可以告诉Reeborg，“avance”是“move”的同义词：<br /><tt>avance = move</tt>.<br />这个顺序是很重要的；已知的命令应该在右边，新命令应该在左边。注视不需要加括号，“<tt>()</tt>”会让Reeborg以为我们让他执行一个指令；这里我们只是教给他一个新词。当我们想让Reeborg执行这个新指令，我们可以使用<tt>avance()</tt>。</p>
+<h3 class="try">
+该你了
+</h3>
+<p>编写如下程序：</p>
+<pre>
+avance = move
+avance()
+turn_off()
+</pre>
+<p>并保存成“avance.rur”。
+
+现在，试一下你的新程序。</p>
+<h3 class="suggested">小实验</h3>
+<p>如果想，你可以教给Reeborg一个<tt>turn_off</tt>的同义词。
+
+或者用其他任何语言的同义词来定义，甚至自己独创一种语言。现在，就让Reeborg执行用<em>你的</em>语言下达的指令吧。</p>
+<center><a href="4-errors.htm"><img alt="前一课" src="../../images/previous.png"> 处理错误</a> - 
+    <a href="../lessons_toc.htm"><img alt="" src="../../images/home.png"></a> - <a href="6-left.htm">左转<img alt="后一课" src="../../images/next.png"></a>
+
+</center>
+</body>
+</html>

@@ -1,0 +1,25 @@
+# trash1.rur solution to trash1.wld 
+# and trash2.wld
+
+while front_is_clear():
+    while next_to_a_beeper():
+        pick_beeper()
+    move()
+
+while next_to_a_beeper():
+    pick_beeper()
+
+turn_left()
+turn_left()
+while front_is_clear():
+    move()
+
+repeat(turn_left, 3)
+move()
+while carries_beepers():
+    put_beeper()
+
+repeat(turn_left, 2)
+move()
+turn_left()
+turn_off()

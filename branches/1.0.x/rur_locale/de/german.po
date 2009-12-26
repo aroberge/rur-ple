@@ -1,0 +1,605 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: RURple\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2006-08-22 21:29+0100\n"
+"Last-Translator: Tom Bass <tom.bass@yahoo.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+
+#: ..\rurple/RUR_start.py:97
+#: ..\rurple/rur_py/browser.py:114
+#: rur_py/browser.py:114
+msgid "RUR: a Python Learning Environment"
+msgstr "RUR: eine Python LernumgEbung"
+
+#: ..\rurple/RUR_start.py:118
+#: ..\rurple/rur_py/browser.py:110
+#: rur_py/browser.py:110
+msgid "  RUR: Read and Learn  "
+msgstr "  RUR: Lesen und Lernen"
+
+#: ..\rurple/RUR_start.py:124
+#: ..\rurple/rur_py/browser.py:111
+#: rur_py/browser.py:111
+msgid "Robot: Code and Learn"
+msgstr "Robot: Programmieren und Lernen"
+
+#: ..\rurple/RUR_start.py:150
+#: ..\rurple/rur_py/browser.py:112
+#: rur_py/browser.py:112
+msgid "Python: Code and Learn"
+msgstr "Python: Programmieren und Lernen"
+
+#: ..\rurple/RUR_start.py:155
+#: ..\rurple/rur_py/browser.py:113
+#: rur_py/browser.py:113
+msgid "Python: simple editor"
+msgstr "Python: Editor"
+
+#: ..\rurple/RUR_start.py:165
+msgid ""
+"Robot program has changed.\n"
+"You may save it before quitting."
+msgstr ""
+"Das Roboterprogramm wurde geändert.\n"
+"Vor dem Beenden solltest Du es speichern."
+
+#: ..\rurple/RUR_start.py:166
+msgid "Program has been changed"
+msgstr "Das Programm wurde verändert"
+
+#: ..\rurple/RUR_start.py:179
+#: ..\rurple/RUR_start.py:287
+msgid "World files (*.wld)|*.wld| All files (*.*)|*.*"
+msgstr "Welt-Dateien (*.wld)|*.wld| Alle Dateien (*.*)|*.*"
+
+#: ..\rurple/RUR_start.py:180
+#: ..\rurple/RUR_start.py:311
+#: ..\rurple/rur_py/browser.py:147
+#: rur_py/browser.py:147
+msgid "Choose a file"
+msgstr "Wähle eine Datei"
+
+#: ..\rurple/RUR_start.py:213
+#: ..\rurple/RUR_start.py:221
+#: ..\rurple/RUR_start.py:233
+#: ..\rurple/RUR_start.py:256
+#: ..\rurple/RUR_start.py:268
+#, python-format
+msgid ""
+"Problem with %s\n"
+"Please recreate world file."
+msgstr ""
+"Problem mit %s\n"
+"Bitte erstelle die Weltdatei neu."
+
+#: ..\rurple/RUR_start.py:214
+msgid "avenues"
+msgstr "Wege"
+
+#: ..\rurple/RUR_start.py:215
+#: ..\rurple/RUR_start.py:223
+#: ..\rurple/RUR_start.py:235
+#: ..\rurple/RUR_start.py:258
+#: ..\rurple/RUR_start.py:270
+msgid "Invalid world file format"
+msgstr "Ungültiges Format der Weltdatei"
+
+#: ..\rurple/RUR_start.py:222
+msgid "streets"
+msgstr "Strassen"
+
+#: ..\rurple/RUR_start.py:234
+msgid "robot"
+msgstr "Roboter"
+
+#: ..\rurple/RUR_start.py:257
+msgid "beepers"
+msgstr "Piepser"
+
+#: ..\rurple/RUR_start.py:269
+msgid "walls"
+msgstr "Wände"
+
+#: ..\rurple/RUR_start.py:289
+msgid "Save new world as"
+msgstr "Speichere neue Welt unter"
+
+#: ..\rurple/RUR_start.py:310
+#: ..\rurple/RUR_start.py:340
+msgid "Program files (*.rur)|*.rur| All files (*.*)|*.*"
+msgstr "Programmdateien (*.rur)|*.rur| Alle Dateien (*.*)|*.*"
+
+#: ..\rurple/RUR_start.py:342
+msgid "Save new program as"
+msgstr "Speichere neues Programm unter"
+
+#: ..\rurple/RUR_start.py:358
+msgid "Program will not be saved."
+msgstr "Das Programm wird nicht gespeichert."
+
+#: ..\rurple/RUR_start.py:377
+#: ..\rurple/rur_py/cpu.py:283
+#: ..\rurple/rur_py/status_bar.py:34
+#: ..\rurple/rur_py/status_bar.py:86
+#: rur_py/cpu.py:283
+#: rur_py/status_bar.py:34
+#: rur_py/status_bar.py:86
+msgid "Program is running"
+msgstr "Programm läuft"
+
+#: ..\rurple/RUR_start.py:381
+#: ..\rurple/rur_py/cpu.py:174
+#: ..\rurple/rur_py/status_bar.py:35
+#: ..\rurple/rur_py/status_bar.py:87
+#: rur_py/cpu.py:174
+#: rur_py/status_bar.py:35
+#: rur_py/status_bar.py:87
+msgid "Program paused"
+msgstr "Programm pausiert"
+
+#: ..\rurple/RUR_start.py:393
+#: ..\rurple/rur_py/cpu.py:326
+#: ..\rurple/rur_py/status_bar.py:28
+#: ..\rurple/rur_py/status_bar.py:33
+#: ..\rurple/rur_py/status_bar.py:85
+#: rur_py/cpu.py:326
+#: rur_py/status_bar.py:28
+#: rur_py/status_bar.py:33
+#: rur_py/status_bar.py:85
+msgid "Program not running"
+msgstr "Das Programm läuft nicht"
+
+#: ..\rurple/RUR_start.py:419
+msgid "No robot in world to give beepers to."
+msgstr "Kein Roboter in dieser Welt dem ein Piepser gegeben werden kann."
+
+#: ..\rurple/RUR_start.py:422
+msgid "Beepers!"
+msgstr "Piepser!"
+
+#: ..\rurple/RUR_start.py:437
+msgid "World size!"
+msgstr "Weltgröße!"
+
+#: ..\rurple/rur_py/bouton.py:22
+#: ..\rurple/rur_py/bouton.py:123
+#: rur_py/bouton.py:22
+#: rur_py/bouton.py:123
+msgid "Opens existing robot program"
+msgstr "Öffne bestehendes Roboterprogramm"
+
+#: ..\rurple/rur_py/bouton.py:23
+#: ..\rurple/rur_py/bouton.py:124
+#: rur_py/bouton.py:23
+#: rur_py/bouton.py:124
+msgid "Saves robot program"
+msgstr "Speichere Roboterprogramm"
+
+#: ..\rurple/rur_py/bouton.py:24
+#: ..\rurple/rur_py/bouton.py:125
+#: rur_py/bouton.py:24
+#: rur_py/bouton.py:125
+msgid "Opens existing world file"
+msgstr "Öffne existierende Weltdatei"
+
+#: ..\rurple/rur_py/bouton.py:25
+#: ..\rurple/rur_py/bouton.py:126
+#: rur_py/bouton.py:25
+#: rur_py/bouton.py:126
+msgid "Saves world file"
+msgstr "Speichere Welt-Datei"
+
+#: ..\rurple/rur_py/bouton.py:26
+#: ..\rurple/rur_py/bouton.py:127
+#: rur_py/bouton.py:26
+#: rur_py/bouton.py:127
+msgid "Resets world - from open file"
+msgstr "Welt zurücksetzen aus der offenen Datei"
+
+#: ..\rurple/rur_py/bouton.py:27
+#: ..\rurple/rur_py/bouton.py:128
+#: rur_py/bouton.py:27
+#: rur_py/bouton.py:128
+msgid "Runs robot program"
+msgstr "Starte Roboterprogramm"
+
+#: ..\rurple/rur_py/bouton.py:28
+#: ..\rurple/rur_py/bouton.py:129
+#: rur_py/bouton.py:28
+#: rur_py/bouton.py:129
+msgid "Steps through robot program instructions"
+msgstr "Gehe schrittweise durch die Instruktionen des Roboterprogramms"
+
+#: ..\rurple/rur_py/bouton.py:29
+#: ..\rurple/rur_py/bouton.py:130
+#: rur_py/bouton.py:29
+#: rur_py/bouton.py:130
+msgid "Pause program"
+msgstr "Pausiere Programm"
+
+#: ..\rurple/rur_py/bouton.py:30
+#: ..\rurple/rur_py/bouton.py:131
+#: rur_py/bouton.py:30
+#: rur_py/bouton.py:131
+msgid "Stops program"
+msgstr "Stoppe Programm"
+
+#: ..\rurple/rur_py/bouton.py:31
+#: ..\rurple/rur_py/bouton.py:132
+#: rur_py/bouton.py:31
+#: rur_py/bouton.py:132
+msgid "Adjust robot speed"
+msgstr "Passe Robotergeschwindigkeit an"
+
+#: ..\rurple/rur_py/bouton.py:32
+#: ..\rurple/rur_py/bouton.py:133
+#: rur_py/bouton.py:32
+#: rur_py/bouton.py:133
+msgid "Edit walls"
+msgstr "Bearbeite Wände"
+
+#: ..\rurple/rur_py/bouton.py:33
+#: ..\rurple/rur_py/bouton.py:134
+#: rur_py/bouton.py:33
+#: rur_py/bouton.py:134
+msgid "Resize world"
+msgstr "Verändere Größe der Welt"
+
+#: ..\rurple/rur_py/bouton.py:34
+#: ..\rurple/rur_py/bouton.py:135
+#: rur_py/bouton.py:34
+#: rur_py/bouton.py:135
+msgid "Give beepers to robot"
+msgstr "Gib Piepser dem Roboter"
+
+#: ..\rurple/rur_py/bouton.py:35
+#: ..\rurple/rur_py/bouton.py:136
+#: rur_py/bouton.py:35
+#: rur_py/bouton.py:136
+msgid "Remove/add robot from/to world"
+msgstr "Entferne/Setze Roboter aus/in Welt"
+
+#: ..\rurple/rur_py/bouton.py:36
+#: ..\rurple/rur_py/bouton.py:137
+#: rur_py/bouton.py:36
+#: rur_py/bouton.py:137
+msgid "Toggle world file view"
+msgstr "Ändere Ansicht der Weltdatei"
+
+#: ..\rurple/rur_py/bouton.py:151
+#: ..\rurple/rur_py/bouton.py:232
+#: rur_py/bouton.py:151
+#: rur_py/bouton.py:232
+msgid "Open Python file"
+msgstr "Öffne Python Datei"
+
+#: ..\rurple/rur_py/bouton.py:152
+#: ..\rurple/rur_py/bouton.py:233
+#: rur_py/bouton.py:152
+#: rur_py/bouton.py:233
+msgid "Save Python file"
+msgstr "Speichere Python Datei"
+
+#: ..\rurple/rur_py/bouton.py:153
+#: ..\rurple/rur_py/bouton.py:234
+#: rur_py/bouton.py:153
+#: rur_py/bouton.py:234
+msgid "Run Python program"
+msgstr "Starte Python Programm"
+
+#: ..\rurple/rur_py/bouton.py:154
+#: ..\rurple/rur_py/bouton.py:235
+#: rur_py/bouton.py:154
+#: rur_py/bouton.py:235
+msgid "Run program with argument list"
+msgstr "Starte Programm mit Argumenten"
+
+#: ..\rurple/rur_py/bouton.py:155
+#: ..\rurple/rur_py/bouton.py:236
+#: rur_py/bouton.py:155
+#: rur_py/bouton.py:236
+msgid "Help"
+msgstr "Hilfe"
+
+#: ..\rurple/rur_py/bouton.py:156
+#: ..\rurple/rur_py/bouton.py:237
+#: rur_py/bouton.py:156
+#: rur_py/bouton.py:237
+msgid "Go to line number"
+msgstr "Springe zu Zeile"
+
+#: ..\rurple/rur_py/bouton.py:157
+#: ..\rurple/rur_py/bouton.py:238
+#: rur_py/bouton.py:157
+#: rur_py/bouton.py:238
+msgid "Hide or show output window"
+msgstr "Ausgabefenster anzeigen/verstecken"
+
+#: ..\rurple/rur_py/bouton.py:158
+#: ..\rurple/rur_py/bouton.py:239
+#: rur_py/bouton.py:158
+#: rur_py/bouton.py:239
+msgid "Change layout"
+msgstr "Ändere Layout"
+
+#: ..\rurple/rur_py/bouton.py:159
+#: ..\rurple/rur_py/bouton.py:240
+#: rur_py/bouton.py:159
+#: rur_py/bouton.py:240
+msgid "Clear text"
+msgstr "Text löschen"
+
+#: ..\rurple/rur_py/browser.py:51
+#: ..\rurple/rur_py/browser.py:116
+#: rur_py/browser.py:51
+#: rur_py/browser.py:116
+msgid "Open local html file"
+msgstr "Öffne lokale HTML-Datei"
+
+#: ..\rurple/rur_py/browser.py:51
+#: ..\rurple/rur_py/browser.py:116
+#: rur_py/browser.py:51
+#: rur_py/browser.py:116
+msgid "Go back in browser history"
+msgstr "Schritt zurück in der Browserhistorie."
+
+#: ..\rurple/rur_py/browser.py:52
+#: ..\rurple/rur_py/browser.py:117
+#: rur_py/browser.py:52
+#: rur_py/browser.py:117
+msgid "Home"
+msgstr "Anfang"
+
+#: ..\rurple/rur_py/browser.py:52
+#: ..\rurple/rur_py/browser.py:117
+#: rur_py/browser.py:52
+#: rur_py/browser.py:117
+msgid "Go forward in browser history"
+msgstr "Schritt vor in der Browserhistorie."
+
+#: ..\rurple/rur_py/browser.py:53
+#: ..\rurple/rur_py/browser.py:118
+#: rur_py/browser.py:53
+#: rur_py/browser.py:118
+msgid "Select a language"
+msgstr "Wähle eine Sprache"
+
+#: ..\rurple/rur_py/browser.py:146
+#: rur_py/browser.py:146
+msgid "html files (*.htm*)|*.htm*| All files (*.*)|*.*"
+msgstr "HTML Dateien (*.htm*)|*.htm*| Alle Dateien (*.*)|*.*"
+
+#: ..\rurple/rur_py/cpu.py:50
+#: rur_py/cpu.py:50
+msgid "Error found in your program."
+msgstr "Fehler in deinem Programm gefunden."
+
+#: ..\rurple/rur_py/cpu.py:168
+#: rur_py/cpu.py:168
+msgid "Hey!  You stopped me!"
+msgstr "Hey, du hast mich angehalten!"
+
+#: ..\rurple/rur_py/cpu.py:241
+#: rur_py/cpu.py:241
+msgid "All done!"
+msgstr "Alles erledigt!"
+
+#: ..\rurple/rur_py/cpu.py:242
+#: rur_py/cpu.py:242
+msgid "No instruction to execute."
+msgstr "Kein ausführbarer Befehl."
+
+#: ..\rurple/rur_py/cpu.py:294
+#: rur_py/cpu.py:294
+msgid "You forgot to turn me off!"
+msgstr "Du hast vergessen, mich auszuschalten!"
+
+#: ..\rurple/rur_py/cpu.py:316
+#: rur_py/cpu.py:316
+#, python-format
+msgid "Error found near line %s."
+msgstr "Fehler bei Zeile %s gefunden."
+
+#: ..\rurple/rur_py/cpu.py:317
+#: ..\rurple/rur_py/cpu.py:321
+#: rur_py/cpu.py:317
+#: rur_py/cpu.py:321
+msgid "Execution error"
+msgstr "Ausführungsfehler"
+
+#: ..\rurple/rur_py/cpu.py:320
+#: rur_py/cpu.py:320
+#, python-format
+msgid ""
+"%s\n"
+"Unrecognized instruction."
+msgstr ""
+"%s\n"
+"Unbekannter Befehl."
+
+#: ..\rurple/rur_py/dialogs.py:76
+#: ..\rurple/rur_py/dialogs.py:82
+#: ..\rurple/rur_py/dialogs.py:89
+#: ..\rurple/rur_py/dialogs.py:95
+#: ..\rurple/rur_py/dialogs.py:101
+#: ..\rurple/rur_py/robot_factory.py:338
+#: ..\rurple/rur_py/robot_factory.py:447
+#: rur_py/dialogs.py:76
+#: rur_py/dialogs.py:82
+#: rur_py/dialogs.py:89
+#: rur_py/dialogs.py:95
+#: rur_py/dialogs.py:101
+#: rur_py/robot_factory.py:338
+#: rur_py/robot_factory.py:447
+msgid "Error"
+msgstr "Fehler"
+
+#: ..\rurple/rur_py/dialogs.py:77
+#: ..\rurple/rur_py/dialogs.py:83
+#: ..\rurple/rur_py/dialogs.py:90
+#: ..\rurple/rur_py/dialogs.py:96
+#: ..\rurple/rur_py/dialogs.py:102
+#: rur_py/dialogs.py:77
+#: rur_py/dialogs.py:83
+#: rur_py/dialogs.py:90
+#: rur_py/dialogs.py:96
+#: rur_py/dialogs.py:102
+msgid "Turn off"
+msgstr "Ausschalten"
+
+#: ..\rurple/rur_py/dialogs.py:106
+#: rur_py/dialogs.py:106
+msgid "Success!"
+msgstr "Erfolg!"
+
+#: ..\rurple/rur_py/dialogs.py:193
+#: rur_py/dialogs.py:193
+msgid ""
+"Select the desired value, or sum of values as\n"
+"the number of beepers to put in the robot's beeper bag."
+msgstr ""
+"Wähle den gewünschten Wert oder eine Summe von Werten\n"
+"als Anzahl von Piepsern, die der Roboter in seinem Sack trägt."
+
+#: ..\rurple/rur_py/dialogs.py:231
+#: rur_py/dialogs.py:231
+msgid ""
+"Select the desired world dimensions (streets and avenues).\n"
+"The existing walls and beepers will be removed."
+msgstr ""
+"Wähle die gewünschten Weltdimensionen (Strassen und Wege).\n"
+"Alle existierenden Wände und Piepser werden entfernt."
+
+#: ..\rurple/rur_py/parser.py:47
+#: rur_py/parser.py:47
+msgid "Found a word not allowed: "
+msgstr "Unerlaubtes Wort gefunden:"
+
+#: ..\rurple/rur_py/robot_factory.py:165
+#: rur_py/robot_factory.py:165
+msgid ""
+"That move really hurt!\n"
+"Please, make sure that there is no wall in front of me!"
+msgstr ""
+"Diese Bewegung hat weh getan!\n"
+"Bitte stelle sicher, dass keine Wand vor mir ist."
+
+#: ..\rurple/rur_py/robot_factory.py:170
+#: rur_py/robot_factory.py:170
+msgid ""
+"I obey your command:\n"
+" turning myself off."
+msgstr ""
+"Ich gehorche deinem Befehl:\n"
+"schalte mich nun aus."
+
+#: ..\rurple/rur_py/robot_factory.py:184
+#: rur_py/robot_factory.py:184
+msgid ""
+"put_beeper() failed.\n"
+" I am not carrying any beepers."
+msgstr ""
+"put_beeper() fehlgeschlagen.\n"
+"Ich trage keine Piepser."
+
+#: ..\rurple/rur_py/robot_factory.py:193
+#: rur_py/robot_factory.py:193
+msgid ""
+"pick_beeper failed.\n"
+"I must be next to a beeper before I can pick it up."
+msgstr ""
+"pick_beeper() fehlgeschlagen.\n"
+"Ich muss neben einem Piepser stehen bevor ich ihn aufheben kann."
+
+#: ..\rurple/rur_py/robot_factory.py:336
+#: ..\rurple/rur_py/robot_factory.py:445
+#: rur_py/robot_factory.py:336
+#: rur_py/robot_factory.py:445
+msgid ""
+"Setting delay failed.\n"
+"Accepted values are between 0 and 10."
+msgstr ""
+"Setzen der Verzögerung fehlgeschlagen.\n"
+"Der akzeptierte Bereich liegt zwischen 0 und 10."
+
+#: ..\rurple/rur_py/status_bar.py:27
+#: ..\rurple/rur_py/status_bar.py:92
+#: rur_py/status_bar.py:27
+#: rur_py/status_bar.py:92
+msgid "No program loaded"
+msgstr "Kein Programm geladen"
+
+#: ..\rurple/rur_py/status_bar.py:29
+#: ..\rurple/rur_py/status_bar.py:67
+#: ..\rurple/rur_py/status_bar.py:99
+#: rur_py/status_bar.py:29
+#: rur_py/status_bar.py:67
+#: rur_py/status_bar.py:99
+#, python-format
+msgid "Robot has %s beeper"
+msgstr "Der Roboter hat %s Piepser"
+
+#: ..\rurple/rur_py/status_bar.py:30
+#: ..\rurple/rur_py/status_bar.py:106
+#: rur_py/status_bar.py:30
+#: rur_py/status_bar.py:106
+msgid "Default world"
+msgstr "Vorgabewelt"
+
+#: ..\rurple/rur_py/status_bar.py:62
+#: ..\rurple/rur_py/status_bar.py:97
+#: rur_py/status_bar.py:62
+#: rur_py/status_bar.py:97
+msgid "No robot in this world"
+msgstr "Kein Roboter in dieser Welt"
+
+#: ..\rurple/rur_py/status_bar.py:76
+#: ..\rurple/rur_py/status_bar.py:104
+#: rur_py/status_bar.py:76
+#: rur_py/status_bar.py:104
+#, python-format
+msgid "World file: %s"
+msgstr "Welt-Datei: %s"
+
+#: ..\rurple/rur_py/status_bar.py:79
+#: ..\rurple/rur_py/status_bar.py:90
+#: rur_py/status_bar.py:79
+#: rur_py/status_bar.py:90
+#, python-format
+msgid "Program File: %s"
+msgstr "Programmdatei: %s"
+
+#: ..\rurple/rur_py/status_bar.py:101
+#: rur_py/status_bar.py:101
+#, python-format
+msgid "Robot has %s beepers"
+msgstr "Der Roboter hat %s Piepser"
+
+#: ..\rurple/rur_py/test_import.py:98
+#: ..\rurple/rur_py/test_import.py:107
+#: rur_py/test_import.py:98
+#: rur_py/test_import.py:107
+msgid " not found in module useful."
+msgstr " nicht sinnvoll in diesem Modul."
+
+#: ..\rurple/rur_py/test_import.py:142
+#: rur_py/test_import.py:142
+msgid "import keyword used improperly"
+msgstr "import Schlüsselwort falsch benutzt"
+
+#: ..\rurple/rur_py/world_creation.py:464
+#: rur_py/world_creation.py:464
+msgid "Avenue"
+msgstr "Weg"
+
+#: ..\rurple/rur_py/world_creation.py:466
+#: rur_py/world_creation.py:466
+msgid "Street"
+msgstr "Strasse"
+

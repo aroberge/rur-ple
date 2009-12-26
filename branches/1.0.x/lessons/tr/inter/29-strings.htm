@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>29. What's your name?</title>
+</head>
+<body>
+<h2 class="title">29. Ad&#305;n&#305;z nedir?</h2>
+<p>De&#287;i&#351;kenlere say&#305;lar&#305; nas&#305;l atayaca&#287;&#305;m&#305;z&#305; gördük. De&#287;i&#351;kenlere stringleri de 
+atayabiliriz, örne&#287;in: </p>
+<pre>
+&gt;&gt;&gt; FirstName = "Andre"
+&gt;&gt;&gt; LastName = "Roberge"
+&gt;&gt;&gt; FullName = FirstName + LastName
+&gt;&gt;&gt; <span class="keyword">print</span> FullName
+AndreRoberge
+</pre>
+<p>Art&#305; i&#351;areti (<tt>+</tt>) kullanarak iki string'i yan yana getirdik ve yeni 
+bir string elde ettik, buna <i>concatenation</i> denir.&nbsp; Ancak ad ile soyad 
+aras&#305;nda bo&#351;luk yok. Bunu a&#351;a&#287;&#305;da oldu&#287;u gibi ad ile soyad aras&#305;na bir bo&#351;luk 
+ekleyerek sa&#287;layabiliriz: </p>
+<pre>
+&gt;&gt;&gt; FullName = FirstName + <span class=
+"string">" "</span> + LastName
+&gt;&gt;&gt; <span class="keyword">print</span> FullName
+Andre Roberge
+</pre>
+<p>Ayn&#305; sonucu elde etmenin bir ba&#351;ka yolu daha önceden say&#305;sal de&#287;i&#351;kenlerde de 
+kulland&#305;&#287;&#305;m&#305;z %s kullan&#305;m&#305;d&#305;r. </p>
+<pre>
+&gt;&gt;&gt; name = <span class=
+"string">"%s %s"</span> % (FirstName, LastName)
+&gt;&gt;&gt; <span class="keyword">print</span> name
+Andre Roberge
+</pre>
+<p>Son olarak, iki string'i kar&#351;&#305;la&#351;t&#305;r&#305;p e&#351;it olup olmad&#305;&#287;&#305;n&#305; test edebiliriz. </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> name == FullName
+True
+</pre>
+<p>Bunu kendiniz deneyin!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Dilimler (Slices)</h3>
+<p>Baz&#305; durumlarda bir string'in tek bir karakterini ya da baz&#305; karakterlerini 
+kullanmak isteyebilirsiniz. Bunu yapabilmek için dilimlemeyi ö&#287;renmek 
+gereklidir. </p>
+<p>Size hat&#305;rlaman&#305;z için üç tane kural ve bir ip ucu verece&#287;im, sonra Python 
+yorumlay&#305;c&#305;s&#305; ile deneyebilece&#287;iniz bir seri örnek verece&#287;im. Bu bölümde üç 
+kuraldan ba&#351;ka bir aç&#305;klama vermeyece&#287;im. Bu nedenle dilimlemeyi iyi 
+anlayabilmeniz için örnekleri çok dikkatli incelemeniz gerekiyor. </p>
+<ol>
+<li>Python saymaya 0'dan ba&#351;lar. </li>
+<li>Python sayarken sizin umdu&#287;unuzun aksine son say&#305;y&#305; dahil etmez. </li>
+<li>Python atlamalar yaparak da sayabilir. </li>
+</ol>
+<ul><li>Yaz&#305;m &#351;ekli: <tt>[ilk:son:ad&#305;m]</tt></li>; hepsi seçimliktir, 
+	belirtilmek zorunda de&#287;ildir.</ul>
+<p>Örnekler:</p>
+<pre>
+&gt;&gt;&gt; alphabet = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>
+&gt;&gt;&gt; digits = <span class="string">'0123456789'</span>
+
+&gt;&gt;&gt; alphabet[0]
+'a'
+
+&gt;&gt;&gt; alphabet[1]
+'b'
+
+&gt;&gt;&gt; alphabet[5]
+'f'
+
+&gt;&gt;&gt; digits[0]
+'0'
+
+&gt;&gt;&gt; digits[7]
+'7'
+
+&gt;&gt;&gt; digits[-1]
+'9'
+
+&gt;&gt;&gt; digits[-2]
+'8'
+
+&gt;&gt;&gt; alphabet[-3]
+'x'
+
+&gt;&gt;&gt; digits[0:3]
+'012'
+
+&gt;&gt;&gt; digits[0:4]
+'0123'
+
+&gt;&gt;&gt; digits[0:5]
+'01234'
+
+&gt;&gt;&gt; digits[2:5]
+'234'
+
+&gt;&gt;&gt; alphabet[2:5]
+'cde'
+
+&gt;&gt;&gt; digits[0:10:2]
+'02468'
+
+&gt;&gt;&gt; digits[0::2]
+'02468'
+
+&gt;&gt;&gt; digits[0::3]
+'0369'
+
+&gt;&gt;&gt; digits[::3]
+'0369'
+
+&gt;&gt;&gt; digits[::-1]
+'9876543210'
+
+&gt;&gt;&gt; digits[::-2]
+'97531'
+
+&gt;&gt;&gt; digits[::-3]
+'9630'
+
+&gt;&gt;&gt; alphabet[:10:2]
+'acegi'
+</pre>
+<p>Kendi stringlerinizi olu&#351;turun ve onlar üzerinde yukar&#305;dakilere benzer 
+denemeler yap&#305;n! </p>
+
+<center><a href="28-variables2.htm"><img alt="previous" src=
+"../../images/previous.png">De&#287;i&#351;kenler ve Fonksiyonlar</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="30-dot.htm">Nesneye dayal&#305; programlama:&nbsp; &quot;nokta&quot;&nbsp;kullan&#305;m&#305;.<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

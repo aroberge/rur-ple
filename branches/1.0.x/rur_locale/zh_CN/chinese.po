@@ -1,0 +1,613 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rur-ple\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2008-05-19 10:40+0700\n"
+"Last-Translator: Frederic Muller <fred@beijinglug.org>\n"
+"Language-Team:  <andre.roberge@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Basepath: C:\\documents and settings\\André\\desktop\\python\\rurple\n"
+"X-Poedit-SearchPath-0: ..\\rurple\n"
+
+#: ..\rurple/RUR_start.py:97
+#: ..\rurple/rur_py/browser.py:114
+#: rur_py/browser.py:114
+msgid "RUR: a Python Learning Environment"
+msgstr "RUR: Python 编程语言学习环境"
+
+#: ..\rurple/RUR_start.py:118
+#: ..\rurple/rur_py/browser.py:110
+#: rur_py/browser.py:110
+msgid "  RUR: Read and Learn  "
+msgstr "  RUR: 阅读与学习"
+
+#: ..\rurple/RUR_start.py:124
+#: ..\rurple/rur_py/browser.py:111
+#: rur_py/browser.py:111
+msgid "Robot: Code and Learn"
+msgstr "机械人: 编程与学习"
+
+#: ..\rurple/RUR_start.py:150
+#: ..\rurple/rur_py/browser.py:112
+#: rur_py/browser.py:112
+msgid "Python: Code and Learn"
+msgstr "Python: 编程与学习"
+
+#: ..\rurple/RUR_start.py:155
+#: ..\rurple/rur_py/browser.py:113
+#: rur_py/browser.py:113
+msgid "Python: simple editor"
+msgstr "Python: 简单编辑"
+
+#: ..\rurple/RUR_start.py:165
+msgid ""
+"Robot program has changed.\n"
+"You may save it before quitting."
+msgstr ""
+"机械人程序已经被改变。\n"
+"请在离去前存档。"
+
+#: ..\rurple/RUR_start.py:166
+msgid "Program has been changed"
+msgstr "程序已经被改变"
+
+#: ..\rurple/RUR_start.py:179
+#: ..\rurple/RUR_start.py:287
+msgid "World files (*.wld)|*.wld| All files (*.*)|*.*"
+msgstr "世界档案 (*.wld)|*.wld| 所有档案 (*.*)|*.*"
+
+#: ..\rurple/RUR_start.py:180
+#: ..\rurple/RUR_start.py:311
+#: ..\rurple/rur_py/browser.py:147
+#: rur_py/browser.py:147
+msgid "Choose a file"
+msgstr "请选择档案"
+
+#: ..\rurple/RUR_start.py:213
+#: ..\rurple/RUR_start.py:221
+#: ..\rurple/RUR_start.py:233
+#: ..\rurple/RUR_start.py:256
+#: ..\rurple/RUR_start.py:268
+#, python-format
+msgid ""
+"Problem with %s\n"
+"Please recreate world file."
+msgstr ""
+"有问题跟%s\n"
+" 请从新建立世界档案"
+
+#: ..\rurple/RUR_start.py:214
+msgid "avenues"
+msgstr "途径"
+
+#: ..\rurple/RUR_start.py:215
+#: ..\rurple/RUR_start.py:223
+#: ..\rurple/RUR_start.py:235
+#: ..\rurple/RUR_start.py:258
+#: ..\rurple/RUR_start.py:270
+msgid "Invalid world file format"
+msgstr "世界档案格式无效"
+
+#: ..\rurple/RUR_start.py:222
+msgid "streets"
+msgstr "大街"
+
+#: ..\rurple/RUR_start.py:234
+msgid "robot"
+msgstr "机械人"
+
+#: ..\rurple/RUR_start.py:257
+msgid "beepers"
+msgstr "报警器"
+
+#: ..\rurple/RUR_start.py:269
+msgid "walls"
+msgstr "墙壁"
+
+#: ..\rurple/RUR_start.py:289
+msgid "Save new world as"
+msgstr "存新档为"
+
+#: ..\rurple/RUR_start.py:310
+#: ..\rurple/RUR_start.py:340
+msgid "Program files (*.rur)|*.rur| All files (*.*)|*.*"
+msgstr "程序档案(*.rur)|*.rur| 所有档案 (*.*)|*.*"
+
+#: ..\rurple/RUR_start.py:342
+msgid "Save new program as"
+msgstr "存新程序为"
+
+#: ..\rurple/RUR_start.py:358
+msgid "Program will not be saved."
+msgstr "程序将不被存档。"
+
+#: ..\rurple/RUR_start.py:377
+#: ..\rurple/rur_py/cpu.py:283
+#: ..\rurple/rur_py/status_bar.py:34
+#: ..\rurple/rur_py/status_bar.py:86
+#: rur_py/cpu.py:283
+#: rur_py/status_bar.py:34
+#: rur_py/status_bar.py:86
+msgid "Program is running"
+msgstr "程序运行中"
+
+#: ..\rurple/RUR_start.py:381
+#: ..\rurple/rur_py/cpu.py:174
+#: ..\rurple/rur_py/status_bar.py:35
+#: ..\rurple/rur_py/status_bar.py:87
+#: rur_py/cpu.py:174
+#: rur_py/status_bar.py:35
+#: rur_py/status_bar.py:87
+msgid "Program paused"
+msgstr "程序暂停"
+
+#: ..\rurple/RUR_start.py:393
+#: ..\rurple/rur_py/cpu.py:326
+#: ..\rurple/rur_py/status_bar.py:28
+#: ..\rurple/rur_py/status_bar.py:33
+#: ..\rurple/rur_py/status_bar.py:85
+#: rur_py/cpu.py:326
+#: rur_py/status_bar.py:28
+#: rur_py/status_bar.py:33
+#: rur_py/status_bar.py:85
+msgid "Program not running"
+msgstr "程序不能运行"
+
+#: ..\rurple/RUR_start.py:419
+msgid "No robot in world to give beepers to."
+msgstr "世界里没有机械人，不可以给报警器。"
+
+#: ..\rurple/RUR_start.py:422
+msgid "Beepers!"
+msgstr "报警器！"
+
+#: ..\rurple/RUR_start.py:437
+msgid "World size!"
+msgstr "世界尺寸！"
+
+#: ..\rurple/rur_py/bouton.py:22
+#: ..\rurple/rur_py/bouton.py:123
+#: rur_py/bouton.py:22
+#: rur_py/bouton.py:123
+msgid "Opens existing robot program"
+msgstr "打开现有机械人程序"
+
+#: ..\rurple/rur_py/bouton.py:23
+#: ..\rurple/rur_py/bouton.py:124
+#: rur_py/bouton.py:23
+#: rur_py/bouton.py:124
+msgid "Saves robot program"
+msgstr "储存机械人程序"
+
+#: ..\rurple/rur_py/bouton.py:24
+#: ..\rurple/rur_py/bouton.py:125
+#: rur_py/bouton.py:24
+#: rur_py/bouton.py:125
+msgid "Opens existing world file"
+msgstr "打开现有世界档案"
+
+#: ..\rurple/rur_py/bouton.py:25
+#: ..\rurple/rur_py/bouton.py:126
+#: rur_py/bouton.py:25
+#: rur_py/bouton.py:126
+msgid "Saves world file"
+msgstr "储存世界档案"
+
+#: ..\rurple/rur_py/bouton.py:26
+#: ..\rurple/rur_py/bouton.py:127
+#: rur_py/bouton.py:26
+#: rur_py/bouton.py:127
+msgid "Resets world - from open file"
+msgstr "从新设置世界 - 由打开档案开始"
+
+#: ..\rurple/rur_py/bouton.py:27
+#: ..\rurple/rur_py/bouton.py:128
+#: rur_py/bouton.py:27
+#: rur_py/bouton.py:128
+msgid "Runs robot program"
+msgstr "运行机械人程序"
+
+#: ..\rurple/rur_py/bouton.py:28
+#: ..\rurple/rur_py/bouton.py:129
+#: rur_py/bouton.py:28
+#: rur_py/bouton.py:129
+msgid "Steps through robot program instructions"
+msgstr "正在运行机械人程序指令"
+
+#: ..\rurple/rur_py/bouton.py:29
+#: ..\rurple/rur_py/bouton.py:130
+#: rur_py/bouton.py:29
+#: rur_py/bouton.py:130
+msgid "Pause program"
+msgstr "暂停程序"
+
+#: ..\rurple/rur_py/bouton.py:30
+#: ..\rurple/rur_py/bouton.py:131
+#: rur_py/bouton.py:30
+#: rur_py/bouton.py:131
+msgid "Stops program"
+msgstr "停止程序"
+
+#: ..\rurple/rur_py/bouton.py:31
+#: ..\rurple/rur_py/bouton.py:132
+#: rur_py/bouton.py:31
+#: rur_py/bouton.py:132
+msgid "Adjust robot speed"
+msgstr "改变机械人速度"
+
+#: ..\rurple/rur_py/bouton.py:32
+#: ..\rurple/rur_py/bouton.py:133
+#: rur_py/bouton.py:32
+#: rur_py/bouton.py:133
+msgid "Edit walls"
+msgstr "更改墙壁"
+
+#: ..\rurple/rur_py/bouton.py:33
+#: ..\rurple/rur_py/bouton.py:134
+#: rur_py/bouton.py:33
+#: rur_py/bouton.py:134
+msgid "Resize world"
+msgstr "改变世界的尺寸"
+
+#: ..\rurple/rur_py/bouton.py:34
+#: ..\rurple/rur_py/bouton.py:135
+#: rur_py/bouton.py:34
+#: rur_py/bouton.py:135
+msgid "Give beepers to robot"
+msgstr "给机械人一些报警器"
+
+#: ..\rurple/rur_py/bouton.py:35
+#: ..\rurple/rur_py/bouton.py:136
+#: rur_py/bouton.py:35
+#: rur_py/bouton.py:136
+msgid "Remove/add robot from/to world"
+msgstr "除掉/增加机械人由/到世界"
+
+#: ..\rurple/rur_py/bouton.py:36
+#: ..\rurple/rur_py/bouton.py:137
+#: rur_py/bouton.py:36
+#: rur_py/bouton.py:137
+msgid "Toggle world file view"
+msgstr "切换世界档案视图"
+
+#: ..\rurple/rur_py/bouton.py:37
+#: ..\rurple/rur_py/bouton.py:138
+#: rur_py/bouton.py:37
+#: rur_py/bouton.py:138
+msgid "Load new images for robot"
+msgstr "载入新的机器人图像"
+
+#: ..\rurple/rur_py/bouton.py:151
+#: ..\rurple/rur_py/bouton.py:232
+#: rur_py/bouton.py:151
+#: rur_py/bouton.py:232
+msgid "Open Python file"
+msgstr "打开Python档案"
+
+#: ..\rurple/rur_py/bouton.py:152
+#: ..\rurple/rur_py/bouton.py:233
+#: rur_py/bouton.py:152
+#: rur_py/bouton.py:233
+msgid "Save Python file"
+msgstr "储存Python档案"
+
+#: ..\rurple/rur_py/bouton.py:153
+#: ..\rurple/rur_py/bouton.py:234
+#: rur_py/bouton.py:153
+#: rur_py/bouton.py:234
+msgid "Run Python program"
+msgstr "运行Python程序"
+
+#: ..\rurple/rur_py/bouton.py:154
+#: ..\rurple/rur_py/bouton.py:235
+#: rur_py/bouton.py:154
+#: rur_py/bouton.py:235
+msgid "Run program with argument list"
+msgstr "跟参数表一起运行程序"
+
+#: ..\rurple/rur_py/bouton.py:155
+#: ..\rurple/rur_py/bouton.py:236
+#: rur_py/bouton.py:155
+#: rur_py/bouton.py:236
+msgid "Help"
+msgstr "帮助"
+
+#: ..\rurple/rur_py/bouton.py:156
+#: ..\rurple/rur_py/bouton.py:237
+#: rur_py/bouton.py:156
+#: rur_py/bouton.py:237
+msgid "Go to line number"
+msgstr "到线路数字"
+
+#: ..\rurple/rur_py/bouton.py:157
+#: ..\rurple/rur_py/bouton.py:238
+#: rur_py/bouton.py:157
+#: rur_py/bouton.py:238
+msgid "Hide or show output window"
+msgstr "隐藏或者显示输出的窗口"
+
+#: ..\rurple/rur_py/bouton.py:158
+#: ..\rurple/rur_py/bouton.py:239
+#: rur_py/bouton.py:158
+#: rur_py/bouton.py:239
+msgid "Change layout"
+msgstr "改变页面布局"
+
+#: ..\rurple/rur_py/bouton.py:159
+#: ..\rurple/rur_py/bouton.py:240
+#: rur_py/bouton.py:159
+#: rur_py/bouton.py:240
+msgid "Clear text"
+msgstr "清除文字"
+
+#: ..\rurple/rur_py/browser.py:51
+#: ..\rurple/rur_py/browser.py:116
+#: rur_py/browser.py:51
+#: rur_py/browser.py:116
+msgid "Open local html file"
+msgstr "打开内部html档案"
+
+#: ..\rurple/rur_py/browser.py:51
+#: ..\rurple/rur_py/browser.py:116
+#: rur_py/browser.py:51
+#: rur_py/browser.py:116
+msgid "Go back in browser history"
+msgstr "回去浏览历史"
+
+#: ..\rurple/rur_py/browser.py:52
+#: ..\rurple/rur_py/browser.py:117
+#: rur_py/browser.py:52
+#: rur_py/browser.py:117
+msgid "Home"
+msgstr "首页"
+
+#: ..\rurple/rur_py/browser.py:52
+#: ..\rurple/rur_py/browser.py:117
+#: rur_py/browser.py:52
+#: rur_py/browser.py:117
+msgid "Go forward in browser history"
+msgstr "前进到浏览历史"
+
+#: ..\rurple/rur_py/browser.py:53
+#: ..\rurple/rur_py/browser.py:118
+#: rur_py/browser.py:53
+#: rur_py/browser.py:118
+msgid "Select a language"
+msgstr "选择语言"
+
+#: ..\rurple/rur_py/browser.py:146
+#: rur_py/browser.py:146
+msgid "html files (*.htm*)|*.htm*| All files (*.*)|*.*"
+msgstr "html 档案 (*.htm*)|*.htm*| 所有档案 (*.*)|*.*"
+
+#: ..\rurple/rur_py/cpu.py:50
+#: rur_py/cpu.py:50
+msgid "Error found in your program."
+msgstr "在您的程序上找到错误。"
+
+#: ..\rurple/rur_py/cpu.py:168
+#: rur_py/cpu.py:168
+msgid "Hey!  You stopped me!"
+msgstr "别停止我哦！"
+
+#: ..\rurple/rur_py/cpu.py:241
+#: rur_py/cpu.py:241
+msgid "All done!"
+msgstr "全部完成！"
+
+#: ..\rurple/rur_py/cpu.py:242
+#: rur_py/cpu.py:242
+msgid "No instruction to execute."
+msgstr "没有指令在进行中。"
+
+#: ..\rurple/rur_py/cpu.py:294
+#: rur_py/cpu.py:294
+msgid "You forgot to turn me off!"
+msgstr "您忘了关掉我了！"
+
+#: ..\rurple/rur_py/cpu.py:316
+#: rur_py/cpu.py:316
+#, python-format
+msgid "Error found near line %s."
+msgstr "接近线路 %s 找到错误。"
+
+#: ..\rurple/rur_py/cpu.py:317
+#: ..\rurple/rur_py/cpu.py:321
+#: rur_py/cpu.py:317
+#: rur_py/cpu.py:321
+msgid "Execution error"
+msgstr "进行错误"
+
+#: ..\rurple/rur_py/cpu.py:320
+#: rur_py/cpu.py:320
+#, python-format
+msgid ""
+"%s\n"
+"Unrecognized instruction."
+msgstr ""
+"%s\n"
+"未被承认的指令。"
+
+#: ..\rurple/rur_py/dialogs.py:76
+#: ..\rurple/rur_py/dialogs.py:82
+#: ..\rurple/rur_py/dialogs.py:89
+#: ..\rurple/rur_py/dialogs.py:95
+#: ..\rurple/rur_py/dialogs.py:101
+#: ..\rurple/rur_py/robot_factory.py:338
+#: ..\rurple/rur_py/robot_factory.py:447
+#: rur_py/dialogs.py:76
+#: rur_py/dialogs.py:82
+#: rur_py/dialogs.py:89
+#: rur_py/dialogs.py:95
+#: rur_py/dialogs.py:101
+#: rur_py/robot_factory.py:338
+#: rur_py/robot_factory.py:447
+msgid "Error"
+msgstr "错误"
+
+#: ..\rurple/rur_py/dialogs.py:77
+#: ..\rurple/rur_py/dialogs.py:83
+#: ..\rurple/rur_py/dialogs.py:90
+#: ..\rurple/rur_py/dialogs.py:96
+#: ..\rurple/rur_py/dialogs.py:102
+#: rur_py/dialogs.py:77
+#: rur_py/dialogs.py:83
+#: rur_py/dialogs.py:90
+#: rur_py/dialogs.py:96
+#: rur_py/dialogs.py:102
+msgid "Turn off"
+msgstr "关掉"
+
+#: ..\rurple/rur_py/dialogs.py:106
+#: rur_py/dialogs.py:106
+msgid "Success!"
+msgstr "成功！"
+
+#: ..\rurple/rur_py/dialogs.py:193
+#: rur_py/dialogs.py:193
+msgid ""
+"Select the desired value, or sum of values as\n"
+"the number of beepers to put in the robot's beeper bag."
+msgstr ""
+"选择理想的价值，或者是价值的总数为\n"
+"放到机械人背包里面报警器的数量。"
+
+#: ..\rurple/rur_py/dialogs.py:231
+#: rur_py/dialogs.py:231
+msgid ""
+"Select the desired world dimensions (streets and avenues).\n"
+"The existing walls and beepers will be removed."
+msgstr ""
+"选择理想的世界面积 (街和途径).\n"
+"现有的墙和报警器将被删除。"
+
+#: ..\rurple/rur_py/parser.py:47
+#: rur_py/parser.py:47
+msgid "Found a word not allowed: "
+msgstr "找到一个不能用的字或者词: "
+
+#: ..\rurple/rur_py/robot_factory.py:165
+#: rur_py/robot_factory.py:165
+msgid ""
+"That move really hurt!\n"
+"Please, make sure that there is no wall in front of me!"
+msgstr ""
+"这一步令我受伤了，很疼哦！!\n"
+"在让我走之前请肯定前面没有任何墙壁哦！"
+
+#: ..\rurple/rur_py/robot_factory.py:170
+#: rur_py/robot_factory.py:170
+msgid ""
+"I obey your command:\n"
+" turning myself off."
+msgstr ""
+"我服从您的指令:\n"
+" 正在关闭中。"
+
+#: ..\rurple/rur_py/robot_factory.py:184
+#: rur_py/robot_factory.py:184
+msgid ""
+"put_beeper() failed.\n"
+" I am not carrying any beepers."
+msgstr ""
+"放_报警器() 失败。\n"
+" 我没有带任何报警器。"
+
+#: ..\rurple/rur_py/robot_factory.py:193
+#: rur_py/robot_factory.py:193
+msgid ""
+"pick_beeper failed.\n"
+"I must be next to a beeper before I can pick it up."
+msgstr ""
+"拾取_报警器失败。\n"
+"我一定要走到报警器的旁边才可以拾取报警器。"
+
+#: ..\rurple/rur_py/robot_factory.py:336
+#: ..\rurple/rur_py/robot_factory.py:445
+#: rur_py/robot_factory.py:336
+#: rur_py/robot_factory.py:445
+msgid ""
+"Setting delay failed.\n"
+"Accepted values are between 0 and 10."
+msgstr ""
+"设置延迟失败。\n"
+"承认的价值在 0 与 10 之间。"
+
+#: ..\rurple/rur_py/status_bar.py:27
+#: ..\rurple/rur_py/status_bar.py:92
+#: rur_py/status_bar.py:27
+#: rur_py/status_bar.py:92
+msgid "No program loaded"
+msgstr "没有程序"
+
+#: ..\rurple/rur_py/status_bar.py:29
+#: ..\rurple/rur_py/status_bar.py:67
+#: ..\rurple/rur_py/status_bar.py:99
+#: rur_py/status_bar.py:29
+#: rur_py/status_bar.py:67
+#: rur_py/status_bar.py:99
+#, python-format
+msgid "Robot has %s beeper"
+msgstr "机械人有 %s 个报警器"
+
+#: ..\rurple/rur_py/status_bar.py:30
+#: ..\rurple/rur_py/status_bar.py:106
+#: rur_py/status_bar.py:30
+#: rur_py/status_bar.py:106
+msgid "Default world"
+msgstr "默认的世界"
+
+#: ..\rurple/rur_py/status_bar.py:62
+#: ..\rurple/rur_py/status_bar.py:97
+#: rur_py/status_bar.py:62
+#: rur_py/status_bar.py:97
+msgid "No robot in this world"
+msgstr "在世界里没有机械人"
+
+#: ..\rurple/rur_py/status_bar.py:76
+#: ..\rurple/rur_py/status_bar.py:104
+#: rur_py/status_bar.py:76
+#: rur_py/status_bar.py:104
+#, python-format
+msgid "World file: %s"
+msgstr "世界档案: %s"
+
+#: ..\rurple/rur_py/status_bar.py:79
+#: ..\rurple/rur_py/status_bar.py:90
+#: rur_py/status_bar.py:79
+#: rur_py/status_bar.py:90
+#, python-format
+msgid "Program File: %s"
+msgstr "程序档案: %s"
+
+#: ..\rurple/rur_py/status_bar.py:101
+#: rur_py/status_bar.py:101
+#, python-format
+msgid "Robot has %s beepers"
+msgstr "机械人有 %s 个报警器"
+
+#: ..\rurple/rur_py/test_import.py:98
+#: ..\rurple/rur_py/test_import.py:107
+#: rur_py/test_import.py:98
+#: rur_py/test_import.py:107
+msgid " not found in module useful."
+msgstr "在有用的模块里找不到。"
+
+#: ..\rurple/rur_py/test_import.py:142
+#: rur_py/test_import.py:142
+msgid "import keyword used improperly"
+msgstr "输入关键词不妥当"
+
+#: ..\rurple/rur_py/world_creation.py:464
+#: rur_py/world_creation.py:464
+msgid "Avenue"
+msgstr "途径"
+
+#: ..\rurple/rur_py/world_creation.py:466
+#: rur_py/world_creation.py:466
+msgid "Street"
+msgstr "大街"
+

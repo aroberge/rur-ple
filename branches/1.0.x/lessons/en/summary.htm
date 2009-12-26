@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content=
+"text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='rurple.css' type='text/css'>
+<title>Summary of instructions</title>
+</head>
+<body>
+<h2 class="title">Learning Python: Child's Play with RUR-PLE!</h2>
+<h6>André Roberge, © 2005, 2006</h6>
+<h3 class="section">Summary of instructions</h3>
+<p>Reeborg's actions</p>
+<pre>
+move()
+turn_left()
+pick_beeper()
+put_beeper()
+turn_off()
+</pre>
+Tests:
+<pre>
+front_is_clear()
+left_is_clear()
+right_is_clear()
+facing_north()
+carries_beepers()
+on_beeper() <span class="comment"># equivalent to:</span> next_to_a_beeper()
+</pre>
+Special built-in function:
+<pre>
+repeat(function, number_of_times)
+<span class="comment"># Note that this is equivalent to</span>
+<span class="keyword">for</span> number <span class="keyword">in</span> range(number_of_times):
+    function()
+</pre>
+<p>Object-oriented programming:</p>
+<pre>
+Reeborg = UsedRobot()
+Reeborg.move()
+Reeborg.turn_left()
+Reeborg.pick_beeper()
+Reeborg.put_beeper()
+Reeborg.front_is_clear()
+Reeborg.left_is_clear()
+Reeborg.right_is_clear()
+Reeborg.facing_north()
+Reeborg.carries_beepers()
+Reeborg.on_beeper() <span class="comment"># equivalent to:</span> Reeborg.next_to_a_beeper()
+</pre>
+<p>Advanced options:</p>
+<pre>
+set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
+<span class="comment"># Any colour name recognized by wxPython is acceptable</span>
+<span class="comment"># style is one of [1, 2, 3, 4, 5]</span>
+
+set_delay(time)
+<span class="comment"># 0 &lt; time &lt; 10 (in seconds)</span>
+
+Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span class="string">'E'</span>,
+                 beepers=0, name=<span class="string">'robot'</span>, colour=<span class="string">'grey'</span>)
+<span class="comment"># orient_key is one of <span class="string">'E'</span> or <span class="string">'e'</span>, <span class="string">'W'</span> or <span class="string">'w'</span>, <span class="string">'S'</span> or <span class="string">'s'</span>, <span class="string">'N'</span> or <span class="string">'n'</span>.</span>
+
+<span class="comment"># Available <b>robot</b> colours are: <span class="string">'yellow'</span>, 
+# <span class="string">'blue'</span>, <span class="string">'light blue'</span>, <span class="string">'purple'</span> and <span class="string">'green'</span>.  
+# Any other colour will result in the default (<span class="string">'grey'</span>) to be used.</span>
+
+<span class="comment"># Note that a "serial number" may be appended to the
+# robot's "name", so that each robot during an entire play/work session
+# with rur-ple will have a unique name.</span>
+
+Reeborg.set_trace_style(style=1, colour=<span class="string">'sea green'</span>) 
+Reeborg.set_delay(time)
+</pre>
+<p>New and improved robot!</p>
+<pre>
+Guido = RefurbishedRobot()  <span class="comment"># inherits from UsedRobot</span>
+
+<span class="comment"># Additional methods:</span>
+Guido.turn_right()
+Guido.facing_east()
+Guido.facing_south()
+Guido.facing_west()
+Guido.roll_dice(n=6) <span class="comment"># random integer between 1 and n.</span>
+</pre>
+
+<center><a href="rur.htm"><img alt="home" src=
+"../images/home.png"></a></center>
+</body>
+</html>

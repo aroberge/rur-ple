@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content=
+"text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='rurple.css' type='text/css'>
+<title>Summary of instructions</title>
+</head>
+<body>
+<h2 class="title">Learning Python: Child's Play with RUR-PLE!</h2>
+<h6>André Roberge, © 2005, 2006</h6>
+<h3 class="section">Summary of instructions</h3>
+<p>Reeborg's actions</p>
+<pre>
+move()
+turn_left()
+pick_beeper()
+put_beeper()
+turn_off()
+</pre>
+Tests:
+<pre>
+front_clear()
+facing_north()
+carries_beepers()
+on_beeper()    # also available as: next_to_a_beeper()
+</pre>
+Special built-in function:
+<pre>
+repeat(function, number_of_times)
+<span class="comment"># Note that this is equivalent to</span>
+<span class="keyword">for</span> number <span class="keyword">in</span> range(number_of_times):
+    function()
+</pre>
+Object-oriented programming:
+<pre>
+Reeborg = UsedRobot()
+Reeborg.move()
+Reeborg.turn_left()
+Reeborg.pick_beeper()
+Reeborg.put_beeper()
+Reeborg.front_clear()
+Reeborg.facing_north()
+Reeborg.carries_beepers()
+Reeborg.on_beeper()   # also available as: Reeborg.next_to_a_beeper()
+</pre>
+Advanced options:
+<pre>
+set_trace_style(style=1, colour='sea green')
+set_delay(time)
+Reeborg = UsedRobot(avenues=1, streets=1, orient_key = 'E',
+                 beepers=0, name = 'Reeborg', colour = 'grey')
+Reeborg.set_trace_style(style=1, colour='sea green')
+Reeborg.set_delay(time)
+</pre>
+New and improved robot (future version)
+<pre>
+Guido = RefurbishedRobot()  # inherits from UsedRobot
+Guido.turn_right()
+Guido.left_clear()
+Guido.right_clear()
+Guido.facing_east()
+Guido.facing_south()
+Guido.facing_west()
+</pre>
+<h5><a name="Acknowledgements" id=
+"Acknowledgements"><b>Acknowledgements</b></a></h5>
+<p>Without my children, Julien and Evelyne, this program would
+never have been created. This program is dedicated to them, in
+the hope that they will learn the basics of programming by having
+fun with it. I must also thank Julien for having designed the
+splash screen as well as the robot image used in the various
+error dialogs.</p>
+<p>I personally have learned much by writing this program - in
+fact, I had known about Python only for a few months before I
+embarked on this project and had not programmed for more years
+than I care to admit. Of course, without the work done by the
+Python and wxPython community, the learning curve for me would
+have been much steeper and this program would not have been
+possible. This program was inspired by Guido van Robot (GvR), a
+Python-like implementation of Pattis' original Karel the Robot. I
+have received very useful comments from the GvR team; in
+particular, I would like to acknowledge the contribution of Stas
+Zykiewicz, who taught me a great deal about wxPython, and never
+tired of trying out buggy code I wrote. Thanks Stas!</p>
+<p>Many of the images for buttons have been adapted from the
+Nuvola icon set, created by David Vignoni. I wish I could create
+images as esthetically pleasing as Vignoni does.</p>
+<p>Tony Payzant spent a fair bit of time proofreading earlier
+versions of the lessons. Bob Gailer suggested some useful corrections as
+well.</p>
+<p>Luis Sureda provided a Spanish translation and made some
+useful suggestions to simplify the code related to the language
+selection.</p>
+<p>Richard E. Brown provided some useful bug reports and suggestions so that Rur-ple should now work properly under MacOS.</p>
+<center><a href="rur.htm"><img alt="home" src=
+"../images/home.png"></a></center>
+</body>
+</html>

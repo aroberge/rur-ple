@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>27</title>
+</head>
+
+<body>
+
+<h2 class="title">27. 变量</h2>
+<p>记得我们什么时候教的同义词吗？是第五课我们想让乐跑学会识别其他语言的时候。我们用的是法语的“move”这个单词。</p>
+<pre>avance = move
+</pre>
+<p>同样可以应用于数字.</p>
+<pre>&gt;&gt;&gt; n = 3
+&gt;&gt;&gt; <span class="keyword">print</span> n
+3
+&gt;&gt;&gt; 2*n
+6
+&gt;&gt;&gt; n*n
+9
+</pre>
+<p>是不是很美妙？现在，我们能够根据需要改变同义词的值。</p>
+<pre>&gt;&gt;&gt; n = 3
+&gt;&gt;&gt; <span class="keyword">print</span> n
+3
+&gt;&gt;&gt; n = 2
+&gt;&gt;&gt; <span class="keyword">print</span> n
+2
+</pre>
+<p>因为同义词的意义是可变的，因此我们把它也叫做<i>变量</i>。当你在创造一个同义词的时候，我们说其实你是在把一个值<i>指定</i> 给一个变量上。等号可以理解为“是…的同义词”的意思，而不是“等于”。这是因为，如果“n等于2”，那么“2也肯定等于n”，但这并不是实际情况。来看看Python 会怎么做。</p>
+<pre>&gt;&gt;&gt; n = 2    <span class="comment"># this is ok</span>
+&gt;&gt;&gt; 2 = n
+SyntaxError: can&#39;t assign to literal
+</pre>
+<p>如果等号以外的键盘上的符号，例如</p>
+<pre>&gt;&gt;&gt; n <font size="6">←</font> 3
+&gt;&gt;&gt; <span class="keyword">print</span> n
+3
+</pre>
+<p>很有可能Python的发明者，Guido van Rossum，应该用它来表示“是……一个同义词”的意思。然而，他并没有这么做，因此我们就应该用等号。这也就解释了当我们想测试两个数字是否相等时必须使用“<tt>==</tt>”。</p>
+<p>正如我们前面看到的，当我们给一个变量赋值时，我们可以像用数字一样使用这个变量。例如：</p>
+<pre>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; b = 2
+&gt;&gt;&gt; c = a + b
+&gt;&gt;&gt; <span class="keyword">print</span> c
+3
+</pre>
+<p>我们看到的应该很容易理解吧。乍看之下下面的例子似乎要难一些：</p>
+<pre>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; a = a + a   <span class="comment"># 奇怪的</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+2
+</pre>
+<p>你一定要记住等号“<tt>=</tt>”就是“是……的同义词”的意思。因此，“奇怪的”这一行的意义如下:</p>
+<il>
+<li>取出“=”右边的部分[本例子中,<tt>a + a</tt>] </li>
+<li>计算它的值[2; 来自1+1]。</li>
+<li>无论等号右边的结果是什么 [本例中是<tt>a</tt>]， 等号左边的变量是这个结果的同义词。
+<p>像我一样把他们全写出来，使得它看起来很复杂。事实上，你马上就会习惯的而且你再也不会感到惊讶。</p>
+<p>因为改变变量的意义发生地如此频繁，因此，Python使用了一个简化的表达式。</p>
+<pre>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; a += 3       <span class="comment"># 等同于</span> <span class="string">&quot;a = a + 3&quot;</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+4
+
+&gt;&gt;&gt; a -= 2       <span class="comment"># 等同于</span> <span class="string">&quot;a = a - 2&quot;</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+2
+
+&gt;&gt;&gt; a *= 5       <span class="comment"># 等同于</span> <span class="string">&quot;a = a * 5&quot;</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+10
+
+&gt;&gt;&gt; a /= 2       <span class="comment"># 等同于</span> <span class="string">&quot;a = a/2&quot;</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+5
+</pre>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">轮到你了</h3>
+<p>还记得乐跑将两个十进制的数相加是多么困难吗？为了唤醒你的记忆，我们让乐跑用下面的方式把3和2加起来。</p>
+<p>3+2=5 <img alt="3+2" src="../images/intro/add3_2_start.png"><img alt="lead to" src="../images/lead_to.png">
+<img alt="5" src="../images/intro/add3_2_end.png"> </p>
+<p>8+4=12 <img alt="8+4" src="../images/intro/add8_4_start.png"><img alt="lead to" src="../images/lead_to.png">
+<img alt="12" src="../images/intro/add8_4_end.png"></p>
+<p>你可以用变量简化整个过程。你不需要我们做的什么特殊的地图，也不要让乐跑拿着铃铛。下面是一些建议:<ul>
+	<li>使用 <tt>sum</tt> 这个初始值为0的变量。 </li>
+	<li>让乐跑一个一个捡起铃铛，每次在 <tt>sum</tt> 的数值上加1，可以使用下面的方法： 
+	<br>	<tt>sum += 1</tt>.</li>
+	<li>乐跑做完了的时候，设想一下两个场景：如果 <tt>sum</tt> 大于10，让乐跑丢下减去10个后的所有的铃铛，向旁边一栋，再丢下一个（进位）。如果小于10就让乐跑把所有的铃铛都丢下。</li>
+	<li><span class="warning">强烈建议：</span> 除了<tt>turn_right()</tt>之外绝对不要定义任何动作。在下面的课程里你会知道为什么。</li>
+</ul>
+<center><a href="../inter/26-interpreter2.htm">
+<img alt="previous" src="../../images/previous.png">解释Python关键字</a> - <a href="lessons_toc.htm">
+<img alt="home" src="../../images/home.png"></a> -
+<a href="../inter/28-variables2.htm">变量和函数<img alt="next" src="../../images/next.png"></a></center>
+</li>
+
+</body>
+
+</html>
