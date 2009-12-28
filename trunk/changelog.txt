@@ -1,0 +1,14 @@
+To see more details of bugs, go to this URL:
+http://code.google.com/p/rur-ple/issues/list
+
+There are always more changes than listed here, these are just the
+highlights. The full log is available at 
+http://code.google.com/p/rur-ple/source/list
+
+
+------------------------------------------------------------------------------
+1.0 - Dec/28/2009
+------------------------------------------------------------------------------
+ - changelog.txt created
+ - Updated translation (en)
+ - Added translation (zh_CN)
