@@ -28,6 +28,8 @@
 
 import os
 import sys
+import wxversion
+wxversion.select('2.6')
 import wx
 import wx.lib.buttons
 import rur_py.misc as misc  # a few global variables
