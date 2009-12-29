@@ -5,6 +5,14 @@ There are always more changes than listed here, these are just the
 highlights. The full log is available at 
 http://code.google.com/p/rur-ple/source/list
 
+------------------------------------------------------------------------------
+1.0.1 - Dec/29/2009
+------------------------------------------------------------------------------
+ - Fixed slider bug
+ - Updated "About the brower" page to reflect current translation status (en,zh_CN)
+ - Fixed wxPython2.6 dependency
+ - Provided deb and rpm package on top of the existing windows installer (available since 1.0)
+
 
 ------------------------------------------------------------------------------
 1.0 - Dec/28/2009
