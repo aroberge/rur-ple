@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0.1
+Encoding=UTF-8
+Type=Application
+Name=RUR-PLE
+GenericName=rur-ple
+Comment=Learn computer programming using Python
+Icon=rur-ple
+Exec=python /opt/rur-ple/rur_start.py
+Terminal=false
+StartupNotify=false
+Categories=Application;Game;Education;KidsGame;2DGraphics;
+Name[zh_CN]=编程学习
+Comment[zh_CN]=利用一个环境来学习计算机编程语言Phython
+Comment[fr]=Apprendre à programmer en utilisant le language Python
