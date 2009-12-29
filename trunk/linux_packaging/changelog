@@ -1,0 +1,5 @@
+rur-ple (1.0.1) unstable; urgency=low
+
+  * Second release (Closes: slider, wxpython lib dependency bug and available languages description)
+
+ -- Fred <fred@beijinglug.org>  Tue, 29 Dec 2009 17:27:01 +0800

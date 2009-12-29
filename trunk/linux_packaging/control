@@ -1,0 +1,13 @@
+Source: rur-ple
+Section: Education
+Priority: optional
+Maintainer: Fred Muller<fred@beijinglug.org>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.8.1
+Homepage: http://code.google.com/p/rur-ple/
+
+Package: rur-ple
+Architecture: any
+Depends: python-wxgtk2.6
+Description: A Python Learning Environment with 48 fantastic lessons
+ Learning to program computers should be fun, for adults and children alike. RUR-PLE is an environment designed to help you learn computer programming using the language Python. Within an artificial world in which a robot can be programmed to perform various tasks, you will learn what it means to write a computer program, using Python's syntax. You will also be able to apply your programming skills in a more traditional environment using the built-in interpreter. If these words don't mean much to you for now, don't worry.
