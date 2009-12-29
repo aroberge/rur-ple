@@ -1,0 +1,18 @@
+# random maze solver
+# exit identified by beeper
+
+G = RefurbishedRobot()
+G.set_delay(0) # moving fast
+while True:
+    try:
+        G.move()
+        if G.next_to_a_beeper():
+            G.turn_off()
+    except HitWallException:
+        pass
+    r = G.roll_dice(3) # 1, 2, 3 possible values
+    if r == 1:
+        G.turn_left()
+    elif r == 2:
+        G.turn_right()
+

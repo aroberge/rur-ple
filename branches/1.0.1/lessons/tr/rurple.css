@@ -1,0 +1,27 @@
+/* rurple.css */
+
+body{width:600px;}
+
+/* Basic Python Elements (inside <pre> </pre>)*/
+.keyword{color: #336699; font-weight: bold;}
+.number{color: #FF0000;}
+.comment{color: #009900;}
+.string{color: #660066;}
+.variable{color: #000000;}
+.op{font-weight: bold;}
+
+/* code formatting option */
+.linenumber{font-size: small; color: #666666;}
+.newlinenumber{font-size: small; font-weight: bold; background-color: #ff9999;}
+.notelinenumber{font-size: small; font-weight: bold; background-color: #cccc99;}
+/* keywords outside <pre> </pre> */
+.pykeyword{color: #336699; font-weight: bold; font-family: monospace;}
+
+/* section heading styles */
+.section{color: #006600;}
+.title{color: #006600;}
+.try{color: #0000CC;}
+.suggested{color: #663333;}
+.quiz{color: #900090;}
+.warning{color: #CC0000; font-weight: bold;}
+.important{color: #CC0000; font-weight: bold;}

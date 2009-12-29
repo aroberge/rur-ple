@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href="../rurple.css" type='text/css'>
+<title>不是真的!?</title>
+</head>
+<body>
+
+<h2 class="title">15. <span class="pykeyword">不是</span>真的!?</h2>
+<p>假设我们希望机器人持续前进直到它遇到一个beeper然后停下来。 一个开始位置的例子如下所示：</p>
+<img alt="stop at beeper" src="../../images/intro/stop_at_beeper.png">
+<p>做这个的一种方法- 在 <i>pseudocode</i>中-如下所示:<br> <br> 如果在beeper上,<br> ... 停止;<br> 否则,<br> ...保持移动.<br> <br> 用迄今为止我们已经学习的知识，我们可以将这翻译为：</p>
+<pre>
+<span class="keyword">if</span> on_beeper():
+    turn_off()
+<span class="keyword">else</span>:
+    move()           
+</pre>这只是解决方案的一部分因为我们还没有告诉机器人要保持重复。 现在我们暂时忽视这个。 现在，考虑 相同的<i>pseudocode</i> 规则:<br> <br> 如果不在beeper上，<br> ...保持前进;<br> 否则,<br> ...停止.<br> <br> 当我们翻转了命令 "保持前进" 和 "停止",你应当承认这两种方法是等价的。 关键点在于，在第二个例子中，我们在 <span class="pykeyword">if</span>后面用了<span class="pykeyword">not</span>。 Python也允许我们否定一些文本，如下：<pre>
+<span class="keyword">if not</span> on_beeper():
+    move()
+<span class="keyword">else</span>:
+    turn_off()          
+</pre>
+<p>用迄今我们所学的知识将将这翻译成完整的程序, 我们可能需要 <span class="pykeyword">定义</span>一个指令, 然后使得它重复足够多次以确保机器人能够完成它的任务。</p>
+<h3 class="try">轮到你了</h3>
+<p>使用新的Python关键词 <span class="pykeyword">not</span>，重写一遍你的跨栏程序。</p>
+<hr width="50%">
+<h3 class="suggested">除草和播种时间</h3>
+<p>春天到了。 乐跑机器人的爸爸在花园里播种了。 在有些地方两个种子都发芽了，而在有些地方，一个也没有。 如下显示了一个典型情况 (文件: harvest4.wld).</p>
+<img alt="weeding" src="../../images/intro/harvest4.png">
+<p>帮助乐跑机器人给花园除草，使得没有一个地方是有两个胡萝卜，而在没有胡萝卜的地方重新播种。 最后的情况应当如下所示：</p>
+<img alt="weeding" src="../../images/intro/harvest1.png">
+<p>对于部分程序，这里有个 <i>建议</i>：</p>
+<pre>
+<span class="comment">#根据问题引进一个库、</span>
+next_to_a_carrot = on_beeper
+plant_carrot = put_beeper
+pick_carrot = pick_beeper
+
+<span class="keyword">def</span> one_carrot_only():
+    <span class="keyword">if not</span> next_to_a_carrot():
+        plant_carrot()      <span class=
+"comment"># 丢失种子的地方重新播种</span>
+    <span class="keyword">else</span>:
+        pick_carrot()
+        <span class="keyword">if not</span> next_to_a_carrot(): <span class="comment"># oops!</span>
+            plant_carrot()  <span class="comment">#我们已经移掉了唯一的一个</span>
+</pre>
+<p>注意，事实上，移除种子重新播种并 <b>不是</b> 一个好主意！</p>
+<center><a href="14-elif.htm"><img alt="previous" src=
+"../../images/previous.png"> 如果，否则，如果，否则 ....</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"16-while.htm">暂时 <img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

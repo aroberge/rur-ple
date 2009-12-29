@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>33. Repeat() 隐蔽了一些 Python 的关键字</title>
+</head>
+<body>
+<h2 class="title">33. Repeat() 隐蔽了一些 Python 的关键字</h2>
+<p>记得，在好几次课之前, 我们要乐跑机器人重复很多操作?</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+</pre>
+<p>这一课,我们将要学习如何建立自己的
+<tt>repeat()</tt> 函数. <!--==============================--></p>
+<hr width="50%">
+<h3 class="section">两个新的关键字.</h3>
+<p>尝试一下下面的:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> letter <span class=
+"keyword">in</span> <span class="string">"Reeborg"</span>:
+...     <span class="keyword">print</span> letter
+...     
+R
+e
+e
+b
+o
+r
+g
+</pre>
+<p><span class="pykeyword"></span>对于出现在字符串 <span class=
+"pykeyword"></span>  <span class="string">Reeborg</span>中的每一个字母, 我们要求Python解释器 <span class="pykeyword">在一个新行进行打印</span>. 如果我们不想这样, 我们可以使用逗号标点, 正如我们以前提到过的.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> letter <span class=
+"keyword">in</span> <span class="string">"Reeborg"</span>:
+...     <span class="keyword">print</span> letter,
+...     
+R e e b o r g
+</pre>
+<p>很容易吧! 任何字符串都可以这样! 现在,我们想要 Python来计算一下数量,我们可以使用<span class=
+"pykeyword">for</span> 循环, 以及一个有用的函数
+<tt>range()</tt></p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> number <span class=
+"keyword">in</span> range(3):
+...     <span class="keyword">print</span> number
+...     
+0
+1
+2
+&gt;&gt;&gt; <span class="keyword">for</span> number <span class=
+"keyword">in</span> range(14):
+...     <span class="keyword">print</span> number,
+...    
+0 1 2 3 4 5 6 7 8 9 10 11 12 13
+</pre>
+<p>随意尝试更多的你自己的例子吧!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">定义 <tt>repeat()</tt></h3>
+<p>我们已经有了定义我们自己的函数
+<tt>repeat()</tt> 所需要的所有的部分了:</p>
+<ul>
+<li>我们知道定义带参数的函数.</li>
+<li>我们知道如何使用变量.</li>
+<li>我们知道使用 <span class="pykeyword">for</span> 循环进行计算.</li>
+</ul>
+<p>你还等什么呢?</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> repeat(f, n):
+...     <span class="keyword">for</span> i <span class=
+"keyword">in</span> range(n):
+...         f()
+...
+&gt;&gt;&gt; <span class="keyword">def</span> f():
+...     <span class="keyword">print</span> <span class=
+"string">"It's fun!"</span>
+...    
+&gt;&gt;&gt; repeat(f, 3)
+It's fun!
+It's fun!
+It's fun!
+</pre>
+<p>事实上,我们正在做一个高级的 Python编程
+! 我们 <i>传入</i> 一个参数给函数
+<tt>repeat()</tt>, 而参数本身也是个函数. 为了这么做, 我们需要使用函数名,但是不能带括号. [回头看看我们以前是如何在乐跑机器人世界定义
+<tt>turn_right()</tt> 的.] 我们还传入了另外一个参数 (<tt>n</tt>) , 他是个数字 (如果 <tt>range()</tt>
+会返回给我们我们想要得的话.) 当我们定义函数
+<tt>repeat()</tt>, Python 并不关心 (实际上是不知道!) 某个参数是一个函数, 还是个数字.</p>
+<p>留意一下我选择的变量名称(<tt>f, n, i</tt>),他们都不是描述性名称. 程序员经常用一个字母来用于简单循环 (如上) 或者一个简单函数. 当然, 如果变量有特殊含义, 还是应该给他们一个长的,有描述含义的名字. 如果你不相信, 回去试一下课程 <a href=
+"../intro/10-def.htm">10. 理想地避免重复.</a>里面的挑战吧!</p>
+<p>因此, 我应该这么定义 <tt>repeat()</tt> :</p>
+<pre>
+<span class="keyword">def</span> repeat(function, number_of_times):
+    <span class="keyword">for</span> number <span class="keyword">in</span> range(number_of_times):
+        function()
+</pre>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">试试看!</h3>
+<p>回到乐跑机器人世界. 选择你喜欢的体验, 只要它是你至少使用了两次使用了 <tt>repeat()</tt>.
+ 使用<tt>for</tt> 循环, 替代 <span class=
+"pykeyword">repeat()</span> . 确认你的解决方案可以工作!</p>
+
+<center><a href="32-return.htm"><img alt="previous" src=
+"../../images/previous.png">很多返回.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"34-lists.htm">巧克力慕斯蛋糕食谱<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

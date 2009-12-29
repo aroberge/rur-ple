@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>30. 面向对象编程：“点”符号</title>
+</head>
+<body>
+<h2 class="title">30. 面向对象编程：“点”符号</h2>
+<p>我们马上要学习一个现代的编程模式方式，叫做<em>面向对象编程</em>[OOP]。Python是一个面向对象编程的语言，尽管你从我们现在所看到的部分永远也不回猜到这一点。在我们开始学习面向对象编程之前，我们先来学会使用的符号。</p>
+<!-- ======================== -->
+<hr width="50%">
+<h3 class="section">一条狗的一天</h3>
+<p>Fido是一条狗。一天里，他要做好多动作：吃饭，奔跑，睡觉，等等等等。面向对象编程会像下面一样描述Fido。</p>
+<pre>
+Fido = Dog()
+Fido.eats()
+Fido.runs()
+Fido.sleeps()
+</pre>
+<p>另外，Fido有好多的特征和<i>属性</i>。这些是他的<i>变量</i>，就像我们期待的那样，这些变量都属于Fido.他很高（对于一条狗来说），毛发是黑色的。编程员们可能会用下面的东西来形容他：</p>
+<pre>
+Fido.size = <span class="string">&quot;tall&quot;</span>
+Fido.hair_colour = <span class="string">&quot;black&quot;</span>
+</pre>
+<p>在面向对象语言里，我们得到如下内容：</p>
+<ul>
+<li><tt>狗</tt> 是事物的种 <i>类</i>。</li>
+<li><tt>Fido</tt> 是这个<tt>狗</tt> 这个种<i>类</i>里的一个<i>实例</i>。</li>
+<li>  一个类可以被认为是创建实例的一个特殊的函数。</li>
+<li><tt>吃eats()</tt>，<tt>跑runs()</tt>，<tt>睡sleeps()</tt>，可以看成是<tt>狗</tt>的类的<i>方法</i> 。‘方法’可以看成函数，这个函数和之前学过的区别就在于他们是属于一个特定的类/实例的。.</li>
+<li>身材大小<tt>size</tt> 和发色 <tt>hair_colour</tt> 是给定的例子/物体的 <i>属性</i> ；属性可以被赋予任何一个正常的变量可以被赋予的值。</li>
+<li>物体与属性或方法之间是用一个“.”联系起来的。</li>
+</ul>
+<p>物体能够有其他的属于它的物体，这些物体有它自己的方法和属性。</p>
+<pre>
+Fido.tail.wags()
+Fido.tail.type = <span class="string">&quot;bushy&quot;</span>
+Fido.left_front_paw.moves()
+Fido.head.mouth.teeth.canine.hurt()
+</pre>
+<p>在后面我们会看到这些是怎么实现的。现在让我们看看乐跑如何使用这些“.”符号。</p>
+<hr width="50%">
+<h3 class="try">一个旧的的机器人有了自己的名字</h3>
+<p>到目前为止，我们的程序所有让乐跑完成的任务都不是通过面向对象编程（OOP）实现的。我们先从简单的例子开始吧。</p>
+<p>首先，我们从一张空白的地图开始。如果需要，可以用添加/删除机器人按钮去掉机器人。<img alt="add/remove robot" src=
+"../images/intro/btn_add_robot.png"></p>
+<p>现在，你可能想起了，RUP在RUP-PLE里代表的是Reeberge的<b><u>旧机器人</u></b>(Roberge's Used Robot)；我们用的机器人又旧又经常出故障。<small>【我们后面会学怎么修好他们。】</small>我们会创造第一个<tt>旧机器人</tt> 的例子，然后给他起一个合适的名字，乐跑！然后我们让他做一个动作，再把自己关掉。</p>
+<pre>
+Reeborg = UsedRobot()
+Reeborg.move()
+Reeborg.turn_off()
+</pre>
+<p><b>试试吧！</b></p>
+<hr width="50%">
+<h3 class="try">更多的机器人</h3>
+<p>就像函数会有参数，方法也可以有。从一个空的地图开始，试试下面的吧：</p>
+<pre>
+<span class=
+"comment"># </span>
+Larry = UsedRobot(colour=<span class="string">&#39;blue&#39;</span>)
+<span class=
+"comment"># second robot, default colour (grey) facing North</span>
+Curly = UsedRobot(1, 3, <span class="string">&#39;N&#39;</span>)
+<span class="comment">#  Third robot carries beepers</span>
+Moe = UsedRobot(1, 2, beepers=9, colour=<span class="string">&#39;yellow&#39;</span>)
+
+Larry.move()
+Curly.move()
+Moe.move()
+Larry.move()
+Curly.move()
+Moe.move()
+
+Curly.turn_left()
+Larry.move()
+Curly.move()
+<span class="comment"># Turning off any one robot ends the program</span>
+Moe.turn_off()
+</pre>
+<p>机器人有很多颜色：灰色（grey）（默认），黄色（yellow），蓝色（blue），浅蓝色（light 
+blue），绿色（green）和紫色（purple）。他可以出现在空白世界的任何位置（同一个交叉点处可以放好几个机器人），可以面朝4个方向中的任何一个（东&#39;E&#39<small>（默认）</small>，西&#39;N&#39，南&#39;S&#39，北&#39;W&#39），或从起点处携带几个铃铛。注意到他们有两个<b>命名了</b>的参数（铃铛和颜色）和三个<b>未命名</b> 的参数（街，大道，和方向）。这两个命名的参数必须最后出现（他们的顺序可以互相交换，如果我们写他们的名字的话）；三个未命名的参数，如果他们出现，就必须保持同一顺序。因此，如果我们想要确定一个方向（例如，北&#39;N&#39），我们必须先确定一条街，一条大道，然后方向就成了第三个参数。</p>
+<p>下面是允许的声明：</p>
+<pre>
+R1 = UsedRobot(2) <span class=
+"comment"># created at 2nd street, 1st avenue, facing East</span>
+R2 = UsedRobot(2, 3) <span class=
+"comment"># 2nd street, 3rd avenue, facing East</span>
+R3 = UsedRobot(3, 1, <span class="string">&#39;S&#39;</span>) <span class=
+"comment"># 3rd steet, 1st avenue, facing South</span>
+R4 = UsedRobot(5, colour=<span class="string">&#39;yellow&#39;</span>) <span class=
+"comment"># 5th street, 1st avenue, facing East</span>
+</pre>
+<p>下面的声明 <b>不被允许</b>:</p>
+<pre>
+R5 = UsedRobot(3, <span class="string">&#39;S&#39;</span>) <span class=
+"comment"># orientation is <b>not</b> 3rd argument</span>
+R6 = UsedRobot(colour=<span class="string">&#39;yellow&#39;</span>, 5) <span class=
+"comment"># unnamed argument listed after named one</span>
+</pre>
+
+<center><a href="29-strings.htm">
+<img alt="previous" src=
+"../../images/previous.png">你叫什么名字？</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"31-global.htm">全局变量是不好的<img alt="next"
+src="../../images/next.png"></a></center>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<title>Lists and dicts</title>
+</head>
+<body>
+
+<h2>Lists and dicts</h2>
+
+<p>The following is just a quick guide to potential teacher about using rur-ple to show some interesting differences between lists and dicts behaviours.</p>
+<br />
+<br />
+<p>Click on the "Show/Hide world file" button  
+<img alt="Show/Hide world file"  src="../../images/intro/btn_show_world_file.png"> to display the world file on the right hand side.  Now, click on the edit wall button: <img alt="edit walls button"  src="../../images/intro/btn_walls.png">.  You are now ready to learn some differences between how are lists and dicts handle in Python.</p>
+<p>Create a few walls, and watch what happens in the world file.  Each wall created is a list element whose value is a tuple with the world coordinate.  Each wall that is created is <i>appended</i> at the end of the list.  When you delete a wall, by clicking on an existing wall, it is removed from the list at that location.  If you immediately click again to recreate that wall, it appears in the list at the end, being appended again.</p>
+<p>Contrast this with beepers.  You can left-click on any street corner to specify the number of beepers to put there.  If you change the value of the beepers at a given corner, they get changed in-place.  If you add beepers at a corner where there were none before, the new beepers are, in general, <b>not</b> appended at the end. (You may need to have more than a few corners with beepers to see this.)  Make sure you have many with beepers. Select a corner with beepers and set the value to zero, watching the world file.  Like for the walls, the entry disappears.  Now, immediately put some beepers back on that same corner.  The new entry appears at the original place, and not at the end like it was the case for the list.  This is because the order in which items appear in a dict is based on a mathematical function ("hash") of the dict "key" (the tuple with the world coordinate in this case).</p>
+
+
+
+
+<center>
+<a href="../rur.htm"><img alt="home"  src="../../images/home.png"></a>
+</center>
+<p>
+This program is hosted on <a href="http://sourceforge.net"><img alt="sf logo - non clickable here"  src="../../images/sflogo.png"></a>
+</p>
+
+</body>
+</html>

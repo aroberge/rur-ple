@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href="../rurple.css" type='text/css'>
+<title>暂时</title>
+</head>
+<body>
+<h2 class="title">16. 暂时 ...</h2>
+<p>当我们想在某个特定条件被满足前重复一些指令时，Python给了我们一个简单的方法来写这段程序，就是用一个新的关键词： <span class="pykeyword">while</span>. 首先，我来演示一下如何用<i>pseudocode</i> 来重新写一个我们之前看到的例子。<br> <br> 当不在beeper上，<br> ... 保持前进;<br> 否则,<br> ... 停止.<br> <br> 你会说，这个表达的跟之前的意思一样。 用Python代码，这里我们实际是这样写的:</p>
+<pre>
+<span class="keyword">while not</span> on_beeper():
+    move()
+ 
+turn_off()           
+</pre>
+<p>这里就不再需要<tt>重复</tt>了！ <b>试试看！</b></p>
+<hr width="50%">
+<h3 class="try">轮到你了</h3>
+<p>用 <span class="pykeyword">while</span> 和 <span class=
+"pykeyword">not</span>重新写一段跨栏程序，这样你就不需要使用那么多的重复了。 换句话说，你程序的核心应该像是这样子的：</p>
+<pre>
+<span class="keyword">while not</span> next_to_a_beeper():
+    move_or_jump()
+ 
+turn_off()           
+</pre>
+<p>保证它是可以运行的！</p>
+<h3 class="suggested">除草和播种时刻</h3>
+<p>又是春天了。 乐跑机器人的爸爸已经在花园里播下了种子，等待秋天的收获。 就像上次一样，一些地方两个种子都发芽了，而有些地方一个种子也没发芽。 一个典型的状态如下所示 (file: harvest4.wld).</p>
+<p><img alt="weeding" src="../../images/intro/harvest4.png"></p>
+<p>帮助机器人给花园除草，使得没有一处是有两个胡萝卜（beepers）的，并且在没有胡萝卜的地方重新播种。</p>
+<p>这儿有一个 <i>建议</i> ，部分代码可以使用新关键词 <span class="pykeyword">while</span>:</p>
+<pre>
+<span class="comment"># introducing vocabulary related to the problem</span>
+next_to_a_carrot = on_beeper
+plant_carrot = put_beeper
+pick_carrot = pick_beeper
+
+<span class="keyword">def</span> one_carrot_only():
+    <span class="keyword">while</span> next_to_a_carrot():
+        pick_carrot()      <span class="comment"># 把它们全捡起来!</span>            
+    plant_carrot()         <span class="comment">#重新再种一个!</span>
+</pre>
+<p>这段代码与之前的相比短了很多 ( <span class="pykeyword">def</span>中的三行取代了之前的六行). 并且，当同一点不止两个种子发芽的情况下，它也是可以运行的。 <b>试试看！</b><br> <small>记住，事实上，移除种子再把它们重新正确地播种并 <b>不是</b>一个好主意！</small></p>
+<center><a href="15-not.htm"><img alt="previous" src=
+"../../images/previous.png"> 不是真的!?</a> - 
+<a href="../lessons_toc.htm"><img alt=
+"home" src="../../images/home.png"></a> - <a href="17-amazing1.htm">17. 神奇-第一部分 <img alt="next" src="../../images/next.png"></a></center>
+</body>
+</html>

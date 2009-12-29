@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>8. Darn bugs!</title>
+</head>
+<body>
+<h2 class="title">8. Darn bugs! <img src="../../images/intro/b_shake.gif"
+alt="darn bugs"></h2>
+<p>Nobody likes to talk about computer bugs. So, I will try to keep this lesson short. All I ask you to do is to read it I won't ask you to write programs
+with bugs!</p>
+<h3 class="section">What is a bug?</h3>
+<p>The origin of the word <b>bug</b> in computer jargon is often attributed
+to an actual incident where a moth was found inside Harvard University's Mark
+II computer; apparently this moth had caused the computer to stop working. It
+was found by the team headed by renowned computer scientist, mathematician,
+and young naval officer Grace Murray Hopper, who went on to invent the
+concept of compiler languages in computer programming. Dr. Grace Hopper
+eventually rose in the U.S. naval hierarchy to the rank of Rear Admiral.</p>
+<p>The moth was preserved, taped into Hopper's log book, as shown below.
+Interestingly, the log book included a note saying, "First actual case of bug
+being found." as you can see.</p>
+<p><img src="../../images/intro/first_bug.jpg" alt="first bug"></p>
+<h6>Picture adapted from the public archive of the 
+<a href="http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm">
+U.S. Naval Historical Center </a></h6>
+<p>Actually, the word bug in a technological context is attributed by the
+Oxford English Dictionary to Thomas Edison. According to the Oxford
+Dictionary, the following text can apparently be found in the March 11, 1889
+edition of the Pall Mall Gazette:</p>
+<blockquote><cite>Mr. Edison, I was informed, had been up the two previous
+nights discovering 'a bug' in his phonograph - an expression for solving a
+difficulty, and implying that some imaginary insect has secreted itself
+inside and is causing all the trouble.</cite></blockquote>
+<p>It thus appears that the original 'bug', though it was indeed an insect,
+was in fact imaginary.</p>
+<p>Unfortunately, computer bugs, while they are not insects, are also not
+imaginary.</p>
+<h3 class="section">Dealing with bugs</h3>
+<p>In computer jargon, a bug is an error that causes a program to behave in
+an unexpected way. If you are writing computer programs, you are going to
+have bugs in them sooner or later - everybody does. Good programmers seek to
+"remove" bugs or "fix" them as soon as they find that their program behaves
+unexpectedly.</p>
+<p>RUR-PLE has been designed to help you find bugs.</p>
+<ol>
+<li>
+<p>The "oil leak" of the robot, leaves a trace behind that allows you to see
+(<i>trace</i>) the instructions followed by the robot.</p>
+<p><img src="../../images/intro/turn_left_end.png"alt="simple left turn"></p>
+</li>
+<li>
+<p>Each instruction [like <tt>pick_beeper()</tt> below], which is highlighted
+in the program window as it is about to be executed by the robot.</p>
+<p><img src="../../images/intro/highlight.png"alt="highlighted instruction"></p>
+<p><b><font color="#CC0000">Highlighting of instructions can sometimes cause
+problems; you can turn it on and off by pressing the highlight
+button.</font></b> <img src="../../images/intro/btn_highlight.png" alt="highlight button"></p>
+</li>
+<li>
+<p>You can "pause" a program as it is running by pressing the pause button
+<img src="../../images/intro/btn_pause.png" alt="pause button">. This is similar to what people refer to as setting a
+<i>breakpoint</i> in a computer program.</p>
+</li>
+<li>
+<p>You can "step through" a program, one instruction at a time, by pressing
+the (execute one instruction and pause, or <i>step</i>) button <img src=
+"../../images/intro/btn_step.png" alt="step button">.</p>
+</li>
+<li>
+<p>You can change the speed at which the instructions are executed by using
+the speed controller <img src="../../images/intro/btn_speed.png" alt="speed button">. The more you move the slider to the right, the faster
+the program will execute. You can only adjust the speed at the beginning of
+the program, at which point it will be set for the entire program. For long
+running program, you can first start running the program quickly, pause it
+when you reach the point near the unexpected behaviour (the "bug"), and then
+carefully step through each instruction one at a time.</p>
+</li>
+<li>
+<p>If you find that you started a program and you want to stop it before it
+reaches the end, you can always press the stop button <img src=
+"../../images/intro/btn_stop.png" alt="stop button">.</p>
+</li>
+<li>
+<p>At the bottom of the screen is a status bar which displays: 1) which
+program is loaded; 2) the status of that program; 3) the number of beepers
+carried by the robot; 4) which world file has been loaded.<br>
+<img src="../../images/intro/status_bar.png" alt="status bar"></p>
+</li>
+<li>
+<p>If you want to restart your program with the robot back at its original
+starting point when you first loaded a world file, you will need to press the reset world button
+<img src="../../images/intro/btn_reset_world.png" alt="reset button">.</p>
+</li>
+</ol>
+<p>This should be more than enough for now. As you learn more about
+programming, you will learn other tricks that will help you find bugs and get
+rid of them!</p>
+<center>
+<p><a href="7-beepers.htm"><img src="../../images/previous.png"
+alt="previous">Beepers</a> -
+<a href="../lessons_toc.htm"><img src="../../images/home.png"
+alt="home"></a> - <a href="9-walls.htm">Building walls<img src="../../images/next.png"
+alt="next"></a>
+</p></center>
+</body>
+</html>

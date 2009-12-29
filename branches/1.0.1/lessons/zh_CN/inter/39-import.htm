@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>39. 避免重复 - Import</title>
+</head>
+<body>
+
+
+<h2 class="section">39. 避免重复 - <span class="pykeyword">import</span></h2>
+
+<p>记住关于避免重复的原则:</p>
+
+<dl> <dt><b>原则 # 3 </b></dt><dd>当写程序的时候,不要让你自己重复劳动. <br/>
+ 强调一下: <b>不要让你自己重复劳动!</b></dd> 
+</dl>
+<p>这一课我们将学习避免重复.</p>
+
+
+<h3 class="section">1. 记住: 三次左转成为一次右转</h3>
+
+<p>
+我们介绍 <tt>turn_right()</tt> 的使用方法:</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+</pre>
+<p>我们通过他使得我们不需要每次输入三个 <tt>turn_left()</tt> 要机器人右转.  然而，我们编程时还是有很多重复工作，因为我们每一次写新程序, 我们不得不再次定义 <tt>turn_right()</tt> .  有一种方法来避免，创建如下程序然后执行.</p>
+<pre>
+<span class="keyword">from</span> useful <span class="keyword">import</span> turn_right
+
+turn_right()
+turn_off()
+</pre>
+
+<h3 class="section">2. 关于 <i>useful</i></h3>
+
+<p>我为你创建了一个假的 <i>模块</i> 叫做 "useful" ， 它包含了一些新的 <tt><span class="pykeyword">定义了的</span></tt>指令.  与其解释每一个新指令, 不如我们来看看这个例子.</p>
+
+
+<pre>
+<span class="keyword">from</span> useful <span class="keyword">import</span> *
+
+turn_left()
+move()
+set_trace_style(1, <span class="string">'red'</span>)
+turn_right()
+set_trace_style(2, <span class="string">'blue'</span>)
+move()
+set_trace_style(1, <span class="string">'green'</span>)
+climb_up_east()
+set_trace_style(2, <span class="string">'blue'</span>)
+move()
+set_trace_style(1, <span class="string">'orange'</span>)
+turn_around()
+set_trace_style(2, <span class="string">'sea green'</span>)
+climb_up_west()
+set_trace_style(1, <span class="string">'red'</span>)
+turn_around()
+set_trace_style(0, <span class="string">'blue'</span>) <span class="comment"># 0 = invisible</span>
+repeat(move, 4)
+set_trace_style(1, <span class="string">'green'</span>)
+climb_down_east()
+set_trace_style(2, <span class="string">'blue'</span>)
+move()
+set_trace_style(1, <span class="string">'black'</span>)
+turn_around()
+set_trace_style(2, <span class="string">'red'</span>)
+climb_down_west()
+turn_off()
+</pre>
+<p><img alt="import"  src="../../images/intro/import.png"></p>
+<p>与其像我们上面引入 <tt>turn_right()</tt>那样一个一个引入指令, 不如用 "*" 这个符号来表示 "所有的定义".  在进入下一步之前，我有必要先做一些注解:</p>
+<ol>
+<li>如果你知道 Python <i>module</i>, 那么你知道"useful" 不是一个真正的 module,而是一个假的，仅仅在乐跑机器人世界可以工作的.  出于安全原因，你不会被允许引入 "真正的" 模块，以及在RUR编程中使用. </li>
+<li>一个新的指令 <tt>set_trace_style()</tt> 已经被使用.  我只能把它叫做<br /> <tt>set_leaking_oil_colour_and_quantity()</tt>, 这样在乐跑机器人世界显得更有意义 ....  简单的说, 一个程序的 <i>trace</i>（轨迹）是一条沿着程序指令的执行线.常规地说，你应该用不上他... 但是当我们跟踪问题的时候他很有用</li>
+<li><span class="keyword">from</span> 和 <span class="keyword">import</span> 是两个 Python关键字,这一点从我们写他们显示出来的颜色可以看出来.</li>
+<li>不管他们的名字,一些在 "useful"定义的操作会导致异常结果， 如果机器人的开始原点不再期望的位置的话.   当你试图引入 "真正的" Python模块，一些类似的事情也会发生; 你必须意识到, 你要能够正确的使用它所需的前提条件.  我 <b>不会</b> 告诉你在 "useful"里面, 正确使用它的前提条件. 你可以试图写你自己的程序来寻找答案.</li>
+<li>对于模块, 你通常可以阅读Python (或者 C) 的代码,  如果你试图寻找的话. 当文档匮乏的时候， 这非常有用； 或者你也可以通过阅读别人的代码提高编程经验.</li>
+<li>由于一些引入假模块的限制, 一些个合法的内容 (比如关键字 <span class="keyword">import</span>出现在一段注解中) <i>也许</i> 会导致错误.</li>
+</ol>
+
+<h3 class="section">3. 假如我想使用相同的名字.</h3>
+<p>假如你要使用 "turn_right" 来表示在useful定义了的之外的其他含义. 有几种途径可以这么做.</p>
+<ol>
+<li>你可以这么用： <tt><span class="keyword">import</span> useful</tt>.  如果你这么做，你需要在每个指令之前添加 <tt>useful.</tt> .  比如<br />
+<tt>useful.turn_right()</tt> and <br />
+<tt>turn_right()</tt><br />
+这是两个不同的命令.  第一个是定义在模块 "useful" 中， 而第二个是你在某个其他地方定义了的.  在每个指令前, 可以马上参考到别处的定义.  <br />
+
+</li>
+<li>另外一种方法如下:<br />
+<pre>
+<span class="comment"># The following is useful for French speakers:</span>
+<span class="keyword">from</span> useful <span class="keyword">import</span> turn_right <span class="keyword">as</span> vire_a_droite
+
+<span class="comment"># Use it:</span>
+vire_a_droite()
+turn_off()
+</pre>
+</li>
+</ol>
+ <tt><span class="keyword">as</span></tt> 也 <i>几乎是</i> 一个 Python关键字. 他很可能在以后版本的Python中成为关键字.  我们将在讨论<i>变量</i>的时候进行解释
+
+<h3 class="section">4. 也许并不是这么有用 ...</h3>
+
+<p>在你写你的程序的时候，如果你考虑到了 "useful"潜在的用处  ... 你也许觉得他的用处太有限了. 你可以这么写:</p>
+<p>
+<pre>
+<span class="comment"># Importing the module</span>
+<span class="keyword">import</span> useful <span class="keyword">as</span> not_so_useful_after_all
+
+<span class="comment"># Use the various instructions:</span>
+not_so_useful_after_all.turn_right()
+not_so_useful_after_all.turn_around()
+turn_off()
+</pre>
+在现实生活中<tt><span class="keyword">import</span></tt> 比较常见的用法是这样的:
+<pre>
+<span class="comment"># Importing the module</span>
+<span class="keyword">import</span> module_with_very_very_very_long_name <span class="keyword">as</span> short_name
+
+<span class="comment"># Use the various instructions:</span>
+short_name.instruction1()
+short_name.instruction2()
+</pre>
+</p>
+
+<h3 class="section">5. 为什么什么都不引入?</h3>
+<p>我们经常说Python是 <i>带了电池的</i>.  那是说, Python自带了很多有用的有十分聪明的人写的模块 .  这些模块都被测试过，没有问题，并且效率很高.  当你学习更多的 Python，你想写你自己的 "复杂的" 程序, 那么,首先看看是否有任何相关的模块已经存在,可以帮助你的任务.  后面的课程,我会介绍一些有用的模块.</p>
+
+<p>给老师的主要备注: 约束使用引入的原因， 是为了避免有些人提供不安全的脚本，把这种危险带给相信你的受害人. 注意， 让学生知道， 在使用之前，检查那些 "朋友"提供的脚本 .  那就是说, 如果你熟悉 Python， 那么对源代码做一些小的修改会很容易. 这在教室设置的时候比较有用.如果你需要， 请练习他们的作者.</p>
+
+<center><a href="38-class2.htm"><img alt="previous" src=
+"../../images/previous.png">体验类.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"40-random.htm">随机离开.<img alt="next"
+src="../../images/next.png"></a></center>
+
+</body>
+</html>

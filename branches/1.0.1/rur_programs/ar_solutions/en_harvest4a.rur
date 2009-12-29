@@ -1,0 +1,59 @@
+# Back and forth harvesting 
+# solution to harvest4.wld
+
+# introducing vocabulary related to the problem
+next_to_a_carrot = next_to_a_beeper
+plant_carrot = put_beeper
+pick_carrot = pick_beeper
+
+def one_carrot_only():
+    if not next_to_a_carrot():
+        plant_carrot()      # replace missing seed
+    else:
+        pick_carrot()
+        if not next_to_a_carrot():# oops!
+            plant_carrot()  # we had removed the only one
+
+
+
+def move_to_first_row():
+    move()
+
+def turn_right():
+    repeat(turn_left, 3)
+
+def pick_and_move():
+    #pick_beeper()   <-- from the old solution
+    one_carrot_only()
+    move()
+
+def harvest_one_row():
+    repeat(pick_and_move, 5)
+    #pick_beeper()   <-- from the old solution
+    one_carrot_only()
+
+def move_left_to_next_row():
+    turn_left()
+    move()
+    turn_left()
+
+def move_right_to_next_row():
+    turn_right()
+    move()
+    turn_right()
+
+def harvest_two_rows():
+    harvest_one_row()
+    move_left_to_next_row()
+    harvest_one_row()
+
+
+# end of definitions
+
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+turn_off()

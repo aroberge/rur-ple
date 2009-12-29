@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>8. 修补bugs</title>
+</head>
+<body>
+<h2 class="title">8. 修补bugs <img src="../../images/intro/b_shake.gif"
+alt="darn bugs"></h2>
+<p>没有人愿意谈论计算机bugs。所以这节课很短，只是对bugs做简单的介绍，当然不会要你去编写一个有bug的程序啦！</p>
+<h3 class="section">What is a bug?</h3>
+<p>Bug成为计算机专业术语是源于一个偶然事件。哈佛大学的Mark II计算机由于飞进了一个小虫而瘫痪了。
+它被有名的科学家，数学家，年轻的海军军官<b>bug</b>Grace Murray Hopper发现。他后来发明了汇编语言，并晋升为海军少将。</p>
+<p>这个小虫被Hopper保存在了他的日志本中，见下图.
+有趣的是这个日志本中写着：“第一个发现bug的案例”。</p>
+<p><img src="../../images/intro/first_bug.jpg" alt="first bug"></p>
+<h6>美国海军历史中心公共档案的图片
+<a href="http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm">
+	 </a></h6>
+<p>事实上，bug这个词在技术领域的应用最早见于牛津英语词典。根据词典，下面的文字在1889年3月11日版的Pall Mall Gazette中可以找到。</p>
+<blockquote><cite>
+例句：爱迪生先生熬了两个晚上发现了他的留声机的一个bug。bug这个词在此处的意思是解决了一个棘手的问题，这个问题就像是一个假想的昆虫偷偷藏到留声机中使它不能运转。</cite></blockquote>
+<p>这就是最早出现的"bug"，尽管bug是一种虫子，但这个虫子是假想的。</p>
+<p>在计算机领域，bugs不是虫子，也不是人们想象出来的。</p>
+<h3 class="section">解决bugs</h3>
+<p>bugs是引起程序不正常运行的错误。如果你写程序，你就会遇到bugs,即使最优秀的程序员也不能避免。
+好的程序员会在程序异常时进行修正。 </p>
+<p>乐跑可以帮助你发现bugs.</p>
+<ol>
+<li>
+<p>机器人漏出的油（也就是他走的路径，绿色的线）让你能够知道机器人执行的指令。</p>
+<p><img src="../../images/intro/turn_left_end.png"alt="simple left turn"></p>
+</li>
+<li>
+<p>每一个指令将被机器人执行的指令都会被“强调”（用灰色的阴影表示）。[比如下面的<tt>pick_beeper()</tt>]</p>
+<p><img src="../../images/intro/highlight.png"alt="highlighted instruction"></p>
+<p><b><font color="#CC0000">“强调”这些命令有时候会引起问题，你可以关掉或开启“强调”功能，通过单击按钮
+</font></b> <img src="../../images/intro/btn_highlight.png" alt="highlight button"></p>
+</li>
+<li>
+<p>你可以中止一个程序，通过单击按钮
+<img src="../../images/intro/btn_pause.png" alt="pause button">. 这相当于计算机编程中设置
+<i>断点</i></p>
+</li>
+<li>
+<p>你可以一步步完成程序，每次完成一个指令，通过执行一步点击一下“中止”或者点击(<i>步骤</i>)按钮<img src=
+"../../images/intro/btn_step.png" alt="step button">.</p>
+</li>
+<li>
+<p>你可以改变指令执行的速度，通过使用速度控制器<img src="../../images/intro/btn_speed.png" alt="speed button">. 
+将滑块向右移动得越多执行的速度越快。你只能在程序开始的时候调整速度，这将是整个程序运行的速度。
+如果机器人需要走的路径比较成，请在开始执行之前将速度调快，当发现异常的时候中断程序，然后通过每次执行一步的方法寻找错误。</p>
+</li>
+<li>
+<p>当你开始了一个程序但是想在它运行完之前停止它，你需要按“停止”按钮。 <img src=
+"../../images/intro/btn_stop.png" alt="stop button">.</p>
+</li>
+<li>
+<p>在屏幕的底部有一个状态栏， 1) 当前正在运行的程序； 2) 程序的状态; 3) 机器人携带的响铃数目; 4) 当前机器人在哪个“世界”。<br>
+<img src="../../images/intro/status_bar.png" alt="status bar"></p>
+</li>
+<li>
+<p>如果你想要在加载world文件的时候机器人处在它最初的位置，你需要按"重置”按钮。
+<img src="../../images/intro/btn_reset_world.png" alt="reset button">.</p>
+</li>
+</ol>
+<p>就这样啦！当你学了更多的编程知识，你能够知道更多发现并解决bug的方法！</p>
+<center>
+<p><a href="7-beepers.htm"><img src="../../images/previous.png"
+alt="previous">响铃</a> -
+<a href="../lessons_toc.htm"><img src="../../images/home.png"
+alt="home"></a> - <a href="9-walls.htm">设置围墙<img src="../../images/next.png"
+alt="next"></a>
+</p></center>
+</body>
+</html>

@@ -1,0 +1,544 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rur-ple\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2006-02-27 19:06-0400\n"
+"Last-Translator: André Roberge <andre.roberge@gmail.com>\n"
+"Language-Team:  <andre.roberge@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Basepath: C:\\documents and settings\\André\\desktop\\python\\rurple\n"
+"X-Poedit-SearchPath-0: rur_py\n"
+"X-Poedit-SearchPath-1: ..\\rurple\n"
+
+#: rur_py/bouton.py:24
+#: ..\rurple/rur_py/bouton.py:24
+msgid "Opens existing robot program"
+msgstr "Varolan robot programlarini acar"
+
+#: rur_py/bouton.py:25
+#: ..\rurple/rur_py/bouton.py:25
+msgid "Saves robot program"
+msgstr "Robot programini kaydeder"
+
+#: rur_py/bouton.py:26
+#: ..\rurple/rur_py/bouton.py:26
+msgid "Opens existing world file"
+msgstr "Varolan dunya dosyasini acar"
+
+#: rur_py/bouton.py:27
+#: ..\rurple/rur_py/bouton.py:27
+msgid "Saves world file"
+msgstr "Dunya dosyasini kaydeder"
+
+#: rur_py/bouton.py:28
+#: ..\rurple/rur_py/bouton.py:28
+msgid "Resets world - from open file"
+msgstr "Acilmis dunya dosyasina gore Robotu baslangic pozisyonuna getir."
+
+#: rur_py/bouton.py:29
+#: ..\rurple/rur_py/bouton.py:29
+msgid "Runs robot program"
+msgstr "Robot programini calistirir"
+
+#: rur_py/bouton.py:30
+#: ..\rurple/rur_py/bouton.py:30
+msgid "Steps through robot program instructions"
+msgstr "Programi adim adim calistir"
+
+#: rur_py/bouton.py:31
+#: ..\rurple/rur_py/bouton.py:31
+msgid "Pause program"
+msgstr "programi duraklatir"
+
+#: rur_py/bouton.py:32
+#: ..\rurple/rur_py/bouton.py:32
+msgid "Stops program"
+msgstr "programi durdurur"
+
+#: rur_py/bouton.py:33
+#: ..\rurple/rur_py/bouton.py:33
+msgid "Adjust robot speed"
+msgstr "Robotun hizini ayarlar"
+
+#: rur_py/bouton.py:34
+#: ..\rurple/rur_py/bouton.py:34
+msgid "Edit walls"
+msgstr "Duvar ekle/kaldir"
+
+#: rur_py/bouton.py:35
+#: ..\rurple/rur_py/bouton.py:35
+msgid "Resize world"
+msgstr "Dunyanin boyutlarini degistir"
+
+#: rur_py/bouton.py:36
+#: ..\rurple/rur_py/bouton.py:36
+msgid "Give beepers to robot"
+msgstr "Roboto bipleri verir"
+
+#: rur_py/bouton.py:37
+#: ..\rurple/rur_py/bouton.py:37
+msgid "Remove/add robot from/to world"
+msgstr "Robot kaldir/ekle"
+
+#: rur_py/bouton.py:38
+#: ..\rurple/rur_py/bouton.py:38
+msgid "Toggle highlight executed instruction"
+msgstr "Highlight acik/kapali"
+
+#: rur_py/bouton.py:39
+#: ..\rurple/rur_py/bouton.py:39
+msgid "Toggle world file view"
+msgstr "Dunya dosyasini goster/gizle"
+
+#: rur_py/bouton.py:137
+#: ..\rurple/rur_py/bouton.py:137
+msgid "Open Python file"
+msgstr "Python dosyasini ac"
+
+#: rur_py/bouton.py:138
+#: ..\rurple/rur_py/bouton.py:138
+msgid "Save Python file"
+msgstr "Python dosyasini kaydet"
+
+#: rur_py/bouton.py:139
+#: ..\rurple/rur_py/bouton.py:139
+msgid "Run Python program"
+msgstr "Python programini calistir"
+
+#: rur_py/bouton.py:140
+#: ..\rurple/rur_py/bouton.py:140
+msgid "Clear text"
+msgstr "Cikti penceresini temizle"
+
+#: rur_py/browser.py:53
+#: ..\rurple/rur_py/browser.py:53
+msgid "Open local html file"
+msgstr "Yerel html dosyasi ac"
+
+#: rur_py/browser.py:53
+#: ..\rurple/rur_py/browser.py:53
+msgid "Go back in browser history"
+msgstr "Geri"
+
+#: rur_py/browser.py:54
+#: ..\rurple/rur_py/browser.py:54
+msgid "Home"
+msgstr "Baslangic sayfasi"
+
+#: rur_py/browser.py:54
+#: ..\rurple/rur_py/browser.py:54
+msgid "Go forward in browser history"
+msgstr "Ileri"
+
+#: rur_py/browser.py:55
+#: ..\rurple/rur_py/browser.py:55
+msgid "Select a language"
+msgstr "Bir dil sec"
+
+#: rur_py/browser.py:112
+#: ..\rurple/RUR_start.py:127
+#: ..\rurple/rur_py/browser.py:112
+msgid "  RUR: Read and Learn  "
+msgstr "  RUR: Oku ve ogren  "
+
+#: rur_py/browser.py:113
+#: ..\rurple/RUR_start.py:130
+#: ..\rurple/rur_py/browser.py:113
+msgid "Robot: Code and Learn"
+msgstr "Robot: Kod yaz ve ogren"
+
+#: rur_py/browser.py:114
+#: ..\rurple/RUR_start.py:156
+#: ..\rurple/rur_py/browser.py:114
+msgid "Python: Code and Learn"
+msgstr "Python: Kod yaz ve ogren"
+
+#: rur_py/browser.py:115
+#: ..\rurple/RUR_start.py:159
+#: ..\rurple/rur_py/browser.py:115
+msgid "Python: simple editor"
+msgstr "Python: Basit editor"
+
+#: rur_py/browser.py:116
+#: ..\rurple/RUR_start.py:106
+#: ..\rurple/rur_py/browser.py:116
+msgid "RUR: a Python Learning Environment"
+msgstr "RUR: Eglenerek Python Ogrenmek"
+
+#: rur_py/browser.py:145
+#: ..\rurple/rur_py/browser.py:145
+msgid "html files (*.htm*)|*.htm*| All files (*.*)|*.*"
+msgstr "html dosyalari (*.htm*)|*.htm*| Tum dosyalar (*.*)|*.*"
+
+#: rur_py/browser.py:146
+#: rur_py/editor.py:257
+#: ..\rurple/RUR_start.py:173
+#: ..\rurple/RUR_start.py:304
+#: ..\rurple/rur_py/browser.py:146
+#: ..\rurple/rur_py/editor.py:257
+msgid "Choose a file"
+msgstr "Bir dosya secin"
+
+#: rur_py/cpu.py:46
+#: ..\rurple/rur_py/cpu.py:46
+msgid ""
+"You need to save it first \n"
+"Then try running again."
+msgstr ""
+"Once kaydedin \n"
+"Sonra tekrar calistirin."
+
+#: rur_py/cpu.py:47
+#: ..\rurple/rur_py/cpu.py:47
+msgid "Program has been changed"
+msgstr "Programda degisiklikler oldu"
+
+#: rur_py/cpu.py:154
+#: ..\rurple/rur_py/cpu.py:154
+msgid "Hey!  You stopped me!"
+msgstr "Hey!  Beni durdurdun!"
+
+#: rur_py/cpu.py:160
+#: rur_py/status_bar.py:38
+#: rur_py/status_bar.py:90
+#: ..\rurple/RUR_start.py:374
+#: ..\rurple/rur_py/cpu.py:160
+#: ..\rurple/rur_py/status_bar.py:38
+#: ..\rurple/rur_py/status_bar.py:90
+msgid "Program paused"
+msgstr "Program duraklatildi"
+
+#: rur_py/cpu.py:198
+#: ..\rurple/rur_py/cpu.py:198
+msgid "All done!"
+msgstr "Tamami yapildi!"
+
+#: rur_py/cpu.py:199
+#: ..\rurple/rur_py/cpu.py:199
+msgid "No instruction to execute."
+msgstr "Calistirilacak komut yok."
+
+#: rur_py/cpu.py:237
+#: rur_py/status_bar.py:37
+#: rur_py/status_bar.py:89
+#: ..\rurple/RUR_start.py:370
+#: ..\rurple/rur_py/cpu.py:237
+#: ..\rurple/rur_py/status_bar.py:37
+#: ..\rurple/rur_py/status_bar.py:89
+msgid "Program is running"
+msgstr "Program calisiyor"
+
+#: rur_py/cpu.py:245
+#: ..\rurple/rur_py/cpu.py:245
+msgid "You forgot to turn me off!"
+msgstr "Beni kapatmayi unuttun!"
+
+#: rur_py/cpu.py:268
+#: rur_py/cpu.py:270
+#: ..\rurple/rur_py/cpu.py:268
+#: ..\rurple/rur_py/cpu.py:270
+#, python-format
+msgid "Error found near line %s."
+msgstr "Hata bulundu yaklasik olarak satir %s."
+
+#: rur_py/cpu.py:271
+#: rur_py/cpu.py:275
+#: ..\rurple/rur_py/cpu.py:271
+#: ..\rurple/rur_py/cpu.py:275
+msgid "Execution error"
+msgstr "Calisma hatasi"
+
+#: rur_py/cpu.py:274
+#: ..\rurple/rur_py/cpu.py:274
+#, python-format
+msgid ""
+"%s\n"
+"Unrecognized instruction.\n"
+"(Perhaps turn off highlighting)"
+msgstr ""
+"%s\n"
+"Anlasilmayan komut.\n"
+"(Belki de highlight'i kapatmalisin.)"
+
+#: rur_py/cpu.py:280
+#: rur_py/status_bar.py:31
+#: rur_py/status_bar.py:36
+#: rur_py/status_bar.py:88
+#: ..\rurple/RUR_start.py:386
+#: ..\rurple/rur_py/cpu.py:280
+#: ..\rurple/rur_py/status_bar.py:31
+#: ..\rurple/rur_py/status_bar.py:36
+#: ..\rurple/rur_py/status_bar.py:88
+msgid "Program not running"
+msgstr "Program calismiyor"
+
+#: rur_py/dialogs.py:75
+#: rur_py/dialogs.py:81
+#: rur_py/dialogs.py:88
+#: rur_py/dialogs.py:94
+#: rur_py/dialogs.py:100
+#: rur_py/robot_factory.py:340
+#: rur_py/robot_factory.py:449
+#: ..\rurple/rur_py/dialogs.py:75
+#: ..\rurple/rur_py/dialogs.py:81
+#: ..\rurple/rur_py/dialogs.py:88
+#: ..\rurple/rur_py/dialogs.py:94
+#: ..\rurple/rur_py/dialogs.py:100
+#: ..\rurple/rur_py/robot_factory.py:340
+#: ..\rurple/rur_py/robot_factory.py:449
+msgid "Error"
+msgstr "Hata"
+
+#: rur_py/dialogs.py:76
+#: rur_py/dialogs.py:82
+#: rur_py/dialogs.py:89
+#: rur_py/dialogs.py:95
+#: rur_py/dialogs.py:101
+#: ..\rurple/rur_py/dialogs.py:76
+#: ..\rurple/rur_py/dialogs.py:82
+#: ..\rurple/rur_py/dialogs.py:89
+#: ..\rurple/rur_py/dialogs.py:95
+#: ..\rurple/rur_py/dialogs.py:101
+msgid "Turn off"
+msgstr "Kapat"
+
+#: rur_py/dialogs.py:105
+#: ..\rurple/rur_py/dialogs.py:105
+msgid "Success!"
+msgstr "Basari!"
+
+#: rur_py/dialogs.py:188
+#: ..\rurple/rur_py/dialogs.py:188
+msgid ""
+"Select the desired value, or sum of values as\n"
+"the number of beepers to put in the robot's beeper bag."
+msgstr ""
+"Istediginiz degeri veya toplam degeri\n"
+"belirleyin, bu bipler robotun cebine koyulacak."
+
+#: rur_py/dialogs.py:226
+#: ..\rurple/rur_py/dialogs.py:226
+msgid ""
+"Select the desired world dimensions (streets and avenues).\n"
+"The existing walls and beepers will be removed."
+msgstr ""
+"Dunyanin boyutlarini belirleyin (caddeler ve sokaklar).\n"
+"Varolan duvarlar ve bipler kaldirilacak."
+
+#: rur_py/editor.py:256
+#: rur_py/editor.py:268
+#: ..\rurple/rur_py/editor.py:256
+#: ..\rurple/rur_py/editor.py:268
+msgid "Python files (*.py)|*.py| All files (*.*)|*.*"
+msgstr "Python dosyalari (*.py)|*.py| Tum dosyalar (*.*)|*.*"
+
+#: rur_py/editor.py:269
+#: ..\rurple/rur_py/editor.py:269
+msgid "Save file as"
+msgstr "Dosyayi farkli isimde kaydet"
+
+#: rur_py/parser.py:50
+#: ..\rurple/rur_py/parser.py:50
+msgid "Found a word not allowed: "
+msgstr "Izin verilmeyen bir kelime bulundu: "
+
+#: rur_py/robot_factory.py:167
+#: ..\rurple/rur_py/robot_factory.py:167
+msgid ""
+"That move really hurt!\n"
+"Please, make sure that there is no wall in front of me!"
+msgstr ""
+"Bu hareket canimi cok yakti!\n"
+"Lutfen onumde duvar olmadigindan emin olun!"
+
+#: rur_py/robot_factory.py:172
+#: ..\rurple/rur_py/robot_factory.py:172
+msgid ""
+"I obey your command:\n"
+" turning myself off."
+msgstr ""
+"Komutunuzu yerine getiriyorum:\n"
+" kendimi kapatiyorum."
+
+#: rur_py/robot_factory.py:186
+#: ..\rurple/rur_py/robot_factory.py:186
+msgid ""
+"put_beeper() failed.\n"
+" I am not carrying any beepers."
+msgstr ""
+"put_beeper() basarilamadi.\n"
+" Bip tasimiyorum."
+
+#: rur_py/robot_factory.py:195
+#: ..\rurple/rur_py/robot_factory.py:195
+msgid ""
+"pick_beeper failed.\n"
+"I must be next to a beeper before I can pick it up."
+msgstr ""
+"bip alma basarili olmadi.\n"
+"Bip'i almadan once onun uzerinde olmaliyim."
+
+#: rur_py/robot_factory.py:338
+#: rur_py/robot_factory.py:447
+#: ..\rurple/rur_py/robot_factory.py:338
+#: ..\rurple/rur_py/robot_factory.py:447
+msgid ""
+"Setting delay failed.\n"
+"Accepted values are between 0 and 10."
+msgstr ""
+"Geciktirme kabul edilmedi.\n"
+"Gecerli degerler 0 ile 10 arasindadir."
+
+#: rur_py/status_bar.py:30
+#: rur_py/status_bar.py:95
+#: ..\rurple/rur_py/status_bar.py:30
+#: ..\rurple/rur_py/status_bar.py:95
+msgid "No program loaded"
+msgstr "Program yuklu degil"
+
+#: rur_py/status_bar.py:32
+#: rur_py/status_bar.py:70
+#: rur_py/status_bar.py:102
+#: ..\rurple/rur_py/status_bar.py:32
+#: ..\rurple/rur_py/status_bar.py:70
+#: ..\rurple/rur_py/status_bar.py:102
+#, python-format
+msgid "Robot has %s beeper"
+msgstr "Robotun %s tane bip'i var"
+
+#: rur_py/status_bar.py:33
+#: rur_py/status_bar.py:109
+#: ..\rurple/rur_py/status_bar.py:33
+#: ..\rurple/rur_py/status_bar.py:109
+msgid "Default world"
+msgstr "Dunya dosyasi yuklenmemis"
+
+#: rur_py/status_bar.py:65
+#: rur_py/status_bar.py:100
+#: ..\rurple/rur_py/status_bar.py:65
+#: ..\rurple/rur_py/status_bar.py:100
+msgid "No robot in this world"
+msgstr "Robot yok"
+
+#: rur_py/status_bar.py:79
+#: rur_py/status_bar.py:107
+#: ..\rurple/rur_py/status_bar.py:79
+#: ..\rurple/rur_py/status_bar.py:107
+#, python-format
+msgid "World file: %s"
+msgstr "Dunya dosyasi: %s"
+
+#: rur_py/status_bar.py:82
+#: rur_py/status_bar.py:93
+#: ..\rurple/rur_py/status_bar.py:82
+#: ..\rurple/rur_py/status_bar.py:93
+#, python-format
+msgid "Program File: %s"
+msgstr "Program dosyasi: %s"
+
+#: rur_py/status_bar.py:104
+#: ..\rurple/rur_py/status_bar.py:104
+#, python-format
+msgid "Robot has %s beepers"
+msgstr "Robotun %s tane bip'i var"
+
+#: rur_py/test_import.py:100
+#: rur_py/test_import.py:109
+#: ..\rurple/rur_py/test_import.py:100
+#: ..\rurple/rur_py/test_import.py:109
+msgid " not found in module useful."
+msgstr " useful modulunde bulunamadi."
+
+#: rur_py/test_import.py:144
+#: ..\rurple/rur_py/test_import.py:144
+msgid "import keyword used improperly"
+msgstr "import komutu dogru kullanilmadi"
+
+#: rur_py/world_creation.py:466
+#: ..\rurple/rur_py/world_creation.py:466
+msgid "Avenue"
+msgstr "Sokak"
+
+#: rur_py/world_creation.py:468
+#: ..\rurple/rur_py/world_creation.py:468
+msgid "Street"
+msgstr "Cadde"
+
+#: ..\rurple/RUR_start.py:172
+#: ..\rurple/RUR_start.py:280
+msgid "World files (*.wld)|*.wld| All files (*.*)|*.*"
+msgstr "Dunya dosyalari (*.wld)|*.wld| Tum dosyalar (*.*)|*.*"
+
+#: ..\rurple/RUR_start.py:206
+#: ..\rurple/RUR_start.py:214
+#: ..\rurple/RUR_start.py:226
+#: ..\rurple/RUR_start.py:249
+#: ..\rurple/RUR_start.py:261
+#, python-format
+msgid ""
+"Problem with %s\n"
+"Please recreate world file."
+msgstr ""
+"Problem var: %s\n"
+"Dunya dosyasini yeniden yaratin."
+
+#: ..\rurple/RUR_start.py:207
+msgid "avenues"
+msgstr "sokaklar"
+
+#: ..\rurple/RUR_start.py:208
+#: ..\rurple/RUR_start.py:216
+#: ..\rurple/RUR_start.py:228
+#: ..\rurple/RUR_start.py:251
+#: ..\rurple/RUR_start.py:263
+msgid "Invalid world file format"
+msgstr "Dunya dosyasi gecersiz"
+
+#: ..\rurple/RUR_start.py:215
+msgid "streets"
+msgstr "caddeler"
+
+#: ..\rurple/RUR_start.py:227
+msgid "robot"
+msgstr "robot"
+
+#: ..\rurple/RUR_start.py:250
+msgid "beepers"
+msgstr "bipler"
+
+#: ..\rurple/RUR_start.py:262
+msgid "walls"
+msgstr "duvarlar"
+
+#: ..\rurple/RUR_start.py:282
+msgid "Save new world as"
+msgstr "Dunya dosyasini farkli kaydet"
+
+#: ..\rurple/RUR_start.py:303
+#: ..\rurple/RUR_start.py:333
+msgid "Program files (*.rur)|*.rur| All files (*.*)|*.*"
+msgstr "Program dosyalari (*.rur)|*.rur| Tum dosyalar (*.*)|*.*"
+
+#: ..\rurple/RUR_start.py:335
+msgid "Save new program as"
+msgstr "Yeni programi kaydet"
+
+#: ..\rurple/RUR_start.py:351
+msgid "Program will not be saved."
+msgstr "Program kaydedilmeyecek."
+
+#: ..\rurple/RUR_start.py:412
+msgid "No robot in world to give beepers to."
+msgstr "Bip verecek bir robot yok."
+
+#: ..\rurple/RUR_start.py:415
+msgid "Beepers!"
+msgstr "Bipler!"
+
+#: ..\rurple/RUR_start.py:426
+msgid "World size!"
+msgstr "Dunya boyutu!"
+

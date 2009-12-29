@@ -1,0 +1,37 @@
+def turn_around():
+    turn_left()
+    turn_left()
+
+def turn_right():
+    turn_around()
+    turn_left()
+
+def climb_up_step():
+    turn_left()
+    move()
+    turn_right()
+    move()
+    move()
+
+def climb_up_four_steps():
+    repeat(climb_up_step, 4)
+
+def climb_down_step():
+    move()
+    move()
+    turn_left()
+    move()
+    turn_right()
+
+def climb_down_four_steps():
+    repeat(climb_down_step, 4)
+
+# end of definitions
+move()
+climb_up_four_steps()
+put_beeper()
+turn_around()
+climb_down_four_steps()
+move()
+turn_off()
+

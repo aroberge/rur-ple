@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>36. 最后的序列</title>
+</head>
+<body>
+<h2 class="title">36. 最后的序列</h2>
+<p>List和字符串都是 <i>可以分段的</i>, 使用符号 <tt>[::]</tt> .  通过他们的索引 <i>index</i>可以找到单独的条目, 只需要使用符号 <tt>[index]</tt>.  因为他们有这些特性, list和字符串都是有 <i><u>顺序</u>的数据类型.</i>  Python 还有其他的类似的有顺序的数据类型; 我们接下来将看到最常用的一个,他就是 <i>tuple</i>.</p> 
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">逗号很强大</h3>
+<p>还记得我们用逗号书写一个很大的数字吗?  例如:</p>
+<pre>
+&gt;&gt;&gt; 1,000
+(1, 0)
+</pre>
+<p>Python 用逗号隔开两个值,作为tuple的元素.  当元素输出为一个 tuple, Python会使用一个圆括号来表示他是一个单独对象.</p>
+<p><span class="warning">备注:</span> 如果你试图做一个类似的范例(使用不同的数字)但是遇到了错误 , 或者遇到了一个你无法解释的错误,请忽略他. 在这一课的最后，我们将回到这里.</p> 
+<p>这里是一个更有趣的例子.</p>
+<pre>
+&gt;&gt;&gt; a = 1, 2, 3, 4, <span class="string">"enough!"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+(1, 2, 3, 4, <span class="string">'enough!'</span>)
+
+&gt;&gt;&gt; a[0]
+1
+
+&gt;&gt;&gt; a[1:4]
+(2, 3, 4)
+
+&gt;&gt;&gt; a[-1]
+<span class="string">'enough!'</span>
+</pre>
+<p>我们也可以把tuple放到tuple里面.  这里有两个例子.</p>
+<pre>
+&gt;&gt;&gt; b = 1, 2, 3
+
+&gt;&gt;&gt; c = 4, 5, b
+&gt;&gt;&gt; <span class="keyword">print</span> c
+(4, 5, (1, 2, 3))
+
+&gt;&gt;&gt; d = 1, 2, (3, 4, 5)
+&gt;&gt;&gt; <span class="keyword">print</span> d
+(1, 2, (3, 4, 5))
+</pre>
+<p>不使用parentheses () ， 而改成用 [],  <i>看上去</i>  tuple和list是一样的.  他们的显著不同在于:</p>
+<pre>
+&gt;&gt;&gt; my_tuple = 1, 2, 3
+&gt;&gt;&gt; my_list = [1, 2, 3]
+
+&gt;&gt;&gt; <span class="keyword">print</span> my_tuple
+(1, 2, 3)
+&gt;&gt;&gt; <span class="keyword">print</span> my_list
+[1, 2, 3]
+
+&gt;&gt;&gt; my_list[1] = <span class="string">"new"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> my_list
+[1, <span class="string">'new'</span>, 3]
+
+&gt;&gt;&gt; my_tuple[1] = <span class="string">"new"</span>
+Traceback (most recent call last):
+  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+TypeError: object does not support item assignment
+</pre>
+<p>我们可以修改一个list, 通过修改或者增加一个元素. 我们不能修改一个tuple: 它是 <i>不可变的</i>.  除了数值, 另外一个不可改变的数据类型是字符串:</p>
+<pre>
+&gt;&gt;&gt; my_string = <span class="string">"abcd"</span>
+&gt;&gt;&gt; my_string[2]
+<span class="string">'c'</span>
+&gt;&gt;&gt; my_string[2] = <span class="string">"e"</span>
+Traceback (most recent call last):
+  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+TypeError: object does not support item assignment
+</pre>
+<p>因为tuple是不可改变的, 这意味着它可以作为dict的主键!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">dict, list 和 tuple</h3>
+<p>我们先前看到了,Python对于一个list, 会保持其元素的顺序和创建的时候一样, 而当我们打印一个dict的时候,元素的顺序是随机的.  让我们在乐跑机器人世界看看这些.</p>
+
+<p>点击按钮 "Show/Hide world file"   
+<img alt="Show/Hide world file"  src="../../images/intro/btn_show_world_file.png"> 在右侧显示"世界"文件.  现在点击"Edit Wall"按钮: <img alt="edit walls button"  src="../../images/intro/btn_walls.png">.  </p>
+<p>创建一个新墙壁, 看看"世界"文件发生了什么. 每一个墙壁都是元素list, 那些值都是一个由"世界"坐标构成的tuple.  每一个墙壁的创建都是<i>添加</i> 在list的尾部. 当你通过点击一个存在的墙壁去删除一个墙壁, 他会从list相应的位置删除.  如果你马上再次点击重新建立那个墙壁,他会出现在list的尾部, 被再次添加.</p>
+<p>与beepers对比.  你可以右键点击任何街角, 并指定放置多少个beepers在那里.  如果你修改了街角的beeper数目, 他们的修改会发生在那里.如果你在一个原本没有的地方增加, 通常新的beepers <b>不会</b> 添加在尾部. (你也许需要在更多的街角添加beeper才能看到.)  确认你在很多街角都有beeper. 选择一个有beepers的街角, 把他的值设置成0, 然后察看"世界"文件.  就像墙壁一样, 那个条目不见了.  现在,马上在那个街角再添加beeper.  新的条目出现在了原来的位置, 而不像前面那样,出现在末尾.  这是因为条目出现在 dict里面的顺序,是基于一个数学函数 ("hash")对dict的主键(在这里, 是由坐标构成的tuple)进行运算. Python知道这个顺序怎样产生和使用, 不过我们看他是随机的.</p>
+
+
+<center><a href="35-dicts.htm"><img alt="previous" src=
+"../../images/previous.png">另外一种的定义</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"37-class.htm">修补乐跑机器人.<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

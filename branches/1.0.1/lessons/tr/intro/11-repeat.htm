@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Avoiding repetitions, again!</title>
+</head>
+<body>
+<h2 class="title">11. Tekrardan kaç&#305;n&#305;n, tekrar!</h2>
+<p>Bir önceki derste gördü&#287;ümüz Kural #3 çok önemlidir, bu nedenle bu konuyu 
+tekrar etme zorunlulu&#287;u hissediyorum.</p>
+<dl>
+<dt><b>Kural # 3</b></dt>
+<dd>Bilgisayar program&#305; yazarken ayn&#305; kodlar&#305; tekrar yazmay&#305;n.<br>
+Tekrar ediyorum: <b>ayn&#305; kodlar&#305; tekrar yazmay&#305;n!</b></dd>
+</dl>
+<hr width="50%">
+<a name="Repeat" id="Repeat"></a>
+<h3 class="section">Tekrar!</h3>
+<p>Gazete da&#287;&#305;t&#305;m&#305;na en son getirdi&#287;imiz çözümde az da olsa tekrarlar vard&#305;. 
+Örne&#287;in
+<tt>turn_left()</tt>komutu <tt>turn_right()</tt>'&#305; tan&#305;mlayabilmek için ard&#305; 
+ard&#305;na üç kez kullan&#305;ld&#305;.&nbsp; Benzer &#351;ekilde <tt>climb_up_four_stairs()</tt>'in 
+tan&#305;mlanmas&#305;nda&nbsp; <tt>climb_up_one_stair()</tt>dört kez kullan&#305;ld&#305;. Bu 3 
+numaral&#305; kurala ters dü&#351;üyor. Bu tekrarlardan kaç&#305;nman&#305;n bir yolu Reeborg'un 
+özel bir komut yard&#305;m&#305;yla&nbsp; i&#351;lemleri tekrar etmesini sa&#287;lamak olabilir.&nbsp; </p>
+<p>Reeborg'un bir i&#351;lemi tekrar etmesini sa&#287;lamak için&nbsp;
+<tt>repeat()</tt> komutunu kullanabiliriz:<br>
+<tt>repeat(</tt> <em>i&#351;lemin ad&#305;</em>, <tt>kaç kez yap&#305;laca&#287;&#305;)</tt></p>
+<p><i>i&#351;lemin ad&#305;</i> parantez kullan&#305;lmadan belirtilmelidir: </p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+</pre>
+<h3 class="try">S&#305;ra sizde</h3>
+<p>Gazete da&#287;&#305;t&#305;m&#305; program&#305;nda <tt>repeat()</tt> komutunu kullanabildi&#287;iniz her 
+yerde kullan&#305;n ve daha k&#305;sa bir program elde edin. Program&#305;n do&#287;ru çal&#305;&#351;t&#305;&#287;&#305;ndan 
+emin olun.</p>
+
+<h3 class="suggested">Sizi U&#287;ra&#351;t&#305;ral&#305;m</h3>
+<p>Bu dersi bir kaç al&#305;&#351;t&#305;rmayla bitirece&#287;iz. Bu dersin temas&#305;na uygun olarak, 
+ilk iki al&#305;&#351;t&#305;rmam&#305;z duvarlar&#305; yapmak dersindeki al&#305;&#351;t&#305;rmalar&#305;n tekrar&#305; olacak. 
+Bunlar&#305; çözebilmek için yeni ö&#287;rendi&#287;iniz komutlar&#305;&nbsp; [<span class="pykeyword">def</span>, <tt>repeat()</tt>] 
+kullanmal&#305;s&#305;n&#305;z</p>
+<hr width="50%">
+<a name="Challenges2" id="Challenges2"></a>
+<h3 class="suggested">Engelleri atlamak</h3>
+<p>Reeborg engelli atlama yar&#305;&#351;mas&#305;na kat&#305;l&#305;yor. A&#351;a&#287;&#305;daki &#351;ekillerde oldu&#287;u 
+gibi Reeborg'un yar&#305;&#351;may&#305; h&#305;zl&#305; bir &#351;ekilde tamamlamas&#305;n&#305; sa&#287;layan 
+YEN&#304; bir program 
+yaz&#305;n, dünya dosyas&#305;
+hurdles1.wld.</p>
+<center><img alt="hurdles start" src=
+"../../images/intro/hurdles1_start.png"></center>
+<center><img alt="lead to" src="../../images/lead_to.png"> <img alt=
+"hurdles end" src="../../images/intro/hurdles1_end.png"></center>
+<p>
+<tt>jump_hurdle()</tt>(engel atla) ad&#305;nda a&#351;a&#287;&#305;daki &#351;ekildeki gibi hareket eden 
+yeni bir komut tan&#305;mlamak yararl&#305; olacakt&#305;r. </p>
+<center><img alt="jump one hurdle start" src=
+"../../images/intro/jump1start.png"> <img alt="lead to" src=
+"../../images/lead_to.png"> <img alt="jump one hurdle end" src=
+"../../images/intro/jump1end.png"></center>
+<p>Yeni program&#305;n&#305;z&#305; bir önceki ile kar&#351;&#305;la&#351;t&#305;r&#305;n. [Kaydetmi&#351;tiniz, de&#287;il mi?]</p>
+<hr width="50%">
+<h3 class="suggested">Hasat zaman&#305;</h3>
+<p>Hasat zaman&#305;! Reeborg'un evinin bahçesindeki havuçlar&#305; (bipler) toplamas&#305;n&#305; 
+sa&#287;layan bir program yaz&#305;n&#305;z, dünya dosyas&#305; harvest1.wld.</p>
+<p><img src="../../images/intro/harvest1.png" alt="harvest start"></p>
+<p>Program&#305;n&#305;z a&#351;a&#287;&#305;daki komutlar&#305; tan&#305;mlamal&#305;d&#305;r. </p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+</pre>
+<p>Bu komutlar&#305; a&#351;a&#287;&#305;da oldu&#287;u gibi daha çok parçaya ay&#305;rabilirsiniz. </p>
+<pre>
+<span class="keyword">def</span> harvest_two_rows():
+    harvest_one_row()
+    move_left_to_next_row()
+    harvest_one_row()
+</pre>
+<p>tabi bunu iyi bir&nbsp; <code>harvest_one_row()</code>tan&#305;mlamas&#305;yla elde 
+edebilirsiniz. Parçalara ay&#305;rma i&#351;lemini kendi mant&#305;&#287;&#305;n&#305;za göre de 
+yapabilirsiniz. Benim çözümüm a&#351;a&#287;&#305;daki gibi, üç yeni tan&#305;mlamaya ihtiyaç var ve 
+az da olsa hala tekrarlama var:</p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+turn_off()
+</pre>
+<p>Yeni program&#305;n&#305;z&#305; bir önceki ile kar&#351;&#305;la&#351;t&#305;r&#305;n. </p>
+<h3 class="suggested">Yine hasat zaman&#305;!</h3>
+<p>Yine hasat zaman&#305;! Ancak bu defa sat&#305;rlar diagonal bir &#351;ekilde 
+yerle&#351;tirilmi&#351;. Reeborg'un biplerle temsil edilen tüm havuçlar&#305; toplamas&#305;n&#305; 
+sa&#287;lay&#305;n. Dünya dosyas&#305; harvest2.wld.</p>
+<p><img src="../../images/intro/harvest2.png" alt="harvest start"></p>
+<p>Bir önceki örnekte de oldu&#287;u gibi, program&#305;n&#305;z a&#351;a&#287;&#305;daki komutlar&#305; içeren 
+tan&#305;mlamalar&#305; yapabilir:</p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+</pre>
+<p>Bu komutlar&#305;n tan&#305;mlamalar&#305;, öncekilerden farkl&#305; olacakt&#305;r. Ancak bu 
+tan&#305;mlamalar do&#287;ru olarak yap&#305;ld&#305;ktan sonra, program&#305;n&#305;z az önceki örnekte 
+oldu&#287;u gibi a&#351;a&#287;&#305;daki gibi yaz&#305;labilir: </p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+turn_off()
+</pre>
+<p>Dikkat, duvara çarpmay&#305;n! Hasata nereden ve hangi yönde ba&#351;layaca&#287;&#305;n&#305;z&#305; 
+dü&#351;ünün. Bunu bir ka&#287;&#305;da çizmeniz size yard&#305;mc&#305; olur. </p>
+<center><a href="10-def.htm"><img alt="previous" src=
+"../../images/previous.png"> Tekrardan kesinlikle kaç&#305;n&#305;n</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="12-if.htm">Reeborg kendi kendine karar verebilseydi ...<img alt="next" src=
+"../../images/next.png"></a></center>
+</body>
+</html>

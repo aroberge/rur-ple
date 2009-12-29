@@ -1,0 +1,44 @@
+# Back and forth harvesting 
+# solution to harvest3.wld
+
+def move_to_first_row():
+    move()
+
+def turn_right():
+    repeat(turn_left, 3)
+
+def pick_and_move():
+    if next_to_a_beeper():
+        pick_beeper()
+    move()
+
+def harvest_one_row():
+    repeat(pick_and_move, 5)
+    if next_to_a_beeper():
+        pick_beeper()
+
+def move_left_to_next_row():
+    turn_left()
+    move()
+    turn_left()
+
+def move_right_to_next_row():
+    turn_right()
+    move()
+    turn_right()
+
+def harvest_two_rows():
+    harvest_one_row()
+    move_left_to_next_row()
+    harvest_one_row()
+
+
+# end of definitions
+
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+turn_off()

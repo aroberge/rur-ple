@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>36. Our last sequence</title>
+</head>
+<body>
+<h2 class="title">36. Son s&#305;ram&#305;z</h2>
+<p>Listeler ve stringler <tt>[::]</tt> kullan&#305;m&#305; ile dilimlendirilebilirler. Bir 
+eleman ya da karakter onun <i>indeksi</i> ile [indeks] &#351;eklinde bir kullan&#305;mla 
+bulunabilir. Bu özelliklerinden dolay&#305; bu nesneler <i>s&#305;ral&#305; veri tipi </i>
+olarak bilinirler.&nbsp; Python'da buna benzer ba&#351;ka s&#305;ral&#305; veri tipleri de 
+vard&#305;r; bunlardan en yayg&#305;n olan&#305;, <i>tüplerdir</i> (<i>tuples</i>).</p> 
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Virgül güçlü bir &#351;eydir</h3>
+<p>Büyük bir say&#305; yazarken virgül kullanmay&#305; denedi&#287;imizi hat&#305;rlay&#305;n, bir ba&#351;ka 
+örnek:</p>
+<pre>
+&gt;&gt;&gt; 1,000
+(1, 0)
+</pre>
+<p>Python virgülle ayr&#305;lm&#305;&#351; iki de&#287;eri bir tüpün elemanlar&#305; olarak kabul etti. 
+Tüpü yazarken de&#287;erlerin etraf&#305;na parantez koyarak bunlar&#305;n tek bir nesne 
+oldu&#287;unu belitti. </p>
+<p><span class="warning">Not:</span> Kendiniz deneme yapt&#305;&#287;&#305;n&#305;zda (ayn&#305; 
+say&#305;larla ya da farkl&#305; say&#305;larla) bir hata mesaj&#305;yla kar&#351;&#305;la&#351;t&#305;ysan&#305;z bunu 
+&#351;imdilik önemsemeyin, buna dersin sonunda geri dönece&#287;iz.</p> 
+<p>Daha ilginç bir örnek:</p>
+<pre>
+&gt;&gt;&gt; a = 1, 2, 3, 4, <span class="string">"yeter!"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+(1, 2, 3, 4, <span class="string">'yeter!'</span>)
+
+&gt;&gt;&gt; a[0]
+1
+
+&gt;&gt;&gt; a[1:4]
+(2, 3, 4)
+
+&gt;&gt;&gt; a[-1]
+<span class="string">'yeter!'</span>
+</pre>
+<p>Tüpleri, tüplerin içine de koyabiliriz, örnekler:</p>
+<pre>
+&gt;&gt;&gt; b = 1, 2, 3
+
+&gt;&gt;&gt; c = 4, 5, b
+&gt;&gt;&gt; <span class="keyword">print</span> c
+(4, 5, (1, 2, 3))
+
+&gt;&gt;&gt; d = 1, 2, (3, 4, 5)
+&gt;&gt;&gt; <span class="keyword">print</span> d
+(1, 2, (3, 4, 5))
+</pre>
+<p>Listeler ve tüpler kulland&#305;klar&#305; parantez türleri d&#305;&#351;&#305;nda birbirlerine benzer 
+&#351;eyler gibi alg&#305;lanm&#305;&#351; olabilir. Ancak aralar&#305;nda çok önemli bir fark vard&#305;r: </p>
+<pre>
+&gt;&gt;&gt; my_tuple = 1, 2, 3
+&gt;&gt;&gt; my_list = [1, 2, 3]
+
+&gt;&gt;&gt; <span class="keyword">print</span> my_tuple
+(1, 2, 3)
+&gt;&gt;&gt; <span class="keyword">print</span> my_list
+[1, 2, 3]
+
+&gt;&gt;&gt; my_list[1] = <span class="string">"new"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> my_list
+[1, <span class="string">'new'</span>, 3]
+
+&gt;&gt;&gt; my_tuple[1] = <span class="string">"new"</span>
+Traceback (most recent call last):
+  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+TypeError: object does not support item assignment
+</pre>
+<p>Bir listede bir eleman&#305;n de&#287;erini de&#287;i&#351;tirerek veya yeni bir ekleme yaparak 
+de&#287;i&#351;iklik yap&#305;labilir, ancak bu durum tüpler için geçerli de&#287;ildir. Tüplerde 
+de&#287;i&#351;iklik yap&#305;lamaz bu nedenle tüpler sabit de&#287;erlerden olu&#351;ur denilir. 
+Say&#305;lar&#305;n yan&#305; s&#305;ra bir ba&#351;ka sabit veri tipi stringlerdir: </p>
+<pre>
+&gt;&gt;&gt; my_string = <span class="string">"abcd"</span>
+&gt;&gt;&gt; my_string[2]
+<span class="string">'c'</span>
+&gt;&gt;&gt; my_string[2] = <span class="string">"e"</span>
+Traceback (most recent call last):
+  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+TypeError: object does not support item assignment
+</pre>
+<p>Tüpler sabit olduklar&#305;ndan, sözlüklerde anahtar olarak kullanabilirler. </p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">sözlükler, listeler ve tüpler</h3>
+<p>Python'un bir listedeki elemanlar&#305;n yerlerini nas&#305;l girildiyse ayn&#305; s&#305;rada 
+muhafaza etti&#287;ini, ancak sözlüklerin içeri&#287;i yazd&#305;r&#305;ld&#305;&#287;&#305;nda bunlar&#305;n tesadüfi 
+bir s&#305;ra ile yazd&#305;r&#305;ld&#305;&#287;&#305;n&#305; daha önceden görmü&#351;tük.&nbsp; Bunu daha ayr&#305;nt&#305;l&#305; 
+olarak Reeborg'un dünyas&#305;nda görebiliriz. </p>
+
+<p>"Show/Hide world file" butonuna  
+<img alt="Show/Hide world file"  src="../../images/intro/btn_show_world_file.png"> 
+bas&#305;n, daha sonra <img alt="edit walls button"  src="../../images/intro/btn_walls.png"> 
+butonuna bas&#305;n.  </p>
+<p>Bir kaç duvar yarat&#305;n ve dünya dosyas&#305;nda nelerin de&#287;i&#351;ti&#287;ini gözlemleyin. 
+Olu&#351;turulan tüm duvarlar listenin bir eleman&#305;d&#305;r ve bu elemanlar&#305;n de&#287;erleri de 
+koordinatlar&#305; gösteren birer tüptür. Olu&#351;turulan yeni duvarlar listenin sonuna
+<i>eklenirler</i>. Üstüne t&#305;klayarak bir duvar&#305; sildi&#287;inizde, listede yer ald&#305;&#287;&#305; 
+pozisyondan kald&#305;r&#305;l&#305;r. Hemen ard&#305;ndan sildi&#287;iniz duvar&#305; yeniden olu&#351;turursan&#305;z, 
+listenin sonuna <i>eklenir</i>.</p>
+<p>Bir de biplere bakal&#305;m ve kar&#351;&#305;la&#351;t&#305;rma yapal&#305;m. Herhangi bir kö&#351;ede farenin 
+sa&#287; butonuna basarak istedi&#287;iniz say&#305;da bip yerle&#351;tirebilirsiniz. Biplerin 
+say&#305;s&#305;n&#305; de&#287;i&#351;tirdi&#287;iniz zaman, de&#287;i&#351;iklik yerinde yap&#305;lacakt&#305;r. E&#287;er bip 
+olmayan bir kö&#351;eye yeni bir bip eklerseniz yeni bip genellikle en sona 
+eklenmeyecektir. (Bunu görebilmek için farkl&#305; kö&#351;elerde biplerinizin olmas&#305; 
+gerekebilir) Pek çok bip yerle&#351;tirin. Bip olan bir kö&#351;eyi seçin ve bip say&#305;s&#305;n&#305; 
+0'a indirin, ayn&#305; anda dünya dosyas&#305;n&#305; da izleyin. Ayn&#305; duvarlarda oldu&#287;u gibi 
+girdi kaybolur. &#350;imdi ayn&#305; kö&#351;eye yeniden bip yerle&#351;tirin. Yeni girdi listelerde 
+oldu&#287;u gibi sona de&#287;il, orijinal yerine yerle&#351;tirilir. Bunun nedeni, 
+sözlüklerdeki s&#305;ralaman&#305;n belirlenmesinde anahtarlar (bizim durumumuzda 
+koordinatlar&#305;n oldu&#287;u tüpler) yerle&#351;tirilirken &quot;hash&quot; matematiksel fonksiyonunun 
+kullan&#305;lmas&#305;ndand&#305;r. Python bunu etkili bir &#351;ekilde kullan&#305;r, ancak bu bize 
+tesadüfi gözükür. </p>
+
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Sekizli, onalt&#305;l&#305; ve ikili tabanda say&#305;lar</h3>
+<p><span class="warning">Not:</span> Python'u ö&#287;renmeye devam etmek için bu 
+bölümü tam olarak anlamak zorunda de&#287;ilsiniz. </p>
+<p>Dersin ba&#351;&#305;nda kendiniz deneme yapt&#305;&#287;&#305;n&#305;zda (ayn&#305; say&#305;larla ya da farkl&#305; 
+say&#305;larla) bir hata mesaj&#305;yla kar&#351;&#305;la&#351;t&#305;ysan&#305;z bunu &#351;imdilik önemsemeyin 
+demi&#351;tim. Bununla ilgili iki örnek daha verelim:</p>
+<pre>
+&gt;&gt;&gt; 1,023
+(1, 19)
+
+&gt;&gt;&gt; 1,099
+  File <span class="string">"&lt;input&gt;"</span>, line 1
+    1, 099
+         ^
+SyntaxError: invalid token
+</pre>
+<p>Python 0'la ba&#351;layan bir say&#305;y&#305; sekiz taban&#305;na göre yaz&#305;lm&#305;&#351; kabul eder. </p>
+<p>Günlük hayatta kulland&#305;&#287;&#305;m&#305;z say&#305;lar 10 taban&#305;ndad&#305;r ve 10 rakam &quot;0, 1, 2, 3, 
+4, 5, 6, 7, 8 ve 9&quot; kullan&#305;larak elde edilirler. Örne&#287;in 345 a&#351;a&#287;&#305;daki gibi 
+aç&#305;klan&#305;r:</p>
+<pre>
+345 = 3*100 + 4*10 + 5*1
+veya
+345 = 3*10*10 + 4*10 + 5*1
+veya
+345 = 3*10**2 + 4*10**1 + 5*10**0
+</pre>
+<p><small>[En sondakini anlamad&#305;ysan&#305;z, biraz daha matematik ö&#287;renmeye 
+ihtiyac&#305;n&#305;z var demektir. Daha önceden "**"'&#305;n üssü anlam&#305;na geldi&#287;ini 
+aç&#305;klam&#305;&#351;t&#305;k.]</small> Sekiz taban&#305;nda bir say&#305; ise sekiz tane rakam &quot;0, 1, 2, 
+3, 4, 5, 6 ve 7&quot; ile olu&#351;turulur. 8 taban&#305;nda 23 (yada Python'da 023 yada 
+&quot;s&#305;f&#305;r&quot;23) &#351;u anlama gelir:<p>
+<pre>
+023 = 2*8 + 3*1 = 16 + 3 = 19 (10 taban&#305;nda)
+</pre>
+<p>Bu yukar&#305;da elde etti&#287;imiz ilk sonucu aç&#305;klar. &#304;kinci sonuçta hata ile 
+kar&#351;&#305;la&#351;mam&#305;z&#305;n nedeni ise 9'un 8'li say&#305; sisteminde geçerli olmamas&#305;ndan 
+dolay&#305;d&#305;r.</p>
+<p>Python'da 16 taban&#305;na göre say&#305;lar&#305; da kullanabilirsiniz, bu tabanda 
+kullan&#305;lan semboller:&nbsp; &quot;0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f&quot; dir. 
+Python'a say&#305;n&#305;n 16 taban&#305;nda oldu&#287;unu belirtmek için a&#351;a&#287;&#305;da oldu&#287;u gibi ba&#351;&#305;na 
+&quot;0x&quot; (s&#305;f&#305;r ve x) koyar&#305;z.</p>
+<pre>
+&gt;&gt;&gt; 0x33
+51
+
+&gt;&gt;&gt; 0xa
+10
+
+&gt;&gt;&gt; 0xf
+15
+
+&gt;&gt;&gt; 0x10
+16
+
+&gt;&gt;&gt; 0x111
+273
+
+&gt;&gt;&gt; 0x123
+291
+</pre>
+<p>Sonuncu örne&#287;i aç&#305;klayal&#305;m:</p>
+<pre>
+0x123 = 1*16*16 + 2*16 + 3*1 = 256 + 32 + 3 = 291 (10 taban&#305;nda)
+</pre>
+<p>16'l&#305; say&#305; sisteminde, "a" 10. sembol, "f" ise 15. semboldür. Yukar&#305;daki 
+sonucun do&#287;rulu&#287;unu kendiniz de kontrol edin.</p>
+<p>Bu dersi, özellikle bu bölümü bitirmeden önce, ikili say&#305; sistemi hakk&#305;nda da 
+bir &#351;eyler söyleyelim. &#304;kili say&#305; sisteminde say&#305;lar "0 ve 1" rakamlar&#305; ile 
+olu&#351;turulur. A&#351;a&#287;&#305;da bir ikili say&#305; ve onun 10 taban&#305;na dönü&#351;türülmesi verildi:</p>
+<pre>
+101001 = 1*2**5 + 0*2**4 + 1*2**3 + 0*2**2 + 0*2**1 + 1*2**0
+veya
+101001 = 1*32 + 1*8 + 1*1 = 41 (10 taban&#305;nda)
+</pre>
+<p>&#304;kili say&#305; sistemi çok önemlidir, asl&#305;nda bilgisayarlar ikili say&#305; sistemi 
+ile çal&#305;&#351;&#305;rlar. Bir ampül ve onu aç&#305;p kapatmakta kullan&#305;lan bir anahtar dü&#351;ünün. 
+E&#287;er anahtar&#305; açarsak ak&#305;m lambaya ula&#351;&#305;r ve lamba yanar, e&#287;er anahtar&#305; 
+kapat&#305;rsak ak&#305;m lambaya ula&#351;mayaca&#287;&#305;ndan lamba sönecektir. &#304;ki durum söz 
+konusudur: ak&#305;m yok = 0; ve ak&#305;m var =1.</p>
+<p>Bilgisayarlar&#305;n içinde lambalar yoktur ama pek çok say&#305;da çok küçük kablolar 
+ve anahtarlar vard&#305;r.&nbsp; <small>[tabiyki ba&#351;ka elektronik parçalar da vard&#305;r 
+ancak onlar &#351;u an bizim için önemli de&#287;iller.]</small> Herhangi bir anda 
+bilgisayar&#305;n ne yapt&#305;&#287;&#305; hangi kablolardan (3., 5., ve 17. gibi)ak&#305;m geçti&#287;i ile 
+aç&#305;klanabilir. Bu 0'larla (ak&#305;m olmayan kablolar) ve 1'lerle&nbsp; (ak&#305;m olan 
+kablolar) temsil edilebilir.&nbsp; Bu durum ikili say&#305; sistemi ile 
+gösterilebilin bir say&#305; olacakt&#305;r. Bilgisayar programlar&#305; bu küçük anahtarlar&#305; 
+kontrol ederek ak&#305;m&#305;n hangi kablolara ula&#351;mas&#305; gerekti&#287;ini kontrol eder. Yani 
+programc&#305;l&#305;kta asl&#305;nda yapt&#305;&#287;&#305;n&#305;z i&#351; her ne kadar fark&#305;na varmasan&#305;z da 
+elektronik devrelerde ak&#305;m&#305; yönlendirmektir! </p>
+<p>8, 2'nin kübü oldu&#287;undan, sekizli say&#305; sistemi ve benzer &#351;ekilde onalt&#305;l&#305; 
+say&#305; sistemi de bilgisayarlarda kullan&#305;l&#305;r.&nbsp; Onalt&#305;l&#305; say&#305; sisteminde 
+say&#305;lar bizim için daha k&#305;sa oldu&#287;undan, ikili say&#305; sisteminden sonra en çok 
+kullan&#305;lan sistemdir. Bunu oyun programlar&#305; yazarken renk belirlemede 
+kullanaca&#287;&#305;z!</p>
+
+
+<center><a href="35-dicts.htm"><img alt="previous" src=
+"../../images/previous.png">An other kind of definition</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"35-dicts.htm">[Temporarily back to] An other kind of definition<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

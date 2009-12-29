@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>If, else, if, else, ....</title>
+</head>
+<body>
+<h2 class="title">14. <span class="pykeyword">if, else, <small>if,
+else,</small></span>...</h2>
+<p>The previous hurdles exercise <small>(you did try it, didn't you?)</small>
+required to write an <span class="pykeyword">if</span>/<span class=
+"pykeyword">else</span> within another one, all this because we wanted to
+give three choices to Reeborg: finish, move or jump. You may have noticed
+that this forced us to indent the code further and further. Imagine what
+would happen if we wanted to give Reeborg 10 mutually exclusive choices; the
+resulting code would become hard to read. To help us in such situations,
+Guido van Rossum, the creator of Python, has chosen a keyword that represents
+the combination of an <span class="pykeyword">else</span> statement followed
+by an <span class="pykeyword">if</span> clause. That keyword is <span class=
+"pykeyword">elif</span>, which we can think of as an abbreviation for
+<span class="pykeyword">else if</span>. With this new keyword, the above code
+can be written as:</p>
+<pre>
+<span class="keyword">def</span> move_jump_or_finish():
+    <span class="keyword">if</span> on_beeper():
+        turn_off()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        jump_one_hurdle()
+</pre>
+<p>We can now better see, as they are indented the same way, that there are
+three possible choices. The <span class="pykeyword">else</span> condition is
+executed only if all the previous conditions are false, so there is no
+condition associated with it. If we have more than three choices, all we need
+to do is add other <span class="pykeyword">elif</span> statements</p>
+<pre>
+<span class="keyword">def</span> move_jump_or_finish():
+    <span class="keyword">if</span> on_beeper():
+        turn_off()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">elif</span> right_is_clear(): <span class=
+"comment"># always false</span>
+        <span class="keyword">pass</span> 
+    <span class="keyword">else</span>:
+        jump_one_hurdle()
+</pre>
+<p>As Reeborg follows the bottom wall, <tt>right_is_clear()</tt> is always
+false, so the <span class="pykeyword">pass</span> instruction (Python's
+equivalent of "do nothing") is always ignored. Note that if we had used
+<tt>left_is_clear()</tt> instead, Reeborg would have gotten stuck forever as
+soon as it had reached the first hurdle. <b>Try it for yourself!</b></p>
+<h3 class="try">Your turn</h3>
+<p>Try to write a program using <span class="pykeyword">if, elif, else</span>
+that works properly with the previous two hurdles courses as well as with the
+following (in file hurdles3.wld):</p>
+<img alt="hurdles start" src="../../images/intro/hurdles3_start.png">
+<center><a href="13-else.htm"><img alt="previous" src=
+"../../images/previous.png"> Listen to me ... or else ....</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"15-not.htm">Not true!? <img alt="next" src=
+"../../images/next.png"></a></center>
+</body>
+</html>

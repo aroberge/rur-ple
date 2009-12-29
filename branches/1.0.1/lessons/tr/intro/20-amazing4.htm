@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Amazing - part 4</title>
+</head>
+<body>
+<h2 class="title">20. Uygulama - bölüm 4</h2>
+<p>Reeborg'u bip'i b&#305;rakt&#305;ktan sonra ilerletirken çok aceleci davrand&#305;k. Onu 
+hareket ettirmeden önce önünde bir duvar olup olmad&#305;&#287;&#305;n&#305; kontrol etmeliyiz. Bunu 
+a&#351;a&#287;&#305;daki gibi çözümleyebiliriz:</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+put_beeper()
+<span class="comment"># de&#287;i&#351;iklikler ba&#351;l&#305;yor</span>
+<span class="keyword">if not</span> front_is_clear():
+    turn_left()
+<span class="comment"># de&#287;i&#351;iklikler bitiyor</span>
+move()
+<span class="keyword">while not</span> next_to_a_beeper():
+    <span class="keyword">if</span> right_is_clear():
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+<p>Deneyin ve çal&#305;&#351;t&#305;&#287;&#305;n&#305; görün. Bu program&#305;n çal&#305;&#351;mayaca&#287;&#305; farkl&#305; dünyalar var 
+m&#305;d&#305;r?</p>
+<center><a href="19-amazing3.htm"><img alt="previous" src=
+"../../images/previous.png"> Uygulama - </a><A href="17-amazing1.htm">
+bölüm</a><A href="19-amazing3.htm"> 3</a>&nbsp; - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="21-amazing5.htm">Uygulama - </a><A href="17-amazing1.htm">
+bölüm</a><A href="21-amazing5.htm"> 5 <img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

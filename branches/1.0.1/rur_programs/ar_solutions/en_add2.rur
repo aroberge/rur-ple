@@ -1,0 +1,35 @@
+# adding 13+22
+
+def turn_right():
+    repeat(turn_left, 3)
+def turn_around():
+    repeat(turn_left, 2)
+
+# starting at the bottom facing north
+def add_column():
+    move()
+    while next_to_a_beeper():
+        pick_beeper()
+    turn_around()
+    move()
+    while carries_beepers():
+        put_beeper()
+# end at bottom, facing south
+
+while front_is_clear():
+    move()
+
+# end of definitions
+
+turn_left()
+add_column()
+# move to next column
+turn_right()
+move()
+turn_right()
+add_column()
+# move to finishing position
+turn_right()
+move()
+turn_around()
+turn_off()

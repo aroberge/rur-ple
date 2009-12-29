@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href="../rurple.css" type='text/css'>
+<title>神奇</title>
+</head>
+<body>
+<a name="amazing" id="amazing"></a>
+<h2 class="title">17. 神奇-第一部分</h2>
+<p>在这堂课中，我们要写一段完整的程序，目的是降低程序的复杂度。</p><!--===================================================-->
+
+<hr width="50%">
+<h3 class="section">神奇的解决方案：第一步</h3>
+<p>首先，我们来考虑一个简单的问题：让乐跑机器人环绕他的世界一次，假设一路上没有任何障碍。 在外面引入<tt>front_is_clear()</tt>时，曾经做过这个。 假设机器人一开始就携带了至少一个beeper，如下列出了解决方案的大纲：</p>
+<pre>
+1. 放下一个beeper，标志起点。
+2. 保持前进直到遇到一面墙
+3. 遇到墙时左转。
+4. 重复步骤2 和3 直到我们发现已经放下的那个beeper。
+5. 发现beeper时停止程序。
+</pre>
+<p>关键步骤是第四步，那里我们使用了一个重复指令。 这个指令可以这样写：</p>
+<pre>
+<span class="keyword">while not</span> on_beeper():
+</pre>
+<p>步骤2和3应该紧随其后，现在我们用合适的代码来写下整个方案：</p>
+<pre>
+put_beeper()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+<p>如果开始位置是如下所示的情况，根据上述程序，乐跑机器人会怎么做呢？</p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around1start.png"></p>
+<p>我们不会得到我们想要的结果，实际情况如下： 你知道为什么吗？ 还没明白的话，回头看看程序再思考一下。</p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around1end.png"></p>
+<center><a href="16-while.htm"><img alt="previous" src=
+"../../images/previous.png">暂时</a> - 
+<a href="../lessons_toc.htm"><img alt=
+"home" src="../../images/home.png"></a> - <a href="18-amazing2.htm">神奇-第二部分<img alt="next" src="../../images/next.png"></a>
+</center>
+</body>
+</html>

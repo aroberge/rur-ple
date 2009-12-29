@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>28. 变量和函数</title>
+</head>
+<body>
+<h2 class="title">28. 变量和函数</h2>
+
+<p>我们在前面的课程里学习到的变量在函数里用途很大。记得咱们用过的 <tt>print2</tt> 函数吗？</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print2():
+...     <span class="keyword">print</span> 2
+...    
+&gt;&gt;&gt; print2()
+2
+</pre>
+<p>我们可以将它变得更通用，如下：</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print_number(n):
+...     <span class="keyword">print</span> n
+...    
+&gt;&gt;&gt; print_number(2)
+2
+&gt;&gt;&gt; print_number(78)
+78
+</pre>
+<p>我们在用变量在两个括弧中间用做参数时，我们告诉Python，无论我们使用的值是什么，当我们 <i>调用</i> 
+函数的时候它都会被指定给这个变量（本例子中为n）。</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">计算数字和字符串</h3>
+<p>设想一下我们想把数字和字符串一同显示出来。我的意思是，假设我们想要以类似下面的方式输出 <tt>print_number()</tt> 函数。</p>
+<pre>
+The number you have chosen is 2.
+</pre>
+<p>可以有<b><u>好多</u></b>种做法。这里有一种不常见的，但是很有用的方法。 </p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print_number(n):
+....    <span class="keyword">print</span> <span class=
+"string">&quot;The number you have chosen is %s.&quot;</span> % n
+....    
+&gt;&gt;&gt; print_number(3)
+The number you have chosen is 3.
+</pre>
+<p>Python将字符串中的组合符号 <tt>%s</tt> 替换为字符串后的 <tt>%</tt> 之后的变量。自己试试吧，然后继续阅读Python。</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">改进一下greater函数</h3>
+<p>我们回到 <tt>greater()</tt> 函数，并使得它更通用。下面是我们如何实现它的。</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> greater(first, second):
+...     <span class="keyword">if</span> first &gt; second:
+...         <span class="keyword">print</span> <span class=
+"string">&quot;%s is greater than %s&quot;</span> % (first, second)
+...     <span class="keyword">else</span>:
+...         <span class="keyword">print</span> <span class=
+"string">&quot;%s is greater than %s&quot;</span> % (second, first)
+...     
+&gt;&gt;&gt; greater(5, 4)
+5 is greater than 4
+&gt;&gt;&gt; greater(0, 10)
+10 is greater than 0
+</pre>
+<p>注意我们必须用括弧<tt>()</tt> 包括住跟在 <tt>%</tt> 后面的两个变量，以此来告诉Python，我们是想用他们来代替字符串里面的两个 <tt>%s</tt> 。</p>
+<p><b>试试吧！</b></p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">再改进一下</h3>
+<p>我们刚刚了解了怎样通过利用变量让我们的函数 <tt>greater()</tt> 更通用，不仅限于比较两个不变的值（就像我们之前做的那样）。现在，正如函数所写的那样，通常都会要两个<i>参数</i>：两个数来进行比较。设想我们想让Python决定一些数字是否大于0.我们可以用其他的函数来实现这一目的……或者我们也可以对现在的函数稍微做一下改变来实现这个功能：</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> greater(first, second=0):
+...     <span class="keyword">if</span> first &gt; second:
+...         <span class="keyword">print</span> <span class=
+"string">&quot;%s is greater than %s&quot;</span> % (first, second)
+...     <span class="keyword">else</span>:
+...         <span class="keyword">print</span> <span class=
+"string">&quot;%s is greater than %s&quot;</span> % (second, first)
+...     
+&gt;&gt;&gt; greater(5, 4)
+5 is greater than 4
+&gt;&gt;&gt; greater(1, 10)
+10 is greater than 1
+greater(5)
+&gt;&gt;&gt; 5 is greater than 0
+greater(-2)
+&gt;&gt;&gt; 0 is greater than -2
+</pre>
+<p>在函数定义里面，括弧中间的"<tt>second=0</tt>"指的是，如果函数里只有一个参数的话，就让Python把这个值同时赋予第二个变量。当我们把这个默认的值赋予一个参数的话，我们就把他成为命名参数。</p>
+<p>命名参数（有可能多于一个） <b><u>必须</u></b> 放在非命名参数<b><u>之后</u></b> 。因此，下面的定义是允许的（仅显示第一行）：</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a, b, c, d=33):
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a, b, c=7, d=2):
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a, b=1, c=3, d=56):
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a=4, b=1, c=3, d=0):
+</pre>
+<p>但是下面的定义是 <b><u>不</u></b> 允许的：</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a=1, b, c, d=33):
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a, b=2, c=3, d):
+&gt;&gt;&gt; <span class="keyword">def</span> four_arguments(a=5, b=1, c=3, d):
+</pre>
+<p>在定义你自己的函数的时候试试吧。</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">最后的注意事项</h3>
+<p>Python不允许使用关键词作为一个变量。试试下面的：</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> = 2
+</pre>
+<p>然后看看会发生什么！</p>
+
+<center><a href="27-variables.htm"><img alt="previous" src=
+"../../images/previous.png">变量</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"29-strings.htm">你叫什么名字？<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>

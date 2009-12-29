@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>明确地消除循环</title>
+</head>
+<body>
+<h2 class="title">10. 明确地消除循环</h2>
+<p>做好准备：这是一堂相当长的课。我们将学习如何定义一些新的机器人命令。我们也将看到写程序时第三个有用的法则：</p>
+<dl>
+<dt><b>法则3</b></dt>
+<dd>在写计算机程序时，不要自己重复。<br>重申一遍: <b>千万不要自己重复！</b></dd>
+</dl><!--=============================================-->
+
+<hr width="50%">
+<a name="Three" id="Three"></a>
+<h3 class="section">三次左拐就可以实现一个右拐</h3>
+<p>如果你认真想想，你就会发现，让机器人在一点做三次左转的动作和让它做一个右转动作的结果是一样的。试想，如果不用电脑，只是在一片纸上画画，根据以下的程序，机器人会做什么呢？</p>
+<pre>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+turn_left()
+turn_left()
+turn_off()
+</pre>
+<h3 class="try">轮到你了</h3>
+<p>将以上的程序写下来并且保存，看看机器人是否像你期盼的那样去做。</p>
+<h3 class="try">又轮到你了！</h3>
+<p>更改一下你刚刚保存的程序，使得机器人能像下图表示的那样沿着正方形顺时针转一圈。</p>
+<p><img alt="square with right turns" src=
+"../../images/intro/square2right.png"></p><!--=====================================================-->
+
+<hr width="50%">
+<a name="Define" id="Define"></a>
+<h3 class="section">定义什么是右</h3>
+<p>刚才我们已经看到通过三次左转机器人是如何实现一个右转的。如果我们要做一系列的右转，那么不管是写还是读程序都会很枯燥。这是因为我们在重复自己；换句话说，同样的指令结构出现在程序的许多不同地方。为了避免这样的重复，机器人可以用Python来编程的能力是很有用的。</p>
+<p>在Python中，我们可以给一系列的指令赋一个简单的名字。比如说，我们可以如下<b>定义</b>机器人的右转：</p>
+<p><img alt="defining turn right" src=
+"../../images/intro/turnright_txt.png"></p>
+<p>至少有五点很重要值得注意：</p>
+<ul>
+<li>正如我们之前所看到的，绿色的标识 <tt><span class=
+"comment">#</span></tt>,表示的是这行余下的部分可以被忽略掉。 <tt><span class="comment">#</span></tt>后面跟着的文档部分被称为 <b>注释</b>。它是用来向其他 <b>程序员</b>解释的部分，或者是提醒我们自己某段程序是用来做什么的。它之所以用绿色表示，是为了帮助我们将它和其它的程序命令区别开来。Pathon和机器人将会忽略这些注释。</li>
+<li>第二，由 <b>关键词</b> <span class=
+"pykeyword">def</span>开始的定义在程序中是以蓝色显示。一个python <b>关键词</b>指的是由Python自身定义的词。关键词 <span class="pykeyword">def</span> 紧跟的是新的指令名称，两个圆括号和一个冒号。</li>
+<li>第三，定义一个指令和创造一个同义词是不一样的。（当我们创造一个同义词时，我们用一个等号连接两个同义词，由于缺少了圆括号，所以它和定义指令是不一样的。）</li>
+<li>第四，新的定义中的每行指令都会以缩排形式排列，每行的缩进距离相同。否则的话，机器人就不会照我们期望的那样去执行。这里缩排指的是我们在每行的开头都留下一些空格。习惯上，对于一个给定的<i>代码段</i>，我们用四个空格作为一个缩排。为了给你们帮助，我已经在程序编辑器中进行了设置，用虚线显示了四个空格大小的空挡距离。<br />
+<img alt="Showing indentation guides" src=
+"../../images/intro/indentation.png"></li>
+<li>第五，在 <span class="pykeyword">def</span>关键词这行的最后，我们加上了一个冒号 "<tt>:</tt>"，这意思是告诉机器人一段代码将要运行了。对于其它的关键词，我们也是同样地操作。例如 上图显示的<span class="pykeyword">if</span>，我们将在接下来的几节课中适当给予讲解。</li>
+</ul>
+<p>刚才我们一下子给你们灌输了好多信息。现在是时候让你检验一下自己是否理解了如何使用这个关键词了。</p>
+<h3 class="try">轮到你了</h3>
+<p>请写一段程序实现以下功能：1）定义向右转的新命令；2）利用右转的新命令实现机器人沿着顺时针方向走一个正方形。这里，你应该注意到，最后的程序是比初始的程序要短的，并且，将可以更容易看出机器人行走的路线。</p>
+<h3 class="try">又轮到你了！</h3>
+<p>定义一个指令<tt>step_back()</tt> </p>
+<pre>
+<span class="comment"># step_back() defined up here</span>
+move()
+step_back()
+turn_off()
+</pre>
+<p>则通过上述程序使得机器人向前一步然后退回到它原来的初始位置 ，并且<em>和刚开始面朝的方向相同</em>，具体如下图所示。</p>
+<p><img alt="back up" src="../../images/intro/back_up.png"></p>
+<p><em>提示</em>：千万不要忘记在新的定义中命令要缩排。</p>
+<h3 class="try">哈哈，又一次轮到你了！</h3>
+<p>定义指令 <tt>turn_around()</tt>使得以下的新命令能够像你期望的那样去工作。</p>
+<pre>
+<span class="keyword">def</span> step_back():
+    turn_around()
+    move()
+    turn_around()
+
+<span class="keyword">def</span> turn_right():
+    turn_around()
+    turn_left()
+</pre><!--===========================================================-->
+
+<hr width="50%">
+<a name="Newspaper" id="Newspaper"></a>
+<h3 class="section">现在，我们再次看下报纸投递问题</h3>
+<p>在之前的章节中，你所做的最后一个练习就是写一段程序使得机器人投递一份报纸。作为提醒，这里有一幅图显示了机器人需要做些什么：</p>
+<center><img alt="newspaper start" src=
+"../../images/intro/newspaper_start.png"></center>
+<center><img alt="lead to" src="../../images/lead_to.png"> <img alt=
+"newspaper end" src="../../images/intro/newspaper_end.png"></center>
+<p>对这个问题的解决方法大致如下所示：</p>
+<pre>
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># put down newspaper and turn around</span>
+put_beeper()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># move away and stop</span>
+move()
+turn_off()
+</pre>
+<p>这有很多的键盘输入，并且还存在大量的重复。当你看着程序的底部时，你无法在屏幕上看到程序的开头。你或许注意到，我加入了一些注释，这样我就能对各处的程序功能很明了。这些注释更接近于我们所想的程序大纲：</p>
+<ul>
+<li>爬上四个台阶</li>
+<li>放下报纸</li>
+<li>转身</li>
+<li>爬下四个台阶</li>
+</ul>现在，我们试着以<em>Pythonic</em> 的形式来写这个大纲：<pre>
+ 
+climb_up_four_stairs()
+put_beeper()
+turn_around()
+climb_down_four_stairs()
+</pre>
+<p>这并不是一个完整的解决方案， (比如说，缺少了 <tt>turn_off()</tt> 指令)， 但是这已经和我们之前所做的很接近，并且更容易读懂，当然前提是这些新的指令已经被定义好了。以下是所需的一些定义：</p>
+<pre>
+<span class="keyword">def</span> turn_around():
+    turn_left()
+    turn_left()
+
+<span class="keyword">def</span> turn_right():
+    turn_left()
+    turn_left()      
+    turn_left()
+
+<span class="keyword">def</span> climb_up_one_stair():
+    turn_left()
+    move()
+    turn_right()
+    move()
+    move()
+
+<span class="keyword">def</span> climb_up_four_stairs():
+    climb_up_one_stair()
+    climb_up_one_stair()
+    climb_up_one_stair()
+    climb_up_one_stair()
+</pre>
+<h3 class="try">轮到你了</h3>
+<p>将这些定义补到最后的程序中，这时程序看起来就像是<em>Pythonic</em> 版本。你需要在程序最后加上更多的简单指令，包括<tt>turn_off()</tt> 记得用与之前程序不同的名字来保存现在这个程序。</p>
+<h3 class="try">又轮到你了！</h3>
+<p>花些时间来比较下关于报纸投递问题的之前的解决方案和现在解决方案的区别。哪一个更容易读呢？</p><!--=================================================-->
+
+<hr width="50%">
+<a name="ReadChallenge" id="ReadChallenge"></a>
+<h3 class="suggested">阅读挑战</h3>
+<p>选择一个合适的名称可以帮助我们更容易读懂一个程序的功能。同样，名称选得不好也会使得它难读懂。[参见规则# 4.] 试着在不运行的情况下弄明白以下的程序。</p>
+<pre>
+<span class="keyword">def</span> a():
+    turn_left()
+    turn_left()
+
+<span class="keyword">def</span> b():
+    turn_left()
+    a()
+
+<span class="keyword">def</span> c():
+    move()
+    move()
+
+<span class="keyword">def</span> d():
+    c()
+    b()
+
+<span class="keyword">def</span> e():
+    d()
+    d()
+    d()
+    d()
+
+turn_left()
+e()
+b()
+turn_off()
+</pre>
+<p>你会发现为命令<tt>a(), b(), c(), d(),</tt> 和 <tt>e().</tt>找一些更具有描述性的名称是很有用的。</p>
+<center>
+<a href="9-walls.htm"><img alt="previous" src=
+"../../images/previous.png"> 砌墙</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"11-repeat.htm">再次强调，不要重复！<img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

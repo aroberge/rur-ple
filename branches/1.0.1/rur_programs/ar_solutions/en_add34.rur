@@ -1,0 +1,66 @@
+# Adding two numbers
+# as per lesson 34
+
+def turn_around():
+    turn_left()
+    turn_left()
+
+def turn_right():
+    turn_around()
+    turn_left()
+
+def find_number_beginning():
+    while not next_to_a_beeper():
+        move()
+
+def create_number_list():
+    new_list = []
+    while front_is_clear():
+        n = 0
+        while next_to_a_beeper():
+            pick_beeper()
+            n += 1
+        new_list.append(str(n))
+        move()
+    # pick last pile
+    n = 0
+    while next_to_a_beeper():
+        pick_beeper()
+        n += 1
+    new_list.append(str(n))
+    return new_list
+
+
+##---- end of definitions
+
+find_number_beginning()
+first_number = create_number_list()
+turn_around()
+while front_is_clear():
+    move()
+turn_right()
+move()
+turn_right()
+find_number_beginning()
+second_number = create_number_list()
+
+# do the required conversions
+first_st = ''.join(first_number)
+second_st = ''.join(second_number)
+sum = int(first_st) + int(second_st)
+sum_st = str(sum)
+sum_list = list(sum_st)
+
+# move into proper position
+turn_right()
+move()
+turn_right()
+# put down beepers
+for i in range(len(sum_list)):
+    digit = int(sum_list.pop())
+    for j in range(digit):
+        put_beeper()
+    move()
+
+turn_around()
+turn_off()

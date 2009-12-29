@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>Amazing - part 3</title>
+</head>
+<body>
+<h2 class="title">19. Uygulama - Bölüm 3</h2>
+<p>Az önceki program beklendi&#287;i gibi çal&#305;&#351;maz. Reeborg'un etraf&#305;nda duvar yoksa 
+sonsuz döngüye girecektir ve sürekli etraf&#305;nda dönecektir. Bunu sa&#287;a döndükten 
+sonra bir <tt>move()</tt>komutu ekleyerek düzeltebiliriz:</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+put_beeper()
+move()
+<span class="keyword">while not</span> next_to_a_beeper():
+    <span class="keyword">if</span> right_is_clear():
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+<!--================================================-->
+<hr width="50%">
+<h3 class="section">Daha karma&#351;&#305;k bir dünya</h3>
+<p>E&#287;er a&#351;a&#287;&#305;daki gibi bir dünyada yukar&#305;daki program&#305; denerseniz program do&#287;ru 
+çal&#305;&#351;&#305;r m&#305;?</p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around3start.png"></p>
+<p>Cevab&#305;n&#305;z hay&#305;r olmal&#305;, bir sonraki derse geçmeden bunun nedenini bulmaya 
+çal&#305;&#351;&#305;n.</p>
+<center><a href="18-amazing2.htm"><img alt="previous" src=
+"../../images/previous.png"> Uygulama - </a><A href="17-amazing1.htm">
+bölüm</a><A href="18-amazing2.htm"> 2</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<A href="20-amazing4.htm">Uygulama - </a><A href="17-amazing1.htm">
+bölüm</a><A href="20-amazing4.htm"> 4 <img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>

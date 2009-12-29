@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href="../rurple.css" type='text/css'>
+<title>神奇-第二部分</title>
+</head>
+<body>
+<h2 class="title">18. 神奇-第二部分</h2>
+<p>这是我们在上一部分结尾所遇问题的原因：我们放下一个beeper，在我们移动之前，先测试看看我们是否在一个beeper旁边。 一旦我们是在一个beeper旁边，我们不再有机会进入到 <span class="pykeyword">while</span> <i>循环</i>中去。或许我们可以在开始循环前加上一个 <tt>move()</tt>。如下所示：</p>
+<pre>
+put_beeper()
+move()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+<p><b>试试看！</b></p><!--================================================-->
+
+<hr width="50%">
+<h3 class="section">复杂一点的世界</h3>
+<p>现在，我们要基于一个略有些复杂的世界运行这个程序，这个世界如下所示： 在你开始程序前，你可以将这个世界保持到一个世界文件。</p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around2start.png"></p>
+<p>一旦试了程序，你就会发现，结果并不是我们希望的那样：机器人走了一个捷径，而非环游了全世界。</p>
+<p><img alt="around the world: end" src=
+"../../images/intro/around2end.png"></p>
+<p>问题就在于，我们只是假设他周游世界时只有前进和左转两个动作，而忽视了让他右转的情况。 机器人应当首先检查他的右边是否有一堵墙，否则的话，我们让他右转。 这里有一个修改后的程序，<i>预期</i>可以实现这样的功能：</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+put_beeper()
+move()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> right_is_clear():
+        turn_right()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+<p>成功了吗？ 仔细地读读。 试试看，或者你觉得合适的话，可以做一些改变。</p>
+<center><a href="17-amazing1.htm"><img alt="previous" src=
+"../../images/previous.png">神奇-第一部分</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+<a href="19-amazing3.htm">神奇-第三部分<img alt="next" src=
+"../../images/next.png"></a>
+</center>
+</body>
+</html>
