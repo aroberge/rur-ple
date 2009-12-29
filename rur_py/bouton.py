@@ -98,7 +98,7 @@ class rurChoiceWindow(wx.ScrolledWindow):
         self.ggp.slider_speed = wx.Slider(
             # id, value, min, max, (x, y), (length, height)
             self, -1, default_speed, min_speed, max_speed,
-            (-1, -1), (-1, -1),
+            (-1, -1), (100, -1),
             wx.SL_HORIZONTAL | wx.SL_AUTOTICKS #| wx.SL_LABELS
             )
         self.ggp.slider_speed.SetTickFreq(1, 1)
