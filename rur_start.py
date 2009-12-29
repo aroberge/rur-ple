@@ -28,8 +28,13 @@
 
 import os
 import sys
-import wxversion
-wxversion.select('2.6')
+
+# wxversion.select should not be used when make a 'bundle' of the application
+# ref: http://www.wxpython.org/docs/api/wxversion-module.html
+if not hasattr(sys, 'frozen'):
+    import wxversion
+    wxversion.select('2.6')
+
 import wx
 import wx.lib.buttons
 import rur_py.misc as misc  # a few global variables
