@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <link rel="stylesheet" href="../rurple.css" type="text/css">
+  <title>Making a left turn</title>
+</head>
+<body>
+<h2 class="title">6. Programando un giro a la izquierda.</h2>
+<p>Reeborg solo sabe&nbsp;girar a la izquierda. No sabe girar a la
+derecha. Esto es porque sus creadores &nbsp;fueron muy ahorradores y no
+le dotaron&nbsp;con un mecanismo de conducci&oacute;n mejor. Para
+&nbsp;ordenarle a Reeborg que gire a la izquierda hay que escribir ... <tt>turn_left()</tt>!</p>
+<p>Por ejemplo, si Reeborg comienza desde su posicion inicial usual,
+este&nbsp; programa</p>
+<pre>move()<br>turn_left()<br>move()<br>turn_off()<br></pre>
+<p>har&aacute; que en la pantalla veamos lo siguiente</p>
+<img alt="simple left turn" src="../../images/intro/turn_left_end.png">
+<h3 class="try">Tu turno</h3>
+<p>Haz que&nbsp;Reeborg pinte un cuadrado, usando el siguiente programa:</p>
+<pre>move()<br>turn_left()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>turn_off()<br></pre>
+<p>&iexcl;<b>Prueba el programa!</b></p>
+<h3 class="try">Tu turno otra vez!</h3>
+<p>Escribe un programa que haga a Reeborg pintar un cuadrado de dos
+unidades de lado en LA DIRECCI&Oacute;N CONTRARIA A LAS AGUJAS DEL
+RELOJ. Para ello tiene que dar dos pasos adelante, girar a la
+izquierda, dos pasos adelante... hasta que al final se quede en la
+posici&oacute;n inicial mirando hacia la derecha, tal como se muestra
+en la figura de abajo.</p>
+<img alt="left square" src="../../images/intro/left_square2.png">
+<h3><font color="#663333">Experimenta!</font></h3>
+<p>Prueba todos los programas que se te ocurran para mover a Reeborg
+por su mundo.</p>
+<!--==================================================-->
+<hr width="50%"><a name="Home" id="Home"></a>
+<h3 class="section">Going home</h3>
+<p>Cuando entras en el el mundo de&nbsp;Reeborg, Reeborg nomalmente
+est&aacute; en la esquian de la primera avenida con la primera calle,
+mirando hacia la derecha. Haz click en el
+bot&oacute;n&nbsp;"Mostrar/Ocultar el archivo del mundo" <img
+ alt="Show/Hide world file"
+ src="../../images/intro/btn_show_world_file.png">, que est&aacute; a
+la derecha del todo.
+Ver&aacute;s que la pantalla cambia, y un texto aparece en la parte
+derecha. F&iacute;jate en la linea que dice <tt>robot = (1, 1, 'E',
+0)</tt>. Esto indica la posici&oacute;n de&nbsp;Reeborg dentro de su
+mundo. El primer n&uacute;mero entre los par&eacute;ntesis indica la
+avenida en la que est&aacute; Reeborg, el segundo es la calle y el
+tercero indica la direcci&oacute;n en la que est&aacute; mirando
+Reeborg (E = Este = derecha, N = Norte = arriba, W = Oeste = izquierda,
+S = Sur = abajo) El cuarto n&uacute;mero (0) es el n&uacute;mero de The
+fourth number (0) is the number of
+<em>timbres</em> que lleva Reeborg; aprenderemos sobre los timbres
+m&aacute;s tarde.</p>
+<p>Como ya sabes, puedes mover a Reeborg usando las teclas arriba y
+derecha del teclado de tu ordenador. Cuando mueves as&iacute; a
+Reeborg, no deja rastro de su paso. Pero f&iacute;jate en que el texto
+que hay entre los par&eacute;ntesis en <tt>robot = (...)</tt> cambia
+cuando se mueve&nbsp;Reeborg, para indicar su posici&oacute;n en su
+mundo.</p>
+<h3 class="try">Tu turno</h3>
+<p>Usando el teclado, mueve a Reeborg hasta que est&eacute; en la
+esquina de la tercera avenida con la cuarta calle, mirando al sur, tal
+como se indica abajo. Despu&eacute;s, haz un programa que lo lleve a la
+esquina de la primera avenida con la cuarta calle, mirando hacia el
+este, tal como te indico abajo. Trata de que el camino que Reeborg siga
+sea el m&aacute;s sencillo posible, y que no tenga que dar tantos pasos
+y giros como los que ha dado abajo.</p>
+<p><img alt="back home start"
+ src="../../images/intro/back_home_start.png">
+<img alt="lead to" src="../../images/lead_to.png"> <img
+ alt="back home end" src="../../images/intro/back_home.png"></p>
+<center>
+<a href="5-comments.htm"><img alt="previous"
+ src="../../images/previous.png"> &iquest;Alg&uacute;n comentario<i>?</i></a>
+- <a href="../lessons_toc.htm"><img alt="home"
+ src="../../images/home.png"></a> - <a href="7-beepers.htm">Timbres <img
+ alt="next" src="../../images/next.png"></a>
+</center>
+</body>
+</html>

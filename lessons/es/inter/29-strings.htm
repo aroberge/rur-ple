@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>29. What's your name?</title>
+</head>
+<body>
+<h2 class="title">29. What's your name?</h2>
+<p>We have seen how we could assign numbers to variables.  We can also assign strings to variables; for example:</p>
+<pre>
+&gt;&gt;&gt; FirstName = "Andre"
+&gt;&gt;&gt; LastName = "Roberge"
+&gt;&gt;&gt; FullName = FirstName + LastName
+&gt;&gt;&gt; <span class="keyword">print</span> FullName
+AndreRoberge
+</pre>
+<p>Notice how the "plus sign" (<tt>+</tt>) is used by Python to combine two strings into one; this operation is called a string <i>concatenation</i>. However, notice how there is no space between the first and last name. We can correct this by adding in between a third string composed of a single space character.</p>
+<pre>
+&gt;&gt;&gt; FullName = FirstName + <span class=
+"string">" "</span> + LastName
+&gt;&gt;&gt; <span class="keyword">print</span> FullName
+Andre Roberge
+</pre>
+<p>Another way to obtain the same result is to use the <tt>%s</tt> notation we had used for putting numerical variables inside a string.</p>
+<pre>
+&gt;&gt;&gt; name = <span class=
+"string">"%s %s"</span> % (FirstName, LastName)
+&gt;&gt;&gt; <span class="keyword">print</span> name
+Andre Roberge
+</pre>
+<p>Finally, we can compare and see if both strings are equal.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> name == FullName
+True
+</pre>
+<p>Try it on your own!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Slices</h3>
+<p>Sometimes, we only want to use a single character in a string, on a small part of a string (called a substring).  To do this, it is useful to learn about <i>slicing</i>.</p>
+<p>I will give you three rules to remember, and a hint about the notation, and then give you the result of a whole series of examples that you can try on your own with the Python interpreter.  Other than the three rules, I will <b>not</b> give you any other explanation for this section, so you will have to look at it very carefully to completely understand what is going on.</p>
+<ol>
+<li>Python starts counting at zero.</li>
+<li>Python doesn't include what you would expect to be the last number when it counts.</li>
+<li>Python can count by steps.</li>
+</ol>
+<ul><li>Useful notation: <tt>[</tt>first<tt>:</tt>last<tt>:</tt>step<tt>]</tt></li>; all three are optional.</ul>
+<p>Here are the examples.</p>
+<pre>
+&gt;&gt;&gt; alphabet = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>
+&gt;&gt;&gt; digits = <span class="string">'0123456789'</span>
+
+&gt;&gt;&gt; alphabet[0]
+'a'
+
+&gt;&gt;&gt; alphabet[1]
+'b'
+
+&gt;&gt;&gt; alphabet[5]
+'f'
+
+&gt;&gt;&gt; digits[0]
+'0'
+
+&gt;&gt;&gt; digits[7]
+'7'
+
+&gt;&gt;&gt; digits[-1]
+'9'
+
+&gt;&gt;&gt; digits[-2]
+'8'
+
+&gt;&gt;&gt; alphabet[-3]
+'x'
+
+&gt;&gt;&gt; digits[0:3]
+'012'
+
+&gt;&gt;&gt; digits[0:4]
+'0123'
+
+&gt;&gt;&gt; digits[0:5]
+'01234'
+
+&gt;&gt;&gt; digits[2:5]
+'234'
+
+&gt;&gt;&gt; alphabet[2:5]
+'cde'
+
+&gt;&gt;&gt; digits[0:10:2]
+'02468'
+
+&gt;&gt;&gt; digits[0::2]
+'02468'
+
+&gt;&gt;&gt; digits[0::3]
+'0369'
+
+&gt;&gt;&gt; digits[::3]
+'0369'
+
+&gt;&gt;&gt; digits[::-1]
+'9876543210'
+
+&gt;&gt;&gt; digits[::-2]
+'97531'
+
+&gt;&gt;&gt; digits[::-3]
+'9630'
+
+&gt;&gt;&gt; alphabet[:10:2]
+'acegi'
+</pre>
+<p>Make up your own strings and try a few more examples by yourself!</p>
+
+<center><a href="28-variables2.htm"><img alt="previous" src=
+"../../images/previous.png">Variables and functions</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"30-dot.htm">Object-Oriented Programming: "dot" notation.<img alt="next"
+src="../../images/next.png"></a></center>
+</body>
+</html>
