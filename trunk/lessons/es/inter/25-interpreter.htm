@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<title>25. Python already knows how to add.</title>
+</head>
+<body>
+<h2 class="title">25. Python already knows how to add.</h2>
+<p>In the last lesson, we saw how how complicated it was to try and teach
+Reeborg to add two numbers. In this lesson, we will see how easy it is to get
+Python to add numbers ... and do other mathematical operations.</p> 
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">First things first</h3>
+<p>Select the Python interpreter (Python: Code and Learn), by clicking on the
+third tab. Your display should look something like the following (other than
+having French used as the default language for the GUI):</p>
+<p><img alt="Python interpreter" src=
+"../../images/inter/interpreter.png"></p>
+<br>
+<p>Ignore the first two lines of the display for now. On the third line is
+the Python <i>prompt</i></p>
+<pre>
+&gt;&gt;&gt;
+</pre>
+<p>Now, let's see if we can make Python add two numbers more easily than
+Reeborg could. Put the cursor on line 3, click to select it and type "Add 8
+and 4" followed by the "enter" key. Python will reply, in its own language,
+in what may appears as some insults!</p>
+<pre>
+&gt;&gt;&gt;Add 8 <span class="keyword">and</span> 4
+  File <span class="string">"&lt;input&gt;"</span>, line 1
+    Add 8 <span class="keyword">and</span> 4
+        ^
+SyntaxError: invalid syntax
+&gt;&gt;&gt;
+</pre>
+<p>So, the Python interpreter does not understand commands written in
+English. However, you should note that it does recognize Python keywords like
+<span class="pykeyword">and</span> as it displays them in a different color
+than the rest of the text (different also from the color we have chosen, but
+that is not important.)</p>
+<p>Note that it is <u>prompt</u>ing you again for some new input. This time,
+try something simpler like typing "8+4" followed by the "enter" key. You
+should see something like this on the display:</p>
+<pre>
+&gt;&gt;&gt; 8+4
+12
+&gt;&gt;&gt; 
+</pre>
+<p>Success! Python added the two numbers right away (which was so difficult
+to get Reeborg to do). It's even prompting you again to give it more
+instructions. You can try something like the following, which I have copied
+from the interpreter to here.</p>
+<pre>
+&gt;&gt;&gt; 8+4
+12
+&gt;&gt;&gt; 8-4
+4
+&gt;&gt;&gt; 8*4
+32
+&gt;&gt;&gt; 8/4
+2
+</pre>
+<p>As you can see, Python knows how to add, subtract, multiply and
+divide.</p>
+<h3 class="section">More numbers</h3>
+<p>Python knows about the <i>order of precedence</i> of mathematical
+operators. By this we mean that, when you have many numbers and mathematical
+operations, you multiply and divide numbers first (from left to right), then
+add and subtract, etc. Here, a few examples are probably a better explanation
+than words could provide on their own.</p>
+<pre>
+&gt;&gt;&gt; 2+3*5
+17
+&gt;&gt;&gt; 2+ (3*5)   <span class=
+"comment"># Python does not care about spaces here</span>
+17
+&gt;&gt;&gt; (2+3)*5
+25
+&gt;&gt;&gt; 2*4/8
+1
+&gt;&gt;&gt; 2+1-4
+-1
+</pre>
+<p>Go ahead, try some more examples on your own! See, if you can come up with
+any surprising result.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Surprising division</h3>
+<p>If you haven't found any surprising result, it's because you haven't tried
+many examples. For example, try <tt>7/3</tt>. Can you make sense of the
+result? Try also <tt>1/2</tt>.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Integer division</h3>
+<p>Python recognizes different types of numbers. The simplest type are the
+integers (or whole numbers). When Python divides an integer by another
+integer, it throws away any remainder to give us a whole number (integer) as
+the answer. Thus, when we divide 7 by 3 it gives us 2 (with a remainder of
+1). To get the remainder part, we use the <tt>%</tt> symbol:</p>
+<pre>
+&gt;&gt;&gt; 7/3
+2
+&gt;&gt;&gt; 7%3
+1
+&gt;&gt;&gt; 1/2
+0
+&gt;&gt;&gt; 1%2
+1
+</pre>
+<p>To get the result we would normally expect, we need to tell Python to use
+real numbers or <i>floats</i>. We do that by adding a decimal period ("dot")
+at the end of at least one of the numbers.</p>
+<pre>
+&gt;&gt;&gt; 1./2
+0.5
+&gt;&gt;&gt; 1/2.
+0.5
+&gt;&gt;&gt; 1.00000/2
+0.5
+</pre>
+<h3 class="section">More mathematical operations</h3>
+<p>Python knows more than the basic mathematical operations. Here are a few
+more examples for you to try to expand on.</p>
+<pre>
+&gt;&gt;&gt; 3*3*3*3
+81
+&gt;&gt;&gt; 3**4  <span class="comment"># exponentiation</span>
+81
+&gt;&gt;&gt; 7.3 % 3  <span class="comment"># remainder, again</span>
+1.2999999999999998
+</pre>
+<p>This last result is <i>almost</i> equal to 1.3 which is what we might have
+expected. The difference between 1.3 and 1.2999999999999998 is tiny ... and
+is caused by the way computers work with decimal fractions. I will explain
+how this comes about in a later lesson, when you know more about computer
+programming in general. Just note that, in practice, such small difference
+between the "exact" result and that given by Python (or any other computer
+language) should not matter. Note however that Python can be made to display
+the result in a more sensible way; try the following:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> 7.3 % 3
+1.3
+</pre>
+<p>The <span class="pykeyword">print</span> keyword instructs Python to show
+us the result of the calculation, and it does so "intelligently". Sometimes,
+Python will perform some computations without displaying the result. By using
+the <span class="pykeyword">print</span> keyword, we can instruct Python to
+display a result that might not have been shown otherwise.</p>
+<p>Are you curious? What happens if you put a <span class=
+"pykeyword">print</span> instruction in one of Reeborg's programs?...</p>
+<h3 class="section">Large numbers</h3>
+<p>Try the following:</p>
+<pre>
+&gt;&gt;&gt; 2147483647 + 1
+2147483648L
+</pre>
+<p>Look carefully: do you notice the curious "L" at the end of the answer?
+This is to denote what is known as a <i>Long</i> integer, that is to say an
+integer which can not be easily represented in computer memory. For a
+computer with a so-called 32-bit chip, such as the one I, and most likely you
+are using, all positive numbers are represented by various combinations of 32
+"bits", and the largest integer that can be thus represented is <img alt=
+"2^31" src="../../images/inter/2_31.png">-1 = 2147483647. 
+<!--  wxHtml does not support the <sup> tag  -->
+Any integer larger than this requires Python (or any other computer language)
+to use advanced technique to perform mathematical operations on these
+numbers. This slows down computations; Python reminds us of this by tagging
+the letter L at the end. Unless you really need it, try to avoid using
+extremely large numbers!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">1,000 is not a large number</h3>
+<p>Try the following:</p>
+<pre>
+&gt;&gt;&gt; 1,000
+(1, 0)
+&gt;&gt;&gt; 1,000,000,000
+(1, 0, 0, 0)
+</pre>
+<p>What is going on? All I will say for now is that you should not put commas
+in numbers to separate thousands, like it is often done in many
+english-speaking coutries. We will see later what commas mean to Python. In the meantime, we can see what commmas mean when we put them in a <span class="pykeyword">print</span> statement:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> 5,4
+5 4
+&gt;&gt;&gt; <span class="keyword">print</span> 5,              4
+5 4
+</pre>
+<p>Python takes the comma between the two numbers above to mean "put a single space between the two numbers (and ignore any other extra spaces) when you print them out.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Scientific notation</h3>
+<p>You are perhaps familiar with the scientific notation:</p>
+<p><img alt="scientific notation" src="../../images/inter/sci_not.png"></p>
+<p>If so, you know that this notation allows us to write extremely small or
+extremely large numbers in a very convenient way. [<small>If you don't know
+about the scientific notation, you can skip this section as we will not make
+use of it.</small>] Python also knows the scientific notation but uses the
+letter E (or e) to represent <tt>x 10</tt></p>
+<pre>
+&gt;&gt;&gt; 2e3
+2000.0
+&gt;&gt;&gt; 2.5E-1
+0.25
+</pre>
+<p>Try it!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Other types of numbers</h3>
+<p>Python also knows how to manipulate <i>complex numbers</i> as well as
+<i>octal</i> (base 8) and <i>hexadecimal</i> (base 16) numbers. Do not worry
+if you don't know what these are. The only ones we will need to use are the
+hexadecimal numbers and we will explain what they are later.</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Comparing numbers</h3>
+<p>Python knows how to compare numbers and decide if one is <i>smaller
+than</i> (<tt>&lt;</tt>) the other, if it is <i>greater than</i>
+(<tt>&gt;</tt>) the other, if they are equal (<tt>==</tt>) or if they are not
+equal (<tt>!=</tt>).</p>
+<pre>
+&gt;&gt;&gt; 1&lt;2
+True
+&gt;&gt;&gt; 3&lt;2
+False
+&gt;&gt;&gt; 1&gt;2
+False
+&gt;&gt;&gt; 3&gt;2
+True
+&gt;&gt;&gt; 2==2
+True
+&gt;&gt;&gt; 3==2
+False
+&gt;&gt;&gt; 2!=2
+False
+&gt;&gt;&gt; 3!=2
+True
+</pre>
+<p>Try it! Make sure to note the use of two equal signs when we want to check
+if two numbers are equal. If you use a single equal sign, Python will
+complain in its own way. [There are three other comparison operators:
+<tt>&lt;&gt;, &lt;=, &gt;=</tt>. You can try them and guess what they might
+mean.]</p>
+<center><a href="../intro/24-adding.htm"><img alt="previous" src=
+"../../images/previous.png">Teaching Reeborg to add</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"26-interpreter2.htm">Interpreting the Python keywords.<img alt="next"
+src="../../images/next.png"></a></center>
+
+</body>
+</html>

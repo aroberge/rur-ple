@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <link rel="stylesheet" href="../rurple.css" type="text/css">
+  <title>Evitando repeticiones de una vez por todas</title>
+</head>
+<body>
+<h2 class="title">10. Evitando repeticiones de una vez por todas</h2>
+<p>Vete preparando: esta lecci&oacute;n ser&aacute; larga...
+Vamos a aprender la manera de definir nuevas &oacute;rdenes para el
+robot. Tambi&eacute;n veremos la tercera regla &uacute;til para
+escribir programas de ordenador.</p>
+<dl>
+  <dt><b>Regla # 3</b></dt>
+  <dd> Cuando escribas programas de ordenador, no te repitas.<br>
+Repito: <b>&iexcl;no te repitas!</b></dd>
+</dl>
+<!--=============================================-->
+<hr width="50%"><a name="Three" id="Three"></a>
+<h3 class="section">Tres "lefts" son un "right"</h3>
+<p>Si lo piensas con detenimiento, el hacer que Reeborg de tres giros a
+la izquierda seguidos, da el mismo resultado que si hiciese un
+s&oacute;lo giro a la derecha. Intenta adivinar, dibujando en un papel
+y sin usar el ordenador, qu&eacute; har&iacute;a Reeborg si
+ejecut&aacute;semos el siguiente programa:</p>
+<pre>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br>turn_left()<br>turn_left()<br>turn_off()<br></pre>
+<h3 class="try">Tu turno</h3>
+<p>Escribe y guarda el programa anterior, ejec&uacute;talo y comprueba
+si Reeborg hace lo que esperabas.</p>
+<h3 class="try">&iexcl;Tu turno otra vez!</h3>
+<p>Cambia el programa que acabas de grabar,de forma que haga que
+Reeborg rote en direcci&oacute;n de las agujas del reloj, tal como se
+muestra abajo.</p>
+<p><img alt="square with right turns"
+ src="../../images/intro/square2right.png"></p>
+<!--=====================================================-->
+<hr width="50%"><a name="Define" id="Define"></a>
+<h3 class="section">Vamos a definir turn_right()</h3>
+<p>Hemos visto c&oacute;mo Reeborg puede torcer a la derecha, combinado
+tres giros a la izquierda seguidos. Si queremos una serie de giros a la
+derecha, resulta muy aburrido escribir y leer el programa resultante.
+Esto es as&iacute; porque nos repetimos; en oras palabras, la misma
+secuencia de instrucciones aparece en muchos sitios diferentes del
+programa. Para evitar esas repeticiones, resulta muy &uacute;til que
+Reeborg se programe en Python.</p>
+<p>En Phyton, uno puede dar un simple nombre a un grupo de
+instrucciones. Por ejemplo, podr&iacute;amos <b>definir</b> un giro a
+la derecha as&iacute;:</p>
+<p><img alt="defining turn right"
+ src="../../images/intro/turnright_txt.png"></p>
+<p>Hay por lo menos cinco cosas importantes en las que merece la pena
+fijarse:</p>
+<ul>
+  <li>Tal como hemos visto antes, el s&iacute;mbolo <tt><span
+ class="comment">#</span></tt>, que aparece en verde, indica que el
+resto de la linea puede ser ignorada por Reeborg (or Python). El texto
+que sigue a <tt><span class="comment">#</span></tt> se llama un <b>comentario</b>
+y se usa para explicar a otros <b>programadores</b>, o como un
+recordatorio para nosotros mismos, lo que hace una linea de programa o
+una serie de lineas de programa. Tambi&eacute;n se muestra en verde
+para ayudarnos a distinguirlos de las instrucciones. Python, y
+Reeborg, ignoran esos comentarios.</li>
+  <li>Segundo, la definici&oacute;n comienza con la <b>palabra clave</b>
+de Python <span class="pykeyword">def</span> que se ve azul en el
+editor. Las palabra clave de python son las que aparecen azules en el
+editor. Una palabra clave de Python es una palabra cuyo significado
+est&aacute; definido por Python, no por nosotros. La palabra clave <span
+ class="pykeyword">def</span> est&aacute; seguida por el nombre del
+nuevo comando, dos parentesis y el signo de dos puntos.</li>
+  <li>Tercero, definir una instrucci&oacute;n no es lo mismo que
+generar un sin&oacute;nimo, como vimos antes. (Cuando creamos un
+sin&oacute;nimo, lo hacemos con un signo igual"=" entre los
+sin&oacute;nimos y la falta de par&eacute;tesis indica que no es una
+instrucci&oacute;n)</li>
+  <li>Cuarto, cada una de las instrucciones que se quiera que formen
+parte de la nueva definici&oacute;n est&aacute; <b>indentada</b>, por
+la <b>misma cantidad de espacio</b>. Si no se hace as&iacute; Python
+protestar&aacute; o no hara lo que esperamos que haga. Por
+indentaci&oacute;n entendemos que hay que dejar un n&uacute;mero de
+espacios en blanco al principio de cada l&iacute;neas. Es costumbre
+usar una indentaci&oacute;n de cuatro espacio por cada <i>bloque de
+c&oacute;digo</i>. Para ayudarte, ha preparado el editor para que
+ense&ntilde;e lineas punteadas en intervalos de cuatro espacios.<br>
+    <img alt="Showing indentation guides"
+ src="../../images/intro/indentation.png"></li>
+  <li>Quinto, al final de la linea con la palabra clave <span
+ class="pykeyword">def</span>, a&ntilde;adimos un signo de dos puntos "<tt>:</tt>"
+que indica a Pyton que un bloque de instrucciones va a empezar. Hacemos
+esta con otras palabra clave que hacen comenzar a bloques de
+c&oacute;digo, como <span class="pykeyword">if</span> en el dibujo
+anterior, que te ense&ntilde;aremos apropiadamente dentro de algunas
+lecciones.</li>
+</ul>
+<p>Esto es bastante informaci&oacute;n de una sola vez. probablemente
+sea un buen momento para comprobar si te has enterado de como usar esta
+palabra clave.</p>
+<h3 class="try">Tu turno</h3>
+<p>escribe un programa que 1) defina este nuevo comando y 2)
+lo use para hacer a Reeborg pintar un cuadrado en el sentido de las
+agujas del reloj, tal como hicimos antes.
+Te tendr&iacute;as que dar cuenta de que este programa es m&aacute;s
+corto que el anterior y de que es m&aacute;s f&aacute;cil figurarse el
+camino que tomar&aacute; Reeborg.</p>
+<h3 class="try">&iexcl;Tu turno otra vez!</h3>
+<p>Define la instruccion <tt>paso_atras()</tt> de manera que el
+programa</p>
+<pre><span class="comment"># paso_atras() se define aqu&iacute;</span>
+move()
+paso_atras()
+turn_off()
+</pre>
+<p>haz que Reeborg de un paso adelante y despu&eacute;s vuelva a su
+posici&oacute;n inicial <em>mirando en la misma direcci&oacute;n que
+en la que empez&oacute;</em>, tal como se muestra aqu&iacute;:</p>
+<p><img alt="back up" src="../../images/intro/back_up.png"></p>
+<p><em>Pista</em>: Aseg&uacute;rate de indentar los comandos que son
+parte de tu definici&oacute;n</p>
+<h3 class="try">&iexcl;Tu turno. Y otra vez m&aacute;s!</h3>
+<p>Define la instrucci&oacute;n <tt>da_la_vuelta()</tt> de manera que
+los comandos siguientes trabajen tal como se espera de ellos.</p>
+<pre><span class="keyword">def</span> paso_atras():<br>    da_la_vuelta()<br>    move()<br>    da_la_vuelta()<br><br><span
+ class="keyword">def</span> turn_right():<br>    da_la_vuelta()<br>    turn_left()<br></pre>
+<!--===========================================================-->
+<hr width="50%"><a name="Newspaper" id="Newspaper"></a>
+<h3 class="section">Repartidor de peri&oacute;dicos, rehecho.</h3>
+<p>En el cap&iacute;tulo anterior, uno de los &uacute;ltimos ejercicios
+que tuviste que hacer fue escribir un programa que hiciese que el robot
+repartiese un peri&oacute;dico. Te recuerdo lo que hab&iacute;a que
+hacer:</p>
+<center><img alt="newspaper start"
+ src="../../images/intro/newspaper_start.png"></center>
+<center><img alt="lead to" src="../../images/lead_to.png"> <img
+ alt="newspaper end" src="../../images/intro/newspaper_end.png"></center>
+<p>Tu soluci&oacute;n probablemente era como &eacute;sta:</p>
+<pre>move()<br><span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># climb step</span>
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+move()
+<span class="comment"># put down newspaper and turn around</span>
+put_beeper()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># step down</span>
+move()
+move()
+turn_left()
+move()
+turn_left()
+turn_left()
+turn_left()
+<span class="comment"># move away and stop</span>
+move()
+turn_off()
+</pre>
+<p>Demasiado escribir, &iquest;no crees?... y muchas repeticiones.
+Probablemente habr&aacute;s visto que hje a&ntilde;adido algunos
+comentairos para ayudarme a recordar por donde voy mientras hago la
+tarea. Estos comentarios nos acercan a la soluci&oacute;n del problema::</p>
+<ul>
+  <li>Sube cuatro escalones.</li>
+  <li>Deja el peri&oacute;dico.</li>
+  <li>Date la vuelta.</li>
+  <li>Baja las escaleras.</li>
+</ul>
+Vamos a tratar de escribir este esquema <em>pithon&iacute;sticamente</em>:
+<pre> <br>sube_cuatro_escalones()<br>put_beeper()<br>da_la_vuelta()<br>baja_cuatro_escalones()<br>da_la_vuelta()<br><tt>turn_off()</tt><br></pre>
+<p>Esto&nbsp;es m&aacute;s f&aacute;cil de leer que lo que
+ten&iacute;amos antes, y funcionar&iacute;a si estas instrucciones
+estuviesen definidas. Aqu&iacute; pongo algunas de las definiciones que
+se necesitan:</p>
+<pre><span class="keyword">def</span> da_la vuelta():<br>    turn_left()<br>    turn_left()<br><br><span
+ class="keyword">def</span> turn_right():<br>    turn_left()<br>    turn_left()      <br>    turn_left()<br><br><span
+ class="keyword">def</span> sube_un_escalon():<br>    turn_left()<br>    move()<br>    turn_right()<br>    move()<br>    move()<br><br><span
+ class="keyword">def</span> sube_cuatro_escalones():<br>    sube_un_escalon()<br>    sube_un_escalon()<br>    sube_un_escalon()<br>    sube_un_escalon()<br></pre>
+<h3 class="try">Tu turno</h3>
+<p>A&ntilde;ade las definiciones que faltan para que el programa se
+parezca a su versi&oacute;n <em>pithon&iacute;stica</em>. Recuerda
+grabar tu programa.</p>
+<h3 class="try">&iexcl;Tu turno otra vez!</h3>
+<p>Compara este programa con el original. cu&aacute;l es el m&aacute;s
+f&aacute;cil de leer?</p>
+<!--=================================================-->
+<hr width="50%"><a name="ReadChallenge" id="ReadChallenge"></a>
+<h3 class="suggested">Te desaf&iacute;o a leer &eacute;sto</h3>
+<p>Los nombres bien elegidos, pueden ayudar a comprender lo que un
+programa est&aacute; haciendo. Y viceversa. Intenta enterarte de lo que
+hace este programa sin ejecutarlo.</p>
+<pre><span class="keyword">def</span> a():<br>    turn_left()<br>    turn_left()<br><br><span
+ class="keyword">def</span> b():<br>    turn_left()<br>    a()<br><br><span
+ class="keyword">def</span> c():<br>    move()<br>    move()<br><br><span
+ class="keyword">def</span> d():<br>    c()<br>    b()<br><br><span
+ class="keyword">def</span> e():<br>    d()<br>    d()<br>    d()<br>    d()<br><br>turn_left()<br>e()<br>b()<br>turn_off()<br></pre>
+<p>Hubiese sido mucho mejor haber usadao unos nombres m&aacute;s
+descriptivos que&nbsp;
+<tt>a(), b(), c(), d(),</tt> y <tt>e().</tt></p>
+<center>
+<a href="9-walls.htm"><img alt="previous"
+ src="../../images/previous.png"> Construyendo paredes</a> - <a
+ href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="11-repeat.htm">&iexcl;Evitando repeticiones, otra vez! <img
+ alt="next" src="../../images/next.png"></a>
+</center>
+</body>
+</html>
