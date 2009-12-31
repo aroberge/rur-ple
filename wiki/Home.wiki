@@ -4,7 +4,17 @@
 = Introduction =
 
 RUR-PLE is very similar to GVR, but RUR-PLE can use all Python features (while GVR only limited subset of syntax). RUR-PLE has 48 lessons (in main European languages and Chinese) with the code and robot environment examples to experiment with.
-[edit] 
+
+= Lessons and languages available =
+== Stable release (v1.0.1) ==
+  * UI: 7 languages (English, Spanish, German, Welsh, Chinese, French, Turkish)
+  * Lessons: 3 languages (English, Chinese, Turkish @ 85%)
+  * Number of lessons: 48
+
+== SVN repository ==
+  * UI: 8 languages (English, Spanish, German, Welsh, Chinese, French, Turkish, Italian)
+  * Lessons: 5 languages (English, Chinese, German, Turkish @ 85%, Spanish up to lesson 10)
+  * Number of lessons: 53 not all merged (WIP) nor translated
 
 
 = Mailing List =
