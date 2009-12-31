@@ -1,8 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
 <title>Listen to me ... or else ...</title>
 </head>
 <body>
@@ -12,12 +12,12 @@
 time in front of the computer. <b>If</b> it rains, keep reading, otherwise,
 go outside and play! (Yes, even you grandpa!)</p>
 <!--===========================================-->
-<hr width="50%">
+<hr width="50%"/>
 <h3 class="section">Making choices</h3>
 <p>Let me have some fun with the sentence that starts with <b>if</b>.</p>
-<p><b>If</b> it rains,<br>
-... keep reading,<br>
-<b>otherwise</b>,<br>
+<p><b>If</b> it rains,<br/>
+... keep reading,<br/>
+<b>otherwise</b>,<br/>
 ... go outside and play!</p>
 <p>This is starting to look like a small computer program. Let me write it as
 though it were a Python program.</p>
@@ -31,7 +31,7 @@ though it were a Python program.</p>
 "pykeyword">else</span>. So, if it rains, keep on reading; otherwise, you
 know what to do!</p>
 <!--======================================-->
-<hr width="50%">
+<hr width="50%"/>
 <h3 class="section">"I see...", says Reeborg.</h3>
 <p>In addition to being able to find out if he is standing next to one or
 more beepers, Reeborg can see if there is a wall in front of him, blocking
@@ -57,12 +57,12 @@ turn_off()
 </pre>
 <p>Below is the result of running this simple program in two different
 situations. If you try it, make sure you don't forget the colon (<tt>:</tt>) after the <span class="pykeyword">else</span> keyword.</p>
-<p><img alt="start if" src="../../images/intro/if1start.png"> <img alt=
-"lead to" src="../../images/lead_to.png"> <img alt="end if" src=
-"../../images/intro/if1end.png"></p>
-<p><img alt="start if" src="../../images/intro/if2start.png"> <img alt=
-"lead to" src="../../images/lead_to.png"> <img alt="end if" src=
-"../../images/intro/if2end.png"></p>
+<p><img alt="start if" src="../../images/intro/if1start.png"/> <img alt=
+"lead to" src="../../images/lead_to.png"/> <img alt="end if" src=
+"../../images/intro/if1end.png"/></p>
+<p><img alt="start if" src="../../images/intro/if2start.png"/> <img alt=
+"lead to" src="../../images/lead_to.png"/> <img alt="end if" src=
+"../../images/intro/if2end.png"/></p>
 <p>Now, let's repeat the simple <i>conditional</i> instruction many times to
 have Reeborg go around his world.</p>
 <pre>
@@ -76,7 +76,7 @@ repeat(move_or_turn, 20)
 turn_off()
 </pre>
 <p>This, on a small world, give the following end result:</p>
-<p><img alt="around" src="../../images/intro/around1.png"></p>
+<p><img alt="around" src="../../images/intro/around1.png"/></p>
 <p>We can make this more interesting by having Reeborg do a "dance" if he can
 move forward, and put down a beeper if he has to turn.  The following 
 program has Reeborg do just that, going only partly around his world:</p>
@@ -96,7 +96,7 @@ turn_off()
 </pre>
 <p>Make sure that Reeborg carries enough beepers to do his task!  To give
 Reeborg some beepers to carry, try clicking on the<br/>
-<img alt="beepers button" src="../../images/intro/btn_beepers.png"> beepers button.</p>
+<img alt="beepers button" src="../../images/intro/btn_beepers.png"/> beepers button.</p>
 
 <p>Notice how the instructions <tt>dance()</tt> and <tt>move()</tt> are
 aligned after the <span class="pykeyword">if</span> statement and indented
@@ -105,7 +105,7 @@ instructions</i>. The instructions <tt>turn_left()</tt> and
 <tt>put_beeper()</tt> are similarly aligned, indented from the <span class=
 "pykeyword">else</span> statement to which they belong. The result of running
 the program is indicated below.</p>
-<img alt="around" src="../../images/intro/around2.png">
+<img alt="around" src="../../images/intro/around2.png"/>
 <p>Now, what happens if we do not align the instruction <tt>put_beeper()</tt>
 with <tt>turn_left()</tt>, but align it instead with the <span class=
 "pykeyword">else</span> statement, as indicated below.</p>
@@ -128,7 +128,7 @@ turn_off()
 resulting in either a dance and a move forward, <b>or</b> a left turn,
 followed every time by the instruction <tt>put_beeper()</tt>. The result of
 running this program is indicated below:</p>
-<img alt="around" src="../../images/intro/around3.png">
+<img alt="around" src="../../images/intro/around3.png"/>
 <p>As you can see, after every step forward, a beeper has been put down. Each
 corner now has two beepers: one from the previous move to reach the corner,
 and one for the left turn after reaching the corner.</p>
@@ -153,20 +153,20 @@ not indented to be aligned with other instructions within the definition. It
 is a single instruction, the first in fact that Reeborg must follow, before
 repeating the <tt>move_or_turn()</tt> instruction 18 times. The result is the
 following:</p>
-<p><img alt="around" src="../../images/intro/around4.png"></p>
+<p><img alt="around" src="../../images/intro/around4.png"/></p>
 <p>So, as you can see, much information is given to Reeborg through blank
 spaces (i.e. the indentation of the instructions within blocks). Through
 practice, you will learn to use this to your advantage and realise that
 Python allows you to write very readable code by indenting instructions.</p>
-<hr width="50%">
+<hr width="50%"/>
 <h3 class="try">Jumping hurdles</h3>
 <p>Reeborg has become quite good at jumping hurdles. He now enters races of
 different lengths: short sprints and long races. He knows that he has reached
 the finish line when he is next to a beeper. Below, you will find two such
 race courses; the world files are hurdles1.wld and hurdles2.wld.</p>
-<p><img alt="hurdles start" src="../../images/intro/hurdles1_start.png"></p>
-<br>
-<p><img alt="hurdles start" src="../../images/intro/hurdles2_start.png"></p>
+<p><img alt="hurdles start" src="../../images/intro/hurdles1_start.png"/></p>
+<br/>
+<p><img alt="hurdles start" src="../../images/intro/hurdles2_start.png"/></p>
 <p>Assume that there are no races longer than 20 units. Define an instruction
 that looks somewhat like the following:</p>
 <pre>
@@ -182,14 +182,14 @@ that looks somewhat like the following:</p>
             jump_one_hurdle()
 </pre>
 <p>with an appropriate <tt>jump_one_hurdle()</tt> instruction, so that, other
-than definitions, the only instruction that Reeborg needs to follow is<br>
+than definitions, the only instruction that Reeborg needs to follow is<br/>
 <tt>repeat(move_jump_or_finish, 20)</tt>.</p>
 <p>Note that, in the above definition, the code is getting more and more
 indented as we introduce additional tests.</p>
 <center><a href="12-if.htm"><img alt="previous" src=
-"../../images/previous.png"> If only Reeborg could decide on his own ...</a>
-- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> -
+"../../images/previous.png"/> If only Reeborg could decide on his own ...</a>
+- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> -
 <a href="14-elif.htm">If, else, if, else, ....<img alt="next" src=
-"../../images/next.png"></a></center>
+"../../images/next.png"/></a></center>
 </body>
 </html>
