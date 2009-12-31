@@ -5,6 +5,20 @@ There are always more changes than listed here, these are just the
 highlights. The full log is available at 
 http://code.google.com/p/rur-ple/source/list
 
+
+------------------------------------------------------------------------------
+1.1 - Jan/xx/2010
+------------------------------------------------------------------------------
+ - Added Full German lessons translation
+ - Added 10 first lessons in Spanish
+ - Added Italian UI translation
+ - Fixed some HTML bugs in the lessons pages
+ - Started to move lessons encoding to UTF-8 and XHTML
+ - Added 5 new lessons
+ - Added files necessary for Windows/Mac/Linux packaging
+ - Removed language count from lessons avoiding the need to translate each time we had a language
+
+
 ------------------------------------------------------------------------------
 1.0.1 - Dec/29/2009
 ------------------------------------------------------------------------------
