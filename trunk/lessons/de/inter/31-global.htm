@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>31. global ist fatal.</title>
+</head>
+<body>
+
+<h2 class="title">31. <span class="pykeyword">global</span> ist fatal.</h2>
+<p>Angenommen, du schreibst zusammen mit einer Freundin ein langes Programm.
+Weil du gute Programmierpraxis gelernt hast, versuchst du deinen Variablen stets
+aussagekräftige Namen zu geben. Aber dann denkst du: <i>Was ist, wenn meine
+Freundin für eine ihrer Variablen den gleichen Namen nimmt wie ich? Wenn ich
+meiner Variablen einen anderen Wert zuweise, werde ich dann auch ihre
+ungewollt ändern?</i></p>
+<p>In Python gibt es <i>Namensräume</i> (name spaces), die dir bei der
+Vermeidung solcher Probleme behilflich sind. Namensräume verhindern, dass
+Variablen, die wir in einem Teil des Programms verwenden, andere Teile
+beeinflussen. In dieser Lektion lernen wir Namensräume kennen.</p>
+
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Lokal definierte Variablen</h3>
+<p>Hier ein einfaches Beispiel zum Ausprobieren:</p>
+<pre>
+&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; <span class="keyword">def</span> meine_funktion():
+...     a = 3
+...     <span class="keyword">print</span> a
+...    
+
+&gt;&gt;&gt; meine_funktion()
+3
+
+&gt;&gt;&gt; <span class="keyword">print</span> a
+1
+</pre>
+<p>Bist du überrascht, dass sich der Wert von <tt>a</tt> nicht geändert hat?
+Das ist folgendermaßen abgelaufen:</p>
+<p>Du hast zuerst eine Variable namens "<tt>a</tt>" mit dem Wert 1 definiert.
+Dann hast du in einer Funktion "anscheinend" den Wert von "<tt>a</tt>" zu 3
+geändert. Tatsächlich hast du eine <u>neue</u> Variable "<tt>a</tt>" in der
+Funktion erzeugt und ihr den Wert 3 gegeben. Der Wert der anderen Variablen
+"<tt>a</tt>" blieb unverändert.</p>
+<p>Der Python-Interpreter legt automatisch einen <i>Namensraum</i> in jeder
+Funktion an, in dem die Namen der darin definierten Variablen einen eindeutigen
+Wert haben, unabhängig davon, wie andere gleichnamige Variablen außerhalb der
+Funktion definiert sind. Ein Namensraum ist wie ein kleines Notizbuch, in dem
+über alle Variablen Buch geführt wird. Gewissermaßen wird für jede Funktion ein
+Notizbuch angelegt, so dass du dir keine Sorgen machen musst, dass es anderswo
+Variablen mit dem gleichen Namen gibt.</p>
+<p>Die Variablen in der Funktion sind nicht meht definiert, wenn die Funktion
+beendet wurde; wir sagen, dass sie <i>ungültig</i> sind (out of scope).</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> einfache_funktion():
+...     lokale_variable = <span class="string">"Ich bin hier!"</span>
+...     <span class="keyword">print</span> lokale_variable
+...    
+&gt;&gt;&gt; einfache_funktion()
+Ich bin hier!
+
+&gt;&gt;&gt; <span class="keyword">print</span> lokale_variable
+Traceback (most recent call last):
+  File "&lt;input&gt;", line 1, in ?
+NameError: name <span class="string">'lokale_variable'</span> is not defined
+</pre>
+<p>Der Trick mit den Namensräumen ist eine feine Sache, aber was ist, wenn du
+den Wert einer Variablen in der Funktion ändern willst? Wenn wir zum Beispiel
+nachhalten wollen, wie oft wir eine bestimmte Funktion aufrufen. Das geht, und
+zwar mit dem Schlüsselwort <span class="pykeyword">global</span>.</p> 
+<pre>
+&gt;&gt;&gt; anzahl = 0
+&gt;&gt;&gt; <span class="keyword">def</span> zweijaehriges_kind():
+...     <span class="keyword">global</span> anzahl
+...     anzahl += 1
+...     <span class="keyword">print</span> <span class="string">"Warum?          %s mal"</span> % anzahl
+...    
+&gt;&gt;&gt; zweijaehriges_kind()
+Warum?          1 mal
+
+&gt;&gt;&gt; zweijaehriges_kind()
+Warum?          2 mal
+
+&gt;&gt;&gt; zweijaehriges_kind()
+Warum?          3 mal
+
+&gt;&gt;&gt; <span class="keyword">print</span> anzahl
+3
+</pre>
+<p>Mit dem Schlüsselwort <span class="pykeyword">global</span> bestimmen wir,
+dass in der Funktion <u>keine</u> neue lokale Version der Variablen angelegt
+sondern die gleichnamige Variable außerhalb, in der so genannten "globalen" 
+Umgebung, verwendet werden soll.</p>
+<p>Du solltest den Gebrauch von <span class="pykeyword">global</span> vermeiden,
+wenn es irgendwie geht, weil er zu unerwünschten Änderungen in anderen Teilen
+des Programms führen kann. In der Programmierung gilt der Gebrauch von 
+<span class="pykeyword">global</span> meistens als fataler Fehler.</p>
+
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Aus dem Gültigkeitsbereich</h3>
+<p>Larry und Curly gehen fröhlich zusammen spazieren. Plötzlich sieht Moe seine
+Freunde von weitem und beginnt auf sie zuzulaufen. Gerade als Moe seine Freunde
+endlich einholt, verlässt er seinen Gültigkeitsbereich und verschwindet vom
+Bildschirm. Wenn du willst, dass er bei seinen Freunden bleibt, musst du drei
+<span class="comment">#</span> Symbole entfernen.</p>
+
+<pre>
+Larry = UsedRobot(colour=<span class="string">'blue'</span>)
+Curly = UsedRobot(1, 3, colour=<span class="string">'green'</span>)
+
+<span class="comment"># Zwei Schluesselwoerter, die du noch nicht gesehen hast!</span>
+<span class="keyword">for</span> i <span class="keyword">in</span> range(3):
+    Larry.move()
+    Curly.move()
+
+<span class="keyword">def</span> wait_for_me():
+    <span class="comment">#global Moe</span>
+    Moe = UsedRobot(1, 2, colour=<span class="string">'yellow'</span>)
+    <span class="comment">#  Wieder die zwei neuen Schluesselwoerter!</span>
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(3):
+        Moe.move()
+        Larry.move()
+        Moe.move()
+        Curly.move()
+
+wait_for_me()
+<span class="comment"># Erstes Bild unten; Moe ist da.</span>
+Larry.move()
+<span class="comment"># Zweites Bild unten; Moe ist weg.</span>
+Curly.move()
+<span class="comment">#Moe.move()</span>
+Larry.move()
+Curly.move()
+<span class="comment">#Moe.move()</span>
+Larry.turn_off()
+</pre>
+
+<p><img alt="Moe there"  src="../../images/future/scope1.png"/></p>
+<p><img alt="Moe gone"  src="../../images/future/scope2.png"/></p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="try">Probier's aus!</h3>
+<p>Probiere dieses Programm auf eigene Faust in Reeborgs Welt aus und ändere es
+dann, sodass Moe bei seinen Freunden bleiben kann!</p>
+
+<center><a href="30-dot.htm"><img alt="previous" src=
+"../../images/previous.png"/>30. Objektorientierte Programmierung:
+Punkt-Schreibweise.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"32-return.htm">32. Funktion, komm bald wieder!<img alt="next"
+src="../../images/next.png"/></a></center>
+
+</body>
+</html>

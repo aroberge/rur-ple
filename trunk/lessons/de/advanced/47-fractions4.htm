@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>47. Brüche - Teil 4</title>
+</head>
+<body>
+<h2 class="title">47. Brüche - Teil 4</h2>
+<p>Wie du wahrscheinlich am Ende der vorigen Lektion gemerkt hast, kann Python
+keine Ganzzahl zu einem Bruch addieren. Das können wir aber ganz einfach
+beheben, indem wir folgendes machen: </p>
+<ol>
+<li>Prüfe vor einer mathematischen Operation (+, *, /, -), ob der "andere"
+Operand ein Bruch ist. Wenn nicht, wandle ihn vor der Operation in einen Bruch
+um.</li>
+<li>Definiere eine Rechenvorschrift, die Ganzzahlen in Brüche umwandelt.</li>
+</ol>
+<p>Schritt 2. kann man mit einer Funktion wie dieser realisieren:</p>
+<pre>
+<span class='keyword'>def</span> in BruchUmwandeln(object):
+    <span class='comment'>'''Wandelt "int" und "long" in Brueche um.'''</span>
+<span class='keyword'>    if</span> type(object) <span class='keyword'>in</span> (int, long):
+        <span class='keyword'>return</span> Bruch(object)
+    <span class='keyword'>else</span>:
+        <span class='keyword'>raise</span> NotImplementedError
+</pre>
+<p>Zuerst prüfen wir, ob das Objekt eine Ganzzahl (<tt>int</tt> oder vielleicht
+<tt>long</tt>) ist, und wenn ja, machen wir einen neuen Bruch daraus (die 
+Ganzzahl ist der Zähler des neuen Bruchs). Da Brüche die Form (Ganzzahl / 
+Ganzzahl) haben sollen, lassen wir keine anderen Objekttypen zu; indem wir eine
+Ausnahmebedingung auslösen, informieren wir den Anwender, dass die beabsichtigte
+Operation nicht erlaubt ist.
+</p>
+<p>Schritt 1. besteht darin, dass wir die Umwandlung an den Anfang jeder
+Operation stellen. Hier ist der Quelltext, der genau das tut (Beachte, dass wir
+die Umwandlung in einen Bruch als Methode in diese Klasse aufgenommen haben).
+</p>
+<pre>
+<span class='linenumber'>  1 </span><span class=
+'keyword'>def</span> ggt(a, b):
+<span class='linenumber'>  2 </span>    <span class=
+'comment'>'''berechnet den groessten gemeinsamen Teiler
+<span class='linenumber'>  3 </span>        zweier Ganzzahlen (Euklids Algorithmus).'''</span>
+<span class='linenumber'>  4 </span><span class='keyword'>    while</span> b != 0:
+<span class='linenumber'>  5 </span>        a, b = b, a % b
+<span class='linenumber'>  6 </span>    <span class='keyword'>return</span> a
+<span class='linenumber'>  7 </span>
+<span class='linenumber'>  8 </span><span class=
+'keyword'>class</span> Bruch(object):
+<span class='linenumber'>  9 </span>    <span class=
+'keyword'>def</span> __init__(self, zaehler, nenner=<span class=
+'number'>1</span>):
+<span class=
+'linenumber'> 10 </span>        zaehler, nenner = self.kuerzen(zaehler, nenner)
+<span class='linenumber'> 11 </span>        self.zaehler = zaehler
+<span class='linenumber'> 12 </span>        self.nenner = nenner
+<span class='linenumber'> 13 </span>        
+<span class='linenumber'> 14 </span>    <span class=
+'keyword'>def</span> __str__(self):
+<span class='linenumber'> 15 </span>        <span class=
+'keyword'>if</span> self.nenner ==<span class='number'> 1</span>:
+<span class='linenumber'> 16 </span>            <span class=
+'keyword'>return</span><span class='string'> "(%s)"</span>%self.zaehler
+<span class='linenumber'> 17 </span>        <span class=
+'keyword'>return</span><span class=
+'string'> "(%s/%s)"</span>%(self.zaehler, self.nenner)
+<span class='linenumber'> 18 </span>
+<span class='linenumber'> 19 </span>    <span class=
+'keyword'>def</span> __mul__(self, operand):
+<span class='newlinenumber'> 20 </span>        <span class=
+'keyword'>if</span><span class=
+'keyword'> not</span> type(operand) == Bruch:
+<span class=
+'newlinenumber'> 21 </span>            operand = self.in BruchUmwandeln(operand)
+<span class='linenumber'> 22 </span>        zaehler = self.zaehler * operand.zaehler
+<span class='linenumber'> 23 </span>        nenner = self.nenner * operand.nenner
+<span class='linenumber'> 24 </span><span class=
+'keyword'>        return</span> Bruch(zaehler, nenner)
+<span class='linenumber'> 25 </span>
+<span class='linenumber'> 26 </span>    <span class=
+'keyword'>def</span> __div__(self, operand):
+<span class='newlinenumber'> 27 </span>        <span class=
+'keyword'>if</span><span class=
+'keyword'> not</span> type(operand) == Bruch:
+<span class=
+'newlinenumber'> 28 </span>            operand = self.in BruchUmwandeln(operand)
+<span class='linenumber'> 29 </span>        zaehler = self.zaehler * operand.nenner
+<span class='linenumber'> 30 </span>        nenner = self.nenner * operand.zaehler
+<span class='linenumber'> 31 </span><span class=
+'keyword'>        return</span> Bruch(zaehler, nenner)
+<span class='linenumber'> 32 </span>
+<span class='linenumber'> 33 </span>    <span class=
+'keyword'>def</span> __add__(self, operand):
+<span class='newlinenumber'> 34 </span>        <span class=
+'keyword'>if</span><span class=
+'keyword'> not</span> type(operand) == Bruch:
+<span class=
+'newlinenumber'> 35 </span>            operand = self.in BruchUmwandeln(operand)
+<span class='linenumber'> 36 </span>        nenner = self.nenner * operand.nenner
+<span class=
+'linenumber'> 37 </span>        zaehler = self.zaehler*operand.nenner + self.nenner*operand.zaehler
+<span class='linenumber'> 38 </span><span class=
+'keyword'>        return</span> Bruch(zaehler, nenner)
+<span class='linenumber'> 39 </span>
+<span class='linenumber'> 40 </span>    <span class=
+'keyword'>def</span> __sub__(self, operand):
+<span class='newlinenumber'> 41 </span>        <span class=
+'keyword'>if</span><span class=
+'keyword'> not</span> type(operand) == Bruch:
+<span class=
+'newlinenumber'> 42 </span>            operand = self.in BruchUmwandeln(operand)
+<span class='linenumber'> 43 </span>        nenner = self.nenner * operand.nenner
+<span class=
+'linenumber'> 44 </span>        zaehler = self.zaehler*operand.nenner - self.nenner*operand.zaehler
+<span class='linenumber'> 45 </span><span class=
+'keyword'>        return</span> Bruch(zaehler, nenner)
+<span class='linenumber'> 46 </span>
+<span class='linenumber'> 47 </span>    <span class=
+'keyword'>def</span> kuerzen(self, a, b):
+<span class='linenumber'> 48 </span>        <span class=
+'comment'>'''teilt zwei Ganzzahlen durch ihren groessten gemeinsamen Teiler.'''</span>
+<span class='linenumber'> 49 </span>        teiler = ggt(a, b)
+<span class='linenumber'> 50 </span>        a /= teiler
+<span class='linenumber'> 51 </span>        b /= teiler
+<span class='linenumber'> 52 </span><span class=
+'keyword'>        return</span> a, b
+<span class='linenumber'> 53 </span>
+<span class='newlinenumber'> 54 </span>    <span class=
+'keyword'>def</span> in BruchUmwandeln(self, object):
+<span class='newlinenumber'> 55 </span>        <span class=
+'comment'>'''Wandelt "int" und "long" in Brueche um.'''</span>
+<span class='newlinenumber'> 56 </span><span class=
+'keyword'>        if</span> type(object) <span class='keyword'>in</span> (int, long):
+<span class='newlinenumber'> 57 </span>            <span class=
+'keyword'>return</span> Bruch(object)
+<span class='newlinenumber'> 58 </span>        <span class=
+'keyword'>else</span>:
+<span class='newlinenumber'> 59 </span>            <span class=
+'keyword'>raise</span> NotImplementedError
+<span class='linenumber'> 60 </span>
+<span class='linenumber'> 61 </span><span class=
+'comment'>#== Jetzt kommt der Test. ===
+</span><span class='linenumber'> 62 </span>
+<span class='linenumber'> 63 </span><span class=
+'keyword'>if</span> __name__ ==<span class='string'> "__main__"</span>:
+<span class='linenumber'> 64 </span>    a = Bruch(<span class=
+'number'>1</span>,<span class='number'> 2</span>)
+<span class='linenumber'> 65 </span>    b = Bruch(<span class=
+'number'>3</span>,<span class='number'> 1</span>)
+<span class='linenumber'> 66 </span><span class=
+'keyword'>    assert</span> str(a) ==<span class='string'> "(1/2)"</span>
+<span class='linenumber'> 67 </span><span class=
+'keyword'>    assert</span> str(b) ==<span class='string'> "(3)"</span>
+<span class='linenumber'> 68 </span><span class=
+'keyword'>    assert</span> str(a*b) ==<span class='string'> "(3/2)"</span>
+<span class='linenumber'> 69 </span>    c = Bruch(<span class=
+'number'>1</span>,<span class='number'> 3</span>)
+<span class='linenumber'> 70 </span><span class=
+'keyword'>    assert</span> str(b*c) ==<span class='string'> "(1)"</span>
+<span class='linenumber'> 71 </span>    d = Bruch(<span class=
+'number'>5</span>,<span class='number'> 10</span>)
+<span class='linenumber'> 72 </span><span class=
+'keyword'>    assert</span> str(d) ==<span class='string'> "(1/2)"</span>
+<span class='linenumber'> 73 </span><span class=
+'keyword'>    assert</span> str(a/b) ==<span class='string'> "(1/6)"</span>
+<span class='linenumber'> 74 </span><span class=
+'keyword'>    assert</span> str(a/a) ==<span class='string'> "(1)"</span>
+<span class='linenumber'> 75 </span><span class=
+'keyword'>    assert</span> str(a+a) ==<span class='string'> "(1)"</span>
+<span class='linenumber'> 76 </span><span class=
+'keyword'>    assert</span> str(b+b) ==<span class='string'> "(6)"</span>
+<span class='linenumber'> 77 </span><span class=
+'keyword'>    assert</span> str(a+b) ==<span class='string'> "(7/2)"</span>
+<span class='linenumber'> 78 </span><span class=
+'keyword'>    assert</span> str(c+c) ==<span class='string'> "(2/3)"</span>
+<span class='linenumber'> 79 </span><span class=
+'keyword'>    assert</span> str(a-a) ==<span class='string'> "(0)"</span>
+<span class='linenumber'> 80 </span><span class=
+'keyword'>    assert</span> str(a-b) ==<span class='string'> "(-5/2)"</span>
+<span class='linenumber'> 81 </span><span class=
+'keyword'>    assert</span> str(a-c) ==<span class='string'> "(1/6)"</span>
+<span class='newlinenumber'> 82 </span><span class=
+'keyword'>    assert</span> str(a+<span class=
+'number'>1</span>) ==<span class='string'> "(3/2)"</span>
+<span class='newlinenumber'> 83 </span><span class=
+'keyword'>    assert</span> str(a*<span class=
+'number'>2</span>) ==<span class='string'> "(1)"</span>
+<span class='newlinenumber'> 84 </span><span class=
+'keyword'>    assert</span> str(b-<span class=
+'number'>1</span>) ==<span class='string'> "(2)"</span>
+<span class='newlinenumber'> 85 </span><span class=
+'keyword'>    assert</span> str(b/<span class=
+'number'>3</span>) ==<span class='string'> "(1)"</span>
+</pre>
+<!--=============================================-->
+<hr width="50%"/>
+<h3 class="section">1 + 1 = ?</h3>
+<p>Wenn du glaubst, dass wir fertig sind, versuch mal folgendes:</p>
+<pre>
+eins = Bruch(1)
+<span class="keyword">print</span> 1 + eins
+</pre>
+<p>Kannst du dir denken, warum das schiefgeht?</p>
+
+<center><a href="46-fractions3.htm"><img alt="previous" src=
+"../../images/previous.png"/>46. Brüche - Teil 3</a> - 
+<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/>
+</a></center>
+</body>
+</html>

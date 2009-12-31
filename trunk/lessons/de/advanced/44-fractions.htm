@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>44. Brüche - Teil 1</title>
+</head>
+<body>
+<h2 class="title">44. Brüche - Teil 1</h2>
+<p>Wäre es nicht schön, wenn wir mit Python Brüche addieren und multiplizieren
+könnten, so wie wir es mit Ganzzahlen und anderen Zahlentypen machen können? 
+Etwa so:</p>
+<pre>
+&gt;&gt;&gt; a = 1/2
+&gt;&gt;&gt; b = 1/4
+&gt;&gt;&gt; <span class="keyword">print</span> a + b
+3/4
+</pre>
+<p>Nun, wir können Python das tatsächlich beibringen! Das werden wir in dieser
+mehrteiligen Lektion lernen. Es ist eine ziemlich lange Lektion, aber wir werden 
+dabei einiges über Pythons <i>spezielle</i> Methoden erfahren.</p>
+<p>Um Bugs in unseren Programmen zu verhindern, werden wir systematisch vorgehen
+und immer nur ein bissschen Quelltext auf einmal hinzufügen, wobei wir mit einer
+Drei-Schritt-Methode vorgehen:</p>
+<ol>
+<li>Etwas neue Funktionalität hinzufügen.</li>
+<li>Prüfen, ob wir das gewünschte Ergebnis erhalten, indem wir mit <span class=
+"pykeyword">print</span>-Anweisungen testen.</li>
+<li>Schließlich ersetzen wir die <span class="pykeyword">print</span>-Anweisungen
+durch <span class="pykeyword">assert</span>-Anweisungen.</li>
+</ol>
+<p>Wiederhole diese Schritte so oft wie nötig. Hier ist es wirklich mal
+sinnvoll, sich zu wiederholen!</p>
+<!--=============================================-->
+<hr width="50%"/>
+<h3 class="section">Wir definieren einen neuen Typ</h3>
+<p>Ohne große Umschweife stelle ich dir hier den grundlegenden Quelltext zur
+Definition eines neuen Typs "Bruch" vor und teste ihn.</p>
+<pre>
+<span class='linenumber'>  1 </span><span class=
+'keyword'>class</span> Bruch(object):
+<span class='newlinenumber'>  2 </span>    <span class=
+'keyword'>def</span> __init__(self, zaehler, nenner=<span class=
+'number'>1</span>):
+<span class='linenumber'>  3 </span>        self.zaehler = zaehler
+<span class='linenumber'>  4 </span>        self.nenner = nenner
+<span class='linenumber'>  5 </span>
+<span class='linenumber'>  6 </span><span class=
+'comment'>#== Jetzt kommt der Test. ===
+</span><span class='linenumber'>  7 </span>
+<span class='linenumber'>  8 </span><span class=
+'keyword'>if</span> __name__ ==<span class='string'> "__main__"</span>:
+<span class='linenumber'>  9 </span>    a = Bruch(<span class=
+'number'>1</span>,<span class='number'> 2</span>)
+<span class='newlinenumber'> 10 </span>    b = Bruch(<span class=
+'number'>3</span>)
+<span class='linenumber'> 11 </span><span class=
+'keyword'>    print</span> a.zaehler, a.nenner
+<span class='linenumber'> 12 </span><span class=
+'keyword'>    print</span> b.zaehler, b.nenner
+<span class='linenumber'> 13 </span><span class='keyword'>    print</span> a
+<span class='linenumber'> 14 </span><span class='keyword'>    print</span> b
+</pre>
+<p>Du bist sicher schon in der Lage zu verstehen, was der Quelltext macht. 
+Beachte das optionale Argument in Zeile 2, durch das wir ein einzelnes Argument
+an <tt>Bruch()</tt> übergeben können (auf Zeile 10) und der Bruch dann eine 
+Ganzzahl darstellt, weil im Nenner 1 steht. Wenn wir das Programm starten,
+sehen wir folgende Ausgabe:</p>
+<pre>
+1 2
+3 1
+&lt;__main__.Bruch object at 0x01530F30&gt;
+&lt;__main__.Bruch object at 0x01530F50&gt;
+</pre>
+<p>Die ersten beiden Zeilen haben wir so erwartet. Aber die letzten beiden, auf
+denen wir die Brüche <tt>a</tt> und <tt>b</tt> ausdrucken wollen, haben wir uns
+sicher nicht so vorgestellt. Der Python-Interpreter weiß nicht, wie wir uns die
+Ausgabe eines Objekts vorstellen, daher gibt er uns in spitzen Klammern den Typ
+des Objekts und eine hexadezimale Zahl zurück, mit der er die beiden Objekte
+identifiziert. Um die Ausgaben nach unseren Vorstellungen zu gestalten, müssen
+wir eine der <i>speziellen</i> Methoden verwenden.</p>
+<!--=============================================-->
+<hr width="50%"/>
+<h3 class="section">Objekte als Zeichenfolgen darstellen</h3>
+<p>Damit wir die Ausgaben der Objekte so sehen, wie wir sie haben wollen,
+verwenden wir die Funktion <tt>__str__()</tt>.</p>
+<pre>
+<span class='linenumber'>  1 </span><span class=
+'keyword'>class</span> Bruch(object):
+<span class='linenumber'>  2 </span>    <span class=
+'keyword'>def</span> __init__(self, zaehler, nenner=<span class=
+'number'>1</span>):
+<span class='linenumber'>  3 </span>        self.zaehler = zaehler
+<span class='linenumber'>  4 </span>        self.nenner = nenner
+<span class='linenumber'>  5 </span>        
+<span class='newlinenumber'>  6 </span>    <span class=
+'keyword'>def</span> __str__(self):
+<span class='newlinenumber'>  7 </span>        <span class=
+'keyword'>return</span><span class=
+'string'> "(%s/%s)"</span>%(self.zaehler, self.nenner)
+<span class='linenumber'>  8 </span>
+<span class='linenumber'>  9 </span><span class=
+'comment'>#== Jetzt kommt der Test. ===
+</span><span class='linenumber'> 10 </span>
+<span class='linenumber'> 11 </span><span class=
+'keyword'>if</span> __name__ ==<span class='string'> "__main__"</span>:
+<span class='linenumber'> 12 </span>    a = Bruch(<span class=
+'number'>1</span>,<span class='number'> 2</span>)
+<span class='linenumber'> 13 </span>    b = Bruch(<span class=
+'number'>3</span>)
+<span class='linenumber'> 14 </span><span class='keyword'>    print</span> a
+<span class='linenumber'> 15 </span><span class='keyword'>    print</span> b
+</pre>
+<p>So sieht das Ergebnis aus:</p>
+<pre>
+(1/2)
+(3/1)
+</pre>
+<!--=============================================-->
+<hr width="50%"/>
+<h3 class="try">Du bist dran.</h3>
+<p>Ändere <tt>__str__()</tt> so, dass nur der Zähler ausgegeben wird, wenn der
+Nenner 1 ist. Das heißt, dass <tt>(3/1)</tt> als 3 ausgegeben werden und 
+<tt>(1/2)</tt> so bleiben soll.</p>
+<!--=============================================-->
+<hr width="50%"/>
+<h3 class="section"><span class="pykeyword">assert</span> einsetzen</h3>
+<p>Jetzt, da wir das gewünschte Ergebnis haben, ersetzen wir die <span class=
+"pykeyword">print</span>-Anweisungen durch <span class=
+"pykeyword">assert</span>-Anweisungen.</p>
+<pre>
+<span class='linenumber'>  1 </span><span class=
+'keyword'>class</span> Bruch(object):
+<span class='linenumber'>  2 </span>    <span class=
+'keyword'>def</span> __init__(self, zaehler, nenner=<span class=
+'number'>1</span>):
+<span class='linenumber'>  3 </span>        self.zaehler = zaehler
+<span class='linenumber'>  4 </span>        self.nenner = nenner
+<span class='linenumber'>  5 </span>        
+<span class='linenumber'>  6 </span>    <span class=
+'keyword'>def</span> __str__(self):
+<span class='linenumber'>  7 </span>        <span class=
+'keyword'>return</span><span class=
+'string'> "(%s/%s)"</span>%(self.zaehler, self.nenner)
+<span class='linenumber'>  8 </span>
+<span class='linenumber'>  9 </span><span class=
+'comment'>#== Jetzt kommt der Test. ===
+</span><span class='linenumber'> 10 </span>
+<span class='linenumber'> 11 </span><span class=
+'keyword'>if</span> __name__ ==<span class='string'> "__main__"</span>:
+<span class='linenumber'> 12 </span>    a = Bruch(<span class=
+'number'>1</span>,<span class='number'> 2</span>)
+<span class='linenumber'> 13 </span>    b = Bruch(<span class=
+'number'>3</span>)
+<span class='newlinenumber'> 14 </span><span class=
+'keyword'>    assert</span> str(a) ==<span class='string'> "(1/2)"</span>
+<span class='newlinenumber'> 15 </span><span class=
+'keyword'>    assert</span> str(b) ==<span class='string'> "(3/1)"</span>
+</pre>
+<p>Wenn wir Zusicherungen (assert heißt zusichern) anstelle von Ausgaben 
+verwenden, müssen wir die Zeichenfolgendarstellung  <tt>str()</tt> mit dem
+erwarteten Ergebnis vergleichen. Wenn du dieses Programm startest, solltest du 
+keine Ausgaben sehen; genau so soll es sein! Wenn die Bedingung hinter der
+<span class="pykeyword">assert</span>-Anweisung nämlich nicht erfüllt ist,
+wird die Ausnahme <code>AssertionError</code> ausgelöst und das Programm 
+beendet. Beachte, dass ich immer noch das Format mit der 1 im Nenner
+"<tt>(3/1)</tt> verwende und nicht das Format, das du in der letzten Übung
+definieren solltest.</p>
+<p>Jetzt bringen wir Python bei, Brüche zu multiplizieren!</p></body>
+
+<center><a href="43-sorting.htm"><img alt="previous" src=
+"../../images/previous.png"/>43. Sortieren</a> - 
+<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/>
+</a> - <a href="45-fractions2.htm">45. Brüche - Teil 2<img alt="next"
+src="../../images/next.png"/></a></center>
+</html>

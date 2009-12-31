@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>21. Überraschung! - Teil 5</title>
+</head>
+<body>
+<h2 class="title">21. Überraschung! - Teil 5</h2>
+<h3 class="section">Noch mehr Komplikationen</h3>
+<p>Schau dir die folgende Welt an:</p>
+<p><img alt="around the world: start" src=
+"../../images/intro/around4start.png"/></p>
+<p>Funktioniert das zuletzt geschriebene Programm damit? Probier's aus!</p>
+<p>Wie du wohl schon vermutet hast, falls du es nicht ausprobiert hast <small>
+(solltest du aber, wirklich!)</small>, funktioniert es nicht. Um es zum
+Laufen zu bringen, müssen wir das <span class="pykeyword">if</span>, das wir
+gerade hinzugefügt haben, durch ein <span class="pykeyword">while</span>
+ersetzen. Probier's aus! Vergiss nicht, es zu speichern.</p>
+<!--=====================================-->
+<hr width="50%"/>
+<h3 class="section">Unsere Absicht klarstellen</h3>
+<p>Wir scheinen ein Programm entworfen zu haben, das in allen Situationen
+funktioniert, denen wir wahrscheinlich begegnen werden. Bevor wir es vergessen:
+Dieses Programm soll Reeborg in die Lage versetzen, seine Welt einmal zu 
+umrunden. Das Programm ist zwar ziemlich kurz, aber es dürfte für einen, der
+es zum ersten Mal sieht, nicht so offensichtlich sein. Es ist wahrscheinlich
+keine schlechte Idee, es zu kommentieren und/oder aussagekräftigere Worte
+einzusetzen. Beginnen wir mit ein paar Kommentaren, ein bisschen ausführlicher,
+als wir es für nötig halten.</p>
+<pre>
+<span class="comment"># Wir definieren eine nützliche Anweisung.</span>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+<span class=
+"comment"># Wir markieren den Startpunkt mit einem Piepser.</span>
+put_beeper()
+
+<span class=
+"comment"># Dann suchen wir eine freie Richtung und setzen Reeborg in Bewegung.</span>
+<span class="keyword">while not</span> front_is_clear():
+    turn_left()
+move()
+
+<span class="comment"># Wir wissen, dass wir die Welt einmal umrundet haben,
+</span><span class="comment"># wenn wir wieder am Piepser angekommen sind.
+</span>
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> right_is_clear(): <span class=
+"comment"># weiter rechts rum</span>
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear(): <span class=
+"comment"># mit der Wand zur Rechten weiter gehen</span>
+        move()
+    <span class="keyword">else</span>:<span class=
+"comment"> # Der Mauer durch Linksdrehung folgen</span>
+        turn_left()
+
+turn_off()
+</pre>
+<p>Das erklärt zwar in gewisser Weise unsere Absichten mit jeder einzelnen
+Anweisung, aber es hilft nicht, die Methode (auch unter dem Namen "Algorithmus"
+bekannt), mit der wir das Problem gelöst haben, als Ganzes zu beschreiben. Daher
+sind diese Kommentare möglicherweise nicht so hilfreich für andere Leser, wie
+wir es uns vielleicht gewünscht haben.. Wenn wir die Kommentare nochmal 
+überfliegen, stellen wir fest, dass das Programm zwei Teile hat:
+<ol>
+<li>Markiere den Startpunkt;</li>
+<li>Gehe so an der Mauer entlang, dass du sie immer rechts siehst, bis wir
+wieder die Startmarkierung erreicht haben.</li>
+</ol>
+Wir schreiben das Programm jetzt um, so dass diese beiden Teile klarer erkennbar
+sind, und schreiben die Kommentare anders.</p>
+<pre>
+<span class="comment">
+# Dieses Programm weist Reeborg an, seine Welt gegen den Uhrzeigersinn zu
+# umrunden, und anzuhalten, wenn er seinen Ausgangspunkt wieder erreicht hat.
+</span>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+<span class="keyword">def</span> mark_starting_point_and_move():
+    put_beeper()
+    <span class="keyword">while not</span> front_is_clear():
+        turn_left()
+    move()
+
+<span class="keyword">def</span> follow_right_wall():
+    <span class="keyword">if</span> right_is_clear(): 
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear(): 
+        move()
+    <span class="keyword">else</span>: 
+        turn_left()
+
+found_starting_point = next_to_a_beeper   <span class=
+"comment"># Piepser markiert den Startpunkt.</span>
+
+<span class="comment">#=== Ende der Definitionen; Beginn der Lösung</span>
+
+mark_starting_point_and_move()
+            
+<span class="keyword">while not</span> found_starting_point(): 
+    follow_right_wall()
+      
+turn_off()
+</pre>
+<p>Ist das nicht klarer? Jetzt nimm an, dass jede Ecke beim Start einen Piepser
+hat. Wir könnten dann den Startpunkt markieren, indem wir einen Piepser 
+<i>entfernen</i>. Wir müssten in den Definitionen ein bisschen ändern, aber in 
+den Grundzügen könnte die Lösung so bleiben.</p>
+<!--======================================-->
+<hr width="50%"/>
+<h3 class="try">Erste Überraschung</h3>
+<p>Ändere das Programm, das du gerade geschrieben hast, durch Entfernen der
+<tt>put_beeper()</tt>-Anweisung. Speichere es und probiere es mit dem folgenden 
+Hürdenlauf aus (Datei:  hurdles3.wld).
+Change the program you just wrote to remove the <tt>put_beeper()</tt>
+instruction.  After saving it, try this slightly modified program 
+with the following hurdle race (file: hurdles3.wld).</p>
+<p><img alt="hurdles" src="../../images/intro/hurdles3_start.png"/></p>
+<p>Überraschung! Abgesehen davon, dass Reeborg am Ende in eine ungewohnte 
+Richtung guckt, kann das soeben geschriebene Programm das Hürdenproblem lösen.
+Es funktioniert auch mit den ungleichmäßigen Hürden (Datei: hurdles4.wld), das
+das zuvor geschriebene Programm nicht bewältigen konnte!</p>
+<p><img alt="hurdles" src="../../images/intro/hurdles4_start.png"/></p>
+<!--======================================-->
+<hr width="50%"/>
+<h3 class="try">Sensationelle Überraschung</h3>
+<p>Teste das gleiche modifizierte Programm wieder mit dem Labyrinth-Problem aus
+den ersten Lektionen (Datei: maze1.wld), wie angezeigt:</p>
+<p><img alt="maze" src="../../images/intro/maze1_start.png"/></p>
+<p>Du wirst sehen, dass unser einfaches Programm den Weg aus dem Labyrinth
+finden kann! Erstaunlich!</p>
+<!--======================================-->
+<hr width="50%"/>
+<h3 class="section">Schlussfolgerung</h3>
+<p>Wir begannen mit der Lösung eines einfachen Problems (Umrundung einer 
+rechteckigen Welt) und indem wir sie immer ein kleines Bisschen verbesserten
+(das nennt man auch <i>schrittweise Verfeinerung</i>), schafften wir es, ein Programm
+zu schreiben, mit dem wir viele scheinbar unzusammenhängende Probleme lösen
+konnten. Bei jedem Schritt wandten wir nur kleine Änderungen an und stellten 
+sicher, dass wir eine funktionierende Lösung hatten, bevor wir komplexere 
+Probleme in Angriff nahmen. Wir verwendeten auch aussagekräftigere Namen im
+<i>Algorithmus</i>, was das Programm lesbarer und hoffentlich auch
+verständlicher machte. Das ist die Strategie, die du bei deinen eigenen 
+Programmen anwenden solltest:</p>
+<dl>
+<dt><b>Regel # 5</b></dt>
+<dd>So schreibt man ein Programm:</dd>
+</dl>
+<ul>
+<li>Beginne einfach;</li>
+<li>mache kleine Änderungen, immer eine auf einmal;</li>
+<li>vergewissere dich, dass keine deiner Änderungen deine bis dahin geleistete
+Arbeit über den Haufen wirft;</li>
+<li>füge einfache Kommentare hinzu, die nicht bloß wiederholen, was jede
+Anweisung tut; und</li>
+<li>wähle aussagekräftige Namen.</li>
+</ul>
+<center><a href="20-amazing4.htm"><img alt="previous" src=
+"../../images/previous.png"/>20. Überraschung! - Teil 4</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"22-rain.htm">22. Es regnet!<img alt="next" src=
+"../../images/next.png"/></a>
+</center>
+</body>
+</html>

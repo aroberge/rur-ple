@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>34. Ein Rezept für Schokoladenschaumkuchen</title>
+</head>
+<body>
+<h2 class="title">34. Ein Rezept für Schokoladenschaumkuchen</h2>
+<p>Ich weiß nicht, wie es dir geht, aber ich bin hungrig. Es wäre wirklich toll,
+leckeren Schokoladenschaumkuchen zu essen. Wir brauchen:</p>
+<ul><li><u>Liste der Zutaten</u></li>
+<ul>
+<li>4 Eier</li>
+<li>100 g Zucker</li>
+<li>250 g Halbbitterschokolade</li>
+<li>30 ml Kakaopuder</li>
+</ul>
+</ul>
+<p>Um den Kuchen tatsächlich zu backen, brauchen wir das Rezept. Etwa so:</p>
+<ul>
+<li>Ofen auf 180 °C vorheizen</li>
+<li>Eigelb von Eiweiß trennen.</li>
+<li>etc.</li>
+</ul>
+<p>Ein Rezept hat sehr viel mit einem Computerprogramm gemeinsam: es ist eine 
+Reihe von Anweisungen, die man in der richtigen Reihenfolge ausführen muss, um
+das erwünschte Ergebnis zu bekommen. Ich denke, wir haben genug über
+Programmieren zu lernen, so dass ich die Kochlektion hier abbreche und auf
+Python zurückkomme.</p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Listen</h3>
+<p>Hier sind ein paar Dinge, die du mit dem Python-Interpreter ausprobieren
+kannst:</p>
+<pre>
+&gt;&gt;&gt; zutaten = [<span class="string">"4 Eier"</span>, <span class="string">"100 g Zucker"</span>, 
+...     <span class="string">"250 g Halbbitterschokolade"</span>, <span class="string">"30 ml Kakaopuder"</span>]
+&gt;&gt;&gt; 
+</pre>
+<p><tt>zutaten</tt> ist ein Beispiel für eine <i>Python-Liste</i>. Eine Liste in Python
+kann eine beliebige Anzahl von Elementen enthalten. In dem von uns gewählten Beispiel
+sind alle Zutaten Zeichenfolgen; aber auch Zahlen, sogar andere Listen und
+Python-Objekte, die wir noch kennen lernen werden, können Listenelemente sein. Nun
+probier mal folgendes aus:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> zutat <span class=
+"keyword">in</span> zutaten:
+...    <span class="keyword">print</span> zutat
+4 Eier
+100 g Zucker
+250 g Halbbitterschokolade
+30 ml Kakaopuder
+
+&gt;&gt;&gt; zutaten[0]
+<span class="string">'4 Eier'</span>
+
+&gt;&gt;&gt; zutaten[0:2]
+[<span class="string">'4 Eier'</span>, <span class="string">'100 g Zucker'</span>]
+</pre>
+<p>Das sollte dir bekannt vorkommen, auch wenn es etwas anders aussieht als
+das, was du bei den Zeichenfolgen gesehen hast. Probier auch mal dies:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">for</span> zeichen <span class="keyword">in</span> zutaten[0]:
+...     <span class="keyword">print</span> zeichen
+...    
+4
+ 
+E
+i
+e
+r
+
+&gt;&gt;&gt; zutaten[0][2]
+<span class="string">'E'</span>
+
+&gt;&gt;&gt; <span class="string">'4 Eier'</span>[2]
+<span class="string">'E'</span>
+</pre>
+<p>Wie wir gerade gesehen haben, hat <tt>zutaten[0]</tt> den Wert <span
+class="string">'4 Eier'</span>; also ist <tt>zutaten[0][2]</tt> das
+dritte Zeichen (denk dran, dass Python ab 0 zählt) der Zeichenfolge
+<span class="string">'4 Eier'</span>.</p>
+
+<p>Jetzt habe ich in dem Rezept oben noch eine leckere Zutat vergessen:
+<i>Schlagsahne</i> als Garnierung. Ich kann sie folgendermaßen
+hinzufügen und prüfen, dass sie hinzugefügt wurden:</p>
+<pre>
+&gt;&gt;&gt; zutaten.append(<span class="string">"Schlagsahne"</span>)
+&gt;&gt;&gt; <span class="keyword">print</span> zutaten
+[<span class="string">'4 Eier'</span>, <span class="string">'100 g Zucker'</span>, <span class="string">'250 g Halbbitterschokolade'</span>, <span class="string">'30 ml Kakaopuder'</span>, <span class="string">'Schlagsahne'</span>]
+</pre>
+<p><tt>append()</tt>ist eine Methode der Klasse "list". <tt>zutaten</tt> ist
+eine Instanz dieser Klasse. Wir <i>rufen</i> die Methode <tt>append</tt> für die
+Instanz <tt>zutaten</tt> <i>auf</i>, indem wir sie mit einem "." verbinden, wie
+wir es in der Lektion über Objektorientierte Programmierung gesehen haben. Das
+<i>Argument</i> von <tt>append</tt> ist das Objekt, das wir zur Liste 
+hinzufügen wollen. Es wird immer ans Ende der Liste angehängt.
+</p>
+<p>Listen haben viele Methoden; ich werde sie vorstellen, wenn sie gebraucht 
+werden. Wenn du sie alle sehen willst, gib einfach <tt>dir([])</tt> im
+Python-Interpreter ein; <tt>[]</tt> ist übrigens eine leere Liste - jede andere
+Liste würde zum gleichen Ergebnis führen. Schau mal, ob du die Methode 
+<tt>append</tt> ausfindig machen kannst.</p>
+<p>Jetzt, wo du weißt, wie man Elemente zu einer Liste hinzufügt, müssen wir
+auch wissen, wie man sie entfernt. Um das zu tun, brauchen wir das Schlüsselwort
+<span class="pykeyword">del</span>.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">del</span> zutaten[3]
+&gt;&gt;&gt; <span class="keyword">print</span> Zutaten
+[<span class="string">'4 Eier'</span>, <span class="string">'100 g Zucker'</span>, <span class="string">'250 g Halbbitterschokolade'</span>, <span class="string">'Schlagsahne'</span>]
+</pre>
+<p>Das Schlüsselwort <span class="pykeyword">del</span> kann viel mehr als
+Elemente aus einer Liste zu entfernen. Es kann zum Beispiel den
+Python-Interpreter veranlassen, Variablen, die du definiert hast, wieder zu 
+vergessen.
+</p>
+<pre>
+&gt;&gt;&gt; a = 3
+&gt;&gt;&gt; <span class="keyword">print</span> a
+3
+&gt;&gt;&gt; <span class="keyword">del</span> a
+&gt;&gt;&gt; <span class="keyword">print</span> a
+Traceback (most recent call last):
+  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+NameError: name <span class="string">'a'</span> is not defined
+</pre>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="try">Probier's aus!</h3>
+<p>
+Schreib in Reeborgs Welt ein einfaches Programm, das zwei Roboter mit
+verschiedenen Namen erzeugt, sie ein paar Schritte gehen lässt und dann
+versucht, einen von beiden mit dem Schlüsselwort <span class="pykeyword">
+del</span> verschwinden zu lassen. Wahrscheinlich musst du den verbliebenen
+Roboter noch einen Schritt gehen zu lassen (bevor du ihn ausschalten kannst),
+um den anderen Roboter vom Bildschirm verschwinden zu lassen.</p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Eine Anmerkung zu <tt>range()</tt></h3>
+<p>Du bist jetzt so weit, ein Geheimnis über die Funktion <tt>range()</tt>
+zu erfahren:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> range(6)
+[0, 1, 2, 3, 4, 5]
+</pre>
+<p>Genau so ist es: <tt>range()</tt> erzeugt ganz einfach eine Liste!</p>
+
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Listen, Ganzzahlen und Zeichenfolgen umwandeln</h3>
+<p>Hier sind ein paar nützliche Funktionen, um zwischen den <i>Datentypen</i> zu
+konvertieren.</p>
+<pre>
+&gt;&gt;&gt;  erste_zahl = 1304
+&gt;&gt;&gt;  zweite_zahl = 987
+&gt;&gt;&gt;  
+&gt;&gt;&gt;  <span class="comment"># str() konvertiert eine Ganzzahl in eine Zeichenfolge.</span>
+&gt;&gt;&gt;  erste_zeichenfolge = str(erste_zahl)
+&gt;&gt;&gt;  erste_zeichenfolge
+'1304'
+&gt;&gt;&gt;  zweite_zeichenfolge = str(zweite_zahl)
+&gt;&gt;&gt;  zweite_zeichenfolge
+'987'
+
+&gt;&gt;&gt;  <span class="comment"># int() konvertiert eine Zeichenfolge in eine Ganzzahl.</span>
+&gt;&gt;&gt;  int(erste_zeichenfolge)
+1304
+
+&gt;&gt;&gt;  <span class="comment"># list() konvertiert eine Zeichenfolge in eine Liste.</span>
+&gt;&gt;&gt;  erste_liste = list(erste_zeichenfolge)
+&gt;&gt;&gt;  erste_liste
+['1', '3', '0', '4']
+
+zweite_liste = list(zweite_zeichenfolge)
+&gt;&gt;&gt;  zweite_liste
+&gt;&gt;&gt;  ['9', '8', '7']
+
+&gt;&gt;&gt;  <span class="comment"># join() erzeugt eine Zeichenfolge aus eine Liste von Zeichenfolgen.</span>
+&gt;&gt;&gt;  '...'.join(zweite_zeichenfolge)
+'9...8...7'
+&gt;&gt;&gt;  '-'.join(erste_zeichenfolge)
+'1-3-0-4'
+&gt;&gt;&gt;  <span class="comment"># Elemente mit einer leeren Zeichenfolge verketten...</span>
+&gt;&gt;&gt;  ''.join(erste_zeichenfolge)
+&gt;&gt;&gt;  '1304'
+&gt;&gt;&gt;  ''.join(zweite_zeichenfolge)
+&gt;&gt;&gt;  '987'
+
+&gt;&gt;&gt;  <span class="comment"># Das letzte Element einer Liste mit pop() herausholen.</span>
+&gt;&gt;&gt;  <span class="comment"># pop() ist gewissermaßen das Gegenteil von append().</span>
+&gt;&gt;&gt;  erste_liste
+['1', '3', '0', '4']
+&gt;&gt;&gt;  letztes_element = erste_liste.pop()
+&gt;&gt;&gt;  letztes_element
+'4'
+&gt;&gt;&gt;  erste_liste
+['1', '3', '0']
+
+&gt;&gt;&gt;  <span class="comment"># Die Funktion len() ermittelt die Anzahl der</span>
+&gt;&gt;&gt;  <span class="comment"># Elemente in einer Liste.</span>
+&gt;&gt;&gt;  len(erste_liste)
+3
+</pre>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="try">Hilf Reeborg, mit Listen, Zeichenfolgen und Ganzzahlen zu
+addieren.</h3>
+<p>Hilf Reeborg, zwei Zahlen zu addieren, wie unten dargestellt, indem du das 
+anwendest, was wir gerade über Listen, Zeichenfolgen und Ganzzahlen gelernt
+haben.</p>
+<p><img alt="before addition" src=
+"../../images/inter/add34_start.png"/></p>
+<p><img alt="after addition" src=
+"../../images/inter/add34_end.png"/></p>
+<center><a href="33-for.htm"><img alt="previous" src=
+"../../images/previous.png"/>33. Repeat verbirgt Schlüsselwörter.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"35-dicts.htm">35. Merk's dir mit Python<img alt="next"
+src="../../images/next.png"/></a></center>
+</body>
+</html>

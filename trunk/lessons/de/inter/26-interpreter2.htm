@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>26. Wir interpretieren Schlüsselwörter.</title>
+</head>
+<body>
+<h2 class="title">26. Wir interpretieren Schlüsselwörter.</h2>
+<p>In der letzten Lektion lernten wir, wie wir mit Hilfe des Python-Interpreters
+einfache Berechnungen durchführen konnten. In dieser Lektion erfahren wir, wie
+der Python-Interpreter einige der Schlüsselwörter handhabt, die wir in Reeborgs
+Welt gesehen haben.</p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Zeilen fortsetzen</h3>
+<p>Wir fangen einfach an: tippe den Ausdruck <tt>3*(2+2)</tt>
+am Interpreter-Prompt ein und drücke die Eingabetaste. Das Ergebnis dürfte so
+aussehen:</p>
+<pre>
+&gt;&gt;&gt; 3*(2+2)
+12
+&gt;&gt;&gt;
+</pre>
+<p>Jetzt tippe nur den ersten Teil des Ausdrucks, und zwar <tt>3*(</tt>, ein und
+drücke die Eingabetaste. Das Ergebnis dürfte so aussehen:</p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     |
+</pre>
+<p>wobei die senkrechte Linie "|" einen blinkenden Cursor darstellt. Ein paar
+wichtige Beobachtungen sind hier zu festzuhalten:</p>
+<ul>
+<li>Der Prompt hat sich von <tt>&gt;&gt;&gt;</tt> nach <tt>...</tt> geändert.
+Er fordert uns jetzt auf, den bislang eingegebenen Text zu ergänzen. Mit dem
+<i>geänderten</i> Prompt teilt uns der Python-Interpreter mit, dass er den
+bislang eingegebenen Ausdruck für unvollständig hält.</li>
+<li>Der Cursor steht nicht unmittelbar hinter dem Prompt, sondern 4 Spalten
+weiter rechts. Wenn der Python-Interpreter die eingegebene Anweisung für
+unvollständig hält, bietet er eine Einrückung an, um eine Zeilenfortsetzung zu
+kennzeichnen oder einen Quelltext-Block zu beginnen (wie wir es zum Beispiel bei
+Funktionsdefinitionen gesehen hatten).</li>
+</ul>
+<p>Wir tippen nun den Rest des Ausdrucks auf der nächsten Zeile ein und drücken
+die Eingabetaste. So sieht das Ergebnis auf meinem Computer aus:</p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     2+2)
+12
+&gt;&gt;&gt;
+</pre>
+<p>Der Python-Interpreter hat registriert, dass der Ausdruck nun vollständig ist
+und hat ihn dementsprechend ausgerechnet, mit dem richtigen Ergebnis und der
+Aufforderung (dem Prompt), weitere Anweisungen einzugeben.</p>
+<p>Nun versuch, <tt>3*</tt> einzugeben und danach die Eingabetaste zu drücken.
+Hier ist das Ergebnis, das ich bekomme:</p>
+<pre>
+&gt;&gt;&gt; 3*
+  File <span class="string">"&lt;input&gt;"</span>, line 1
+    3*
+      ^
+SyntaxError: invalid syntax
+&gt;&gt;&gt;
+</pre>
+<p>Der Unterschied ist jetzt, dass wir nicht erkennen lassen, weiteren Text
+eingeben zu wollen. Im ersten Fall hatten wir eine linke Eröffnungsklammer "("
+ohne die dazu gehörige rechte Schlußklammer ")" stehen lassen. Der
+Python-Interpreter leitete daraus ab, dass wir beabsichtigten, weiter Text
+einzugeben, wenigstens bis zur rechten Klammer ")" (einschließlich) ... und gab
+uns die Gelegenheit dazu. Im zweiten Fall betrachtete der Python-Interpreter
+unsere Eingabe als abgeschlossen, versuchte, mit <tt>3*</tt> etwas anzufangen
+und informierte uns, dass das nicht ging.</p>
+<p>Jetzt versuch mal, das folgende Beispiel abzutippen:</p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     2+2
+...
+...
+...     )
+12
+&gt;&gt;&gt;
+</pre>
+<p>Solange der Python-Interpreter "denkt", dass wir noch nicht fertig sind,
+weigert er sich, mit der Auswertung zu beginnen und bietet uns den 
+Fortsetzungsprompt an. Wir können noch ein "dummes" Beispiel ausprobieren</p>
+<pre>
+&gt;&gt;&gt; 3*(
+...     2+2
+...     )+(
+...     1+1
+...     )
+14
+&gt;&gt;&gt;
+</pre>
+<p>das zugegebenermaßen schwerer zu lesen und zu verstehen ist als einfach</p>
+<pre>
+&gt;&gt;&gt; 3*(2 + 2) + (1 + 1)
+14
+&gt;&gt;&gt;
+</pre>
+<p>Lass dich nicht davon abhalten, noch ein paar Beispiele auszuprobieren, bevor
+du weiter liest.</p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Funktionen definieren</h3>
+<p>Wir sind jetzt so weit, dass wir uns noch einmal einige der
+Python-Schlüsselwörter (und -Konzepte!) anschauen können, die wir in Reeborgs
+Welt gesehen haben. Das erste Schlüsselwort ist <span class="pykeyword">def
+</span>. Wir definieren zunächst eine zugegebenermaßen dumme Funktion, die die
+Zahl 2 druckt. Versuche das unten angezeigte Ergebnis zu erhalten.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print2():
+...     <span class="keyword">print</span> 2
+...    
+&gt;&gt;&gt; print2()
+2
+&gt;&gt;&gt; print2()
+2
+&gt;&gt;&gt;
+</pre>
+<p>Jetzt musst du es erstmal selbst versuchen, bevor du weiter liest.</p>
+<p>Hast du gemerkt, wie hilfsbereit es vom Python-Interpreter war, den Quelltext
+von sich aus einzurücken? Beachte auch, dass er die Leerzeile als Beendigung der
+Funktionsdefinition interpretierte. Ist dir auch aufgefallen, wie er erkennt,
+dass "<tt>print2()</tt>" ohne Leerzeichen zwischen "print" und "2" anders 
+dargestellt wird als<br/>
+"<tt><span class="pykeyword">print</span> 2</tt>"?</p>
+<p>Jetzt probier folgendes:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print_many():
+...     <span class="keyword">print</span> 3
+...     <span class="keyword">print</span> 2
+...     <span class="keyword">print</span> 1
+...     <span class="keyword">print</span> 0
+...    
+&gt;&gt;&gt; print_many()
+3
+2
+1
+0
+&gt;&gt;&gt;
+</pre>
+<p>Solange wir immer wieder nicht-leere Zeilen innerhalb des Funktionskörpers
+hinzufügen, fordert uns der Python-Interpreter auf, noch mehr hinzuzufügen.
+Sobald wir eine Leerzeile einfügen, geht er davon aus, dass wir fertig sind.
+Daher können Leerzeilen so verstanden werden, dass sie für den
+Python-Interpreter eine Bedeutung haben; das traf in Reeborgs Welt nicht zu,
+ebenso wenig bei Programmen, die außerhalb von Pythons Interpreter geschrieben
+werden (In beiden letzteren Fällen werden Leerzeilen ignoriert). Beachte auch,
+dass der Python-Interpreter Leerzeilen ignoriert, wenn eine Klammer noch nicht
+geschlossen wurde; dann weiß der Python-Interpreter, dass es noch etwas 
+hinzuzufügen gibt.</p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section"><span class="pykeyword">if</span> im Interpreter</h3>
+<p>Findest du die Sache mit den leeren Zeilen verwirrend? ... Nur nicht
+verzweifeln, du wirst dich schnell daran gewöhnen! Ich mache jetzt einfach mal
+mit den anderen Schlüsselwörten weiter, die wir schon kennen. Wir beginnen mit
+<span class="pykeyword">if</span>.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...     <span class="keyword">print</span> 5 &gt; 4
+...    
+True
+&gt;&gt;&gt;
+</pre>
+<p>Da 5 größer als 4 ist, führt der Python-Interpreter die Anweisung innerhalb
+des <span class="pykeyword">if</span>-Blocks aus, also gibt er das Ergebnis
+von "5 &gt; 4" aus und das ist "True". Das werden wir wohl selten so haben
+wollen, daher probier doch mal folgendes:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...     <span class="keyword">print</span> <span class=
+"string">"5 &gt; 4"</span>
+...    
+5 &gt; 4
+&gt;&gt;&gt;
+</pre>
+<p>Wenn wir einen Text mit in Anführungszeichen setzen, wird daraus eine 
+Zeichen, die Programmierer üblicherweise als <i>String</i> bezeichnen und
+die der Python-Interpreter nicht ausführt, egal ob der Inhalt eine Rechenaufgabe 
+oder ein Kochrezept ist. Wir können also schreiben:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...     <span class="keyword">print</span> <span class=
+"string">'5 ist groesser als 4.'</span>
+...    
+5 ist groesser als 4.
+</pre>
+<p>Wir haben hier Wörter an Stelle mathematischer Symbole verwendet und -- was
+noch wichtiger ist -- den Text in einfache Anführungszeichen <tt>(')</tt> statt
+doppelter gesetzt; in Python können wir uns das aussuchen. Damit können wir 
+einzelne oder doppelte Anführungszeichen in einen String setzen; wir benutzen
+dann einfach das jeweils andere Anführungszeichen als Begrenzung:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> "Einfach, nich' wahr?"
+Einfach, nich' wahr?
+&gt;&gt;&gt; <span class="keyword">print</span> 'Er sagte: "Es ist einfach".'
+Er sagte: "Es ist einfach".
+</pre>
+<p>Wenn beide Anführungszeichen in einem String vorkommen sollen, müssen wir
+einen Backslash (sprich: Bäckßläsch) als Fluchtsymbol voranstellen, um dem
+Python-Interpreter anzuzeigen, dass ein Anführungszeichen hier nicht das Ende 
+des Strings bedeutet sondern ein normales Zeichen im String:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">print</span> 'Sie sagte: "Einfach, nich\' wahr?".'
+Sie sagte: "Einfach, nich' wahr?".
+</pre>
+<p>Jetzt wenden wir uns wieder dem <span class="pykeyword">if</span> zu und
+setzen noch ein <span class="pykeyword">else</span> darunter.</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
+...    <span class="keyword">print</span> <span class=
+"string">"5 ist groesser als 4."</span>
+... <span class="keyword">else</span>:
+...    <span class="keyword">print</span> <span class=
+"string">"4 ist groesser als 5."</span>
+...    
+5 ist groesser als 4.
+</pre>
+<p>Wenn du dir den obigen Bildschirmausschnitt anschaust, siehst du nichts
+Ungewöhnliches. Aber wenn du es selbst versuchst, wirst du merken, dass du
+die Rücktaste (über der Eingabetaste) drücken musst, um das
+<span class="pykeyword">else</span> genau unter das
+<span class="pykeyword">if</span> zu setzen.</p>
+<p>Probiere es unbedingt aus, bevor du weiter machst.</p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Noch mehr Funktionen
+<span class="pykeyword">def</span>inieren.</h3>
+<p>Wir können das letzte Quelltext-Schnipsel in eine Funktion umwandeln:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> groesser():
+...     <span class="keyword">if</span> 5 &gt; 4:
+...         <span class="keyword">print</span> <span class=
+"string">"5 ist groesser als 4."</span>
+...     <span class="keyword">else</span>:
+...         <span class="keyword">print</span> <span class=
+"string">"4 ist groesser als 5."</span>
+...    
+&gt;&gt;&gt; <span class="comment"># Jetzt rufen wir es auf!</span>
+&gt;&gt;&gt; groesser()
+5 ist groesser als 4.
+</pre>
+<p>Du musst versuchen, diese Funktion selbst einzutippen (und dabei lernen,
+die Einrückung hinzukriegen), bevor du weiter machst.</p>
+<p>Wäre es nicht toll, wenn wir mit <tt>groesser()</tt> zwei beliebige Zahlen
+automatisch vergleichen könnten? Um das zu bewerkstelligen, müssen wir uns mit
+Variablen beschäftigen.</p>
+<center><a href="25-interpreter.htm"><img alt="previous" src=
+"../../images/previous.png"/>25. Mit Python addieren</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"27-variables.htm">27. Variablen<img alt="next"
+src="../../images/next.png"/></a></center>
+</body>
+</html>

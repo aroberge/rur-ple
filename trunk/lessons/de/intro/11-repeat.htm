@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>11. Noch mal! Wiederholungen vermeiden</title>
+</head>
+<body>
+<h2 class="title">11. Noch mal! Wiederholungen vermeiden</h2>
+<p>Regel #3 die wir in der vorigen Lektion  kennen gelernt haben, ist so
+wichtig, dass ich glaube sie wiederholen zu müssen, so dass du sie dir gut
+merkst.</p>
+<dl>
+<dt><b>Regel # 3</b></dt>
+<dd>Wiederhole dich nicht beim Schreiben von Programmen.<br/>
+<b>Ich wiederhole: wiederhole dich nicht!</b></dd>
+</dl>
+<!--================================================-->
+<hr width="50%"/>
+<a name="Repeat" id="Repeat"></a>
+<h3 class="section">Wiederhole!</h3>
+<p>In deiner letzten Lösung der Übung "Zeitungen austragen" gab es
+wahrscheinlich immer noch einiges an Wiederholungen. Das Kommando
+<tt>turn_left()</tt> zum Beispiel wurde sicher dreimal hintereinander in der
+Definition von <tt>turn_right()</tt> verwendet, ähnlich 
+<tt>climb_up_one_stair()</tt>, dass garantiert viermal in der Definition von
+<tt>climb_up_four_stairs()</tt> auftauchte. Das scheint unserer Regel # 3
+zuwider zu laufen. Solche Wiederholungen kann man vermeiden, indem man Reeborg
+auffordert, Anweisungen mittels eines besonderen Kommandos zu wiederholen.</p>
+<p>Mit dem Kommando <tt>repeat()</tt> können wir Reeborg eine Anweisung 
+wiederholen lassen:<br/>
+<tt>repeat(</tt><em>Name der Anweisung</em>, Anzahl der Wiederholungen<tt>)
+</tt></p>
+<p>Achte darauf, den <em>Namen der Anweisung</em> ohne Klammern an das Kommando
+<tt>repeat()</tt> zu übergeben. Zum Beispiel könnten wir schreiben</p>
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+</pre>
+<h3 class="try">Du bist dran.</h3>
+<p>Verwende <tt>repeat()</tt> überall, wo du die Übung "Zeitung austragen"
+kürzen kannst. Vergewissere dich, dass das Programm wie erwartet funktioniert.
+</p>
+<!--============================================-->
+<hr width="50%"/>
+<a name="Challenges2" id="Challenges2"></a>
+<h3 class="suggested">Herausforderungen</h3>
+<p>Wir beenden diese Lektion mit ein paar Übungen. Dem Titel widersprechend sind
+die ersten beiden Übungen Wiederholungen der Übungen am Ende der Lektion
+"Mauern bauen", allerdings im Sinne des Themas dieser Lektion. Um sie zu lösen,
+musst du die neuen Konzepte (<span class="pykeyword">def</span>, 
+<tt>repeat()</tt>) verwenden, die du in den letzten beiden Lektionen kennen
+gelernt hast.</p>
+<h3 class="suggested">Hürden überspringen</h3>
+<p>Reeborg nimmt an einem Hürdenlauf teil. Schreibe ein neues Programm, das
+ihn den angezeigten Pfad entlang bis zur Ziellinie führt. Die Weltdatei heißt
+hurdles1.wld.</p>
+<center><img alt="hurdles start" src=
+"../../images/intro/hurdles1_start.png"/></center>
+<center><img alt="lead to" src="../../images/lead_to.png"/> <img alt=
+"hurdles end" src="../../images/intro/hurdles1_end.png"/></center>
+<p>Es könnte nützlich sein, unter anderem eine neue Anweisung 
+<tt>jump_hurdle()</tt> zu definieren, die folgendem Pfad entspricht:</p>
+<center><img alt="jump one hurdle start" src=
+"../../images/intro/jump1start.png"/> <img alt="lead to" src=
+"../../images/lead_to.png"/> <img alt="jump one hurdle end" src=
+"../../images/intro/jump1end.png"/></center>
+<p>Vergleiche deine neue mit der vorigen Lösung. (Du hast es doch
+gespeichert, oder?)</p>
+<hr width="50%"/>
+<h3 class="suggested">Erntezeit</h3>
+<p>Es ist Erntezeit! Lass Reeborg alle Möhren (durch Piepser dargestellt) im
+unten gezeigten Garten aufheben. Die Weltdatei heißt harvest1.wld.</p>
+<p><img src="../../images/intro/harvest1.png" alt="harvest start"/></p>
+<p>Dein Programm sollte folgende Anweisungen definieren:</p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+</pre>
+<p>Vielleicht zerlegst du diese Anweisungen weiter; zum Beispiel 
+<b><i>könntest</i></b> du schreiben</p>
+<pre>
+<span class="keyword">def</span> harvest_two_rows():
+    harvest_one_row()
+    move_left_to_next_row()
+    harvest_one_row()
+</pre>
+<p>mit einer geeigneten Definition von <code>harvest_one_row()</code>.
+Aber du kannst die benötigten Anweisungen auch nach deinen Vorstellungen
+zerlegen. Nachdem die drei benötigten Anweisungen definiert sind, sieht
+meine Version des Programms ohne die Definitionen so aus (es sind noch einige
+Wiederholungen drin):</p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+turn_off()
+</pre>
+<p>Vergleiche deine neue wieder mit der vorigen Lösung des Ernte-Problems.</p>
+<h3 class="suggested">Nochmal Erntezeit!</h3>
+<p>Es ist wieder Erntezeit! Aber diesmal sind die Rosen im Garten diagonal
+gesetzt worden. Lass Reeborg alle Möhren (durch Piepser dargestellt) im
+unten gezeigten Garten aufheben. Die Weltdatei heißt harvest4.wld.</p>
+<p><img src="../../images/intro/harvest2.png" alt="harvest start"/></p>
+<p>Wie im vorigen Beispiel könnte dein Programm folgende Anweisungen
+definieren:</p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+</pre>
+<p>Diese Anweisungen werden <b><u>nicht</u></b> genauso definiert wie vorher.
+Aber sobald du diese Anweisungen definiert hast, kannst du dein Programm 
+genauso schreiben wie im vorigen Beispiel:</p>
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+turn_off()
+</pre>
+<p>Achte darauf, Reeborg nicht vor die Wand laufen zu lassen! Überlege dir, wo
+du mit der Ernte beginnen willst und in welcher Richtung du ernten willst. Eine
+Skizze auf Papier könnte nützlich sein.</p>
+<center><a href="10-def.htm"><img alt="previous" src=
+"../../images/previous.png"/>10. Definitiv Wiederholungen vermeiden</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"12-if.htm">12. Reeborg entscheidet.<img alt="next" src=
+"../../images/next.png"/></a></center>
+</body>
+</html>

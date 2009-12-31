@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>8. Verflixte Bugs!</title>
+</head>
+<body>
+<h2 class="title">8. Verflixte Bugs!<img src="../../images/intro/b_shake.gif"
+alt="darn bugs"/></h2>
+<p>Niemand spricht gern über Computer Bugs. Daher werde ich versuchen, diese
+Lektion kurz zu halten. Ich bitte euch lediglich darum, sie zu lesen, nicht
+darum, Programme mit Bugs zu schreiben!</p>
+<h3 class="section">Was ist ein Bug?</h3>
+<p>Bug (sprich bak) ist das englische Wort für Wanze. Der Ursprung des Wortes
+<b>Bug</b> im Computer-Jargon wird oft auf einen tatsächlichen Zwischenfall
+zurückgeführt, bei dem eine Motte im Mark-II-Computer gefunden wurde;
+anscheinend hatte diese Motte den Computer lahm gelegt. Sie wurde von einem Team
+um den berühmten Computerwissenschaftler, Mathematiker und jungen Marineoffizier
+Grace Murray Hopper aufgespürt, der später die Computerwissenschaft um das
+Konzept der Compilersprachen bereicherte. Dr. Grace Hopper stieg schließlich in
+der U.S.-Marine zum Konteradmiral auf.</p>
+<p>Die Motte wurde aufbewahrt und in Hoppers Logbuch eingeklebt, wie unten
+gezeigt. Interessanterweise enthält das Logbuch unter der eingeklebten Motte
+eine Notiz mit den Worten "Erster wirklicher Fall eines Bug-Fundes" ("First
+actual case of bug being found").</p>
+<p><img src="../../images/intro/first_bug.jpg" alt="first bug"/></p>
+<h6>Bildquelle: Öffentliches Archiv des
+<a href="http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm">
+U.S. Naval Historical Center </a></h6> <p>Tatsächlich schreibt das Oxford
+English Dictionary das Wort "Bug" im technologischen Zusammenhang  Thomas Edison
+zu. Dem Oxford English Dictionary zufolge steht in der Ausgabe der Pall Mall
+Gazette vom 11. März 1889 folgender Text:</p>
+<blockquote><cite>Nach meinen Informationen hatte Mr. Edison die beiden letzten
+Nächte durchgemacht und dabei einen "Bug" in seinem Phonographen entdeckt - ein
+Ausdruck, der die Lösung eines Problems beschreibt und impliziert, dass sich
+irgendein imaginäres Insekt im Inneren verborgen hat und für alle Scherereien
+verantwortlich ist.
+</cite></blockquote>
+<p>Anscheinend war der ursprüngliche 'Bug' wohl ein Insekt, aber in Wirklichkeit
+ein eingebildetes.</p>
+<p>Unglücklicherweise sind Computer-Bugs zwar keine Insekten, aber auch nicht
+eingebildet.</p>
+<h3 class="section">Mit Bugs umgehen</h3>
+<p>Im Computer-Jargon wird ein Fehler, durch den ein Programm sich unerwartet 
+verhält, Bug genannt. Wenn du Programme schreibst, werden sich darin früher oder
+später Bugs befinden - das geht jedem so. Gute Programmierer versuchen, Bugs zu
+entfernen, sie zu "fixen", sobald sie merken, dass ihr Programm sich unerwartet
+verhält.</p>
+<p>RUR-PLE  unterstützt dich bei der Suche nach Bugs:</p>
+<ol>
+<li>
+<p>Das "Öl-Leck" des Roboters hinterläßt eine Spur, anhand derer du die
+Anweisungen sehen kannst, die der Roboter ausgeführt hat.</p>
+<p><img src="../../images/intro/turn_left_end.png" alt="simple left turn"/></p>
+</li>
+<li>
+<p>Jede Anweisung (wie nachfolgend <tt>pick_beeper()</tt>), die als nächste
+ausgeführt wird, wird im Programmfenster hervorgehoben.</p>
+<p>
+<img src="../../images/intro/highlight.png" alt="highlighted instruction"/>
+</p>
+<p><b><font color="#CC0000">Die Hervorhebung von Anweisungen kann manchmal
+Probleme verursachen; du kannst sie mit der "Hervorheben"-Schaltfläche an- und
+abschalten:</font></b><br/>
+<img src="../../images/intro/btn_highlight.png" alt="highlight button"/></p>
+</li>
+<li>
+<p>Du kannst ein laufendes Programm anhalten, indem du die Schaltfläche
+"Pausiere Programm"  drückst: <br/>
+<img src="../../images/intro/btn_pause.png" alt="pause button"/><br/>
+Das ist so was Ähnliches wie das Setzen eines <i>Haltepunktes</i> (englisch: 
+<i>breakpoint</i>) in einem Computerprogramm.</p>
+</li>
+<li>
+<p>Du kannst durch ein Programm "steppen", Anweisung für Anweisung, indem du
+die Schaltfläche "Gehe schrittweise durch die Instruktionen des
+Roboterprogramms" oder kurz <i>Einzelschrittschaltfläche</i>  drückst:<br/>
+<img src="../../images/intro/btn_step.png" alt="step button"/></p>
+</li>
+<li>
+<p>Du kannst die Geschwindigkeit, mit der die Anweisungen ausgeführt werden,
+ändern, indem du die Geschwindigkeitssteuerung benutzt:<br/>
+<img src="../../images/intro/btn_speed.png" alt="speed button"/><br/>
+Je weiter du den Schieberegler nach links schiebst, desto schneller wird das
+Programm ausgeführt. Du kannst die Geschwindigkeit nur vor dem Start des
+Programms einstellen; sie gilt dann für die gesamte Laufzeit des Programms.
+Lang laufende Programme kannst du zuerst schnell starten, kurz vor der Stelle
+mit dem unerwarteten Verhalten (dem Bug) anhalten und dann sorgfältig mit der
+Einzelschrittschaltfläche Anweisung für Anweisung durchsteppen.</p>
+</li>
+<li>
+<p>Wenn du ein Programm gestartet hast und es vorzeitig beenden möchtest, kannst
+du jederzeit die Schaltfläche "Stoppe Programm"  drücken:<br/><img src=
+"../../images/intro/btn_stop.png" alt="stop button"/><br/></p>
+</li>
+<li>
+<p>Wenn du dein Programm so neu starten willst, dass der Roboter auf seiner
+Position nach Laden der Weltdatei steht, musst du die Schaltfläche "Welt
+zurücksetzen aus der offenen Datei" drücken:<br/>
+<img src="../../images/intro/btn_reset_world.png" alt="reset button"/><br/>
+</p>
+</li>
+<li>
+<p>An der Unterseite des RUR-PLE-Fensters befindet sich eine Statusleiste, die
+anzeigt: 1) den Namen des geladenen Programms; 2) den Programmzustand; 3) die Anzahl
+der Piepser, die der Roboter bei sich trägt; 4) den Namen der geladenen Weltdatei.
+<br/>
+<img src="../../images/intro/status_bar.png" alt="status bar"/></p>
+</li>
+</ol>
+<p>Für's Erste sollte dies mehr als genug sein. Je mehr du über das
+Programmieren lernst, desto mehr Tricks lernst du, die dir helfen, Bugs zu 
+finden und los zu werden!</p>
+<center>
+<p><a href="7-beepers.htm"><img src="../../images/previous.png"
+alt="previous"/>7. Piepser</a> -
+<a href="../lessons_toc.htm"><img src="../../images/home.png"
+alt="home"/></a> - <a href="9-walls.htm">9. Mauern bauen<img src="../../images/next.png"
+alt="next"/></a>
+</p></center>
+</body>
+</html>

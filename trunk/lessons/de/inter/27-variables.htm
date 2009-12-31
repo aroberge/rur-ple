@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>27. Variablen</title>
+</head>
+<body>
+<h2 class="title">27. Variablen</h2>
+<p>Erinnerst du dich an die Übersetzungen, die wir im 5. Kapitel einführten?
+Wir sagten, dass du Reeborg andere Sprachen beibringen kannst. Als Beispiel
+benutzten wir das deutsche Wort für  "move".</p>
+<pre>
+geh = move
+</pre>
+<p>Wir hatten move einfach ein deutsches Wort als Name zugewiesen. Auch Zahlen
+können wir Namen zuweisen.</p>
+<pre>
+&gt;&gt;&gt; n = 3
+&gt;&gt;&gt; <span class="keyword">print</span> n
+3
+&gt;&gt;&gt; 2*n
+6
+&gt;&gt;&gt; n*n
+9
+</pre>
+<p>Feine Sache, nicht wahr? Jetzt können wir den Wert des Namens nach Belieben
+ändern.</p>
+<pre>
+&gt;&gt;&gt; n = 3
+&gt;&gt;&gt; <span class="keyword">print</span> n
+3
+&gt;&gt;&gt; n = 2
+&gt;&gt;&gt; <span class="keyword">print</span> n
+2
+</pre>
+<p>Weil der Wert des Namens sich ändern kann, bezeichnen wir ihn als
+<i>Variable</i>. Wenn du einen Namen vergibst, sagen wir, dass du einer
+Variablen einen Wert <i>zuweist</i>. Das Zeichen "<tt>=</tt>" bedeutet
+"ist ein Name für" und nicht "ist gleich", wie du es wohl gewohnt bist. Denn
+wenn "n gleich 2" ist, dann ist sicher auch "2 = n". Lass uns mal schauen, was
+Python daraus macht.</p>
+<pre>
+&gt;&gt;&gt; n = 2    <span class="comment"># Das ist ok.</span>
+&gt;&gt;&gt; 2 = n
+SyntaxError: can't assign to literal
+</pre>
+<p>Wenn es auf Standardtastaturen eine Alternative zum Gleichheitszeichen 
+gegeben hätte wie zum Beispiel</p>
+<pre>
+&gt;&gt;&gt; n <font size="6">←</font> 3
+&gt;&gt;&gt; <span class="keyword">print</span> n
+3
+</pre>
+<p>hätte Guido van Rossum, der Autor von Python, es sicher als Symbol für
+"ist ein Name für" genommen. Das gibt es aber nicht und deshalb müssen wir 
+statt dessen das Gleichheitszeichen benutzen. Das erklärt auch, warum wir ein
+doppeltes Gleichheitszeichen nehmen müssen, wenn wir zwei Zahlen auf Gleichheit
+prüfen wollen.</p>
+<p>Wie wir oben kurz gesehen haben, kann eine Variable nach Zuweisung einer
+Zahl genau wie diese Zahl eingesetzt werden. Zum Beispiel:</p>
+<pre>
+&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; b = 2
+&gt;&gt;&gt; c = a + b
+&gt;&gt;&gt; <span class="keyword">print</span> c
+3
+</pre>
+<p>Was wir gerade gesehen haben, sollte nicht allzu schwer zu verstehen sein.
+Dies hier dürfte auf den ersten Blick ein bisschen schwieriger sein:</p>
+<pre>
+&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; a = a + a   <span class="comment"># Ueberraschung?</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+2
+</pre>
+<p>Denk daran, dass "<tt>=</tt>" "ist ein Name für" bedeutet. Daher ist die 
+"überraschende" Zeile so zu verstehen:</p>
+<ul>
+<li>Nimm, was auf der rechten Seite des Symbols "=" steht (<tt>a + a</tt>.)</li>
+<li>Berechne seinen Wert (2; Ergebnis von 1 + 1).</li>
+<li>Für dieses Ergebnis wird die Variable auf der linken Seite (<tt>a</tt>)
+als Name vergeben.</li>
+</ul>
+<p>Wenn ich das alles ausschreibe, klingt es sehr kompliziert. Aber tatsächlich
+wirst du dich schnell daran gewöhnen, und es wird sehr bald keine Überraschung
+mehr für dich sein.</p>
+<p>Weil diese Methode der Wertänderung einer Variablen so häufig vorkommt, gibt
+es in Python eine Kurzform dafür:</p>
+<pre>
+&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; a += 3       <span class="comment"># entspricht</span> <span class="string">"a = a + 3"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+4
+
+&gt;&gt;&gt; a -= 2       <span class="comment"># entspricht</span> <span class="string">"a = a - 2"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+2
+
+&gt;&gt;&gt; a *= 5       <span class="comment"># entspricht</span> <span class="string">"a = a * 5"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+10
+
+&gt;&gt;&gt; a /= 2       <span class="comment"># entspricht</span> <span class="string">"a = a / 2"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+5
+</pre>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="try">Du bist dran.</h3>
+<p>Erinnerst du dich, wie schwierig es für Reeborg war, zwei Dezimalzahlen zu
+addieren? Um dein Gedächtnis ein wenig aufzufrischen, soll Reeborg zwei Zahlen
+auf folgende Weise addieren:</p>
+<p>
+3+2=5 <img alt="3+2" src="../../images/intro/add3_2_start.png"/><img alt="lead to"
+src="../../images/lead_to.png"/> <img alt="5" src=
+"../../images/intro/add3_2_end.png"/>
+</p>
+<p>
+8+4=12 <img alt="8+4" src="../../images/intro/add8_4_start.png"/><img alt=
+"lead to" src="../../images/lead_to.png"/> <img alt="12" src=
+"../../images/intro/add8_4_end.png"/></p>
+<p>Du kannst Variablen verwenden, um dir die Aufgabe zu erleichtern; wenn du das
+tust, brauchst du keine besondere Welt wir beim letzten Mal und Reeborg muss
+auch keine Piepser bei sich tragen um anzufangen. Hier ein paar Vorschläge:</p>
+<ul>
+<li>Verwende ein Variable mit dem Namen <tt>summe</tt>, deren Wert anfangs 0
+ist.</li>
+<li>Lass Reeborg die Piepser einzeln aufheben, wobei der Wert von <tt>summe</tt>
+jedes Mal um 1 erhöht wird, zum Beispiel mit der Kurzform<br />
+<tt>sum += 1</tt>.</li>
+<li>Wenn Reeborg fertig ist, betrachte zwei Fälle: <tt>summe</tt> ist größer als 10 oder nicht. Wenn ja, lass Reeborg alle Piepser bis auf 10 ablegen, einen Schritt zur Seite gehen und einen ablegen (den Übertrag). Wenn nein, lass Reeborg alle Piepser ablegen.</li>
+<li><span class="warning">Dringende Empfehlung:</span> Definiere keine neue 
+Funktion außer <tt>turn_right()</tt>. Den Grund wirst du einige Lektionen
+später erfahren.</li>
+</ul>
+
+<center><a href="26-interpreter2.htm"><img alt="previous" src=
+"../../images/previous.png"/>26. Wir interpretieren Schlüsselwörter</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"28-variables2.htm">28. Variablen und Funktionen<img alt="next"
+src="../../images/next.png"/></a></center>
+</body>
+</html>
