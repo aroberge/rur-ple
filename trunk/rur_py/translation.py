@@ -48,6 +48,7 @@ languages = {
     'english': [my_encode('English'), {}, 'en', 'english.po'],
     'french': [my_encode(u'Français'), {}, 'fr', 'french.po'],
     'german': [my_encode(u'Deutsch'), {}, 'de', 'german.po'],
+    'italian': [my_encode(u'Italian'), {}, 'it', 'italian.po'],
     'spanish': [my_encode(u'Español'), {}, 'es', 'spanish.po'],
     'turkish': [my_encode(u'Türkçe'), {}, 'tr', 'turkish.po'],
     'welsh': [my_encode('Welsh'), {}, 'cy', 'welsh.po'],
