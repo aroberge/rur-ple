@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>45. Brüche - Teil 2</title>
+</head>
+<body>
+<h2 class="title">45. Brüche - Teil 2</h2>
+<p>Um zwei Brüche zu multiplizieren, müssen wir Zähler und Nenner miteinander
+multiplizieren, um das Ergebnis zu erhalten:</p>
+<pre>
+1   3   3
+- * - = -
+2   4   8
+</pre>
+<p>Manchmal kann das Ergebnis der Multiplikation vereinfacht werden:</p>
+<pre>
+2    11   22   1
+-- * -- = -- = -
+11   6    66   3
+</pre>
+<p>In dieser Lektion wirst du lernen, wie du mit Python zwei Brüche
+multiplizierst und auch, wie du das Ergebnis vereinfachst.</p>
+<!--=============================================-->
+<hr width="50%"/>
+<h3 class="section">Multiplikation zweier Brüche</h3>
+<p>Versuche, die beiden Brüche aus dem letzten Abschnitt ganz naiv miteinander
+zu multiplizieren:</p>
+<pre>
+<span class='keyword'>    print</span> a*b
+</pre>
+<p><b>Probier's aus!</b> Du wirst eine Fehlermeldung bekommen, da Python das
+Symbol "<tt>*</tt>" zwischen den beiden Objekten der Klasse <tt>Bruch</tt> nicht
+in eine Rechenvorschrift umsetzen kann. Um diesen Mangel zu beheben, verwenden
+wir die spezielle Funktion <tt>__mul__()</tt>. Hier ist unser neuer Quelltext:
+</p>
+<pre>
+<span class='linenumber'>  1 </span><span class=
+'keyword'>class</span> Bruch(object):
+<span class='linenumber'>  2 </span>    <span class=
+'keyword'>def</span> __init__(self, zaehler, nenner=<span class=
+'number'>1</span>):
+<span class='linenumber'>  3 </span>        self.zaehler = zaehler
+<span class='linenumber'>  4 </span>        self.nenner = nenner
+<span class='linenumber'>  5 </span>        
+<span class='linenumber'>  6 </span>    <span class=
+'keyword'>def</span> __str__(self):
+<span class='notelinenumber'>  7 </span>        <span class=
+'keyword'>if</span> self.nenner ==<span class='number'> 1</span>:
+<span class='notelinenumber'>  8 </span>            <span class=
+'keyword'>return</span><span class='string'> "(%s)"</span>%self.zaehler
+<span class='linenumber'>  9 </span>        <span class=
+'keyword'>return</span><span class=
+'string'> "(%s/%s)"</span>%(self.zaehler, self.nenner)
+<span class='linenumber'> 10 </span>
+<span class='newlinenumber'> 11 </span>    <span class=
+'keyword'>def</span> __mul__(self, operand):
+<span class='newlinenumber'> 12 </span>        zaehler = self.zaehler * operand.zaehler
+<span class=
+'newlinenumber'> 13 </span>        nenner = self.nenner * operand.nenner
+<span class='newlinenumber'> 14 </span><span class=
+'keyword'>        return</span> Bruch(zaehler, nenner)
+<span class='linenumber'> 15 </span>
+<span class='linenumber'> 16 </span><span class=
+'comment'>#== Jetzt kommt der Test. ===
+</span><span class='linenumber'> 17 </span>
+<span class='linenumber'> 18 </span><span class=
+'keyword'>if</span> __name__ ==<span class='string'> "__main__"</span>:
+<span class='linenumber'> 19 </span>    a = Bruch(<span class=
+'number'>1</span>,<span class='number'> 2</span>)
+<span class='linenumber'> 20 </span>    b = Bruch(<span class=
+'number'>3</span>,<span class='number'> 1</span>)
+<span class='linenumber'> 21 </span><span class=
+'keyword'>    assert</span> str(a) ==<span class='string'> "(1/2)"</span>
+<span class='notelinenumber'> 22 </span><span class=
+'keyword'>    assert</span> str(b) ==<span class='string'> "(3)"</span>
+<span class='newlinenumber'> 23 </span><span class=
+'keyword'>    print</span> a*b
+</pre>
+<p>Zunächst habe ich etwas in den Zeilen 7, 8 und 22 geändert, so dass der
+Nenner nicht gezeigt wird, wenn er  1 ist. Dies unterscheidet sich geringfügig
+von der Übung, die ich in der letzten Lektion vorschlug, da ich die Klammern
+beibehalte, um anzudeuten, dass das betreffende Objekt immer noch vom Typ
+<tt>Bruch</tt> ist und nicht einfach eine Ganzzahl.</p>
+<p>Danach habe ich Python die Rechenvorschrift zur Multiplikation zweier Brüche
+übergeben: multipliziere die Zähler (Zeile 12), multipliziere die Nenner (Zeile
+13) und damit erhält man ein neues Objekt der Klasse <tt>Bruch</tt>. Wenn du 
+dieses Programm startest, erhältst du das Ergebnis  "<tt>(3/2)</tt>" (in Zeile
+23), und genau das wollten wir haben.</p>
+<p>Schließlich ersetzen wir die <span class='keyword'>print</span>-Anweisung
+durch eine <span class='keyword'>assert</span>-Anweisung (Zeile 23) und fügen
+einen neuen Test hinzu (Zeilen 24, 25), wie unten gezeigt.</p>
+<pre><span class='linenumber'> 16 </span><span class=
+'comment'>#== Jetzt kommt der Test. ===
+</span><span class='linenumber'> 17 </span>
+<span class='linenumber'> 18 </span><span class=
+'keyword'>if</span> __name__ ==<span class='string'> "__main__"</span>:
+<span class='linenumber'> 19 </span>    a = Bruch(<span class=
+'number'>1</span>,<span class='number'> 2</span>)
+<span class='linenumber'> 20 </span>    b = Bruch(<span class=
+'number'>3</span>,<span class='number'> 1</span>)
+<span class='linenumber'> 21 </span><span class=
+'keyword'>    assert</span> str(a) ==<span class='string'> "(1/2)"</span>
+<span class='linenumber'> 22 </span><span class=
+'keyword'>    assert</span> str(b) ==<span class='string'> "(3)"</span>
+<span class='notelinenumber'> 23 </span><span class=
+'keyword'>    assert</span> str(a*b) ==<span class='string'> "(3/2)"</span>
+<span class='newlinenumber'> 24 </span>    c = Bruch(<span class=
+'number'>1</span>,<span class='number'> 3</span>)
+<span class='newlinenumber'> 25 </span><span class=
+'keyword'>    print</span> b*c
+</pre>
+
+<p>Wenn wir dieses Programm starten, sehen wir, dass die Ausgabe
+"<tt>(3/3)</tt>" ist, was dasselbe wie <tt>1</tt> ist, wenn uns nicht alles
+täuscht. Es wäre schön, wenn wir den Python-Interpreter so weit bringen könnten,
+das auszurechnen. Um das hinzukriegen, verwenden wir einen Algorithmus, der vor
+über 2000 Jahren erfunden wurde!</p>
+<!--=============================================-->
+<hr width="50%"/>
+<h3 class="section">Euklids Algorithmus</h3>
+<p>Um das Jahr 300 v. Chr. (um das Jahr -299) veröffentlichte der griechische      
+Philosoph Euklid eine Reihe von 13 Büchern mit dem Titel <i>Elemente</i>.
+In diesen Büchern stand alles, was man damals über Mathematik und Geometrie 
+wusste, unter anderem ein Algorithmus zur Berechnung des <i>größten gemeinsamen
+Teilers</i>. Es ist sehr wahrscheinlich, dass dieser Algorithmus schon vor
+Euklids Geburt bekannt war; einige glauben, dass er vor 2500 Jahren entdeckt
+wurde! Pythons Autor Guido van Rossum schrieb eine kurze Funktion, die
+Euklids Algorithmus verwendet:</p>
+<pre>
+<span class='keyword'>def</span> ggt(a, b):
+    <span class='comment'>'''berechnet den groessten gemeinsamen Teiler 
+       zweier Ganzzahlen (Euklids Algorithmus).
+    '''</span>
+    <span class='keyword'>while</span> b != 0:
+        a, b = b, a % b
+    <span class='keyword'>return</span> a
+</pre>
+<p>Ich werde Euklids Algorithmus hier nicht erklären. Das überlasse ich dir als
+Übung (füg doch mal <tt><span class='keyword'>print</span> a, b</tt> als letze 
+Zeile in den while-Block ein, und schau, was aus a und b wird). Aber ich benutze
+Euklids Algorithmus in einer Funktion, die das Ergebnis der Multiplikation
+zweier Brüche vereinfacht:</p>
+<pre>
+<span class='keyword'>def</span> kuerzen(a, b):
+    <span class='comment'>'''teilt zwei Ganzzahlen durch ihren groessten gemeinsamen Teiler.'''</span>
+    teiler = ggt(a, b)
+    a /= teiler
+    b /= teiler
+<span class='keyword'>    return</span> a, b
+</pre>
+<p>Hier ist die neue Klassendefinition:</p>
+<pre>
+<span class='newlinenumber'>  1 </span><span class=
+'keyword'>def</span> ggt(a, b):
+<span class='newlinenumber'>  2 </span>    <span class=
+'comment'>'''berechnet den groessten gemeinsamen Teiler</span>
+<span class='newlinenumber'>  3 </span><span class='comment'>       zweier Ganzzahlen (Euklids Algorithmus).'''</span>
+<span class='newlinenumber'>  4 </span><span class='keyword'>    while</span> b:
+<span class='newlinenumber'>  5 </span>        a, b = b, a%b
+<span class='newlinenumber'>  6 </span>    <span class='keyword'>return</span> a
+<span class='linenumber'>  7 </span>
+<span class='linenumber'>  8 </span><span class=
+'keyword'>class</span> Bruch(object):
+<span class='linenumber'>  9 </span>    <span class=
+'keyword'>def</span> __init__(self, zaehler, nenner=<span class=
+'number'>1</span>):
+<span class=
+'notelinenumber'> 10 </span>        zaehler, nenner = self.kuerzen(zaehler, nenner)
+<span class='notelinenumber'> 11 </span>        self.zaehler = zaehler
+<span class='notelinenumber'> 12 </span>        self.nenner = nenner
+<span class='linenumber'> 13 </span>        
+<span class='linenumber'> 14 </span>    <span class=
+'keyword'>def</span> __str__(self):
+<span class='linenumber'> 15 </span>        <span class=
+'keyword'>if</span> self.nenner ==<span class='number'> 1</span>:
+<span class='linenumber'> 16 </span>            <span class=
+'keyword'>return</span><span class='string'> "(%s)"</span>%self.zaehler
+<span class='linenumber'> 17 </span>        <span class=
+'keyword'>return</span><span class=
+'string'> "(%s/%s)"</span>%(self.zaehler, self.nenner)
+<span class='linenumber'> 18 </span>
+<span class='linenumber'> 19 </span>    <span class=
+'keyword'>def</span> __mul__(self, operand):
+<span class='linenumber'> 20 </span>        zaehler = self.zaehler * operand.zaehler
+<span class='linenumber'> 21 </span>        nenner = self.nenner * operand.nenner
+<span class=
+'newlinenumber'> 22 </span>        zaehler, nenner = self.kuerzen(zaehler, nenner)
+<span class='linenumber'> 23 </span><span class=
+'keyword'>        return</span> Bruch(zaehler, nenner)
+<span class='linenumber'> 24 </span>
+<span class='newlinenumber'> 25 </span>    <span class=
+'keyword'>def</span> kuerzen(self, a, b):
+<span class='newlinenumber'> 26 </span>        <span class=
+'comment'>'''teilt zwei Ganzzahlen durch ihren groessten gemeinsamen Teiler.'''</span>
+<span class='newlinenumber'> 27 </span>        teiler = ggt(a, b)
+<span class='newlinenumber'> 28 </span>        a /= teiler
+<span class='newlinenumber'> 29 </span>        b /= teiler
+<span class='newlinenumber'> 30 </span><span class=
+'keyword'>        return</span> a, b
+<span class='linenumber'> 31 </span>
+<span class='linenumber'> 32 </span><span class=
+'comment'>#== Jetzt kommt der Test. ===
+</span><span class='linenumber'> 33 </span>
+<span class='linenumber'> 34 </span><span class=
+'keyword'>if</span> __name__ ==<span class='string'> "__main__"</span>:
+<span class='linenumber'> 35 </span>    a = Bruch(<span class=
+'number'>1</span>,<span class='number'> 2</span>)
+<span class='linenumber'> 36 </span>    b = Bruch(<span class=
+'number'>3</span>,<span class='number'> 1</span>)
+<span class='linenumber'> 37 </span><span class=
+'keyword'>    assert</span> str(a) ==<span class='string'> "(1/2)"</span>
+<span class='linenumber'> 38 </span><span class=
+'keyword'>    assert</span> str(b) ==<span class='string'> "(3)"</span>
+<span class='newlinenumber'> 39 </span><span class=
+'keyword'>    assert</span> str(a*b) ==<span class='string'> "(3/2)"</span>
+<span class='newlinenumber'> 40 </span>    c = Bruch(<span class=
+'number'>1</span>,<span class='number'> 3</span>)
+<span class='newlinenumber'> 41 </span><span class=
+'keyword'>    assert</span> str(b*c) ==<span class='string'> "(1)"</span>
+<span class='notelinenumber'> 42 </span>    d = Bruch(<span class=
+'number'>5</span>,<span class='number'> 10</span>)
+<span class='notelinenumber'> 43 </span><span class=
+'keyword'>    assert</span> str(d) ==<span class='string'> "(1/2)"</span>
+</pre>
+<p>In Zeile 1 bis 6 haben wir unsere Funktion <tt>ggt()</tt> definiert. Indem
+wir sie von der Klassendefinition trennen, machen wir sie anderen Programmierern
+leicht zugänglich, wenn sie unsere Datei importieren. Um dir die anderere
+Möglichkeit zu demonstrieren, habe ich die Methode  <tt>kuerzen()</tt> in die
+Klasse aufgenommen (Zeile 25 bis 30). Wir wenden <tt>kuerzen()</tt> in Zeile 22
+an und testen sie in den Zeilen 39 bis 41.</p>
+<p>Wir verwenden <tt>kuerzen()</tt> auch bei der Initialisierung eines neuen 
+Bruches (in Zeile 10, mit anderen kleinen Änderungen in Zeile 11 und 12), so
+dass ein neuer Bruch immer die gekürzte Form hat. Das wird in Zeile 42 und 43
+getestet.</p>
+<p>Schau dir meine Änderungen genau an. Alles funktioniert richtig, aber es
+wurde eine überflüssige Zeile hinzugefügt, durch die der Python-Interpreter
+dasselbe zweimal berechnet. <b>Siehst du, welche es ist?</b> Versuche sie zu 
+finden, bevor du mit der nächsten Lektion weiter machst, in der wir Brüche
+dividieren werden.</p>
+
+<center><a href="44-fractions.htm"><img alt="previous" src=
+"../../images/previous.png"/>44. Brüche - Teil 1</a> - 
+<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/>
+</a> - <a href="46-fractions3.htm">46. Brüche - Teil 3<img alt="next"
+src="../../images/next.png"/></a></center>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>36. Versteinerte Listen</title>
+</head>
+<body>
+<h2 class="title">36. Versteinerte Listen</h2>
+<p>Sowohl Listen als auch Zeichenfolgen können mit <i>slice</i>-Operationen
+zerlegt werden, durch Anwendung der  <tt>[::]</tt>-Schreibweise. Einzelne
+Elemente können durch ihren Index gefunden werden, d.h. durch Verwendung der
+<tt>[index]</tt>-Schreibweise. Aufgrund dieser Eigenschaften nennt man Listen
+und Zeichenfolgen <i><u>Sequenz</u>datentypen</i>. In Python gibt es noch mehr
+Sequenzdatentypen; ein häufig vorkommender Typ ist das <i>Tupel</i>.</p> 
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Kommas machen Tupel.</h3>
+<p>Weißt du noch, wie wir versuchten, Zahlen mit einem Komma zu schreiben? So
+sieht das aus:</p>
+<pre>
+&gt;&gt;&gt; 1,000
+(1, 0)
+</pre>
+<p>In Python sind zwei Werte, die durch ein Komma getrennt sind, Elemente eines
+Tupels. Wenn du ein Tupel mit <span class="keyword">print</span> ausgibst,
+werden die Elemente in Klammern angezeigt, um anzudeuten, dass es ein
+einzelnes Objekt ist.</p>
+<p><span class="warning">Beachte:</span> Wenn du das obige Beispiel mit anderen
+Zahlen ausprobierst, dann gibt es eine Fehlermeldung (wie bei 1,099) oder ein
+merkwürdiges Ergebnis (wie bei 1,077). Ignoriere das für's Erste. Ich komme in
+Lektion 42 (oktale, hexadezimale und binäre Zahlen) darauf zurück.
+</p>
+<p>Dieses Beispiel ist wahrscheinlich interessanter:</p>
+<pre>
+&gt;&gt;&gt; a = 1, 2, 3, 4, <span class="string">"genug!"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a
+(1, 2, 3, 4, <span class="string">'genug!'</span>)
+
+&gt;&gt;&gt; a[0]
+1
+
+&gt;&gt;&gt; a[1:4]
+(2, 3, 4)
+
+&gt;&gt;&gt; a[-1]
+<span class="string">'genug!'</span>
+</pre>
+<p>Tupel können auch Elemente von Tupeln sein. Hier sind zwei Beispiele:</p>
+<pre>
+&gt;&gt;&gt; b = 1, 2, 3
+
+&gt;&gt;&gt; c = 4, 5, b
+&gt;&gt;&gt; <span class="keyword">print</span> c
+(4, 5, (1, 2, 3))
+
+&gt;&gt;&gt; d = 1, 2, (3, 4, 5)
+&gt;&gt;&gt; <span class="keyword">print</span> d
+(1, 2, (3, 4, 5))
+</pre>
+<p>Außer dass wir runde () statt eckiger [] Klammern verwenden, könnte man
+meinen, dass Tupel und Listen gleich sind. Aber sie unterscheiden sich in 
+einem sehr wichtigen Punkt:</p>
+<pre>
+&gt;&gt;&gt; ein_tupel = 1, 2, 3
+&gt;&gt;&gt; eine_liste = [1, 2, 3]
+
+&gt;&gt;&gt; <span class="keyword">print</span> ein_tupel
+(1, 2, 3)
+&gt;&gt;&gt; <span class="keyword">print</span> eine_liste
+[1, 2, 3]
+
+&gt;&gt;&gt; eine_liste[1] = <span class="string">"neu"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> eine_liste
+[1, <span class="string">'neu'</span>, 3]
+
+&gt;&gt;&gt; ein_tupel[1] = <span class="string">"neu"</span>
+Traceback (most recent call last):
+  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+TypeError: object does not support item assignment
+</pre>
+<p>Während wir eine Liste dadurch ändern können, dass wir ein Element ändern
+oder hinzufügen, geht das bei einem Tupel nicht: es ist unveränderlich
+(<i>immutable</i>). Tupel sind also gewissermaßen versteinerte Listen. Andere unveränderliche Datentypen, die wir kennen, sind Zahlen und Zeichenfolgen:</p>
+<pre>
+&gt;&gt;&gt; eine_zeichenfolge = <span class="string">"abcd"</span>
+&gt;&gt;&gt; eine_zeichenfolge[2]
+<span class="string">'c'</span>
+&gt;&gt;&gt; eine_zeichenfolge[2] = <span class="string">"e"</span>
+Traceback (most recent call last):
+  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+TypeError: object does not support item assignment
+</pre>
+<p>Da Tupel unveränderlich sind, kann man sie als Schlüssel in einem <i>dict</i>
+verwenden!</p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Dicts, Listen und Tupel</h3>
+<p>Wir haben vor kurzem gesehen, daß Listen ihre Elemente in der gleichen
+Reihenfolge aufbewahren, in der sie hinzugefügt wurden, aber dass dicts in
+scheinbar zufälliger Reihenfolge ausgegeben werden. Wir können das in Reeborgs
+Welt beobachten.</p>
+
+<p>Klick auf die Schaltfläche "Ändere Ansicht der Weltdatei"  
+<img alt="Show/Hide world file"  src=
+"../../images/intro/btn_show_world_file.png"/> um die Weltdatei auf der rechten
+Seite anzuzeigen. Jetzt klick auf die Schaltfläche "Bearbeite Wände"
+<img alt="edit walls button" src="../../images/intro/btn_walls.png"/>.</p>
+<p>Erzeuge ein paar Wände und beobachte, was in der Weltdatei passiert. Jede
+neue Wand ist ein Listenelement, dessen Wert ein Tupel mit der Weltkoordinate
+ist. Sie wird ans Ende der Liste <i>angehängt</i>. Wenn du eine Wand löscht,
+indem du auf sie klickst, wird sie an ihrer Position aus der Liste gelöscht.
+Wenn du noch einmal auf die gleiche Stelle klickst, wird sie wieder erzeugt und
+am Ende der Liste angehängt.
+</p>
+<p>Anders dagegen die Piepser. Wenn du den Edit-Modus beendest, indem du noch
+mal auf die Schaltfläche "Bearbeite Wände" klickst, kannst du an jeder
+Straßenecke durch einen Klick mit der rechten Maustaste die Anzahl der Piepser
+angeben, die du dort ablegen möchtest. Für jede Ecke mit Piepsern wird ein
+dict-Element mit Eckenkoordinaten und Piepserzahl angelegt. Wenn du die
+Piepserzahl an einer Straßenecke neu eingibst, wird sie an Ort und Stelle
+geändert. Wenn du Piepser an einer Straßenecke ablegst, an der vorher noch 
+keine lagen, werden die neuen Piepser im Allgemeinen <b>nicht</b> am Ende
+angehängt. Sieh zu, dass du viele Ecken mit Piepsern hast, dann kannst du 
+besser sehen, was passiert. Setze an einer Ecke mit Piepsern die Piepserzahl 
+auf 0 und beobachte dabei die Weltdatei. Wie bei den Wänden verschwindet auch
+hier das Element. Nun lege an der gleichen Ecke sofort wieder Piepser ab. Das
+neue Element erscheint an der gleichen Stelle und nicht am Ende wie bei der
+Liste. Das liegt daran, dass die Reihenfolge der Elemente im dict auf einer
+mathematischen Funktion (dem "Hash") des Schlüssels beruht (in diesem Fall dem
+Tupel der Weltkoordinaten), die Python effizient handhaben kann, uns aber
+zufällig vorkommt.</p>
+<center><a href="35-dicts.htm"><img alt="previous" src=
+"../../images/previous.png"/>35. Merk's dir mit Python</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"37-class.htm">37. Reeborg wird aufgemotzt.<img alt="next"
+src="../../images/next.png"/></a></center>
+</body>
+</html>

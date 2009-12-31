@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>16. Solange bis Reeborg qualmt!</title>
+</head>
+<body>
+<h2 class="title">16. Solange bis Reeborg qualmt!</h2>
+<p>Wenn wir Anweisungen wiederholen wollen bis eine Bedingung wahr ist 
+(man sagt auch: bis eine Bedingung erfüllt ist), können wir das mit Python
+einfacher erreichen, indem wir das folgende neue Schlüsselwort verwenden:
+<span class="pykeyword">while</span> (solange). Wir schauen uns
+erstmal an, wie wir das <i>Pseudo-Code</i>-Beispiel aus der letzten Lektion
+umschreiben können:
+<pre>
+Solange nicht auf Piepser
+... weitergehen;
+sonst
+... abschalten.
+</pre>
+Du siehst hoffentlich, dass in diesem Quelltext die gleiche Idee steckt wie zuvor.
+In Python schreiben wir das so:</p>
+<pre>
+<span class="keyword">while not</span> on_beeper():
+    move()
+ 
+turn_off()           
+</pre>
+<p>Die <tt>repeat</tt>-Anweisung brauchen wir jetzt nicht mehr.
+<b>Probier's aus!</b></p>
+<hr width="50%"/>
+<h3 class="try">Du bist dran.</h3>
+<p>Verwende <span class="pykeyword">while</span> und <span class=
+"pykeyword">not</span>, um das Hürdenlauf-Programm so umzuschreiben, dass du
+keine willkürliche Zahl von Wiederholungen mehr annehmen musst. Anders
+ausgedrückt, sollte der Kern deines Programms so aussehen:</p>
+<pre>
+<span class="keyword">while not</span> next_to_a_beeper():
+    move_or_jump()
+ 
+turn_off()           
+</pre>
+<p>Vergewissere dich, dass es funktioniert!</p>
+<h3 class="suggested">Ausrupfen und Einsetzen</h3>
+<p>Es ist wieder Frühling. Reeborgs Vater hat im Garten Möhren gesät, damit er
+im Herbst ernten kann. Genau wie beim letzten Mal sind an einigen Stellen zwei
+Samen aufgegangen, an anderen keiner. Hier ein typischer Fall (Datei
+harvest4.wld):
+</p>
+<p><img alt="weeding" src="../../images/intro/harvest4.png"/></p>
+<p>Hilf Reeborg, die überzähligen Möhren auszurupfen, so dass es keine Stellen
+mit zwei Möhren (durch Piepser dargestellt) gibt, und setze sie an den leeren
+Stellen wieder ein.</p>
+<p>Ein <i>Vorschlag</i> für den Quelltext, der aber noch ergänzt werden muss:</p>
+<pre>
+<span class="comment"># Geeignete Begriffe einfuehren</span>
+moehre_vorhanden = on_beeper
+moehre_einsetzen = put_beeper
+moehre_ausrupfen = pick_beeper
+
+<span class="keyword">def</span> moehre_umsetzen():
+    <span class="keyword">while</span> moehre_vorhanden():
+        moehre_ausrupfen() <span class="comment"># alle aufheben!</span>
+    moehre_einsetzen()     <span class="comment"># nur eine einsetzen!</span>
+</pre>
+<p>Dieser Quelltext-Ausschnitt ist deutlich kürzer als sein Vorgänger (drei
+Zeilen in <tt>moehre_umsetzen</tt> statt sechs). Außerdem funktioniert er auch
+dann, wenn mehr als zwei Samen an einer Stelle aufgegangen sind! <b>Probier's
+aus!</b><br/>
+<small>Denk daran, dass es bei der echten Gartenarbeit natürlich <b>keine</b>
+gute Idee ist, eine Möhre auszurupfen und sie direkt wieder einzusetzen!</small></p>
+<center><a href="15-not.htm"><img alt="previous" src=
+"../../images/previous.png"/>15. Negativ, Reeborg!</a> - 
+<a href="../lessons_toc.htm"><img alt=
+"home" src="../../images/home.png"/></a> - <a href="17-amazing1.htm">
+17. Überraschung! - Teil 1<img alt="next" src="../../images/next.png"/></a>
+</center>
+</body>
+</html>

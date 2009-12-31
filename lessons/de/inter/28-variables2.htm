@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>28. Variablen und Funktionen</title>
+</head>
+<body>
+<h2 class="title">28. Variablen und Funktionen</h2>
+
+<p>Variablen, die wir in der letzten Lektion kennen gelernt haben, sind für
+Funktionsdefinitionen besonders nützlich. Erinnerst du dich noch an unsere
+Funktion <tt>print2</tt>?</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> print2():
+...     <span class="keyword">print</span> 2
+...    
+&gt;&gt;&gt; print2()
+2
+</pre>
+<p>Wir können sie folgendermaßen verallgemeinern:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> zahl_ausgeben(n):
+...     <span class="keyword">print</span> n
+...    
+&gt;&gt;&gt; zahl_ausgeben(2)
+2
+&gt;&gt;&gt; zahl_ausgeben(78)
+78
+</pre>
+<p>Wenn wir in einer Funktionsdefinition eine Variable als <i>Argument</i>
+zwischen die beiden Klammern setzen, bestimmen wir damit, dass der Wert, den
+das Argument beim <i>Aufruf</i> der Funktion hat, der Variablen (<tt>n</tt> in
+diesem Fall) zugewiesen werden muss.</p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Zeichenfolgen mit einer Zahl kombinieren</h3>
+<p>Angenommen, wir wollen Zahlen und Zeichenfolgen zusammen ausgeben. Damit
+meine ich: stell dir vor, wir wollen, dass die Ausgabe der Funktion
+<tt>zahl_ausgeben()</tt> so aussieht:</p>
+<pre>
+Du hast die Zahl 2 gewaehlt.
+</pre>
+<p>Es gibt <b><u>viele</u></b> Wege, dies zu erreichen, wie du später sehen
+wirst. Hier ist eine Methode, die nicht offensichtlich ist, aber sehr nützlich!
+</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> zahl_ausgeben(n):
+....    <span class="keyword">print</span> <span class=
+"string">"Du hast die Zahl %s gewaehlt."</span> % n
+....    
+&gt;&gt;&gt; zahl_ausgeben(3)
+Du hast die Zahl 3 gewaehlt.
+</pre>
+<p>Die Kombination <tt>%s</tt> innerhalb der Zeichenfolge wird durch den Wert
+der Variablen ersetzt, die rechts neben dem <tt>%</tt> hinter der Zeichenfolge steht.
+Versuche es einmal selbst und dann lies weiter.</p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Zeichenfolgen mit vielen Zahlen kombinieren</h3>
+<p>Kommen wir auf die Funktion <tt>groesser()</tt> zurück und verallgemeinern
+sie. Das geht so:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> groesser(erste, zweite):
+...     <span class="keyword">if</span> erste &gt; zweite:
+...         <span class="keyword">print</span> <span class=
+"string">"%s ist groesser als %s."</span> % (erste, zweite)
+...     <span class="keyword">else</span>:
+...         <span class="keyword">print</span> <span class=
+"string">"%s ist groesser als %s."</span> % (zweite, erste)
+...     
+&gt;&gt;&gt; groesser(5, 4)
+5 ist groesser als 4.
+&gt;&gt;&gt; groesser(0, 10)
+10 ist groesser als 0.
+</pre>
+<p>Beachte, dass du die zwei Variablen hinter dem Prozentzeichen <tt>%</tt>
+in Klammern <tt>()</tt> setzen musst, damit klar ist, wodurch die zwei
+<tt>%s</tt> in der Zeichenfolge ersetzt werden sollen.</p>
+<p><b>Probier's aus!</b></p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Funktionsargumente weglassen</h3>
+<p>Wir haben gerade gesehen, wie wir unsere Funktion <tt>groesser()</tt>
+verallgemeinern konnten statt wie zuvor immer die selben Zahlen zu
+vergleichen. In der jetzigen Form muss man immer <b>zwei</b> <i>Argumente</i>
+einsetzen: die beiden Vergleichswerte. Angenommen, wir möchten wissen, ob eine
+Zahl größer als 0 ist. Wir könnten eine neue Funktion dafür schreiben, oder
+unsere alte Funktion immer mit 0 als zweitem Argument aufrufen ... oder sie
+ein wenig ändern:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> groesser(erste, zweite=0):
+...     <span class="keyword">if</span> erste &gt; zweite:
+...         <span class="keyword">print</span> <span class=
+"string">"%s ist groesser als %s."</span> % (erste, zweite)
+...     <span class="keyword">else</span>:
+...         <span class="keyword">print</span> <span class=
+"string">"%s ist groesser als %s."</span> % (zweite, erste)
+...     
+&gt;&gt;&gt; groesser(5, 4)
+5 ist groesser als 4.
+&gt;&gt;&gt; groesser(1, 10)
+10 ist groesser als 1.
+groesser(5)
+&gt;&gt;&gt; 5 ist groesser als 0.
+groesser(-2)
+&gt;&gt;&gt; 0 ist groesser als -2.
+</pre>
+<p>Indem wir "<tt>zweite=0</tt>" zwischen den Klammern der Funktionsdefinition
+schreiben, legen wir fest, dass dieses Argument immer den Wert 0 hat, wenn
+wir es beim Aufruf von groesser weglassen. Wenn wir einem Argument so einen
+Standardwert geben, dann bezeichnen wir es als "optionales Argument".</p>
+<p>Optionale Argumente (es kann mehrere geben) <b><u>müssen</u></b> immer
+<b><u>nach</u></b> den Argumenten ohne Standardwert auftauchen. Daher sind die
+folgenden Definitionen (von denen nur die erste Zeile angezeigt wird) erlaubt:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> vier_argumente(a, b, c, d=33):
+&gt;&gt;&gt; <span class="keyword">def</span> vier_argumente(a, b, c=7, d=2):
+&gt;&gt;&gt; <span class="keyword">def</span> vier_argumente(a, b=1, c=3, d=56):
+&gt;&gt;&gt; <span class="keyword">def</span> vier_argumente(a=4, b=1, c=3, d=0):
+</pre>
+<p>aber diese Definitionen sind <b><u>nicht</u></b> erlaubt:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> vier_argumente(a=1, b, c, d=33):
+&gt;&gt;&gt; <span class="keyword">def</span> vier_argumente(a, b=2, c=3, d):
+&gt;&gt;&gt; <span class="keyword">def</span> vier_argumente(a=5, b=1, c=3, d):
+</pre>
+<p>Probiere es mit deinen eigenen Funktionsdefinitionen aus.</p>
+<!--==============================-->
+<hr width="50%"/>
+<h3 class="section">Zum Schluß eine Warnung</h3>
+<p>Die Python-Regeln gestatten es nicht, Schlüsselwörter als Variablen zu verwenden.
+Versuche folgendes:</p>
+<pre>
+&gt;&gt;&gt; <span class="keyword">def</span> = 2
+</pre>
+<p>und schau, was dabei herauskommt!</p>
+
+<center><a href="27-variables.htm"><img alt="previous" src=
+"../../images/previous.png"/>27. Variablen</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"29-strings.htm">29. Zeichen-Salami<img
+alt="next" src="../../images/next.png"/></a></center>
+</body>
+</html>

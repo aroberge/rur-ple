@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="../rurple.css" type="text/css"/>
+<title>42. Oktale, hexadezimale und binäre Zahlen</title>
+</head>
+<body>
+<h2 class="title">42. Oktale, hexadezimale und binäre Zahlen</h2>
+<p><span class="warning">Beachte:</span> Du brauchst den Inhalt dieser Lektion
+nicht vollständig zu verstehen, um weiter Python zu lernen.</p>
+<p>In Lektion 36 habe ich dir erzählt, dass es einige Fehlermeldungen oder
+andere unerwarteten Ergebnisse geben könnte, wenn du bestimmte Zahlen
+verwendest. Hier sind zwei Beispiele:</p>
+<pre>
+&gt;&gt;&gt; 023
+19
+
+&gt;&gt;&gt; 099
+  File <span class="string">"&lt;input&gt;"</span>, line 1
+    099
+      ^
+SyntaxError: invalid token
+</pre>
+<p>Was geschieht hier? Nun, Python interpretiert jede Zahl, die Null als erste
+Ziffer hat, als oktale Zahl, also als eine Zahl mit der Basis 8.</p>
+<p>"Normale" Zahlen, auch Dezimalzahlen genannt, werden mit der Basis 10 gebildet. Ihre Ziffern sind: "0, 1,
+2, 3, 4, 5, 6, 7, 8 und 9". Eine Zahl wie 345 wird folgendermaßen
+interpretiert:</p>
+<pre>
+345 = 3*100 + 4*10 + 5*1
+oder
+345 = 3*10*10 + 4*10 + 5*1
+oder
+345 = 3*10**2 + 4*10**1 + 5*10**0
+</pre>
+<p><small>Wenn du die letzte Zeile nicht verstehst, dann musst du in der Schule
+noch ein bisschen Mathe lernen! Was "**" bedeutet, haben wir schon in einer der
+ersten Lektionen gesehen.
+</small></p>
+<p>Dagegen besteht eine Zahl mit der Basis 8 aus den folgenden 8 Ziffern: "0,
+1, 2, 3, 4, 5, 6 und 7". Eine Zahl wie "23" (in Python 023 geschrieben) wird so
+interpretiert:</p>
+<pre>
+023 = 2*8 + 3*1 = 16 + 3 = 19 (in Basis 10)
+</pre>
+<p>Das erklärt das erste Ergebnis, das wir oben gesehen haben. Das zweite 
+Ergebnis rührt daher, dass "9" in der Basis 8 keine erlaubte Ziffer ist.</p>
+<p>Verwirrt? ... Dann wollen wir die Verwirrung noch steigern, in der Hoffnung,
+dadurch Klarheit zu erlangen! Python hat auch hexadezimale Zahlen (Zahlen mit
+der Basis 16). Diese bestehen aus den Ziffern "0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a,
+b, c, d, e, f", wobei "a" für 10 steht, "b" für 11 und so weiter. Hexadezimale
+Zahlen beginnen in Python mit den Zeichen "0x", um sie von oktalen und dezimalen
+Zahlen unterscheiden zu können. Die Buchstaben in einer hexadezimalen Zahl kannst
+du groß oder klein schreiben. Zur Klarstellung: die 0 am Anfang oktaler und
+hexadezimaler Zahlen ist eine "Null", kein "Oh". Beispiele hexadezimaler Zahlen
+in Python:</p>
+<pre>
+&gt;&gt;&gt; 0x33
+51
+
+&gt;&gt;&gt; 0xa
+10
+
+&gt;&gt;&gt; 0xf
+15
+
+&gt;&gt;&gt; 0x10
+16
+
+&gt;&gt;&gt; 0x111
+273
+
+&gt;&gt;&gt; 0x123
+291
+</pre>
+<p>Schauen wir doch mal, ob wir das letzte Beispiel verstehen:</p>
+<pre>
+0x123 = 1*16*16 + 2*16 + 3*1 = 256 + 32 + 3 = 291 (in Basis 10)
+</pre>
+<p>
+</p>
+<p>Bevor wir mit dieser Lektion und besonders mit diesem Abschnitt fertig sind,
+möchte ich noch etwas zu den binären Zahlen, also den Zahlen mit der Basis 2
+sagen. Diese bestehen aus den Ziffern "0" und "1". Hier ist ein Beispiel für 
+eine Binärzahl und ihre Wert in der Basis 10:</p>
+<pre>
+101001 = 1*2**5 + 0*2**4 + 1*2**3 + 0*2**2 + 0*2**1 + 1*2**0
+oder
+101001 = 1*32 + 1*8 + 1*1 = 41 (in Basis 10)
+</pre>
+<p>Binärzahlen sind sehr wichtig ... nein, sie sind <b>grundlegend </b> für 
+Computer; der Grund dafür ist recht leicht zu verstehen, wenn wir uns an eine
+sehr einfache Beschreibung halten:</p>
+<p>Stell dir eine Glühbirne und einen Lichtschalter vor. Wenn der Schalter auf
+"ein" steht, leuchtet die Glühbirne, weil sie von elektrischem Strom
+durchflossen wird. Wenn der Schalter auf "aus" steht, leuchtet die Glühbirne
+nicht, weil der Stromfluß unterbrochen ist. Es gibt also nur zwei Zustände.
+Die übliche Zuordnung ist: "Strom fließt nicht" = 0, "Strom fließt" = 1.</p>
+<p>Nun gibt es in Computern zwar keine Glühbirnen, dafür aber winzige Drähte und
+Schalter (<small>und noch viel mehr elektronische Bausteine, die aber für unsere 
+Diskussion nicht wichtig sind</small>).
+Der Zustand eines Computers zu einem bestimmten Zeitpunkt läßt sich dadurch 
+beschreiben, durch welche Drähte (zum Beispiel durch den 3. 5. und 17.) gerade
+Strom fließt. Das kann man als eine Reihe von Nullen (für stromlose Drähte) und
+Einsen (für stromdurchflossene Drähte) darstellen. Dieser Zustand entspricht
+einer bestimmten Zahl ... dargestellt in der Basis 2! Computerprogramme tun
+eigentlich nichts anderes als die winzigen Schalter zu steuern, die die
+Stromflüsse durch den Computer bestimmen.</p>
+<p>Da nun 8 eine Potenz von 2 ist (8=2*2*2), sind oktale Zahlen ebenfalls eine
+für Computer nützliche Darstellung von Ganzzahlen. Gleiches gilt für 
+hexadezimale Zahlen (16=2*2*2*2). Weil sie weniger Schreibarbeit machen, 
+benutzen Programmierer hexadezimale Zahlen am häufigsten, nach dezimalen Zahlen
+natürlich. Du wirst sie wahrscheinlich benutzen, wenn du Spiele in Python
+programmierst!</p>
+
+<h3 class="try">Du bist dran.</h3>
+<p>Wenn du wirklich verstanden hast, worum es bei binären, oktalen, dezimalen
+und hexadezimalen Zahlen geht, dann sollte die folgende kleine Aufgabe kein
+Problem für dich sein:</p>
+<p>Lange haben wir darauf gewartet, jetzt ist es passiert. Wir haben Besuch von
+Außerirdischen bekommen. Zum Glück sind sie freundlich. An jeder Hand haben sie nur drei Finger. Entsprechend sieht auch ihr
+Zahlensystem aus: Es besteht aus den 6 Ziffern "0, 1, 2, 3, 4, 5". Wir nennen
+diese Zahlen <i>hexale</i> Zahlen und kennzeichnen sie, indem wir sie mit "0s"
+beginnen lassen.</p>
+<p>Wie schreibst du die dezimalen Zahlen 10 und 37 als Hexalzahlen? Welche
+Dezimalzahl entspricht 0s234?
+</p>
+<h3 class="try">Du bist nochmal dran.</h3>
+<p>
+Für Wagemutige: definiere eine Funktion, die eine Hexalzahl als Zeichenfolge
+entgegennimmt und ihren Zahlenwert zurückgibt. Damit du etwas schneller zum Ziel
+kommst, hast du hier die schon fast fertige Funktion:
+<pre>
+<span class="keyword">def</span> hexalwert(zeichenfolge):
+    <span class="string">'''gibt den Wert einer Hexalzahl zurueck.
+    '''</span>
+    ohne_0s = zeichenfolge[2:]
+    wert = 0
+    hochzahl = len(ohne_0s)-1
+    <span class="keyword">for</span> zifferzeichen <span class="keyword">in</span> ohne_0s:
+        ziffer = int(zifferzeichen)
+        <span class="comment"># Ersetze die print-Zeile durch die Berechnung des Wertes.</span>
+        <span class="keyword">print</span> ziffer
+    <span class="keyword">return</span> wert
+
+<span class="keyword">print</span> hexalwert(<span class="string">'0s314'</span>)
+</pre>
+</p>
+
+<center><a href="41-fairy_tale.htm"><img alt="previous" src=
+"../../images/previous.png"/>41. Ein Robotermärchen</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> -
+<a href="43-sorting.htm">43. Sortierung<img alt="next"
+src="../../images/next.png"/></a></center>
+</body>
+</html>

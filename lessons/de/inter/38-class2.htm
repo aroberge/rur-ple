@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>38. Ein Hauch von Klasse</title>
+</head>
+<body>
+
+<h2 class="title">38. Ein Hauch von Klasse</h2>
+<p>Wir haben gesehen, wie wir zu einer bestehenden Klasse eine neue Methode 
+hinzufügen können, um einem Roboter die Fähigkeit zu geben, sich rechts herum zu
+drehen. Hier ist noch ein Beispiel für die Erweiterung einer Klasse um eine neue
+Methode.</p>
+<pre>
+<span class="keyword">class</span> SuperRobot(RepairedRobot):
+    <span class="keyword">def</span> diag(self):
+        self.set_trace_style(1, <span class="string">'white'</span>)
+        self.turn_left()
+        self.move()
+        self.turn_right()
+        self.move()
+        self.set_trace_style(1, <span class="string">'sea green'</span>)
+
+Zauberer = SuperRobot()
+Zauberer.move()
+Zauberer.move()
+Zauberer.diag()
+Zauberer.diag()
+Zauberer.move()
+Zauberer.move()
+Zauberer.turn_off()
+</pre>
+<p><img alt="magic"  src="../../images/future/magic.png"/></p>
+<p>Der neue Roboter kennt alle Methoden von <tt>RepairedRobot</tt>, wie
+<tt>move() und turn_off()</tt>, und eine neue namens <tt>diag()</tt>.</p>
+
+<h3 class="section">Eine neue Klasse entwerfen</h3>
+<p>Manchmal wollen wir eine neue Klasse schreiben, die das grundlegende
+Verhalten einer bestehenden Klasse ändert. Dazu müssen wir eine spezielle 
+Methode namens <tt>__init__()</tt> neu definieren. Das folgende Beispiel ist so
+ein Fall, wo wir das "Öl-Leck reparieren", so dass der neue Roboter keine Spur
+hinter sich herzieht. In Wirklichkeit tun wir mehr als das, weil wir ihn eine
+weiße (style = 5) Spur ziehen lassen (statt der grünen Standardspur), die in der
+Mitte des Weges verläuft, den der Roboter geht, so dass sie im Endeffekt die
+graue gepunktete Linie verdeckt, so als ob der Roboter sie wegradieren würde.
+</p>
+<pre>
+<span class="keyword">class</span> Radierer(RepairedRobot):
+    <span class="keyword">def</span> __init__(self):
+        RepairedRobot.__init__(self)
+        self.set_trace_style(5, <span class="string">'white'</span>)
+
+Schleich = Radierer()
+<span class="keyword">while</span> Schleich.front_is_clear():
+    Schleich.move()
+Schleich.turn_off()
+</pre>
+<p><img alt="eraser"  src="../../images/future/eraser.png"/></p>
+<center>
+<a href="../lessons_toc.htm"><img alt="home"  src="../../images/home.png"/></a>
+</center>
+<p>Vielleicht möchtest du dieses Beispiel variieren und andere Farben (style
+1 bis 5) ausprobieren.</p>
+<center><a href="37-class.htm"><img alt="previous" src=
+"../../images/previous.png"/>37. Reeborg wird aufgemotzt.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"39-import.htm">39. Erfinde das Rad nicht neu - importiere es!<img alt="next"
+src="../../images/next.png"/></a></center>
+</body>
+</html>

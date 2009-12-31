@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="rurple.css" type="text/css" />
+<title>Übersicht der Reeborg-Steuerung</title>
+</head>
+<body>
+<h2 class="title">Python lernen: Ein Kinderspiel mit RUR-PLE!</h2>
+<h6>André Roberge, © 2005, 2006</h6>
+<h3 class="section">Übersicht der Reeborg-Steuerung</h3>
+<p>Reeborgs Aktionen</p>
+<pre>
+move()
+turn_left()
+pick_beeper()
+put_beeper()
+turn_off()
+</pre>
+<p>Reeborgs Abfragen</p>
+<pre>
+front_is_clear()
+left_is_clear()
+right_is_clear()
+facing_north()
+carries_beepers()
+on_beeper() <span class="comment"># entspricht next_to_a_beeper()</span>
+</pre>
+Spezielle Funktion (ersetzt for-Anweisung):
+<pre>
+repeat(funktion, anzahl_wiederholungen)
+<span class="comment"># Dies entspricht </span>
+<span class="keyword">for</span> nummer <span class="keyword">in</span> range(anzahl_wiederholungen):
+    funktion()
+</pre>
+<p>Objektorientierte Programmierung:</p>
+<pre>
+Reeborg = UsedRobot()
+Reeborg.move()
+Reeborg.turn_left()
+Reeborg.pick_beeper()
+Reeborg.put_beeper()
+Reeborg.front_is_clear()
+Reeborg.left_is_clear()
+Reeborg.right_is_clear()
+Reeborg.facing_north()
+Reeborg.carries_beepers()
+Reeborg.on_beeper() <span class="comment"># entspricht Reeborg.next_to_a_beeper()</span>
+</pre>
+<p>Fortgeschrittene Optionen:</p>
+<pre>
+set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
+<span class="comment"># Jeder Farbname (colour: Farbe), den wxPython kennt, kann verwendet
+# werden. style kann die Werte 1, 2, 3, 4, oder 5 annehmen.</span>
+
+set_delay(zeit)
+<span class="comment"># 0 &lt; zeit &lt; 10 (in Sekunden)</span>
+
+Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span class="string">'E'</span>,
+                 beepers=0, name=<span class="string">'robot'</span>, colour=<span class="string">'grey'</span>)
+<span class="comment"># avenues verlaufen in Nord-Süd-, streets in West-Ost-Richtung.</span>
+<span class="comment"># orient_key steht für eine Himmelsrichtung und kann die Werte</span>
+<span class="string">'E'</span>, <span class="string">'W'</span>, <span class="string">'S'</span>, <span class="string">'N'</span>
+<span class="comment"># annehmen. Kleinschreibung geht auch. 'E' ist die Abkürzung von 
+# 'East' (Osten).</span>
+
+<span class="comment"># Mögliche <b>Roboter</b>-Farben sind:</span>
+<span class="string">'yellow'</span>, <span class="string">'blue'</span>, <span class="string">'light blue'</span>, <span class="string">'purple'</span>, <span class="string">'green'</span>
+<span class="comment"># (gelb, blau, hellblau, lila und grün). Jede andere
+# Farbe gibt dem Roboter die Standardfarbe 'grey' (grau).</span>
+
+
+<span class="comment"># An jeden Roboter-Namen kann eine "Seriennummer" angehängt werden,
+# so dass jeder Roboter während einer RUR-PLE-Sitzung einen eindeutigen
+# Namen hat.</span>
+
+Reeborg.set_trace_style(style=1, colour=<span class="string">'sea green'</span>) 
+Reeborg.set_delay(time)
+</pre>
+<p>Neuer und verbesserter Roboter!</p>
+<pre>
+Guido = RefurbishedRobot()  <span class="comment"># erbt von UsedRobot</span>
+
+<span class="comment"># Weitere Methoden:</span>
+Guido.turn_right()
+Guido.facing_east()
+Guido.facing_south()
+Guido.facing_west()
+Guido.roll_dice(n=6) <span class="comment"># Zufallszahl zwischen 1 und n.</span>
+</pre>
+
+<h3><a name="Acknowledgements" id=
+"Acknowledgements"><b>Danksagungen</b></a></h3>
+<p>Ohne meine Kinder, Julien und Evelyne, wäre dieses Programm 
+nie entstanden. Es ist ihnen gewidmet, in der Hoffnung, dass sie die
+Grundlagen des Programmierens lernen und Spaß dabei haben.
+Julien muss ich dafür danken, dass er das Startbild und das Bild des
+Roboters entworfen hat, das in diversen Fehlerdialogen gezeigt wird.</p>
+<p>Ich selbst habe durch das Schreiben dieses Programms viel gelernt -
+tatsächlich kannte ich Python erst seit ein paar Monaten, als ich mit diesem
+Projekt anfing, nachdem ich länger nicht mehr programmiert hatte als
+ich zuzugeben wage. Natürlich wäre die Lernkurve ohne die Arbeit der
+Python- und wxPython-Gemeinde viel steiler gewesen und dieses Programm
+wäre gar nicht möglich gewesen. Es wurde inspiriert durch "Guido van Robot"
+(GvR),  eine Implementierung von Pattis' Original "Karel the Robot" in Python. Ich habe sehr
+nützliche Anregungen vom GvR-Team bekommen; insbesondere möchte ich
+den Anteil von Stas Zykiewicz hervorheben, der mir eine Menge über wxPython
+beigebracht hat, und nie müde wurde, mein fehlerhaftes Programm auszuprobieren,
+bis RUR-PLE stabil genug wurde, um für andere brauchbar zu sein. Danke, Stas!</p>
+<p>Viele Bilder für die Schaltflächen habe ich der Iconsammlung Nuvola von David
+Vignoni entnommen und und angepasst. Ich wünschte, ich könnte so ästhetisch
+ansprechende Bilder entwerfen wie Vignoni.</p>
+<p>Tony Payzant hat einiges an Zeit damit verbracht, frühere Versionen der Lektionen
+Korrektur zu lesen. Auch Bob Gailer schlug einige nützliche Korrekturen vor.</p>
+<p>Luis Sureda stellte eine Übersetzung ins Spanische zur Verfügung und machte einige
+brauchbare Vorschläge zur Vereinfachung des Quelltextes für die Sprachauswahl.</p>
+<p>Richard E. Brown lieferte viele nützliche Fehlerberichte und Vorschläge für die Anpassung
+von RUR-PLE an MacOS.</p>
+<p>Andy Judkis  benutzte RUR-PLE zusammen mit seinen Studenten und machte viele Verbesserungsvorschläge;
+in vielerlei Hinsicht wurde er eine treibende Kraft hinter diesem Projekt.</p>
+<center><a href="rur.htm"><img alt="home" src=
+"../images/home.png"/></a></center>
+</body>
+</html>

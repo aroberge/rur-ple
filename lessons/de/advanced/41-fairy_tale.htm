@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>41. Ein Robotermärchen</title>
+</head>
+<body>
+
+
+<h2 class="title">41. Ein Robotermärchen</h2>
+
+<p>Vor langer, langer Zeit ... in einem fernen Land ...</p>
+<p>Hast du genug Mut, um die Herausforderung anzunehmen, die folgende Geschichte
+mit Funktionsdefinitionen zum Leben zu erwecken und die unten angezeigte
+Schlußszene zu reproduzieren?</p>
+<p><i>Hinweis:</i> Meine Lösug benötigt nur fünf Schlüsselwörter: 
+<span class="pykeyword">def</span>, <span class="pykeyword">while</span>,
+<span class="pykeyword">for</span>, <span class="pykeyword">in</span>, und
+<span class="pykeyword">global</span>.  Natürlich musst du nicht alle diese 
+Schlüsselwörter benutzen, aber dein Programm wird dann länger sein.</p>
+
+<pre>
+<span class="comment"># Ein Robotermaerchen
+#
+# Hier schreibst du deine Definitionen hin.
+#</span>
+
+<span class="comment">'''Vor langer Zeit lebte in Robotland ein junger
+Robotwissenschaftler namens Alex.'''</span>
+Alex = RefurbishedRobot(1, 1, beepers=2, colour=<span class="string">'blue'</span>)
+
+<span class="comment">'''Ungluecklich verbrachte der junge Wissenschaftler seine
+Tage damit, um das Land seiner Eltern herumzuwandern, in der 
+Hoffnung, noch mehr lernen zu können.'''</span>
+Alex.set_trace_style(2, <span class="string">'black'</span>)   <span class="comment"># ungluecklich</span>
+Alex_is_restless()
+
+<span class="comment">'''Bald machte der junge Wissenschaftler sich auf den Weg die
+Welt zu erforschen, und er reiste weit umher. Als er sich
+aufmachte, hellte sich seine Stimmung beträchtlich auf.'''</span>
+Alex.set_trace_style(1, <span class="string">'blue'</span>) 
+Alex_travels()
+
+<span class="comment">'''Eines Tages, als er in ein fremdes Land kam, hoerte der junge
+Wissenschaftler ein ungewoehnliches Geraeusch, das ihn
+innehalten liess. Sein Herz setze kurz aus, als eine furchtlose
+Kriegerin namens Anna anscheinend aus dem Nichts auftauchte. Sie
+war gekommen, um Geruechten nachzugehen, dass ein Fremder in ihr
+Land gekommen war.'''</span>
+Anna = RefurbishedRobot(4, 7, 's', colour=<span class="string">'purple'</span>)
+Anna.set_trace_style(2, <span class="string">'red'</span>)
+
+<span class="comment">'''Der Wissenschaftler wusste, dass seine Suche beendet war,
+er brauchte nicht mehr weiter zu suchen. Er ging auf die
+Kriegerin zu, nahm den einzigen Ring, den er bei sich trug
+und fragte sie, ob sie ihn heiraten wuerde.'''</span>
+Alex_proposes_and_wait()
+
+<span class="comment">'''Des Wissenschaftlers gelehrsamer Gebrauch magischer Woerter
+bewirkte, sehr zu Alex' Entzuecken, dass Anna den Ring annahm,
+den er ihr angeboten hatte.'''</span>
+Anna_accepts()
+<span class="comment"># Historische Anmerkung: die Gravur des Rings kann immer noch 
+# in Robotland betrachtet werden, wo Alex Anna einen Antrag 
+# machte, wie unten gezeigt. Es wurde auch bestaetigt, dass 
+# Anna von diesem Tag an stets ihren Ring trug.</span>
+
+<span class="comment">'''Das junge Paar feierte sein Glueck, und tanzte Tag und
+Nacht.'''</span>
+Alex_and_Anna_dance()
+
+<span class="comment">'''Die Jahre vergingen. Alex und Anna waren gluecklich,
+und reisten gemeinsam, Seite an Seite, in der Welt herum.'''</span>
+time_passes()
+
+<span class="comment">'''Einige Jahre spaeter wurde die kleine Alexina geboren.'''</span>
+Alexina_is_born()
+
+<span class="comment">'''Viele Jahre lang ging die Familie weiter auf Reisen bis
+an die Grenzen von Robotland.'''</span>
+family_is_happy()
+
+<span class="comment">'''Ende.'''</span>
+Alex.turn_off()
+</pre>
+
+<p><img alt="Fairy tale, final scene" src="../../images/future/fairy_tale.png"/></p>
+
+
+<h3 class='section'>Weiterführende Literatur</h3>
+
+<p>An diesem Punkt deines Python-Lernabenteuers bist du vielleicht so weit, 
+fortgeschrittenere Literatur zu lesen. Wenn du dich stark fühlst, habe ich hier
+zwei Vorschläge für dich, die vielleicht ein bisschen schwierig ist, aber zu
+meinen Lieblingsbüchern zum Thema Python gehoeren:</p>
+<ul>
+<li><i>Python in a Nutshell</i>, von Alex Martelli, der unter anderem bekannt
+für seine vielen Beiträge in der Usenet-Gruppe comp.lang.python ist.  Seine
+<b>zahlreichen</b> tiefschürfenden Beiträge haben ihm den Spitznamen 
+"martellibot" eingetragen. (Andere bekannte "bots" sind "timbot" und "effbot".
+Viele Jahre lang hielten sich Gerüchte, dass kein Mensch so viele Beiträge so
+schnell geschrieben haben könne, daher müssten es Robots sein.)</li>
+<li>Alex war auch Ko-Autor der ersten beiden Ausgaben des <i>Python
+Cookbook</i>, das ich auch wärmstens empfehlen kann. David Ascher war ebenfalls
+Ko-Autor beider Ausgaben des  <i>Python Cookbook</i>. Anna Martelli Ravenscroft,
+Alex' Frau, ist Ko-Autorin der zweiten Ausgabe.</li>
+</ul>
+
+<h3 class="warning">Erklärung</h3>
+
+<p>Jede Ähnlichkeit des Wissenschaftlers Alex und der Kriegerin Anna mit
+lebenden Personen sind rein zufällig.</p>
+
+<center><a href="../inter/40-random.htm"><img alt="previous" src=
+"../../images/previous.png"/>40. Glücklich entkommen</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"42-numbers.htm">42. Oktale, hexadezimale und binäre Zahlen<img alt="next"
+src="../../images/next.png"/></a></center>
+</body>
+</html>

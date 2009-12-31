@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>37. Reeborg wird aufgemotzt.</title>
+</head>
+<body>
+
+<h2 class="title">37. Reeborg wird aufgemotzt.</h2>
+<p>Wie wir gesehen haben, können wir neue Roboter mit folgender Schreibweise
+erzeugen:</p>
+<pre>
+Reeborg = UsedRobot()
+Erdna = UsedRobot(2, 2)
+</pre>
+<p>Aber diese Roboter sind genau so gebaut wie das namenlose Original: sie 
+können sich nur links herum drehen. Um ihnen beizubringen, wie man sich rechts
+herum dreht, könnten wir eine Funktion definieren, ähnlich wie in einer der 
+ersten Lektionen:</p>
+<pre>
+<span class="keyword">def</span> Reeborg_turn_right():
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(3):
+        Reeborg.turn_left()
+</pre>
+<p>Jedoch gibt es mindestens zwei Probleme mit diesem Ansatz:</p>
+<ul>
+<li>Wir müssen für jeden Roboter, den wir erzeugen (Reeborg, Erdna, ...), die 
+gleiche Funktion mit anderem Namen anlegen.</li>
+<li><tt>Reeborg</tt> und <tt>turn</tt> sind bei der neuen Funktion (rechts herum
+drehen) durch einen Unterstrich "<tt>_</tt>" von einander getrennt und bei
+der alten (links herum drehen) durch einen Punkt "<tt>.</tt>". Das sieht
+irgendwie falsch aus ... </li>
+</ul>
+<p>Ein besserer Ansatz wäre, eine neue Klasse (<span class=
+"pykeyword">class</span>) zu definieren, die von der Klasse <tt>UsedRobot</tt> erben 
+würde. Genau das werden wir im nächsten Abschnitt tun.</p>
+
+<h3 class="section">Wir entwerfen eine neue Klasse.</h3>
+<p>Zuerst zeige ich dir, wie wir unseren Roboter reparieren können, so dass er
+sich rechts herum drehen kann, und erkläre dir anschließend, was ich gemacht
+habe.</p>
+<pre>
+<span class="keyword">class</span> RepairedRobot(UsedRobot):
+    <span class="keyword">def</span> turn_right(<span class="warning">verweis_auf_das_objekt_selbst </span>):
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(3):
+            <span class="warning">verweis_auf_das_objekt_selbst</span>.turn_left()
+</pre>
+<p>Und so können wir diese neue Objektklasse benutzen:</p>
+<pre>
+newReeborg = RepairedRobot()
+newErdna = RepairedRobot(2, 2)
+
+newReeborg.turn_left()    <span class="comment"># wie zuvor</span>
+newReeborg.turn_right()   <span class="comment"># neue Methode!</span>
+
+newErdna.turn_right()     <span class="comment"># das funktioniert auch!</span>
+</pre>
+<p>Und nun die Erklärung. Das Schlüsselwort <span class="pykeyword">class</span>
+zeigt an, dass wir jetzt einen neuen Typ einer "Funktion" definieren, eine, die
+Objekte erzeugt. Auf <span class="pykeyword">class</span> folgt
+<tt>RepairedRobot(UsedRobot)</tt>. <tt>RepairedRobot</tt> ist der Name unserer
+neuen Klasse; indem wir <tt>UsedRobot</tt> zwischen den Klammern schreiben,
+stellen wir sicher, dass die neue Klasse <tt>RepairedRobot</tt> alle Methoden
+und Attribute von <tt>UsedRobot</tt> <i>erbt</i>. Wenn wir also schreiben</p>
+<pre>
+newReeborg = RepairedRobot()
+</pre>
+<p>erzeugen wir einen neuen Roboter "namens" <tt>newReeborg</tt> der mindestens
+das gleiche kann, was der alte</p>
+<pre>
+Reeborg = UsedRobot()
+</pre>
+<p>auch konnte.</p>
+<p>Dann definieren wir eine neue Methode <tt>turn_right()</tt>  innerhalb der
+neuen Klasse, was man an der Einrückung erkennt. Durch die Definition innerhalb
+der neuen Klasse ordnen wir die Methode dieser Klasse zu. Außerhalb der Klasse
+können wir die Methode durch Voranstellen des Klassennamens aufrufen:</p>
+<pre>
+RepairedRobot.turn_right(verweis_auf_das_objekt_selbst)
+</pre>
+<p>Wodurch können wir nun <tt>verweis_auf_das_objekt_selbst</tt> ersetzen? Nun, durch
+jedes Objekt, das durch Aufruf von <tt>RepairedRobot()</tt> erzeugt wurde, also
+jede Instanz der Klasse <tt>RepairedRobot</tt>:</p>
+<pre>
+newReeborg = RepairedRobot()
+RepairedRobot.turn_right(newReeborg)
+</pre>
+<p>Das heisst: nimm die Methode <tt>turn_right</tt> der Klasse RepairedRobot und
+rufe sie mit <tt>newReeborg</tt> auf. Da <tt>newReeborg</tt> aber eine Instanz
+von <tt>RepairedRobot</tt> sein <b>muss</b>, können wir kürzer schreiben:</p>
+<pre>
+newReeborg.turn_right()
+</pre>
+<p>Beide Schreibweisen sind erlaubt und vollkommen gleichwertig. An diesem Punkt
+sollte dir klar sein, was das Besondere an einer Methode ist: eine Methode ist
+eine Funktion, die innerhalb einer Klasse definiert wird, und deren erstes
+Argument <tt>verweis_auf_das_objekt_selbst</tt> eine Instanz dieser Klasse ist. 
+Dadurch "weiß" die Methode, für welche Instanz sie "arbeitet", zum Beispiel,
+ob Reeborg oder Erdna oder wer auch immer sich rechts herum drehen soll.
+</p>
+<p>Nun ist der Name <tt>verweis_auf_das_objekt_selbst</tt> ein bisschen zu lang zum
+Tippen. Üblicherweise wird ein anderer Variablenname verwendet: <tt>self</tt>
+(englisch für selbst). Wir folgen dieser Vereinbarung und schreiben:</p>
+<pre>
+<span class="keyword">class</span> RepairedRobot(UsedRobot):
+    <span class="keyword">def</span> turn_right(self):
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(3):
+            self.turn_left()
+</pre>
+
+<center><a href="36-tuples.htm"><img alt="previous" src=
+"../../images/previous.png"/>36. Versteinerte Listen</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"38-class2.htm">38. Ein Hauch von Klasse<img alt="next"
+src="../../images/next.png"/></a></center>
+
+</body>
+</html>

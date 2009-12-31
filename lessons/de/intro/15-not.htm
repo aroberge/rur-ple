@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>15. Negativ, Reeborg!</title>
+</head>
+<body>
+
+<h2 class="title">15. Negativ, Reeborg!</h2>
+<p>Angenommen, wir wollen Reeborg laufen lassen bis er einen Piepser findet und
+ihn dann abschalten. So könnte Reeborg beginnen:
+</p>
+<img alt="stop at beeper" src="../../images/intro/stop_at_beeper.png"/>
+<p>Diese Aufgabe kann man folgendermaßen in <i>Pseudo-Code</i> formulieren:
+<pre>
+Wenn auf Piepser
+... abschalten;
+sonst
+... weitergehen.
+</pre>
+Programmierer verwenden häufig <i>Pseudo-Code</i>, um ihre Gedanken und Ideen in
+Computer-Form zu bringen. <i>Pseudo-Code</i> sieht einem Programm schon ziemlich
+ähnlich, muß aber noch in eine Programmiersprache übertragen werden, damit er
+ausgeführt weden kann. Die Umwandlung von <i>Pseudo-Code</i> in Python ist recht
+einfach:</p>
+<pre>
+<span class="keyword">if</span> on_beeper():
+    turn_off()
+<span class="keyword">else</span>:
+    move()           
+</pre>
+Das ist noch nicht das vollständige Programm, da wir Reeborg noch nicht gesagt
+haben, wie er diese Anweisung wiederholen soll. Aber das lassen wir erstmal
+beiseite. Schauen wir uns stattdessen diesen gleichwertigen <i>Pseudo-Code</i>
+an:<br></br>
+<pre>
+Wenn nicht auf Piepser
+... weitergehen;
+sonst
+... abschalten.
+</pre>
+Wir haben zwar die Reihenfolge von "weitergehen" und "abschalten" umgekehrt,
+aber der Code tut trotzdem dasselbe. Das liegt an dem Wörtchen "nicht", das den
+Wenn-Satz ins Gegenteil umkehrt, ihn "verneint". Da Verneinen (man sagt auch
+Negieren, Negation) ein grundlegender Bestandteil menschliches Denkens ist,
+gibt es das in allen Programmiersprachen; in Python ist dafür das Schlüsselwort
+<span class="pykeyword">not</span> (englisch für "nicht") zuständig, das wir
+hinter <span class="pykeyword">if</span> einsetzen:
+<pre>
+<span class="keyword">if not</span> on_beeper():
+    move()
+<span class="keyword">else</span>:
+    turn_off()          
+</pre>
+<p>Um das in ein vollständiges Programm umzuwandeln, könnten wir eine neue
+Anweisung <span class="pykeyword">def</span>inieren und sie so oft wiederholen
+bis Reeborg seine Aufgabe erledigt hat.</p>
+<h3 class="try">Du bist dran.</h3>
+<p>Schreibe dein Hürdenlauf-Programm so um, dass du das neue Schlüsselwort
+<span class="pykeyword">not</span> benutzt.</p>
+<hr width="50%"/>
+<h3 class="suggested">Ausrupfen und Einsetzen</h3>
+<p>Es ist Frühling. Reeborgs Vater hat im Garten Möhren gesät, damit er im
+Herbst ernten kann. An einigen Stellen sind zwei Samen aufgegangen, an anderen
+keiner. Hier ein typischer Fall (Datei harvest4.wld):</p>
+<img alt="weeding" src="../../images/intro/harvest4.png"/>
+<p>Hilf Reeborg, die überzähligen Möhren auszurupfen, so dass es keine
+Stellen mit zwei Möhren (durch Piepser dargestellt) gibt, und setze sie an den
+leeren Stellen wieder ein. Wenn Reeborg fertig ist, sollte der Garten so
+aussehen:
+</p>
+<img alt="weeding" src="../../images/intro/harvest1.png"/>
+<p>Ein <i>Vorschlag</i> für den Code, der aber noch ergänzt werden muss:</p>
+<pre>
+<span class="comment"># Geeignete Begriffe einfuehren</span>
+moehre_vorhanden = on_beeper
+moehre_einsetzen = put_beeper
+moehre_ausrupfen = pick_beeper
+
+<span class="keyword">def</span> moehre_umsetzen():
+    <span class="keyword">if not</span> moehre_vorhanden():
+        moehre_einsetzen()
+    <span class="keyword">else</span>:
+        moehre_ausrupfen()
+        <span class="keyword">if not</span> moehre_vorhanden(): <span class="comment"># ups! Es war nur 1 Moehre da!</span>
+            moehre_einsetzen()     <span class="comment"># also wieder einsetzen</span>
+</pre>
+<p>Bei echter Gartenarbeit ist es natürlich <b>keine</b> gute Idee, eine
+Möhre auszurupfen und sie direkt wieder einzusetzen. Besser wäre es, vorher zu
+prüfen, wieviele Möhren an einer Stelle gekeimt sind. Aber der Code tut's fürs
+erste.</p>
+<center><a href="14-elif.htm"><img alt="previous" src=
+"../../images/previous.png"/>14. Reeborg entscheidet mal so, mal so.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"16-while.htm">16. Eile mit Weile!<img alt="next" src=
+"../../images/next.png"/></a>
+</center>
+</body>
+</html>
