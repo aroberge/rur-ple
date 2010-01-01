@@ -9,7 +9,7 @@
 <body>
 
 <h2 class="title">32. Many <span class="pykeyword">return</span>s</h2>
-<p>As you know, Reeborg is not exactly in good shape.  He can only turn left, has an oil leak, can only see walls when they are right next to him and hear beepers when he is literally standing on top of them.  Reeborg has also a (somewhat broken) compass which he can used to find out if is is facing north ... or not. To find out if he is facing north, you can ask Reeborg to do the test <tt>facing_north()</tt>. </p> 
+<p>As you know, Reeborg is not exactly in good shape.  He can only turn left, has an oil leak, can only see walls when they are right next to him and hear beepers when he is literally standing on top of them.  Reeborg has also a (somewhat broken) compass which he can use to find out whether he is facing north ... or not. To find out if he is facing north, you can ask Reeborg to do the test <tt>facing_north()</tt>. </p> 
 <!--==============================-->
 <hr width="50%"/>
 <h3 class="try">Try it!</h3>
@@ -57,7 +57,7 @@
 </pre>
 <p>Let's see how this work, by examining two cases:</p>
 <ul><li><b>Suppose that Reeborg is facing south.</b> After two left turns, he is left facing north.  The test <tt>facing_north()</tt> gives the value "<tt>True</tt>" which is assigned to the variable <tt>answer</tt>.  After two more left turns, Reeborg is facing south again (back to its original orientation), and we return the answer "<tt>True</tt>"!</li>
-<li><b>Suppose that Reeborg is <u>not</u> facing south.</b> Then, after two left turns, he is <u>not</u> facing north, and the test <tt>facing_north()</tt> gives the value "<tt>False</tt>" which is assigned to the variable <tt>answer</tt>.  After two more left turns, Reeborg is facing south again (back to its original orientation), and we return the answer "<tt>False</tt>"!</li>
+<li><b>Suppose that Reeborg is <u>not</u> facing south.</b> Then, after two left turns, he is <u>not</u> facing north, and the test <tt>facing_north()</tt> gives the value "<tt>False</tt>" which is assigned to the variable <tt>answer</tt>.  After two more left turns, Reeborg is <u>not</u> facing south again (back to its original orientation), and we return the answer "<tt>False</tt>"!</li>
 </ul>
 <p>So, we can use our new test if we want to have Reeborg face south:</p>
 <pre>

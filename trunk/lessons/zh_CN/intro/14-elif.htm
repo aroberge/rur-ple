@@ -9,7 +9,7 @@
 <h2 class="title">14. <span class="pykeyword">如果，否则， 如果，否则，</small></span>...</h2>
 <p>之前的跨栏练习<small>(你已经做过了，是吧?)</small>要求我们写 <span class="pykeyword">if</span>/<span class=
 "pykeyword">else</span>以及另一个命令 , 这都是因为我们想给乐跑机器人三个选择：结束、移动或者跳跃。 你或许已经意识到这迫使我们的代码越嵌越深。 想象一下，如果我们要给机器人10个相互独立的选择，结果代码要变得多么的难读。 为了在这种情况下有所帮助, Guido van Rossum,Python的创造者,选择了一个关键词，它代表了一个<span class="pykeyword">else</span>状态紧跟一个 <span class="pykeyword">if</span> 子句的结合. 这个关键词就是 <span class=
-"pykeyword">elif</span>,我们可以将它看成是<span class="pykeyword">else if</span>的缩写. 用这个新的关键词，以上的代码可以写为：</p>
+"pykeyword">elif</span>,我们可以将它看成是<span class="pykeyword">else if</span>的缩写. 用这个新的关键词，之前的课程的代码可以写为：</p>
 <pre>
 <span class="keyword">def</span> move_jump_or_finish():
     <span class="keyword">if</span> on_beeper():
