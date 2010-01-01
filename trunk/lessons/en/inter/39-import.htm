@@ -1,10 +1,9 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content=
-"text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
 <title>Avoiding repetitions - the important stuff</title>
 </head>
 <body>
@@ -74,7 +73,7 @@ set_trace_style(2, <span class="string">'red'</span>)
 climb_down_west()
 turn_off()
 </pre>
-<p><img alt="import"  src="../../images/intro/import.png"></p>
+<p><img alt="import"  src="../../images/inter/import.png"/></p>
 <p>Rather than importing every new instruction one by one, as we did in the first example with <tt>turn_right()</tt>, we have use the "*" notation to indicate "all definitions".  Before going any further, I should probably make a few comments:</p>
 <ol>
 <li>For those that know about Python <i>modules</i>, "useful" is not a true module, but a fake one that will only work within Reeborg's world.  You will not be allowed to import any "real" modules and use them in RUR programs.  This has been done for safety reasons.</li>
@@ -138,10 +137,10 @@ short_name.instruction2()
 <p>Important note to teachers: as alluded to above, the reason to restrict the usage of import statements is to avoid someone getting hold of an unsafe script and passing it along to an unsuspecting victim. Note that this can still be done in the Python editor window but, hopefully, by then students will know enough to check programs given by "friends" before trying them out.  That being said, if you are familiar with Python it is fairly easy to introduce a small change in the source code of rur-ple to allow arbitrary import statements.  This can be useful in a classroom setting.  Please contact the author if you have a need to do this, and cannot figure it out on your own.</p>
 
 <center><a href="38-class2.htm"><img alt="previous" src=
-"../../images/previous.png">A touch of class.</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"../../images/previous.png"/>A touch of class.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
 "40-random.htm">Random escapes.<img alt="next"
-src="../../images/next.png"></a></center>
+src="../../images/next.png"/></a></center>
 
 </body>
 </html>
