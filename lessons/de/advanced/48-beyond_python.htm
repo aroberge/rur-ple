@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>48. Jenseits von Python</title>
+</head>
+<body>
+<h2 class="title">48. Jenseits von Python</h2>
+<p>Der Fehler in der Addition  am Ende der vorigen Lektion hat dich sicher
+überrascht. Denn eigentlich sollte bei der Addition die Reihenfolge der
+Summanden keine Rolle spielen. Python muß sich aber für irgendeine Reihenfolge
+entscheiden und führt die Addition von links nach rechts aus:
+<pre>
+eins = Bruch(1)
+<span class="comment"># Addition mit dem Bruch zuerst:</span>
+eins + 1
+<span class="comment"># Der Python-Interpreter macht daraus</span>
+eins.__add__(1)
+</pre>
+Und wenn der Bruch an zweiter Stelle steht? Die Ganzzahl 1 hat keine Methoden
+für Brüche. Daher versucht Python, die Addition von rechts nach links
+auszuführen, indem es die Methode __radd__ des Objekts <tt>eins</tt> aufruft:
+<pre>
+<span class="comment"># Addition mit der Ganzzahl zuerst:</span>
+1 + eins
+<span class="comment"># Der Python-Interpreter macht daraus</span>
+eins.__radd__(1)
+</pre>
+Um den Fehler zu beheben, musst du also nur die Methode __radd__ definieren. Und
+da die Reihenfolge keinen Einfluss auf das Ergebnis haben soll, muss __radd__
+das gleiche tun wie __add__.
+</p>
+
+<h3 class="section">Wozu überhaupt Brüche?</h3>
+<p>Python hat doch Fließkommazahlen (Typ float)! Jede Fließkommazahl entspricht
+einem Bruch, so gilt 1.6 == 8/5 und 1.5 == 3/2. Fließkommazahlen scheinen
+praktischer zu sein, weil wir auf den ersten Blick sehen, dass 1.6 größer als
+1.5 ist, wogegen wir bei 8/5 und 3/2 erst ein bisschen rechnen müssen. Aber
+Brüche haben auch Vorteile. Um 1/3 durch eine Fließkommazahl zu ersetzen, müsste
+diese unendlich viele Dreien hinter dem Komma haben. Da ein Computer aber nicht 
+mehr als 15 Stellen (0.333333333333333) speichern kann, macht er mit der
+Fließkommazahl einen kleinen Fehler. Brüche sind dagegen <strong>genau</strong>.
+Die Pythagoräer, eine Philosophenschule im Griechenland der Antike, glaubten
+gar, dass sich alles im Universum auf Verhältnisse ganzer Zahlen, also auf
+Brüche, zurückführen lässt.
+</p> 
+
+<h3 class="section">Wurzeln aus Brüchen</h3>
+<p>Dieser Glaube geriet jedoch bald ins Wanken. Vielleicht begann alles damit,
+dass ein Pythagoräer Langeweile hatte und begann, mit einem Stock Kästchen wie
+diese hier in den Sand zu malen:</p>
+<p><img alt="previous" src="../../images/advanced/squares.png"/></p>
+<p>Die Quadrate zeigen den Zusammenhang zwischen Zahlen und ihren Wurzeln.
+Das linke Quadrat zeigt <tt>1 * 1 == 1</tt>, also ist 1 die Wurzel aus 1. Das
+rechte Quadrat zeigt <tt>2 * 2 == 4</tt>, also ist 2 die Wurzel aus 4. Das
+Quadrat in der Mitte stellt <tt>3/2 * 3/2 == 9/4</tt> dar, denn die Teilquadrate
+mit den dünnen Kanten sind halb so breit wie die mit den dicken Kanten und haben
+ein Viertel der Fläche. 3/2 ist also die Wurzel aus 9/4, was etwas mehr als 2
+ist. Vielleicht packte den Pythagoräer in diesem Moment der Ehrgeiz, den Bruch
+zu finden, der die Wurzel aus 2 ist. Er wusste, dass er sie zwischen 1 und 3/2
+suchen musste, denn 2  liegt zwischen 1*1 und 3/2 * 3/2. Er
+fing also mit 4/3 (zu klein) und 5/3 (zu groß) an, und machte mit immer größeren
+Nennern weiter, um immer näher an die Wurzel aus 2 heranzukommen und sie
+schließlich zu erreichen. Nachfolgend siehst du eine Funktion finde_wurzel_aus_2, die
+die Versuche des Pythagoräers imitiert:
+</p>
+<pre>
+<span class="keyword">def</span> finde_wurzel_aus_2(versuche_gesamt):
+    <span class="string">'''Versuche den Bruch zaehler/nenner zu finden, der mit sich selbst
+    multipliziert 2 ergibt: zaehler/nenner * zaehler/nenner == 2.
+    '''</span>
+    zaehler = 0; nenner = 1; fehler = 2
+    
+    <span class="keyword">for</span> versuch <span class="keyword">in</span> range(versuche_gesamt):
+        <span class="comment"># Vergroessere zaehler, bis zaehler/nenner * zaehler/nenner
+        # groesser oder gleich 2 ist.</span>
+        <span class="keyword">while</span> fehler &gt; 0:
+            zaehler += 1
+            fehler = 2 * nenner * nenner - zaehler * zaehler
+        <span class="comment"># fehler gleich 0: zaehler/nenner ist die Wurzel aus 2.</span>
+        <span class="keyword">if</span> fehler == 0:
+            <span class="keyword">return</span> zaehler, nenner
+            
+        <span class="comment"># Vergroessere nenner, bis zaehler/nenner * zaehler/nenner
+        # kleiner oder gleich 2 ist.</span>
+        <span class="keyword">while</span> fehler &lt; 0:
+            nenner += 1
+            fehler = 2 * nenner * nenner - zaehler * zaehler
+        <span class="comment"># fehler gleich 0: zaehler/nenner ist die Wurzel aus 2.</span>
+        <span class="keyword">if</span> fehler == 0:
+            <span class="keyword">return</span> zaehler, nenner
+    
+    <span class="comment"># Gib zaehler, nenner und zaehler/nenner * zaehler/nenner als
+    # Fliesskommazahl zurueck.</span>
+    <span class="keyword">return</span> zaehler, nenner, 1.0*zaehler*zaehler/nenner/nenner
+</pre>
+<h3 class="try">Du bist dran.</h3>
+<p>Speichere das Programm und führe finde_wurzel_aus_2 mit 10, 100 und
+1000 Versuchen aus. Du kannst auch noch größere Zahlen probieren, wenn du die
+Geduld dazu hast. Was fällt dir am Ergebnis auf?</p>
+
+<h3 class="section">Ein böser Verdacht</h3>
+<p>Unser Pythagoräer hat sicher nicht soviel probiert wie du -- schließlich hatte
+er ja kein Python und musste alles im Kopf rechnen. Aber irgendwann muss ihm
+ein böser Verdacht gekommen sein. Gibt es die Wurzel aus 2 gar nicht? Doch, die
+rote Diagonale im oben gezeigten Quadrat mit der Seitenlänge 1 ist genau Wurzel
+aus 2 lang. Also ist die Wurzel aus 2 am Ende gar kein Bruch?</p>
+
+<h3 class="section">Der Beweis</h3>
+<p>Um den Verdacht zu beweisen, hilft es nicht, einfach weiter zu rechnen.
+Denn wenn der Verdacht stimmt, kommt man mit der Rechnerei nie an ein Ende. Ein
+Beweis muss also her! Wir beginnen mit zwei Annahmen:
+<ol>
+    <li>Wurzel aus 2 ist ein Bruch. Wir nennen ihn z/n.</li>
+    <li>z und n sind so klein wie möglich. 2/3 zum Beispiel hat den gleichen
+    Wert wie 4/6. Stell dir einfach eine Torte vor. Wenn du sie in 3 gleich
+    große Teile schneidest und 2 davon nimmst, bekommst du das gleiche wie wenn
+    du sie in halb so große (also 6) Teile schneidest und 4 nimmst. Wenn das
+    Ergebnis unserer Wurzelsuche also 1024/768 wäre, könnten wir die Methode
+    <code>kuerzen</code> aus den Bruch-Lektionen anwenden und 4/3 als Ergebnis
+    verkünden.
+    </li>
+</ol>
+
+Jetzt spielen wir mal ein bisschen mit Annahme 1. Wenn z/n die Wurzel aus 2 ist,
+dann ist z/n * z/n == 2 oder z * z == 2 * n * n.  z * z ist also eine
+gerade Zahl. Dann muss aber auch z eine gerade Zahl sein. Das bedeutet wiederum,
+dass z * z durch 4 teilbar ist. Dann muss aber auch n * n gerade sein und damit
+n! Aus Annahme 1 folgt also: z und n MÜSSEN BEIDE gerade sein. Das widerspricht
+aber Annahme 2, die aufgrund der Natur der Brüche wahr ist. Zwei gerade Zahlen
+können wir so lange durch 2 teilen, bis mindestens eine der beiden nicht mehr
+gerade ist - ohne den Wert des Bruches zu ändern! Die Schlussfolgerung ist
+bitter für die Pythagoräer:
+<pre>
+   ANNAHME 1 IST FALSCH. WURZEL AUS 2 IST KEIN BRUCH.
+</pre>
+
+<h3 class="section">Fazit</h3>
+<p>Computerprogramme sind eine wertvolle Hilfe bei der Durchführung langwieriger
+und komplexer Rechnungen. Manche Probleme - wie das Problem des Pythagoräers
+lassen sich jedoch nicht mit Computerprogrammen lösen. Es reicht also nicht aus,
+programmieren zu können. Intuition, logisches Denken und Sachverstand (in
+unserem Beispiel mathematischer Sachverstand) sind mindestens genau so wichtig.
+Jetzt bleibt mir nur noch, mich für deine Neugier und deine Geduld zu bedanken,
+mit denen du es bis hierher geschafft hast. Ich wünsche dir viel Erfolg beim
+Lernen und bei der Arbeit!
+</p
+<center><a href="47-fractions4.htm"><img alt="previous" src=
+"../../images/previous.png"/>47. Brüche - Teil 4</a> - 
+<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/>
+</a></center>
+</body>
+</html>

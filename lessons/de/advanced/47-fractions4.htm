@@ -19,7 +19,7 @@ um.</li>
 </ol>
 <p>Schritt 2. kann man mit einer Funktion wie dieser realisieren:</p>
 <pre>
-<span class='keyword'>def</span> in BruchUmwandeln(object):
+<span class='keyword'>def</span> inBruchUmwandeln(object):
     <span class='comment'>'''Wandelt "int" und "long" in Brueche um.'''</span>
 <span class='keyword'>    if</span> type(object) <span class='keyword'>in</span> (int, long):
         <span class='keyword'>return</span> Bruch(object)
@@ -73,7 +73,7 @@ die Umwandlung in einen Bruch als Methode in diese Klasse aufgenommen haben).
 'keyword'>if</span><span class=
 'keyword'> not</span> type(operand) == Bruch:
 <span class=
-'newlinenumber'> 21 </span>            operand = self.in BruchUmwandeln(operand)
+'newlinenumber'> 21 </span>            operand = self.inBruchUmwandeln(operand)
 <span class='linenumber'> 22 </span>        zaehler = self.zaehler * operand.zaehler
 <span class='linenumber'> 23 </span>        nenner = self.nenner * operand.nenner
 <span class='linenumber'> 24 </span><span class=
@@ -85,7 +85,7 @@ die Umwandlung in einen Bruch als Methode in diese Klasse aufgenommen haben).
 'keyword'>if</span><span class=
 'keyword'> not</span> type(operand) == Bruch:
 <span class=
-'newlinenumber'> 28 </span>            operand = self.in BruchUmwandeln(operand)
+'newlinenumber'> 28 </span>            operand = self.inBruchUmwandeln(operand)
 <span class='linenumber'> 29 </span>        zaehler = self.zaehler * operand.nenner
 <span class='linenumber'> 30 </span>        nenner = self.nenner * operand.zaehler
 <span class='linenumber'> 31 </span><span class=
@@ -97,7 +97,7 @@ die Umwandlung in einen Bruch als Methode in diese Klasse aufgenommen haben).
 'keyword'>if</span><span class=
 'keyword'> not</span> type(operand) == Bruch:
 <span class=
-'newlinenumber'> 35 </span>            operand = self.in BruchUmwandeln(operand)
+'newlinenumber'> 35 </span>            operand = self.inBruchUmwandeln(operand)
 <span class='linenumber'> 36 </span>        nenner = self.nenner * operand.nenner
 <span class=
 'linenumber'> 37 </span>        zaehler = self.zaehler*operand.nenner + self.nenner*operand.zaehler
@@ -110,7 +110,7 @@ die Umwandlung in einen Bruch als Methode in diese Klasse aufgenommen haben).
 'keyword'>if</span><span class=
 'keyword'> not</span> type(operand) == Bruch:
 <span class=
-'newlinenumber'> 42 </span>            operand = self.in BruchUmwandeln(operand)
+'newlinenumber'> 42 </span>            operand = self.inBruchUmwandeln(operand)
 <span class='linenumber'> 43 </span>        nenner = self.nenner * operand.nenner
 <span class=
 'linenumber'> 44 </span>        zaehler = self.zaehler*operand.nenner - self.nenner*operand.zaehler
@@ -128,7 +128,7 @@ die Umwandlung in einen Bruch als Methode in diese Klasse aufgenommen haben).
 'keyword'>        return</span> a, b
 <span class='linenumber'> 53 </span>
 <span class='newlinenumber'> 54 </span>    <span class=
-'keyword'>def</span> in BruchUmwandeln(self, object):
+'keyword'>def</span> inBruchUmwandeln(self, object):
 <span class='newlinenumber'> 55 </span>        <span class=
 'comment'>'''Wandelt "int" und "long" in Brueche um.'''</span>
 <span class='newlinenumber'> 56 </span><span class=
@@ -207,6 +207,7 @@ eins = Bruch(1)
 <center><a href="46-fractions3.htm"><img alt="previous" src=
 "../../images/previous.png"/>46. Brüche - Teil 3</a> - 
 <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/>
-</a></center>
+</a> - <a href="48-beyond_python.htm">48. Jenseits von Python<img alt="next"
+src="../../images/next.png"/></a></center>
 </body>
 </html>
