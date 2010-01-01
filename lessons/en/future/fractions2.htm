@@ -36,7 +36,7 @@ following:</p>
 have the symbol "<tt>*</tt>" between two objects of the class
 <tt>Fraction</tt>. To tell Python to understand that the using the symbol
 "<tt>*</tt>" between two fractions means that we want to multiply these two
-fractions, we use the private function <tt>__mul__()</tt>. Here's our new
+fractions, we use the special function <tt>__mul__()</tt>. Here's our new
 code:</p>
 <pre>
 <span class='linenumber'>  1 </span><span class=
@@ -91,7 +91,7 @@ numerators together [line 12], do the same with the denominators [line 13],
 and that the result is a new <tt>Fraction</tt> object [line 14]. If you try
 to run this program, the result [from line 23] will be "<tt>(3/2)</tt>",
 which is what we want.</p>
-<p>Now, let't turn the working print statement into an assert one [line 23],
+<p>Now, let's turn the working print statement into an assert one [line 23],
 and add a new test [lines 24 and 25], as indicated below.</p>
 <pre>
 <span class='linenumber'> 16 </span><span class=
@@ -223,7 +223,7 @@ the results.</p>
 <span class='notelinenumber'> 43 </span><span class=
 'keyword'>    assert</span> str(d) ==<span class='string'> "(1/2)"</span>
 </pre>
-<p>In lines 1 to 6, we introduced our <tt>gcd()</tt> function.  By putting it outside the <span class="pykeyword">class</span> definition, we make it easilty available to other programmers if they <span class="pykeyword">import</span> our file.  Just to show the other alternative, we put the method <tt>simplify()</tt> inside the <span class="pykeyword">class</span> definition, on lines 25 to 30.  We use <tt>simplify()</tt> on line 22 and test it on lines 39, 40 and 41.</p>
+<p>In lines 1 to 6, we introduced our <tt>gcd()</tt> function.  By putting it outside the <span class="pykeyword">class</span> definition, we make it easily available to other programmers if they <span class="pykeyword">import</span> our file.  Just to show the other alternative, we put the method <tt>simplify()</tt> inside the <span class="pykeyword">class</span> definition, on lines 25 to 30.  We use <tt>simplify()</tt> on line 22 and test it on lines 39, 40 and 41.</p>
 <p>We also use <tt>simplify()</tt> when we initialise a new fraction, on line 10 [with other minor changes on line 11 and 12] so that the newly created fraction will always be in simplified form.  This is tested on lines 42 and 43. </p>
 <p>Look closely at the changes we made.  Everything works correctly, but there is one line that we added that wasn't required as it makes Python try to calculate the same thing twice.  <b>Can you see which one?</b> Try to find it, before moving on to the next lesson where we will divide fractions.</p>
 </body>

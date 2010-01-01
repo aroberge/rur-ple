@@ -91,7 +91,7 @@ turn_off()
 <li>You can use the statement <tt><span class="keyword">import</span> useful</tt>.  When you do this, you need to add <tt>useful.</tt> before the name of each instruction.  For example<br />
 <tt>useful.turn_right()</tt> and <br />
 <tt>turn_right()</tt><br />
-represent two different commands.  The first one is defined within the module "useful" whereas the second would have to be defined by yourself elsewhere.  By <i>prepending</i> <tt>useful.</tt> before each instruction, a reader can immediately refer that these instructions are defined elsewhere.  [<i>We will see another meaning of having something like  <tt>useful.</tt> added to the name of an instruction later when we talk about Object Oriented Programming (OOP).</i>]<br />
+represent two different commands.  The first one is defined within the module "useful" whereas the second would have to be defined by yourself elsewhere.  By <i>prepending</i> <tt>useful.</tt> before each instruction, a reader can immediately refer that these instructions are defined elsewhere.  [<i>We have already seen another meaning of having something like  <tt>useful.</tt> added to the name of an instruction when we talked about Object Oriented Programming (OOP).</i>]<br />
 
 </li>
 <li>A second way of doing a similar thing is the following:<br />
@@ -105,7 +105,7 @@ turn_off()
 </pre>
 </li>
 </ol>
-The word <tt><span class="keyword">as</span></tt> is <i>almost</i> a Python keyword.  It is very likely that it will become a keyword in a later version of Python.  We will explain what is meant by this statement when we talk about <i>variables.</i>
+The word <tt><span class="keyword">as</span></tt> is a Python keyword. We have explained what is meant by this statement when we talked about <i>variables.</i>
 
 <h3 class="section">4. Perhaps not so useful after all ...</h3>
 
@@ -132,7 +132,7 @@ short_name.instruction2()
 </p>
 
 <h3 class="section">5. Why import at all?</h3>
-<p>It is often said that Python comes with <i>batteries included</i>.  That is to say, Python includes many useful modules written by very smart people.  These modules have been thoroughly tested to be free of bugs and written very efficiently.  When you learn more about Python and you want to write your own "complicated" programs, it will be really worthwhile to first determine if any relevant module already exists and which could help you in your task.  I will introduce you to a few useful modules in later lessons.</p>
+<p>It is often said that Python comes with <i>batteries included</i>.  That is to say, Python includes many useful modules written by very smart people.  These modules have been thoroughly tested to be free of bugs and written very efficiently.  When you learn more about Python and you want to write your own "complicated" programs, it will be really worthwhile to first determine if any relevant module already exists and which could help you in your task.</p>
 
 <p>Important note to teachers: as alluded to above, the reason to restrict the usage of import statements is to avoid someone getting hold of an unsafe script and passing it along to an unsuspecting victim. Note that this can still be done in the Python editor window but, hopefully, by then students will know enough to check programs given by "friends" before trying them out.  That being said, if you are familiar with Python it is fairly easy to introduce a small change in the source code of rur-ple to allow arbitrary import statements.  This can be useful in a classroom setting.  Please contact the author if you have a need to do this, and cannot figure it out on your own.</p>
 
