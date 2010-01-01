@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+<title>48. Beyond Python</title>
+</head>
+<body>
+<h2 class="title">48. Beyond Python</h2>
+<p>The failed addition at the end of the previous lesson surely came as a
+surprise to you. For the order of operands in an addition should not make any
+difference. But Python has to choose one and thus proceeds from left to right.
+<pre>
+one = fraction(1)
+<span class="comment"># Addition with a fraction coming first:</span>
+one + 1
+<span class="comment"># The Python interpreter treats this as</span>
+one.__add__(1)
+</pre>
+And what if the fraction comes second? The integer 1 does not have any methods
+for fractions. Therefore Python tries to proceed from right to left by calling
+the method __radd__ of the object <tt>one</tt>:
+<pre>
+<span class="comment"># Addition with an integer coming first:</span>
+1 + one
+<span class="comment"># The Python interpreter treats this as</span>
+one.__radd__(1)
+</pre>
+To fix the error you only have to define the method __radd__. And because the
+order of the operands must not influence the result __radd__ has to perform the
+same computation as __add__.
+</p>
+
+<h3 class="section">Why fractions?</h3>
+<p>Python has floating point numbers (type float) after all! Each floating
+point number equals a fraction, e.g. 1.6 == 8/5 and 1.5 == 3/2. Floating point
+numbers seem to be more practical because one can see immediately that 1.6 is
+greater than 1.5 whereas with 8/5 and 3/2 you have to calculate a little to
+compare them. But fractions also have some good points. A floating point number
+equal to 1/3 would need to have a never ending sequence of 3 after the decimal
+point. But Computers usually do not store more than 15 digits
+(0.333333333333333) so that they have to make a tiny error if they try to 
+represent 1/3 as a floating point number. Fractions on the other hand are
+<strong>exact</strong>. The Pythagoreans, a school of philosophers in the
+ancient Greece even believed that everything in the Universe could be traced 
+back to proportions of integers, i.e. to fractions.
+</p> 
+
+<h3 class="section">Square roots of fractions</h3>
+<p>But soon this belief was shattered by doubts. Perhaps it all began with a
+bored Pythagorean who started to draw squares in the sand like these:
+</p>
+<p><img alt="previous" src="../../images/advanced/squares.png"/></p>
+<p>The squares show the connection between numbers and their square roots. The
+left square illustrates <tt>1 * 1 == 1</tt> therefore the square root of 1 is 1.
+The right square illustrates <tt>2 * 2 == 4</tt> therefore the square root of 4
+is 2. The square in the middle shows that <tt>3/2 * 3/2 == 9/4</tt> (the
+subsquares with the thin borders are half as wide as the thick-bordered ones
+and thus have a quarter of their area). Thus 3/2 is the square root of 9/4 which
+is slightly greater than 2. Maybe this stimulated the Pythagorean's
+ambition to find the square root of 2. He knew that he had to search between 1
+and 3/2 because 2 is between 1*1 and 3/2*3/2. So he started with 4/3 (too small)
+and 5/3 (too big) and went on to ever bigger numerators and denominators in 
+order to approach and eventually find the square root of 2. The function
+find_square_root_of_2 below mimics the efforts of our Pythagorean:
+</p>
+<pre>
+<span class="keyword">def</span> find_square_root_of_2(tries):
+    <span class="string">'''Try to find the fraction num/denom which is the
+    square root of 2: num/denom * num/denom == 2.
+    '''</span>
+    num = 0; denom = 1; error = 2
+    
+    <span class="keyword">for</span> t <span class="keyword">in</span> range(tries):
+        <span class="comment"># Increase num until num/denom * num/denom is greater
+        # or equal 2.</span>
+        <span class="keyword">while</span> error &gt; 0:
+            num += 1
+            error = 2 * denom * denom - num * num
+        <span class="comment"># error 0 means num/denom is the square root of 2.</span>
+        <span class="keyword">if</span> error == 0:
+            <span class="keyword">return</span> num, denom
+            
+        <span class="comment"># Increase denom until num/denom * num/denom is less or
+        # equal 2.</span>
+        <span class="keyword">while</span> error &lt; 0:
+            denom += 1
+            error = 2 * denom * denom - num * num
+        <span class="comment"># error 0 means num/denom is the square root of 2.</span>
+        <span class="keyword">if</span> error == 0:
+            <span class="keyword">return</span> num, denom
+    
+    <span class="comment"># Return num, denom and num/denom * num/denom as a
+    # floating point number.</span>
+    <span class="keyword">return</span> num, denom, 1.0*num*num/denom/denom
+</pre>
+<h3 class="try">Your turn.</h3>
+<p>Save find_square_root_of_2 and execute it with 10, 100 and 1000 tries. You
+can try even bigger numbers if you are patient enough. Can you find anything
+remarkable when comparing the results?</p>
+
+<h3 class="section">A wicked suspicion</h3>
+<p>Our Pythagorean for sure didn't try as much as you did -- after all he didn't 
+have Python and had to calculate everything in his head. But at some point a wicked
+suspicion must have bubbled up. Does the square root of 2 not exist at all? But no,
+the length of the red diagonal in the small square above with side length 1 is exactly
+square root of 2. So the square root of 2 is perhaps not a fraction at all?</p>
+
+<h3 class="section">The Proof</h3>
+<p>To prove this conjecture you can not simply go on with calculating. For
+calculation never stops if the conjecture holds. We need a proof! Let us start 
+with two assumptions:
+
+<ol>
+    <li>Square root of 2 is a fraction. We call it n/d.</li>
+    <li>n and d are as small as possible. 2/3 for example has the same value as 
+    4/6. Just imagine a torte. If you cut it in 3 equal pieces and take 2 of
+    them, you get the same portion as if you cut it in 6 half as big pieces and
+    take 4. If the result of our square root search would be 1024/768, 
+    we could apply the method <code>simplify</code> from the fraction lessons
+    and  announce 4/3 as the result. A consequence of this rule is that at least
+    one of the numbers n and d can be made odd.
+    </li>
+</ol>
+
+Now let us play a little with assumption 1. If n/d is the square root of 2,
+then  n/d * n/d == 2 or  n * n == 2 * d * d.  Thus n * n is an even
+number. But then n must also be even. This means that n * n is a multiple of 4.
+Then finally d * d must also be even and by the same argument d! Thus from
+assumption 1 follows that n and d MUST BOTH be even numbers. This is a
+contradiction to assumption 2 which is true by the very nature of fractions.
+Two even numbers can be divided by 2 until at least one of them is odd - without
+changing the value of the fraction. The conclusion is bitter for the
+Pythagoreans:
+<pre>
+   ASSUMPTION 1 IS WRONG. THE SQUARE ROOT OF 2 IS NOT A FRACTION.
+</pre>
+
+<h3 class="section">Last Words</h3>
+<p>Computer programs are a valuable help for performing complex and tedious
+calculations. Some problems however cannot be solved by computer programs -
+like the problem of the Pythagorean. It is therefore not sufficient to know
+how to write programs. Intuition, logic and knowledge (mathematical knowledge
+in our case) are at least equally important. At this point I would like to 
+thank you for your curiosity and patience which let you come this far. Good
+luck for your learning and work!
+</p
+<center><a href="47-fractions4.htm"><img alt="previous" src=
+"../../images/previous.png"/>47. fractions - part 4</a> - 
+<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/>
+</a></center>
+</body>
+</html>
