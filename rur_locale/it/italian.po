@@ -1,9 +1,9 @@
-﻿msgid ""
+msgid ""
 msgstr ""
 "Project-Id-Version: rur-ple\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-05-22 02:42-0400\n"
-"Last-Translator: André Roberge <andre.roberge@gmail.com>\n"
+"PO-Revision-Date: 2010-01-01 00:52+0800\n"
+"Last-Translator: Fred Muller <fred@beijinglug.org>\n"
 "Language-Team:  <andre.roberge@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -483,7 +483,9 @@ msgstr "Parola non consentita:  "
 msgid ""
 "That move really hurt!\n"
 "Please, make sure that there is no wall in front of me!"
-msgstr "Mi sono fatto veramente male! Per piacere, controlla che non ci siano muri di fronte a me!"
+msgstr ""
+"Mi sono fatto veramente male!\n"
+"Per piacere, controlla che non ci siano muri di fronte a me!"
 
 #: ..\rurple/rur_py/robot_factory.py:170
 #: rur_py/robot_factory.py:170

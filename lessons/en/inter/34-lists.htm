@@ -1,8 +1,9 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
 <title>34. Chocolate Mousse Cake Recipe</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
 </ul>
 <p>A recipe is very much like a computer program: it's a series of instructions that one needs to follow in a precise order to accomplish a desired result.  I think we have enough to learn about programming, that I will end the cooking lesson at this point and go back to Python.</p>
 <!--==============================-->
-<hr width="50%">
+<hr width="50%"/>
 <h3 class="section">Lists</h3>
 <p>Here's a little something for you to try with the Python interpreter:</p>
 <pre>
@@ -76,7 +77,7 @@ s
 </pre>
 <p><tt>append()</tt> is a method that is part of the class "list".  <tt>ingredients</tt> is an instance of that class.  We <i>invoke</i> the method <tt>append</tt> on the instance <tt>ingredients</tt> by connecting it with a ".", as we have seen in the previous lesson.  The <i>argument</i> of <tt>append</tt> is the object we want to add to the list.  It is always appended at the end of the list. </p>
 <p>Lists have many other methods; I will introduce them when needed.  If you want to see them all, just type <tt>dir([])</tt> at the Python interpreter; note that <tt>[]</tt> is an empty list - any list would give the same result here.  See if you can spot the method name <tt>append</tt>.</p>
-<p>Now that we know how to add items to lists, we need to know how to remove them.  To do this, we need to use the Python keyword <span class="pykeyword">del</span>.
+<p>Now that we know how to add items to lists, we need to know how to remove them.  To do this, we need to use the Python keyword <span class="pykeyword">del</span>.</p>
 <pre>
 &gt;&gt;&gt; <span class="keyword">del</span> ingredients[3]
 &gt;&gt;&gt; <span class="keyword">print</span> ingredients
@@ -95,11 +96,11 @@ Traceback (most recent call last):
 NameError: name <span class="string">'a'</span> is not defined
 </pre>
 <!--==============================-->
-<hr width="50%">
+<hr width="50%"/>
 <h3 class="try">Try it!</h3>
 <p>In Reeborg's world, write a simple program that creates two robots, each with its own name, have them take a few steps and try to make one of them disappear using the keyword <span class="pykeyword">del</span>.  You may need to have the remaining robot take at least one more step (before turning it off) to have the other robot disappear from the screen.</p>
 <!--==============================-->
-<hr width="50%">
+<hr width="50%"/>
 <h3 class="section">A word about <tt>range()</tt></h3>
 <p>You are now ready to learn a secret about the Python function <tt>range()</tt>:</p>
 <pre>
@@ -109,7 +110,7 @@ NameError: name <span class="string">'a'</span> is not defined
 <p>That's right: <tt>range()</tt> simply creates a list!</p>
 
 <!--==============================-->
-<hr width="50%">
+<hr width="50%"/>
 <h3 class="section">Converting between lists, integers and strings</h3>
 <p>Here are a few useful built-in functions to help converting between one <i>data type</i> and another.</p>
 <pre>
@@ -164,17 +165,17 @@ second_list = list(second_string)
 3
 </pre>
 <!--==============================-->
-<hr width="50%">
+<hr width="50%"/>
 <h3 class="try">Help Reeborg to add using lists, strings and integers</h3>
 <p>Help Reeborg to add two numbers, like illustrated below, using what we just saw about lists, strings and integers.</p>
 <p><img alt="before addition" src=
-"../../images/inter/add34_start.png"></p>
+"../../images/inter/add34_start.png"/></p>
 <p><img alt="after addition" src=
-"../../images/inter/add34_end.png"></p>
+"../../images/inter/add34_end.png"/></p>
 <center><a href="33-for.htm"><img alt="previous" src=
-"../../images/previous.png">Repeat()is hiding some Python keywords</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"../../images/previous.png"/>Repeat()is hiding some Python keywords</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
 "35-dicts.htm">An other kind of definition<img alt="next"
-src="../../images/next.png"></a></center>
+src="../../images/next.png"/></a></center>
 </body>
 </html>
