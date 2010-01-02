@@ -11,7 +11,7 @@
 <p>Der Fehler in der Addition  am Ende der vorigen Lektion hat dich sicher
 überrascht. Denn eigentlich sollte bei der Addition die Reihenfolge der
 Summanden keine Rolle spielen. Python muß sich aber für irgendeine Reihenfolge
-entscheiden und führt die Addition von links nach rechts aus:
+entscheiden und führt die Addition von links nach rechts aus:</p>
 <pre>
 eins = Bruch(1)
 <span class="comment"># Addition mit dem Bruch zuerst:</span>
@@ -19,19 +19,18 @@ eins + 1
 <span class="comment"># Der Python-Interpreter macht daraus</span>
 eins.__add__(1)
 </pre>
-Und wenn der Bruch an zweiter Stelle steht? Die Ganzzahl 1 hat keine Methoden
+<p>Und wenn der Bruch an zweiter Stelle steht? Die Ganzzahl 1 hat keine Methoden
 für Brüche. Daher versucht Python, die Addition von rechts nach links
-auszuführen, indem es die Methode __radd__ des Objekts <tt>eins</tt> aufruft:
+auszuführen, indem es die Methode __radd__ des Objekts <tt>eins</tt> aufruft:</p>
 <pre>
 <span class="comment"># Addition mit der Ganzzahl zuerst:</span>
 1 + eins
 <span class="comment"># Der Python-Interpreter macht daraus</span>
 eins.__radd__(1)
 </pre>
-Um den Fehler zu beheben, musst du also nur die Methode __radd__ definieren. Und
+<p>Um den Fehler zu beheben, musst du also nur die Methode __radd__ definieren. Und
 da die Reihenfolge keinen Einfluss auf das Ergebnis haben soll, muss __radd__
-das gleiche tun wie __add__.
-</p>
+das gleiche tun wie __add__.</p>
 
 <h3 class="section">Wozu überhaupt Brüche?</h3>
 <p>Python hat doch Fließkommazahlen (Typ float)! Jede Fließkommazahl entspricht
@@ -111,7 +110,7 @@ aus 2 lang. Also ist die Wurzel aus 2 am Ende gar kein Bruch?</p>
 <h3 class="section">Der Beweis</h3>
 <p>Um den Verdacht zu beweisen, hilft es nicht, einfach weiter zu rechnen.
 Denn wenn der Verdacht stimmt, kommt man mit der Rechnerei nie an ein Ende. Ein
-Beweis muss also her! Wir beginnen mit zwei Annahmen:
+Beweis muss also her! Wir beginnen mit zwei Annahmen:</p>
 <ol>
     <li>Wurzel aus 2 ist ein Bruch. Wir nennen ihn z/n.</li>
     <li>z und n sind so klein wie möglich. 2/3 zum Beispiel hat den gleichen
@@ -123,8 +122,7 @@ Beweis muss also her! Wir beginnen mit zwei Annahmen:
     verkünden.
     </li>
 </ol>
-
-Jetzt spielen wir mal ein bisschen mit Annahme 1. Wenn z/n die Wurzel aus 2 ist,
+<p>Jetzt spielen wir mal ein bisschen mit Annahme 1. Wenn z/n die Wurzel aus 2 ist,
 dann ist z/n * z/n == 2 oder z * z == 2 * n * n.  z * z ist also eine
 gerade Zahl. Dann muss aber auch z eine gerade Zahl sein. Das bedeutet wiederum,
 dass z * z durch 4 teilbar ist. Dann muss aber auch n * n gerade sein und damit
@@ -132,7 +130,7 @@ n! Aus Annahme 1 folgt also: z und n MÜSSEN BEIDE gerade sein. Das widerspricht
 aber Annahme 2, die aufgrund der Natur der Brüche wahr ist. Zwei gerade Zahlen
 können wir so lange durch 2 teilen, bis mindestens eine der beiden nicht mehr
 gerade ist - ohne den Wert des Bruches zu ändern! Die Schlussfolgerung ist
-bitter für die Pythagoräer:
+bitter für die Pythagoräer:</p>
 <pre>
    ANNAHME 1 IST FALSCH. WURZEL AUS 2 IST KEIN BRUCH.
 </pre>
@@ -146,7 +144,7 @@ unserem Beispiel mathematischer Sachverstand) sind mindestens genau so wichtig.
 Jetzt bleibt mir nur noch, mich für deine Neugier und deine Geduld zu bedanken,
 mit denen du es bis hierher geschafft hast. Ich wünsche dir viel Erfolg beim
 Lernen und bei der Arbeit!
-</p
+</p>
 <center><a href="47-fractions4.htm"><img alt="previous" src=
 "../../images/previous.png"/>47. Brüche - Teil 4</a> - 
 <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/>
