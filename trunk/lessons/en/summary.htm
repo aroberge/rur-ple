@@ -53,7 +53,6 @@ Reeborg.on_beeper() <span class="comment"># equivalent to:</span> Reeborg.next_t
 set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
 <span class="comment"># Any colour name recognized by wxPython is acceptable</span>
 <span class="comment"># style is one of [1, 2, 3, 4, 5]</span>
-
 set_delay(time)
 <span class="comment"># 0 &lt; time &lt; 10 (in seconds)</span>
 
@@ -78,6 +77,8 @@ Guido = RefurbishedRobot()  <span class="comment"># inherits from UsedRobot</spa
 
 <span class="comment"># Additional methods:</span>
 Guido.turn_right()
+Guido.left_clear()
+Guido.right_clear()
 Guido.facing_east()
 Guido.facing_south()
 Guido.facing_west()
