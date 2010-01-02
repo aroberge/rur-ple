@@ -68,6 +68,8 @@ if __name__ == "__main__": # ensures that all wxPython stuff is loaded properly
     os.chdir("python_files")
     misc.PYTHON_DIR  = os.getcwd()
     os.chdir(misc.HOME)
+    #
+    misc.MYFILES_HOME = os.getenv('USERPROFILE') or os.getenv('HOME')
 
 #--- see end of file for completion of the start of the application
 
@@ -350,7 +352,8 @@ class RURApp(wx.Frame):
         if no_error:
             wildcard = _("Program files (*.rur)|*.rur| All files (*.*)|*.*")
             fname = os.path.basename(self.filename)
-            dlg = wx.FileDialog(self, _("Save new program as"), misc.PRGM_DIR,
+	    # misc.PRGM_DIR is replaced by MYFILES_HOME defined in misc.py
+            dlg = wx.FileDialog(self, _("Save new program as"), misc.MYFILES_HOME,
                                fname, wildcard, wx.SAVE| wx.CHANGE_DIR )
             if dlg.ShowModal() == wx.ID_OK:
                 self.filename = dlg.GetPath()

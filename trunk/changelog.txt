@@ -13,11 +13,13 @@ http://code.google.com/p/rur-ple/source/list
  - Added 10 first lessons in Spanish
  - Added Italian UI and welcome page translations
  - HTML code cleanup (English mainly)
- - Started to move lessons encoding to UTF-8 and XHTML
+ - Converted English and Spanish lessons encoding to UTF-8 and XHTML
  - Added 5 new lessons
- - Added files necessary for Windows/Mac/Linux packaging
- - Removed language count from lessons avoiding the need to translate each time we had a language
+ - Added files necessary for Windows/Mac/Linux packaging (a beginning of...)
+ - Removed language count from lessons avoiding the need to translate each time we add a language
  - Added a link to the lessons at the top of the welcome page
+ - Added Peter Maas checktrans.py script to verify translation was XML compliant
+ - sample code is now saved in automatically detected user home folder
 
 
 ------------------------------------------------------------------------------
