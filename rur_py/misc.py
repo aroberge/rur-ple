@@ -9,6 +9,7 @@ stopped_by_user = False
 
 #--- directories information
 HOME = ''     # will be set as current working directory
+MYFILES_HOME = '' # user's sample code directory
 IMAGE_DIR = ''    # images for program - excluding lessons
 HTML_DIR = ''     # lessons and other html files
 PRGM_DIR = ''     # user-defined programs
