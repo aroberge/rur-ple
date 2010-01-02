@@ -20,6 +20,7 @@ http://code.google.com/p/rur-ple/source/list
  - Added a link to the lessons at the top of the welcome page
  - Added Peter Maas checktrans.py script to verify translation was XML compliant
  - sample code is now saved in automatically detected user home folder
+ - removed reference to highlight button which no longer exist
 
 
 ------------------------------------------------------------------------------

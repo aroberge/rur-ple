@@ -299,7 +299,8 @@ class RURApp(wx.Frame):
             return
         wildcard = _("World files (*.wld)|*.wld| All files (*.*)|*.*")
         fname = os.path.basename(self.filename)
-        dlg = wx.FileDialog(self, _("Save new world as"), misc.WORLD_DIR,
+	# misc.WORLD_DIR is replaced by MYFILES_HOME defined in misc.py
+        dlg = wx.FileDialog(self, _("Save new world as"), misc.MYFILES_HOME,
                                fname, wildcard, wx.SAVE| wx.CHANGE_DIR )
         if dlg.ShowModal() == wx.ID_OK:
             self.world_filename = dlg.GetPath()
