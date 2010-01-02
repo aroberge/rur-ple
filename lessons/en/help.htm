@@ -20,10 +20,12 @@ turn_off()
 </pre>
 Tests:
 <pre>
-front_clear()
+front_is_clear()
+left_is_clear()
+right_is_clear()
 facing_north()
 carries_beepers()
-on_beeper()    # also available as: next_to_a_beeper()
+on_beeper() <span class="comment"># equivalent to:</span> next_to_a_beeper()
 </pre>
 Special built-in function:
 <pre>
@@ -32,36 +34,55 @@ repeat(function, number_of_times)
 <span class="keyword">for</span> number <span class="keyword">in</span> range(number_of_times):
     function()
 </pre>
-Object-oriented programming:
+<p>Object-oriented programming:</p>
 <pre>
 Reeborg = UsedRobot()
 Reeborg.move()
 Reeborg.turn_left()
 Reeborg.pick_beeper()
 Reeborg.put_beeper()
-Reeborg.front_clear()
+Reeborg.front_is_clear()
+Reeborg.left_is_clear()
+Reeborg.right_is_clear()
 Reeborg.facing_north()
 Reeborg.carries_beepers()
-Reeborg.on_beeper()   # also available as: Reeborg.next_to_a_beeper()
+Reeborg.on_beeper() <span class="comment"># equivalent to:</span> Reeborg.next_to_a_beeper()
 </pre>
-Advanced options:
+<p>Advanced options:</p>
 <pre>
-set_trace_style(style=1, colour='sea green')
+set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
+<span class="comment"># Any colour name recognized by wxPython is acceptable</span>
+<span class="comment"># style is one of [1, 2, 3, 4, 5]</span>
 set_delay(time)
-Reeborg = UsedRobot(avenues=1, streets=1, orient_key = 'E',
-                 beepers=0, name = 'Reeborg', colour = 'grey')
-Reeborg.set_trace_style(style=1, colour='sea green')
+<span class="comment"># 0 &lt; time &lt; 10 (in seconds)</span>
+
+Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span class="string">'E'</span>,
+                 beepers=0, name=<span class="string">'robot'</span>, colour=<span class="string">'grey'</span>)
+<span class="comment"># orient_key is one of <span class="string">'E'</span> or <span class="string">'e'</span>, <span class="string">'W'</span> or <span class="string">'w'</span>, <span class="string">'S'</span> or <span class="string">'s'</span>, <span class="string">'N'</span> or <span class="string">'n'</span>.</span>
+
+<span class="comment"># Available <b>robot</b> colours are: <span class="string">'yellow'</span>, 
+# <span class="string">'blue'</span>, <span class="string">'light blue'</span>, <span class="string">'purple'</span> and <span class="string">'green'</span>.  
+# Any other colour will result in the default (<span class="string">'grey'</span>) to be used.</span>
+
+<span class="comment"># Note that a "serial number" may be appended to the
+# robot's "name", so that each robot during an entire play/work session
+# with rur-ple will have a unique name.</span>
+
+Reeborg.set_trace_style(style=1, colour=<span class="string">'sea green'</span>) 
 Reeborg.set_delay(time)
 </pre>
-New and improved robot (future version)
+<p>New and improved robot!</p>
 <pre>
-Guido = RefurbishedRobot()  # inherits from UsedRobot
+Guido = RefurbishedRobot()  <span class="comment"># inherits from UsedRobot</span>
+
+<span class="comment"># Additional methods:</span>
 Guido.turn_right()
 Guido.left_clear()
 Guido.right_clear()
 Guido.facing_east()
 Guido.facing_south()
 Guido.facing_west()
+Guido.roll_dice(n=6) <span class="comment"># random integer between 1 and n.</span>
 </pre>
 <h5><a name="Acknowledgements" id=
 "Acknowledgements"><b>Acknowledgements</b></a></h5>
@@ -82,7 +103,8 @@ Python-like implementation of Pattis' original Karel the Robot. I
 have received very useful comments from the GvR team; in
 particular, I would like to acknowledge the contribution of Stas
 Zykiewicz, who taught me a great deal about wxPython, and never
-tired of trying out buggy code I wrote. Thanks Stas!</p>
+tired of trying out buggy code I wrote until rur-ple became stable enough to
+be used by others. Thanks Stas!</p>
 <p>Many of the images for buttons have been adapted from the
 Nuvola icon set, created by David Vignoni. I wish I could create
 images as esthetically pleasing as Vignoni does.</p>
@@ -92,7 +114,8 @@ well.</p>
 <p>Luis Sureda provided a Spanish translation and made some
 useful suggestions to simplify the code related to the language
 selection.</p>
-<p>Richard E. Brown provided some useful bug reports and suggestions so that Rur-ple should now work properly under MacOS.</p>
+<p>Richard E. Brown provided some useful bug reports and suggestions so that rur-ple should now work properly under MacOS.</p>
+<p>Andy Judkis used rur-ple with his students and made many suggestions for improvement; in many ways, he became a driving force behind this project.</p>
 <center><a href="rur.htm"><img alt="home" src=
 "../images/home.png"/></a></center>
 </body>
