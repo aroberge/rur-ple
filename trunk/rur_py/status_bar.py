@@ -66,7 +66,7 @@ class rurStatusBar(wx.StatusBar):
                 if info < 2:
                     self.beeper_text = _("Robot has %s beeper") % info
                 else:
-                    self.beeper_text = "Robot has %s beepers" % info
+                    self.beeper_text = _("Robot has %s beepers") % info
         elif field == self.running_field:
             self.run_text = info
             for n in ['0', '1', '2']:
