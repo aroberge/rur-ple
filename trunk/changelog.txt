@@ -19,8 +19,9 @@ http://code.google.com/p/rur-ple/source/list
  - Removed language count from lessons avoiding the need to translate each time we add a language
  - Added a link to the lessons at the top of the welcome page
  - Added Peter Maas checktrans.py script to verify translation was XML compliant
- - sample code is now saved in automatically detected user home folder
+ - sample code/world are now saved in automatically detected user home folder
  - removed reference to highlight button which no longer exist
+ - fixed turkish.po file so UI can work in Turkish as well
 
 
 ------------------------------------------------------------------------------
