@@ -1,71 +1,72 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>32. Many returns</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>Many returns</title>
 </head>
 <body>
 
 <h2 class="title">32. Many <span class="pykeyword">return</span>s</h2>
-<p>Bildi&#287;iniz gibi Reeborg �ok iyi bir durumda de&#287;il. Yaln&#305;zca sola d�nebilir,&nbsp; 
-duvarlar&#305; �n�ne geldi&#287;inde g�rebilir, bipleri �st�nde oldu&#287;u zaman duyabilir ve 
-ya&#287; s&#305;zd&#305;r&#305;r. Reeborg'un birde pusulas&#305; (k&#305;r&#305;k da olsa) vard&#305;r ve bununla kuzeye 
-d�n�k olup olmad&#305;&#287;&#305;n&#305; anlayabilir. Pusulay&#305; kullanmak i�in<tt> facing_north</tt> 
-testini kullanabilirsiniz.&nbsp; </p> 
+<p>Bildiğiniz gibi Reeborg çok iyi bir durumda değil. Yalnızca sola dönebilir,  
+duvarları önüne geldiğinde görebilir, bipleri üstünde olduğu zaman duyabilir ve 
+yağ sızdırır. Reeborg'un birde pusulası (kırık da olsa) vardır ve bununla kuzeye 
+dönük olup olmadığını anlayabilir. Pusulayı kullanmak için<tt> facing_north</tt> 
+testini kullanabilirsiniz.  </p> 
 <!--==============================-->
-<hr width="50%">
+<hr width="50%"/>
 <h3 class="try">Deneyin!</h3>
-<p>Reeborg'un y�z� kuzey'e d�n�nceye kadar sola d�nmesini sa&#287;layan k&#305;sa bir 
-program yaz&#305;n. Reeborg'un ba&#351;lang&#305;� pozisyonu ne olursa olsun yazd&#305;&#287;&#305;n&#305;z program 
-do&#287;ru �al&#305;&#351;mal&#305;d&#305;r.</p>
+<p>Reeborg'un yüzü kuzey'e dönünceye kadar sola dönmesini sağlayan kısa bir 
+program yazın. Reeborg'un başlangıç pozisyonu ne olursa olsun yazdığınız program 
+doğru çalışmalıdır.</p>
 
 <!--==============================-->
-<hr width="50%">
-<h3 class="section">Bir fonksiyondan sonu�lar&#305; almak</h3>
-<p>Reeborg'un yapt&#305;&#287;&#305; testler asl&#305;nda Python fonksiyonlar&#305;d&#305;r. Bu fonksiyonlar 
-bizim &#351;imdiye kadar g�rd�klerimizden farkl&#305; olarak, bir sonu� g�stermek yerine 
-bir cevap verirler (True veya False) ve bu cevaba g�re i&#351;lem yap&#305;l&#305;r.  Bizim 
-g�rd�&#287;�m�z fonksiyonlara benzer bir &#351;eyler yapmak i�in&nbsp; <span class="pykeyword">return </span>
-komutunu kullanabiliriz. �rnek: </p>
+<hr width="50%"/>
+<h3 class="section">Bir fonksiyondan sonuçları almak</h3>
+<p>Reeborg'un yaptığı testler aslında Python fonksiyonlarıdır. Bu fonksiyonlar 
+bizim şimdiye kadar gördüklerimizden farklı olarak, bir sonuç göstermek yerine 
+bir cevap verirler (True veya False) ve bu cevaba göre işlem yapılır.  Bizim 
+gördüğümüz fonksiyonlara benzer bir şeyler yapmak için  <span class="pykeyword">return </span>
+komutunu kullanabiliriz. Örnek: </p>
 <pre>
-&gt;&gt;&gt; <span class="keyword">def</span> add(a, b):
+>>> <span class="keyword">def</span> add(a, b):
 ...     answer = a + b
 ...     <span class="keyword">return</span> answer
 ...
-&gt;&gt;&gt; c = add(4, 5)
-&gt;&gt;&gt; <span class="keyword">print</span> c
+>>> c = add(4, 5)
+>>> <span class="keyword">print</span> c
 9
-&gt;&gt;&gt; <span class="comment"># Sonucu ekrana direk yazd&#305;rabiliriz</span>
-&gt;&gt;&gt; <span class="keyword">print</span> add(1, 1)
+>>> <span class="comment"># Sonucu ekrana direk yazdırabiliriz</span>
+>>> <span class="keyword">print</span> add(1, 1)
 2
 </pre>
-<p>Yukar&#305;daki �rnekte <tt>add()</tt>&nbsp; fonksiyonunu bir sat&#305;r daha k&#305;sa bir 
-&#351;ekilde a&#351;a&#287;&#305;daki gibi yazabiliriz: </p>
+<p>Yukarıdaki örnekte <tt>add()</tt>  fonksiyonunu bir satır daha kısa bir 
+şekilde aşağıdaki gibi yazabiliriz: </p>
 <pre>
-&gt;&gt;&gt; <span class="keyword">def</span> add(a, b):
+>>> <span class="keyword">def</span> add(a, b):
 ...     <span class="keyword">return</span> a + b
 ...
-&gt;&gt;&gt; c = add(4, 5)
-&gt;&gt;&gt; <span class="keyword">print</span> c
+>>> c = add(4, 5)
+>>> <span class="keyword">print</span> c
 9
 </pre>
-<p> <span class="pykeyword">return</span> komutu yaln&#305;zca bir de&#287;i&#351;kenin 
-de&#287;erini de&#287;il ge�erli bir Python ifadesinin sonucunu da geri d�nd�rebilir. E&#287;er 
-de&#287;erini geri d�nd�rmek istedi&#287;iniz ifade k&#305;sa ise ekstra bir de&#287;i&#351;ken kullanmak 
-istemeyebilirsiniz (yukar&#305;daki answer de&#287;i&#351;keni gibi). Ancak, ileride 
-g�rece&#287;iniz gibi bazen bir de&#287;i&#351;kenden daha fazla sonu� geri d�nd�rmek 
-isteyebilirsiniz.&nbsp; Bu durumda ifade kullanmak yerine de&#287;i&#351;ken kullanmak 
+<p> <span class="pykeyword">return</span> komutu yalnızca bir değişkenin 
+değerini değil geçerli bir Python ifadesinin sonucunu da geri döndürebilir. Eğer 
+değerini geri döndürmek istediğiniz ifade kısa ise ekstra bir değişken kullanmak 
+istemeyebilirsiniz (yukarıdaki answer değişkeni gibi). Ancak, ileride 
+göreceğiniz gibi bazen bir değişkenden daha fazla sonuç geri döndürmek 
+isteyebilirsiniz.  Bu durumda ifade kullanmak yerine değişken kullanmak 
 daha kolay olabilir. </p>
 <!--==============================-->
-<hr width="50%">
-<h3 class="section">Reeborg'un d�nyas&#305;na d�n�&#351;<span class="pykeyword"> (return</span>ing to Reeborg's world) </h3>
+<hr width="50%"/>
+<h3 class="section">Reeborg'un dünyasına dönüş<span class="pykeyword"> (return</span>ing to Reeborg's world) </h3>
 
-<p>Dersin ba&#351;&#305;nda bahsetti&#287;imiz gibi Reeborg'un k&#305;r&#305;k bir pusulas&#305; vard&#305;r. Bu 
-nedenle yaln&#305;zca kuzeye d�n�k olup olmad&#305;&#287;&#305;n&#305; bilebilir. Art&#305;k, Reeborg'un 
-akl&#305;nda bir &#351;eyler tutabilece&#287;ini �&#287;rendi&#287;imize g�re, ona hangi y�ne do&#287;ru 
-bakt&#305;&#287;&#305;n&#305; �&#287;retebiliriz. �rne&#287;in: </p>
+<p>Dersin başında bahsettiğimiz gibi Reeborg'un kırık bir pusulası vardır. Bu 
+nedenle yalnızca kuzeye dönük olup olmadığını bilebilir. Artık, Reeborg'un 
+aklında bir şeyler tutabileceğini öğrendiğimize göre, ona hangi yöne doğru 
+baktığını öğretebiliriz. Örneğin: </p>
 <pre>
 <span class="keyword">def</span> facing_south():
     turn_left()
@@ -75,42 +76,42 @@ bakt&#305;&#287;&#305;n&#305; �&#287;retebiliriz. �rne&#287;in: </p>
     turn_left()
     <span class="keyword">return</span> answer
 </pre>
-<p>Bunun nas&#305;l �al&#305;&#351;t&#305;&#287;&#305;n&#305; iki durumu incelerek anlayal&#305;m:</p>
-<ul><li><b>Reeborg'un g�neye bakt&#305;&#287;&#305;n&#305; varsayal&#305;m.</b> &#304;ki sola d�n�&#351;ten sonra, 
-	kuzeye bakar. <tt>facing_north()</tt> testi "<tt>True</tt>" de&#287;erini verir 
-	ve bu da cevap de&#287;i&#351;kenine atan&#305;r. &#304;ki kez daha sola d�nd�kten sonra g�neye 
-	bakar (orjinal pozisyonuna geri d�ner) ve "<tt>True</tt>&quot; de&#287;eri geri 
-	d�nd�r�l�r. </li>
-<li><b>Reeborg'un g�neye bakmad&#305;&#287;&#305;n&#305; varsayal&#305;m</b> Bu durumda iki sola d�n�&#351;ten 
-sonra kuzeye bakmayacakt&#305;r ve <tt>answer </tt>de&#287;i&#351;kenine "<tt>False</tt>" de&#287;eri 
-atanacakt&#305;r.&nbsp; &#304;ki kez daha sola d�nd�kten sonra yine g�neye bakmayacak ve 
-sonras&#305;nda&nbsp; "<tt>False</tt>" de&#287;eri geri d�nd�r�lecektir.</li>
+<p>Bunun nasıl çalıştığını iki durumu incelerek anlayalım:</p>
+<ul><li><b>Reeborg'un güneye baktığını varsayalım.</b> İki sola dönüşten sonra, 
+	kuzeye bakar. <tt>facing_north()</tt> testi "<tt>True</tt>" değerini verir 
+	ve bu da cevap değişkenine atanır. İki kez daha sola döndükten sonra güneye 
+	bakar (orjinal pozisyonuna geri döner) ve "<tt>True</tt>" değeri geri 
+	döndürülür. </li>
+<li><b>Reeborg'un güneye bakmadığını varsayalım</b> Bu durumda iki sola dönüşten 
+sonra kuzeye bakmayacaktır ve <tt>answer </tt>değişkenine "<tt>False</tt>" değeri 
+atanacaktır.  İki kez daha sola döndükten sonra yine güneye bakmayacak ve 
+sonrasında  "<tt>False</tt>" değeri geri döndürülecektir.</li>
 </ul>
-<p>Art&#305;k Reeborg'un g�neye bak&#305;p bakmad&#305;&#287;&#305;n&#305; anlamak i�in yeni testimizi 
+<p>Artık Reeborg'un güneye bakıp bakmadığını anlamak için yeni testimizi 
 kullanabiliriz:</p>
 <pre>
 <span class="keyword">while</span> <span class="keyword">not</span> facing_south():
     turn_left()
 </pre>
 <!--==============================-->
-<hr width="50%">
-<h3 class="try">K���k test</h3>
-<p>Reeborg'un y�z�n� bat&#305;ya d�nmesini sa&#287;layan bir program yaz&#305;n. Reeborg'un 
-ba&#351;lang&#305;� pozisyonu ne olursa olsun yazd&#305;&#287;&#305;n&#305;z program do&#287;ru �al&#305;&#351;mal&#305;d&#305;r. 
-Reeborg farkl&#305; ba&#351;lang&#305;� pozisyonlar&#305;ndayken program&#305;n&#305;z&#305; deneyin.</p>
+<hr width="50%"/>
+<h3 class="try">Küçük test</h3>
+<p>Reeborg'un yüzünü batıya dönmesini sağlayan bir program yazın. Reeborg'un 
+başlangıç pozisyonu ne olursa olsun yazdığınız program doğru çalışmalıdır. 
+Reeborg farklı başlangıç pozisyonlarındayken programınızı deneyin.</p>
 <!--==============================-->
-<hr width="50%">
-<h3 class="try">K���k test 2</h3>
-<p>Bo&#351; bir d�nyada Reeborg'u y�z� herhangi bir y�ne do&#287;ru olacak &#351;ekilde 
-herhangi bir noktaya koyun. Reeborg'u buradan her zamanki ba&#351;lang&#305;� noktas&#305;na 
-getiren ve y�z�n� do&#287;uya �eviren bir program yaz&#305;n. Bu program Reeborg nereye 
-hangi pozisyonda yerle&#351;tirilirse yerle&#351;tirilsin do&#287;ru olarak �al&#305;&#351;mal&#305;d&#305;r. </p>
+<hr width="50%"/>
+<h3 class="try">Küçük test 2</h3>
+<p>Boş bir dünyada Reeborg'u yüzü herhangi bir yöne doğru olacak şekilde 
+herhangi bir noktaya koyun. Reeborg'u buradan her zamanki başlangıç noktasına 
+getiren ve yüzünü doğuya çeviren bir program yazın. Bu program Reeborg nereye 
+hangi pozisyonda yerleştirilirse yerleştirilsin doğru olarak çalışmalıdır. </p>
 
-<center><a href="31-global.htm"><img alt="previous" src=
-"../../images/previous.png">Globalle&#351;tirme k�t� bir &#351;eydir.</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
-<A href="33-for.htm">Repeat() baz&#305; Python komutlar&#305;n&#305; gizler<img alt="next"
-src="../../images/next.png"></a></center>
+<p align="center"><a href="31-global.htm"><img alt="previous" src=
+"../../images/previous.png"/>Globalleştirme kötü bir şeydir </a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+<a href="33-for.htm">Repeat() bazı Python komutlarını gizler <img alt="next"
+src="../../images/next.png"/></a></p>
 
 </body>
 </html>
