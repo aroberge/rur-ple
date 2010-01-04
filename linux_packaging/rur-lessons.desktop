@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0.1
+Encoding=UTF-8
+Type=Application
+Name=RUR-PLE lessons
+GenericName=rur-lessons
+Comment=Access RUR-PLE lessons from your browser
+Icon=rur-lessons
+Exec=/usr/games/rur-lessons.sh
+Terminal=false
+StartupNotify=false
+Categories=Application;Education;
