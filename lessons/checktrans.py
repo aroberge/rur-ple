@@ -1,4 +1,5 @@
 # (c) 2008 - Peter Maas
+# v.1.1
 # checktrans.py
 #    Little tool to check XML-conformance of the lessons and also
 #    the translated part in percent (need to add lang attributes 
@@ -33,9 +34,9 @@ total_size = 0
 tr_size = 0
 total_files = 0
 tr_files = 0
-lang = "de"
+lang = d
 extension = '.htm'
-show_files = False
+show_files = True
 
 for d, subd, subf in os.walk(d):
     for f in subf:
@@ -44,7 +45,7 @@ for d, subd, subf in os.walk(d):
             try:
                 fsize = os.path.getsize(fa)
                 flang = checklang(fa)
-                if flang == "de":
+                if flang == lang:
                     tr_size += fsize
                     tr_files += 1
                 total_size += fsize
