@@ -1,7 +1,7 @@
 /* rurple.css */
 
 body{
- width:600px;
+/* width:600px; */
 }
 
 /* Basic Python Elements (inside <pre> </pre>)*/
@@ -27,3 +27,4 @@ body{
 .quiz{color: #900090;}
 .warning{color: #CC0000; font-weight: bold;}
 .important{color: #CC0000; font-weight: bold;}
+.lessons_nav,.pcenter{text-align: center;}

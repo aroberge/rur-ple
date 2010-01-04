@@ -88,10 +88,12 @@ TypeError: object does not support item assignment
 <p>Contrast this with beepers.  You can right-click on any street corner to specify the number of beepers to put there.  If you change the value of the beepers at a given corner, they get changed in-place.  If you add beepers at a corner where there were none before, the new beepers are, in general, <b>not</b> appended at the end. (You may need to have more than a few corners with beepers to see this.)  Make sure you have many corners with beepers. Select a corner with beepers and set the value to zero, watching the world file.  Like for the walls, the entry disappears.  Now, immediately put some beepers back on that same corner.  The new entry appears at the original place, and not at the end like it was the case for the list.  This is because the order in which items appear in a dict is based on a mathematical function ("hash") of the dict "key" (the tuple with the world coordinate in this case) which Python knows how to use efficiently, but which makes it appear as random to us.</p>
 
 
-<center><a href="35-dicts.htm"><img alt="previous" src=
+<div class="lessons_nav">
+<a href="35-dicts.htm"><img alt="previous" src=
 "../../images/previous.png"/>An other kind of definition</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
 "37-class.htm">Fixing up Reeborg <img alt="next"
-src="../../images/next.png"/></a></center>
+src="../../images/next.png"/></a>
+</div>
 </body>
 </html>

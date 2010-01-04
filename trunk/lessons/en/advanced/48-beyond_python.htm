@@ -10,7 +10,7 @@
 <h2 class="title">48. Beyond Python</h2>
 <p>The failed addition at the end of the previous lesson surely came as a
 surprise to you. For the order of operands in an addition should not make any
-difference. But Python has to choose one and thus proceeds from left to right.
+difference. But Python has to choose one and thus proceeds from left to right.</p>
 <pre>
 one = fraction(1)
 <span class="comment"># Addition with a fraction coming first:</span>
@@ -18,19 +18,18 @@ one + 1
 <span class="comment"># The Python interpreter treats this as</span>
 one.__add__(1)
 </pre>
-And what if the fraction comes second? The integer 1 does not have any methods
+<p>And what if the fraction comes second? The integer 1 does not have any methods
 for fractions. Therefore Python tries to proceed from right to left by calling
-the method __radd__ of the object <tt>one</tt>:
+the method __radd__ of the object <tt>one</tt>:</p>
 <pre>
 <span class="comment"># Addition with an integer coming first:</span>
 1 + one
 <span class="comment"># The Python interpreter treats this as</span>
 one.__radd__(1)
 </pre>
-To fix the error you only have to define the method __radd__. And because the
+<p>To fix the error you only have to define the method __radd__. And because the
 order of the operands must not influence the result __radd__ has to perform the
-same computation as __add__.
-</p>
+same computation as __add__.</p>
 
 <h3 class="section">Why fractions?</h3>
 <p>Python has floating point numbers (type float) after all! Each floating
@@ -110,7 +109,7 @@ square root of 2. So the square root of 2 is perhaps not a fraction at all?</p>
 <h3 class="section">The Proof</h3>
 <p>To prove this conjecture you can not simply go on with calculating. For
 calculation never stops if the conjecture holds. We need a proof! Let us start 
-with two assumptions:
+with two assumptions:</p>
 
 <ol>
     <li>Square root of 2 is a fraction. We call it n/d.</li>
@@ -124,7 +123,7 @@ with two assumptions:
     </li>
 </ol>
 
-Now let us play a little with assumption 1. If n/d is the square root of 2,
+<p>Now let us play a little with assumption 1. If n/d is the square root of 2,
 then  n/d * n/d == 2 or  n * n == 2 * d * d.  Thus n * n is an even
 number. But then n must also be even. This means that n * n is a multiple of 4.
 Then finally d * d must also be even and by the same argument d! Thus from
@@ -132,7 +131,7 @@ assumption 1 follows that n and d MUST BOTH be even numbers. This is a
 contradiction to assumption 2 which is true by the very nature of fractions.
 Two even numbers can be divided by 2 until at least one of them is odd - without
 changing the value of the fraction. The conclusion is bitter for the
-Pythagoreans:
+Pythagoreans:</p>
 <pre>
    ASSUMPTION 1 IS WRONG. THE SQUARE ROOT OF 2 IS NOT A FRACTION.
 </pre>
@@ -147,10 +146,12 @@ thank you for your curiosity and patience which let you come this far. Good
 luck for your learning and work!
 </p>
 
-<center><a href="47-fractions4.htm"><img alt="previous" src=
+<div class="lessons_nav">
+<a href="47-fractions4.htm"><img alt="previous" src=
 "../../images/previous.png"/>Fractions - part 4</a> - 
 <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/>
 </a> - <a href="49-input.htm">Reeborg asks you <img alt="next"
-src="../../images/next.png"/></a></center>
+src="../../images/next.png"/></a>
+</div>
 </body>
 </html>

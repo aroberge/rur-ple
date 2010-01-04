@@ -1,6 +1,0 @@
-Made by Peter Maas
-
-checktrans.py
-    Little tool to check XML-conformance of the lessons and also
-    the translated part in percent (need to add lang attributes 
-    to the html tag of completely translated lessons).
