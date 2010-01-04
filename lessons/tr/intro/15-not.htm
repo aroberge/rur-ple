@@ -1,64 +1,66 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>Not true!?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>Doğru değil - Not true!?</title>
 </head>
 <body>
 
-<h2 class="title">15. Do&#287;ru de&#287;il <span class="pykeyword">not</span> true!?</h2>
-<p>Reeborg'un bir bip buluncaya kadar y�r�mesini ve bip'i bulunca da kendisini 
-kapatmas&#305;n&#305; istedi&#287;imizi varsayal&#305;m. Ba&#351;lang&#305;� pozisyonu a&#351;a&#287;&#305;daki gibi olsun:</p>
-<img alt="stop at beeper" src="../../images/intro/stop_at_beeper.png">
-<p>Bunu <i>pseudocode </i>ile &#351;�yle yapabiliriz: <br>
-<br>
-If next to beeper,<br>
-... dur;<br>
-otherwise,<br>
-... y�r�meye devam et.<br>
-<br>
-Bunu Python koduna �evirirsek:</p>
+<h2 class="title">15. Doğru değil <span class="pykeyword">not</span> true!?</h2>
+<p>Reeborg'un bir bip buluncaya kadar yürümesini ve bip'i bulunca da kendisini 
+kapatmasını istediğimizi varsayalım. Başlangıç pozisyonu aşağıdaki gibi olsun:</p>
+<img alt="stop at beeper" src="../../images/intro/stop_at_beeper.png"/>
+<p>Bunu <i>pseudocode </i>ile şöyle yapabiliriz: <br />
+<br />
+If next to beeper,<br />
+... dur;<br />
+otherwise,<br />
+... yürümeye devam et.<br />
+<br />
+Bunu Python koduna çevirirsek:</p>
 <pre>
 <span class="keyword">if</span> next_to_beeper():
     turn_off()
 <span class="keyword">else</span>:
     move()           
 </pre>
-Bu tam bir ��z�m de&#287;il ��nk� Reeborg'a bu i&#351;i tekrar etmesini s�ylemedik. Bu &#351;u 
-an i�in �nemli de&#287;il biz &#351;imdi ayn&#305; i&#351;i yapan a&#351;a&#287;&#305;daki
-<i>pseudocode</i> 'a bakal&#305;m. <br>
-<br>
-If <b>not</b> next to beeper,<br>
-...y�r�meye devam et;<br>
-otherwise,<br>
-...dur.<br>
-<br>
-y�r�meye devam et ve dur'un yerlerini de&#287;i&#351;tirmemize ra&#287;men iki
-<i>pseudocode</i>'da ayn&#305; i&#351;i yaparlar. Burada �nemli olan nokta <span class="pykeyword">if</span> 
-den sonra&nbsp; <span class="pykeyword">not</span>'&#305;n kullan&#305;lmas&#305;d&#305;r.  
-Bu &#351;ekilde Pythonda &#351;artlar&#305;n tersi al&#305;nabilir:&nbsp;
+<p>Bu tam bir çözüm değil çünkü Reeborg'a bu işi tekrar etmesini söylemedik. Bu şu 
+an için önemli değil biz şimdi aynı işi yapan aşağıdaki
+<i>pseudocode</i> 'a bakalım. <br />
+<br />
+If <b>not</b> next to beeper,<br />
+...yürümeye devam et;<br />
+otherwise,<br />
+...dur.<br />
+<br />
+yürümeye devam et ve dur'un yerlerini değiştirmemize rağmen iki
+<i>pseudocode</i>'da aynı işi yaparlar. Burada önemli olan nokta <span class="pykeyword">if</span> 
+den sonra  <span class="pykeyword">not</span>'ın kullanılmasıdır.  
+Bu şekilde Pythonda şartların tersi alınabilir: </p>
 <pre>
 <span class="keyword">if not</span> next_to_beeper():
     move()
 <span class="keyword">else</span>:
     turn_off()          
 </pre>
-<p>Bu kodu tam bir program haline getirmek i�in bir tan&#305;mlama yapmal&#305; ve bu 
-tan&#305;mlamay&#305; yeteri kadar tekrar ettirmeliyiz.</p>
-<h3 class="try">S&#305;ra sizde</h3>
-<p> <span class="pykeyword">not</span>'&#305; kullanarak engel atlama program&#305;n&#305; 
-yeniden yaz&#305;n&#305;z.</p>
-<hr width="50%">
-<h3 class="suggested">Ekme bi�me zaman&#305;</h3>
-<p>Bahar geldi. Reeborg'un babas&#305; sonbaharda hasat etmek i�in bah�eye havu� 
-tohumlar&#305; atm&#305;&#351;t&#305;. A&#351;a&#287;&#305;da g�rd�&#287;�n�z gibi baz&#305; yerlerde iki filiz �&#305;karken baz&#305; 
-yerlerde hi� filiz �&#305;kmam&#305;&#351;. (d�nya dosyas&#305;: harvest4.wld).</p>
-<img alt="weeding" src="../../images/intro/harvest4.png">
-<p>Reeborg'a filizleri d�zenlemesi i�in yard&#305;m edin ve her yerde filiz say&#305;s&#305;n&#305;n 
-a&#351;a&#287;&#305;da oldu&#287;u gibi bir tane olmas&#305;n&#305; sa&#287;lay&#305;n.</p>
-<img alt="weeding" src="../../images/intro/harvest1.png">
-<p>Kodlaman&#305;n bir b�l�m� i�in tavsiye: </p>
+<p>Bu kodu tam bir program haline getirmek için bir tanımlama yapmalı ve bu 
+tanımlamayı yeteri kadar tekrar ettirmeliyiz.</p>
+<h3 class="try">Sıra sizde</h3>
+<p> <span class="pykeyword">not</span>'ı kullanarak engel atlama programını 
+yeniden yazınız.</p>
+<hr width="50%"/>
+<h3 class="suggested">Ekme biçme zamanı</h3>
+<p>Bahar geldi. Reeborg'un babası sonbaharda hasat etmek için bahçeye havuç 
+tohumları atmıştı. Aşağıda gördüğünüz gibi bazı yerlerde iki filiz çıkarken bazı 
+yerlerde hiç filiz çıkmamış. (dünya dosyası: harvest4.wld).</p>
+<img alt="weeding" src="../../images/intro/harvest4.png"/>
+<p>Reeborg'a filizleri düzenlemesi için yardım edin ve her yerde filiz sayısının 
+aşağıda olduğu gibi bir tane olmasını sağlayın.</p>
+<img alt="weeding" src="../../images/intro/harvest1.png"/>
+<p>Kodlamanın bir bölümü için tavsiye: </p>
 <pre>
 <span class="comment"># probleme uygun kelimeler</span>
 next_to_a_carrot = next_to_a_beeper
@@ -74,12 +76,13 @@ pick_carrot = pick_beeper
         <span class="keyword">if not</span> next_to_a_carrot(): 
             plant_carrot()  
 </pre>
-<p>Ger�ek hayatta filizlerin yerini de&#287;i&#351;tirmek iyi bir fikir olmayabilir!</p>
-<center><a href="14-elif.htm"><img alt="previous" src=
-"../../images/previous.png"> If, else, if, else, ....</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
-<A href="16-while.htm">Bir s�re i�in For a while <img alt="next" src=
-"../../images/next.png"></a>
-</center>
+<p>Gerçek hayatta filizlerin yerini değiştirmek iyi bir fikir olmayabilir!</p>
+<p align="center"><a href="14-elif.htm"><img alt="previous" src=
+"../../images/previous.png"/> If, else, if, else, ....</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+<a href="16-while.htm">Bir süre için For a while <img alt="next" src=
+"../../images/next.png"/></a>
+</p>
 </body>
 </html>
+

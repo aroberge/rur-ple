@@ -1,88 +1,90 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>Avoiding repetitions, again!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>Tekrardan kaçının, tekrar!</title>
 </head>
 <body>
-<h2 class="title">11. Tekrardan ka�&#305;n&#305;n, tekrar!</h2>
-<p>Bir �nceki derste g�rd�&#287;�m�z Kural #3 �ok �nemlidir, bu nedenle bu konuyu 
-tekrar etme zorunlulu&#287;u hissediyorum.</p>
+<h2 class="title">11. Tekrardan kaçının, tekrar!</h2>
+<p>Bir önceki derste gördüğümüz Kural #3 çok önemlidir, bu nedenle bu konuyu 
+tekrar etme zorunluluğu hissediyorum.</p>
 <dl>
 <dt><b>Kural # 3</b></dt>
-<dd>Bilgisayar program&#305; yazarken ayn&#305; kodlar&#305; tekrar yazmay&#305;n.<br>
-Tekrar ediyorum: <b>ayn&#305; kodlar&#305; tekrar yazmay&#305;n!</b></dd>
+<dd>Bilgisayar programı yazarken aynı kodları tekrar yazmayın.<br />
+Tekrar ediyorum: <b>aynı kodları tekrar yazmayın!</b></dd>
 </dl>
-<hr width="50%">
+<hr width="50%"/>
 <a name="Repeat" id="Repeat"></a>
 <h3 class="section">Tekrar!</h3>
-<p>Gazete da&#287;&#305;t&#305;m&#305;na en son getirdi&#287;imiz ��z�mde az da olsa tekrarlar vard&#305;. 
-�rne&#287;in
-<tt>turn_left()</tt>komutu <tt>turn_right()</tt>'&#305; tan&#305;mlayabilmek i�in ard&#305; 
-ard&#305;na �� kez kullan&#305;ld&#305;.&nbsp; Benzer &#351;ekilde <tt>climb_up_four_stairs()</tt>'in 
-tan&#305;mlanmas&#305;nda&nbsp; <tt>climb_up_one_stair()</tt>d�rt kez kullan&#305;ld&#305;. Bu 3 
-numaral&#305; kurala ters d�&#351;�yor. Bu tekrarlardan ka�&#305;nman&#305;n bir yolu Reeborg'un 
-�zel bir komut yard&#305;m&#305;yla&nbsp; i&#351;lemleri tekrar etmesini sa&#287;lamak olabilir.&nbsp; </p>
-<p>Reeborg'un bir i&#351;lemi tekrar etmesini sa&#287;lamak i�in&nbsp;
-<tt>repeat()</tt> komutunu kullanabiliriz:<br>
-<tt>repeat(</tt> <em>i&#351;lemin ad&#305;</em>, <tt>ka� kez yap&#305;laca&#287;&#305;)</tt></p>
-<p><i>i&#351;lemin ad&#305;</i> parantez kullan&#305;lmadan belirtilmelidir: </p>
+<p>Gazete dağıtımına en son getirdiğimiz çözümde az da olsa tekrarlar vardı. 
+Örneğin
+<tt>turn_left()</tt>komutu <tt>turn_right()</tt>'ı tanımlayabilmek için ardı 
+ardına üç kez kullanıldı.  Benzer şekilde <tt>climb_up_four_stairs()</tt>'in 
+tanımlanmasında  <tt>climb_up_one_stair()</tt>dört kez kullanıldı. Bu 3 
+numaralı kurala ters düşüyor. Bu tekrarlardan kaçınmanın bir yolu Reeborg'un 
+özel bir komut yardımıyla  işlemleri tekrar etmesini sağlamak olabilir.  </p>
+<p>Reeborg'un bir işlemi tekrar etmesini sağlamak için 
+<tt>repeat()</tt> komutunu kullanabiliriz:<br />
+<tt>repeat(</tt> <em>işlemin adı</em>, <tt>kaç kez yapılacağı)</tt></p>
+<p><i>işlemin adı</i> parantez kullanılmadan belirtilmelidir: </p>
 <pre>
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
 </pre>
-<h3 class="try">S&#305;ra sizde</h3>
-<p>Gazete da&#287;&#305;t&#305;m&#305; program&#305;nda <tt>repeat()</tt> komutunu kullanabildi&#287;iniz her 
-yerde kullan&#305;n ve daha k&#305;sa bir program elde edin. Program&#305;n do&#287;ru �al&#305;&#351;t&#305;&#287;&#305;ndan 
+<h3 class="try">Sıra sizde</h3>
+<p>Gazete dağıtımı programında <tt>repeat()</tt> komutunu kullanabildiğiniz her 
+yerde kullanın ve daha kısa bir program elde edin. Programın doğru çalıştığından 
 emin olun.</p>
 
-<h3 class="suggested">Sizi U&#287;ra&#351;t&#305;ral&#305;m</h3>
-<p>Bu dersi bir ka� al&#305;&#351;t&#305;rmayla bitirece&#287;iz. Bu dersin temas&#305;na uygun olarak, 
-ilk iki al&#305;&#351;t&#305;rmam&#305;z duvarlar&#305; yapmak dersindeki al&#305;&#351;t&#305;rmalar&#305;n tekrar&#305; olacak. 
-Bunlar&#305; ��zebilmek i�in yeni �&#287;rendi&#287;iniz komutlar&#305;&nbsp; [<span class="pykeyword">def</span>, <tt>repeat()</tt>] 
-kullanmal&#305;s&#305;n&#305;z</p>
-<hr width="50%">
+<h3 class="suggested">Sizi Uğraştıralım</h3>
+<p>Bu dersi bir kaç alıştırmayla bitireceğiz. Bu dersin temasına uygun olarak, 
+ilk iki alıştırmamız duvarları yapmak dersindeki alıştırmaların tekrarı olacak. 
+Bunları çözebilmek için yeni öğrendiğiniz komutları  [<span class="pykeyword">def</span>, <tt>repeat()</tt>] 
+kullanmalısınız</p>
+<hr width="50%"/>
 <a name="Challenges2" id="Challenges2"></a>
 <h3 class="suggested">Engelleri atlamak</h3>
-<p>Reeborg engelli atlama yar&#305;&#351;mas&#305;na kat&#305;l&#305;yor. A&#351;a&#287;&#305;daki &#351;ekillerde oldu&#287;u 
-gibi Reeborg'un yar&#305;&#351;may&#305; h&#305;zl&#305; bir &#351;ekilde tamamlamas&#305;n&#305; sa&#287;layan 
-YEN&#304; bir program 
-yaz&#305;n, d�nya dosyas&#305;
+<p>Reeborg engelli atlama yarışmasına katılıyor. Aşağıdaki şekillerde olduğu 
+gibi Reeborg'un yarışmayı hızlı bir şekilde tamamlamasını sağlayan 
+YENİ bir program 
+yazın, dünya dosyası
 hurdles1.wld.</p>
-<center><img alt="hurdles start" src=
-"../../images/intro/hurdles1_start.png"></center>
-<center><img alt="lead to" src="../../images/lead_to.png"> <img alt=
-"hurdles end" src="../../images/intro/hurdles1_end.png"></center>
+<p align="center"><img alt="hurdles start" src=
+"../../images/intro/hurdles1_start.png"/></p>
+<p align="center"><img alt="lead to" src="../../images/lead_to.png"/> <img alt=
+"hurdles end" src="../../images/intro/hurdles1_end.png"/></p>
 <p>
-<tt>jump_hurdle()</tt>(engel atla) ad&#305;nda a&#351;a&#287;&#305;daki &#351;ekildeki gibi hareket eden 
-yeni bir komut tan&#305;mlamak yararl&#305; olacakt&#305;r. </p>
-<center><img alt="jump one hurdle start" src=
-"../../images/intro/jump1start.png"> <img alt="lead to" src=
-"../../images/lead_to.png"> <img alt="jump one hurdle end" src=
-"../../images/intro/jump1end.png"></center>
-<p>Yeni program&#305;n&#305;z&#305; bir �nceki ile kar&#351;&#305;la&#351;t&#305;r&#305;n. [Kaydetmi&#351;tiniz, de&#287;il mi?]</p>
-<hr width="50%">
-<h3 class="suggested">Hasat zaman&#305;</h3>
-<p>Hasat zaman&#305;! Reeborg'un evinin bah�esindeki havu�lar&#305; (bipler) toplamas&#305;n&#305; 
-sa&#287;layan bir program yaz&#305;n&#305;z, d�nya dosyas&#305; harvest1.wld.</p>
-<p><img src="../../images/intro/harvest1.png" alt="harvest start"></p>
-<p>Program&#305;n&#305;z a&#351;a&#287;&#305;daki komutlar&#305; tan&#305;mlamal&#305;d&#305;r. </p>
+<tt>jump_hurdle()</tt>(engel atla) adında aşağıdaki şekildeki gibi hareket eden 
+yeni bir komut tanımlamak yararlı olacaktır. </p>
+<p align="center"><img alt="jump one hurdle start" src=
+"../../images/intro/jump1start.png"/> <img alt="lead to" src=
+"../../images/lead_to.png"/> <img alt="jump one hurdle end" src=
+"../../images/intro/jump1end.png"/></p>
+<p>Yeni programınızı bir önceki ile karşılaştırın. [Kaydetmiştiniz, değil mi?]</p>
+<hr width="50%"/>
+<h3 class="suggested">Hasat zamanı</h3>
+<p>Hasat zamanı! Reeborg'un evinin bahçesindeki havuçları (bipler) toplamasını 
+sağlayan bir program yazınız, dünya dosyası harvest1.wld.</p>
+<p><img src="../../images/intro/harvest1.png" alt="harvest start"/></p>
+<p>Programınız aşağıdaki komutları tanımlamalıdır. </p>
 <pre>
 move_to_first_row()
 harvest_two_rows()
 move_right_to_next_row()
 </pre>
-<p>Bu komutlar&#305; a&#351;a&#287;&#305;da oldu&#287;u gibi daha �ok par�aya ay&#305;rabilirsiniz. </p>
+<p>Bu komutları aşağıda olduğu gibi daha çok parçaya ayırabilirsiniz. </p>
 <pre>
 <span class="keyword">def</span> harvest_two_rows():
     harvest_one_row()
     move_left_to_next_row()
     harvest_one_row()
 </pre>
-<p>tabi bunu iyi bir&nbsp; <code>harvest_one_row()</code>tan&#305;mlamas&#305;yla elde 
-edebilirsiniz. Par�alara ay&#305;rma i&#351;lemini kendi mant&#305;&#287;&#305;n&#305;za g�re de 
-yapabilirsiniz. Benim ��z�m�m a&#351;a&#287;&#305;daki gibi, �� yeni tan&#305;mlamaya ihtiya� var ve 
+<p>tabi bunu iyi bir  <code>harvest_one_row()</code>tanımlamasıyla elde 
+edebilirsiniz. Parçalara ayırma işlemini kendi mantığınıza göre de 
+yapabilirsiniz. Benim çözümüm aşağıdaki gibi, üç yeni tanımlamaya ihtiyaç var ve 
 az da olsa hala tekrarlama var:</p>
 <pre>
 move_to_first_row()
@@ -93,22 +95,22 @@ move_right_to_next_row()
 harvest_two_rows()
 turn_off()
 </pre>
-<p>Yeni program&#305;n&#305;z&#305; bir �nceki ile kar&#351;&#305;la&#351;t&#305;r&#305;n. </p>
-<h3 class="suggested">Yine hasat zaman&#305;!</h3>
-<p>Yine hasat zaman&#305;! Ancak bu defa sat&#305;rlar diagonal bir &#351;ekilde 
-yerle&#351;tirilmi&#351;. Reeborg'un biplerle temsil edilen t�m havu�lar&#305; toplamas&#305;n&#305; 
-sa&#287;lay&#305;n. D�nya dosyas&#305; harvest2.wld.</p>
-<p><img src="../../images/intro/harvest2.png" alt="harvest start"></p>
-<p>Bir �nceki �rnekte de oldu&#287;u gibi, program&#305;n&#305;z a&#351;a&#287;&#305;daki komutlar&#305; i�eren 
-tan&#305;mlamalar&#305; yapabilir:</p>
+<p>Yeni programınızı bir önceki ile karşılaştırın. </p>
+<h3 class="suggested">Yine hasat zamanı!</h3>
+<p>Yine hasat zamanı! Ancak bu defa satırlar diagonal bir şekilde 
+yerleştirilmiş. Reeborg'un biplerle temsil edilen tüm havuçları toplamasını 
+sağlayın. Dünya dosyası harvest2.wld.</p>
+<p><img src="../../images/intro/harvest2.png" alt="harvest start"/></p>
+<p>Bir önceki örnekte de olduğu gibi, programınız aşağıdaki komutları içeren 
+tanımlamaları yapabilir:</p>
 <pre>
 move_to_first_row()
 harvest_two_rows()
 move_right_to_next_row()
 </pre>
-<p>Bu komutlar&#305;n tan&#305;mlamalar&#305;, �ncekilerden farkl&#305; olacakt&#305;r. Ancak bu 
-tan&#305;mlamalar do&#287;ru olarak yap&#305;ld&#305;ktan sonra, program&#305;n&#305;z az �nceki �rnekte 
-oldu&#287;u gibi a&#351;a&#287;&#305;daki gibi yaz&#305;labilir: </p>
+<p>Bu komutların tanımlamaları, öncekilerden farklı olacaktır. Ancak bu 
+tanımlamalar doğru olarak yapıldıktan sonra, programınız az önceki örnekte 
+olduğu gibi aşağıdaki gibi yazılabilir: </p>
 <pre>
 move_to_first_row()
 harvest_two_rows()
@@ -118,12 +120,13 @@ move_right_to_next_row()
 harvest_two_rows()
 turn_off()
 </pre>
-<p>Dikkat, duvara �arpmay&#305;n! Hasata nereden ve hangi y�nde ba&#351;layaca&#287;&#305;n&#305;z&#305; 
-d�&#351;�n�n. Bunu bir ka&#287;&#305;da �izmeniz size yard&#305;mc&#305; olur. </p>
-<center><a href="10-def.htm"><img alt="previous" src=
-"../../images/previous.png"> Tekrardan kesinlikle ka�&#305;n&#305;n</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
-<A href="12-if.htm">Reeborg kendi kendine karar verebilseydi ...<img alt="next" src=
-"../../images/next.png"></a></center>
+<p>Dikkat, duvara çarpmayın! Hasata nereden ve hangi yönde başlayacağınızı 
+düşünün. Bunu bir kağıda çizmeniz size yardımcı olur. </p>
+<p align="center"><a href="10-def.htm"><img alt="previous" src=
+"../../images/previous.png"/> Tekrardan kesinlikle kaçının</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+<a href="12-if.htm">Reeborg kendi kendine karar verebilseydi ...<img alt="next" src=
+"../../images/next.png"/></a></p>
 </body>
 </html>
+

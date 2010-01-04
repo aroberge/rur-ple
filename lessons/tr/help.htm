@@ -1,170 +1,133 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
 <head>
-<meta http-equiv="Content-Type" content=
-"text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='rurple.css' type='text/css'>
-<title>Summary of instructions</title>
-<style>
-<!--
-div.Section1
-	{page:Section1;}
-span.comment1
-	{color:#009900}
-span.keyword1
-	{color:#336699;
-	font-weight:bold}
-span.string1
-	{color:#660066}
--->
-</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="rurple.css" type="text/css" />
+
+<title>Komutların Özeti</title>
 </head>
 <body>
-<h2 class="title"><span style='color:#006600'>Python �&#287;reniyorum: RUR-PLE! ile oynamak<o:p></o:p></span></h2>
-<h6>Andr� Roberge, � 2005, 2006</h6>
+<h2 class="title">Python Öğreniyorum: RUR-PLE! ile oynamak</h2>
+<h6>André Roberge, © 2005-2010</h6>
 
-<div class=Section1>
+<h3 class="section">Komutların Özeti</h3>
 
-<h3><span style='color:#006600'>Komutlar&#305;n �zeti<o:p></o:p></span></h3>
+<p>Reeborg’un Hareketleri:</p>
 
-<p>Reeborg&#8217;un Hareketleri:</p>
+<pre>
+move()
+turn_left()
+pick_beeper()
+put_beeper()
+turn_off()
+</pre>
 
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">move()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">turn_left()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">pick_beeper()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">put_beeper()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">turn_off()</pre>
+<p>Testler: </p>
 
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+<pre>
+front_is_clear()
+left_is_clear()
+right_is_clear()
+facing_north()
+carries_beepers()
+on_beeper() <span class="comment"># equivalent to:</span> next_to_a_beeper()
+</pre>
 
-<p class=MsoNormal>Testler: </p>
+<p>Fonksiyonları: </p>
 
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">front_is_clear()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">left_is_clear()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">right_is_clear()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">facing_north()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">carries_beepers()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">next_to_a_beeper()</pre>
+<pre>
+repeat(function, number_of_times)
+<span class="comment"># Bu aşağıdakine eşittir</span>
+<span class="keyword">for</span> number <span class="keyword">in</span> range(number_of_times):
+    function()
+</pre>
 
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+<p>Nesneye Dayalı Programlama:</p>
 
-<p class=MsoNormal>Fonksiyonlar&#305;: </p>
+<pre>
+Reeborg = UsedRobot()
+Reeborg.move()
+Reeborg.turn_left()
+Reeborg.pick_beeper()
+Reeborg.put_beeper()
+Reeborg.front_is_clear()
+Reeborg.left_is_clear()
+Reeborg.right_is_clear()
+Reeborg.facing_north()
+Reeborg.carries_beepers()
+Reeborg.on_beeper() <span class="comment"># Bu aşağıdakine eşittir:</span> Reeborg.next_to_a_beeper()
+</pre>
 
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">repeat(function, number_of_times)</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span
-class=comment1># Bu a&#351;a&#287;&#305;dakine e&#351;ittir</span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span
-class=keyword1>for</span> number <span class=keyword1>in</span> range(number_of_times):</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span style='mso-spacerun:yes'>��� </span>function()</pre>
+<p>Gelişmiş Seçenekler:</p>
 
-<p>Nesneye Dayal&#305; Programlama:</p>
+<pre>
+set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
+<span class="comment"># wxPython tarafından tanınan herhangi bir renk kabul edilebilir</span>
+<span class="comment"># style [1, 2, 3, 4, 5] den birisidir</span>
+set_delay(time)
+<span class="comment"># 0 &lt; time &lt; 10 (saniye olarak)</span>
 
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg = UsedRobot()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.move()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.turn_left()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.pick_beeper()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.put_beeper()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.front_is_clear()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.left_is_clear()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.right_is_clear()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.facing_north()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.carries_beepers()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.next_to_a_beeper()</pre>
+Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span class="string">'E'</span>,
+                 beepers=0, name=<span class="string">'robot'</span>, colour=<span class="string">'grey'</span>)
+<span class="comment">orient_key yön bildirir ve bunlardan birisidir: <span class="string">'E'</span> veya <span class="string">'e'</span>, <span class="string">'W'</span> veya <span class="string">'w'</span>, <span class="string">'S'</span> veya <span class="string">'s'</span>, <span class="string">'N'</span> veya <span class="string">'n'</span>.</span>
 
-<p>Geli&#351;mi&#351; Se�enekler:</p>
+<span class="comment"># <b>robot</b> renkleri: <span class="string">'yellow'</span>, 
+# <span class="string">'blue'</span>, <span class="string">'light blue'</span>, <span class="string">'purple'</span> ve <span class="string">'green'</span> olabilir.  
+# Başka bir renk kullanıldıysa bu (<span class="string">'grey'</span>) olur.</span>
 
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">set_trace_style(style=1, colour=<span
-class=string1>'sea green'</span>)</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span class=comment1># wxPython taraf&#305;ndan tan&#305;nan herhangi bir renk kabul edilebilir.</span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span
-class=comment1># style [1, 2, 3, 4, 5] den birisidir.</span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">set_delay(time)</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span
-class=comment1># 0 &lt; time &lt; 10 (saniye olarak)</span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span
-class=string1>'E'</span>,</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span style='mso-spacerun:yes'>�������������� ��</span>beepers=0, name=<span
-class=string1>'robot'</span>, colour=<span class=string1>'grey'</span>)</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span
-class=comment1># orient_key y�n bildirir ve bunlardan birisidir: </span><span class=string1>'E'</span><span
-class=comment1> veya </span><span class=string1>'e'</span><span class=comment1>, </span><span
-class=string1>'W'</span><span class=comment1> veya </span><span class=string1>'w'</span><span
-class=comment1>, </span><span class=string1>'S'</span><span class=comment1> veya </span><span
-class=string1>'s'</span><span class=comment1>, </span><span class=string1>'N'</span><span
-class=comment1> veya </span><span class=string1>'n'</span><span class=comment1>.</span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span
-class=comment1># <b>robot</b> renkleri: </span><span
-class=string1>'yellow'</span><span class=comment1>, <o:p></o:p></span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span
-class=comment1># </span><span class=string1>'blue'</span><span class=comment1>, </span><span
-class=string1>'light blue'</span><span class=comment1>, </span><span
-class=string1>'purple'</span><span class=comment1> ve </span><span
-class=string1>'green'</span><span class=comment1> olabilir.<span style='mso-spacerun:yes'>� </span><o:p></o:p></span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span
-class=comment1># Ba&#351;ka bir renk kullan&#305;ld&#305;ysa bu  (</span><span
-class=string1>'grey'</span><span class=comment1>) olur.</span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span
-class=comment1># Robotun ad&#305;na (&quot;name&quot; �zelli&#287;i) bir numara ilave edilebilir. </span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span class="comment1"># B�ylece, her robotun kendine has bir ad&#305; olacakt&#305;r.</span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.set_trace_style(style=1, colour=<span
-class=string1>'sea green'</span>) </pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Reeborg.set_delay(time)</pre>
+<span class="comment"># Robotun adına ("name" özelliği) bir numara ilave edilebilir.
+# Böylece, her robotun kendine has bir adı olacaktır.</span>
 
-<p>Yeni ve geli&#351;mi&#351; bir Robot! (Gelecek S�r�m)</p>
+Reeborg.set_trace_style(style=1, colour=<span class="string">'sea green'</span>) 
+Reeborg.set_delay(time)
+</pre>
 
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Guido = RefurbishedRobot()<span style='mso-spacerun:yes'>� </span><span
-class=comment1># UsedRobot'tan miras</span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><o:p>&nbsp;</o:p></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt"><span
-class=comment1># &#304;lave Metodlar:</span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Guido.turn_right()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Guido.facing_east()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Guido.facing_south()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Guido.facing_west()</pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">Guido.roll_dice(n=6) <span
-class=comment1># 1 ile n aras&#305;nda tesad�fi bir tamsay&#305;.</span></pre>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">&nbsp;</pre>
-<h5><a name="Acknowledgements">Te&#351;ekk�rler</a></h5>
+<p>Yeni ve gelişmiş bir Robot! (Gelecek Sürüm)</p>
 
-<p>�ocuklar&#305;m Julien ve Evelyne olmasayd&#305; bu program olmazd&#305;. Onlar&#305;n bu paket 
-yard&#305;m&#305;yla programlaman&#305;n temellerini e&#287;lenerek �&#287;renmeleri umuyorum ve bu 
-paketi onlara ithaf ediyorum. Julien'a&nbsp; robot resimlerini ve 
-kullan&#305;ld&#305;klar&#305; ekranlar&#305; tasarlad&#305;&#287;&#305; i�in ayr&#305;ca te&#351;ekk�r ediyorum.</p>
-<p>Bu paketi haz&#305;rlayarak �ok &#351;ey �&#287;rendim. Asl&#305;nda Python �&#287;renmeye bu paketi 
-haz&#305;rlamaya ba&#351;lamadan bir ka� ay �nce ba&#351;lad&#305;&#287;&#305;m&#305; itiraf etmeliyim. 
+<pre>
+Guido = RefurbishedRobot()  <span class="comment"># UsedRobot'tan miras</span>
+
+<span class="comment"># İlave Metodlar:</span>
+
+Guido.turn_right()
+Guido.left_clear()
+Guido.right_clear()
+Guido.facing_east()
+Guido.facing_south()
+Guido.facing_west()
+Guido.roll_dice(n=6) <span class="comment"># 1 ile n arasında tesadüfi bir tamsayı.</span>
+</pre>
+
+<h5><a name="Acknowledgements" id=
+"Acknowledgements"><b>Teşekkürler</b></a></h5>
+
+<p>Çocuklarım Julien ve Evelyne olmasaydı bu program olmazdı. Onların bu paket 
+yardımıyla programlamanın temellerini eğlenerek öğrenmeleri umuyorum ve bu 
+paketi onlara ithaf ediyorum. Julien'a  robot resimlerini ve 
+kullanıldıkları ekranları tasarladığı için ayrıca teşekkür ediyorum.</p>
+<p>Bu paketi hazırlayarak çok şey öğrendim. Aslında Python öğrenmeye bu paketi 
+hazırlamaya başlamadan bir kaç ay önce başladığımı itiraf etmeliyim. 
 Python ve 
-wxPython'la ilgilenen ve geli&#351;mesine katk&#305; sa&#287;layan ki&#351;iler olmasayd&#305;, benim 
-�&#287;renmem �ok daha zor olacak ve bu paketin haz&#305;rlanmas&#305; m�mk�n olmayacakt&#305;.&nbsp; 
-Bu program Guido van Robot (GvR)'dan esinlenerek yarat&#305;ld&#305;. Guido van Robot (GvR) 
-ise Pattis'in&nbsp; orjinal &quot;Karel the Robot&quot;'unun Python'a uyarlanm&#305;&#351;&#305;d&#305;r. GvR 
-geli&#351;tiricilerinden bana �ok yarar&#305; olan de&#287;erlendirmeler ald&#305;m&nbsp; �zellikle Stas
-Zykiewicz'e bana wxPython'u �&#287;renmemde yard&#305;mc&#305; oldu&#287;u ve yazd&#305;&#287;&#305;m programlar&#305; 
-kontrol etti&#287;i i�in �ok te&#351;ekk�r ediyorum.</p>
-<p>Butanlarda kullan&#305;lan pek �ok resim Davis Vignoni taraf&#305;ndan tasarlanan 
-Nuvola ikon setinden al&#305;nd&#305;. Ke&#351;ke bende onun tasarlad&#305;&#287;&#305; gibi g�zel ve estetik 
+wxPython'la ilgilenen ve gelişmesine katkı sağlayan kişiler olmasaydı, benim 
+öğrenmem çok daha zor olacak ve bu paketin hazırlanması mümkün olmayacaktı.  
+Bu program Guido van Robot (GvR)'dan esinlenerek yaratıldı. Guido van Robot (GvR) 
+ise Pattis'in  orjinal "Karel the Robot"'unun Python'a uyarlanmışıdır. GvR 
+geliştiricilerinden bana çok yararı olan değerlendirmeler aldım  özellikle Stas
+Zykiewicz'e bana wxPython'u öğrenmemde yardımcı olduğu ve yazdığım programları 
+kontrol ettiği için çok teşekkür ediyorum.</p>
+<p>Butanlarda kullanılan pek çok resim Davis Vignoni tarafından tasarlanan 
+Nuvola ikon setinden alındı. Keşke bende onun tasarladığı gibi güzel ve estetik 
 resimler tasarlayabilseydim.</p>
-<p>Tony Payzant derslerin ilk s�r�mlerini kontrol etmek i�in �ok zaman harcad&#305;. Bob Gailer 
-yararl&#305; olacak d�zeltmeler �nerdi.</p>
-<p>Luis Sureda &#304;spanyolca �eviriyi yapt&#305; ve dil se�imi ile ilgili kodlamalar&#305; 
-basitle&#351;tirecek tavsiyeler de bulundu. </p>
-<p>Richard E. Brown rur-ple'&#305;n MacOS'da daha iyi �al&#305;&#351;mas&#305;n&#305; sa&#287;layacak 
+<p>Tony Payzant derslerin ilk sürümlerini kontrol etmek için çok zaman harcadı. Bob Gailer 
+yararlı olacak düzeltmeler önerdi.</p>
+<p>Luis Sureda İspanyolca çeviriyi yaptı ve dil seçimi ile ilgili kodlamaları 
+basitleştirecek tavsiyeler de bulundu. </p>
+<p>Richard E. Brown rur-ple'ın MacOS'da daha iyi çalışmasını sağlayacak 
 tavsiyelerde bulundu.</p>
-<pre style="font-size: 10.0pt; font-family: Courier New; margin-top: 0cm; margin-bottom: .0001pt">&nbsp;</pre>
 
-</div>
-
-<center><a href="rur.htm"><img alt="home" src=
-"../images/home.png"></a></center>
+<p align="center"><a href="rur.htm"><img alt="home" src=
+"../images/home.png"/></a></p>
 </body>
 </html>
+

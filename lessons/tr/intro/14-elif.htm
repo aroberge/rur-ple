@@ -1,25 +1,27 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>If, else, if, else, ....</title>
 </head>
 <body>
 <h2 class="title">14. <span class="pykeyword">if, else, <small>if,
 else,</small></span>...</h2>
-<p>Bir �nceki engelli atlama al&#305;&#351;t&#305;rmas&#305;nda �� se�imlik vermek istedi&#287;imizden 
-dolay&#305; (bitir, git veya z&#305;pla) i� i�e iki tane <span class="pykeyword">if</span>/<span class=
-"pykeyword">else</span> kullanmam&#305;z gerekti. Buda yaz&#305;lan kodun i�e i�e 
-yaz&#305;lmas&#305;n&#305; mecbur hale getirdi. Reeborg'a 10 ayr&#305; se�imlik vermemiz gerekseydi 
-ne olurdu; kodlar i�e i�e yaz&#305;laca&#287;&#305;ndan okunmas&#305; bir hayli zor olacakt&#305;. Bu 
-durumu ortadan kald&#305;rmak i�in&nbsp; Guido van Rossum, Python'un yarat&#305;c&#305;s&#305;,&nbsp;&nbsp; <span class="pykeyword">else</span> 
-den sonra kullan&#305;lan&nbsp; <span class="pykeyword">if</span> leri temsil etmek 
-i�in&nbsp; <span class=
-"pykeyword">elif </span>ad&#305;nda bir komut haz&#305;rlam&#305;&#351;t&#305;r. <span class=
+<p>Bir önceki engelli atlama alıştırmasında üç seçimlik vermek istediğimizden 
+dolayı (bitir, git veya zıpla) iç içe iki tane <span class="pykeyword">if</span>/<span class=
+"pykeyword">else</span> kullanmamız gerekti. Buda yazılan kodun içe içe 
+yazılmasını mecbur hale getirdi. Reeborg'a 10 ayrı seçimlik vermemiz gerekseydi 
+ne olurdu; kodlar içe içe yazılacağından okunması bir hayli zor olacaktı. Bu 
+durumu ortadan kaldırmak için  Guido van Rossum, Python'un yaratıcısı,   <span class="pykeyword">else</span> 
+den sonra kullanılan  <span class="pykeyword">if</span> leri temsil etmek 
+için  <span class=
+"pykeyword">elif </span>adında bir komut hazırlamıştır. <span class=
 "pykeyword">elif </span>komutu
-<span class="pykeyword">else if</span> in k&#305;salt&#305;lm&#305;&#351;&#305;d&#305;r. Bu yeni komut 
-yard&#305;m&#305;yla az �nceki kod a&#351;a&#287;&#305;daki gibi yaz&#305;labilir:</p>
+<span class="pykeyword">else if</span> in kısaltılmışıdır. Bu yeni komut 
+yardımıyla az önceki kod aşağıdaki gibi yazılabilir:</p>
 <pre>
 <span class="keyword">def</span> move_jump_or_finish():
     <span class="keyword">if</span> next_to_beeper():
@@ -29,12 +31,12 @@ yard&#305;m&#305;yla az �nceki kod a&#351;a&#287;&#305;daki gibi yaz&#305;labili
     <span class="keyword">else</span>:
         jump_one_hurdle()
 </pre>
-<p>�� se�imlik oldu&#287;unu &#351;imdi daha rahat g�rebiliyoruz, se�imlikler ayn&#305; hizada 
-yaz&#305;lm&#305;&#351;lar. <span class="pykeyword">else</span> den sonraki komutun 
-�al&#305;&#351;t&#305;r&#305;labilmesi i�in kendisinden �nce gelen t�m &#351;artlar&#305;n (<font face="Courier New" size="2">next_to_beeper 
-ve front_is_clear</font>) False olmas&#305; gerekir. Daha fazla se�imli&#287;imiz olsayd&#305; 
-tek yapmam&#305;z gereken yeni&nbsp; <span class="pykeyword">elif</span> 'ler eklemek 
-olacakt&#305;.&nbsp; </p>
+<p>Üç seçimlik olduğunu şimdi daha rahat görebiliyoruz, seçimlikler aynı hizada 
+yazılmışlar. <span class="pykeyword">else</span> den sonraki komutun 
+çalıştırılabilmesi için kendisinden önce gelen tüm şartların (<font face="Courier New" size="2">next_to_beeper 
+ve front_is_clear</font>) False olması gerekir. Daha fazla seçimliğimiz olsaydı 
+tek yapmamız gereken yeni  <span class="pykeyword">elif</span> 'ler eklemek 
+olacaktı.  </p>
 <pre>
 <span class="keyword">def</span> move_jump_or_finish():
     <span class="keyword">if</span> next_to_beeper():
@@ -47,23 +49,24 @@ olacakt&#305;.&nbsp; </p>
     <span class="keyword">else</span>:
         jump_one_hurdle()
 </pre>
-<p>Reeborg en alt duvar&#305;n �st�nde hareket etti&#287;inden sa&#287;&#305;nda her zaman bir duvar 
-vard&#305;r. Bu nedenle <tt>right_is_clear()</tt> her zaman False sonucunu verir ve <span class="pykeyword">pass</span> 
-(Phytonda hi� bir &#351;ey yapma anlam&#305;na gelir) komutu hi� bir zaman yerine 
-getirilmez. Bunun yerine<tt> left_is_clear()</tt> kullan&#305;lsayd&#305; True de&#287;erini 
-alaca&#287;&#305;ndan Reeborg tak&#305;l&#305;p kalacak ve hi� bir &#351;ey yapmayacakt&#305;.&nbsp; <b>Bunu 
+<p>Reeborg en alt duvarın üstünde hareket ettiğinden sağında her zaman bir duvar 
+vardır. Bu nedenle <tt>right_is_clear()</tt> her zaman False sonucunu verir ve <span class="pykeyword">pass</span> 
+(Phytonda hiç bir şey yapma anlamına gelir) komutu hiç bir zaman yerine 
+getirilmez. Bunun yerine<tt> left_is_clear()</tt> kullanılsaydı True değerini 
+alacağından Reeborg takılıp kalacak ve hiç bir şey yapmayacaktı.  <b>Bunu 
 deneyin!</b></p>
-<h3 class="try">S&#305;ra sizde</h3>
+<h3 class="try">Sıra sizde</h3>
 <p><span class="pykeyword">if, elif, else</span>
-kullanarak yeni bir program yaz&#305;n bu program �nceki iki al&#305;&#351;t&#305;rmadaki engellerle 
-�al&#305;&#351;t&#305;&#287;&#305; gibi a&#351;a&#287;&#305;daki &#351;ekildeki engellerle de �al&#305;&#351;abilsin. (d�nya dosyas&#305; 
+kullanarak yeni bir program yazın bu program önceki iki alıştırmadaki engellerle 
+çalıştığı gibi aşağıdaki şekildeki engellerle de çalışabilsin. (dünya dosyası 
 hurdles3.wld).</p>
-<img alt="hurdles start" src="../../images/intro/hurdles3_start.png">
-<center><a href="13-else.htm"><img alt="previous" src=
-"../../images/previous.png"> Beni dinle yoksa&nbsp; ... or else
+<img alt="hurdles start" src="../../images/intro/hurdles3_start.png"/>
+<p align="center"><a href="13-else.htm"><img alt="previous" src=
+"../../images/previous.png"/> Beni dinle yoksa  ... or else
 ....</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
-<A href="15-not.htm">Do&#287;ru de&#287;il Not true!? <img alt="next" src=
-"../../images/next.png"></a></center>
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+<a href="15-not.htm">Doğru değil Not true!? <img alt="next" src=
+"../../images/next.png"/></a></p>
 </body>
 </html>
+
