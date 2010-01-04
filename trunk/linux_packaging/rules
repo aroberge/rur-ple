@@ -59,11 +59,12 @@ install: build
 	cp -r rur_py $(CURDIR)/debian/rur-ple/opt/rur-ple
 	cp -r world_files $(CURDIR)/debian/rur-ple/opt/rur-ple
 
-	### creating a link in /usr/games, copying the desktop file and icon (menu entry)
-	ln $(CURDIR)/debian/rur-ple/opt/rur-ple/rur_start.py $(CURDIR)/debian/rur-ple/usr/games/
+	### copying start up file in /usr/games, copying 2 desktop files and icons (menu entry)
+	cp $(CURDIR)/debian/rur-ple/opt/rur-ple/linux_packaging/rur-ple.sh $(CURDIR)/debian/rur-ple/usr/games/
 	cp rur-ple.desktop $(CURDIR)/debian/rur-ple/usr/share/applications/
-	ln $(CURDIR)/debian/rur-ple/opt/rur-ple/rur_images/rur16x16.png $(CURDIR)/debian/rur-ple/usr/share/pixmaps/rur-ple.png
-
+	cp rur-lessons.desktop $(CURDIR)/debian/rur-ple/usr/share/applications/
+	ln $(CURDIR)/debian/rur-ple/opt/rur-ple/rur_images/rur-ple.png $(CURDIR)/debian/rur-ple/usr/share/pixmaps/rur-ple.png
+	ln $(CURDIR)/debian/rur-ple/opt/rur-ple/rur_images/rur-lessons.png $(CURDIR)/debian/rur-ple/usr/share/pixmaps/rur-lessons.png
 
 # Build architecture-independent files here.
 binary-indep: install
