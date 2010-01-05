@@ -3,14 +3,14 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link rel='stylesheet' href="../rurple.css" type='text/css'>
-<title>神奇-第二部分</title>
+<title>神奇的解决方案-复习二</title>
 </head>
 <body>
-<h2 class="title">18. 神奇-第二部分</h2>
-<p>这是我们在上一部分结尾所遇问题的原因：我们放下一个beeper，在我们移动之前，先测试看看我们是否在一个beeper旁边。 一旦我们是在一个beeper旁边，我们不再有机会进入到 <span class="pykeyword">while</span> <i>循环</i>中去。或许我们可以在开始循环前加上一个 <tt>move()</tt>。如下所示：</p>
+<h2 class="title">18. 神奇的解决方案-复习二</h2>
+<p>在这一节课，我们一起来看一下我们在复习一结尾部分所遇到问题：我们放下一个报警器，在我们前进之前，先测试看看乐跑是否在一个报警器上。一旦乐跑的位置是在一个报警器上，我们就不再有机会进入到 <span class="pykeyword">while</span> <i>循环</i>命令中去。要解决这个问题，我们可以在开始循环之前加上一个 <tt>move()</tt>。如下所示：</p>
 <pre>
 put_beeper()
-move()
+move() <span class="comment"># 那乐跑就先向前走才进入如下的循环,要不乐跑一放下报警器，就已经在报警器上，就进不去下面的循环了</span>
 <span class="keyword">while not</span> on_beeper():
     <span class="keyword">if</span> front_is_clear():
         move()
@@ -19,17 +19,17 @@ move()
 
 turn_off()
 </pre>
-<p><b>试试看！</b></p><!--================================================-->
+<p><b>现在，你自己来试试看吧！</b></p><!--================================================-->
 
 <hr width="50%">
-<h3 class="section">复杂一点的世界</h3>
-<p>现在，我们要基于一个略有些复杂的世界运行这个程序，这个世界如下所示： 在你开始程序前，你可以将这个世界保持到一个世界文件。</p>
+<h3 class="section">一起来进入一个复杂点的世界</h3>
+<p>着一个部分，大家一起来进入一个比以前复杂的世界，然后运行这个程序。首先，大家一起来利用墙壁先建立这个世界，如下图所示： 在你开始程序前，你可以将这个世界存档。</p>
 <p><img alt="around the world: start" src=
 "../../images/intro/around2start.png"></p>
-<p>一旦试了程序，你就会发现，结果并不是我们希望的那样：机器人走了一个捷径，而非环游了全世界。</p>
+<p>当你在运行这个程序以后，你就会发现，结果并不是我们希望的那样：机器人走了一个捷径，而非环游了全世界，换句话说，乐跑没有走完上面的世界部分。为什么呢？</p>
 <p><img alt="around the world: end" src=
 "../../images/intro/around2end.png"></p>
-<p>问题就在于，我们只是假设他周游世界时只有前进和左转两个动作，而忽视了让他右转的情况。 机器人应当首先检查他的右边是否有一堵墙，否则的话，我们让他右转。 这里有一个修改后的程序，<i>预期</i>可以实现这样的功能：</p>
+<p>解决方法：其实问题很简单，我们只是假设他周游世界时只有“前进”和“左转”两个动作，而忽视了让他“右转”的情况。 乐跑应当也检查他的右边是否有一堵墙，否则的话，我们让他右转。在下面，大家一起来看一个修改后的程序，<i>希望</i>可以让乐跑环游整个世界：</p>
 <pre>
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
@@ -46,11 +46,11 @@ move()
 
 turn_off()
 </pre>
-<p>成功了吗？ 仔细地读读。 试试看，或者你觉得合适的话，可以做一些改变。</p>
+<p>成功了吗？ 如果不成功，仔细再地阅读并理解里面失败的原因。试试看，或者你觉得合适的话，可以也对程序做一些修改，并再试一次。</p>
 <center><a href="17-amazing1.htm"><img alt="previous" src=
-"../../images/previous.png">神奇-第一部分</a> - <a href=
+"../../images/previous.png">神奇的解决方案-复习一</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
-<a href="19-amazing3.htm">神奇-第三部分<img alt="next" src=
+<a href="19-amazing3.htm">神奇的解决方案-复习三<img alt="next" src=
 "../../images/next.png"></a>
 </center>
 </body>
