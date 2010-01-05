@@ -11,12 +11,12 @@
 <h2 class="title">32. Many <span class="pykeyword">return</span>s</h2>
 <p>As you know, Reeborg is not exactly in good shape.  He can only turn left, has an oil leak, can only see walls when they are right next to him and hear beepers when he is literally standing on top of them.  Reeborg has also a (somewhat broken) compass which he can use to find out whether he is facing north ... or not. To find out if he is facing north, you can ask Reeborg to do the test <tt>facing_north()</tt>. </p> 
 <!--==============================-->
-<hr width="50%"/>
+<hr class="line" />
 <h3 class="try">Try it!</h3>
 <p>Write a short program that will ensure that Reeborg will turn left until he faces north and then turn itself off, no matter what his starting orientation is.</p>
 
 <!--==============================-->
-<hr width="50%"/>
+<hr class="line" />
 <h3 class="section">Getting results from a function</h3>
 <p>The tests that Reeborg performs are actually Python functions.  The result of these functions is not to print out a value, like we have seen so far, but rather to obtain an answer (True or False in this case) that can be used afterwards.  To do something similar ourselves, we need to use the Python keyword <span class="pykeyword">return</span>.  Here's an example:</p>
 <pre>
@@ -42,7 +42,7 @@
 </pre>
 <p>Thus <span class="pykeyword">return</span> can "return" the result of any valid Python expression, not simply the value of a variable.  If the expression you want to "return" is short, you might not want to use an extra variable (like <tt>answer</tt> above).  However, as you will see later, you can sometime "return" more than one variable... Then, it may be easier to read if we use variable names instead of Python expressions.</p>
 <!--==============================-->
-<hr width="50%"/>
+<hr class="line" />
 <h3 class="section"><span class="pykeyword">return</span>ing to Reeborg's world</h3>
 
 <p>As we mentioned at the beginning of this lesson, Reeborg has a broken compass.  As a result, he only knows directly if he is facing north, or if he isn't.  However, now that we know that Reeborg can remember things, we can teach him to find out which direction he is facing. For example: </p>
@@ -65,11 +65,11 @@
     turn_left()
 </pre>
 <!--==============================-->
-<hr width="50%"/>
+<hr class="line" />
 <h3 class="try">Mini-quiz</h3>
 <p>Write a program that has Reeborg face west, no matter what his orginal orientation is.  Test it with Reeborg in various starting orientation.</p>
 <!--==============================-->
-<hr width="50%"/>
+<hr class="line" />
 <h3 class="try">Mini-quiz 2</h3>
 <p>Place Reeborg in an arbitrary place, facing an arbitrary direction in an empty world. Write a program that has Reeborg come back to the origin, his usual starting point, facing east.  The same program should work regardless of the starting position and orientation.</p>
 
