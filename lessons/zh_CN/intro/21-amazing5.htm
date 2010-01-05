@@ -1,8 +1,10 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>神奇的解决方案-复习五</title>
 </head>
 <body>
@@ -11,7 +13,7 @@
 <h3 class="section">大家一起来进入一个更复杂的世界</h3>
 <p>首先，我们假设乐跑进入了以下的世界：</p>
 <p><img alt="around the world: start" src=
-"../../images/intro/around4start.png"></p>
+"../../images/intro/around4start.png" /></p>
 <p>之前编写的程序能够解决这个问题吗？试试看吧！</p>
 <p>正如你可能猜到的那样，如果你不去试试，你就学不会的！ <small>(你应该去试试，真的！)</small>。对了，它不能解决这个问题，因为乐跑并没有顺利地环游他的世界一周。 
 注意：在图中，乐跑的原始位置并不是在最左面的下角，那么为了让乐跑成功，我们首先需要让乐跑向前走一步！然后把之前程序的第一个<span class="pykeyword">if</span>（在not之后）改为<span class=
@@ -38,7 +40,7 @@ turn_off()
 </pre>
 
 <!--=====================================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">利用注释来明确我们的目标！</h3>
 <p>恭喜大家，因为我们似乎设计了一个可以应对有可能遇到的所有情况的程序了。如果我们没有忘记，这个程序是为了使我们的小机器人乐跑能够探索他的世界，并成功地走完一遍。虽然这个程序很短，结构也很清晰，但对于那些第一次尝试的的人而言也许还不是这么显而易见的。因此，给你的程序加上一些注释或者采用一些带有含义的词也许是个不错的主意。让我们就从加注释再开始吧！不过这个也许会比想象中的要难学，但是不要紧，我会一步一步地引导你。在下面，大家一起来看一下我是如何把之前的程序加上注释，让其他人也可以明白我写这个程序的来由。</p>
 <pre>
@@ -74,9 +76,9 @@ move()
 turn_off()
 </pre>
 <p>虽然这些注释使我们清楚了每个指令的目的，但对我们在总结解决这种问题的方法（也被称为<i>算法</i>）的时候并没有多大帮助。因此，这些注释对其他读者并不会如我们期望的那样有帮助。阅读这些注释，我们注意到这个程序包括两个部分： 
-<br>
-1) 标记起点；<br>
-2) 沿着右边的墙走，直到回到起点。<br>
+<br />
+1) 标记起点；<br />
+2) 沿着右边的墙走，直到回到起点。<br />
 为了让这两个部分更加清晰，我们现在重新编写这个程序并换种方式写注释。</p>
 <pre>
 <span class=
@@ -115,38 +117,40 @@ turn_off()
 </pre>
 <p>现在，是不是整个程序变得更清楚了呢？现在假设开始的时候每一个转角都有一个报警器，然后我们可以选择通过<i>移动</i>报警器来标记起点。那么我们需要改写一些定义，但大部分的解决方法都是可以不变的。</p>
 <!--======================================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="try">小实验（一）</h3>
 <p>修改你刚才写下的程序来去掉<tt>put_beeper()</tt>的指令。保存之后，利用这个稍微改造过的程序来完成下面这个跨栏游戏的练习。（看文件：hurdles3.wld）</p>
-<p><img alt="hurdles" src="../../images/intro/hurdles3_start.png"></p>
+<p><img alt="hurdles" src="../../images/intro/hurdles3_start.png" /></p>
 <p>神奇吧！我们刚编写的程序可以解决这个跨栏难题，而没有在完成之后转向了另外一个方向。这个程序在高低不一的栏架上也适用（看文件：hurdles4.wld）。如下图所示，我们先前设计的程序是不可能解决这个难题的，但是现在就解决了！</p>
-<p><img alt="hurdles" src="../../images/intro/hurdles4_start.png"></p>
+<p><img alt="hurdles" src="../../images/intro/hurdles4_start.png" /></p>
 <!--======================================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="try">小实验（二）</h3>
 <p>再用这个程序来解决一下在我们之前其中一节课中介绍的迷宫问题（看文件：maze1.wld)，如下图所示。</p>
-<p><img alt="maze" src="../../images/intro/maze1_start.png"></p>
+<p><img alt="maze" src="../../images/intro/maze1_start.png" /></p>
 <p>正如你期望的一样，我们简简单单的程序可以找到迷宫的出口！神奇吧！</p>
 <!--======================================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">总结</h3>
 <p>我们从解决一个简单的问题开始（环游一个矩形的世界），一点一点（也称作逐步精化），我们成功设计了一个可以解决貌似不相关的其他问题。在每一步，我们保持修改一点点，并且保证我们在考虑更复杂的方案之前，已经有一个行之有效的解决方案。同时，在部分<i>算法</i> 中，我们也使用了更具有描述性的名称和注释，来使得程序更容易读，而且有可能更容易懂。</p>
 <dl>
 <dt><b>规则 # 5</b></dt>
 <dd>在这一节课我们学到了编程第五个规则，在编写一个程序应该遵循如下步骤：</dd>
+</dl>
 <ol>
 <li>用最简单的方法开始；</li>
 <li>引入一些小的修改，一次一点的；</li>
 <li>确保每次引入的修改不会破坏已有的程序；</li>
 <li>作为让自己和别人知道，加入恰当的注释，但不要重复程序的意图；</li>
 <li>并且在定义的时候选择有意义的名字。</li>
-</dl>
 </ol>
-<center><a href="20-amazing4.htm"><img alt="previous" src=
-"../../images/previous.png"> 神奇的解决方案-复习四</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+
+<div class="lessons_nav">
+<a href="20-amazing4.htm"><img alt="previous" src=
+"../../images/previous.png" /> 神奇的解决方案-复习四</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
 "22-rain.htm">下雨了！ <img alt="next" src=
-"../../images/next.png"></a>
-</center>
+"../../images/next.png" /></a>
+</div>
 </body>
 </html>

@@ -1,18 +1,20 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href="../rurple.css" type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>听我的....否则....</title>
 </head>
 <body>
 <h2 class="title">13. 听我的 ...否则 ....</h2>
 <p>我知道学习计算机编程很有趣，但是你也不应该在计算机面前花费太多时间。 <b>如果</b>外面下雨了，那就一直看书吧，<b>否则</b>，出去玩吧！ （是的，即使是你的祖父，也应该出去玩！）</p><!--===========================================-->
 
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">做决定</h3>
 <p>让我们来看些以 <b>if</b>（如果）开头的句子。</p>（Else的意思是否则）
-<p><b>If</b>下雨了,<br> ... 一直看书吧,<br> <b>Else</b>,<br> ...出去玩吧！</p>
+<p><b>If</b>下雨了,<br /> ... 一直看书吧,<br /> <b>Else</b>,<br /> ...出去玩吧！</p>
 <p>上面的句子看起来像一个小小的电脑程序。 试试看利用Python语言，我们来写写看。</p>
 <pre>
 <span class="keyword">if</span> it_rains():
@@ -23,7 +25,7 @@
 <p>你刚刚学到了一个新的Python关键词, <span class=
 "pykeyword">else</span>，意思是否则。如果外面下雨了，那就读书；否则，你知道该怎么做了（对了，出去玩哦）！</p><!--======================================-->
 
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">"我懂了...", 机器人说.</h3>
 <p>除了能够发现他自己是否是站在一个或更多报警器上，机器人也可以看到他面前是否有面墙挡住了他的路。 他也可以将头转到他的左边或者右边看那里是否也有一面墙。 你可以用以下的命令来让他看：</p>
 （注意：注释是不可以打中文字的，在这里只是让大家知道意思而已，如果要打注释，请用英文字母来表示。以后每节课也是一样！）
@@ -43,12 +45,12 @@ right_is_clear()
 turn_off()
 </pre>
 <p>下面显示了两种不同情况下程序运行的结果。 在尝试时，确保你不要忘记 关键词<span class="pykeyword">else</span>后面的冒号 (<tt>:</tt>)。</p>
-<p><img alt="start if" src="../../images/intro/if1start.png"> <img alt=
-"lead to" src="../../images/lead_to.png"> <img alt="end if" src=
-"../../images/intro/if1end.png"></p>
-<p><img alt="start if" src="../../images/intro/if2start.png"> <img alt=
-"lead to" src="../../images/lead_to.png"> <img alt="end if" src=
-"../../images/intro/if2end.png"></p>
+<p><img alt="start if" src="../../images/intro/if1start.png" /> <img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="end if" src=
+"../../images/intro/if1end.png" /></p>
+<p><img alt="start if" src="../../images/intro/if2start.png" /> <img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="end if" src=
+"../../images/intro/if2end.png" /></p>
 <p>现在，我们来多次重复使用简单的 <i>条件</i> 命令使得机器人环游世界。</p>
 <pre>
 <span class="keyword">def</span> move_or_turn():
@@ -61,7 +63,7 @@ repeat(move_or_turn, 20)
 turn_off()
 </pre>
 <p>现在，在乐跑的世界上，写一个程序，让乐跑走一圈，如下图显示一样：</p>
-<p><img alt="around" src="../../images/intro/around1.png"></p>
+<p><img alt="around" src="../../images/intro/around1.png" /></p>
 <p>我们可以让这个程序变得更有趣，比如让乐跑在前进时“跳舞”，并且在转弯的时候放下一个报警器。下面的程序可以让机器人实现这个功能：</p>
 <pre>
 <span class="keyword">def</span> dance():
@@ -77,11 +79,11 @@ turn_off()
 repeat(move_or_turn, 18)      
 turn_off()
 </pre>
-<p>记住！要确认乐跑携带了足以完成任务的报警器。 如果要为乐跑添加报警器，可以按<br/> <img alt="beepers button" src="../../images/intro/btn_beepers.png">按钮，并为乐跑选择所需要携带的报警器数目即可。</p>
+<p>记住！要确认乐跑携带了足以完成任务的报警器。 如果要为乐跑添加报警器，可以按<br/> <img alt="beepers button" src="../../images/intro/btn_beepers.png" />按钮，并为乐跑选择所需要携带的报警器数目即可。</p>
 
 <p>注意命令 <tt>dance()</tt>和<tt>move()</tt> 是排列在 <span class="pykeyword">if</span> 状态后面的，这说明它们是属于同一个 <i>命令结构</i>。命令 <tt>turn_left()</tt> 和 <tt>put_beeper()</tt> 也是类似地排列, 在 <span class=
 "pykeyword">else</span> 状态后面。 运行这个程序的结果如下所示。</p>
-<img alt="around" src="../../images/intro/around2.png">
+<img alt="around" src="../../images/intro/around2.png" />
 <p>现在，如果我们不是将<tt>put_beeper()</tt>排列在 <tt>turn_left()</tt>同一列,而是把它放在 <span class=
 "pykeyword">else</span> 状态的那列，那会发生什么呢？</p>
 <pre>
@@ -99,7 +101,7 @@ repeat(move_or_turn, 18)
 turn_off()
 </pre>
 <p>现在，定义 <tt>move_or_turn()</tt>包括一个选择 <span class="pykeyword">if</span>/<span class="pykeyword">else</span>，结果不是跳舞前进， <b>就是</b>一个左转并且执行 <tt>put_beeper()</tt>命令. 程序运行的结果如下所示:</p>
-<img alt="around" src="../../images/intro/around3.png">
+<img alt="around" src="../../images/intro/around3.png" />
 <p>如你所见到的，每前进一步，就有一个报警器被放下来了。 每个角落都有了两个报警器：一个来自于到达角落前的移动，一个来自于离开角落时左转的动作。</p>
 <p>现在，假设我们将 <tt>put_beeper()</tt>命令和 <span class="pykeyword">def</span>状态排列在同一行，如下所示：</p>
 <pre>
@@ -117,14 +119,14 @@ repeat(move_or_turn, 18)
 turn_off()
 </pre>
 <p>现在，由于 <tt>put_beeper()</tt>已经不再和定义中其它的命令平行排列，它就不再属于这个定义了。 这是一个单独的命令, 是机器人在执行了<tt>move_or_turn()</tt>命令18次以后第一个要执行的命令。 结果如下：</p>
-<p><img alt="around" src="../../images/intro/around4.png"></p>
+<p><img alt="around" src="../../images/intro/around4.png" /></p>
 <p>所以，你可以看到，空格（也就是命令前面的空格）也给予了机器人很多信息。 通过练习，你将学习如何最好地使用这个，并且意识到Python能够让你通过内嵌（就是缩写式）命令写出非常具有可读性的代码。</p>
-<hr width="50%">
+<hr class="line" />
 <h3 class="try">小实验：跨栏</h3>
 <p>经过几次的跨栏练习，乐跑现在已经变得很擅长跨栏了。现在，他参加了不同距离的比赛：短杆和长跑。他明白当他站在一个报警器上的时候，他就到了终点线。在下面，你将发现两个这样的比赛练习；可以在世界文档hurdles1.wld 和 hurdles2.wld找到。</p>
-<p><img alt="跨栏开始了" src="../../images/intro/hurdles1_start.png"></p>
-<br>
-<p><img alt="跨栏开始了" src="../../images/intro/hurdles2_start.png"></p>
+<p><img alt="跨栏开始了" src="../../images/intro/hurdles1_start.png" /></p>
+<br />
+<p><img alt="跨栏开始了" src="../../images/intro/hurdles2_start.png" /></p>
 <p>假设所有的比赛最长的是20行。 现在定义一个命令如下：</p>
 <pre>
 <span class="keyword">def</span> move_jump_or_finish():
@@ -138,12 +140,15 @@ turn_off()
         <span class="keyword">else</span>:
             jump_one_hurdle()
 </pre>
-<p>通过一个合适的 <tt>jump_one_hurdle()</tt>命令, 除了已经定义的命令，机器人唯一要遵循的命令是<br> <tt>repeat(move_jump_or_finish, 20)</tt>.</p>
+<p>通过一个合适的 <tt>jump_one_hurdle()</tt>命令, 除了已经定义的命令，机器人唯一要遵循的命令是<br /> <tt>repeat(move_jump_or_finish, 20)</tt>.</p>
 <p>注意，在上面的”定义“命令中，由于我们引入了额外的命令，在第一个'else"关键词下面的命令也越来越缩进去了。</p>
-<center><a href="12-if.htm"><img alt="否则previous" src=
-"../../images/previous.png"> 假如乐跑可以自己作决定... </a>
-- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> -
+
+<div class="lessons_nav">
+<a href="12-if.htm"><img alt="否则previous" src=
+"../../images/previous.png" /> 假如乐跑可以自己作决定... </a>
+- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> -
 <a href="14-elif.htm">假如，否则，假如，否则...<img alt="next" src=
-"../../images/next.png"></a></center>
+"../../images/next.png" /></a>
+</div>
 </body>
 </html>

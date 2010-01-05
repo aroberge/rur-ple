@@ -1,10 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>39. 避免重复 - Import</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>避免重复 - Import</title>
 </head>
 <body>
 
@@ -73,7 +74,7 @@ set_trace_style(2, <span class="string">'red'</span>)
 climb_down_west()
 turn_off()
 </pre>
-<p><img alt="import"  src="../../images/inter/import.png"></p>
+<p><img alt="import"  src="../../images/inter/import.png" /></p>
 <p>与其像我们上面引入 <tt>turn_right()</tt>那样一个一个引入指令, 不如用 "*" 这个符号来表示 "所有的定义".  在进入下一步之前，我有必要先做一些注解:</p>
 <ol>
 <li>如果你知道 Python <i>module</i>, 那么你知道"useful" 不是一个真正的 module,而是一个假的，仅仅在乐跑机器人世界可以工作的.  出于安全原因，你不会被允许引入 "真正的" 模块，以及在RUR编程中使用. </li>
@@ -135,11 +136,12 @@ short_name.instruction2()
 
 <p>给老师的主要备注: 约束使用引入的原因， 是为了避免有些人提供不安全的脚本，把这种危险带给相信你的受害人。注意， 让学生知道， 在使用之前，检查那些 "朋友"提供的脚本。那就是说, 如果你熟悉 Python， 那么对源代码做一些小的修改会很容易。这在教室设置的时候比较有用。如果你需要，请练习他们的作者。</p>
 
-<center><a href="38-class2.htm"><img alt="previous" src=
-"../../images/previous.png">体验类.</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+<div class="lessons_nav">
+<a href="38-class2.htm"><img alt="previous" src=
+"../../images/previous.png" />体验类.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
 "40-random.htm">随机离开.<img alt="next"
-src="../../images/next.png"></a></center>
-
+src="../../images/next.png" /></a>
+</div>
 </body>
 </html>

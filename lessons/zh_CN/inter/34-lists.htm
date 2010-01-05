@@ -1,14 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>34. 巧克力慕斯蛋糕食谱</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>巧克力慕斯蛋糕食谱</title>
 </head>
 <body>
 <h2 class="title">34. 巧克力慕斯蛋糕食谱</h2>
 <p>我不知道你怎么样,但是我饿了.  如果有个美味的巧克力慕斯蛋糕,那就太好了.  我们需要:</p>
-<ul><li><u>主料表</u></li>
+<ul><li><span style="text-decoration: underline;">主料表</span></li>
 <ul>
 <li>4 个鸡蛋</li>
 <li>100 克糖</li>
@@ -24,7 +26,7 @@
 </ul>
 <p>食谱和程序很相近: 他们都是一套指令,精确的按照一定的顺序,以期待得到想要的结果.  我想我们已经学习了很多编程, 我们结束烹调课,回到Python学习.</p>
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">清单</h3>
 <p>这里有些东西你可以尝试一下:</p>
 <pre>
@@ -76,7 +78,7 @@ s
 </pre>
 <p><tt>append()</tt> 是 "list" 类的一个方法.  <tt>ingredients</tt> 是一个list类的实例.  我们在实例<tt>ingredients</tt>上 <i>执行</i> 方法 <tt>append</tt> ,我们使用符号 "."来表示, 在前面的课程中(第30课)我们也见过.   <tt>append</tt> 的<i>参数</i>, 是我们打算添加到list对象中的. 他总是添加在 list的尾部. </p>
 <p>List有很多其他方法; 需要的时候我会介绍.  如果你想知道所有的方法,只需要输入 <tt>dir([])</tt>; 注意 <tt>[]</tt> 是一个空的 list - 任何的list都会给出异样的结果.  看看我们能否发现<tt>append</tt>方法.</p>
-<p>现在,我们知道如何往list里面添加东西了, 接下来我们需要知道如何删除他们.  我们需要使用Python的关键字 <span class="pykeyword">del</span>.
+<p>现在,我们知道如何往list里面添加东西了, 接下来我们需要知道如何删除他们.  我们需要使用Python的关键字 <span class="pykeyword">del</span>.</p>
 <pre>
 &gt;&gt;&gt; <span class="keyword">del</span> ingredients[3]
 &gt;&gt;&gt; <span class="keyword">print</span> ingredients
@@ -95,11 +97,11 @@ Traceback (most recent call last):
 NameError: name <span class="string">'a'</span> is not defined
 </pre>
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="try">试试看!</h3>
 <p>在乐跑机器人世界, 写一个简单的程序创建两个机器人, 给他们不同的名字, 然后要他们走几步, 然后用关键字 <span class="pykeyword">del</span>使他们中的一个消失.  你需要让另外一个机器人至少走一步,才能够使另外一个机器人从屏幕消失.</p>
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">介绍一下 <tt>range()</tt></h3>
 <p>Y我们来学习一下Python的函数<tt>range()</tt>:</p>
 <pre>
@@ -109,7 +111,7 @@ NameError: name <span class="string">'a'</span> is not defined
 <p>没错: <tt>range()</tt> 创建了一个list!</p>
 
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">在list, 整数, 字符串之间转换</h3>
 <p>这里有一些内置函数来转换<i>数据类型</i>.</p>
 <pre>
@@ -164,17 +166,20 @@ second_list = list(second_string)
 3
 </pre>
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="try">不好意思, 这个作业看不明白,请讲过这课的老师看一下Help Reeborg to add using lists, strings and integers</h3>
 <p>Help Reeborg to add two numbers, like illustrated below, using what we just saw about lists, strings and integers.</p>
 <p><img alt="before addition" src=
-"../../images/inter/add34_start.png"></p>
+"../../images/inter/add34_start.png" /></p>
 <p><img alt="after addition" src=
-"../../images/inter/add34_end.png"></p>
-<center><a href="33-for.htm"><img alt="previous" src=
-"../../images/previous.png">Repeat() 隐蔽了一些 Python 的关键字</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+"../../images/inter/add34_end.png" /></p>
+
+<div class="lessons_nav">
+<a href="33-for.htm"><img alt="previous" src=
+"../../images/previous.png" />Repeat() 隐蔽了一些 Python 的关键字</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
 "35-dicts.htm">另外一种定义<img alt="next"
-src="../../images/next.png"></a></center>
+src="../../images/next.png" /></a>
+</div>
 </body>
 </html>

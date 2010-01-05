@@ -1,8 +1,10 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href="../rurple.css" type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>神奇的解决方案-复习二</title>
 </head>
 <body>
@@ -19,16 +21,18 @@ move() <span class="comment"># 那乐跑就先向前走才进入如下的循环,
 
 turn_off()
 </pre>
-<p><b>现在，你自己来试试看吧！</b></p><!--================================================-->
+<p><b>现在，你自己来试试看吧！</b></p>
 
-<hr width="50%">
+<!--================================================-->
+<hr class="line" />
+
 <h3 class="section">一起来进入一个复杂点的世界</h3>
 <p>着一个部分，大家一起来进入一个比以前复杂的世界，然后运行这个程序。首先，大家一起来利用墙壁先建立这个世界，如下图所示： 在你开始程序前，你可以将这个世界存档。</p>
 <p><img alt="around the world: start" src=
-"../../images/intro/around2start.png"></p>
+"../../images/intro/around2start.png" /></p>
 <p>当你在运行这个程序以后，你就会发现，结果并不是我们希望的那样：机器人走了一个捷径，而非环游了全世界，换句话说，乐跑没有走完上面的世界部分。为什么呢？</p>
 <p><img alt="around the world: end" src=
-"../../images/intro/around2end.png"></p>
+"../../images/intro/around2end.png" /></p>
 <p>解决方法：其实问题很简单，我们只是假设他周游世界时只有“前进”和“左转”两个动作，而忽视了让他“右转”的情况。 乐跑应当也检查他的右边是否有一堵墙，否则的话，我们让他右转。在下面，大家一起来看一个修改后的程序，<i>希望</i>可以让乐跑环游整个世界：</p>
 <pre>
 <span class="keyword">def</span> turn_right():
@@ -47,11 +51,13 @@ move()
 turn_off()
 </pre>
 <p>成功了吗？ 如果不成功，仔细再地阅读并理解里面失败的原因。试试看，或者你觉得合适的话，可以也对程序做一些修改，并再试一次。</p>
-<center><a href="17-amazing1.htm"><img alt="previous" src=
-"../../images/previous.png">神奇的解决方案-复习一</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - 
+
+<div class="lessons_nav">
+<a href="17-amazing1.htm"><img alt="previous" src=
+"../../images/previous.png" />神奇的解决方案-复习一</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="19-amazing3.htm">神奇的解决方案-复习三<img alt="next" src=
-"../../images/next.png"></a>
-</center>
+"../../images/next.png" /></a>
+</div>
 </body>
 </html>

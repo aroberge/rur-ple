@@ -1,9 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>27</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>变量</title>
 </head>
 
 <body>
@@ -54,10 +56,11 @@ SyntaxError: can&#39;t assign to literal
 2
 </pre>
 <p>你一定要记住等号“<tt>=</tt>”就是“是……的同义词”的意思。因此，“奇怪的”这一行的意义如下:</p>
-<il>
+<ul>
 <li>取出“=”右边的部分[本例子中,<tt>a + a</tt>] </li>
 <li>计算它的值[2; 来自1+1]。</li>
-<li>无论等号右边的结果是什么 [本例中是<tt>a</tt>]， 等号左边的变量是这个结果的同义词。
+<li>无论等号右边的结果是什么 [本例中是<tt>a</tt>]， 等号左边的变量是这个结果的同义词。</li>
+</ul>
 <p>像我一样把他们全写出来，使得它看起来很复杂。事实上，你马上就会习惯的而且你再也不会感到惊讶。</p>
 <p>因为改变变量的意义发生地如此频繁，因此，Python使用了一个简化的表达式。</p>
 <pre>&gt;&gt;&gt; a = 1
@@ -78,26 +81,27 @@ SyntaxError: can&#39;t assign to literal
 5
 </pre>
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="try">轮到你了</h3>
 <p>还记得乐跑将两个十进制的数相加是多么困难吗？为了唤醒你的记忆，我们让乐跑用下面的方式把3和2加起来。</p>
-<p>3+2=5 <img alt="3+2" src="../images/intro/add3_2_start.png"><img alt="lead to" src="../images/lead_to.png">
-<img alt="5" src="../images/intro/add3_2_end.png"> </p>
-<p>8+4=12 <img alt="8+4" src="../images/intro/add8_4_start.png"><img alt="lead to" src="../images/lead_to.png">
-<img alt="12" src="../images/intro/add8_4_end.png"></p>
-<p>你可以用变量简化整个过程。你不需要我们做的什么特殊的地图，也不要让乐跑拿着铃铛。下面是一些建议:<ul>
+<p>3+2=5 <img alt="3+2" src="../images/intro/add3_2_start.png" /><img alt="lead to" src="../images/lead_to.png" />
+<img alt="5" src="../images/intro/add3_2_end.png" /> </p>
+<p>8+4=12 <img alt="8+4" src="../images/intro/add8_4_start.png" /><img alt="lead to" src="../images/lead_to.png" />
+<img alt="12" src="../images/intro/add8_4_end.png" /></p>
+<p>你可以用变量简化整个过程。你不需要我们做的什么特殊的地图，也不要让乐跑拿着铃铛。下面是一些建议:</p>
+<ul>
 	<li>使用 <tt>total</tt> 这个初始值为0的变量。 </li>
 	<li>让乐跑一个一个捡起铃铛，每次在 <tt>total</tt> 的数值上加1，可以使用下面的方法： 
-	<br>	<tt>total += 1</tt>.</li>
+	<br />	<tt>total += 1</tt>.</li>
 	<li>乐跑做完了的时候，设想一下两个场景：如果 <tt>total</tt> 大于10，让乐跑丢下减去10个后的所有的铃铛，向旁边一栋，再丢下一个（进位）。如果小于10就让乐跑把所有的铃铛都丢下。</li>
 	<li><span class="warning">强烈建议：</span> 除了<tt>turn_right()</tt>之外绝对不要定义任何动作。在下面的课程里你会知道为什么。</li>
 </ul>
-<center><a href="../inter/26-interpreter2.htm">
-<img alt="previous" src="../../images/previous.png">解释Python关键字</a> - <a href="lessons_toc.htm">
-<img alt="home" src="../../images/home.png"></a> -
-<a href="../inter/28-variables2.htm">变量和函数<img alt="next" src="../../images/next.png"></a></center>
-</li>
 
+<div class="lessons_nav">
+<a href="../inter/26-interpreter2.htm">
+<img alt="previous" src="../../images/previous.png" />解释Python关键字</a> - <a href="lessons_toc.htm">
+<img alt="home" src="../../images/home.png" /></a> -
+<a href="../inter/28-variables2.htm">变量和函数<img alt="next" src="../../images/next.png" /></a>
+</div>
 </body>
-
 </html>

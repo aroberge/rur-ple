@@ -1,10 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>31. 全局是坏事</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>全局是坏事</title>
 </head>
 <body>
 
@@ -13,7 +14,7 @@
 <p>Python 有一种方法来避免这样的问题： <i>命名空间</i>.  这可以避免程序片断中的变量互相影响.  我们在这节课中学习一下命名空间.</p>
 
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">局部变量.</h3>
 <p>这里有一个简单的例子:</p>
 <pre>
@@ -71,7 +72,7 @@ Why?          3 times
 <p>如有可能，你应该设法避免使用 <span class="pykeyword">全局变量</span>, 因为他们可能导致你不期望的对变量的修改.  在编程中, <span class="pykeyword">全局</span>通常是不好的.</p>
 
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">越界</h3>
 <p>Larry 和 Curly 一起兴冲冲的走着.  突然, Moe 朝着他的朋友们从远处跑来.   正当 Moe 马上就要遇上 Larry 和 Curly的时候, 他越界了并从屏幕消失. 如果你想要他遇上他的朋友们, 你需要删除那三个 <span class="comment">#</span> .</p>
 
@@ -106,18 +107,19 @@ Curly.move()
 Larry.turn_off()
 </pre>
 
-<p><img alt="Moe there"  src="../../images/inter/scope1.png"></p>
-<p><img alt="Moe gone"  src="../../images/inter/scope2.png"></p>
+<p><img alt="Moe there"  src="../../images/inter/scope1.png" /></p>
+<p><img alt="Moe gone"  src="../../images/inter/scope2.png" /></p>
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="try">试试看!</h3>
 <p>在乐跑机器人的世界,亲自尝试一下这个程序, 做一些改变,使得Moe遇上他的朋友!</p>
 
-<center><a href="30-dot.htm"><img alt="previous" src=
-"../../images/previous.png">面向对象的编程:  "点" 记数法.</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+<div class="lessons_nav">
+<a href="30-dot.htm"><img alt="previous" src=
+"../../images/previous.png" />面向对象的编程:  "点" 记数法.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
 "32-return.htm">很多返回<img alt="next"
-src="../../images/next.png"></a></center>
-
+src="../../images/next.png" /></a>
+</div>
 </body>
 </html>
