@@ -1,16 +1,18 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
-<title>26. 解释Python关键字</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>解释Python关键字</title>
 </head>
 <body>
 <h2 class="title">26. 解释Python关键字</h2>
 <p>上一节课我们看到怎样让Python解释器来执行一些简单的算术命令。这一课里，我们来看看Python解释器对我们在乐跑世界里所用的Python 
 关键字是怎么处理的吧。</p>
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">Breaking lines</h3>
 <p>我们先从简单的开始吧：在解释器的提示出，输入 <tt>3*(2+2)</tt>，并按下回车，结果如下：</p>
 <pre>
@@ -76,7 +78,7 @@ SyntaxError: invalid syntax
 </pre>
 <p>现在你们可以自己试试看啦。</p>
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">Defining functions</h3>
 <p>W是时候让我们来复习一下乐跑世界里Python的关键词（和概念）了。第一个关键词是<span class=
 "pykeyword">def</span>。我们来试试简单的print2。看看能不能得到下面的结果。 </p>
@@ -92,7 +94,7 @@ SyntaxError: invalid syntax
 </pre>
 <p>现在大家自己试试看吧。</p>
 <p>注意到在我们的函数的代码中，Python的缩进功能的作用了吗？注意一下他是如何理解我们用来结尾的空行了。注意&quot;<tt>print2</tt>&quot;中间是没有空格的，与&quot;print 
-2&quot;也是不同的。<br>
+2&quot;也是不同的。<br />
 &quot;<tt><span class="pykeyword">print</span> 2</tt>&quot;?</p>
 <p>现在看看下面的：</p>
 <pre>
@@ -112,7 +114,7 @@ SyntaxError: invalid syntax
 <p>
 只要我们在函数体中输入非空行的内容，Python就会提示我们输入更多内容。只要我们输入空行Python就断定我们结束了。因此，空行对Python解释器来说有更多的意义，这与乐跑的世界里的情况不同。在Python解释器外的程序里也不是这样的（在上面的两个例子里，空行就是被直接忽略的）。注意，Python解释器对空行的处理（在函数定义中）与对于之前的我们使用了一个左括号而没有对应的右括号的处理是不一样的；之前我们使用一个左括号，而没有对应的右括号，Python就会知道我们还有东西要加上去从而直接忽略空行。</p>
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section"><span class="pykeyword">如果</span> 你觉得很迷惑</h3>
 <p>你是不是发现空行很容易混淆？没关系，很快就会习惯的。下面来看看其他的Python关键词，从<span class="pykeyword">if</span>开始。</p>
 <pre>
@@ -123,7 +125,7 @@ True
 &gt;&gt;&gt;
 </pre>
 <p>由于5&gt;4 是个真命题，因此Python会执行<span class="pykeyword">if</span>函数体内的内容，也就是打印5&gt;4 <b>
-的结果</b><br>，输出时“true”。但这可能不是我们想要的结果。换下面的试试看：</p>
+的结果</b><br />，输出时“true”。但这可能不是我们想要的结果。换下面的试试看：</p>
 <pre>
 &gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:
 ...     <span class="keyword">print</span> <span class=
@@ -169,7 +171,7 @@ She said: &quot;It&#39;s easy&quot;.
 if</span>对齐.</p>
 <p>Make sure you try it before going further.</p>
 <!--==============================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section"><span class="pykeyword">定义</span>更多函数</h3>
 <p>我们可以把之前的片段代码<i>变成</i> 有用的函数。</p>
 <pre>
@@ -187,10 +189,13 @@ if</span>对齐.</p>
 </pre>
 <p>Y你得自己想办法得出上面的结果（并且学会正确的使用缩进）。</p>
 <p>现在，如果你可以用函数<tt>greater()</tt> 来自动地比较两个数字大小，那不是很美妙吗？要做到这一步，我们需要学习变量了。</p>
-<center><a href="25-interpreter.htm"><img alt="previous" src=
-"../../images/previous.png">Python已经知道了如何做加法</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+
+<div class="lessons_nav">
+<a href="25-interpreter.htm"><img alt="previous" src=
+"../../images/previous.png" />Python已经知道了如何做加法</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
 "27-variables.htm">变量。<img alt="next"
-src="../../images/next.png"></a></center>
+src="../../images/next.png" /></a>
+</div>
 </body>
 </html>

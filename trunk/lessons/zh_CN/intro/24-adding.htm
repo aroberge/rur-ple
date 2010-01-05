@@ -1,37 +1,39 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>教会乐跑做加法</title>
 </head>
 <body>
 <h2 class="title">24. 教会乐跑做加法</h2>
 <p>在这一课里，我会指导大家来完成一个让乐跑做加法的程序。就像我们通常使用10进制的数座加法一样，我们可以用这个程序轻松地完成其他进制的数相加。</p>
 <!--=========================================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="try">热身</h3>
 <ol>
-<li>用下面的方法让乐跑把3+2算出来。<br>
-<img alt="3+2" src="../../images/intro/add3_2_start.png"><img alt="lead to"
-src="../../images/lead_to.png"> <img alt="5" src=
-"../../images/intro/add3_2_end.png"><br>
+<li>用下面的方法让乐跑把3+2算出来。<br />
+<img alt="3+2" src="../../images/intro/add3_2_start.png" /><img alt="lead to"
+src="../../images/lead_to.png" /> <img alt="5" src=
+"../../images/intro/add3_2_end.png" /><br />
 再写一个程序让乐跑把1和4加起来。</li>
 <br />
-<li>现在一起来修改你的程序使得乐跑可以通过以下的方法把13和22加起来，变成答案35（在下面每一组报警器代表了一个单数）。<br>
-<img alt="13+22" src="../../images/intro/add13_22_start.png"><img alt=
-"lead to" src="../../images/lead_to.png"> <img alt="35" src=
-"../../images/intro/add13_22_end.png"><br></li>
+<li>现在一起来修改你的程序使得乐跑可以通过以下的方法把13和22加起来，变成答案35（在下面每一组报警器代表了一个单数）。<br />
+<img alt="13+22" src="../../images/intro/add13_22_start.png" /><img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="35" src=
+"../../images/intro/add13_22_end.png" /><br /></li>
 <br />
-<li>你能不能编写一个程序，让乐跑可以像以前一样把3和2加起来，<b>以及</b>也把8和4加在一起？<br>
-<p><img alt="8+4" src="../../images/intro/add8_4_start.png"><img alt=
-"lead to" src="../../images/lead_to.png"> <img alt="12" src=
-"../../images/intro/add8_4_end.png"></p>
-<br>
+<li>你能不能编写一个程序，让乐跑可以像以前一样把3和2加起来，<b>以及</b>也把8和4加在一起？<br />
+<p><img alt="8+4" src="../../images/intro/add8_4_start.png" /><img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="12" src=
+"../../images/intro/add8_4_end.png" /></p>
+<br />
 你的新的程序应该也要使得2和5，9和9加在一起。你明白怎么做到吗？如果会，就去试试吧……如果你不会，没关系，不要灰心，接着往下学习吧！</li>
 </ol>
 <!--=========================================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">回顾</h3>
 <p>让我们用“传统的方式”从做到有把两个数字加到一起，从右至左。</p>
 <pre>
@@ -49,12 +51,12 @@ src="../../images/lead_to.png"> <img alt="5" src=
  1162  
 </pre>
 <p>好，似乎清楚些了，但我必须确认你能够跟上？在乐跑的世界里，我们希望这个加法看起来如下图所示：</p>
-<p><img alt="adding start" src="../../images/intro/add_start.png"><img alt=
-"lead to" src="../../images/lead_to.png"> <img alt="adding end" src=
-"../../images/intro/add_end.png"></p>
+<p><img alt="adding start" src="../../images/intro/add_start.png" /><img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="adding end" src=
+"../../images/intro/add_end.png" /></p>
 <p>我们先来解决简单的8加4问题，然后才一步一步地解决其他的问题。</p>
 <!--=========================================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">在十进制里用8加上4</h3>
 <p><span class="warning">警告：</span> 
 下面的练习可能有点困难，它更多的被用来作为一个高难度的挑战。读完这堂课剩下的部分，自己决定是否要进行这个练习或者选择跳过来继续学习Python其他的课程。</p>
@@ -63,11 +65,11 @@ src="../../images/lead_to.png"> <img alt="5" src=
 <p>
 打开这个世界的文件后，如果你看看屏幕的下方，你会看到乐跑携带了8个报警器。现在大家一起来编写一个程序，让乐跑把报警器摆成一条直线，10号街的每个十字路口各放置一个（如下图所示）。在程序结束之后，我用光标把乐跑移出来了，所以他在最后一列的报警器上方。这也就是为什么你在下面的图上看不到他。</p>
 <p><img alt="line of beepers accross 10th street" src=
-"../../images/intro/accross10.png"></p>
-<p>在进入下一步之前大家先保存程序。<br>
-<br>
+"../../images/intro/accross10.png" /></p>
+<p>在进入下一步之前大家先保存程序。<br />
+<br />
 现在大家可以重新打开这个地图文件，保证地图是空的，乐跑也站在最原始的位置上[1号大道和1号街拐弯处]。把报警器放置在右下角，如下图（但乐跑站在最开始的位置）。</p>
-<p><img alt="8+4" src="../../images/intro/add8_4_start.png"></p>
+<p><img alt="8+4" src="../../images/intro/add8_4_start.png" /></p>
 <p>让乐跑做下面的动作：</p>
 <ol>
 <li>像之前一样在10号街上摆放一排报警器。</li>
@@ -75,7 +77,7 @@ src="../../images/lead_to.png"> <img alt="5" src=
 <li>像下面的图一样把这12个报警器摆成竖直的一列。</li>
 </ol>
 <p><img alt="8+4 spread vertically" src=
-"../../images/intro/vertical12.png"></p>
+"../../images/intro/vertical12.png" /></p>
 <p>现在，我们在这竖报警器之外有两个报警器（12那一组），和水平线外的另外一个报警器（我们可以把它当作十进制下的进位）。现在你需要做的是：</p>
 <ol>
 <li>让乐跑把在水平线下的这9个报警器捡起来并把他们放在不同地方（你可以把他们都放在水平线上）；你可以通过重复下面的步骤来完成：<ol>
@@ -84,39 +86,42 @@ src="../../images/lead_to.png"> <img alt="5" src=
 <li>移动…直到移动到另外一个有报警器的转弯处</li>
 </ol>
 在你到达报警器的水平线的时候，你可以把他们都放在那个转角处……</li>
-<li>让乐跑一直走，至少超过最后一个报警器—如下图示：<br>
-<br>
-<p><img alt="8+4" src="../../images/intro/add8_4_middle.png"><br></p>
+<li>让乐跑一直走，至少超过最后一个报警器—如下图示：<br />
+<br />
+<p><img alt="8+4" src="../../images/intro/add8_4_middle.png" /><br /></p>
 </li>
 <li>
 让乐跑掉头，捡起一个报警器继续往前，如此重复，直到乐跑走到没有报警器的转弯处（低于水平线）；到这时，乐跑应该已经收集了三个报警器了。</li>
 <li>让乐跑带着这几个报警器往下走，走到墙角。</li>
 <li>让乐跑把三个报警器都放下来，再捡起十进制进位的那一个报警器，然后朝西走、把这个报警器放下来。 </li>
 </ol>
-接下来把乐跑移出来，我们就可以看到结果了。<br>
-<br>
-<p><img alt="8+4" src="../../images/intro/add8_4_end.png"></p>
+接下来把乐跑移出来，我们就可以看到结果了。<br />
+<br />
+<p><img alt="8+4" src="../../images/intro/add8_4_end.png" /></p>
 <p>事实上，这5个步骤要写的编码很多，也许要完全正确会有一定难度。但只要你按步骤来，就一定可以做到。去试试吧！</p>
 <!--=========================================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="suggested">3+5</h3>
 <p>
 那么，最终你的程序能够把8+4的结果算出来。那么3+5呢？也可以算出来吗？答案是：不可以。因为这不需要进一位。你能想出解决的办法么？可能你只能用我们迄今为止学过的东西。<i>我</i>现在给你一个小贴士，这个可以通过一个我们还没有见过的Python关键词：<span class="pykeyword">break</span>来解决。 </p>
 <!--=========================================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="suggested">终极挑战</h3>
 <p>如果你了解到用其他进位制做加法的意义的话，也许你就会试着去改变你的程序（或者是你的世界文件）以实现用别的进位制做加法。</p>
 <!--=========================================-->
-<hr width="50%">
+<hr class="line" />
 <h3 class="section">下一步我们学什么？</h3>
-<p>目前为止，我们在乐跑的世界里看到过不同的Python关键词：<br>
+<p>目前为止，我们在乐跑的世界里看到过不同的Python关键词：<br />
 <span class="pykeyword">def, elif, else, if, not, pass, while</span>. 
 我们最后也利用这些关键词编写了一写相当复杂的程序，来让乐跑可以把两个数字相加。现在，我们是时候离开乐跑的世界、用纯粹的Python计算机语言 
 来更简单地把两个数字相加了！不用担心，我们会时不时地回到乐跑的世界，来看看我们对Python的了解可以如何帮助乐跑探索他的世界。</p>
-<center><a href="23-trash.htm"><img alt="previous" src=
-"../../images/previous.png">暴风雨过后</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
+
+<div class="lessons_nav">
+<a href="23-trash.htm"><img alt="previous" src=
+"../../images/previous.png" />暴风雨过后</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
 "../inter/25-interpreter.htm">Python已经知道了如何做加法。<img alt="next"
-src="../../images/next.png"></a></center>
+src="../../images/next.png" /></a>
+</div>
 </body>
 </html>

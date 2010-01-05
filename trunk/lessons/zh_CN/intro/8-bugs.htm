@@ -1,20 +1,22 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>8. 修补错误</title>
 </head>
 <body>
 <h2 class="title">8. 修补错误 <img src="../../images/intro/b_shake.gif"
-alt="darn bugs"></h2>
+alt="darn bugs" /></h2>
 <p>计算机的错误，又名小虫，在下面，我们将跟你解释名称的来源。没有人喜欢谈论计算机的错误，所以这节课将会很短的带过，只是对计算机的错误做一个简单的介绍，当然我们不希望要你去编写一个有错误的程序！</p>
 <h3 class="section">什么是计算机的错误?</h3>
 <p><b>错误（小虫）</b>成为计算机专业术语是源于一个偶然事件。哈佛大学的Mark II计算机由于突然有一只小虫（蛾）飞进去以后而瘫痪了。
 这只小虫子被当时有名的团队发现，这个团队的带头人是一个出名的计算机科学家，数学家和年轻的海军军官Grace Murray Hopper先生，他后来发明了编译程序语言，并晋升为海军少将。</p>
 <p>这个小虫被Hopper保存在了他的日志本中，见下图，在图中的Bug就是小虫的意思。
 有趣的是这个日志本中写着：“第一个确实发现小虫的案例”。</p>
-<p><img src="../../images/intro/first_bug.jpg" alt="first bug"></p>
+<p><img src="../../images/intro/first_bug.jpg" alt="first bug" /></p>
 <h6>美国海军历史中心公共档案的图片
 <a href="http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm">
 	 </a></h6>
@@ -30,45 +32,45 @@ alt="darn bugs"></h2>
 <ol>
 <li>
 <p>机器人漏出的油（也就是他走的路径，绿色的线）让你能够知道机器人执行的指令。</p>
-<p><img src="../../images/intro/turn_left_end.png"alt="simple left turn"></p>
+<p><img alt="simple left turn" src="../../images/intro/turn_left_end.png" /></p>
 </li>
 <li>
 <p>每一个正在被机器人执行的命令都会被“强调”出来给大家看（用灰色的阴影表示）。[比如下面的<tt>pick_beeper()</tt>]</p>
 </li>
 <li>
 <p>你可以随意中止一个程序，通过单击按钮
-<img src="../../images/intro/btn_pause.png" alt="pause button">。这相当于计算机编程中设置
+<img alt="pause button" src="../../images/intro/btn_pause.png" />。这相当于计算机编程中设置
 <i>断点</i>。</p>
 </li>
 <li>
-<p>你可以一步一步地完成整个程序，每次完成一个命令，通过点击(<i>步骤</i>)按钮<img src=
-"../../images/intro/btn_step.png" alt="step button">来让乐跑在每次完成一个命令以后停一下，然后再次点击让他一步一步完成任务。</p>
+<p>你可以一步一步地完成整个程序，每次完成一个命令，通过点击(<i>步骤</i>)按钮<img alt="step button" src=
+"../../images/intro/btn_step.png" />来让乐跑在每次完成一个命令以后停一下，然后再次点击让他一步一步完成任务。</p>
 </li>
 <li>
-<p>你可以改变命令执行的速度，通过使用速度控制器<img src="../../images/intro/btn_speed.png" alt="speed button">。
+<p>你可以改变命令执行的速度，通过使用速度控制器<img alt="speed button" src="../../images/intro/btn_speed.png" />。
 将滑块向右移动得越多执行的速度越快。你只能在程序开始的时候调整速度，这将是整个程序运行的速度。
 如果机器人需要走的路径比较长，请在开始执行之前将速度调快，当发现异常的时候中断程序，然后通过每次执行一步的方法寻找错误。</p>
 </li>
 <li>
-<p>当你开始了一个程序但是想在它运行完毕之前停止它，你需要按“停止”按钮。 <img src=
-"../../images/intro/btn_stop.png" alt="stop button">。</p>
+<p>当你开始了一个程序但是想在它运行完毕之前停止它，你需要按“停止”按钮。 <img alt="stop button" src=
+"../../images/intro/btn_stop.png" />。</p>
 </li>
 <li>
-<p>在屏幕的底部有一个状态栏，从左边开始看 1) 当前正在运行的程序； 2) 程序的状态; 3) 机器人携带的报警器数目; 4) 当前机器人在哪一个“世界”。<br>
-<img src="../../images/intro/zh_CN_status_bar.png" alt="status bar"></p>
+<p>在屏幕的底部有一个状态栏，从左边开始看 1) 当前正在运行的程序； 2) 程序的状态; 3) 机器人携带的报警器数目; 4) 当前机器人在哪一个“世界”。<br />
+<img alt="status bar" src="../../images/intro/zh_CN_status_bar.png" /></p>
 </li>
 <li>
 <p>如果你希望机器人在完成任务以后返回他最初的位置，你需要按"重置”按钮
-<img src="../../images/intro/btn_reset_world.png" alt="reset button">。</p>
+<img alt="reset button" src="../../images/intro/btn_reset_world.png" />。</p>
 </li>
 </ol>
 <p>就这样啦！当你跟着接下来的课程，将会学到更多的编程知识，你就能够知道更多并发现和解决错误的方法！</p>
-<center>
-<p><a href="7-beepers.htm"><img src="../../images/previous.png"
-alt="previous">报警器</a> -
-<a href="../lessons_toc.htm"><img src="../../images/home.png"
-alt="home"></a> - <a href="9-walls.htm">砌墙<img src="../../images/next.png"
-alt="next"></a>
-</p></center>
+
+<div class="lessons_nav">
+<a href="7-beepers.htm"><img alt="previous" src=
+"../../images/previous.png" />报警器</a> -
+<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png" />
+</a> - <a href="9-walls.htm">砌墙<img alt="next" src="../../images/next.png" /></a>
+</div>
 </body>
 </html>

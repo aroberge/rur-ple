@@ -1,8 +1,10 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='../rurple.css' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>左转</title>
 </head>
 <body>
@@ -17,7 +19,7 @@ move()
 turn_off()
 </pre>
 <p>会让他走到下面图中这样的位置。</p>
-<img alt="简单的左转" src="../../images/intro/turn_left_end.png">
+<img alt="简单的左转" src="../../images/intro/turn_left_end.png" />
 <h3 class="try">
 轮到你了
 </h3>
@@ -45,48 +47,34 @@ turn_off()
 <h3 class="try">试一下吧！</h3>
 <p>编一个程序让乐跑绕一个正方形顺时针旋转，走两步然后左转，重覆几遍并回到初始位置面朝右
 （朝东），如下面的图所示。</p>
-<img alt="左正方形" src="../../images/intro/left_square2.png">
+<img alt="左正方形" src="../../images/intro/left_square2.png" />
 <h3><font color="#663333">小实验
 
 </font></h3>
 <p>由你来决定，让乐跑沿着不同的路线来走，然后返回原本的位置。</p>
 <!--==================================================-->
 
-<hr width="50%">
+<hr class="line" />
 <a name="Home" id="Home"></a>
 <h3 class="section">怎么知道乐跑回家没有？</h3>
 <p>当进入乐跑的世界时，乐跑通常站在第一大街的第一大道，面朝右（朝东）。
+点击“显示／隐藏世界文档”按钮 <img alt="显示／隐藏世界文件" src="../../images/intro/btn_show_world_file.png" />，在右边数起来第二个图标。在右手边会显示一些文字，你将看到如下面的显示。注意那一行显示，<tt>robot = (1, 1, 'E', 0)</tt>。robot的意思是机器人，这说明了乐跑在他的世界里的位置。第一个数字是乐跑所在的大街（1代表在第一条大街上），第二个数字是小路（1代表在第一条小路上），
+第三个在引号中间的字母表示方向（E = East 东, N = North 北, W = West 西, S = South 南），东就是右，北就是上，以此类推...第四个数字 (0) 是乐跑携带的 <em>报警器</em> 数量； 我们以后会学习怎么使用报警器。</p>
+<p>我们知道，可以通过键盘的“向上”和“向左”键来控制乐跑移动。当你这样移动乐跑时，他不会留下移动的痕迹。 但你应该能注意到，乐跑移动时括号中的信息 <tt>robot = (...)</tt> 是随之变化的。这实时的反应了乐跑在他的世界里的位置。</p>
 
-点击“显示／隐藏世界文档”按钮 <img alt="显示／隐藏世界文件" src="../../images/intro/btn_show_world_file.png">，在右边数起来第二个图标。
-<p>
-在右手边会显示一些文字，你将看到如下面的显示。
-</p>
-注意那一行显示，<tt>robot = (1, 1, 'E', 0)</tt>。robot的意思是机器人，这说明了乐跑在他的世界里的位置。
-<p>
-第一个数字是乐跑所在的大街（1代表在第一条大街上），
-</P>第二个数字是小路（1代表在第一条小路上），
-<p>第三个在引号中间的字母表示方向（E = East 东, N = North 北, W = West 西, S = South 南），
-东就是右，北就是上，以此类推...</p>
-</p>
-第四个数字 (0) 是乐跑携带的 <em>报警器</em> 数量； 我们以后会学习怎么使用报警器。</p>
-<p>我们知道，可以通过键盘的“向上”和“向左”键来控制乐跑移动。当你这样移动乐跑时，
-他不会留下移动的痕迹。 但你应该能注意到，乐跑移动时括号中的信息 <tt>robot = (...)</tt> 
-是随之变化的。这实时的反应了乐跑在他的世界里的位置。</p>
-
-<h3 class="try">
-小实验
-</h3>
+<h3 class="try">小实验</h3>
 <p>现在使用键盘，让乐跑到达第三大街第四小路的交叉点，面朝南，如下面显示的。然后，
 编写一个程序使乐跑从这里回到第一大街第一小路的交叉点，面朝东。尝试使乐跑用最少的步伐和转身来完成这个路线。
 </p>
-<p><img alt="back home start" src="../../images/intro/back_home_start.png">
-<img alt="lead to" src="../../images/lead_to.png"> <img alt="back home end"
-src="../../images/intro/back_home.png"></p>
-<center>
-<a href="5-comments.htm"><img alt="前一课" src="../../images/previous.png"> 
+<p><img alt="back home start" src="../../images/intro/back_home_start.png" />
+<img alt="lead to" src="../../images/lead_to.png" /> <img alt="back home end"
+src="../../images/intro/back_home.png" /></p>
+
+<div class="lessons_nav">
+<a href="5-comments.htm"><img alt="前一课" src="../../images/previous.png" /> 
 代码注释?</a> - <a href="../lessons_toc.htm">
-<img alt="" src="../../images/home.png"></a> - <a href="7-beepers.htm">报警器 <img alt=
-"后一课" src="../../images/next.png"></a>
-</center>
+<img alt="" src="../../images/home.png" /></a> - <a href="7-beepers.htm">报警器 <img alt=
+"后一课" src="../../images/next.png" /></a>
+</div>
 </body>
 </html>
