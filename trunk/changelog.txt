@@ -13,19 +13,19 @@ http://code.google.com/p/rur-ple/source/list
  - Added 10 first lessons in Spanish
  - Added Italian UI and welcome page translations
  - HTML code cleanup
- - Converted English, Spanish and Turkish lessons encoding to UTF-8 and XHTML
+ - All lessons are now encoded in UTF-8 and XHTML strict compliant
  - Added 5 new lessons
  - Added files necessary for Windows/Mac/Linux packaging (a beginning of...)
  - Removed languages count from lesson 1 simplifying translation maintenance
  - Added a link to the lessons at the top of the welcome page
  - Added Peter Maas checktrans.py script to verify translation XML compliance
- - sample code/world are now saved in automatically detected user home folder
- - removed reference to highlight button which no longer exist
- - fixed turkish.po file so UI can work in Turkish as well
- - added new rur-ple icons
- - added script to launch lessons from default browser
- - added desktop files for direct access to lessons
- - fixed Linux rules file to address issue #14
+ - Sample code/world are now saved in automatically detected user home folder
+ - Removed reference to highlight button which no longer exist
+ - Fixed turkish.po file so UI can work in Turkish as well
+ - Added new rur-ple icons
+ - Added script to launch lessons from default browser
+ - Added desktop files for direct access to lessons
+ - Fixed Linux rules file to address issue #14
 
 
 ------------------------------------------------------------------------------

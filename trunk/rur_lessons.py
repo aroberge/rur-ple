@@ -23,6 +23,8 @@
 # This program checks which language is being used in RUR-PLE and
 # launches the lessons in the default web browser in that 
 # language. If no language is found, it defaults to English.
+# 
+# TODO: take a command line parameter to overwrite the default settings
 
 
 import os
