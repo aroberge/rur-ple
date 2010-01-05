@@ -8,28 +8,34 @@
 <body>
 
 <h2 class="title">15. <span class="pykeyword">不是</span>真的!?</h2>
-<p>假设我们希望机器人持续前进直到它遇到一个beeper然后停下来。 一个开始位置的例子如下所示：</p>
+<p>假设我们希望乐跑持续前进直到它遇到一个报警器然后停下来并关机。 乐跑的开始位置如下所示：</p><br />
 <img alt="stop at beeper" src="../../images/intro/stop_at_beeper.png">
-<p>做这个的一种方法- 在 <i>虚拟码</i>中-如下所示:<br> <br> 如果在beeper上,<br> ... 停止;<br> 否则,<br> ...保持移动.<br> <br> 用迄今为止我们已经学习的知识，我们可以将这翻译为：</p>
+<p>要这样做的话，在 <i>虚拟码</i>中-可以如下面所显示来做:<br> 
+<br> 假如在报警器上,<br> 
+... 停止;<br> 
+否则,<br> ...保持前进。<br> 
+<br> 用迄今为止我们已经学习的命令，我们可以将以上的行动翻译为：</p>
 <pre>
 <span class="keyword">if</span> on_beeper():
     turn_off()
 <span class="keyword">else</span>:
     move()           
-</pre>这只是解决方案的一部分因为我们还没有告诉机器人要保持重复。 现在我们暂时忽视这个。 现在，考虑 相同的<i>pseudocode</i> 规则:<br> <br> 如果不在beeper上，<br> ...保持前进;<br> 否则,<br> ...停止.<br> <br> 当我们翻转了命令 "保持前进" 和 "停止",你应当承认这两种方法是等价的。 关键点在于，在第二个例子中，我们在 <span class="pykeyword">if</span>后面用了<span class="pykeyword">not</span>。 Python也允许我们否定一些文本，如下：<pre>
+</pre>这些命令只是解决了问题的一部分，因为我们并没有告诉乐跑要保持重复地做同样的动作。（我们暂时忽视这个问题）。 现在，考虑相同的<i>虚拟码</i> 规则:<br> <br> 如果不在报警器上，<br> ...保持前进;<br> 否则,<br> ...停止.<br> <br> 
+
+当我们翻转了命令 "保持前进" 和 "停止"，你觉得这两种方法应该是是相等的。关键点在于，在第二个例子中，我们在 <span class="pykeyword">if</span>后面用了<span class="pykeyword">not</span>。换句话来说，Python也允许我们否定一些命令，if not的意思是假如不是，现在一起来看下面的命令：<pre>
 <span class="keyword">if not</span> on_beeper():
     move()
 <span class="keyword">else</span>:
     turn_off()          
 </pre>
-<p>用迄今我们所学的知识将将这翻译成完整的程序, 我们可能需要 <span class="pykeyword">定义</span>一个指令, 然后使得它重复足够多次以确保机器人能够完成它的任务。</p>
+<p>现在，大家一起来用迄今我们所学的知识把这些命令翻译成完整的程序, 我们可能需要 <span class="pykeyword">定义</span>一个命令, 然后使得它重复行动足够多次以确保乐跑能够完成任务。</p>
 <h3 class="try">轮到你了</h3>
 <p>使用新的Python关键词 <span class="pykeyword">not</span>，重写一遍你的跨栏程序。</p>
 <hr width="50%">
-<h3 class="suggested">除草和播种时间</h3>
-<p>春天到了。 乐跑机器人的爸爸在花园里播种了。 在有些地方两个种子都发芽了，而在有些地方，一个也没有。 如下显示了一个典型情况 (文件: harvest4.wld).</p>
+<h3 class="suggested">小实验：除草和播种时刻</h3>
+<p>春天到了。 乐跑的爸爸在花园里播种了。有些地方两个种子都发芽了，但是有些地方，一个也没有。如下显示了一个典型情况 (看文件: harvest4.wld).</p>
 <img alt="weeding" src="../../images/intro/harvest4.png">
-<p>帮助乐跑机器人给花园除草，使得没有一个地方是有两个胡萝卜，而在没有胡萝卜的地方重新播种。 最后的情况应当如下所示：</p>
+<p>现在大家一起来帮助乐跑给花园除草，使得没有一个地方有两个胡萝卜（这里我们用报警器来表示），而在没有胡萝卜的地方重新播种，目的是要让每个地方都有一个胡萝卜，如下图所示：</p>
 <img alt="weeding" src="../../images/intro/harvest1.png">
 <p>对于部分程序，这里有个 <i>建议</i>：</p>
 <pre>
@@ -49,7 +55,7 @@ pick_carrot = pick_beeper
 </pre>
 <p>注意，事实上，移除种子重新播种并 <b>不是</b> 一个好主意！</p>
 <center><a href="14-elif.htm"><img alt="previous" src=
-"../../images/previous.png"> 如果，否则，如果，否则 ....</a> - <a href=
+"../../images/previous.png"> 假如，否则，假如，否则....</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href=
 "16-while.htm">暂时 <img alt="next" src=
 "../../images/next.png"></a>
