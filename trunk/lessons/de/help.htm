@@ -4,13 +4,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="rurple.css" type="text/css" />
+
 <title>Übersicht der Reeborg-Steuerung</title>
 </head>
 <body>
 <h2 class="title">Python lernen: Ein Kinderspiel mit RUR-PLE!</h2>
 <h6>André Roberge, © 2005, 2006</h6>
+
 <h3 class="section">Übersicht der Reeborg-Steuerung</h3>
+
 <p>Reeborgs Aktionen</p>
+
 <pre>
 move()
 turn_left()
@@ -18,7 +22,9 @@ pick_beeper()
 put_beeper()
 turn_off()
 </pre>
+
 <p>Reeborgs Abfragen</p>
+
 <pre>
 front_is_clear()
 left_is_clear()
@@ -27,14 +33,18 @@ facing_north()
 carries_beepers()
 on_beeper() <span class="comment"># entspricht next_to_a_beeper()</span>
 </pre>
-Spezielle Funktion (ersetzt for-Anweisung):
+
+<p>Spezielle Funktion (ersetzt for-Anweisung):</p>
+
 <pre>
 repeat(funktion, anzahl_wiederholungen)
 <span class="comment"># Dies entspricht </span>
 <span class="keyword">for</span> nummer <span class="keyword">in</span> range(anzahl_wiederholungen):
     funktion()
 </pre>
+
 <p>Objektorientierte Programmierung:</p>
+
 <pre>
 Reeborg = UsedRobot()
 Reeborg.move()
@@ -48,7 +58,9 @@ Reeborg.facing_north()
 Reeborg.carries_beepers()
 Reeborg.on_beeper() <span class="comment"># entspricht Reeborg.next_to_a_beeper()</span>
 </pre>
+
 <p>Fortgeschrittene Optionen:</p>
+
 <pre>
 set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
 <span class="comment"># Jeder Farbname (colour: Farbe), den wxPython kennt, kann verwendet
@@ -78,25 +90,31 @@ Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span class="string">'E'<
 Reeborg.set_trace_style(style=1, colour=<span class="string">'sea green'</span>) 
 Reeborg.set_delay(time)
 </pre>
+
 <p>Neuer und verbesserter Roboter!</p>
+
 <pre>
 Guido = RefurbishedRobot()  <span class="comment"># erbt von UsedRobot</span>
 
 <span class="comment"># Weitere Methoden:</span>
 Guido.turn_right()
+Guido.left_clear()
+Guido.right_clear()
 Guido.facing_east()
 Guido.facing_south()
 Guido.facing_west()
 Guido.roll_dice(n=6) <span class="comment"># Zufallszahl zwischen 1 und n.</span>
 </pre>
 
-<h3><a name="Acknowledgements" id=
+<h3 class="section"><a name="Acknowledgements" id=
 "Acknowledgements"><b>Danksagungen</b></a></h3>
+
 <p>Ohne meine Kinder, Julien und Evelyne, wäre dieses Programm 
 nie entstanden. Es ist ihnen gewidmet, in der Hoffnung, dass sie die
 Grundlagen des Programmierens lernen und Spaß dabei haben.
 Julien muss ich dafür danken, dass er das Startbild und das Bild des
 Roboters entworfen hat, das in diversen Fehlerdialogen gezeigt wird.</p>
+
 <p>Ich selbst habe durch das Schreiben dieses Programms viel gelernt -
 tatsächlich kannte ich Python erst seit ein paar Monaten, als ich mit diesem
 Projekt anfing, nachdem ich länger nicht mehr programmiert hatte als
@@ -108,20 +126,26 @@ nützliche Anregungen vom GvR-Team bekommen; insbesondere möchte ich
 den Anteil von Stas Zykiewicz hervorheben, der mir eine Menge über wxPython
 beigebracht hat, und nie müde wurde, mein fehlerhaftes Programm auszuprobieren,
 bis RUR-PLE stabil genug wurde, um für andere brauchbar zu sein. Danke, Stas!</p>
+
 <p>Viele Bilder für die Schaltflächen habe ich der Iconsammlung Nuvola von David
 Vignoni entnommen und und angepasst. Ich wünschte, ich könnte so ästhetisch
 ansprechende Bilder entwerfen wie Vignoni.</p>
+
 <p>Tony Payzant hat einiges an Zeit damit verbracht, frühere Versionen der Lektionen
 Korrektur zu lesen. Auch Bob Gailer schlug einige nützliche Korrekturen vor.</p>
+
 <p>Luis Sureda stellte eine Übersetzung ins Spanische zur Verfügung und machte einige
 brauchbare Vorschläge zur Vereinfachung des Quelltextes für die Sprachauswahl.</p>
+
 <p>Richard E. Brown lieferte viele nützliche Fehlerberichte und Vorschläge für die Anpassung
 von RUR-PLE an MacOS.</p>
+
 <p>Andy Judkis  benutzte RUR-PLE zusammen mit seinen Studenten und machte viele Verbesserungsvorschläge;
 in vielerlei Hinsicht wurde er eine treibende Kraft hinter diesem Projekt.</p>
+
 <div class="lessons_nav">
 <a href="rur.htm"><img alt="home" src=
-"../images/home.png"/></a>
+"../images/home.png" /></a>
 </div>
 </body>
 </html>

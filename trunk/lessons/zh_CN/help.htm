@@ -10,8 +10,11 @@
 <body>
 <h2 class="title">学习Python: 儿童利用RUR-PLE玩游戏！</h2>
 <h6>André Roberge, © 2005-2010</h6>
+
 <h3 class="section">指令和规测简要</h3>
+
 <p>乐跑(Reeborg)的动作</p>
+
 <pre>
 move()
 turn_left()
@@ -19,7 +22,9 @@ pick_beeper()
 put_beeper()
 turn_off()
 </pre>
-测试:
+
+<p>测试:</p>
+
 <pre>
 front_is_clear()
 left_is_clear()
@@ -28,14 +33,18 @@ facing_north()
 carries_beepers()
 on_beeper() <span class="comment"># 等于:</span> next_to_a_beeper()
 </pre>
-一些特别的本来附带的功能：
+
+<p>一些特别的本来附带的功能：</p>
+
 <pre>
 repeat(function, number_of_times)
 <span class="comment"># 要注意的是这个是等于</span>
 <span class="keyword">给</span> 数字 <span class="keyword">在</span> 一个范围里(number_of_times):
     功能()
 </pre>
+
 <p>目标为本的编程:</p>
+
 <pre>
 Reeborg = UsedRobot()
 Reeborg.move()
@@ -49,7 +58,9 @@ Reeborg.facing_north()
 Reeborg.carries_beepers()
 Reeborg.on_beeper() <span class="comment"># 等于:</span> Reeborg.next_to_a_beeper()
 </pre>
+
 <p>高级选项:</p>
+
 <pre>
 set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
 <span class="comment"># 任何颜色可被wxPython认可的</span>
@@ -73,28 +84,37 @@ Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span class="string">'E'<
 Reeborg.set_trace_style(style=1, colour=<span class="string">'sea green'</span>) 
 Reeborg.set_delay(time)
 </pre>
+
 <p>新改善以后的机器人！</p>
+
 <pre>
 Guido = RefurbishedRobot()  <span class="comment"># 从UsedRobot继承</span>
 
 <span class="comment"># 其它方法:</span>
 Guido.turn_right()
+Guido.left_clear()
+Guido.right_clear()
 Guido.facing_east()
 Guido.facing_south()
 Guido.facing_west()
 Guido.roll_dice(n=6) <span class="comment"># 随机整数在1和n之间。</span>
 </pre>
-<h3 class="section">感谢</h3>
+
+<h3 class="section"><a name="Acknowledgements" id=
+"Acknowledgements"><b>感谢</b></a></h3>
 
 <p>如果没有我的孩子，Julien 和 Evelyne，这个程序就永远不会建立。可以说这个程序是为了他们而设的，希望他们能够从而学习基本编程并得到乐趣。我也需要感谢Julien帮忙设计开始程序的后动画面和机器人在产生错误时候的图像。</p>
-<p>另外，我在编写这个程序的同时学习到很多东西。其实我在编写这个程序前几个月才开始学习Python。当然，没有 Python 和 wxPython 的社区的帮助，我也不会学得这么快，这个程序的建立也不会这么顺利就完成。还要感谢Guido van Robot (GvR)，一个类次Python实现Pattis的原始 Karel 机器人。我从GvR团队里面搜集到很多有用的意见。尤其要感谢Stas
-Zykiewicz，他教导我很多关于 wxPython 的知识，还有他从来没有为了尝试一些错误程序而放弃，直到 rur-ple 变得像今天一样稳定，确实非常感谢Stas！</p>
-<p>另外，有很多按钮图像是用了由David Vignoni设计的
-Nuvola 图标库, 我希望能够像Vignoni一样设计这么好看的图像。</p>
+
+<p>另外，我在编写这个程序的同时学习到很多东西。其实我在编写这个程序前几个月才开始学习Python。当然，没有 Python 和 wxPython 的社区的帮助，我也不会学得这么快，这个程序的建立也不会这么顺利就完成。还要感谢Guido van Robot (GvR)，一个类次Python实现Pattis的原始 Karel 机器人。我从GvR团队里面搜集到很多有用的意见。尤其要感谢Stas Zykiewicz，他教导我很多关于 wxPython 的知识，还有他从来没有为了尝试一些错误程序而放弃，直到 rur-ple 变得像今天一样稳定，确实非常感谢Stas！</p>
+
+<p>另外，有很多按钮图像是用了由David Vignoni设计的Nuvola 图标库, 我希望能够像Vignoni一样设计这么好看的图像。</p>
+
 <p>还有 Tony Payzant 花了很多时间检阅早期的课程。Bob Gailer 也建议了很多有用的链接。</p>
+
 <p>还要感谢 Luis Sureda，他提供了西班牙的翻译和很多关于选择语言的编程代码的建议。</p>
-<p>关于本地化项目，我们需要感谢所有翻译贡献者的参与，让这个软件越来越国际化。</p>
+
 <p>Richard E. Brown 提供了一些有用的错误报告，也建议rur-ple应该也可以在MacOS系统操作。</p>
+
 <p>最后要感谢 Andy Judkis 和他的学生，他们运用了 rur-ple 之余也为我们提供了很多有用的建议；他为我们提供了一个项目向前走的动力。</p>
 
 <div class="lessons_nav">
