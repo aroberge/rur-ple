@@ -4,13 +4,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="rurple.css" type="text/css" />
+
 <title>Übersicht der Reeborg-Steuerung</title>
 </head>
 <body>
 <h2 class="title">Python lernen: Ein Kinderspiel mit RUR-PLE!</h2>
-<h6>André Roberge, © 2005, 2006</h6>
+<h6>André Roberge, © 2005-2010</h6>
 <h3 class="section">Übersicht der Reeborg-Steuerung</h3>
 <p>Reeborgs Aktionen</p>
+
 <pre>
 move()
 turn_left()
@@ -18,7 +20,9 @@ pick_beeper()
 put_beeper()
 turn_off()
 </pre>
+
 <p>Reeborgs Abfragen</p>
+
 <pre>
 front_is_clear()
 left_is_clear()
@@ -27,14 +31,18 @@ facing_north()
 carries_beepers()
 on_beeper() <span class="comment"># entspricht next_to_a_beeper()</span>
 </pre>
-Spezielle Funktion (ersetzt for-Anweisung):
+
+<p>Spezielle Funktion (ersetzt for-Anweisung):</p>
+
 <pre>
 repeat(funktion, anzahl_wiederholungen)
 <span class="comment"># Dies entspricht </span>
 <span class="keyword">for</span> nummer <span class="keyword">in</span> range(anzahl_wiederholungen):
     funktion()
 </pre>
+
 <p>Objektorientierte Programmierung:</p>
+
 <pre>
 Reeborg = UsedRobot()
 Reeborg.move()
@@ -48,7 +56,9 @@ Reeborg.facing_north()
 Reeborg.carries_beepers()
 Reeborg.on_beeper() <span class="comment"># entspricht Reeborg.next_to_a_beeper()</span>
 </pre>
+
 <p>Fortgeschrittene Optionen:</p>
+
 <pre>
 set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
 <span class="comment"># Jeder Farbname (colour: Farbe), den wxPython kennt, kann verwendet
@@ -78,12 +88,16 @@ Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span class="string">'E'<
 Reeborg.set_trace_style(style=1, colour=<span class="string">'sea green'</span>) 
 Reeborg.set_delay(time)
 </pre>
+
 <p>Neuer und verbesserter Roboter!</p>
+
 <pre>
 Guido = RefurbishedRobot()  <span class="comment"># erbt von UsedRobot</span>
 
 <span class="comment"># Weitere Methoden:</span>
 Guido.turn_right()
+Guido.left_clear()
+Guido.right_clear()
 Guido.facing_east()
 Guido.facing_south()
 Guido.facing_west()
@@ -92,7 +106,7 @@ Guido.roll_dice(n=6) <span class="comment"># Zufallszahl zwischen 1 und n.</span
 
 <div class="lessons_nav">
 <a href="rur.htm"><img alt="home" src=
-"../images/home.png"/></a>
+"../images/home.png" /></a>
 </div>
 </body>
 </html>

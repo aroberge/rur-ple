@@ -12,6 +12,7 @@
 <h6>André Roberge, © 2005-2010</h6>
 <h3 class="section">指令和规测简要</h3>
 <p>乐跑(英文名字为Reeborg)的动作</p>
+
 <pre>
 <span class="comment"># 前进</span>
 move()
@@ -24,7 +25,9 @@ put_beeper()
 <span class="comment"># 关机</span>
 turn_off()
 </pre>
-测试的命令:
+
+<p>测试的命令:</p>
+
 <pre>
 <span class="comment"># 前面没有东西</span>
 front_is_clear()
@@ -39,7 +42,9 @@ carries_beepers()
 <span class="comment"># 到达了报警器所在的位置</span>
 on_beeper() <span class="comment"># 等于:</span> next_to_a_beeper()
 </pre>
-一些特别的本来附带的功能：
+
+<p>一些特别的本来附带的功能：</p>
+
 <pre>
 <span class="comment"># 重覆</span>
 repeat(function, number_of_times)
@@ -47,9 +52,11 @@ repeat(function, number_of_times)
 <span class="keyword">for</span> number <span class="keyword">in</span> range(number_of_times):
     function()
 </pre>
+
 <p>面向对象编程:</p>
-<span class="comment"># 以下的命令跟上面的解释是一样的，只是现在这些命令只是面向乐跑(Reeborg)而已！</span>
+
 <pre>
+<span class="comment"># 以下的命令跟上面的解释是一样的，只是现在这些命令只是面向乐跑(Reeborg)而已！</span>
 Reeborg = UsedRobot()
 Reeborg.move()
 Reeborg.turn_left()
@@ -62,12 +69,13 @@ Reeborg.facing_north()
 Reeborg.carries_beepers()
 Reeborg.on_beeper() <span class="comment"># 等于:</span> Reeborg.next_to_a_beeper()
 </pre>
+
 <p>高级选项:</p>
+
 <pre>
 set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
 <span class="comment"># 任何颜色（colour)可被wxPython认可的</span>
 <span class="comment"># style为形式，可以选择的是[1, 2, 3, 4, 5]其中一个</span>
-
 set_delay(次数)
 <span class="comment"># 0 &lt; 次数 &lt; 10 (秒)</span>
 
@@ -86,19 +94,25 @@ Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span class="string">'E'<
 Reeborg.set_trace_style(style=1, colour=<span class="string">'sea green'</span>) 
 Reeborg.set_delay(time)
 </pre>
+
 <p>新改善以后的机器人！</p>
+
 <pre>
 Guido = RefurbishedRobot()  <span class="comment"># 从UsedRobot继承</span>
 
 <span class="comment"># 其它方法:</span>
 Guido.turn_right()
+Guido.left_clear()
+Guido.right_clear()
 Guido.facing_east()
 Guido.facing_south()
 Guido.facing_west()
 Guido.roll_dice(n=6) <span class="comment"># 随机整数在1和n之间。</span>
 </pre>
 
-<div class="lessons_nav"><a href="rur.htm"><img alt="home" src=
-"../images/home.png" /></a></div>
+<div class="lessons_nav">
+<a href="rur.htm"><img alt="home" src=
+"../images/home.png" /></a>
+</div>
 </body>
 </html>
