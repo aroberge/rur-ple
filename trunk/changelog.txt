@@ -26,6 +26,7 @@ http://code.google.com/p/rur-ple/source/list
  - Added script to launch lessons from default browser
  - Added desktop files for direct access to lessons
  - Fixed Linux rules file to address issue #14
+ - Provided an improved Chinese translation
 
 
 ------------------------------------------------------------------------------
