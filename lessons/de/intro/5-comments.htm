@@ -4,18 +4,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>5. Dein Kommentar? Any comments?</title>
 </head>
 <body>
 <h2 class="title">5. Dein Kommentar? <i>Any comments?</i></h2>
+
 <p>Öffne dein erstes Programm. Du hast es doch gespeichert und aufbewahrt,
 wie ich es dir gesagt habe, oder? Wenn nicht, schreib es noch mal, während ich
 auf dich warte.</p>
+
 <p>OK, dein Programm sollte jetzt im Programmfenster angezeigt werden.
 Was habe ich dir anfangs über das Wichtigste gesagt, das man beim Schreiben eines
 Programms beachten sollte? Erinnerst du dich? Wenn nicht, geh wieder ganz 
 an den Anfang zurück und lies noch mal nach.</p>
+
 <p>Ich warte ...</p>
+
 <p>Hast du's? Richtig, am wichtigsten ist, das Programm so zu schreiben, dass andere
 es leicht lesen können. Dafür braucht man viel Erfahrung und es erfordert üblicherweise
 einiges an Denkarbeit. Jedoch gibt es einen Trick: wir schreiben Notizen ins Programm,
@@ -23,16 +28,20 @@ die nur für Menschen gedacht sind und vom Computer nicht beachtet werden. Diese
 Notizen heißen <em>Kommentare</em>. Es gibt einige Möglichkeiten, Kommentare in
 Programme zu schreiben. Ich zeige dir jetzt den einfachsten Weg, der in Python verwendet
 wird. Füge den folgenden Text als erste Zeile in dein Programm ein:</p>
+
 <pre>
 # Mein erstes Programm
 </pre>
+
 <p>So dass es nun so aussehen sollte:</p>
+
 <pre>
 <span class="comment"># Mein erstes Programm</span>
 move()
 move()
 turn_off()
 </pre>
+
 <p>Wenn du nicht farbenblind bist, siehst du, dass die erste Zeile mit dem Zeichen
 <tt><span class="comment">#</span></tt> am Anfang grün angezeigt wird.
 Dieses Zeichen bedeutet, dass alles dahinter bis zum Ende der Zeile ein Kommentar
@@ -40,20 +49,24 @@ ist, um den Reeborg (oder Python) sich nicht kümmern. Die grüne Farbe erleicht
 uns die Unterscheidung zwischen Kommentaren und Anweisungen. Es gibt keine
 besondereren Gründe für die Wahl dieser Farbe; ich habe RUR-PLE halt so geschrieben.
 Reeborg kümmert sich nicht um Farben, sondern nur um den Quelltext.</p>
-<h3><span class="try">Du bist dran.</span></h3>
+
+<h3 class="try">Du bist dran.</h3>
+
 <p>Was passiert, wenn du das Kommentarzeichen # vor ein <b>Kommando</b> setzt?
  Probiere es aus, speichere das geänderte Programm und starte es durch klicken auf die
-Schaltfläche <img alt="Starte Roboterprogramm" src="../../images/intro/btn_run.png"/>,
+Schaltfläche <img alt="Starte Roboterprogramm" src="../../images/intro/btn_run.png" />,
 um zu sehen, was Reeborg daraus macht.</p>
+
 <!--==============================================-->
 <hr class="line" />
 
 <h3 class="section">Wir bringen Reeborg etwas Deutsch bei.</h3>
+
 <p>Seine Schöpfer haben Reeborg zwar so entworfen, dass er auf englische Anweisungen
 hört, aber ihnen ist natürlich klar, dass nicht jeder Englisch versteht. Daher gaben sie ihm
 die Fähigkeit, eine zweite Sprache zu lernen. Auf Deutsch würden wir zum Beispiel statt
-"move" "vorwärts" sagen. Das können wir Reeborg beibringen, indem wir schreiben<br/>
-<tt>geh = move</tt>.<br/>
+"move" "vorwärts" sagen. Das können wir Reeborg beibringen, indem wir schreiben<br />
+<tt>geh = move</tt>.<br />
 Die Reihenfolge ist wichtig; das neue Wort muss zuerst kommen. Reeborg mag übrigens
 ä, ö, ü, Ä. Ö, Ü und ß nicht in Anweisungen, daher müssen wir sie durch andere
 Buchstaben ersetzen wie in "geh" geschehen. Beachte, dass hinter geh kein
@@ -61,24 +74,31 @@ Klammerpaar "<tt>()</tt>" steht, denn Klammern hinter dem Anweisungswort sagen
 Reeborg, dass er die Anweisung ausführen soll. Hier soll er aber erstmal nur ihren neuen
 Namen lernen. Wenn wir wollen, dass Reeborg die neue Anweisung ausführt, schreiben wir:
 <tt>geh()</tt>.</p>
+
 <h3 class="try">Du bist dran.</h3>
+
 <p>Schreibe ein Programm mit den folgenden Anweisungen</p>
+
 <pre>
 geh = move
 geh()
 turn_off()
 </pre>
+
 <p>und speichere es als "geh.rur". Nun starte dein neues Programm.</p>
+
 <h3 class="suggested">Probier' was aus:</h3>
+
 <p>Wenn du möchtest, kannst du Reeborg auch ein deutsches wort für <tt>turn_off</tt>
 beibringen. Du kannst auch andere Sprachen als Deutsch verwenden, sogar von dir erfundene
 Sprachen. Dann siehst du, wie Reeborg Anweisungen in <em>deiner</em> Sprache befolgt.</p>
+
 <div class="lessons_nav">
 <a href="4-errors.htm"><img alt="previous" src=
-"../../images/previous.png"/> 4. Mit FeHLeRN umgehen</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"../../images/previous.png" /> 4. Mit FeHLeRN umgehen</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
 "6-left.htm">6. Reeborg biegt ab. <img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>

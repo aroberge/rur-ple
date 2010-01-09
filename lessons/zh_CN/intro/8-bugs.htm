@@ -8,62 +8,74 @@
 <title>8. 修补错误</title>
 </head>
 <body>
-<h2 class="title">8. 修补错误 <img src="../../images/intro/b_shake.gif"
-alt="darn bugs" /></h2>
+<h2 class="title">8. 修补错误 <img alt="darn bugs" src="../../images/intro/b_shake.gif" /></h2>
+
 <p>计算机的错误，又名小虫，在下面，我们将跟你解释名称的来源。没有人喜欢谈论计算机的错误，所以这节课将会很短的带过，只是对计算机的错误做一个简单的介绍，当然我们不希望要你去编写一个有错误的程序！</p>
+
 <h3 class="section">什么是计算机的错误?</h3>
+
 <p><b>错误（小虫）</b>成为计算机专业术语是源于一个偶然事件。哈佛大学的Mark II计算机由于突然有一只小虫（蛾）飞进去以后而瘫痪了。
 这只小虫子被当时有名的团队发现，这个团队的带头人是一个出名的计算机科学家，数学家和年轻的海军军官Grace Murray Hopper先生，他后来发明了编译程序语言，并晋升为海军少将。</p>
+
 <p>这个小虫被Hopper保存在了他的日志本中，见下图，在图中的Bug就是小虫的意思。
 有趣的是这个日志本中写着：“第一个确实发现小虫的案例”。</p>
-<p><img src="../../images/intro/first_bug.jpg" alt="first bug" /></p>
+
+<p><img alt="first bug" src="../../images/intro/first_bug.jpg" /></p>
+
 <h6>美国海军历史中心公共档案的图片
-<a href="http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm">
-	 </a></h6>
+<a href="http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm"></a></h6>
+
 <p>说到底，这只小虫确实是一只昆虫，跟我们现今常说的计算机错误（小虫）的意思不一样！事实上，错误（小虫）这个词在技术领域的应用最早见于牛津英语词典。根据词典，下面的文字在1889年3月11日版的Pall Mall Gazette中可以找到。</p>
+
 <blockquote><cite>
 例句：爱迪生先生熬了两个晚上发现了他的留声机的一个错误（小虫）。错误（小虫）这个词在此处的意思是解决了一个棘手的问题，这个问题就像是一个假想的昆虫偷偷藏到留声机中使它不能运转。</cite></blockquote>
+
 <p>这就是最早出现的"小虫"（又名错误），尽管小虫是一种昆虫，但这个虫子只是假想而已的。</p>
+
 <p>在计算机领域，小虫尽管不是真的虫子，但是也不是人们想象出来的（因为确实在计算机里头是有一些棘手的问题需要去解决）。</p>
+
 <h3 class="section">解决错误</h3>
-<p>小虫是引起程序不正常运行的错误。如果你写程序，你就会遇到这样的小虫,即使最优秀的程序员也不能避免。
-好的程序员会在遇到程序异常时进行修正。 </p>
+
+<p>小虫是引起程序不正常运行的错误。如果你写程序，你就会遇到这样的小虫,即使最优秀的程序员也不能避免。好的程序员会在遇到程序异常时进行修正。 </p>
+
 <p>乐跑可以帮助你发现错误：</p>
+
 <ol>
 <li>
-<p>机器人漏出的油（也就是他走的路径，绿色的线）让你能够知道机器人执行的指令。</p>
-<p><img alt="simple left turn" src="../../images/intro/turn_left_end.png" /></p>
+机器人漏出的油（也就是他走的路径，绿色的线）让你能够知道机器人执行的指令。<br />
+<br /><img alt="simple left turn" src="../../images/intro/turn_left_end.png" />
 </li>
 <li>
-<p>每一个正在被机器人执行的命令都会被“强调”出来给大家看（用灰色的阴影表示）。[比如下面的<tt>pick_beeper()</tt>]</p>
+每一个正在被机器人执行的命令都会被“强调”出来给大家看（用灰色的阴影表示）。[比如下面的<tt>pick_beeper()</tt>]<br />
+<br /><img alt="highlighted instruction" src="../../images/intro/highlight.png" />
 </li>
 <li>
-<p>你可以随意中止一个程序，通过单击按钮
-<img alt="pause button" src="../../images/intro/btn_pause.png" />。这相当于计算机编程中设置
-<i>断点</i>。</p>
+你可以随意中止一个程序，通过单击按钮
+<img alt="pause button" src="../../images/intro/btn_pause.png" />。这相当于计算机编程中设置<i>断点</i>。
 </li>
 <li>
-<p>你可以一步一步地完成整个程序，每次完成一个命令，通过点击(<i>步骤</i>)按钮<img alt="step button" src=
-"../../images/intro/btn_step.png" />来让乐跑在每次完成一个命令以后停一下，然后再次点击让他一步一步完成任务。</p>
+你可以一步一步地完成整个程序，每次完成一个命令，通过点击(<i>步骤</i>)按钮<img alt="step button" src=
+"../../images/intro/btn_step.png" />来让乐跑在每次完成一个命令以后停一下，然后再次点击让他一步一步完成任务。
 </li>
 <li>
-<p>你可以改变命令执行的速度，通过使用速度控制器<img alt="speed button" src="../../images/intro/btn_speed.png" />。
+你可以改变命令执行的速度，通过使用速度控制器<img alt="speed button" src="../../images/intro/btn_speed.png" />。
 将滑块向右移动得越多执行的速度越快。你只能在程序开始的时候调整速度，这将是整个程序运行的速度。
-如果机器人需要走的路径比较长，请在开始执行之前将速度调快，当发现异常的时候中断程序，然后通过每次执行一步的方法寻找错误。</p>
+如果机器人需要走的路径比较长，请在开始执行之前将速度调快，当发现异常的时候中断程序，然后通过每次执行一步的方法寻找错误。
 </li>
 <li>
-<p>当你开始了一个程序但是想在它运行完毕之前停止它，你需要按“停止”按钮。 <img alt="stop button" src=
-"../../images/intro/btn_stop.png" />。</p>
+当你开始了一个程序但是想在它运行完毕之前停止它，你需要按“停止”按钮。 <img alt="stop button" src=
+"../../images/intro/btn_stop.png" />。
 </li>
 <li>
-<p>在屏幕的底部有一个状态栏，从左边开始看 1) 当前正在运行的程序； 2) 程序的状态; 3) 机器人携带的报警器数目; 4) 当前机器人在哪一个“世界”。<br />
-<img alt="status bar" src="../../images/intro/zh_CN_status_bar.png" /></p>
+在屏幕的底部有一个状态栏，从左边开始看 1) 当前正在运行的程序； 2) 程序的状态; 3) 机器人携带的报警器数目; 4) 当前机器人在哪一个“世界”。<br />
+<img alt="status bar" src="../../images/intro/zh_CN_status_bar.png" />
 </li>
 <li>
-<p>如果你希望机器人在完成任务以后返回他最初的位置，你需要按"重置”按钮
-<img alt="reset button" src="../../images/intro/btn_reset_world.png" />。</p>
+如果你希望机器人在完成任务以后返回他最初的位置，你需要按"重置”按钮
+<img alt="reset button" src="../../images/intro/btn_reset_world.png" />。
 </li>
 </ol>
+
 <p>就这样啦！当你跟着接下来的课程，将会学到更多的编程知识，你就能够知道更多并发现和解决错误的方法！</p>
 
 <div class="lessons_nav">

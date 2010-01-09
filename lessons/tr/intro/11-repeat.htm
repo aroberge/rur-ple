@@ -9,16 +9,22 @@
 </head>
 <body>
 <h2 class="title">11. Tekrardan kaçının, tekrar!</h2>
+
 <p>Bir önceki derste gördüğümüz Kural #3 çok önemlidir, bu nedenle bu konuyu 
 tekrar etme zorunluluğu hissediyorum.</p>
+
 <dl>
 <dt><b>Kural # 3</b></dt>
 <dd>Bilgisayar programı yazarken aynı kodları tekrar yazmayın.<br />
 Tekrar ediyorum: <b>aynı kodları tekrar yazmayın!</b></dd>
 </dl>
+
+<!--================================================-->
 <hr class="line" />
+
 <a name="Repeat" id="Repeat"></a>
 <h3 class="section">Tekrar!</h3>
+
 <p>Gazete dağıtımına en son getirdiğimiz çözümde az da olsa tekrarlar vardı. 
 Örneğin
 <tt>turn_left()</tt>komutu <tt>turn_right()</tt>'ı tanımlayabilmek için ardı 
@@ -26,66 +32,89 @@ ardına üç kez kullanıldı.  Benzer şekilde <tt>climb_up_four_stairs()</tt>'
 tanımlanmasında  <tt>climb_up_one_stair()</tt>dört kez kullanıldı. Bu 3 
 numaralı kurala ters düşüyor. Bu tekrarlardan kaçınmanın bir yolu Reeborg'un 
 özel bir komut yardımıyla  işlemleri tekrar etmesini sağlamak olabilir.  </p>
+
 <p>Reeborg'un bir işlemi tekrar etmesini sağlamak için 
 <tt>repeat()</tt> komutunu kullanabiliriz:<br />
 <tt>repeat(</tt> <em>işlemin adı</em>, <tt>kaç kez yapılacağı)</tt></p>
+
 <p><i>işlemin adı</i> parantez kullanılmadan belirtilmelidir: </p>
+
 <pre>
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
 </pre>
+
 <h3 class="try">Sıra sizde</h3>
+
 <p>Gazete dağıtımı programında <tt>repeat()</tt> komutunu kullanabildiğiniz her 
 yerde kullanın ve daha kısa bir program elde edin. Programın doğru çalıştığından 
 emin olun.</p>
 
 <h3 class="suggested">Sizi Uğraştıralım</h3>
+
 <p>Bu dersi bir kaç alıştırmayla bitireceğiz. Bu dersin temasına uygun olarak, 
 ilk iki alıştırmamız duvarları yapmak dersindeki alıştırmaların tekrarı olacak. 
 Bunları çözebilmek için yeni öğrendiğiniz komutları  [<span class="pykeyword">def</span>, <tt>repeat()</tt>] 
 kullanmalısınız</p>
+
+<!--============================================-->
 <hr class="line" />
+
 <a name="Challenges2" id="Challenges2"></a>
 <h3 class="suggested">Engelleri atlamak</h3>
+
 <p>Reeborg engelli atlama yarışmasına katılıyor. Aşağıdaki şekillerde olduğu 
 gibi Reeborg'un yarışmayı hızlı bir şekilde tamamlamasını sağlayan 
 YENİ bir program 
-yazın, dünya dosyası
-hurdles1.wld.</p>
+yazın, dünya dosyası hurdles1.wld.</p>
+
 <div class="pcenter"><img alt="hurdles start" src=
-"../../images/intro/hurdles1_start.png"/></div>
-<div class="pcenter"><img alt="lead to" src="../../images/lead_to.png"/> <img alt=
-"hurdles end" src="../../images/intro/hurdles1_end.png"/></div>
-<p>
-<tt>jump_hurdle()</tt>(engel atla) adında aşağıdaki şekildeki gibi hareket eden 
+"../../images/intro/hurdles1_start.png" /></div>
+<div class="pcenter"><img alt="lead to" src="../../images/lead_to.png" /> <img alt=
+"hurdles end" src="../../images/intro/hurdles1_end.png" /></div>
+
+<p><tt>jump_hurdle()</tt>(engel atla) adında aşağıdaki şekildeki gibi hareket eden 
 yeni bir komut tanımlamak yararlı olacaktır. </p>
+
 <div class="pcenter"><img alt="jump one hurdle start" src=
-"../../images/intro/jump1start.png"/> <img alt="lead to" src=
-"../../images/lead_to.png"/> <img alt="jump one hurdle end" src=
-"../../images/intro/jump1end.png"/></div>
+"../../images/intro/jump1start.png" /> <img alt="lead to" src=
+"../../images/lead_to.png" /> <img alt="jump one hurdle end" src=
+"../../images/intro/jump1end.png" /></div>
+
 <p>Yeni programınızı bir önceki ile karşılaştırın. [Kaydetmiştiniz, değil mi?]</p>
+
+<!--=====================================================-->
 <hr class="line" />
+
 <h3 class="suggested">Hasat zamanı</h3>
+
 <p>Hasat zamanı! Reeborg'un evinin bahçesindeki havuçları (bipler) toplamasını 
 sağlayan bir program yazınız, dünya dosyası harvest1.wld.</p>
-<p><img src="../../images/intro/harvest1.png" alt="harvest start"/></p>
+
+<p><img alt="harvest start" src="../../images/intro/harvest1.png" /></p>
+
 <p>Programınız aşağıdaki komutları tanımlamalıdır. </p>
+
 <pre>
 move_to_first_row()
 harvest_two_rows()
 move_right_to_next_row()
 </pre>
+
 <p>Bu komutları aşağıda olduğu gibi daha çok parçaya ayırabilirsiniz. </p>
+
 <pre>
 <span class="keyword">def</span> harvest_two_rows():
     harvest_one_row()
     move_left_to_next_row()
     harvest_one_row()
 </pre>
+
 <p>tabi bunu iyi bir  <code>harvest_one_row()</code>tanımlamasıyla elde 
 edebilirsiniz. Parçalara ayırma işlemini kendi mantığınıza göre de 
 yapabilirsiniz. Benim çözümüm aşağıdaki gibi, üç yeni tanımlamaya ihtiyaç var ve 
 az da olsa hala tekrarlama var:</p>
+
 <pre>
 move_to_first_row()
 harvest_two_rows()
@@ -95,22 +124,30 @@ move_right_to_next_row()
 harvest_two_rows()
 turn_off()
 </pre>
+
 <p>Yeni programınızı bir önceki ile karşılaştırın. </p>
+
 <h3 class="suggested">Yine hasat zamanı!</h3>
+
 <p>Yine hasat zamanı! Ancak bu defa satırlar diagonal bir şekilde 
 yerleştirilmiş. Reeborg'un biplerle temsil edilen tüm havuçları toplamasını 
 sağlayın. Dünya dosyası harvest2.wld.</p>
-<p><img src="../../images/intro/harvest2.png" alt="harvest start"/></p>
+
+<p><img alt="harvest start" src="../../images/intro/harvest2.png" /></p>
+
 <p>Bir önceki örnekte de olduğu gibi, programınız aşağıdaki komutları içeren 
 tanımlamaları yapabilir:</p>
+
 <pre>
 move_to_first_row()
 harvest_two_rows()
 move_right_to_next_row()
 </pre>
+
 <p>Bu komutların tanımlamaları, öncekilerden farklı olacaktır. Ancak bu 
 tanımlamalar doğru olarak yapıldıktan sonra, programınız az önceki örnekte 
 olduğu gibi aşağıdaki gibi yazılabilir: </p>
+
 <pre>
 move_to_first_row()
 harvest_two_rows()
@@ -120,16 +157,16 @@ move_right_to_next_row()
 harvest_two_rows()
 turn_off()
 </pre>
+
 <p>Dikkat, duvara çarpmayın! Hasata nereden ve hangi yönde başlayacağınızı 
 düşünün. Bunu bir kağıda çizmeniz size yardımcı olur. </p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="10-def.htm"><img alt="previous" src=
-"../../images/previous.png"/> Tekrardan kesinlikle kaçının</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" /> Tekrardan kesinlikle kaçının</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="12-if.htm">Reeborg kendi kendine karar verebilseydi ...<img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>
-

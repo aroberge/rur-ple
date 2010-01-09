@@ -4,25 +4,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>6. Reeborg biegt ab.</title>
 </head>
 <body>
 <h2 class="title">6. Reeborg biegt ab.</h2>
+
 <p>Wie schon erwähnt, kann Reeborg nur eine Vierteldrehung nach links ausführen. Das liegt daran,
 dass seine Schöpfer zu knauserig waren, um einen besseren Lenkmechanismus einzubauen. Um Reeborg
 zu einer Vierteldrehung nach links aufzufordern , schreibst du <tt>turn_left()</tt>.</p>
-<p>Beispiel: wenn Reeborg von seiner normalen Ausgangsposition startet, wird dieses einfache Programm
-</p>
+
+<p>Beispiel: wenn Reeborg von seiner normalen Ausgangsposition startet, wird dieses einfache Programm</p>
+
 <pre>
 move()
 turn_left()
 move()
 turn_off()
 </pre>
+
 <p>in Reeborgs Welt folgendes Bild ergeben:</p>
-<img alt="simple left turn" src="../../images/intro/turn_left_end.png"/>
+
+<img alt="simple left turn" src="../../images/intro/turn_left_end.png" />
+
 <h3 class="try">Du bist dran.</h3>
+
 <p>Lass Reeborg mit dem folgenden Programm ein Quadrat entlang laufen:</p>
+
 <pre>
 move()
 turn_left()
@@ -34,8 +42,10 @@ move()
 turn_left()
 turn_off()
 </pre>
+
 <p>Vergiss nicht, dass du dein Programm speichern musst, bevor du es starten kannst.
 <b>Probiers's aus!</b></p>
+
 <p>Beachte, dass du alle Reeborg-Anweisungen ins Deutsche übersetzen kannst. Du musst
 die Übersetzung aber zuerst Reeborg mitteilen, bevor er sie versteht. Die Buchstaben ä, ö ü
 und ß (auch die Grossbuchstaben) dürfen nicht verwendet werden, sondern sind als ae, oe,
@@ -46,45 +56,58 @@ Vierteldrehung nach links auszuführen.
 Falls du bis jetzt noch keinen Sinn darin gesehen, ständig diese Klammern <tt>()</tt> zu
 tippen, dann weißt du es jetzt: nach_links ist für Reeborg nur ein Wort, aber nach_links() ist
 eine Anweisung.</p>
+
 <h3 class="try">Du bist nochmal dran!</h3>
+
 <p>Schreib ein Programm, das Reeborg anweist, gegen den Uhrzeigersinn um ein Quadrat zu
 laufen, indem er zwei Schritte vorwärts geht, dann links abbiegt, und so weiter, bis er wieder
 am Ausgangspunkt steht und wieder in die ursprüngliche Richtung schaut, wie unten im Bild:
 </p>
-<img alt="left square" src="../../images/intro/left_square2.png"/>
-<h3><font color="#663333">Probier' was aus!</font></h3>
+
+<img alt="left square" src="../../images/intro/left_square2.png" />
+
+<h3 class="suggested">Probier' was aus!</h3>
+
 <p>Lass dich nicht davon abhalten, weitere Programme zu schreiben, mit denen Reeborg auf 
 verschiedenen Wegen durch seine Welt läuft.</p>
+
 <!--==================================================-->
 <hr class="line" />
+
 <a name="Home" id="Home"></a>
 <h3 class="section">Nach Hause</h3>
+
 <p>Wenn du in Reeborgs Welt kommst, steht er üblicherweise an der Kreuzung erster Weg / erste
 Straße und blickt nach Osten. Klick auf die Schaltfläche "Ändere Ansicht der Weltdatei"
 <img alt="Show/Hide world file" src=
-"../../images/intro/btn_show_world_file.png"/> (Zweite Schaltfläche von rechts).
+"../../images/intro/btn_show_world_file.png" /> (Zweite Schaltfläche von rechts).
 Dann erscheint rechts neben Reeborgs Welt ein weiteres Fenster mit einigen Angaben,
 insbesondere eine Zeile mit Reeborgs Standort und Blickrichtung: <tt>robot = (1, 1, 'E', 0)</tt>.
 Das heißt, dass Reeborg an der Kreuzung 1. Weg, 1. Straße steht, nach Osten (E wie East) blickt und
 0 Piepser bei sich hat (was Piepser sind, erfährst du später).</p>
+
 <p>Wie du schon weißt, kannst du Reeborg mit den Pfeiltasten "oben" und "links" auf deiner
 Tastatur bewegen. Wenn du Reeborg so bewegst, hinterlassen seine Bewegungen keine Spur.
 Aber du kannst sehen, dass die Zeile "robot =" stets den aktuellen Standort von Reeborg anzeigt,
 während er sich bewegt.</p>
+
 <h3 class="try">Du bist nochmal dran!</h3>
+
 <p>Bringe Reeborg mit der Tastatur an die Kreuzung 3. Weg, 4. Straße und drehe ihn so, dass er
 nach Süden blickt. Dann schreib ein Programm, das ihn in die Ausgangsstellung bringt, also
 zur Kreuzung 1. Weg, 1. Straße mit Blick nach Osten. Versuche, Reeborg mit weniger Schritten dahin
 zu bugsieren als im folgenden Bild gezeigt.</p>
-<p><img alt="back home start" src="../../images/intro/back_home_start.png"/>
-<img alt="lead to" src="../../images/lead_to.png"/> <img alt="back home end"
-src="../../images/intro/back_home.png"/></p>
+
+<p><img alt="back home start" src="../../images/intro/back_home_start.png" />
+<img alt="lead to" src="../../images/lead_to.png" /> <img alt="back home end"
+src="../../images/intro/back_home.png" /></p>
+
 <div class="lessons_nav">
 <a href="5-comments.htm"><img alt="previous" src=
-"../../images/previous.png"/> 5. Dein Kommentar? <i>Any comments?</i></a> - 
+"../../images/previous.png" /> 5. Dein Kommentar? <i>Any comments?</i></a> - 
 <a href="../lessons_toc.htm"><img alt="home" src=
-"../../images/home.png"/></a> - <a href="7-beepers.htm">7. Piepser <img alt=
-"next" src="../../images/next.png"/></a>
+"../../images/home.png" /></a> - <a href="7-beepers.htm">7. Piepser <img alt=
+"next" src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

@@ -9,21 +9,27 @@
 </head>
 <body>
 <h2 class="title">10. Tekrardan kesinlikle kaçının</h2>
+
 <p>Hazırlıklı olun, bu oldukça uzun bir ders. Yeni komutların nasıl 
 tanımlanacağını öğreneceğiz. Bunun yanında program yazarken uyulması gereken 
 üçüncü kuralıda öğreneceğiz:</p>
+
 <dl>
 <dt><b>Kural # 3</b></dt>
-<dd><b>Bilgisayar programı yazarken aynı kodları tekrar yazmayın.</b><br/>
+<dd><b>Bilgisayar programı yazarken aynı kodları tekrar yazmayın.</b><br />
 Tekrar ediyorum: <b>aynı kodları tekrar yazmayın!</b></dd>
 </dl>
+
 <!--=============================================-->
 <hr class="line" />
+
 <a name="Three" id="Three"></a>
 <h3 class="section">Üç sol bir sağ yapar</h3>
+
 <p>Reeborg'a aynı noktadayken ardı adına üç sol dönüş yaptırırsanız onu sağa 
 döndürmüş olursunuz. Aşağıdaki programın ne yaptığını bilgisayarı kullanmadan 
 bir kağıt üzerinde çizerek bulmaya çalışın.</p>
+
 <pre>
 turn_left()
 move()
@@ -45,85 +51,122 @@ turn_left()
 turn_left()
 turn_off()
 </pre>
+
 <h3 class="try">Sıra sizde</h3>
+
 <p>Yukarıdaki programı yazın, kaydedin ve çalıştırın. Reeborg sizin tahmin 
 ettiğiniz gibi bir hareket yaptı mı?</p>
+
 <h3 class="try">Yine sıra sizde!</h3>
+
 <p>Az önce kaydettiğiniz programı Reeborg'u saatin dönüş yönünde aşağıdaki 
 şekilde olduğu gibi hareket edecek şekilde değiştirin. </p>
+
 <p><img alt="square with right turns" src=
-"../../images/intro/square2right.png"/></p>
+"../../images/intro/square2right.png" /></p>
+
 <!--=====================================================-->
 <hr class="line" />
+
 <a name="Define" id="Define"></a>
 <h3 class="section">Sağa dönüşü tanımlamak</h3>
+
 <p>Reeborg'un sağa dönüşü, ardı ardına üç sol dönüş yaparak yaptığını biliyoruz. 
 Eğer ardı ardına sağa dönüşler yaptırmak istersek gerekli programı yazmanın ne 
 kadar sıkıcı olabileceğini tahmin edebilirsiniz. Bunun nedeni birbiriyle aynı 
 kodların programın farklı yerlerinde tekrar edilmesinden dolayıdır. Reeborg'un 
 Python yardımıyla programlanabilir olması sayesinde bu tekrarlardan 
 kaçınabiliriz. </p>
+
 <p>Python'da bir dizi komuta basit bir ad verilebilir. Örneğin sağa dönüşü 
 aşağıdaki gibi bir komutla <i>tanımlayabiliriz</i>: (define tanımla anlamına 
 gelir, def define'ın kısaltılmışıdır)</p>
+
 <p><img alt="defining turn right" src=
-"../../images/intro/turnright_txt.png"/></p>
+"../../images/intro/turnright_txt.png" /></p>
+
 <p>Burada beş tane önemli şey vardır:</p>
+
 <ol>
-<li>Daha önceden anlattığımız gibi <tt><span class=
-"comment">#</span></tt><font face="Times New Roman"><tt><font face="Times New Roman">
-</font></tt></font>sembolü bu satırın takip eden kısmının Reeborg (veya 
+<li>
+Daha önceden anlattığımız gibi <tt><span class=
+"comment">#</span></tt>sembolü bu satırın takip eden kısmının Reeborg (veya 
 Python) 
 tarafından okunmayacağını gösterir. Bunlara <b>açıklama</b> denir ve diğer 
 programcılara ya da kendimize onu takip eden satır veya satırların  ne iş 
 yaptığını anlatmak için kullanılırlar. Yeşille gösterilmiş olmaları onları 
-komutlardan kolayca ayırt etmemizi sağlarlar. Python ve Reeborg bu açıklamaları dikkate almaz.</li>
-<li>Tanımlama Python komutu olan ve editörün maviyle gösterdiği <span class=
+komutlardan kolayca ayırt etmemizi sağlarlar. Python ve Reeborg bu açıklamaları dikkate almaz.
+</li>
+<li>
+Tanımlama Python komutu olan ve editörün maviyle gösterdiği <span class=
 "pykeyword">def</span> ile başlar. Bir Python komutu Python'un kendisi tarafından 
 tanımlanmış özel bir kelimedir.  <span class="pykeyword">def </span> 
-komutunu, yeni komutun adı, iki parantez ve iki nokta üst üste takip eder. </li>
-<li>Bir komut tanımlamak daha önceden yaptığımız gibi bir komutu bir başkasına 
+komutunu, yeni komutun adı, iki parantez ve iki nokta üst üste takip eder.
+</li>
+<li>
+Bir komut tanımlamak daha önceden yaptığımız gibi bir komutu bir başkasına 
 eşitlemekten farklıdır. Komutu bir başka kelimeyle kullanırken arada eşittir 
-kullanıp parantezleri kaldırmıştık.</li>
-<li>Yeni tanımlamanın parçası olan tüm komutlar <b>eşit miktarda içe girik</b> 
+kullanıp parantezleri kaldırmıştık.
+</li>
+<li>
+Yeni tanımlamanın parçası olan tüm komutlar <b>eşit miktarda içe girik</b> 
 yazılmışlardır. Eğer buna uymazsanız Python bir hata mesajı verecek ya da 
 programınızda bir bug olacaktır. <b>İçe girik</b> derken kastettiğim her satırın 
 başında belli miktarda boşluk bırakmaktır, genellikle dört boşluk bırakılır. 
 Editör aşağıdaki şekilde olduğu gibi noktalı çizgileri 4'erli boşlukları 
-gösterecek şekilde otomatik olarak yerleştirmeye ayarlanmıştır.<img alt="Showing indentation guides" src=
-"../../images/intro/indentation.png"/></li>
-<li><span class="pykeyword">def</span>
+gösterecek şekilde otomatik olarak yerleştirmeye ayarlanmıştır.<br />
+<img alt="Showing indentation guides" src=
+"../../images/intro/indentation.png" />
+</li>
+<li>
+<span class="pykeyword">def</span>
 komutunun kullanıldığı satırın sonunda "<tt>:</tt>" vardır, bu bizim Python'a 
 blok halinde kodlar yazacağımızı belirtir, içe girik yazdığımız komutlar bu 
 bloğa aittirler. Bunu diğer bazı komutlarla da kullanırız örneğin 
 daha sonra öğreneceğimiz <span class="pykeyword">if</span> 
-de olduğu gibi. </li>
+de olduğu gibi.
+</li>
 </ol>
-<p>Bir defada oldukça fazla bilgi verdim. Anlayıp anlamadığınızı test etmek için 
-iyi bir zaman. </p>
+
+<p>Bir defada oldukça fazla bilgi verdim. Anlayıp anlamadığınızı test etmek için iyi bir zaman. </p>
+
 <h3 class="try">Sıra sizde</h3>
+
 <p>Aşağıdaki şartları sağlayan bir program yazınız:</p>
-<p>1) Sağa dönüş komutunu tanımlayın 2)
-Bu yeni komutu kullanarak Reeborg'un daha önceden yaptığınız gibi saat yönünde 
-kare şeklinde hareket etmesini sağlayın. Programınızın daha önceden yazdığınız 
+
+<ol>
+<li>Sağa dönüş komutunu tanımlayın</li>
+<li>Bu yeni komutu kullanarak Reeborg'un daha önceden yaptığınız gibi saat yönünde kare şeklinde hareket etmesini sağlayın.</li>
+</ol>
+
+<p>Programınızın daha önceden yazdığınız 
 programa göre daha kısa olduğuna ve daha kolay okunduğuna dikkat edin.</p>
+
 <h3 class="try">Yine sıra sizde!</h3>
-<p> <tt>step_back()</tt>(geri adım) adında yeni bir komut tanımlayın.</p>
+
+<p><tt>step_back()</tt>(geri adım) adında yeni bir komut tanımlayın.</p>
+
 <pre>
 <span class="comment"># step_back() yukarıda tanımlandı</span>
 move()
 step_back()
 turn_off()
 </pre>
+
 <p>bu komut aşağıda gösterildiği gibi Reeborg'un bir adım ileri atmasını ve 
 başladığı yere geri gelmesini ve yüzünün de başlangıç pozisyonundaki yöne dönük 
 olmasını sağlasın. </p>
-<p><img alt="back up" src="../../images/intro/back_up.png"/></p>
+
+<p><img alt="back up" src="../../images/intro/back_up.png" /></p>
+
 <p><em>İp ucu</em>: Yeni tanımlamanızın parçası olan komutları içe girik yazmayı 
 unutmayın.</p>
+
 <h3 class="try">Tekrar sıra sizde!</h3>
-<p> <tt>turn_around()</tt>(geri dön) adında yeni bir komut tanımlayın. 
+
+<p><tt>turn_around()</tt>(geri dön) adında yeni bir komut tanımlayın. 
 Böylece aşağıdaki tanımlamalar beklediğiniz gibi çalışabilsin. </p>
+
 <pre>
 <span class="keyword">def</span> step_back():
     turn_around()
@@ -134,18 +177,24 @@ Böylece aşağıdaki tanımlamalar beklediğiniz gibi çalışabilsin. </p>
     turn_around()
     turn_left()
 </pre>
+
 <!--===========================================================-->
 <hr class="line" />
+
 <a name="Newspaper" id="Newspaper"></a>
 <h3 class="section">Gazete dağıtımı tekrar ziyaret ediliyor</h3>
+
 <p>Bir önceki derste yaptığınız son alıştırmalardan bir tanesi gazete dağıtımı 
 programıydı. Size hatırlatmak için Reeborg'un ne yaptığını aşağıdaki şekillerde 
 gösteriyorum:</p>
+
 <div class="pcenter"><img alt="newspaper start" src=
-"../../images/intro/newspaper_start.png"/></div>
-<div class="pcenter"><img alt="lead to" src="../../images/lead_to.png"/> <img alt=
-"newspaper end" src="../../images/intro/newspaper_end.png"/></div>
+"../../images/intro/newspaper_start.png" /></div>
+<div class="pcenter"><img alt="lead to" src="../../images/lead_to.png" /> <img alt=
+"newspaper end" src="../../images/intro/newspaper_end.png" /></div>
+
 <p>Çözümünüz muhtemelen aşağıdaki gibiydi:</p>
+
 <pre>
 move()
 <span class="comment"># climb step</span>
@@ -220,28 +269,33 @@ turn_left()
 move()
 turn_off()
 </pre>
+
 <p>Bu çok uzun bir program ve pek çok tekrarlama var. Programın sonuna 
 geldiğinizde programın başlangıcını ekranda göremiyorsunuz. Açıklamaların nasıl 
 eklendiğine dikkat etmiş olmalısınız. Bu açıklamalar probleme çözüm getirirken 
 nasıl düşündüğümüzü gösterir diyebiliriz:</p>
+
 <ul>
 <li>Dört basamak çık.  Climb (up) four stairs.</li>
 <li>Gazeteyi bırak.  Drop the newspaper.</li>
 <li>Geriye dön. Turn around</li>
 <li>Dört basamak in.Climb (down) four stairs.</li>
 </ul>
+
 <p>Bunu <em>Pythonic</em> bir şekilde yazalım:</p>
+
 <pre>
- 
 climb_up_four_stairs()
 put_beeper()
 turn_around()
 climb_down_four_stairs()
 </pre>
+
 <p>Bu tam bir çözüm değil [örneğin
 <tt>turn_off()</tt> kullanılmamış] ancak çözüme oldukça yakın ve öncekilere göre 
 okuması çok daha kolay, eğer yeni komutları tanımlanmış varsayarsak.  
 Aşağıda ihtiyaç duyulan tanımlamaların bir kaçını verdik: </p>
+
 <pre>
 <span class="keyword">def</span> turn_around():
     turn_left()
@@ -265,23 +319,31 @@ Aşağıda ihtiyaç duyulan tanımlamaların bir kaçını verdik: </p>
     climb_up_one_stair()
     climb_up_one_stair()
 </pre>
+
 <h3 class="try">Sıra sizde</h3>
+
 <p>Eksik olan tanımlamaları da yapın ve programınız yukarıda<em> Pythonic</em> 
 şekilde verildiği gibi olsun. Bir kaç basit komut daha eklemeniz gerekecek, 
 sonda <tt>turn_off()</tt> gibi. Programınızı farklı bir isimle kaydetmeyi 
 unutmayın. </p>
+
 <h3 class="try">Yine sıra sizde!</h3>
+
 <p>Yazdığınız programı bundan önce yazdığınız gazete dağıtma programıyla 
 karşılaştırın. Okunması en kolay olan hangisi?</p>
+
 <!--=================================================-->
 <hr class="line" />
+
 <a name="ReadChallenge" id="ReadChallenge"></a>
 <h3 class="suggested">Program okuma</h3>
+
 <p>İyi seçilmiş adlar bir programın ne iş yaptığını anlamakta çok yardımcı 
 olurlar. Kötü seçilmiş adlar ise programın anlaşılmasını zorlaştırırlar. [Kural # 
 2'ye 
 bakın.] Bilgisayar kullanmadan aşağıdaki programın ne yaptığını anlamaya 
 çalışın.</p>
+
 <pre>
 <span class="keyword">def</span> a():
     turn_left()
@@ -310,16 +372,16 @@ e()
 b()
 turn_off()
 </pre>
+
 <p><tt>a(), b(), c(), d(),</tt> ve <tt>e()</tt>yerine daha açıklayıcı adlar 
-kullanmanın daha iyi olacağını anlamışsınızdır.<font face="Times New Roman"><tt>  </tt>
-</font></p>
-<div class="lessons_toc">
+kullanmanın daha iyi olacağını anlamışsınızdır.</p>
+
+<div class="lessons_nav">
 <a href="9-walls.htm"><img alt="previous" src=
-"../../images/previous.png"/> Duvarları yapmak</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" /> Duvarları yapmak</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="11-repeat.htm">Tekrardan kaçının, tekrar!<img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>
-

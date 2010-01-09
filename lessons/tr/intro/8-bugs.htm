@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
@@ -8,89 +8,114 @@
 <title>Buglar!</title>
 </head>
 <body>
-<h2 class="title">8. Buglar! <img src="../../images/intro/b_shake.gif"
-alt="darn bugs"/></h2>
+<h2 class="title">8. Buglar! <img alt="darn bugs" src="../../images/intro/b_shake.gif" /></h2>
+
 <p>(Bug böcek demektir, ancak bunu Türkçeleştirmek yerine aynen kullanmayı 
 tercih ediyorum, zaten Türkçede de bilgisayar programcıları bu kelimeyi bug 
 olarak kullanıyorlar) Buglar hakkında konuşmaktan hiç kimse hoşlanmaz. Bu 
 nedenle bu dersi kısa tutacağım. Sizden istediğim yalnızca okumanız, konu ile 
 ilgili uygulama yaptırmayacağım. </p>
+
 <h3 class="section">Bug nedir?</h3>
+
 <p>Harvard Üniversitesinde Mark II bilgisayarının içine girmeyi başaran bir güve 
 bu bilgisayarın çalışmasını durdurmuş, bug kelimesinin kökü işte buraya 
-dayanıyor. Güve  Grace Murray Hopper tarafından bulunmuş. Güve eski 
-sistemlerde bilgi kaydetmeye yarayan bantlardan birisinin içine girmiş. 
-Aşağıdaki resimde güveyi bantın üstünde, yanına alınmış notlarla birlikte 
+dayanıyor. Güve  Grace Murray Hopper tarafından bulunmuş.Güve eski 
+sistemlerde bilgi kaydetmeye yarayan bantlardan birisinin içine girmiş.</p>
+
+<p>Aşağıdaki resimde güveyi bantın üstünde, yanına alınmış notlarla birlikte 
 görebilirsiniz, notlarda  "First actual case of bug
-being found." yazısını da görüyorsunuz. </p>
-<p><img src="../../images/intro/first_bug.jpg" alt="first bug"/></p>
+being found." yazısını da görüyorsunuz.</p>
+
+<p><img alt="first bug" src="../../images/intro/first_bug.jpg" /></p>
+
 <h6>Picture adapted from the public archive of the 
 <a href="http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm">
 U.S. Naval Historical Center </a></h6>
+
+<p>Actually, the word bug in a technological context is attributed by the
+Oxford English Dictionary to Thomas Edison. According to the Oxford
+Dictionary, the following text can apparently be found in the March 11, 1889
+edition of the Pall Mall Gazette:</p>
+
+<blockquote><cite>Mr. Edison, I was informed, had been up the two previous
+nights discovering 'a bug' in his phonograph - an expression for solving a
+difficulty, and implying that some imaginary insect has secreted itself
+inside and is causing all the trouble.</cite></blockquote>
+
+<p>It thus appears that the original 'bug', though it was indeed an insect,
+was in fact imaginary.</p>
+
+<p>Unfortunately, computer bugs, while they are not insects, are also not
+imaginary.</p>
+
 <h3 class="section">Bugları gidermek</h3>
+
 <p>Bug programın beklenilmeyen bir şekilde çalışmasına neden olan hatadır. Eğer 
 bilgisayar programları yazıyorsanız eninde sonunda buglarla karşılaşacaksınız.  
 İyi programcılar programları beklenilmeyen bir şekilde çalıştığında bugları 
 tespit edip giderirler. </p>
+
 <p>RUR-PLE bugları bulacak şekilde tasarlandı.</p>
+
 <ol>
 <li>
-<p>Robotun hareket ettikten sonra arkasında bıraktığı iz (yeşil çizgi- bu 
+Robotun hareket ettikten sonra arkasında bıraktığı iz (yeşil çizgi- bu 
 robotun yağ kaçırmasından kaynaklanıyor!) komutların doğru olarak yerine 
-getirilip getirilmediğini anlamak için kullanılabilir. </p>
-<p><img src="../../images/intro/turn_left_end.png" alt="simple left turn"/></p>
+getirilip getirilmediğini anlamak için kullanılabilir.<br />
+<br />
+<img alt="simple left turn" src="../../images/intro/turn_left_end.png" />
 </li>
 <li>
-<p>Her komut [örneğin aşağıdaki <tt>pick_beeper()</tt> gibi], işletilirken 
-parlak gösterilir.</p>
-<p><img src="../../images/intro/highlight.png" alt="highlighted instruction"/></p>
+Her komut [örneğin aşağıdaki <tt>pick_beeper()</tt> gibi], işletilirken 
+parlak gösterilir.<br />
+<br /><img alt="highlighted instruction" src="../../images/intro/highlight.png" />
 </li>
 <li>
-<p>Çalışan programınızı 
-<img src="../../images/intro/btn_pause.png" alt="pause button"/> butonuna basarak 
+Çalışan programınızı 
+<img alt="pause button" src="../../images/intro/btn_pause.png" /> butonuna basarak 
 durdurabilirsiniz. Bu bilgisayar programlamada "durma noktası" olarak bilinen 
-şeyle aynıdır.</p>
+şeyle aynıdır.
 </li>
 <li>
-<p>Programınızı adım adım (komut komut) çalıştırmak için <img src=
-"../../images/intro/btn_step.png" alt="step button"/> butonunu kullanabilirsiniz.</p>
+Programınızı adım adım (komut komut) çalıştırmak için <img alt="step button" src="../../images/intro/btn_step.png" /> butonunu kullanabilirsiniz.
 </li>
 <li>
-<p>Hız kontrolleri <img src="../../images/intro/btn_speed.png" alt="speed button"/>butonunu 
+Hız kontrolleri <img alt="speed button" src="../../images/intro/btn_speed.png" />butonunu 
 kullanarak programınızın çalışma hızını arttırabilir ya da azaltabilirsiniz. 
 Hızı programınızı çalıştırmadan önce ayarlamalısınız, çalışma esnasında hız 
 değişikliği yapılmaz. Uzun programlarınız varsa programınızı hızlı çalışacak 
 şekilde başlatıp bug'ın olduğu yere yaklaştığında durdurup, daha sonrada adım 
-adım çalıştırabilirisiniz. </p>
+adım çalıştırabilirisiniz.
 </li>
 <li>
-<p>Programınızın çalışmasını bitirmek için <img src=
-"../../images/intro/btn_stop.png" alt="stop button"/> butonunu kullanabilirsiniz. </p>
+Programınızın çalışmasını bitirmek için <img alt="stop button" src=
+"../../images/intro/btn_stop.png" /> butonunu kullanabilirsiniz.
 </li>
 <li>
-<p>Pencerenin en altında dört bölümden oluşan bir durum çubuğu vardır: 1) hangi 
+Pencerenin en altında dört bölümden oluşan bir durum çubuğu vardır: 1) hangi 
 programın yüklü olduğunu; 2) programın durumunu; 3) robotun kaç tane bip 
 taşıdığını; 4) hangi dünya dosyasının yüklü olduğunu gösterirler.<br />
-<img src="../../images/intro/status_bar.png" alt="status bar"/></p>
+<img alt="status bar" src="../../images/intro/status_bar.png" />
 </li>
 <li>
-<p>Bir dünya dosyası yüklendiğinde robotun bir pozisyonu vardır, program 
+Bir dünya dosyası yüklendiğinde robotun bir pozisyonu vardır, program 
 çalıştırılınca robotun pozisyonu değişir, eğer robotu başlangıcındaki 
 pozisyonuna getirmek istiyorsanız 
-<img src="../../images/intro/btn_reset_world.png" alt="reset button"/> butonunu 
-kullanın.</p>
+<img alt="reset button" src="../../images/intro/btn_reset_world.png" /> butonunu kullanın.
 </li>
 </ol>
+
 <p>Şimdilik bu kadarı fazlasıyla yeterlidir. Programlama hakkında 
 öğrendikleriniz arttıkça, bugları bulmanıza yarayacak yeni bilgiler de 
 öğreneceksiniz!</p>
 
-<div class="lessons_toc">
-<a href="7-beepers.htm"><img src="../../images/previous.png"
-alt="previous"/>Biplers</a> -
-<a href="../lessons_toc.htm"><img src="../../images/home.png"
-alt="home"/></a> - <a href="9-walls.htm">Duvarları Yapmak<img src="../../images/next.png"
-alt="next"/></a>
+<div class="lessons_nav">
+<a href="7-beepers.htm"><img alt="previous" src=
+"../../images/previous.png" />Biplers</a> -
+<a href="../lessons_toc.htm"><img alt="home" src=
+"../../images/home.png" /></a> - <a href="9-walls.htm">Duvarları Yapmak<img alt="next" src=
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>
