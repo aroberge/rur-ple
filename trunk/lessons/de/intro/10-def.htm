@@ -4,27 +4,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>10. Definitiv Wiederholungen vermeiden </title>
 </head>
 <body>
 <h2 class="title">10. Definitiv Wiederholungen vermeiden</h2>
+
 <p>Achtung: dies ist eine ganz schön lange Lektion.
 Wir lernen, wie man ein paar neue Roboter-Kommandos definiert. Wir lernen
 auch eine dritte nützliche Regel für das Schreiben von Programmen kennen:</p>
+
 <dl>
 <dt><b>Regel # 3</b></dt>
-<dd>Wiederhole dich nicht beim Schreiben von Programmen.<br/>
+<dd>Wiederhole dich nicht beim Schreiben von Programmen.<br />
 <b>Ich wiederhole: wiederhole dich nicht!</b></dd>
 </dl>
+
 <!--=============================================-->
 <hr class="line" />
+
 <a name="Three" id="Three"></a>
 <h3 class="section">Dreimal links ergibt rechts.</h3>
+
 <p>Wenn du es dir genau überlegst, kommst du zu dem Schluss, dass Reeborg nach 
 drei linken Vierteldrehungen in die gleiche Richtung schaut wie nach einer
 rechten Vierteldrehung. Versuche mit einer Zeichnung auf einem Blatt Papier
-herauszufinden, was das folgende Programm Reeborg tun läßt, ohne deinen Rechner
-zu benutzen.</p>
+herauszufinden, was das folgende Programm Reeborg tun läßt, ohne deinen Rechner zu benutzen.</p>
+
 <pre>
 turn_left()
 move()
@@ -46,18 +52,25 @@ turn_left()
 turn_left()
 turn_off()
 </pre>
+
 <h3 class="try">Du bist dran.</h3>
-<p>Schreibe und speichere das Programm und schau, ob Reeborg tut, was du erwartet  
-hast.</p>
+
+<p>Schreibe und speichere das Programm und schau, ob Reeborg tut, was du erwartet hast.</p>
+
 <h3 class="try">Du bist nochmal dran!</h3>
+
 <p>Ändere das Programm, das du gerade gespeichert hast, so, dass es Reeborg im
 Uhrzeigersinn um ein Quadrat laufen läßt wie unten gezeigt.</p>
+
 <p><img alt="Quadrat mit Rechtsdrehugen" src=
-"../../images/intro/square2right.png"/></p>
+"../../images/intro/square2right.png" /></p>
+
 <!--=====================================================-->
 <hr class="line" />
+
 <a name="Define" id="Define"></a>
 <h3 class="section">Definieren, was rechts ist.</h3>
+
 <p>Wir haben gesehen, wie Reeborg durch Kombination dreier Vierteldrehungen
 nach links eine Vierteldrehung nach rechts machen kann. Wenn wir mehrere
 Vierteldrehungen nach rechts machen wollen, wird es ziemlich mühsam, den dafür
@@ -65,72 +78,103 @@ nötigen Quelltext zu schreiben und zu lesen. Das liegt daran, dass wir uns
 wiederholen; anders gesagt, die gleiche Folge von Anweisungen erscheint an
 vielen verschiedenen Stellen im Programm. Um solche Dopplungen zu vermeiden,
 erweist sich Reeborgs Fähigkeit, Python zu verstehen, als sehr nützlich.</p>
+
 <p>In Python kann man einer Folge von Anweisungen einen einfachen Namen geben.
 Zum Beispiel könnten wir für Reeborg ein Kommando, sich nach rechts zu drehen,
 folgendermaßen <b>definieren</b>:</p>
+
 <p><img alt="defining turn right" src=
-"../../images/intro/turnright_txt.png"/></p>
+"../../images/intro/turnright_txt.png" /></p>
+
 <p>Mindestens fünf wichtige Punkte sind zu beachten:</p>
+
 <ol>
-<li>Wie wir schon gesehen haben, bewirkt das Symbol <tt><span class="comment">#
+<li>
+Wie wir schon gesehen haben, bewirkt das Symbol <tt><span class="comment">#
 </span></tt>, dass Reeborg (oder Python) den Rest der Zeile nicht beachtet.
 Zusammen mit dem darauf folgenden Text nennt man es <b>Kommentar</b>, der dazu
 dient, anderen <b>Programmierern</b> zu erklären oder uns selbst daran zu
 erinnern, was eine oder mehrere Zeilen Quelltext tun. Der Kommentar wird grün
-angezeigt, damit wir ihn besser von den Anweisungen unterscheiden können.</li>
-<li>Die Definition beginnt mit dem Python-<b>Schlüsselwort</b>
+angezeigt, damit wir ihn besser von den Anweisungen unterscheiden können.
+</li>
+<li>
+Die Definition beginnt mit dem Python-<b>Schlüsselwort</b>
 <span class="pykeyword">def</span>, das im Editor blau dargestellt wird.
 Ein Python-<b>Schlüsselwort</b> hat in Python eine feste Bedeutung, die vom
 Programmierer nicht geändert werden kann. Dem Schlüsselwort <span 
 class="pykeyword">def</span> folgt der Name des neuen Kommandos, 
-ein Klammernpaar und ein Doppelpunkt.</li>
-<li>Eine Anweisung zu definieren ist nicht das gleiche wie einer
+ein Klammernpaar und ein Doppelpunkt.
+</li>
+<li>
+Eine Anweisung zu definieren ist nicht das gleiche wie einer
 Anweisung, die es schon gibt, einen neuen Namen zu geben, wie wir es in einer
 früheren Lektion gesehen haben. Einen neuen Namen legen wir mit einem
 Gleichheitszeichen "=" zwischen neuem und altem Namen fest, und das Fehlen der
 Klammern bedeutet, dass es nur als Name und nicht als Anweisung gemeint ist.
 </li>
-<li>Jede Anweisung, die zur neuen Definition gehören soll, wird
+<li>
+Jede Anweisung, die zur neuen Definition gehören soll, wird
 <b>eingerückt</b>, und zwar immer mit der <b>gleichen Tiefe</b>. Wenn nicht,
 wird Python sich beschweren oder nicht das tun, was wir erwarten. Einrückung
 heißt, dass am Anfang jeder Zeile einige Leerzeichen stehen. Es ist üblich,
 eine Einrückung von vier Leerzeichen für einen bestimmten <i>Quelltext-Block
 </i> zu verwenden. Um dir zu helfen, habe ich den Programmeditor so eingestellt,
-dass er gepunktete Linien in Abständen von vier Leerzeichen anzeigt.<br/>
+dass er gepunktete Linien in Abständen von vier Leerzeichen anzeigt.<br />
 <img alt="Darstellung von Einrückungslinien" src=
-"../../images/intro/indentation.png"/></li>
-<li>Ans Ende der Zeile mit dem Schlüsselwort <span class="pykeyword">def</span>
+"../../images/intro/indentation.png" />
+</li>
+<li>
+Ans Ende der Zeile mit dem Schlüsselwort <span class="pykeyword">def</span>
 fügen wie einen Doppelpunkt "<tt>:</tt>" an, der Python signalisiert, dass
 jetzt ein Quelltext-Block beginnt. Das tun wir bei allen Schlüsselwörtern,
 die Quelltext-Blöcke starten, wie zum Beispiel <span class="pykeyword">if
 </span> (im obigen Bild), das wir in einer der nächsten Lektionen gesondert
-vorstellen werden.</li>
+vorstellen werden.
+</li>
 </ol>
+
 <p>Das war jetzt eine Menge Information auf einmal. Es ist wahrscheinlich an der
 Zeit, dein Verständnis für die Anwendung dieses Schlüsselworts zu prüfen.</p>
+
 <h3 class="try">Du bist dran.</h3>
-<p>Schreibe ein Programm, das 1) das neue Kommando für eine Vierteldrehung nach
-rechts definiert und 2) es benutzt, um Reeborg wie zuvor ein Quadrat im
-Uhrzeigersinn abschreiten zu lassen. Dir dürfte auffallen, dass das letzte
+
+<p>Schreibe ein Programm, das:</p>
+
+<ol>
+<li>das neue Kommando für eine Vierteldrehung nach rechts definiert</li>
+<li>es benutzt, um Reeborg wie zuvor ein Quadrat im
+Uhrzeigersinn abschreiten zu lassen.</li>
+</ol>
+
+<p>Dir dürfte auffallen, dass das letzte
 Programm kürzer als sein Vorgänger ist und dass es leichter ist zu sehen,
 welchen Weg Reeborg geht.</p>
+
 <h3 class="try">Du bist nochmal dran!</h3>
+
 <p>Definiere die Anweisung <tt>step_back()</tt> so dass das folgende Programm </p>
+
 <pre>
 <span class="comment"># Definition von step_back() siehe oben</span>
 move()
 step_back()
 turn_off()
 </pre>
+
 <p>Reeborg einen Schritt vorwärts machen und ihn wieder zum Ausgangspunkt
 zurückkehren läßt, wobei er <em>in die gleiche Richtung schaut wie am Anfang
 </em>, wie im folgenden Bild gezeigt.</p>
-<p><img alt="Rückzieher" src="../../images/intro/back_up.png"/></p>
+
+<p><img alt="Rückzieher" src="../../images/intro/back_up.png" /></p>
+
 <p><em>Hinweis</em>: Vergiss nicht, die Kommandos einzurücken, die zu deiner
 neuen Definition gehören.</p>
+
 <h3 class="try">Du bist schon wieder dran!</h3>
+
 <p>Definiere die Anweisung <tt>turn_around()</tt> so dass das die folgenden
 neuen Kommandos wie erwartet funktionieren würden.</p>
+
 <pre>
 <span class="comment"># Schritt zurueck machen</span>
 <span class="keyword">def</span> step_back():
@@ -143,18 +187,24 @@ neuen Kommandos wie erwartet funktionieren würden.</p>
     turn_around()
     turn_left()
 </pre>
+
 <!--===========================================================-->
 <hr class="line" />
+
 <a name="Newspaper" id="Newspaper"></a>
 <h3 class="section">Zeitungen austragen, neuer Ansatz</h3>
+
 <p>Im vorigen Kapitel bestand eine der letzten Übungen darin, ein Programm zu
 schreiben, das Reeborg eine Zeitung austragen lassen sollte. Zur Erinnerung
 hier noch einmal bildlich, was Reeborg tun sollte:</p>
+
 <div class="pcenter"><img alt="newspaper start" src=
-"../../images/intro/newspaper_start.png"/></div>
-<div class="pcenter"><img alt="lead to" src="../../images/lead_to.png"/> <img alt=
-"newspaper end" src="../../images/intro/newspaper_end.png"/></div>
+"../../images/intro/newspaper_start.png" /></div>
+<div class="pcenter"><img alt="lead to" src="../../images/lead_to.png" /> <img alt=
+"newspaper end" src="../../images/intro/newspaper_end.png" /></div>
+
 <p>Deine Lösung für diese Übung sah vermutlich so aus:</p>
+
 <pre>
 move()
 <span class="comment"># Stufe hochklettern</span>
@@ -229,30 +279,35 @@ turn_left()
 move()
 turn_off()
 </pre>
+
 <p>Das ist eine Menge Tipparbeit ... mit vielen Wiederholungen. Als du
 das Programm zuende getippt hattest, konntest du seinen Anfang nicht mehr im
 Programmierfenster sehen. Dir sind sicher die Kommentare auffallen, die ich
 eingefügt habe, um nachzuhalten, an welcher Stelle der Aufgabe ich bin. Diese
 Kommentare entsprechen schon in etwa dem Schema einer Lösung:</p>
+
 <ul>
 <li>Klettere vier Stufen hoch.</li>
 <li>Lege eine Zeitung hin.</li>
 <li>Dreh dich um.</li>
 <li>Klettere vier Stufen herunter.</li>
 </ul>
-Wir wollen versuchen, dieses Schema in Programmform zu bringen:
+
+<p>Wir wollen versuchen, dieses Schema in Programmform zu bringen:</p>
+
 <pre>
- 
 climb_up_four_stairs()
 put_beeper()
 turn_around()
 climb_down_four_stairs()
 </pre>
+
 <p>Dies ist noch nicht ganz die vollständige Lösung (zum Beispiel fehlt die
 Anweisung <tt>turn_off()</tt>), aber es ist ziemlich nah dran und viel leichter
 zu lesen als das, was wir vorher hatten, vorausgesetzt, dass diese neuen
 Anweisungen definiert worden sind. Hier sind einige der benötigten
 Definitionen:</p>
+
 <pre>
 <span class="keyword">def</span> turn_around():
     turn_left()
@@ -276,23 +331,30 @@ Definitionen:</p>
     climb_up_one_stair()
     climb_up_one_stair()
 </pre>
+
 <h3 class="try">Du bist dran.</h3>
+
 <p>Ergänze die fehlenden Definitionen, so dass das fertige Programm so aussieht
 wie das Schema in Programmform. Du musst noch ein paar einfache Anweisungen
 einfügen einschließlich <tt>turn_off()</tt> am Ende. Denk daran, dein Programm
 zu speichern; benutze einen anderen Namen als für deine ursprüngliche Lösung.</p>
+
 <h3 class="try">Du bist nochmal dran!</h3>
+
 <p>Nimm dir Zeit, deine ursprüngliche Lösung mit der langen Lösung in dieser 
 Lektion sowie mit deiner neuen Lödung zu vergleichen. Welche ist am leichtesten
 zu lesen?</p>
+
 <!--=================================================-->
 <hr class="line" />
+
 <a name="ReadChallenge" id="ReadChallenge"></a>
 <h3 class="suggested">Lese-Rätsel</h3>
+
 <p>Gut gewählte Namen können sehr hilfreich sein, wenn man verstehen möchte, was
 ein Programm tut, genauso, wie schlecht gewählte Namen es erschweren
-(Siehe Regel #3). Versuche folgendes Programm zu verstehen, ohne es im Computer
-laufen zu lassen.</p>
+(Siehe Regel #3). Versuche folgendes Programm zu verstehen, ohne es im Computer laufen zu lassen.</p>
+
 <pre>
 <span class="keyword">def</span> a():
     turn_left()
@@ -321,14 +383,16 @@ e()
 b()
 turn_off()
 </pre>
+
 <p>Vielleicht möchtest du aussagekräftigere Namen für die Kommandos
 <tt>a(), b(), c(), d(),</tt> und <tt>e()</tt> finden.</p>
-<div class="lessons_toc">
+
+<div class="lessons_nav">
 <a href="9-walls.htm"><img alt="previous" src=
-"../../images/previous.png"/>9. Mauern bauen</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"../../images/previous.png" />9. Mauern bauen</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
 "11-repeat.htm">11. Noch mal! Wiederholungen vermeiden! <img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>

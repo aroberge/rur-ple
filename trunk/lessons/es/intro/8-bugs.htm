@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
@@ -8,83 +8,120 @@
   <title>Malditos bugs!</title>
 </head>
 <body>
-<h2 class="title">8. Malditos bugs! <img
- src="../../images/intro/b_shake.gif" alt="darn bugs"/></h2>
+<h2 class="title">8. Malditos bugs! <img alt="darn bugs"
+ src="../../images/intro/b_shake.gif" /></h2>
+
 <p>A nadie le gusta hablar sobre los fallos en los ordenadores,
 así que haré que esta lección sea corta.</p>
+
 <h3 class="section">¿Qué es un bug?</h3>
-<p>En inglés un bug significa bicho, y cuando a los
-programadores de los ordenadores antiguos  les fallaba el
-programa, decían que el ordenador tenía un bicho que se
-metía dentro y hacía que el programa fallase. En aquellos
-tiempos los ordenadores eran tan grandes como una habitación y
-era normal que se colase un bicho, afortunadamente, eso no pasa con los
-ordenadores actuales.</p>
-<p>Pero desde entonces, cuando un programa de ordenador falla se dice que
-tiene un bug (un bicho).</p>
+
+<p>The origin of the word <b>bug</b> in computer jargon is often attributed
+to an actual incident where a moth was found inside Harvard University's Mark
+II computer; apparently this moth had caused the computer to stop working. It
+was found by the team headed by renowned computer scientist, mathematician,
+and young naval officer Grace Murray Hopper, who went on to invent the
+concept of compiler languages in computer programming. Dr. Grace Hopper
+eventually rose in the U.S. naval hierarchy to the rank of Rear Admiral.</p>
+
+<p>The moth was preserved, taped into Hopper's log book, as shown below.
+Interestingly, the log book included a note saying, "First actual case of bug
+being found." as you can see.</p>
+
+<p><img alt="first bug" src="../../images/intro/first_bug.jpg" /></p>
+
+<h6>Picture adapted from the public archive of the 
+<a href="http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm">
+U.S. Naval Historical Center</a></h6>
+
+<p>Actually, the word bug in a technological context is attributed by the
+Oxford English Dictionary to Thomas Edison. According to the Oxford
+Dictionary, the following text can apparently be found in the March 11, 1889
+edition of the Pall Mall Gazette:</p>
+
+<blockquote><cite>Mr. Edison, I was informed, had been up the two previous
+nights discovering 'a bug' in his phonograph - an expression for solving a
+difficulty, and implying that some imaginary insect has secreted itself
+inside and is causing all the trouble.</cite></blockquote>
+
+<p>It thus appears that the original 'bug', though it was indeed an insect,
+was in fact imaginary.</p>
+
+<p>Unfortunately, computer bugs, while they are not insects, are also not
+imaginary.</p>
+
 <h3 class="section">Manejando los bugs</h3>
+
+<p>In computer jargon, a bug is an error that causes a program to behave in
+an unexpected way. If you are writing computer programs, you are going to
+have bugs in them sooner or later - everybody does. Good programmers seek to
+"remove" bugs or "fix" them as soon as they find that their program behaves
+unexpectedly.</p>
+
 <p>Reeborg ha sido diseñado para ayudarte a encontrar bugs, de
 ocho maneras distintas.</p>
+
 <ol>
-  <li>
-    <p>Reeborg pierde aceite, dejando un rastro que deja que veas
-qué instrucciones siguió el robot.</p>
-    <p><img src="../../images/intro/turn_left_end.png"
- alt="simple left turn"/></p>
-  </li>
-  <li>
-    <p>Cada instrucción [como <tt>pick_beeper()</tt> abajo],
+<li>
+Reeborg pierde aceite, dejando un rastro que deja que veas
+qué instrucciones siguió el robot.<br />
+<br /><img alt="simple left turn" src="../../images/intro/turn_left_end.png"
+ />
+</li>
+<li>
+Cada instrucción [como <tt>pick_beeper()</tt> abajo],
 que se resalta en la ventana de programa, va a ser ejecutado por el
-robot.</p>
-    <p><img src="../../images/intro/highlight.png"
- alt="highlighted instruction"/></p>
-  </li>
-  <li>
-    <p>Puedes "pausar" el programa mientras corre pulsando el
-botón pausa  <img src="../../images/intro/btn_pause.png"
- alt="pause button"/>. </p>
-  </li>
-  <li>
-    <p>Puedes ir "paso a paso" por todo el progrma una
-instricción cada vez pulsando el botón <img
- src="../../images/intro/btn_step.png" alt="step button"/>.</p>
-  </li>
-  <li>
-    <p>Puedes cambiar la velocidad a la que el programa se ejecuta
-usando el control de velocidad <img
- src="../../images/intro/btn_speed.png" alt="speed button"/>. Cuanto
+robot.<br />
+<br /><img alt="highlighted instruction" src="../../images/intro/highlight.png" />
+</li>
+<li>
+Puedes "pausar" el programa mientras corre pulsando el
+botón pausa <img alt="pause button" src="../../images/intro/btn_pause.png"
+ />.
+</li>
+<li>
+Puedes ir "paso a paso" por todo el progrma una
+instricción cada vez pulsando el botón <img alt="step button" 
+src="../../images/intro/btn_step.png" />.
+</li>
+<li>
+Puedes cambiar la velocidad a la que el programa se ejecuta
+usando el control de velocidad <img alt="speed button"
+ src="../../images/intro/btn_speed.png" />. Cuanto
 más muevas el la flecha verde hacia la izquierda, más
 rápido se ejecutará el programa. Sólo puedes
-ajustar la velocidad al principio del programa.</p>
-  </li>
-  <li>
-    <p>Si has comenzado un programa y lo quieres parar antes de que
-termine, siempre puedes pulsar el botón stop <img
- src="../../images/intro/btn_stop.png" alt="stop button"/>.</p>
-  </li>
-  <li>
-    <p>En la parte de abajo de la pantalla hay una barra de estatus que
+ajustar la velocidad al principio del programa.
+</li>
+<li>
+Si has comenzado un programa y lo quieres parar antes de que
+termine, siempre puedes pulsar el botón stop <img alt="stop button"
+ src="../../images/intro/btn_stop.png" />.
+</li>
+<li>
+En la parte de abajo de la pantalla hay una barra de estatus que
 indica: 1)
 qué programa está cargado; 2) el estado del programa; 3)
 el número de timbres que lleva el robot; 4) el fichero de mundo
-cargado.<br/>
-    <img src="../../images/intro/status_bar.png" alt="status bar"/></p>
-  </li>
-  <li>
-    <p>Si quieres reiniciar el programa con el robot en la
+cargado.<br />
+    <img alt="status bar" src="../../images/intro/status_bar.png" />
+</li>
+<li>
+Si quieres reiniciar el programa con el robot en la
 posición original cuando cargaste por primera vez el programa
-actual, pulsa el botón reset mundo <img
- src="../../images/intro/btn_reset_world.png" alt="reset button"/>.</p>
-  </li>
+actual, pulsa el botón reset mundo <img alt="reset button"
+ src="../../images/intro/btn_reset_world.png" />.
+</li>
 </ol>
+
 <p>Por ahora es suficiente. Comencemos a programar.</p>
 
-<div class="lessons_toc">
-<a href="7-beepers.htm"><img src="../../images/previous.png"
- alt="previous"/>Timbres</a> -
-<a href="../lessons_toc.htm"><img src="../../images/home.png" alt="home"/></a>-
-<a href="9-walls.htm">Construyendo paredes <img
- src="../../images/next.png" alt="next"/></a>
+<div class="lessons_nav">
+<a href="7-beepers.htm"><img alt="previous" src=
+"../../images/previous.png" />Timbres</a> -
+<a href="../lessons_toc.htm"><img alt="home" src=
+"../../images/home.png" /></a> -
+<a href="9-walls.htm">Construyendo paredes <img alt="next"
+ src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

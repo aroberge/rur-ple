@@ -9,23 +9,30 @@
 </head>
 <body>
 <h2 class="title">10. Evitando repeticiones de una vez por todas</h2>
+
 <p>Vete preparando: esta lección será larga...
 Vamos a aprender la manera de definir nuevas órdenes para el
 robot. También veremos la tercera regla útil para
 escribir programas de ordenador.</p>
+
 <dl>
   <dt><b>Regla # 3</b></dt>
-  <dd> Cuando escribas programas de ordenador, no te repitas.<br/>
+  <dd> Cuando escribas programas de ordenador, no te repitas.<br />
 Repito: <b>¡no te repitas!</b></dd>
 </dl>
+
 <!--=============================================-->
-<hr class="line" /><a name="Three" id="Three"></a>
+<hr class="line" />
+
+<a name="Three" id="Three"></a>
 <h3 class="section">Tres "lefts" son un "right"</h3>
+
 <p>Si lo piensas con detenimiento, el hacer que Reeborg de tres giros a
 la izquierda seguidos, da el mismo resultado que si hiciese un
 sólo giro a la derecha. Intenta adivinar, dibujando en un papel
 y sin usar el ordenador, qué haría Reeborg si
 ejecutásemos el siguiente programa:</p>
+
 <pre>
 turn_left()
 move()
@@ -47,18 +54,27 @@ turn_left()
 turn_left()
 turn_off()
 </pre>
+
 <h3 class="try">Tu turno</h3>
+
 <p>Escribe y guarda el programa anterior, ejecútalo y comprueba
 si Reeborg hace lo que esperabas.</p>
+
 <h3 class="try">¡Tu turno otra vez!</h3>
+
 <p>Cambia el programa que acabas de grabar,de forma que haga que
 Reeborg rote en dirección de las agujas del reloj, tal como se
 muestra abajo.</p>
-<p><img alt="square with right turns"
- src="../../images/intro/square2right.png"/></p>
+
+<p><img alt="square with right turns" src=
+"../../images/intro/square2right.png" /></p>
+
 <!--=====================================================-->
-<hr class="line" /><a name="Define" id="Define"></a>
+<hr class="line" />
+
+<a name="Define" id="Define"></a>
 <h3 class="section">Vamos a definir turn_right()</h3>
+
 <p>Hemos visto cómo Reeborg puede torcer a la derecha, combinado
 tres giros a la izquierda seguidos. Si queremos una serie de giros a la
 derecha, resulta muy aburrido escribir y leer el programa resultante.
@@ -66,35 +82,46 @@ Esto es así porque nos repetimos; en oras palabras, la misma
 secuencia de instrucciones aparece en muchos sitios diferentes del
 programa. Para evitar esas repeticiones, resulta muy útil que
 Reeborg se programe en Python.</p>
+
 <p>En Phyton, uno puede dar un simple nombre a un grupo de
 instrucciones. Por ejemplo, podríamos <b>definir</b> un giro a
 la derecha así:</p>
-<p><img alt="defining turn right"
- src="../../images/intro/turnright_txt.png"/></p>
+
+<p><img alt="defining turn right" src=
+"../../images/intro/turnright_txt.png" /></p>
+
 <p>Hay por lo menos cinco cosas importantes en las que merece la pena
 fijarse:</p>
+
 <ol>
-  <li>Tal como hemos visto antes, el símbolo <tt><span
+<li>
+Tal como hemos visto antes, el símbolo <tt><span
  class="comment">#</span></tt>, que aparece en verde, indica que el
 resto de la linea puede ser ignorada por Reeborg (or Python). El texto
 que sigue a <tt><span class="comment">#</span></tt> se llama un <b>comentario</b>
 y se usa para explicar a otros <b>programadores</b>, o como un
 recordatorio para nosotros mismos, lo que hace una linea de programa o
 una serie de lineas de programa. También se muestra en verde
-para ayudarnos a distinguirlos de las instrucciones.</li>
-  <li>Segundo, la definición comienza con la <b>palabra clave</b>
+para ayudarnos a distinguirlos de las instrucciones.
+</li>
+<li>
+Segundo, la definición comienza con la <b>palabra clave</b>
 de Python <span class="pykeyword">def</span> que se ve azul en el
 editor. Las palabra clave de python son las que aparecen azules en el
 editor. Una palabra clave de Python es una palabra cuyo significado
 está definido por Python, no por nosotros. La palabra clave <span
  class="pykeyword">def</span> está seguida por el nombre del
-nuevo comando, dos parentesis y el signo de dos puntos.</li>
-  <li>Tercero, definir una instrucción no es lo mismo que
+nuevo comando, dos parentesis y el signo de dos puntos.
+</li>
+<li>
+Tercero, definir una instrucción no es lo mismo que
 generar un sinónimo, como vimos antes. (Cuando creamos un
 sinónimo, lo hacemos con un signo igual"=" entre los
 sinónimos y la falta de parétesis indica que no es una
-instrucción)</li>
-  <li>Cuarto, cada una de las instrucciones que se quiera que formen
+instrucción)
+</li>
+<li>
+Cuarto, cada una de las instrucciones que se quiera que formen
 parte de la nueva definición está <b>indentada</b>, por
 la <b>misma cantidad de espacio</b>. Si no se hace así Python
 protestará o no hara lo que esperamos que haga. Por
@@ -102,45 +129,65 @@ indentación entendemos que hay que dejar un número de
 espacios en blanco al principio de cada líneas. Es costumbre
 usar una indentación de cuatro espacio por cada <i>bloque de
 código</i>. Para ayudarte, ha preparado el editor para que
-enseñe lineas punteadas en intervalos de cuatro espacios.<br/>
-    <img alt="Showing indentation guides"
- src="../../images/intro/indentation.png"/></li>
-  <li>Quinto, al final de la linea con la palabra clave <span
+enseñe lineas punteadas en intervalos de cuatro espacios.<br />
+<img alt="Showing indentation guides"
+ src="../../images/intro/indentation.png" />
+</li>
+<li>
+Quinto, al final de la linea con la palabra clave <span
  class="pykeyword">def</span>, añadimos un signo de dos puntos "<tt>:</tt>"
 que indica a Pyton que un bloque de instrucciones va a empezar. Hacemos
 esta con otras palabra clave que hacen comenzar a bloques de
 código, como <span class="pykeyword">if</span> en el dibujo
 anterior, que te enseñaremos apropiadamente dentro de algunas
-lecciones.</li>
+lecciones.
+</li>
 </ol>
+
 <p>Esto es bastante información de una sola vez. probablemente
 sea un buen momento para comprobar si te has enterado de como usar esta
 palabra clave.</p>
+
 <h3 class="try">Tu turno</h3>
-<p>escribe un programa que 1) defina este nuevo comando y 2)
-lo use para hacer a Reeborg pintar un cuadrado en el sentido de las
-agujas del reloj, tal como hicimos antes.
-Te tendrías que dar cuenta de que este programa es más
+
+<p>escribe un programa que:</p>
+
+<ol>
+<li>defina este nuevo comando</li>
+<li>lo use para hacer a Reeborg pintar un cuadrado en el sentido de las
+agujas del reloj, tal como hicimos antes.</li>
+</ol>
+
+<p>Te tendrías que dar cuenta de que este programa es más
 corto que el anterior y de que es más fácil figurarse el
 camino que tomará Reeborg.</p>
+
 <h3 class="try">¡Tu turno otra vez!</h3>
+
 <p>Define la instruccion <tt>paso_atras()</tt> de manera que el
 programa</p>
+
 <pre>
 <span class="comment"># paso_atras() se define aquí</span>
 move()
 paso_atras()
 turn_off()
 </pre>
+
 <p>haz que Reeborg de un paso adelante y después vuelva a su
 posición inicial <em>mirando en la misma dirección que
 en la que empezó</em>, tal como se muestra aquí:</p>
-<p><img alt="back up" src="../../images/intro/back_up.png"/></p>
+
+<p><img alt="back up" src="../../images/intro/back_up.png" /></p>
+
 <p><em>Pista</em>: Asegúrate de indentar los comandos que son
 parte de tu definición</p>
+
 <h3 class="try">¡Tu turno. Y otra vez más!</h3>
+
 <p>Define la instrucción <tt>da_la_vuelta()</tt> de manera que
 los comandos siguientes trabajen tal como se espera de ellos.</p>
+
 <pre>
 <span class="keyword">def</span> paso_atras():
     da_la_vuelta()
@@ -151,18 +198,25 @@ los comandos siguientes trabajen tal como se espera de ellos.</p>
     da_la_vuelta()
     turn_left()
 </pre>
+
 <!--===========================================================-->
-<hr class="line" /><a name="Newspaper" id="Newspaper"></a>
+<hr class="line" />
+
+<a name="Newspaper" id="Newspaper"></a>
 <h3 class="section">Repartidor de periódicos, rehecho.</h3>
+
 <p>En el capítulo anterior, uno de los últimos ejercicios
 que tuviste que hacer fue escribir un programa que hiciese que el robot
 repartiese un periódico. Te recuerdo lo que había que
 hacer:</p>
-<div class="pcenter"><img alt="newspaper start"
- src="../../images/intro/newspaper_start.png"/></div>
-<div class="pcenter"><img alt="lead to" src="../../images/lead_to.png"/> <img
- alt="newspaper end" src="../../images/intro/newspaper_end.png"/></div>
+
+<div class="pcenter"><img alt="newspaper start" src=
+"../../images/intro/newspaper_start.png" /></div>
+<div class="pcenter"><img alt="lead to" src="../../images/lead_to.png" /> <img alt=
+"newspaper end" src="../../images/intro/newspaper_end.png" /></div>
+
 <p>Tu solución probablemente era como ésta:</p>
+
 <pre>
 move()
 <span class="comment"># climb step</span>
@@ -237,17 +291,21 @@ turn_left()
 move()
 turn_off()
 </pre>
+
 <p>Demasiado escribir, ¿no crees?... y muchas repeticiones.
 Probablemente habrás visto que hje añadido algunos
 comentairos para ayudarme a recordar por donde voy mientras hago la
 tarea. Estos comentarios nos acercan a la solución del problema::</p>
+
 <ul>
   <li>Sube cuatro escalones.</li>
   <li>Deja el periódico.</li>
   <li>Date la vuelta.</li>
   <li>Baja las escaleras.</li>
 </ul>
+
 <p>Vamos a tratar de escribir este esquema <em>pithonísticamente</em>:</p>
+
 <pre>
 sube_cuatro_escalones()
 put_beeper()
@@ -256,10 +314,12 @@ baja_cuatro_escalones()
 da_la_vuelta()
 <tt>turn_off()</tt>
 </pre>
+
 <p>Esto es más fácil de leer que lo que
 teníamos antes, y funcionaría si estas instrucciones
 estuviesen definidas. Aquí pongo algunas de las definiciones que
 se necesitan:</p>
+
 <pre>
 <span class="keyword">def</span> da_la vuelta():
     turn_left()
@@ -284,19 +344,28 @@ se necesitan:</p>
     sube_un_escalon()
     sube_un_escalon()
 </pre>
+
 <h3 class="try">Tu turno</h3>
+
 <p>Añade las definiciones que faltan para que el programa se
 parezca a su versión <em>pithonística</em>. Recuerda
 grabar tu programa.</p>
+
 <h3 class="try">¡Tu turno otra vez!</h3>
+
 <p>Compara este programa con el original. cuál es el más
 fácil de leer?</p>
+
 <!--=================================================-->
-<hr class="line" /><a name="ReadChallenge" id="ReadChallenge"></a>
+<hr class="line" />
+
+<a name="ReadChallenge" id="ReadChallenge"></a>
 <h3 class="suggested">Te desafío a leer ésto</h3>
+
 <p>Los nombres bien elegidos, pueden ayudar a comprender lo que un
 programa está haciendo. Y viceversa. Intenta enterarte de lo que
 hace este programa sin ejecutarlo.</p>
+
 <pre>
 <span class="keyword">def</span> a():
     turn_left()
@@ -319,21 +388,23 @@ hace este programa sin ejecutarlo.</p>
     d()
     d()
     d()
+
 turn_left()
 e()
 b()
 turn_off()
 </pre>
+
 <p>Hubiese sido mucho mejor haber usadao unos nombres más
 descriptivos que 
 <tt>a(), b(), c(), d(),</tt> y <tt>e().</tt></p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="9-walls.htm"><img alt="previous"
- src="../../images/previous.png"/> Construyendo paredes</a> - <a
- href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a>
+ src="../../images/previous.png" /> Construyendo paredes</a> - <a
+ href="../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a>
 - <a href="11-repeat.htm">¡Evitando repeticiones, otra vez! <img
- alt="next" src="../../images/next.png"/></a>
+ alt="next" src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

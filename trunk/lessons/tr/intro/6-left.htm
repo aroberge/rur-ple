@@ -9,22 +9,30 @@
 </head>
 <body>
 <h2 class="title">6. Sola Dönüş yapmak</h2>
+
 <p>Önceden bahsettiğimiz gibi, Reeborg herhangi bir yönde dönebilir... bu dönüş 
 sola doğru olacaktır ve her defasında 90 derecelik bir dönüş olacaktır. Çünkü 
 onu yaratanlar daha gelişmiş bir mekanizmayı yapamayacak kadar cimridirler! 
 Reeborg'un sola dönmesini sağlamak için şu komut verilmelidir:  <tt>turn_left()</tt></p>
+
 <p>Örneğin Reeborg başlangıç pozisyonundayken aşağıdaki program ile</p>
+
 <pre>
 move()
 turn_left()
 move()
 turn_off()
 </pre>
+
 <p>şekilde gösterilen hareketi yapacaktır. </p>
-<img alt="simple left turn" src="../../images/intro/turn_left_end.png"/>
+
+<img alt="simple left turn" src="../../images/intro/turn_left_end.png" />
+
 <h3 class="try">Sıra sizde</h3>
+
 <p>Reeborg'un bir karenin kenarlarını takip edecek şekilde hareket etmesini 
 aşağıdaki program ile sağlayınız.</p>
+
 <pre>
 move()
 turn_left()
@@ -36,8 +44,10 @@ move()
 turn_left()
 turn_off()
 </pre>
+
 <p>Programınızı kullanmadan önce onu kaydetmeniz gerektiğini unutmayın.  <b>
 Deneyin!</b></p>
+
 <p>Eğer İngilizce sizin favori diliniz değilse komutları her zaman kendi 
 dilinizde de tanımlayabilirsiniz, ancak kendi dilinizde tanımladığınız komutları 
 oluştururken yalnızca İngiliz alfabesindeki 26 harfi kullanabilirsiniz. Örneğin 
@@ -45,48 +55,60 @@ Türkçede sola dönüş için <tt>sola_don = turn_left</tt> kullanılmalıdır 
 o kullanılmış dikkat ediniz). Bu tanımlamayı yaptıktan sonra Reeborg'u sola 
 döndürmek için <font face="Courier New" size="2">sola_don()</font> komutunu 
 kullanabilirsiniz. </p>
+
 <h3 class="try">Yine sıra sizde!</h3>
+
 <p>Reeborg'u aşağıdaki şekilde olduğu gibi saatin dönüş yönünün 
 tersinde bir 
 kare etrafında dolaşmasını sağlayınız. Başlangıç pozisyonundan itibaren iki adım 
 ileri sonra sola dön ve bunu başlangıç pozisyonuna gelip yüzünü doğuya 
 çevirinceye kadar tekrarla. </p>
-<img alt="left square" src="../../images/intro/left_square2.png"/>
-<h3><font color="#663333">Deney!</font></h3>
+
+<img alt="left square" src="../../images/intro/left_square2.png" />
+
+<h3 class="suggested">>Deney!</font></h3>
+
 <p>Reeborg'a birbirinden farklı çeşitli yolları dolaştırabilirsiniz.</p>
+
 <!--==================================================-->
 <hr class="line" />
+
 <a name="Home" id="Home"></a>
 <h3 class="section">Eve dönüş</h3>
+
 <p>Reeborg ilk çalıştırıldığında birinci cadde ile sokağın kesişimindeki, köşede 
 yüzü doğuya dönük bir şekilde karşınıza gelir. Ekranın en sağındaki "dünya 
 dosyasını Göster/Gizle" <img alt="Show/Hide world file" src=
-"../../images/intro/btn_show_world_file.png"/> butonuna basıldığında ekranın 
+"../../images/intro/btn_show_world_file.png" /> butonuna basıldığında ekranın 
 sağında bazı bilgiler görüntülenir. Bunlardan birisi <tt>robot = (1, 1, 'E', 0</tt><font face="Times New Roman"><tt><font face="Times New Roman">) 
 'dır</font></tt>.</font> Bu Reeborg'un pozisyonunu gösterir. İlk sayı Reeborg'un 
 bulunduğu sokağı, ikinci sayı caddeyi, tırnak içindeki harf Reeborg'un yüzünün 
 hangi yöne doğru baktığını (E = East, Doğu, N = North, Kuzey, W = West, Batı, S = South, 
 Güney) gösterir. Dördüncü sayı (0) Reeborg'un kaç tane bip taşıdığını gösterir; 
 bipleri daha sonra öğreneceğiz.</p>
+
 <p>Daha önceden de bildiğiniz gibi, Reeborg'u yön tuşları ile hareket 
 ettirebilirsiniz. Hareket ettirdiğinizde Reeborg arkasında bir iz bırakmaz. 
 Ancak bir şeye dikkat edin. Reeborg hareket ettikçe  <tt>robot = (...)</tt> 
 değerleri değişerek Reeborg'un yeni pozisyonunu gösterirler.</p>
+
 <h3 class="try">Sıra sizde</h3>
+
 <p>Klavyenizi kullanarak, aşağıda gösterildiği gibi Reeborg'u 3. sokak ile 4. 
 caddenin köşesine yüzü güneye bakacak şekilde yerleştirin. Sonra 
 aşağıdaki ikinci şekilde gösterildiği gibi bir rota takip ederek başlangıç 
 pozisyonuna ulaşmasını sağlayın. Bunu yaptıktan sonra alternatif yolları da 
 düşünebilirsiniz.</p>
-<p><img alt="back home start" src="../../images/intro/back_home_start.png"/>
-<img alt="lead to" src="../../images/lead_to.png"/> <img alt="back home end"
-src="../../images/intro/back_home.png"/></p>
 
-<div class="lessons_toc">
+<p><img alt="back home start" src="../../images/intro/back_home_start.png" />
+<img alt="lead to" src="../../images/lead_to.png" /> <img alt="back home end"
+src="../../images/intro/back_home.png" /></p>
+
+<div class="lessons_nav">
 <a href="5-comments.htm"><img alt="previous" src=
-"../../images/previous.png"/> Açıklamanız var mı? <i>Avez-vous des commentaires?</i></a> - <a href="../lessons_toc.htm"><img alt="home" src=
-"../../images/home.png"/></a> - <a href="7-beepers.htm">Bipler <img alt=
-"next" src="../../images/next.png"/></a>
+"../../images/previous.png" /> Açıklamanız var mı? <i>Avez-vous des commentaires?</i></a> - <a href="../lessons_toc.htm"><img alt="home" src=
+"../../images/home.png" /></a> - <a href="7-beepers.htm">Bipler <img alt=
+"next" src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

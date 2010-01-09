@@ -3,21 +3,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>Amazing - part 1</title>
 </head>
 <body>
 <a name="amazing" id="amazing"></a>
 <h2 class="title">17. Amazing - part 1</h2>
+
 <p>In this multi-part lesson, we are going to write a complete program to
 solve problems of increasing complexity.</p>
+
 <!--===================================================-->
 <hr class="line" />
+
 <h3 class="section">Amazing solution: first steps</h3>
+
 <p>Let us start by considering a simple problem: having Reeborg go around his
 world once, assuming there is no obstacle on the way. We have done this
 before, when we introduced the <tt>front_is_clear()</tt> test. Here's the
 outline of a solution which supposes that Reeborg carries at least one beeper
 at the beginning:</p>
+
 <pre>
 1. Put down a beeper to mark the starting point.
 2. Move forward until facing a wall.
@@ -25,13 +31,17 @@ at the beginning:</p>
 4. Repeat steps 2. and 3. until we find the beeper we had put down.
 5. Turn off when finding the beeper.
 </pre>
+
 <p>The key step is 4, where we have a repeating instruction with a test. This
 instruction can be written as:</p>
+
 <pre>
 <span class="keyword">while not</span> on_beeper():
 </pre>
+
 <p>following which should be steps 2 and 3 Let's now translate the entire
 solution in proper code:</p>
+
 <pre>
 put_beeper()
 <span class="keyword">while not</span> on_beeper():
@@ -42,20 +52,25 @@ put_beeper()
 
 turn_off()
 </pre>
+
 <p>Take the time to think about what the above program instructs Reeborg to
 do, if the starting position is the one illustrated below:</p>
+
 <p><img alt="around the world: start" src=
-"../../images/intro/around1start.png"/></p>
+"../../images/intro/around1start.png" /></p>
+
 <p>We did not get the desired result, which is indicated below. Did you
 figure out why? If not, go back and think about it.</p>
+
 <p><img alt="around the world: start" src=
-"../../images/intro/around1end.png"/></p>
+"../../images/intro/around1end.png" /></p>
+
 <div class="lessons_nav">
 <a href="16-while.htm"><img alt="previous" src=
-"../../images/previous.png"/>For a while</a> - 
+"../../images/previous.png" />For a while</a> - 
 <a href="../lessons_toc.htm"><img alt=
-"home" src="../../images/home.png"/></a> - <a href="18-amazing2.htm">Amazing -
-part 2<img alt="next" src="../../images/next.png"/></a>
+"home" src="../../images/home.png" /></a> - <a href="18-amazing2.htm">Amazing -
+part 2<img alt="next" src="../../images/next.png" /></a>
 </div>
 </body>
 </html>
