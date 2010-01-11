@@ -9,23 +9,32 @@
 </head>
 <body>
 <h2 class="title">21. Uygulama - bölüm 5</h2>
+
 <h3 class="section">Daha karmaşık durumlar</h3>
+
 <p>Aşağıdaki şekilde bir dünya ile karşılaşırsanız: </p>
+
 <p><img alt="around the world: start" src=
-"../../images/intro/around4start.png"/></p>
+"../../images/intro/around4start.png" /></p>
+
 <p>Bir önceki derste yazdığınız program çalışır mı? Deneyin!</p>
+
 <p>Sizin de tahmin ettiğiniz gibi, çalışmıyor. Çalışması için
 <span class="pykeyword">if</span>'i <span class=
 "pykeyword">while </span>ile değiştirmeniz gerekir. Deneyin ve programı 
 kaydedin.</p>
+
 <!--=====================================-->
 <hr class="line" />
+
 <h3 class="section">Amacımız nedir</h3>
+
 <p>Karşılaşabileceğimiz her türlü durumda çalışabilecek bir program oluşturuldu. 
 Bu program Reeborg'un herhangi bir dünyasında bir tur atmasını sağlar. Program 
 kısa ve temiz bir yapıya sahip olmasına rağmen, bunu ilk kez gören birisi için 
 kolay anlaşılır olmayabilir.  Bu programa açıklamalar 
 eklemek anlaşılmasını kolaylaştıracaktır.</p>
+
 <pre>
 <span class="comment"># sağa dönmek için bir tanımlama yapıyoruz.</span>
 <span class="keyword">def</span> turn_right():
@@ -58,14 +67,20 @@ move()
 
 turn_off()
 </pre>
+
 <p>Bu açıklamalar komutlar yardımıyla ne yaptığımızı açıklamasına rağmen 
 problemin çözümünde kullanılan metodun (algoritmanın) açıklanmasını sağlamaz. Bu 
 nedenle bu açıklamalar bu programı okuyan başka bir kişiye umduğumuz kadar 
-yardımcı olmayabilir. Programımız iki kısımdan oluşuyor: <br />
-1) başlangıç noktasını işaretle. <br />
-2) sağdaki duvarı başlangıç noktasına gelinceye kadar takip et. <br />
-Açıklamaları daha farklı yazarak bu iki kısmı daha açıkça ifade edecek şekilde 
+yardımcı olmayabilir. Programımız iki kısımdan oluşuyor: </p>
+
+<ol>
+<li>başlangıç noktasını işaretle. </li>
+<li>sağdaki duvarı başlangıç noktasına gelinceye kadar takip et. </li>
+</ol>
+
+<p>Açıklamaları daha farklı yazarak bu iki kısmı daha açıkça ifade edecek şekilde 
 programı yeniden yazalım. </p>
+
 <pre>
 <span class=
 "comment"># Bu program Reeborg'a dünyasının etrafında bir tur attırır. </span>
@@ -102,16 +117,22 @@ mark_starting_point_and_move()
       
 turn_off()
 </pre>
+
 <p>Bu program daha anlaşılır değil mi? Şimdi programımızı çalıştırdığımızda her 
 köşede bir bip olduğunu varsayalım. Bu durumda başlangıç noktamızı bir bip'i 
 yerinden alarak belirleyebilirdik. Tanımlamalarda ufak değişiklikler yapmamız 
 da gerekirdi ama bulmuş olduğumuz çözümü değiştirmeye gerek kalmazdı. </p>
+
 <!--======================================-->
 <hr class="line" />
+
 <h3 class="try">İlk Sürpriz</h3>
+
 <p>Yukarıdaki programdan  <tt>put_beeper()</tt>
 komutunu kaldırın, kaydedin ve bu programı aşağıdaki engelli koşuda deneyin. (dosya: hurdles3.wld).</p>
-<p><img alt="hurdles" src="../../images/intro/hurdles3_start.png"/></p>
+
+<p><img alt="hurdles" src="../../images/intro/hurdles3_start.png" /></p>
+
 <p>Sürpriz! Bu program engelli koşu problemini çözüyor, tek sıra dışı durum 
 yarışma tamamlandığında Reeborg'un yüzünün farklı bir yöne dönük olması (belki 
 yarışmayı tamamladıktan sonra seyircileri selamlıyordur!) . Bu program aşağıda 
@@ -119,17 +140,26 @@ olduğu gibi birbiriyle eşit olmayan engellerle de çalışır  (dosya: hurdles
 Daha önceden engelli koşu için yazmış olduğumuz programın aşağıdaki durumda 
 çalışmayacağı göz önüne alınırsa oldukça iyi bir iş ortaya çıkarttığımızı 
 söyleyebiliriz. </p>
-<p><img alt="hurdles" src="../../images/intro/hurdles4_start.png"/></p>
+
+<p><img alt="hurdles" src="../../images/intro/hurdles4_start.png" /></p>
+
 <!--======================================-->
 <hr class="line" />
+
 <h3 class="try">Şaşırtıcı sürpriz</h3>
+
 <p>Az önceki programı ilk derslerde bahsettiğimiz labirent problemine uygulayın (dosya: maze1.wld).</p>
-<p><img alt="maze" src="../../images/intro/maze1_start.png"/></p>
+
+<p><img alt="maze" src="../../images/intro/maze1_start.png" /></p>
+
 <p>Göreceğiniz gibi program labirentin çıkışını da bulabiliyor, şaşırtıcı değil 
 mi.</p>
+
 <!--======================================-->
 <hr class="line" />
+
 <h3 class="section">Sonuç</h3>
+
 <p>Basit bir problemin çözümüyle başladık (dikdörtgen bir dünyanın etrafında bir 
 tur atmak) ve bu programı adım adım geliştirerek, görünüşte birbirinden farklı 
 durumlar içeren problemlere çözüm getirdik. Her adımda küçük değişiklikler 
@@ -138,10 +168,12 @@ sonra hala çalışıyor olduğundan emin olduk. Bunun yanında algoritmanın da
 anlaşılabilmesini ve programın daha kolay okunabilir hale gelmesini sağlamak 
 için açıklamalar ve açıklayıcı isimler kullandık. Kendi programlarınızı 
 yazarken sizde böyle bir strateji uygulayın. </p>
+
 <dl>
-<dt><b>Kural # 4</b></dt>
+<dt><b>Kural # 5</b></dt>
 <dd><b>Bir program yazarken takip edilecek adımlar:</b></dd>
 </dl>
+
 <ol>
 <li>basit başla;</li>
 <li>Küçük değişiklikleri bir defada bir tane olacak şekilde ekle; </li>
@@ -150,12 +182,12 @@ yazarken sizde böyle bir strateji uygulayın. </p>
 <li>açıklayıcı adlar seç.</li>
 </ol>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="20-amazing4.htm"><img alt="previous" src=
-"../../images/previous.png"/> Uygulama - bölüm 4</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" /> Uygulama - bölüm 4</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="22-rain.htm">Yağmur Yağıyor! <img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>

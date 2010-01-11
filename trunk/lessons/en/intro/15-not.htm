@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -14,14 +15,16 @@ then turn himself off. An example of a starting position is below:</p>
 
 <img alt="stop at beeper" src="../../images/intro/stop_at_beeper.png" />
 
-<p>One way to do this- in <i>pseudocode</i>- would be as follows:<br/>
-<br/>
-If on beeper,<br/>
-... stop;<br/>
-otherwise,<br/>
-... keep moving.<br/>
-<br/>
-Using what we have seen so far, we could translate this as:</p>
+<p>One way to do this- in <i>pseudocode</i>- would be as follows:<p/>
+
+<pre>
+If on beeper,
+... stop;
+otherwise,
+... keep moving.
+</pre>
+
+<p>Using what we have seen so far, we could translate this as:</p>
 
 <pre>
 <span class="keyword">if</span> on_beeper():
@@ -32,13 +35,15 @@ Using what we have seen so far, we could translate this as:</p>
 
 <p>This is only part of the solution as we have not told Reeborg to keep on
 repeating. Let's ignore this for now. Instead, consider the equivalent
-<i>pseudocode</i> formulation:<br/>
-<br/>
-If not on beeper,<br/>
-...keep moving;<br/>
-otherwise,<br/>
-...stop.<br/>
-</p>
+<i>pseudocode</i> formulation:</p>
+
+<pre>
+If not on beeper,
+...keep moving;
+otherwise,
+...stop.
+</pre>
+
 <p>While we have reversed the order of "keep moving" and "stop", you should
 agree that the two ways are equivalent. The key point is the use of the
 negation <span class="pykeyword">not</span> after the <span class="pykeyword">if</span> in the second case. Python also allows us to
@@ -68,7 +73,7 @@ your jumping hurdle program.</p>
 
 <p>It is spring time. Reeborg's father has seeded the garden for the fall
 harvest. In some places, two seeds have sprouted whereas in others none have.
-A typical situation is shown below (file: harvest4.wld).</p>
+A typical situation is shown below (file: harvest4.wld):</p>
 
 <img alt="weeding" src="../../images/intro/harvest4.png" />
 

@@ -9,38 +9,59 @@
 </head>
 <body>
 <h2 class="title">12. 假如乐跑机器人可以自己决定...</h2>
+
 <p><span class="pykeyword">if</span>, <span class=
 "pykeyword"><small>if</small></span> ...</p>
-这个只是假想吗？
-<p>等等！ 机器人确实可以由自己来做出一些决定。 难道我没有告诉过你们吗？</p>
+
+<p>这个只是假想吗？等等！ 机器人确实可以由自己来做出一些决定。 难道我没有告诉过你们吗？</p>
 
 <!--=================================================-->
 <hr class="line" />
 
 <h3 class="section">第一个决定</h3>
+
 <p>说实话，机器人做决定时确实需要一些帮助：你必须给他一些选择，他才能做决定。 例如，当机器人在一个报警器的右边，所以在屏幕上看起来他就在这个报警器上，你可以给他一些做法的选择：你可以叫他把它捡起来：</p>
+
 <pre>
 <span class="keyword">if</span> on_beeper():
     pick_beeper()
 </pre>
+
 <p>让我们来看看上述代码的意思：</p>
+
 <ul>
-<li> Python 的关键词 <span class="pykeyword">if</span>告诉了机器人某个 <i>条件</i>,  这个条件是<tt>真</tt> 或者 <tt>假</tt>是要被后面的程序用到的。</li>
-<li>当机器人在一个报警器上（屏幕上显示是机器是跟报警器在同一个位置）<tt>on_beeper()</tt>是个值为 <tt>真</tt>的条件，而情况相反时，就为 <tt>假</tt> <br/><span class="important">[注意，在之前rur-ple的版本中，这个命令被称为 <tt>next_to_a_beeper()</tt>]</span></li>
-<li>冒号 (:) 必须放在 <b>当</b> 条件是 <tt>真实</tt>的情况下机器人要遵循的指令的前面。</li>
-<li>如同我们在定义时一样，这一系列的命令是已经预先设定好的。</li>
+<li>
+Python 的关键词 <span class="pykeyword">if</span>告诉了机器人某个 <i>条件</i>,  这个条件是<tt>真</tt> 或者 <tt>假</tt>是要被后面的程序用到的。
+</li>
+<li>
+当机器人在一个报警器上（屏幕上显示是机器是跟报警器在同一个位置）<tt>on_beeper()</tt>是个值为 <tt>真</tt>的条件，而情况相反时，就为 <tt>假</tt> <br /><span class="important">[注意，在之前rur-ple的版本中，这个命令被称为 <tt>next_to_a_beeper()</tt>]</span>
+</li>
+<li>
+冒号 (:) 必须放在 <b>当</b> 条件是 <tt>真实</tt>的情况下机器人要遵循的指令的前面。
+</li>
+<li>
+如同我们在定义时一样，这一系列的命令是已经预先设定好的。
+</li>
 </ul>
+
 <p>这段解释读起来好像很复杂，但事实上使用 <span class="pykeyword">if</span> 命令是很简单的. 让我们在一个简单例子中看看。 假设我们希望机器人走9步，并且要把所有沿途的报警器都捡起来。 （假设在每一点上最多只有一个报警器。）例如，开始的时候，乐跑的位置可能如下所示：</p>
+
 <img alt="move_pick_start" src="../../images/intro/move_pick_start.png" />
+
 <p>我们希望乐跑最后的位置在:</p>
-<p><img alt="move_pick_start" src="../../images/intro/move_pick_end.png" /></p>
+
+<img alt="move_pick_start" src="../../images/intro/move_pick_end.png" />
+
 <p>所以，我们希望机器人要做的是：</p>
+
 <ul>
 <li>向前走一步；</li>
 <li>检查是否有报警器；</li>
 <li>如果有一个报警器，则将它捡起来；否则继续前进；</li>
 </ul>
+
 <p>重复以上的步骤9次。 记住，当地上没有报警器而我们命令机器人执行捡这个动作时，他就会停下来不再继续执行命令。 如下是我们要做的：</p>
+
 <pre>
 <span class="keyword">def</span> move_and_pick():
     move()
@@ -50,21 +71,25 @@
 repeat(move_and_pick, 9)
 turn_off()
 </pre>
+
 <p><b>轮到你了</b></p>
 
 <!--==================================================-->
 <hr class="line" />
 
 <h3 class="try">小实验：又是丰收时刻了！</h3>
+
 <p>哈哈，又是丰收的季节了！ 这次，并不是所有的种子都发芽了，并且一些胡萝卜不见了。 让机器人捡起花园里所有的胡萝卜（用报警器来显示）, 现在大家打开世界文档harvest3.wld. 回头看看上次做的实验。你所有要做的就是改变命令 <tt>harvest_one_row()</tt>使得它看起来类似于上面的<tt>move_and_pick()</tt>的命令; 然而，很可能你需要更多的修改。 [例如，在我的收获练习的解决问题中，我已经定义了一个 <tt>pick_and_move()</tt> 命令，这也需要一些细微的修改。]</p>
-<p><img alt="harvest start" src="../../images/intro/harvest3.png" /></p>
+
+<img alt="harvest start" src="../../images/intro/harvest3.png" />
+
 <p>注意，你的新程序应该 <b>也和</b> 我们之前用的世界文档harvest1.wld一样让乐跑运作起来。 试试看吧！</p>
 
 <div class="lessons_nav">
 <a href="11-repeat.htm"><img alt="previous" src=
 "../../images/previous.png" />再一次避免重复</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
-"13-else.htm">听我的 ... 否则 ....(<img alt="next" src=
+"13-else.htm">听我的 ... 否则 ....<img alt="next" src=
 "../../images/next.png" /></a>
 </div>
 </body>

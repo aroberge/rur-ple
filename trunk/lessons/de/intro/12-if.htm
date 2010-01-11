@@ -1,40 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>12. Reeborg entscheidet.</title>
+
+<title>Reeborg entscheidet.</title>
 </head>
 <body>
 <h2 class="title">12. Reeborg entscheidet.</h2>
+
+<p><span class="pykeyword">if</span>, <span class=
+"pykeyword"><small>if</small></span> ...</p>
+
 <p>Reeborg kann selbständig einige Entscheidungen treffen. Habe ich dir das
 nicht gesagt?</p>
+
 <!--=================================================-->
 <hr class="line" />
+
 <h3 class="section">Erste Entscheidungen</h3>
+
 <p>Um bei der Wahrheit zu bleiben: Reeborg braucht etwas Hilfe beim
 Entscheiden; du musst ihm einen begrenzten Entscheidungsspielraum geben.
 Beispiel: Wenn Reeborg bei einem Piepser steht, kannst du ihn wählen lassen, was
 zu tun ist. Du könntest ihn folgendermaßen auffordern, den Piepser aufzuheben:
 </p>
+
 <pre>
 <span class="keyword">if</span> on_beeper():
     pick_beeper()
 </pre>
+
 <p>Werfen wir einen Blick auf den obigen Quelltext:</p>
+
 <ul>
-<li>Das Schlüsselwort <span class="pykeyword">if</span> (wenn) sagt
+<li>
+Das Schlüsselwort <span class="pykeyword">if</span> (wenn) sagt
 Reeborg, dass als nächstes eine <i>Bedingung</i> mit dem Wert <tt>True</tt>
-(Wahr) oder <tt>False</tt> (Falsch) folgt.</li>
-<li><tt>on_beeper()</tt> ist eine Bedingung (oder ein Test), die <tt>True</tt>
+(Wahr) oder <tt>False</tt> (Falsch) folgt.
+</li>
+<li>
+<tt>on_beeper()</tt> ist eine Bedingung (oder ein Test), die <tt>True</tt>
 ergibt, wenn Reeborg bei einem Piepser steht und sonst <tt>False</tt>.
-<br/><span class="important"> Dieser Test hieß in früheren Versionen 
-<tt>next_to_a_beeper()</tt></span></li>
-<li>Der Doppelpunkt leitet eine Folge von Anweisungen ein, die Reeborg
-ausführen muss, wenn die Bedingung <tt>True</tt> ist.</li>
-<li>Die Folge von Anweisungen ist eingerückt, genau wie bei den Definitionen.
+<br /><span class="important"> Dieser Test hieß in früheren Versionen 
+<tt>next_to_a_beeper()</tt></span>
+</li>
+<li>
+Der Doppelpunkt leitet eine Folge von Anweisungen ein, die Reeborg
+ausführen muss, wenn die Bedingung <tt>True</tt> ist.
+</li>
+<li>
+Die Folge von Anweisungen ist eingerückt, genau wie bei den Definitionen.
 </li>
 </ul>
+
 <p>Diese Erklärung mag vielleicht kompliziert klingen, wenn du sie liest,
 aber es ist wirklich ganz einfach eine
 <span class="pykeyword">if</span>-Anweisung zu verwenden. Schauen wir uns ein
@@ -42,20 +62,25 @@ einfaches Beispiel an. Angenommen, Reeborg soll 9 Schritte gehen und dabei alle
 Piepser aufheben, die am Weg liegen (Wir setzen voraus, dass an jeder Kreuzung
 höchstens ein Piepser liegen kann). Die Startposition könnte zum Beispiel so
 aussehen:</p>
-<p><img alt="move_pick_start" src="../../images/intro/move_pick_start.png"/>
-</p>
+
+<img alt="move_pick_start" src="../../images/intro/move_pick_start.png" />
+
 <p>und die Endposition so:</p>
-<p><img alt="move_pick_start" src="../../images/intro/move_pick_end.png"/></p>
+
+<img alt="move_pick_start" src="../../images/intro/move_pick_end.png" />
+
 <p>Nun wollen wir Reeborg auffordern</p>
+
 <ul>
 <li>einen Schritt vorwärts zu machen,</li>
 <li>zu prüfen, ob an der neuen Position ein Piepser vorhanden ist,</li>
-<li>den Piepser aufzuheben, falls vorhanden,</li>
-<li>weiter zu gehen.</li>
+<li>den Piepser aufzuheben, falls vorhanden, weiter zu gehen.</li>
 </ul>
+
 <p>Diese Anweisungsfolge wiederholen wir 9mal. Denk dran, dass Reeborg sich
 beschwert und abschaltet , wenn wir ihn auffordern, da einen Piepser aufzuheben
 wo keiner ist. Das können wir so handhaben:</p>
+
 <pre>
 <span class="keyword">def</span> move_and_pick():
     move()
@@ -65,10 +90,14 @@ wo keiner ist. Das können wir so handhaben:</p>
 repeat(move_and_pick, 9)
 turn_off()
 </pre>
+
 <p><b>Probier's aus!</b></p>
-<hr class="line" />
-<!--==================================================-->
+
+<!--=====================================================-->
+<hr class="line"  />
+
 <h3 class="try">Schon wieder Erntezeit!</h3>
+
 <p>Es ist schon wieder Erntezeit! Aber diesmal sind nicht alle Samen aufgegangen
 und ein paar Möhren fehlen. Lass Reeborg alle Möhren (durch Piepser dargestellt)
 in diesem Garten aufheben. Die Weltdatei heißt harvest3.wld. Schau dir deine
@@ -78,15 +107,18 @@ wie die obige <tt>move_and_pick()</tt>-Anweisung; aber vielleicht brauchst du
 noch eine Änderung. (In meiner Übung hatte ich zum Beispiel eine
 <tt>pick_and_move()</tt>-Anweisung definiert, die ich auch ein bisschen ändern
 musste.)</p>
-<p><img alt="harvest start" src="../../images/intro/harvest3.png"/></p>
+
+<img alt="harvest start" src="../../images/intro/harvest3.png"/ >
+
 <p>Beachte,  das unser neues Programm  <b>ohne Änderungen</b> mit der Weltdatei 
 harvest1.wld funktionieren muss, die wir vorher benutzt haben. Probier's aus!</p>
-<div class="lessons_toc">
+
+<div class="lessons_nav">
 <a href="11-repeat.htm"><img alt="previous" src=
-"../../images/previous.png"/>11. Noch mal! Wiederholungen vermeiden</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
-"13-else.htm">13. Reeborg entscheidet anders.<img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/previous.png" />Noch mal! Wiederholungen vermeiden</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
+"13-else.htm">Reeborg entscheidet anders.<img alt="next" src=
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>

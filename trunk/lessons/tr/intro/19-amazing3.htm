@@ -9,16 +9,18 @@
 </head>
 <body>
 <h2 class="title">19. Uygulama - Bölüm 3</h2>
+
 <p>Az önceki program beklendiği gibi çalışmaz. Reeborg'un etrafında duvar yoksa 
 sonsuz döngüye girecektir ve sürekli etrafında dönecektir. Bunu sağa döndükten 
 sonra bir <tt>move()</tt>komutu ekleyerek düzeltebiliriz:</p>
+
 <pre>
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
 
 put_beeper()
 move()
-<span class="keyword">while not</span> next_to_a_beeper():
+<span class="keyword">while not</span> on_beeper():
     <span class="keyword">if</span> right_is_clear():
         turn_right()
         move()
@@ -29,23 +31,27 @@ move()
 
 turn_off()
 </pre>
+
 <!--================================================-->
 <hr class="line" />
+
 <h3 class="section">Daha karmaşık bir dünya</h3>
+
 <p>Eğer aşağıdaki gibi bir dünyada yukarıdaki programı denerseniz program doğru 
 çalışır mı?</p>
+
 <p><img alt="around the world: start" src=
-"../../images/intro/around3start.png"/></p>
+"../../images/intro/around3start.png" /></p>
+
 <p>Cevabınız hayır olmalı, bir sonraki derse geçmeden bunun nedenini bulmaya 
 çalışın.</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="18-amazing2.htm"><img alt="previous" src=
-"../../images/previous.png"/> Uygulama - bölüm 2</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" /> Uygulama - bölüm 2</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="20-amazing4.htm">Uygulama - bölüm 4 <img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>
-

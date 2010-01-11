@@ -4,54 +4,70 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>24. Reeborg lernt Addieren.</title>
+
+<title>Reeborg lernt Addieren</title>
 </head>
 <body>
 <h2 class="title">24. Reeborg lernt Addieren.</h2>
+
 <p>In dieser Lektion werde ich dich anleiten, Reeborg mit einem Programm zwei
 Zahlen addieren zu lassen. Wir werden das auf die übliche Art und Weise mit
 Dezimalzahlen tun, aber das Programm kann auch mit anderen Zahlendarstellungen
 umgehen! Zum Beispiel mit Binärzahlen, die nur die Ziffern 0 und 1 haben und mit
 denen die Recheneinheiten der Computer arbeiten.</p>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="try">Aufwärmen</h3>
+
 <ol>
-<li>Schreibe ein Programm, mit dem Reeborg 3+2 addiert:<br/>
-<img alt="3+2" src="../../images/intro/add3_2_start.png"/><img alt="lead to"
-src="../../images/lead_to.png"/> <img alt="5" src=
-"../../images/intro/add3_2_end.png"/><br/>
+<li>
+Schreibe ein Programm, mit dem Reeborg 3+2 addiert:<br />
+<img alt="3+2" src="../../images/intro/add3_2_start.png" /><img alt="lead to"
+src="../../images/lead_to.png" /> <img alt="5" src=
+"../../images/intro/add3_2_end.png" /><br />
 Schreibe es so, dass es auch mit anderen Zahlen funktioniert, zum Beispiel mit
-1+4.</li>
-<li>Ändere dein Programm, damit Reeborg 13+22 so addieren kann, dass jeder
-Piepser-Stapel eine Ziffer darstellt.<br/>
-<img alt="13+22" src="../../images/intro/add13_22_start.png"/><img alt=
-"lead to" src="../../images/lead_to.png"/> <img alt="35" src=
-"../../images/intro/add13_22_end.png"/><br/></li>
-<li>Kannst du ein Programm schreiben, so dass Reeborg immer noch 3+2 addieren
-kann, aber auch 8+4 wie hier gezeigt?<br/>
-<p><img alt="8+4" src="../../images/intro/add8_4_start.png"/><img alt=
-"lead to" src="../../images/lead_to.png"/> <img alt="12" src=
-"../../images/intro/add8_4_end.png"/></p>
-<br/>
+1+4.
+</li>
+<li>
+Ändere dein Programm, damit Reeborg 13+22 so addieren kann, dass jeder
+Piepser-Stapel eine Ziffer darstellt.<br />
+<img alt="13+22" src="../../images/intro/add13_22_start.png" /><img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="35" src=
+"../../images/intro/add13_22_end.png" />
+</li>
+<li>
+Kannst du ein Programm schreiben, so dass Reeborg immer noch 3+2 addieren
+kann, aber auch 8+4 wie hier gezeigt?<br />
+<img alt="8+4" src="../../images/intro/add8_4_start.png" /><img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="12" src=
+"../../images/intro/add8_4_end.png" /><br />
 Dein neues Programm sollte auch 2+5 und 9+9 korrekt addieren können. Kannst du
 dir vorstellen, wie das geht? Wenn ja, versuche es ... Aber wenn nicht, verliere
-nicht den Mut, lies einfach weiter ...</li>
+nicht den Mut, lies einfach weiter ...
+</li>
 </ol>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="section">Ein Rückblick auf die Addition</h3>
+
 <p>Wir wollen zwei Nummern auf "traditionelle Art" addieren, von rechts nach
 links:</p>
+
 <pre>
   528
 + 634
 ------
    12  # Zuerst die Einer (8+4) addieren
 </pre>
+
 <p>Wir müssen eine "1" in die Zehnerspalte übertragen. Dieser "Übertrag" ist 
 höchstwahrscheinlich die Stelle, an der dein Programm Probleme hatte. Wir wollen
 es "schulmäßig" neu schreiben und fortfahren.</p>
+
 <pre>
   528
 + 634
@@ -59,19 +75,26 @@ es "schulmäßig" neu schreiben und fortfahren.</p>
 ------
  1162  
 </pre>
+
 <p>OK, das war ein bisschen knapp, aber ich denke, du konntest mir folgen. Diese
 Addition soll in Reeborgs Welt so aussehen:</p>
-<p><img alt="adding start" src="../../images/intro/add_start.png"/><img alt=
-"lead to" src="../../images/lead_to.png"/> <img alt="adding end" src=
-"../../images/intro/add_end.png"/></p>
+
+<p><img alt="adding start" src="../../images/intro/add_start.png" /><img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="adding end" src=
+"../../images/intro/add_end.png" /></p>
+
 <p>Zuerst nehmen wir das einfachere Problem der Addition von 8+4 in Angriff.</p>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="section">Addition von 8+4 mit der Basis 10</h3>
+
 <p><span class="warning">Warnung:</span> Die folgende Übung mag ein bisschen
 schwierig sein und ist eher als eine Herausforderung gedacht. Lies den Rest dieser
 Lektion und entscheide selbst, ob du dich daran versuchen willst oder diesen
 Teil überspringen und mehr über Python lernen möchtest.</p>
+
 <p>Wie schon erwähnt, müssen wir uns bei der Piepser-Addition zweier Zahlen um
 das Problem des Übertrags kümmern, wenn die Summe zweier Ziffern größer als 9
 (bei Dezimalzahlen) ist, denn jeder Piepser-Stapel stellt eine Ziffer dar und
@@ -80,87 +103,123 @@ Zahl (10) im Auge behalten, egal, welche Zahlen wir addieren. Ich habe eine
 Welt (Datei: adding_world.wld) hergestellt, die groß genug ist, um zwei Zahlen
 mit 7 Ziffern zu addieren. Lade diese Weltdatei und ich werde dich anleiten,
 ein Programm zu schreiben, das korrekt addieren kann.</p>
+
 <p>Nachdem du die Weltdatei geladen hast, kannst du am unteren Rand des
 RURPLE-Fensters sehen, dass Reeborg 8 Piepser trägt. Schreibe ein Programm, das
 Reeborg eine Reihe Piepser an jeder Ecke der 10. Straße ablegen läßt, wie unten
 gezeigt (Du kannst Reeborg in diesem Bild nicht sehen, weil ich ihn mit der
 Tastatur weggeschoben habe).</p>
+
 <p><img alt="line of beepers accross 10th street" src=
-"../../images/intro/accross10.png"/></p>
-<p>Jetzt solltest du dieses Programm unbedingt speichern, bevor du weitermachst.
-<br/>
-<br/>
+"../../images/intro/accross10.png" /></p>
+
+<p>Jetzt solltest du dieses Programm unbedingt speichern, bevor du weitermachst.<br />
+<br />
 Lade die Weltdatei noch einmal, so dass die Welt wieder leer ist und Reeborg am
 Ausgangspunkt Ecke 1. Weg / 1. Straße steht. Lege rechts unten Piepser ab, so
 dass die Welt folgendermaßen aussieht:</p>
-<p><img alt="8+4" src="../../images/intro/add8_4_newstart.png"/></p>
+
+<p><img alt="8+4" src="../../images/intro/add8_4_newstart.png" /></p>
+
 <p>Lass Reeborg folgendes tun:</p>
+
 <ol>
-<li>Lege wie zuvor eine eine Reihe Piepser an jeder Ecke der 10. Straße ab.
+<li>
+Lege wie zuvor eine eine Reihe Piepser an jeder Ecke der 10. Straße ab.
 </li>
-<li>Gehe an den unteren Rand der Reeborg-Welt und sammle die beiden Stapel (8
-und 4) auf.</li>
-<li>Verteile diese 12 Piepser auf einer senkrechten Spalte, wie unten gezeigt.
+<li>
+Gehe an den unteren Rand der Reeborg-Welt und sammle die beiden Stapel (8
+und 4) auf.
+</li>
+<li>
+Verteile diese 12 Piepser auf einer senkrechten Spalte, wie unten gezeigt.
 </li>
 </ol>
+
 <p><img alt="8+4 spread vertically" src=
-"../../images/intro/vertical12.png"/></p>
+"../../images/intro/vertical12.png" /></p>
+
 <p>Jetzt haben wir zwei Piepser über der waagrechten Piepser-Linie (die Einser
 in der Zahl 12) und einen extra Piepser auf der waagrechten Linie (den wir als 
-Übertrag benutzen können). Nun bleibt folgendes zu tun:
-</p>
+Übertrag benutzen können). Nun bleibt folgendes zu tun:</p>
+
 <ol>
-<li>Lass Reeborg die 9 Piepser unter der waagrechten Piepser-Linie aufheben und
+<li>
+Lass Reeborg die 9 Piepser unter der waagrechten Piepser-Linie aufheben und
 dann wegwerfen (vielleicht, indem du sie alle auf der waagrechten Piepser-Linie
 ablegst); das kannst du durch Wiederholung folgender Schritte erreichen:
 <ol>
-<li>Einen Piepser aufheben</li>
-<li>Testen, ob noch ein Piepser zum Aufheben da ist; wenn nicht</li>
-<li>bewegen (move) ... bis Reeborg eine Ecke erreicht, an der es noch mal einen 
-Piepser zum Aufheben gibt ...</li>
+<li>
+Einen Piepser aufheben
+</li>
+<li>
+Testen, ob noch ein Piepser zum Aufheben da ist; wenn nicht
+</li>
+<li>
+bewegen (move) ... bis Reeborg eine Ecke erreicht, an der es noch mal einen 
+Piepser zum Aufheben gibt ...
+</li>
 </ol>
 Dann hast du die waagrechte Piepser-Linie erreicht. Du kannst Reeborg alle
-Piepser an dieser Ecke ablegen lassen.</li>
-<li>Lass Reeborg mindestens so weit nach Norden gehen, bis er am letzten Piepser
-vorbei ist, wie hier dargestellt:<br/>
-<br/>
-<p><img alt="8+4" src="../../images/intro/add8_4_middle.png"/><br/></p>
+Piepser an dieser Ecke ablegen lassen.
 </li>
-<li>Lass Reeborg umkehren, <b>einen</b> Piepser aufheben und einen Schritt
+<li>
+Lass Reeborg mindestens so weit nach Norden gehen, bis er am letzten Piepser
+vorbei ist, wie hier dargestellt:<br />
+<br />
+<img alt="8+4" src="../../images/intro/add8_4_middle.png" />
+</li>
+<li>
+Lass Reeborg umkehren, <b>einen</b> Piepser aufheben und einen Schritt
 weitergehen. Wiederhole das, bis Reeborg eine Ecke erreicht, an der es keinen
 Piepser mehr gibt (unterhalb der waagrechten Linie); an diesem Punkt sollte
-Reeborg drei Piepser tragen.</li>
-<li>Lass Reeborg diese Piepser nach unten tragen, bis er die Weltgrenze 
-erreicht;</li>
-<li>Lass Reeborg sie alle (3) ablegen, einen aufheben (den Übertrag), nach
-Westen gehen und den Übertrag-Piepser ablegen.</li>
+Reeborg drei Piepser tragen.
+</li>
+<li>
+Lass Reeborg diese Piepser nach unten tragen, bis er die Weltgrenze 
+erreicht;
+</li>
+<li>
+Lass Reeborg sie alle (3) ablegen, einen aufheben (den Übertrag), nach
+Westen gehen und den Übertrag-Piepser ablegen.
+</li>
 </ol>
-Jetzt bleibt nur noch, Reeborg beiseite zu bewegen, um das Ergebnis anzuzeigen!
-<br/>
-<br/>
-<p><img alt="8+4" src="../../images/intro/add8_4_end.png"/></p>
+
+<p>Jetzt bleibt nur noch, Reeborg beiseite zu bewegen, um das Ergebnis anzuzeigen!</p>
+
+<p><img alt="8+4" src="../../images/intro/add8_4_end.png" /></p>
+
 <p>Nun ... diese fünf Schritte, die ich da beschrieben habe, erfordern eine 
 ganze Menge Code, und du findest es vielleicht ein bisschen schwierig, es
 hinzukriegen. Aber du schaffst es, wenn du systematisch vorgehst. Probier's
 aus!</p>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="suggested">3+5 addieren</h3>
+
 <p>So, endlich hast du dein Programm dazu gebracht, 8+4 auszurechnen. Großartig!
 Jetzt teste es mit 3+5. Klappt es? Kann sein, dass nicht ... denn diese Rechnung
 braucht keinen Übertrag. Kannst du dir vorstellen, wie das geht? Vielleicht
 schaffst du es mit dem, was du bislang gelernt hast. Für die Lösung, die
 <i>ich</i> geschrieben habe, benutzte ich ein Schlüsselwort, das wir noch nicht
 hatten: <span class="pykeyword">break</span>. </p>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="suggested">Letzte Herausforderung</h3>
+
 <p>Wenn du dich mit anderen Zahlendarstellungen auskennst (binär, oktal,
 hexadezimal), versuche, dein Programm so abzuändern, das es mit ihnen arbeiten
 kann.</p>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="section">Wie geht's weiter?</h3>
+
 <p>Bislang haben wir in Reeborgs Welt folgende Schlüsselwörter kennen gelernt:
 <span class="pykeyword">def, elif, else, if, not, pass, while</span>. Wir haben
 zuletzt ein ziemlich kompliziertes Programm geschrieben, so dass Reeborg zwei
@@ -169,12 +228,12 @@ wie wir mit "reinem" Python zwei Zahlen viel leichter addieren können. Mach dir
 keine Sorgen: wir werden von Zeit zu Zeit in Reeborgs Welt zurückkehren und
 sehen, wie wir mit unserem erweiterten Python-Wissen Reeborg helfen können.</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="23-trash.htm"><img alt="previous" src=
-"../../images/previous.png"/>23. Nach dem Sturm</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
-"../inter/25-interpreter.htm">25. Mit Python addieren<img alt="next"
-src="../../images/next.png"/></a>
+"../../images/previous.png" />Nach dem Sturm</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
+"../inter/25-interpreter.htm">Mit Python addieren<img alt="next"
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
@@ -10,62 +10,91 @@
 <body>
 <h2 class="title">12. <span class="pykeyword">If</span> Eğer Reeborg kendi 
 kendine karar verebilseydi...</h2>
+
 <p><span class="pykeyword">if</span>, <span class=
 "pykeyword"><small>if</small></span> ...</p>
+
 <p>Bir dakika! Reeborg bazı kararlar alabilir. Bunu size söylememiş miydim?</p>
+
 <!--=================================================-->
 <hr class="line" />
+
 <h3 class="section">İlk kararlar</h3>
+
 <p>Doğruyu söylemek gerekirse Reeborg'un karar vermek için biraz yardıma 
 ihtiyacı var: neye karar vereceğini belirlemek için ona seçenekler 
 sunmalısınız. Örneğin, Reeborg bir bip'in yanında olduğunda bip'i almasını 
 aşağıdaki kodla sağlayabilirsiniz: </p>
+
 <pre>
-<span class="keyword">if</span> next_to_a_beeper():
+<span class="keyword">if</span> on_beeper():
     pick_beeper()
 </pre>
+
 <p>Yukarıdaki kodun ne anlama geldiğini açıklayalım: </p>
+
 <ul>
-<li>Python komutu <span class="pykeyword">if </span> Reeborg'a bir <i>koşul</i> 
+<li>
+Python komutu <span class="pykeyword">if </span> Reeborg'a bir <i>koşul</i> 
 olduğunu söyler; koşul <tt>True</tt>(doğru) ya da <tt>False</tt>(yanlış) değerini 
 alır. </li>
-<li><tt>next_to_a_beeper()</tt> bir koşuldur (veya testtir de diyebiliriz) ve 
+<li>
+<tt>on_beeper()</tt> bir koşuldur (veya testtir de diyebiliriz) ve 
 eğer Reeborg bir bip ile aynı pozisyonda ise <tt>True </tt> (doğru) farklı 
-pozisyonda ise <tt>False</tt>(yanlış) değerini alacaktır.</li>
-<li>İki nokta üst üste (:) den sonra içe girik olarak yazılan kodlar eğer koşul <tt>True </tt> 
-(doğru) ise yerine getirilecektir.</li>
+pozisyonda ise <tt>False</tt>(yanlış) değerini alacaktır.
+</li>
+<li>
+İki nokta üst üste (:) den sonra içe girik olarak yazılan kodlar eğer koşul <tt>True </tt> 
+(doğru) ise yerine getirilecektir.
+</li>
+<li>
+The series of instructions to follow in that case is indented, just like
+we had in the case of definitions.
+</li>
 </ul>
+
 <p>Bu açıklamayı okuduğunuzda biraz karışık gibi gözükebilir, ancak  <span class="pykeyword">if</span> 
 yapısını kullanmak oldukça kolaydır. Basit bir örnekle açıklamaya çalışalım. 
 Reeborg'a 9 adım attırmak istediğimizi ve adımlarını atarken yolunun üstündeki 
 bipleride toplamasını istediğimizi düşünelim. (Bir pozisyonda en çok bir bip 
 olduğunu varsayıyoruz) Mesela başlangıç pozisyonu aşağıdaki gibi olsun:</p>
-<img alt="move_pick_start" src="../../images/intro/move_pick_start.png"/>
+
+<img alt="move_pick_start" src="../../images/intro/move_pick_start.png" />
+
 <p>ve tamamladığında pozisyonunun aşağıdaki gibi olmasını istediğimizi 
 varsayalım.</p>
-<p><img alt="move_pick_start" src="../../images/intro/move_pick_end.png"/></p>
+
+<img alt="move_pick_start" src="../../images/intro/move_pick_end.png" />
+
 <p>Yani Reeborgtan şunu yapmasını istiyoruz:</p>
+
 <ul>
 <li>Bir adım ileriye at;</li>
 <li>Bir bip olup olmadığını kontrol et;</li>
 <li>Eğer bip varsa onu al; yoksa yoluna devam et;</li>
 </ul>
+
 <p>bunu 9 kere tekrarla. Eğer Reeborg'a bip bulunmayan bir yerdeyken bip'i 
 almasını isterseniz bir hata ile karşılaştığınızı unutmayın! Bunu şu şekilde 
 yaptırabiliriz:</p>
+
 <pre>
 <span class="keyword">def</span> move_and_pick():
     move()
-    <span class="keyword">if</span> next_to_a_beeper():
+    <span class="keyword">if</span> on_beeper():
         pick_beeper()
 
 repeat(move_and_pick, 9)
 turn_off()
 </pre>
+
 <p><b>Bunu deneyin!</b></p>
-<hr class="line" />
+
 <!--==================================================-->
+<hr class="line" />
+
 <h3 class="try">Hasat zamanı Tekrar!</h3>
+
 <p>Yine hasat zamanı. Ama bu defa bazı havuçlar eksik. Reeborg'un bahçesindeki 
 tüm havuçları toplamasını sağlayın. Dünya dosyası harvest3.wld. 
 Bundan iki önce yaptığınız hasat zamanı alıştırmasına bakın. Değiştirmeniz 
@@ -74,17 +103,17 @@ gereken tek şey  <tt>harvest_one_row()</tt> tanımlamasını yukarıdaki
 değişikliğede ihtiyacınız olabilir.  [Örneğin benim hasat zamanı problemi 
 çözümümde, <tt>pick_and_move()</tt>tanımlaması yaptım ve bir kaç küçük 
 değişiklik gerekli oldu.]</p>
-<p><img alt="harvest start" src="../../images/intro/harvest3.png"/></p>
+
+<img alt="harvest start" src="../../images/intro/harvest3.png" />
 <p>Yeni yazdığınız program harvest1.wld dosyası ile de çalışmalıdır, deneyin. </p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="11-repeat.htm"><img alt="previous" src=
-"../../images/previous.png"/>  Tekrardan kaçının, tekrar!</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" />  Tekrardan kaçının, tekrar!</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="13-else.htm">Beni dinle yoksa  ... or else
 ....<img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>
-

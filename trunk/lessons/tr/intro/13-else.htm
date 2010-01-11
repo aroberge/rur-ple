@@ -10,36 +10,50 @@
 <body>
 <h2 class="title">13. Beni dinle yoksa ... <span class="pykeyword">else</span>
 ...</h2>
+
 <p>Programlamayı öğrenmek eğlenceli olabilir, ancak tüm zamanınızı bilgisayarın 
 karşısında harcamayın. Eğer yağmur yağıyorsa çalışmaya devam edin, yağmıyorsa 
 dışarıya çıkın ve oynayın. (Evet, büyükbaba sende!)</p>
+
 <!--===========================================-->
 <hr class="line" />
+
 <h3 class="section">Seçimleri yapmak</h3>
+
 <p><b>If</b> ile başlayan cümle ile biraz eğlenelim.</p>
-<p><b>If</b> yağmur yağarsa,<br />
-... çalışmaya devam et,<br />
-<b>değilse</b>,<br />
-... dışarı çık ve oyna!</p>
+
+<pre>
+<b>If</b> yağmur yağarsa,
+... çalışmaya devam et,
+<b>değilse</b>,
+... dışarı çık ve oyna!
+</pre>
+
 <p>Bu küçük bir bilgisayar programı gibi gözükmeye başladı. Şimdi onu bir 
 Python 
 programı gibi yazalım. </p>
+
 <pre>
 <span class="keyword">if</span> it_rains():
     keep_reading()
 <span class="keyword">else</span>:
     go_outside_and_play()
 </pre>
+
 <p>Yeni bir Python komutu öğrendiniz, <span class=
 "pykeyword">else</span>. Eğer yağmur yağıyorsa, okumaya devam edin, yağmıyorsa 
 ne yapacağınızı biliyorsunuz.</p>
+
 <!--======================================-->
 <hr class="line" />
+
 <h3 class="section">Reeborg görüyor</h3>
+
 <p>Reeborg biplerin yanında olduğunu anlamasının yanı sıra, önünde yolunu 
 kapatan bir duvar olup olmadığını da görebilir. Kafasını sağa yada sola çevirip 
 orada bir duvar olup olmadığını da görebilir. Aşağıdaki şartları kullanarak 
 bunları test edebilirsiniz. </p>
+
 <pre>
 front_is_clear()  <span class=
 "comment"># True eğer duvar yoksa, False eğer duvar varsa</span>
@@ -48,9 +62,11 @@ left_is_clear() <span class=
 right_is_clear()<span class=
 "comment">  # True eğer sağında duvar yoksa, False eğer sağında duvar varsa</span>
 </pre>
+
 <p>İlkini Reeborg'un dünyasını keşfetmek için kullanalım. Reeborg eğer önünde 
 engel yoksa bir adım ileriye gidecek, varsa sola dönecek. Aşağıdaki program ile 
 bunu yaptırabiliriz:</p>
+
 <pre>
 <span class="keyword">if</span> front_is_clear():
     move()
@@ -59,16 +75,21 @@ bunu yaptırabiliriz:</p>
       
 turn_off()
 </pre>
+
 <p>Aşağıdaki resimlerde programın iki farklı durumda çalıştırılmış halini 
 görüyorsunuz. Eğer bu programı denerseniz  <span class="pykeyword">else</span> komutundan 
 sonraki <b>:</b> 'yı unutmayın!.</p>
-<p><img alt="start if" src="../../images/intro/if1start.png"/> <img alt=
-"lead to" src="../../images/lead_to.png"/> <img alt="end if" src=
-"../../images/intro/if1end.png"/></p>
-<p><img alt="start if" src="../../images/intro/if2start.png"/> <img alt=
-"lead to" src="../../images/lead_to.png"/> <img alt="end if" src=
-"../../images/intro/if2end.png"/></p>
+
+<p><img alt="start if" src="../../images/intro/if1start.png" /> <img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="end if" src=
+"../../images/intro/if1end.png" /></p>
+
+<p><img alt="start if" src="../../images/intro/if2start.png" /> <img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="end if" src=
+"../../images/intro/if2end.png" /></p>
+
 <p>Şimdi bu programı 20 kez üst üste tekrarlatalım: </p>
+
 <pre>
 <span class="keyword">def</span> move_or_turn():
     <span class="keyword">if</span> front_is_clear():
@@ -79,11 +100,15 @@ sonraki <b>:</b> 'yı unutmayın!.</p>
 repeat(move_or_turn, 20)      
 turn_off()
 </pre>
+
 <p>Aşağıdaki küçük dünyada bu programın uygulanmış halini görüyorsunuz. </p>
-<p><img alt="around" src="../../images/intro/around1.png"/></p>
+
+<p><img alt="around" src="../../images/intro/around1.png" /></p>
+
 <p>Bu programı daha ilginç bir hale getirebiliriz. Reeborg eğer önünde engel 
 yoksa dans edecek (4 kez sola dönerek) sonra bir adım ileriye gidecek, varsa 
 sola dönecek ve bir bip bırakacak Aşağıdaki program ile bunu yaptırabiliriz:</p>
+
 <pre>
 <span class="keyword">def</span> dance():
     repeat(turn_left, 4)
@@ -98,9 +123,10 @@ sola dönecek ve bir bip bırakacak Aşağıdaki program ile bunu yaptırabiliri
 repeat(move_or_turn, 18)      
 turn_off()
 </pre>
+
 <p>Reeborg'un bu görevi yerine getirmek için yeterli sayıda bip'i olduğundan 
 emin olun. Reeborg'a yeterli sayıda bip vermek için
-<img alt="beepers button" src="../../images/intro/btn_beepers.png"/> butonunu 
+<img alt="beepers button" src="../../images/intro/btn_beepers.png" /> butonunu 
 kullanabilirsiniz. </p>
 
 <p> <tt>dance()</tt> ve <tt>move()</tt>komutlarının ait oldukları <span class="pykeyword">if</span> 
@@ -109,10 +135,13 @@ onların aynı bloğa ait olduğunu gösterir. Benzer şekilde<tt> turn_left()</
 <tt>put_beeper()</tt> komutları da ait oldukları <span class=
 "pykeyword">else</span> den sonra  içe girik yazılmışlardır. Program 
 çalıştırıldığında ne olduğunu aşağıdaki şekilden görebilirsiniz. </p>
-<img alt="around" src="../../images/intro/around2.png"/>
+
+<p><img alt="around" src="../../images/intro/around2.png" /></p>
+
 <p>Peki aşağıda olduğu gibi, <tt>put_beeper()</tt>
 komutunu <tt>turn_left()</tt>komutu ile hizalamak yerine   <span class=
 "pykeyword">else</span> ile hizalarsak ne olur. </p>
+
 <pre>
 <span class="keyword">def</span> dance():
     repeat(turn_left, 4)
@@ -127,6 +156,7 @@ komutunu <tt>turn_left()</tt>komutu ile hizalamak yerine   <span class=
 repeat(move_or_turn, 18)      
 turn_off()
 </pre>
+
 <p>Bu durumda <tt>move_or_turn() </tt>tanımlaması önce
 <span class="pykeyword">if</span>/<span class="pykeyword">else</span>
 deki durumlardan birini yerine getirecek yani dans edip bir adım atacak <b>veya</b> 
@@ -134,12 +164,16 @@ sola dönecek sonrada bir şarta bağlı olmayan <tt>put_beeper()</tt>komutunu
 yerine getirecektir. Dolayısıyla <tt>put_beeper()</tt>komutu <tt>move_or_turn()</tt>her 
 çalıştırıldığında bir şarta bağlı olmaksızın yerine getirilecektir. Program bu 
 hali ile çalıştırıldığında ne olduğunu aşağıdaki şekilden görebilirsiniz. </p>
-<img alt="around" src="../../images/intro/around3.png"/>
+
+<p><img alt="around" src="../../images/intro/around3.png" /></p>
+
 <p>Şekilden de gördüğünüz gibi her adım atıldıktan sonra bir bip bırakılmıştır. 
 Köşelerde ise iki tane bip vardır. İlki dans edip adım attıktan sonra, ikincisi 
 sola döndükten sonra koyulmuştur, yani <tt>put_beeper()</tt>komutu <tt>move_or_turn()</tt>her 
 çalıştırıldığında bir şarta bağlı olmaksızın yerine getirilmiştir.</p>
+
 <p>Şimdi <tt>put_beeper()</tt>'ı aşağıdaki gibi en başa hizalayalım: </p>
+
 <pre>
 <span class="keyword">def</span> dance():
     repeat(turn_left, 4)
@@ -154,28 +188,38 @@ put_beeper()
 repeat(move_or_turn, 18)      
 turn_off()
 </pre>
+
 <p>Yani artık
-<font face="Courier New" size="2">move_or_turn()</font> tanımlamasına ait 
+<tt>move_or_turn()</tt> tanımlamasına ait 
 olmasın. Bu haliyle <tt>put_beeper()</tt> ilk yerine getirilecek komut olur, 
-daha sonra  <font face="Courier New" size="2">move_or_turn()</font>18 kez 
+daha sonra  <tt>move_or_turn()</tt>18 kez 
 tekrarlanır. Sonuç aşağıdaki gibi olur:</p>
-<p><img alt="around" src="../../images/intro/around4.png"/></p>
+
+<p><img alt="around" src="../../images/intro/around4.png" /></p>
+
 <p>İçe girik yazma ile Reeborg'a pek çok bilgi verilebiliyor, boşluklar işe 
 yarıyor. Python'un bu özelliğinden dolayı yazılan programlar kolay okunur olur 
 ve programlar daha kolay anlaşılır.  </p>
+
+<!--=====================================================-->
 <hr class="line" />
+
 <h3 class="try">Engel atlama</h3>
+
 <p>Reeborg engel atlamada oldukça iyi bir duruma geldi. Artık uzun ve kısa 
 mesafeli yarışlara katılıyor. Bir bip'e ulaştığında yarışı tamamladığını 
 biliyor. Aşağıda iki yarış pistini görüyorsunuz, dünya dosyaları hurdles1.wld ve hurdles2.wld.</p>
-<p><img alt="hurdles start" src="../../images/intro/hurdles1_start.png"/></p>
-<br />
-<p><img alt="hurdles start" src="../../images/intro/hurdles2_start.png"/></p>
+
+<p><img alt="hurdles start" src="../../images/intro/hurdles1_start.png" /></p>
+
+<p><img alt="hurdles start" src="../../images/intro/hurdles2_start.png" /></p>
+
 <p>Yarışların 20 birimden daha uzun olmadığını varsayarak aşağıdaki gibi bir 
 tanımlama yapın:</p>
+
 <pre>
 <span class="keyword">def</span> move_jump_or_finish():
-    <span class="keyword">if</span> next_to_a_beeper(): <span class=
+    <span class="keyword">if</span> on_beeper(): <span class=
 "comment"># yarışın sonu</span>
         turn_off()
     <span class="keyword">else</span>:
@@ -185,18 +229,20 @@ tanımlama yapın:</p>
         <span class="keyword">else</span>:
             jump_one_hurdle()
 </pre>
+
 <p>uygun bir <tt>jump_one_hurdle()</tt> tanımlamasıyla Reeborg'a yalnızca 
 aşağıdaki komutu vererek yarışı tamamlamasını sağlayabilirsiniz.<br />
 <tt>repeat(move_jump_or_finish, 20)</tt>.</p>
+
 <p>İlave testler eklendikçe kodun daha da içeriye girerek yazıldığına dikkat 
 edin.</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="12-if.htm"><img alt="previous" src=
-"../../images/previous.png"/>  Reeborg kendi kendine karar verebilseydi ...</a>
-- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> -
+"../../images/previous.png" />  Reeborg kendi kendine karar verebilseydi ...</a>
+- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> -
 <a href="14-elif.htm">If, else, if, else, ....<img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>

@@ -10,14 +10,19 @@
 <body>
 <a name="amazing" id="amazing"></a>
 <h2 class="title">17. Uygulama - bölüm 1</h2>
+
 <p>Uygulama bölümlerinde zorluğu giderek artan programlar yazacağız.</p>
+
 <!--===================================================-->
 <hr class="line" />
+
 <h3 class="section">İlk adımlar</h3>
+
 <p>Basit bir problemle başlayalım: Reeborg'un önünde hiç bir engel olmadığını 
 varsayarak tam bir tur atmasını sağlayacağız. Bunu daha önceden <tt>front_is_clear()</tt> 
 testini anlattığımızda yapmıştık. Reeborg'un en az bir tane bip taşıdığını 
 varsayarsak çözüm şöyle olabilir:</p>
+
 <pre>
 <font face="Times New Roman" size="3">1. Bip'i nereden başladığını unutmamak için bulunduğun noktaya bırak
 2. Bir duvarla karşılaşıncaya kadar yürü.
@@ -25,15 +30,19 @@ varsayarsak çözüm şöyle olabilir:</p>
 4. 2. ve 3. adımları başlangıçta bıraktığın biple karşılaşıncaya kadar tekrar et.
 5. Bip'i bulunca kendini kapat. </font>
 </pre>
+
 <p>Burada tekrarlamanın yapıldığı 4. adım önemlidir, bunu şu şekilde 
 kodlayabiliriz:</p>
+
 <pre>
-<span class="keyword">while not</span> next_to_a_beeper():
+<span class="keyword">while not</span> on_beeper():
 </pre>
+
 <p>bunu 2 ve 3. adımlar takip etmelidir, tam çözümü şöyle yazabiliriz: </p>
+
 <pre>
 put_beeper()
-<span class="keyword">while not</span> next_to_a_beeper():
+<span class="keyword">while not</span> on_beeper():
     <span class="keyword">if</span> front_is_clear():
         move()
     <span class="keyword">else</span>:
@@ -41,21 +50,25 @@ put_beeper()
 
 turn_off()
 </pre>
+
 <p>Eğer başlangıç pozisyonu aşağıdaki gibiyse yukarıdaki program 
 çalıştırıldığında ne olur bunu uzun uzun düşünün.</p>
+
 <p><img alt="around the world: start" src=
-"../../images/intro/around1start.png"/></p>
+"../../images/intro/around1start.png" /></p>
+
 <p>Aşağıda olduğu gibi bir sonuç elde edemedik, değil mi? Neden olduğunu 
 bulabildiniz mi? Bulamadıysanız düşünmeye devam edin.</p>
-<p><img alt="around the world: start" src=
-"../../images/intro/around1end.png"/></p>
 
-<div class="lessons_toc">
+<p><img alt="around the world: start" src=
+"../../images/intro/around1end.png" /></p>
+
+<div class="lessons_nav">
 <a href="16-while.htm"><img alt="previous" src=
-"../../images/previous.png"/>Bir süre için For a while</a> - 
+"../../images/previous.png" />Bir süre için For a while</a> - 
 <a href="../lessons_toc.htm"><img alt=
-"home" src="../../images/home.png"/></a> - <a href="18-amazing2.htm">Uygulama - 
-bölüm 2<img alt="next" src="../../images/next.png"/></a>
+"home" src="../../images/home.png" /></a> - <a href="18-amazing2.htm">Uygulama - 
+bölüm 2<img alt="next" src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

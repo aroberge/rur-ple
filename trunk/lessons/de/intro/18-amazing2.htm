@@ -1,18 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>18. Überraschung! - Teil 2</title>
+
+<title>Überraschung! - Teil 2</title>
 </head>
 <body>
 <h2 class="title">18. Überraschung! - Teil 2</h2>
+
 <p>Hier ist die Ursache des Problems, das wir am Ende von Teil 1 hatten:
 Wir legten einen Piepser ab und testeten, ob Reeborg nicht an einem Piepser
 stand, bevor wir die Ablagestelle verließen. Daher standen wir noch an einem
 Piepser und hatten gar keine Gelegenheit, in die <span class="pykeyword">
 while</span>-<i>Schleife</i> zu gelangen. Vielleicht können wir im Programm
 ein <tt>move()</tt> vor der Schleife einfügen:</p>
+
 <pre>
 put_beeper()
 move()
@@ -24,27 +28,36 @@ move()
 
 turn_off()
 </pre>
+
 <p><b>Probier's aus!</b></p>
+
 <!--================================================-->
 <hr class="line" />
+
 <h3 class="section">Nicht ganz so einfache Welt</h3>
+
 <p>Wir wollen das Programm in einer geringfügig komplizierteren Welt
 ausprobieren (siehe unten), die du leicht selber bauen kannst. Am besten
 speicherst du die geänderte Welt in einer Weltdatei, bevor du das Programm
 startest.</p>
+
 <p><img alt="around the world: start" src=
-"../../images/intro/around2start.png"/></p>
+"../../images/intro/around2start.png" /></p>
+
 <p>Wenn du das Programm ausprobierst, merkst du, dass etwas anderes herauskommt
 als wir wollten: Reeborg geht eine Abkürzung und dreht nicht die volle Runde.
 </p>
+
 <p><img alt="around the world: end" src=
-"../../images/intro/around2end.png"/></p>
+"../../images/intro/around2end.png" /></p>
+
 <p>Das Problem ist, das wir Reeborg nur geradeaus oder mit Linksdrehungen durch
 die Welt laufen lassen wollten; wir hatten keine Situationen berücksichtigt, wo
 er hätte nach rechts abbiegen müssen. Reeborg muss also erst auf der rechten
 Seite prüfen,  ob da noch eine Wand ist; wenn nicht, muss er nach rechts
 abbiegen. Hier nun ein geändertes Programm, das genau das zu tun
 <i>versucht</i>:</p>
+
 <pre>
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
@@ -61,16 +74,17 @@ move()
 
 turn_off()
 </pre>
+
 <p>Funktioniert es? Lies das Programm sorgfältig, um das entscheiden zu können.
 Dann probiere es aus, um deine Meinung zu bestätigen oder um es zu verbessern.
 </p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="17-amazing1.htm"><img alt="previous" src=
-"../../images/previous.png"/>17. Überraschung! - Teil 1</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
-<a href="19-amazing3.htm">19. Überraschung! - Teil 3 <img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/previous.png" />Überraschung! - Teil 1</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
+<a href="19-amazing3.htm">Überraschung! - Teil 3 <img alt="next" src=
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>

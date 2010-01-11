@@ -76,51 +76,45 @@
 <p>你的程序应该定义如下命令：</p>
 
 <pre>
-move_to_first_row() 
+<span class="comment"># 移动到第一行</span>
+move_to_first_row()
+<span class="comment"># 收成两行</span>
 harvest_two_rows()
+<span class="comment"># 右转到下一行</span>
 move_right_to_next_row()
 </pre>
 
-命令的意思是：<br />
-移动到第一行<br />
-收成两行<br />
-右转到下一行<br />
-
 <p>你可能想更深一步细化这些命令；例如，你 <b><i>可以</i></b> ：</p>
 
-定义为如下:<br />
-收成一行<br />
-移动到左面到第二行<br />
-收成一行<br />
-并写成命令如下：
-
 <pre>
+<span class="comment"># 收成两行</span>
 <span class="keyword">def</span> harvest_two_rows():
+    <span class="comment"># 收成一行</span>
     harvest_one_row()
+    <span class="comment"># 移动到左面到第二行</span>
     move_left_to_next_row()
+    <span class="comment"># 收成一行</span>
     harvest_one_row()
 </pre>
 
 <p>前提是要给 <code>harvest_one_row()</code>一个合适的定义. 然而，你可以用你自己的方法来细化这些必要的命令。 有了这三个必要的命令，我的程序如下所示：（当然还是有一点重复的）</p>
 
 <pre>
+<span class="comment"># 移动到第一行</span>
 move_to_first_row()
+<span class="comment"># 收成两行</span>
 harvest_two_rows()
+<span class="comment"># 右转到下一行</span>
 move_right_to_next_row()
+<span class="comment"># 收成两行</span>
 harvest_two_rows()
+<span class="comment"># 右转到下一行</span>
 move_right_to_next_row()
+<span class="comment"># 收成两行</span>
 harvest_two_rows()
+<span class="comment"># 关机</span>
 turn_off()
 </pre>
-
-命令的意思是：<br />
-移动到第一行<br />
-收成两行<br />
-右转到下一行<br />
-收成两行<br />
-右转到下一行<br />
-收成两行<br />
-关机<br />
 
 <p>现在，再次将你的新程序和以前的收获时刻小实验的程序进行比较。</p>
 
