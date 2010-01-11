@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
@@ -9,67 +9,84 @@
 </head>
 <body>
 <h2 class="title">16. Bir süre için - For a <span class="pykeyword">while</span> ...</h2>
+
 <p>Bir şart doğru veya yanlış oluncaya kadar tekrar edilmesi gereken komutlar 
 varsa bunu daha kolay yapmak için Python'da
 <span class="pykeyword">while</span> komutu kullanılır. Bunu daha önceden 
-gördüğümüz bir örneğin  <i>pseudocode</i> 'unu uyarlayarak açıklayalım. <br />
-<br />
-While not next to beeper,<br />
-...  yürümeye devam et;<br />
-otherwise,<br />
-... dur.<br />
-<br />
-Bunu Python koduna çevirirsek:</p>
+gördüğümüz bir örneğin  <i>pseudocode</i> 'unu uyarlayarak açıklayalım. </p>
+
 <pre>
-<span class="keyword">while not</span> next_to_a_beeper():
+While not next to beeper,
+...  yürümeye devam et;
+otherwise,
+... dur.
+</pre>
+
+<p>Bunu Python koduna çevirirsek:</p>
+
+<pre>
+<span class="keyword">while not</span> on_beeper():
     move()
  
 turn_off()           
 </pre>
+
 <p>Tekrar etmeye (repeat komutuna) artık gerek kalmadı. <b>Deneyin!</b></p>
+
+<!--=====================================================-->
 <hr class="line" />
+
 <h3 class="try">Sıra sizde</h3>
+
 <p><span class="pykeyword">while</span> ve <span class=
 "pykeyword">not</span> kullanarak engel atlama programını tekrar yazın 
 ve artık tekrarlama komutuna (repeat) ihtiyacınız kalmasın. Programınızın 
 temeli aşağıdaki gibi olabilir. </p>
+
 <pre>
-<span class="keyword">while not</span> next_to_a_beeper():
+<span class="keyword">while not</span> on_beeper():
     move_or_jump()
  
 turn_off()           
 </pre>
+
 <h3 class="suggested">Ekme biçme zamanı</h3>
+
 <p>Yine bahar geldi. Reeborg'un babası sonbaharda hasat etmek için bahçeye havuç 
 tohumları atmıştı. Aşağıda gördüğünüz gibi 
 yine bazı yerlerde iki filiz çıkarken bazı 
 yerlerde hiç filiz çıkmamış. (dünya dosyası: harvest4.wld)</p>
-<p><img alt="weeding" src="../../images/intro/harvest4.png"/></p>
+
+<p><img alt="weeding" src="../../images/intro/harvest4.png" /></p>
+
 <p>Reeborg'a filizleri düzenlemesi için yardım edin ve her yerde filiz sayısının 
 bir tane olmasını sağlayın.</p>
-<p>
-<span class="pykeyword">while </span>kullanarak kodlamanın bir bölümü için tavsiye: </p>
+
+<p><span class="pykeyword">while </span>kullanarak kodlamanın bir bölümü için tavsiye: </p>
+
 <pre>
-next_to_a_carrot = next_to_a_beeper
+<span class="comment"># introducing vocabulary related to the problem</span>
+next_to_a_carrot = on_beeper
 plant_carrot = put_beeper
 pick_carrot = pick_beeper
 
 <span class="keyword">def</span> one_carrot_only():
     <span class="keyword">while</span> next_to_a_carrot():
-        pick_carrot()                 
-    plant_carrot()         
+        pick_carrot()      <span class="comment"># pick them all!</span>            
+    plant_carrot()         <span class="comment"># replant only one!</span>
 </pre>
+
 <p>Bu kod diğerinden daha kısa (tanımlamada yalnızca üç satır kullanılmış). 
 Bunun yanı sıra bir noktada ikiden fazla filiz olsa da bu kod doğru olarak 
 çalışır. <b>Deneyin!</b><br />
- </p>
+<small>Remember that, in reality, it is <b>not</b> a good idea to remove
+seedlings and replant them right away!</small></p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="15-not.htm"><img alt="previous" src=
-"../../images/previous.png"/> Doğru değil Not true!?</a> - 
+"../../images/previous.png" /> Doğru değil Not true!?</a> - 
 <a href="../lessons_toc.htm"><img alt=
-"home" src="../../images/home.png"/></a> - <a href="17-amazing1.htm">Uygulama - bölüm 1 <img alt="next" src="../../images/next.png"/></a>
+"home" src="../../images/home.png" /></a> - <a href="17-amazing1.htm">Uygulama - bölüm 1 <img alt="next" src="../../images/next.png" /></a>
 </div>
 </body>
 </html>
-

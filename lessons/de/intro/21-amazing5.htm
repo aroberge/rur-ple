@@ -4,23 +4,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>21. Überraschung! - Teil 5</title>
+
+<title>Überraschung! - Teil 5</title>
 </head>
 <body>
 <h2 class="title">21. Überraschung! - Teil 5</h2>
+
 <h3 class="section">Noch mehr Komplikationen</h3>
+
 <p>Schau dir die folgende Welt an:</p>
+
 <p><img alt="around the world: start" src=
-"../../images/intro/around4start.png"/></p>
+"../../images/intro/around4start.png" /></p>
+
 <p>Funktioniert das zuletzt geschriebene Programm damit? Probier's aus!</p>
+
 <p>Wie du wohl schon vermutet hast, falls du es nicht ausprobiert hast <small>
 (solltest du aber, wirklich!)</small>, funktioniert es nicht. Um es zum
 Laufen zu bringen, müssen wir das <span class="pykeyword">if</span>, das wir
 gerade hinzugefügt haben, durch ein <span class="pykeyword">while</span>
 ersetzen. Probier's aus! Vergiss nicht, es zu speichern.</p>
+
 <!--=====================================-->
 <hr class="line" />
+
 <h3 class="section">Unsere Absicht klarstellen</h3>
+
 <p>Wir scheinen ein Programm entworfen zu haben, das in allen Situationen
 funktioniert, denen wir wahrscheinlich begegnen werden. Bevor wir es vergessen:
 Dieses Programm soll Reeborg in die Lage versetzen, seine Welt einmal zu 
@@ -29,6 +38,7 @@ es zum ersten Mal sieht, nicht so offensichtlich sein. Es ist wahrscheinlich
 keine schlechte Idee, es zu kommentieren und/oder aussagekräftigere Worte
 einzusetzen. Beginnen wir mit ein paar Kommentaren, ein bisschen ausführlicher,
 als wir es für nötig halten.</p>
+
 <pre>
 <span class="comment"># Wir definieren eine nützliche Anweisung.</span>
 <span class="keyword">def</span> turn_right():
@@ -61,24 +71,29 @@ move()
 
 turn_off()
 </pre>
+
 <p>Das erklärt zwar in gewisser Weise unsere Absichten mit jeder einzelnen
 Anweisung, aber es hilft nicht, die Methode (auch unter dem Namen "Algorithmus"
 bekannt), mit der wir das Problem gelöst haben, als Ganzes zu beschreiben. Daher
 sind diese Kommentare möglicherweise nicht so hilfreich für andere Leser, wie
 wir es uns vielleicht gewünscht haben.. Wenn wir die Kommentare nochmal 
-überfliegen, stellen wir fest, dass das Programm zwei Teile hat:
+überfliegen, stellen wir fest, dass das Programm zwei Teile hat:</p>
+
 <ol>
 <li>Markiere den Startpunkt;</li>
 <li>Gehe so an der Mauer entlang, dass du sie immer rechts siehst, bis wir
 wieder die Startmarkierung erreicht haben.</li>
 </ol>
-Wir schreiben das Programm jetzt um, so dass diese beiden Teile klarer erkennbar
+
+<p>ir schreiben das Programm jetzt um, so dass diese beiden Teile klarer erkennbar
 sind, und schreiben die Kommentare anders.</p>
+
 <pre>
 <span class="comment">
 # Dieses Programm weist Reeborg an, seine Welt gegen den Uhrzeigersinn zu
 # umrunden, und anzuhalten, wenn er seinen Ausgangspunkt wieder erreicht hat.
 </span>
+
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
 
@@ -109,36 +124,48 @@ mark_starting_point_and_move()
       
 turn_off()
 </pre>
+
 <p>Ist das nicht klarer? Jetzt nimm an, dass jede Ecke beim Start einen Piepser
 hat. Wir könnten dann den Startpunkt markieren, indem wir einen Piepser 
 <i>entfernen</i>. Wir müssten in den Definitionen ein bisschen ändern, aber in 
 den Grundzügen könnte die Lösung so bleiben.</p>
+
 <!--======================================-->
 <hr class="line" />
+
 <h3 class="try">Erste Überraschung</h3>
+
 <p>Ändere das Programm, das du gerade geschrieben hast, durch Entfernen der
 <tt>put_beeper()</tt>-Anweisung. Speichere es und probiere es mit dem folgenden 
-Hürdenlauf aus (Datei:  hurdles3.wld).
-Change the program you just wrote to remove the <tt>put_beeper()</tt>
-instruction.  After saving it, try this slightly modified program 
-with the following hurdle race (file: hurdles3.wld).</p>
-<p><img alt="hurdles" src="../../images/intro/hurdles3_start.png"/></p>
+Hürdenlauf aus (Datei:  hurdles3.wld).</p>
+
+<p><img alt="hurdles" src="../../images/intro/hurdles3_start.png" /></p>
+
 <p>Überraschung! Abgesehen davon, dass Reeborg am Ende in eine ungewohnte 
 Richtung guckt, kann das soeben geschriebene Programm das Hürdenproblem lösen.
 Es funktioniert auch mit den ungleichmäßigen Hürden (Datei: hurdles4.wld), das
 das zuvor geschriebene Programm nicht bewältigen konnte!</p>
-<p><img alt="hurdles" src="../../images/intro/hurdles4_start.png"/></p>
+
+<p><img alt="hurdles" src="../../images/intro/hurdles4_start.png" /></p>
+
 <!--======================================-->
 <hr class="line" />
+
 <h3 class="try">Sensationelle Überraschung</h3>
+
 <p>Teste das gleiche modifizierte Programm wieder mit dem Labyrinth-Problem aus
 den ersten Lektionen (Datei: maze1.wld), wie angezeigt:</p>
-<p><img alt="maze" src="../../images/intro/maze1_start.png"/></p>
+
+<p><img alt="maze" src="../../images/intro/maze1_start.png" /></p>
+
 <p>Du wirst sehen, dass unser einfaches Programm den Weg aus dem Labyrinth
 finden kann! Erstaunlich!</p>
+
 <!--======================================-->
 <hr class="line" />
+
 <h3 class="section">Schlussfolgerung</h3>
+
 <p>Wir begannen mit der Lösung eines einfachen Problems (Umrundung einer 
 rechteckigen Welt) und indem wir sie immer ein kleines Bisschen verbesserten
 (das nennt man auch <i>schrittweise Verfeinerung</i>), schafften wir es, ein Programm
@@ -149,11 +176,13 @@ Probleme in Angriff nahmen. Wir verwendeten auch aussagekräftigere Namen im
 <i>Algorithmus</i>, was das Programm lesbarer und hoffentlich auch
 verständlicher machte. Das ist die Strategie, die du bei deinen eigenen 
 Programmen anwenden solltest:</p>
+
 <dl>
 <dt><b>Regel # 5</b></dt>
 <dd>So schreibt man ein Programm:</dd>
 </dl>
-<ul>
+
+<ol>
 <li>Beginne einfach;</li>
 <li>mache kleine Änderungen, immer eine auf einmal;</li>
 <li>vergewissere dich, dass keine deiner Änderungen deine bis dahin geleistete
@@ -161,14 +190,14 @@ Arbeit über den Haufen wirft;</li>
 <li>füge einfache Kommentare hinzu, die nicht bloß wiederholen, was jede
 Anweisung tut; und</li>
 <li>wähle aussagekräftige Namen.</li>
-</ul>
+</ol>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="20-amazing4.htm"><img alt="previous" src=
-"../../images/previous.png"/>20. Überraschung! - Teil 4</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
-"22-rain.htm">22. Es regnet!<img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/previous.png" />Überraschung! - Teil 4</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
+"22-rain.htm">Es regnet!<img alt="next" src=
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>

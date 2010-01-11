@@ -9,44 +9,59 @@
 </head>
 <body>
 <h2 class="title">24. Reeborg'a toplama yapmayı öğretmek</h2>
+
 <p>Bu derste Reeborg'a iki sayıyı toplamayı öğreteceğiz. Bunu 10 tabanına göre 
 yapacağız, ancak aynı yöntemi farklı tabandaki sayıları toplamak için de 
 kullanabiliriz. </p>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="try">Isınma turları</h3>
+
 <ol>
-<li>Reeborg' a 3+2 işlemini aşağıdaki gibi yaptıran bir program yazınız. <br />
-<img alt="3+2" src="../../images/intro/add3_2_start.png"/><img alt="lead to"
-src="../../images/lead_to.png"/> <img alt="5" src=
-"../../images/intro/add3_2_end.png"/><br />
-Bu programın 1+4 işlemini de yapmasını sağlayın.</li>
-<li>Programınızı aşağıda olduğu gibi 13+22 işlemini de yapar hale getirin.<br />
-<img alt="13+22" src="../../images/intro/add13_22_start.png"/><img alt=
-"lead to" src="../../images/lead_to.png"/> <img alt="35" src=
-"../../images/intro/add13_22_end.png"/><br /></li>
-<li>Hem 3+2' yi hem de aşağıdaki gibi 8+4'ü toplayan bir program 
+<li>
+Reeborg' a 3+2 işlemini aşağıdaki gibi yaptıran bir program yazınız. <br />
+<img alt="3+2" src="../../images/intro/add3_2_start.png" /><img alt="lead to"
+src="../../images/lead_to.png" /> <img alt="5" src=
+"../../images/intro/add3_2_end.png" /><br />
+Bu programın 1+4 işlemini de yapmasını sağlayın.
+</li>
+<li>
+Programınızı aşağıda olduğu gibi 13+22 işlemini de yapar hale getirin.<br />
+<img alt="13+22" src="../../images/intro/add13_22_start.png" /><img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="35" src=
+"../../images/intro/add13_22_end.png" />
+</li>
+<li>
+Hem 3+2' yi hem de aşağıdaki gibi 8+4'ü toplayan bir program 
 yazabilir misiniz.<br />
-<img alt="8+4" src="../../images/intro/add8_4_start.png"/><img alt=
-"lead to" src="../../images/lead_to.png"/> <img alt="12" src=
-"../../images/intro/add8_4_end.png"/>
-<br />
+<img alt="8+4" src="../../images/intro/add8_4_start.png" /><img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="12" src=
+"../../images/intro/add8_4_end.png" /><br />
 Yeni programınız 2+5 ve 9+9 işlemini de doğru olarak yapmalı. Yapabildiniz mi? 
-Yapamadıysanız cesaretinizi kaybetmeyin okumaya devam edin.</li>
+Yapamadıysanız cesaretinizi kaybetmeyin okumaya devam edin.
+</li>
 </ol>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="section">Toplamayı gözden geçirelim</h3>
+
 <p>İki rakamı geleneksel yolla toplayalım:</p>
+
 <pre>
   528
 + 634
 ------
    12  # önce birler basamağını topluyoruz (8+4)
 </pre>
+
 <p>Elde bir var ve bunu onlar basamağına eklememiz gerekiyor. Eldeki bir 
 programınızda problem yaratan kısım olabilir. Bunu yine geleneksel şekilde 
 yazalım ve devam edelim.</p>
+
 <pre>
    1
   528
@@ -54,102 +69,150 @@ yazalım ve devam edelim.</p>
 ------
  1162  
 </pre>
+
 <p>Biraz özet oldu, ama anlaşıldığından eminim. Reeborg'un dünyasında aşağıdaki 
 gibi toplamalar yapacağız.</p>
-<p><img alt="adding start" src="../../images/intro/add_start.png"/><img alt=
-"lead to" src="../../images/lead_to.png"/> <img alt="adding end" src=
-"../../images/intro/add_end.png"/></p>
+
+<p><img alt="adding start" src="../../images/intro/add_start.png" /><img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="adding end" src=
+"../../images/intro/add_end.png" /></p>
+
 <p>Önce basit bir problem olan 8+4 ile başlayalım.</p>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="section">10 tabanında 8+4 işlemi</h3>
+
 <p><span class="warning">Uyarı:</span> Aşağıdaki alıştırma biraz zor 
 olabilir.Dersin geri kalanını okuyun ve alıştırmayı yapıp yapmamaya, ya da biraz 
 daha Python öğrenmeye (Python bilginizi biraz daha geliştirmeye)
 siz karar verin.</p>
+
 <p>Bahsettiğimiz gibi, her bir bip kümesi bir basamağı temsil ederken toplama 
 yapıldığında (10 tabanında) problem toplamın 9'dan büyük olmasıdır. Toplanan 
 sayılara bağımlı kalmaksızın, bir şekilde bu sihirli sayı (10) takip 
 edilmelidir. 10 tabanında (veya 16 tabanında) kapasitede bir dünya dosyası (adding_world.wld) 
 yarattım. Bu dosyayı yükleyin, size toplama yapmayı sağlayan bir program 
 yazmanıza yardım edeceğim. </p>
+
 <p>Dosyayı yükledikten sonra durum çubuğuna bakarsanız Reeborg'un 8 tane bip 
 taşıdığını göreceksiniz. Reeborg'un aşağıdaki şekildeki gibi 8 tane bip'i 10. 
 caddeye bırakmasını sağlayan bir program yazın. (programın çalışması bittikten 
 sonra, ok tuşlarını kullanarak Reeborg'un yerini değiştirdim, böylece Reeborg'u 
 en son bıraktığı bip'in üzerinden almış oldum ve aşağıdaki görüntü oluştu)</p>
+
 <p><img alt="line of beepers accross 10th street" src=
-"../../images/intro/accross10.png"/></p>
+"../../images/intro/accross10.png" /></p>
+
 <p>Şimdi, daha ileriye gitmeden, programınızı kaydedin. <br />
 <br />
 Dünya dosyasını tekrar yükleyin (Böylece Reeborg başlangıç pozisyonunda [1.cadde 
 ile 1. sokağın kesişiminde] olsun ve boş bir dünyası olsun) ve aşağıdaki şekilde 
 olduğu gibi sağ alt köşeye bipleri yerleştirin:</p>
-<p><img alt="8+4" src="../../images/intro/add8_4_newstart.png"/></p>
+
+<p><img alt="8+4" src="../../images/intro/add8_4_newstart.png" /></p>
+
 <p>Reeborg'a aşağıdakileri yaptırın:</p>
+
 <ol>
-<li>10. caddeye daha önceden olduğu gibi bipleri yerleştirin. </li>
-<li>Ekranın sağ altına gidin, ve bipleri (8 ve 4) alın. </li>
-<li>Elinizdeki 12 bip'i aşağıdaki şekilde olduğu gibi dikey bir kolon şeklinde 
-yerleştirin.</li>
+<li>
+10. caddeye daha önceden olduğu gibi bipleri yerleştirin. 
+</li>
+<li>
+Ekranın sağ altına gidin, ve bipleri (8 ve 4) alın. 
+</li>
+<li>
+Elinizdeki 12 bip'i aşağıdaki şekilde olduğu gibi dikey bir kolon şeklinde 
+yerleştirin.
+</li>
 </ol>
+
 <p><img alt="8+4 spread vertically" src=
-"../../images/intro/vertical12.png"/></p>
+"../../images/intro/vertical12.png" /></p>
+
 <p>Şimdi 10. caddenin yukarısında iki tane bip var, 10. caddede ise ekstra bir bip 
 var. Yapmanız gereken ise: </p>
+
 <ol>
-<li>10. caddenin altındaki 9 bip'i almak ve bir yerlere atmak 
+<li>
+10. caddenin altındaki 9 bip'i almak ve bir yerlere atmak 
 (belkide bunları 10. caddeye bırakarak) bunu aşağıdaki adımları 
-yerine getirerek yapabilirsiniz:<ol>
-<li>bir bip al </li>
-<li>başka alacak bir bip olup olmadığını kontrol et, eğer yoksa</li>
-<li># birden fazla bip alacak bir köşeye gelinceye kadar hareketini devam ettir... </li>
-</ol>
-birden fazla sayıda bip alınabilecek bir köşeye geldiğinde 10. caddeye gelmiş olursun. Bu köşeye tüm biplerini bırakabilirsin.</li>
-<li>Reeborg'un kuzeye doğru gitmesini, (kalan iki bip'i almasını) ve aşağıdaki şekilde olduğu gibi 13. caddeye gelmesini sağlayın:
-<br />
-<br />
-<img alt="8+4" src="../../images/intro/add8_4_middle.png"/><br />
+yerine getirerek yapabilirsiniz:
+<ol>
+<li>
+bir bip al 
 </li>
-<li>Reeborg'u geriye döndürün ve 10. caddeden bir bip almasını ve dokuzuncu caddeye gelmesini sağlayın, bunu yaptırdığınızda Reeborg’un cebinde 3 tane bip'i olmalı.</li>
-<li>Reeborg'un bu bipleri aşağıdaki duvara ulaşıncaya kadar taşımasını sağlayın;</li>
-<li>Reeborg'un taşıdığı 3 bip' buraya bırakmasını, daha sonra bunlardan birisini almasını(elde var bir), doğuya gitmesini ve taşıdığı bip'i buraya bırakmasını sağlayın.</li>
+<li>
+başka alacak bir bip olup olmadığını kontrol et, eğer yoksa
+</li>
+<li>
+# birden fazla bip alacak bir köşeye gelinceye kadar hareketini devam ettir... 
+</li>
 </ol>
-<p>Geriye kalan tek şey işlemin sonucunun gözükebilmesi için Reeborg'u kenara çekmektir.</p>
+birden fazla sayıda bip alınabilecek bir köşeye geldiğinde 10. caddeye gelmiş olursun. Bu köşeye tüm biplerini bırakabilirsin.
+</li>
+<li>
+Reeborg'un kuzeye doğru gitmesini, (kalan iki bip'i almasını) ve aşağıdaki şekilde olduğu gibi 13. caddeye gelmesini sağlayın:<br />
 <br />
-<p><img alt="8+4" src="../../images/intro/add8_4_end.png"/></p>
+<img alt="8+4" src="../../images/intro/add8_4_middle.png" />
+</li>
+<li>
+Reeborg'u geriye döndürün ve 10. caddeden bir bip almasını ve dokuzuncu caddeye gelmesini sağlayın, bunu yaptırdığınızda Reeborg’un cebinde 3 tane bip'i olmalı.
+</li>
+<li>
+Reeborg'un bu bipleri aşağıdaki duvara ulaşıncaya kadar taşımasını sağlayın;
+</li>
+<li>
+Reeborg'un taşıdığı 3 bip' buraya bırakmasını, daha sonra bunlardan birisini almasını(elde var bir), doğuya gitmesini ve taşıdığı bip'i buraya bırakmasını sağlayın.
+</li>
+</ol>
+
+<p>Geriye kalan tek şey işlemin sonucunun gözükebilmesi için Reeborg'u kenara çekmektir.</p>
+
+<p><img alt="8+4" src="../../images/intro/add8_4_end.png" /></p>
+
 <p>Bu beş adımı yerine getirmek için oldukça fazla kod yazmanız gerekecek ve 
 bunu doğru olarak yapmakta biraz zorlanabilirsiniz. Ancak sistemli olarak 
 ilerlerseniz başaracağınızdan eminim. Deneyin! </p>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="suggested">3+5 Toplama İşlemi</h3>
+
 <p>Sonunda 8+4 işlemini hesaplayabilen bir program yazdınız. Aynı programı 3+5 
 işleminde deneyin. Çalıştı mı? Çalışmamışdır, çünkü bu işlemde elde yok. Buna 
 bir çare bulabilir misiniz? Belkide yalnızca şu ana dek öğrendiğiniz komutları 
 kullanıyorsunuzdur... Benim çözümümde henüz görmediğiniz
 <span class="pykeyword">break</span> komutunu kullanmam gerekti. </p>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="suggested">Son aşama</h3>
+
 <p>Eğer 10 tabanı dışındaki tabanlarda da toplama yapmayı biliyorsanız, 
 programınızda gerekli değişiklikleri yaparak farklı tabanlarda da toplamı işlemi 
 yaptırabilirsiniz. </p>
+
 <!--=========================================-->
 <hr class="line" />
+
 <h3 class="section">Sırada ne var?</h3>
+
 <p>Şimdiye kadar gördüğümüz Python komutları: <span class="pykeyword">def, elif, else, if, not, pass, while</span>. 
 Reeborg'a iki sayıyı toplatabilen oldukça komplike bir program yazarak bu bölümü 
 bitirdik. Şimdi Reeborg'u bırakacağız ve gerçek Python'da iki sayının nasıl 
 toplanabileceğini göreceğiz. Üzülmeyin, arada sırada Reeborg'un dünyasına geri 
 döneceğiz ve artan Python bilgimizin Reeborg'a nasıl yardım ettiğini göreceğiz.</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="23-trash.htm"><img alt="previous" src=
-"../../images/previous.png"/>Fırtına sonrası</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" />Fırtına sonrası</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="../inter/25-interpreter.htm">Python toplama yapmayı zaten biliyordu <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

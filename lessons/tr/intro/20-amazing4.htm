@@ -9,9 +9,11 @@
 </head>
 <body>
 <h2 class="title">20. Uygulama - bölüm 4</h2>
+
 <p>Reeborg'u bip'i bıraktıktan sonra ilerletirken çok aceleci davrandık. Onu 
 hareket ettirmeden önce önünde bir duvar olup olmadığını kontrol etmeliyiz. Bunu 
 aşağıdaki gibi çözümleyebiliriz:</p>
+
 <pre>
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
@@ -22,7 +24,7 @@ put_beeper()
     turn_left()
 <span class="comment"># değişiklikler bitiyor</span>
 move()
-<span class="keyword">while not</span> next_to_a_beeper():
+<span class="keyword">while not</span> on_beeper():
     <span class="keyword">if</span> right_is_clear():
         turn_right()
         move()
@@ -33,15 +35,16 @@ move()
 
 turn_off()
 </pre>
+
 <p>Deneyin ve çalıştığını görün. Bu programın çalışmayacağı farklı dünyalar var 
 mıdır?</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="19-amazing3.htm"><img alt="previous" src=
-"../../images/previous.png"/> Uygulama - bölüm 3</a>  - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" /> Uygulama - bölüm 3</a>  - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="21-amazing5.htm">Uygulama - bölüm 5 <img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>

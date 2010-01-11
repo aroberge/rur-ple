@@ -64,7 +64,7 @@ move()
     <span class="keyword">elif</span> front_is_clear(): <span class=
 "comment"># move following the right wall</span>
         move()
-    <span class="keyword">else</span>:<span class=
+    <span class="keyword">else</span>: <span class=
 "comment"> # follow the wall by turning left</span>
         turn_left()
 
@@ -75,10 +75,14 @@ turn_off()
 really that helpful in summarizing the method (also known as the
 <i>algorithm</i>) used in solving the problem. Therefore, these comments
 might not be as helpful to another reader as we might have wished. Reading
-over the comments, we note that the program has two parts:<br/>
-1) mark the starting point;<br/>
-2) follow the right wall until we come back to the start.<br/>
-Let's rewrite this program so that these two parts become clearer, and
+over the comments, we note that the program has two parts:</p>
+
+<ol>
+<li>Mark the starting point;</li>
+<li>Follow the right wall until we come back to the start.</li>
+</ol>
+
+<p>Let's rewrite this program so that these two parts become clearer, and
 writing the comments differently.</p>
 
 <pre>

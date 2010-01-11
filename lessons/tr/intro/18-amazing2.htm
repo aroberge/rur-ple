@@ -9,16 +9,18 @@
 </head>
 <body>
 <h2 class="title">18. Uygulama - Bölüm 2</h2>
+
 <p>Bir önceki problemde sorun yaşamamızın nedeni önce bip'i bıraktığımızdan 
 dolayı
 <span class="pykeyword">while</span> döngüsünün hiç bir zaman çalışmamasıdır.
 <span class="pykeyword">while </span>döngüsünün çalışabilmesi için bir bip'in 
 yanında olmamamız gerekiyor, oysa biz hep bir bip'in yanında kalıyoruz. Bir <tt>move()</tt>komutu 
 ekleyerek bu hatayı giderebiliriz.</p>
+
 <pre>
 put_beeper()
 move()
-<span class="keyword">while not</span> next_to_a_beeper():
+<span class="keyword">while not</span> on_beeper():
     <span class="keyword">if</span> front_is_clear():
         move()
     <span class="keyword">else</span>:
@@ -26,29 +28,38 @@ move()
 
 turn_off()
 </pre>
+
 <p><b>Deneyin!</b></p>
+
 <!--================================================-->
 <hr class="line" />
+
 <h3 class="section">Biraz daha zor bir dünya</h3>
+
 <p>Yazdığımız programı aşağıdaki dünyada deneyelim. Bu dünyayı kendiniz 
 kolaylıkla yaratabilirsiniz, yaratın ve kaydedin. </p>
+
 <p><img alt="around the world: start" src=
-"../../images/intro/around2start.png"/></p>
+"../../images/intro/around2start.png" /></p>
+
 <p>Programı denediğinizde tam olarak istediğinizi yapmadığını göreceksiniz. 
 Reeborg aşağıda olduğu gibi yolunu kısa yoldan tamamlar.</p>
+
 <p><img alt="around the world: end" src=
-"../../images/intro/around2end.png"/></p>
+"../../images/intro/around2end.png" /></p>
+
 <p>Reeborg ileriye gitmeye veya sola dönmeye programlandığından, program 
 istediğimiz gibi çalışmaz. Böyle durumlarla karşılaştığında Reeborg'un sağa 
 dönmesi gereklidir. Önce sağında duvar olup olmadığını kontrol etmeli ve eğer 
 yoksa sağa dönmelidir. Aşağıda bunu yapmaya çalışan bir program görüyorsunuz:</p>
+
 <pre>
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
 
 put_beeper()
 move()
-<span class="keyword">while not</span> next_to_a_beeper():
+<span class="keyword">while not</span> on_beeper():
     <span class="keyword">if</span> right_is_clear():
         turn_right()
     <span class="keyword">elif</span> front_is_clear():
@@ -58,14 +69,16 @@ move()
 
 turn_off()
 </pre>
+
 <p>Çalıştı mı? Programı dikkatlice inceleyin ve eğer gerekiyorsa gerekli 
 değişikliği yapın.</p>
-<div class="lessons_toc">
+
+<div class="lessons_nav">
 <a href="17-amazing1.htm"><img alt="previous" src=
-"../../images/previous.png"/>Uygulama - bölüm 1</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" />Uygulama - bölüm 1</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="19-amazing3.htm">Uygulama - bölüm 3 <img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>

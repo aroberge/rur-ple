@@ -1,57 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>13. Reeborg entscheidet anders.</title>
+
+<title>Reeborg entscheidet anders.</title>
 </head>
 <body>
 <h2 class="title">13. Reeborg entscheidet anders.</h2>
+
 <p>Auch wenn Programmieren lernen Spaß mancht, solltest du nicht dauernd
 vor einem Computer sitzen.<b>Wenn</b> es regnet, lies, <b>sonst</b>
 geh nach draußen und spiel! (Ja, auch du, Opa!)</p>
+
 <!--===========================================-->
 <hr class="line" />
+
 <h3 class="section"></h3>
+
 <p>Ich möchte gern mit dem <b>Wenn</b>-Satz spielen:</p>
+
 <pre>
 <b>Wenn</b> es regnet,
 ... lies,
 <b>sonst</b>,
 ... geh nach draußen und spiel!
 </pre>
+
 <p>Das sieht schon fast wie ein kleines Programm aus. Ich schreibe es jetzt so,
 als ob es ein Python-Programm wäre. Dabei darf ich nicht vergessen, dass die
 Python-Schlüsselwörter aus dem Englischen kommen und Python keine Anweisungen
 versteht, in denen ß, ä, Ä, ö, Ö, ü, und Ü vorkommen. Seit der der letzten
 Lektion wissen wir, dass "if" das englische Wort für "wenn" ist; "sonst" heißt
 auf Englisch "else", also schreiben wir:</p>
+
 <pre>
 <span class="keyword">if</span> es_regnet():
     lies()
 <span class="keyword">else</span>:
     geh_nach_draussen_und_spiel()
 </pre>
+
 <p>Du hast jetzt das neue Schlüsselwort <span class=
 "pykeyword">else</span> kennen gelernt. Also, "if" es regnet, lies; "else" weißt
 du, was du zu tun hast ;-)</p>
+
 <!--======================================-->
 <hr class="line" />
+
 <h3 class="section">"Ich sehe ...", sagt Reeborg.</h3>
+
 <p>Reeborg sieht nicht nur, ob ein Piepser in Reichweite ist, er sieht auch,
 ob ihm eine Mauer im Weg steht. Er kann auch nach links und rechts gucken, ob
 dort eine Mauer im Weg ist. Du kannst ihn folgendermaßen prüfen lasssen, ob
 der Weg frei ist:</p>
+
 <pre>
 front_is_clear() <span class="comment"># True (wahr), wenn vorn/</span>
 left_is_clear()  <span class="comment"># links/rechts der Weg frei</span>
 right_is_clear() <span class="comment"># ist, sonst False (falsch)</span>
 </pre>
+
 <p>Lassen wir Reeborg zunächst mit dem ersten Test seine Welt erforschen. Wir
 lassen Reeborg die Grenzen seiner Welt entlang laufen, indem wir ihn auffordern,
 einen Schritt vorwärts zu gehen, wenn keine Mauer im Weg ist und sonst eine
 Vierteldrehung nach links zu machen. Das folgende einfache Programm ist die
 Grundlage für das, was wir brauchen:</p>
+
 <pre>
 <span class="keyword">if</span> front_is_clear():
     move()
@@ -60,17 +76,22 @@ Grundlage für das, was wir brauchen:</p>
       
 turn_off()
 </pre>
+
 <p>Unten siehst du das Ergebnis eines einfachen Programmlaufs für zwei
 verschiedene Situationen. Vergiss beim Ausprobieren nicht den Doppelpunkt
 (<tt>:</tt>) hinter dem Schlüsselwort <span class="pykeyword">else</span>.</p>
-<p><img alt="start if" src="../../images/intro/if1start.png"/> <img alt=
-"lead to" src="../../images/lead_to.png"/> <img alt="end if" src=
-"../../images/intro/if1end.png"/></p>
-<p><img alt="start if" src="../../images/intro/if2start.png"/> <img alt=
-"lead to" src="../../images/lead_to.png"/> <img alt="end if" src=
-"../../images/intro/if2end.png"/></p>
+
+<p><img alt="start if" src="../../images/intro/if1start.png" /> <img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="end if" src=
+"../../images/intro/if1end.png" /></p>
+
+<p><img alt="start if" src="../../images/intro/if2start.png" /> <img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="end if" src=
+"../../images/intro/if2end.png" /></p>
+
 <p>Nun wollen wir diese einfache <i>bedingte</i> Anweisung so lange wiederholen,
 bis Reeborg  seine Welt einmal umrundet hat.</p>
+
 <pre>
 <span class="keyword">def</span> move_or_turn():
     <span class="keyword">if</span> front_is_clear():
@@ -81,13 +102,17 @@ bis Reeborg  seine Welt einmal umrundet hat.</p>
 repeat(move_or_turn, 20)      
 turn_off()
 </pre>
+
 <p>In einer kleinen Welt mit 5 Kreuzungen an jeder Seite sieht das so aus:</p>
-<p><img alt="around" src="../../images/intro/around1.png"/></p>
+
+<p><img alt="around" src="../../images/intro/around1.png" /></p>
+
 <p>Wenn du eine größere Welt hast, musst du 20 durch eine größere Zahl ersetzen.
 Wir können das Programm noch interessanter machen, indem wir Reeborg "tanzen"
 lassen, wenn er vorwärts läuft und einen Piepser absetzt, wenn er sich drehen
 muss. Das folgende Programm macht genau das, wobei Reeborg die Welt nicht
 ganz umrundet:</p>
+
 <pre>
 <span class="keyword">def</span> dance():
     repeat(turn_left, 4)
@@ -102,10 +127,11 @@ ganz umrundet:</p>
 repeat(move_or_turn, 18)      
 turn_off()
 </pre>
+
 <p>Sorge dafür, dass Reeborg genug Piepser für seine Aufgabe bei sich trägt! 
 Nimm einfach 980, dann hast du genug für die folgenden Versuche. Um Reeborg
 Piepser zu geben, klick auf die Piepser-Schaltfläche <br/>
-<img alt="beepers button" src="../../images/intro/btn_beepers.png"/>.</p>
+<img alt="beepers button" src="../../images/intro/btn_beepers.png" />.</p>
 
 <p>Schau dir an, wie die Anweisungen <tt>dance()</tt> und <tt>move()</tt> tiefer
 eingerückt unter der <span class="pykeyword">if</span>-Anweisung angeordnet
@@ -113,10 +139,13 @@ sind, was zeigt, dass sie zu ihrem <i>Anweisungsblock</i> gehören.
 Genauso verhält es sich mit den Anweisungen <tt>turn_left()</tt> und
 <tt>put_beeper()</tt> und der <span class="pykeyword">else</span>-Anweisung.
 Das Ergebnis des Programmlaufs ist unten zu sehen.</p>
-<img alt="around" src="../../images/intro/around2.png"/>
+
+<p><img alt="around" src="../../images/intro/around2.png" /></p>
+
 <p>Was passiert nun, wenn wir die Anweisung <tt>put_beeper()</tt> nicht wie
 <tt>turn_left()</tt>, sondern wie die <span class=
 "pykeyword">else</span>-Anweisung einrücken, wie unten gezeigt?</p>
+
 <pre>
 <span class="keyword">def</span> dance():
     repeat(turn_left, 4)
@@ -131,19 +160,24 @@ Das Ergebnis des Programmlaufs ist unten zu sehen.</p>
 repeat(move_or_turn, 18)      
 turn_off()
 </pre>
+
 <p>Nun enthält die Definition von <tt>move_or_turn()</tt> eine 
 <span class="pykeyword">if</span>/<span class=
 "pykeyword">else</span>-Entscheidung, die entweder eine dance- und eine
 move-Anweisung, <b>oder</b> eine Vierteldrehung nach links ausführt, und eine
 Anweisung <tt>put_beeper()</tt>, die jedes Mal ausführt wird. Das Ergebnis
 des Programmlaufs sieht so aus:</p>
-<img alt="around" src="../../images/intro/around3.png"/>
+
+<p><img alt="around" src="../../images/intro/around3.png"/></p>
+
 <p>Wie du siehst, hat Reeborg jetzt nach jedem Schritt einen Piepser abgesetzt.
 Jede Ecke hat jetzt zwei Piepser: Eine von dem Schritt vorher, mit dem die Ecke
 erreicht wurde und eine von der Vierteldrehung nach links nach Erreichen der
 Ecke.</p>
+
 <p>Und was passiert, wenn wir die Anweisung <tt>put_beeper()</tt> an der
 <span class="pykeyword">def</span>-Anweisung ausrichten wie unten gezeigt?</p>
+
 <pre>
 <span class="keyword">def</span> dance():
     repeat(turn_left, 4)
@@ -158,28 +192,38 @@ put_beeper()
 repeat(move_or_turn, 18)      
 turn_off()
 </pre>
+
 <p>Jetzt gehört <tt>put_beeper()</tt> nicht mehr zur Definition, da es nicht
 mehr so eingerückt ist wie die anderen Anweisungen innerhalb der Definition.
 Es ist jetzt eine einzelne Anweisung, die nur einmal nach der Definition von
 <tt>move_or_turn()</tt> ausgeführt wird, bevor die
 <tt>move_or_turn()</tt>-Anweisung 18mal ausgeführt wird. Ergebnis siehe unten:
 </p>
-<p><img alt="around" src="../../images/intro/around4.png"/></p>
+
+<p><img alt="around" src="../../images/intro/around4.png" /></p>
+
 <p>Du siehst also, dass mit der Einrückungstiefe in Python etwas sehr wichtiges
 ausgedrückt wird, nämlich die Zugehörigkeit zu Anweisungsblöcken. Durch Übung
 wirst du lernen, dies zu deinem Vorteil zu nutzen und erkennen, dass du damit
 sehr lesbaren Quelltext schreiben kannst.</p>
+
+<!--=====================================================-->
 <hr class="line" />
+
 <h3 class="try">Hürden überspringen</h3>
+
 <p>Reeborg ist jetzt ziemlich gut im Überspringen von Hürden. Er läuft Rennen
 verschiedener Länge: kurze Sprints und Langläufe. Er weiß, daß er die Ziellinie
 erreicht hat, wenn er an einem Piepser vorbei kommt. Unten findest du zwei 
 solcher Rennstrecken; die Weltdateien heißen hurdles1.wld und hurdles2.wld.</p>
-<p><img alt="hurdles start" src="../../images/intro/hurdles1_start.png"/></p>
-<br/>
-<p><img alt="hurdles start" src="../../images/intro/hurdles2_start.png"/></p>
+
+<p><img alt="hurdles start" src="../../images/intro/hurdles1_start.png" /></p>
+
+<p><img alt="hurdles start" src="../../images/intro/hurdles2_start.png" /></p>
+
 <p>Nimm an, dass es keine Rennen gibt, die länger als 20 Einheiten sind.
 Definiere eine Anweisung, die ungefähr so wie diese aussieht:</p>
+
 <pre>
 <span class="keyword">def</span> move_jump_or_finish():
     <span class="keyword">if</span> on_beeper(): <span class=
@@ -192,18 +236,20 @@ Definiere eine Anweisung, die ungefähr so wie diese aussieht:</p>
         <span class="keyword">else</span>:
             jump_one_hurdle()
 </pre>
+
 <p>mit einer geeigneten Anweisung <tt>jump_one_hurdle()</tt>, so dass -
-abgesehen von Definitionen - Reeborg nur folgende Anweisung zu befolgen braucht:
-<br/>
+abgesehen von Definitionen - Reeborg nur folgende Anweisung zu befolgen braucht:<br />
 <tt>repeat(move_jump_or_finish, 20)</tt>.</p>
+
 <p>Beachte, dass in der obigen Definition der Quelltext mit jedem zusätzlichen
 Test weiter eingerückt wird.</p>
-<div class="lessons_toc">
+
+<div class="lessons_nav">
 <a href="12-if.htm"><img alt="previous" src=
-"../../images/previous.png"/>12. Reeborg entscheidet.</a>
-- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> -
-<a href="14-elif.htm">14. Reeborg entscheidet mal so, mal so.<img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/previous.png" />Reeborg entscheidet.</a>
+- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> -
+<a href="14-elif.htm">Reeborg entscheidet mal so, mal so.<img alt="next" src=
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>

@@ -21,24 +21,30 @@ numbers in other bases!</p>
 <h3 class="try">Warmup</h3>
 
 <ol>
-<li>Write a program that has Reeborg adding 3+2 in the following way.<br/>
+<li>
+Write a program that has Reeborg adding 3+2 in the following way.<br />
 <img alt="3+2" src="../../images/intro/add3_2_start.png" /><img alt="lead to"
 src="../../images/lead_to.png" /> <img alt="5" src=
-"../../images/intro/add3_2_end.png" /><br/>
-Write it so that it would also work to add 1+4.</li>
-<li>Change your program so that Reeborg can add 13+22 in the following way, where
-each beeper pile represents a digit.<br/>
+"../../images/intro/add3_2_end.png" /><br />
+Write it so that it would also work to add 1+4.
+</li>
+<li>
+Change your program so that Reeborg can add 13+22 in the following way, where
+each beeper pile represents a digit.<br />
 <img alt="13+22" src="../../images/intro/add13_22_start.png" /><img alt=
 "lead to" src="../../images/lead_to.png" /> <img alt="35" src=
-"../../images/intro/add13_22_end.png" /><br/></li>
-<li>Can you write a program so that Reeborg can still add 3+2 <b>but</b> also
-so that it can add 8+4 as follows?.<br/>
+"../../images/intro/add13_22_end.png" />
+</li>
+<li>
+Can you write a program so that Reeborg can still add 3+2 <b>but</b> also
+so that it can add 8+4 as follows?.<br />
 <img alt="8+4" src="../../images/intro/add8_4_start.png" /><img alt=
 "lead to" src="../../images/lead_to.png" /> <img alt="12" src=
-"../../images/intro/add8_4_end.png" /><br/>
+"../../images/intro/add8_4_end.png" /><br />
 Your new program should also add correctly 2+5 and 9+9. Can you see how to do
 this? If so, try ... However, if you can not, do not get discouraged;
-instead, read on...</li>
+instead, read on...
+</li>
 </ol>
 
 <!--=========================================-->
@@ -105,8 +111,8 @@ column; this is why you don't see him in the picture below.)</p>
 <p><img alt="line of beepers accross 10th street" src=
 "../../images/intro/accross10.png" /></p>
 
-<p>Now, make sure you save this program before going any further.<br/>
-<br/>
+<p>Now, make sure you save this program before going any further.<br />
+<br />
 Reload the world file (so that the world is empty again and Reeborg is
 standing at the origin [corner of 1<sup>st</sup> avenue and 1<sup>st</sup>
 street]) and add beepers in the bottom right corners so that the display
@@ -117,11 +123,17 @@ looks like the following:</p>
 <p>Have Reeborg do the following:</p>
 
 <ol>
-<li>Put a line of beepers across 10<sup>th</sup> street as you have done
-before.</li>
-<li>Go to the bottom right of the screen, collecting the two piles (8 and 4)
-of beepers.</li>
-<li>Spread those 12 beepers on a vertical column as illustrated below.</li>
+<li>
+Put a line of beepers across 10<sup>th</sup> street as you have done
+before.
+</li>
+<li>
+Go to the bottom right of the screen, collecting the two piles (8 and 4)
+of beepers.
+</li>
+<li>
+Spread those 12 beepers on a vertical column as illustrated below.
+</li>
 </ol>
 
 <p><img alt="8+4 spread vertically" src=
@@ -132,30 +144,45 @@ in the number 12) and an extra beeper on the horizontal line (which we can
 use as the "carry over"). So, all that you have to do is</p>
 
 <ol>
-<li>Have Reeborg pick up the 9 beepers below the horizontal line of beepers,
+<li>
+Have Reeborg pick up the 9 beepers below the horizontal line of beepers,
 and discard them (perhaps by putting them all on the horizontal line); you
 can do this by repeating the following steps:
 <ol>
-<li>pick up a beeper</li>
-<li>check to see if there is another beeper to pick up; if not</li>
-<li>move ... until you reach a corner where there is another beeper to pick
-up ...</li>
+<li>
+pick up a beeper
+</li>
+<li>
+check to see if there is another beeper to pick up; if not
+</li>
+<li>
+move ... until you reach a corner where there is another beeper to pick
+up ...
+</li>
 </ol>
 at which point you will have reached the horizontal line of beepers. You can
-drop them all at that corner.</li>
-<li>Have Reeborg keep going north at least past the last beeper, as
-illustrated below:<br/>
-<br/>
-<img alt="8+4" src="../../images/intro/add8_4_middle.png" /><br/>
+drop them all at that corner.
 </li>
-<li>Have Reeborg turn around, pick up <b>one</b> beeper and move, repeat
+<li>
+Have Reeborg keep going north at least past the last beeper, as
+illustrated below:<br />
+<br />
+<img alt="8+4" src="../../images/intro/add8_4_middle.png" />
+</li>
+<li>
+Have Reeborg turn around, pick up <b>one</b> beeper and move, repeat
 until Reeborg reaches a corner where there is no more beeper to pick up
 (below the horizontal line); at this point, Reeborg should be carrying three
-beepers.</li>
-<li>Have Reeborg carry these beepers down, until Reeborg reaches the
-wall;</li>
-<li>Have Reeborg put them all down (3), pick one up (the carry over), move
-west and put the carry over beeper down.</li>
+beepers.
+</li>
+<li>
+Have Reeborg carry these beepers down, until Reeborg reaches the
+wall;
+</li>
+<li>
+Have Reeborg put them all down (3), pick one up (the carry over), move
+west and put the carry over beeper down.
+</li>
 </ol>
 
 <p>All that is left to do is to move Reeborg out of the way to display the
@@ -193,7 +220,7 @@ a different base.</p>
 <h3 class="section">What next?</h3>
 
 <p>So far, within Reeborg's world, we have seen the following Python
-keywords:<br/>
+keywords:<br />
 <span class="pykeyword">def, elif, else, if, not, pass, while</span>. We have
 ended on writing a rather complicated program so that Reeborg could add two
 numbers. It is time to leave Reeborg's world to see how we can add two

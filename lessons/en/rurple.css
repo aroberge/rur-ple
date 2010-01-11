@@ -2,6 +2,16 @@
 
 body{width:675px;}
 
+/* <pre> element */
+pre {
+background-color:#F7F9FA;
+border:1px dashed #8CACBB;
+color:#000000;
+font-size:110%;
+overflow:auto;
+padding:0.5em;
+}
+
 /* Basic Python Elements (inside <pre> </pre>)*/
 .keyword{color: #336699; font-weight: bold;}
 .number{color: #FF0000;}

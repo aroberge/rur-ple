@@ -8,59 +8,80 @@
 <title>Doğru değil - Not true!?</title>
 </head>
 <body>
-
 <h2 class="title">15. Doğru değil <span class="pykeyword">not</span> true!?</h2>
+
 <p>Reeborg'un bir bip buluncaya kadar yürümesini ve bip'i bulunca da kendisini 
 kapatmasını istediğimizi varsayalım. Başlangıç pozisyonu aşağıdaki gibi olsun:</p>
-<img alt="stop at beeper" src="../../images/intro/stop_at_beeper.png"/>
-<p>Bunu <i>pseudocode </i>ile şöyle yapabiliriz: <br />
-<br />
-If next to beeper,<br />
-... dur;<br />
-otherwise,<br />
-... yürümeye devam et.<br />
-<br />
-Bunu Python koduna çevirirsek:</p>
+
+<img alt="stop at beeper" src="../../images/intro/stop_at_beeper.png" />
+
+<p>Bunu <i>pseudocode </i>ile şöyle yapabiliriz: </p>
+
 <pre>
-<span class="keyword">if</span> next_to_beeper():
+If next to beeper,
+... dur;
+otherwise,
+... yürümeye devam et.
+</pre>
+
+<p>Bunu Python koduna çevirirsek:</p>
+
+<pre>
+<span class="keyword">if</span> on_beeper():
     turn_off()
 <span class="keyword">else</span>:
     move()           
 </pre>
+
 <p>Bu tam bir çözüm değil çünkü Reeborg'a bu işi tekrar etmesini söylemedik. Bu şu 
 an için önemli değil biz şimdi aynı işi yapan aşağıdaki
-<i>pseudocode</i> 'a bakalım. <br />
-<br />
-If <b>not</b> next to beeper,<br />
-...yürümeye devam et;<br />
-otherwise,<br />
-...dur.<br />
-<br />
-yürümeye devam et ve dur'un yerlerini değiştirmemize rağmen iki
+<i>pseudocode</i> 'a bakalım. </p>
+
+<pre>
+If <b>not</b> next to beeper,
+...yürümeye devam et;
+otherwise,
+...dur.
+</pre>
+
+<p>yürümeye devam et ve dur'un yerlerini değiştirmemize rağmen iki
 <i>pseudocode</i>'da aynı işi yaparlar. Burada önemli olan nokta <span class="pykeyword">if</span> 
 den sonra  <span class="pykeyword">not</span>'ın kullanılmasıdır.  
 Bu şekilde Pythonda şartların tersi alınabilir: </p>
+
 <pre>
-<span class="keyword">if not</span> next_to_beeper():
+<span class="keyword">if not</span> on_beeper():
     move()
 <span class="keyword">else</span>:
     turn_off()          
 </pre>
+
 <p>Bu kodu tam bir program haline getirmek için bir tanımlama yapmalı ve bu 
 tanımlamayı yeteri kadar tekrar ettirmeliyiz.</p>
+
 <h3 class="try">Sıra sizde</h3>
+
 <p> <span class="pykeyword">not</span>'ı kullanarak engel atlama programını 
 yeniden yazınız.</p>
+
+<!--=============================================-->
 <hr class="line" />
+
 <h3 class="suggested">Ekme biçme zamanı</h3>
+
 <p>Bahar geldi. Reeborg'un babası sonbaharda hasat etmek için bahçeye havuç 
 tohumları atmıştı. Aşağıda gördüğünüz gibi bazı yerlerde iki filiz çıkarken bazı 
 yerlerde hiç filiz çıkmamış. (dünya dosyası: harvest4.wld).</p>
-<img alt="weeding" src="../../images/intro/harvest4.png"/>
+
+<img alt="weeding" src="../../images/intro/harvest4.png" />
+
 <p>Reeborg'a filizleri düzenlemesi için yardım edin ve her yerde filiz sayısının 
 aşağıda olduğu gibi bir tane olmasını sağlayın.</p>
-<img alt="weeding" src="../../images/intro/harvest1.png"/>
+
+<img alt="weeding" src="../../images/intro/harvest1.png" />
+
 <p>Kodlamanın bir bölümü için tavsiye: </p>
+
 <pre>
 <span class="comment"># probleme uygun kelimeler</span>
 next_to_a_carrot = next_to_a_beeper
@@ -76,15 +97,15 @@ pick_carrot = pick_beeper
         <span class="keyword">if not</span> next_to_a_carrot(): 
             plant_carrot()  
 </pre>
+
 <p>Gerçek hayatta filizlerin yerini değiştirmek iyi bir fikir olmayabilir!</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="14-elif.htm"><img alt="previous" src=
-"../../images/previous.png"/> If, else, if, else, ....</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" /> If, else, if, else, ....</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="16-while.htm">Bir süre için For a while <img alt="next" src=
-"../../images/next.png"/></a>
+"../../images/next.png" /></a>
 </div>
 </body>
 </html>
-

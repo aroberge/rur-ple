@@ -1,24 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>17. Überraschung! - Teil 1</title>
+
+<title>Überraschung! - Teil 1</title>
 </head>
 <body>
 <a name="amazing" id="amazing"></a>
 <h2 class="title">17. Überraschung! - Teil 1</h2>
+
 <p>In dieser mehrteiligen Lektion schreiben wir ein vollständiges Programm,
 mit dem wir zunehmend komplexe Probleme lösen werden.</p>
+
 <!--===================================================-->
 <hr class="line" />
+
 <h3 class="section">Überraschende Lösung: erste Schritte</h3>
+
 <p>Wir beginnen mit der Betrachtung eines einfachen Problems: 
 wir lassen Reeborg einmal um seine Welt herumgehen, wobei wir annehmen, dass
 ihm keine Hindernisse im Weg stehen. Wir haben das schon einmal gemacht, als
 wir den Test <tt>front_is_clear()</tt> kennen gelernt haben. Hier ist das Schema
 einer Lösung, die voraussetzt, dass Reeborg zu Beginn mindestens einen Piepser
 dabei hat:</p>
+
 <pre>
 1. Setze einen Piepser ab, um den Startpunkt zu markieren.
 2. Vorwärts bewegen, bis eine Mauer im Weg steht.
@@ -26,13 +33,17 @@ dabei hat:</p>
 4. Schritte 2. und 3. wiederholen, bis der abgesetzte Piepser gefunden wird.
 5. Abschalten, wenn der Piepser gefunden wird.
 </pre>
+
 <p>Der zentrale Schritt ist Nr. 4 mit einer wiederholten Anweisung und einem
 Test. Diese Anweisung kann so geschrieben werden:</p>
+
 <pre>
 <span class="keyword">while not</span> on_beeper():
 </pre>
+
 <p>wonach Schritte 2 und 3 folgen. Wir übersetzen jetzt die gesamte Lösung in
 echten Code:</p>
+
 <pre>
 put_beeper()
 <span class="keyword">while not</span> on_beeper():
@@ -43,22 +54,26 @@ put_beeper()
 
 turn_off()
 </pre>
+
 <p>Nimm dir Zeit zu überlegen, was das obige Programm Reeborg tun läßt, wenn 
 die Startposition so ist wie unten angezeigt:</p>
+
 <p><img alt="around the world: start" src=
-"../../images/intro/around1start.png"/></p>
+"../../images/intro/around1start.png" /></p>
+
 <p>Wir erhielten nicht das gewünschte Ergebnis, das unten angezeigt wird. Hast
 du herausgefunden, woran das liegt? Wenn nicht, gehe zum letzten Schritt zurück
 und denke nochmal darüber nach.</p>
-<p><img alt="around the world: start" src=
-"../../images/intro/around1end.png"/></p>
 
-<div class="lessons_toc">
+<p><img alt="around the world: start" src=
+"../../images/intro/around1end.png" /></p>
+
+<div class="lessons_nav">
 <a href="16-while.htm"><img alt="previous" src=
-"../../images/previous.png"/>16. Eile mit Weile!</a> - 
+"../../images/previous.png" />Eile mit Weile!</a> - 
 <a href="../lessons_toc.htm"><img alt=
-"home" src="../../images/home.png"/></a> - <a href="18-amazing2.htm">
-18. Überraschung! - Teil 2<img alt="next" src="../../images/next.png"/></a>
+"home" src="../../images/home.png" /></a> - <a href="18-amazing2.htm">
+Überraschung! - Teil 2<img alt="next" src="../../images/next.png" /></a>
 </div>
 </body>
 </html>
