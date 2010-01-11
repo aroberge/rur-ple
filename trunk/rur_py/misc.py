@@ -1,3 +1,4 @@
+# -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     misc.py - contains various parameters
     Version 1.0

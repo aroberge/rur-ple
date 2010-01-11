@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     rur_start.py - "Main" file for RUR-PLE.
     Version 1.0
@@ -341,7 +341,7 @@ class RURApp(wx.Frame):
                 self.ProgramEditor.SetSavePoint()
             else:
                 code = ""
-                rD.rurMessageDialog(mesg, ("Program will not be used."))
+                rD.rurMessageDialog(mesg, _("Program will not be used."))
         dlg.Destroy()
     
     def SaveProgramFile(self, dummy):

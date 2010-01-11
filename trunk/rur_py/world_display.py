@@ -1,3 +1,4 @@
+# -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     world_display.py - Displays "world" with "robot" and allow
                       keyboard-based interactions

@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-# -*- encoding: latin-1 -*-
+# -*- coding: utf-8
 '''test_import_lightning is a demo application showing how one can
 embed Lightning Compiler (lightning.py), but having buttons laid out 
 horizontally at the top of the window instead of vertically on the left side
 as is done with lighthing.py
 Adapt as you wish but please acknowledge the original source 
-if you do.      André Roberge, andre.roberge@gmail.com'''
+if you do.      AndrÃ© Roberge, andre.roberge@gmail.com'''
 
 import wx   
 import wx.py as py    # For the interpreter

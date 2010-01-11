@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     rur_lessons.py
     Version 1.0

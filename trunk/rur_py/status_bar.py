@@ -1,3 +1,4 @@
+# -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     status_bar.py - Status bar information at bottom of Robot: Code and Learn
     Version 0.8.7

@@ -1,3 +1,4 @@
+# -*- coding: utf-8
 # test_import.py
 
 import re

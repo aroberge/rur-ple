@@ -1,3 +1,4 @@
+# -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     editor.py - editor for program files.
     March 2006: major change to use the "lightning compiler" basis.

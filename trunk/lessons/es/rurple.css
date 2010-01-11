@@ -3,6 +3,8 @@
 body{
 /* width:600px; */
 }
+p, li {text-align: justify;}
+img {vertical-align: middle;}
 
 /* <pre> element */
 pre {
