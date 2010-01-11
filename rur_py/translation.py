@@ -1,5 +1,4 @@
-# -*- coding: latin-1 -*-
-
+# -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     translation.py
     Version 1.0
@@ -46,13 +45,13 @@ import misc # needed for the locating rur-ple's home directory
 # the fourth is the name of the ".po" file, assumed to be utf-8 encoded.
 languages = {
     'english': [my_encode('English'), {}, 'en', 'english.po'],
-    'french': [my_encode(u'Fran�ais'), {}, 'fr', 'french.po'],
+    'french': [my_encode(u'Français'), {}, 'fr', 'french.po'],
     'german': [my_encode(u'Deutsch'), {}, 'de', 'german.po'],
     'italian': [my_encode(u'Italian'), {}, 'it', 'italian.po'],
-    'spanish': [my_encode(u'Espa�ol'), {}, 'es', 'spanish.po'],
-    'turkish': [my_encode(u'T�rk�e'), {}, 'tr', 'turkish.po'],
+    'spanish': [my_encode(u'Español'), {}, 'es', 'spanish.po'],
+    'turkish': [my_encode(u'Türkçe'), {}, 'tr', 'turkish.po'],
     'welsh': [my_encode('Welsh'), {}, 'cy', 'welsh.po'],
-    'Chinese': [my_encode('Simplified Chinese'), {}, 'zh_CN', 'chinese.po']
+    'Chinese': [my_encode('简体中文 - Chinese'), {}, 'zh_CN', 'chinese.po']
 }
 
 #============

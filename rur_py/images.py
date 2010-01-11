@@ -1,3 +1,4 @@
+# -*- coding: utf-8
 # RUR-PLE: Roberge's Used Robot - a Python Learning Environment
 #    images.py - Contains all images for RUR-PLE
 #    Version 0.8.7

@@ -1,4 +1,4 @@
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     browser.py - Simple html browser
         Adapted from wxPython demo code

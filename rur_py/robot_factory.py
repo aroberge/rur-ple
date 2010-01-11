@@ -1,3 +1,4 @@
+# -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     robot_factory.py - see description below
     Version 0.8.7

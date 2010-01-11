@@ -1,6 +1,8 @@
 /* rurple.css */
 
 li { margin-bottom: 0.5em; }
+p, li {text-align: justify;}
+img {vertical-align: middle;}
 
 
 /* <pre> element */

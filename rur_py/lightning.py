@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-# -*- encoding: latin-1 -*-
+# -*- coding: utf-8
 ABOUT='''Lightning Compiler is a simple Python editor that can execute Python 
 programs 'instantly', outputting the result in a side window, for testing 
 purposes.  Adapt as you wish but please acknowledge the original source 
-if you do.           (c) André Roberge, andre.roberge@gmail.com'''
+if you do.           (c) AndrÃ© Roberge, andre.roberge@gmail.com'''
 
 import keyword
 import os
@@ -380,47 +380,47 @@ class ControlPanel(wx.Panel):
         wx.Panel.__init__(self, parent, -1)
         helpId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.help, 
-                  wx.Button(self, helpId, "Help (F1)", (3, 5)))
+                  wx.Button(self, helpId, _("Help (F1)"), (3, 5)))
         newTabId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.newTab, 
-                  wx.Button(self, newTabId, "New Editor (c-n)", (3, 30)))
+                  wx.Button(self, newTabId, _("New Editor (c-n)"), (3, 30)))
         openId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.openFile, 
-                  wx.Button(self, openId, "Open (c-o)", (3, 70)))
+                  wx.Button(self, openId, _("Open (c-o)"), (3, 70)))
         saveId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.saveFile, 
-                  wx.Button(self, saveId, "Save (c-s)", (3, 95)))
+                  wx.Button(self, saveId, _("Save (c-s)"), (3, 95)))
         runId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.run, 
-                  wx.Button(self, runId, "Run (c-r)", (3, 135)))
+                  wx.Button(self, runId, _("Run (c-r)"), (3, 135)))
         runWithId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.run_with, 
-                  wx.Button(self, runWithId, "Run with (F6)", (3, 160)))
+                  wx.Button(self, runWithId, _("Run with (F6)"), (3, 160)))
         doctestId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.doctest_basic, 
-                  wx.Button(self, doctestId, "docTest (F2)", (3, 200)))
+                  wx.Button(self, doctestId, _("docTest (F2)"), (3, 200)))
         verboseId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.doctest_verbose, 
-                  wx.Button(self, verboseId, "Verbose (F3)", (3, 225)))
+                  wx.Button(self, verboseId, _("Verbose (F3)"), (3, 225)))
         testSuiteId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.doctest_suite, 
-                  wx.Button(self, testSuiteId, "test suite (F4)", (3, 250)))
+                  wx.Button(self, testSuiteId, _("test suite (F4)"), (3, 250)))
         verboseSuiteId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.doctest_verbose_suite, 
-                  wx.Button(self, verboseSuiteId, "v. suite (F5)", (3, 275)))
+                  wx.Button(self, verboseSuiteId, _("v. suite (F5)"), (3, 275)))
 
         goToId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.goToLine, 
-                  wx.Button(self, goToId, "Go to (c-g)", (3, 315)))
+                  wx.Button(self, goToId, _("Go to (c-g)"), (3, 315)))
         showId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.show, 
-                  wx.Button(self, showId, "Hide/show (c-h)", (3, 355)))
+                  wx.Button(self, showId, _("Hide/show (c-h)"), (3, 355)))
         clearId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.clear, 
-                  wx.Button(self, clearId, "Erase (c-e)", (3, 380)))
+                  wx.Button(self, clearId, _("Erase (c-e)"), (3, 380)))
         switchId = wx.NewId()
         self.Bind(wx.EVT_BUTTON, editor.switch_layout, 
-                  wx.Button(self, switchId, "Layout (c-l)", (3, 405)))
+                  wx.Button(self, switchId, _("Layout (c-l)"), (3, 405)))
 
 
         aTable = wx.AcceleratorTable([(wx.ACCEL_CTRL, ord('O'), openId),
@@ -531,7 +531,7 @@ class EditorSashWindow(wx.Panel):
         wx.LayoutAlgorithm().LayoutWindow(self, self.remainingSpace)
 
     def openFile(self, event):
-        wildcard = "Python files (*.py)|*.py|" + "All files (*.*)|*.*"
+        wildcard = _("Python files (*.py)|*.py|" + "All files (*.*)|*.*")
         dlg = wx.FileDialog(self, '', os.getcwd(), "",
                            wildcard, wx.OPEN | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
@@ -542,7 +542,7 @@ class EditorSashWindow(wx.Panel):
 
     def saveFile(self, event):
         user_code = self.PythonEditor.GetText()
-        wildcard = "Python files (*.py)|*.py|" + "All files (*.*)|*.*"
+        wildcard = _("Python files (*.py)|*.py|" + "All files (*.*)|*.*")
         dlg = wx.FileDialog(self, '', os.getcwd(),
                            "", wildcard, wx.SAVE| wx.CHANGE_DIR )
         if dlg.ShowModal() == wx.ID_OK:
@@ -592,8 +592,8 @@ class EditorSashWindow(wx.Panel):
         
     def run_with(self, event):
         '''Runs the user code with arguments passed to script'''
-        dlg = wx.TextEntryDialog(self, 'Enter arguments list', 
-        'Running script with arguments', self.arguments)
+        dlg = wx.TextEntryDialog(self, _("Enter arguments list"), 
+        _("Running script with arguments"), self.arguments)
         if dlg.ShowModal() == wx.ID_OK:
             self.arguments = dlg.GetValue()
         dlg.Destroy()        
@@ -625,8 +625,8 @@ class EditorSashWindow(wx.Panel):
 
     def select_test_file(self):
         ''' Dialog to select test file to use with doctest suite (unittest).'''
-        wildcard = "All files (*.*)|*.*"
-        dlg = wx.FileDialog(self, 'Select file to be used in test suite', 
+        wildcard = _("All files (*.*)|*.*")
+        dlg = wx.FileDialog(self, _("Select file to be used in test suite"), 
                            os.getcwd(), "", wildcard, wx.OPEN | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             self.testfile_name = dlg.GetPath()
@@ -726,7 +726,7 @@ unittest.TextTestRunner(%s).run(suite)
         self._refresh()
 
     def goToLine(self, event):
-        dlg = wx.TextEntryDialog(self, 'Enter line number', 'Go to line', '')
+        dlg = wx.TextEntryDialog(self, _("Enter line number"), _("Go to line"), '')
         line = ''
         if dlg.ShowModal() == wx.ID_OK:
             line = int(dlg.GetValue()) - 1
@@ -736,7 +736,7 @@ unittest.TextTestRunner(%s).run(suite)
         self.PythonEditor.SetFocus()
 
     def myRawInput(self, text):
-        dlg = wx.TextEntryDialog(self, text, 'raw_input() request', '')
+        dlg = wx.TextEntryDialog(self, text, _("raw_input() request"), '')
         if dlg.ShowModal() == wx.ID_OK:
             user_response = dlg.GetValue()
         dlg.Destroy()
@@ -744,7 +744,7 @@ unittest.TextTestRunner(%s).run(suite)
         return user_response
     
     def myInput(self, text):
-        dlg = wx.TextEntryDialog(self, text, 'input() request', '')
+        dlg = wx.TextEntryDialog(self, text, _("input() request"), '')
         if dlg.ShowModal() == wx.ID_OK:
             user_response = dlg.GetValue()
         dlg.Destroy()
@@ -757,14 +757,14 @@ class MainWindow(wx.Frame):
                     style=wx.DEFAULT_FRAME_STYLE|wx.NO_FULL_REPAINT_ON_RESIZE)
         self.app = wx.Notebook(self, -1)
         editor = EditorSashWindow(self.app)
-        self.app.AddPage(editor, "Editor")
+        self.app.AddPage(editor, -("Editor"))
         sh = py.shell.Shell(self.app, -1)
         set_styles(sh)
-        self.app.AddPage(sh, "Interpreter")
+        self.app.AddPage(sh, _("Interpreter"))
         self.Show(True)
         editor.PythonEditor.SetFocus()
 
 if __name__ == "__main__":
     app = wx.PySimpleApp()
-    frame=MainWindow(None, 'Lightning Compiler')
+    frame=MainWindow(None, _("Lightning Compiler"))
     app.MainLoop()

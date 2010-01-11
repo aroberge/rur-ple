@@ -1,3 +1,4 @@
+# -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     cpu.py - "Central Processing Unit" for the robot
     Version 0.9.8.5

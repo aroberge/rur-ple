@@ -1,3 +1,4 @@
+# -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     dialogs.py - dialogs, messages and exceptions used to communicate
                  with user.
