@@ -51,7 +51,7 @@ languages = {
     'spanish': [my_encode(u'Español'), {}, 'es', 'spanish.po'],
     'turkish': [my_encode(u'Türkçe'), {}, 'tr', 'turkish.po'],
     'welsh': [my_encode('Welsh'), {}, 'cy', 'welsh.po'],
-    'Chinese': [my_encode('简体中文 - Chinese'), {}, 'zh_CN', 'chinese.po']
+    'Chinese': [my_encode(u'简体中文 - Chinese'), {}, 'zh_CN', 'chinese.po']
 }
 
 #============
