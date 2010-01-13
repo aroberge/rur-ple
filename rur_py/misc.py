@@ -16,3 +16,11 @@ HTML_DIR = ''     # lessons and other html files
 PRGM_DIR = ''     # user-defined programs
 WORLD_DIR = ''    # user-defined worlds
 PYTHON_DIR = ''
+
+# TODO: Should be moved to a better place, perhaps wxcompat.
+def wxversiontuple():
+     '''returns wx.version() as a tuple of ints for numeric
+     comparison of versions.
+     '''
+     import wx
+     return tuple(map(int, wx.version().split()[0].split('.')))
