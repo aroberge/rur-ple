@@ -24,6 +24,16 @@ import wx
 from world_creation import Visible_world
 from robot_factory import Used_robot, New_improved_robot
 import dialogs
+import misc
+
+ # version dependent function keycode to make rur-ple work with
+ # wxpython 2.6 to latest
+if misc.wxversiontuple() < (2, 7, 1, 1):
+    def keycode(event):
+        return event.KeyCode()
+else:
+    def keycode(event):
+        return event.KeyCode
 
 class WorldGUI(wx.ScrolledWindow):
     def __init__(self, parent, id = -1, size = wx.DefaultSize):
@@ -176,7 +186,7 @@ For testing only (future features):
             F7: creates New_improved_robot
             Right arrow:   turn robot right (only New_improved_robot)
             F8: creates Used_robot (default)"""
-        code = event.KeyCode()
+        code = keycode(event)
         if code == wx.WXK_UP:           # up arrow
             if 'robot' in self.world.robot_dict:
                 try:
