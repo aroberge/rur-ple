@@ -3,7 +3,7 @@
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
     rur_start.py - "Main" file for RUR-PLE.
     Version 1.0
-    Author: Andr� Roberge    Copyright  2006
+    Author: André Roberge    Copyright  2006
     andre.roberge@gmail.com
 """
 # This program is free software; you can redistribute it and/or modify
@@ -28,17 +28,17 @@
 
 import os
 import sys
-import wx
 from rur_py.translation import _
 import rur_py.misc
 
-# wxversion.select should not be used when make a 'bundle' of the application
+# do not check version when make a 'bundle' of the application
 # ref: http://www.wxpython.org/docs/api/wxversion-module.html
 if not hasattr(sys, 'frozen'):
     if rur_py.misc.wxversiontuple() < (2,6):
         print _("wxPython versions less than 2.6 are not supported.")
         sys.exit(1)
 
+import wx
 import wx.lib.buttons
 import rur_py.misc as misc  # a few global variables
 
