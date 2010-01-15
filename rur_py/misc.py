@@ -22,5 +22,12 @@ def wxversiontuple():
      '''returns wx.version() as a tuple of ints for numeric
      comparison of versions.
      '''
-     import wx
-     return tuple(map(int, wx.version().split()[0].split('.')))
+     try:
+         import wx
+         if hasattr(wx, 'version'):
+             return tuple(map(int, wx.version().split()[0].split('.')))
+         elif hasattr(wx, '__version__'):
+             return tuple(map(int, wx.__version__.split('.')))
+     except Exception:
+         return (0, 0, 0, 0)
+
