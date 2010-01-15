@@ -9,47 +9,60 @@
 </head>
 <body>
 <h2 class="title">25. Python toplama yapmayı zaten biliyordu</h2>
+
 <p>Bir önceki derste Reeborg'a iki sayıyı toplatabilmek için bir hayli 
 uğraşmamız gerekti. Bu derste Python'da iki sayıyı toplamanın ne kadar kolay 
 olduğunu göreceksiniz, dahası diğer matematiksel işlemleri de rahatlıkla 
 yaptırabileceksiniz. </p> 
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">İlk yapılacak iş</h3>
+
 <p>Python yorumlayıcısını (Python: Code and Learn) üçüncü sekmeye tıklayarak 
 seçin. Görünüm aşağıdakine benzer olmalıdır(Fransızca 
 dışında). </p>
+
 <p><img alt="Python interpreter" src=
-"../../images/inter/interpreter.png"/></p>
-<br />
+"../../images/inter/interpreter.png" /></p>
+
 <p>İlk iki satırı şimdilik görmezden gelin üçüncü satırda gördüğünüz üç tane 
 yan yana koyulmuş şey  ">>>" Python <i>prompt</i>'udur.</p>
+
 <pre>
 >>>
 </pre>
+
 <p>Şimdi Python'un toplamayı Reeborg'dan daha kolay yapıp yapamadığını görelim. 
 İmleci üçüncü satıra koyun ve  "Add 8
 and 4" yazıp "enter" tuşuna basın. Python size kendi dili ile cevap verecektir. </p>
+
 <pre>
 >>>Add 8 <span class="keyword">and</span> 4
-  File <span class="string">"&lt;input&gt;"</span>, line 1
+  File <span class="string">"&lt;input>"</span>, line 1
     Add 8 <span class="keyword">and</span> 4
         ^
 SyntaxError: invalid syntax
 >>>
 </pre>
+
 <p>Python yorumlayıcısı ingilizce emirleri anlamaz. Ancak Python komutlarını 
 anlayabildiğini farketmiş olmalısınız, örneğin <span class="pykeyword">and</span> farklı bir renkle gösteriliyor. </p>
-<p>Aşağıda prompt'un hazır olarak beklediğini göreceksiniz. Bu defa "8+4" yazın 
+
+<p>Aşağıda <span style="text-decoration: underline;">prompt</span>'un hazır olarak beklediğini göreceksiniz. Bu defa "8+4" yazın 
 ve enter'a basın. Aşağıdaki gibi bir görüntü elde etmelisiniz.</p>
+
 <pre>
 >>> 8+4
 12
 >>> 
 </pre>
+
 <p>Başardık! Python iki sayıyı hemen topladı (bunu Reeborg'a yaptırmak çok zordu). 
 Prompt yeni komutları girilmesi için yine hazır olarak bekliyor. Aşağıdakileri 
 de deneyin.</p>
+
 <pre>
 >>> 8+4
 12
@@ -60,11 +73,15 @@ de deneyin.</p>
 >>> 8/4
 2
 </pre>
+
 <p>Gördüğünüz gibi Python toplama, çıkarma, çarpma ve bölme yapmayı biliyor.</p>
+
 <h3 class="section">Sayısal işlemlere devam</h3>
+
 <p>Python kendisine bir dizi matematiksel işlem verildiğinde hangisini önce 
 (işlem önceliği) yapması gerektiğini bilir. Önce bölme ve çarpmalar, sonra toplama ve çıkarmalar yapılıyor. 
 Aşağıdaki örnekleri inceleyin.</p>
+
 <pre>
 >>> 2+3*5
 17
@@ -78,19 +95,27 @@ Aşağıdaki örnekleri inceleyin.</p>
 >>> 2+1-4
 -1
 </pre>
+
 <p>Kendiniz de denemeler yapın, sizi şaşırtacak bir sonuç buldunuz mu?</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Şaşırtıcı bölme</h3>
+
 <p>Eğer şaşırtıcı bir sonuç bulamadıysanız, yeteri kadar deneme 
 yapmamışsınızdır. <tt>7/3 </tt>ve <tt>1/2 </tt>işlemlerini deneyin.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Tam sayılı bölme</h3>
+
 <p>Python farklı tipteki sayıları tanıyabilir. En basit tip tamsayılardır. 
 Python bir tamsayıyı bir başka tamsayı ile böldüğünde kalanı atar ve sonucu tam 
 sayı olarak verir. Bu nedenle 7'yi 3'le böldüğümüzde Python 2 sonucunu verir. 
 Kalanı elde etmek için <tt>% </tt> sembolü kullanılır.</p>
+
 <pre>
 >>> 7/3
 2
@@ -101,9 +126,11 @@ Kalanı elde etmek için <tt>% </tt> sembolü kullanılır.</p>
 >>> 1%2
 1
 </pre>
+
 <p>Beklediğimiz gibi bir sonuç elde edebilmek için Python'a gerçek sayılar(<i>floats</i>) 
 kullandığımızı belirtmeliyiz. Bunu sayılardan en az birisinin sonuna nokta 
 ekleyerek sağlayabiliriz. </p>
+
 <pre>
 >>> 1./2
 0.5
@@ -112,9 +139,12 @@ ekleyerek sağlayabiliriz. </p>
 >>> 1.00000/2
 0.5
 </pre>
+
 <h3 class="section">Biraz daha matematik</h3>
+
 <p>Python temel matematiksel işlemlerden daha fazlasını bilir. Anlayabilmeniz 
 için örnekler aşağıda. </p>
+
 <pre>
 >>> 3*3*3*3
 81
@@ -123,119 +153,151 @@ için örnekler aşağıda. </p>
 >>> 7.3 % 3  <span class="comment"># kalan</span>
 1.2999999999999998
 </pre>
+
 <p>En son sonuç neredeyse umduğumuz gibi 1.3'e eşittir. 1.3 ile 
 1.2999999999999998 arasındaki fark çok küçüktür, fark olmasının nedeni 
 bilgisayarların ondalıkla sayılarla çalışma şeklinden kaynaklanır. Bunun 
 nedenini biraz daha bilgisayar programlama öğrendikten sonra, ilerideki 
 derslerde açıklayacağım.  Pratikte aradaki fark büyük bir sorun yaratmaz. 
 Aşağıdaki komutu kullanarak görüntüyü daha iyi hale getirebiliriz.</p>
+
 <pre>
 >>> <span class="keyword">print</span> 7.3 % 3
 1.3
 </pre>
+
 <p><span class="pykeyword">print</span> komutu Python'a hesaplamanın sonucunu 
 bize göstermesini söyler ve bunu  akıllıca yapar. Python bazen yaptığı 
 hesaplamaların sonucunu bize göstermez. <span class="pykeyword">print</span> 
 komutunu kullanarak bu hesapların sonucunu da görebiliriz.</p>
+
 <p>Meraklı mısınız? Bir Reeborg programında <span class=
 "pykeyword">print</span> komutunu kullanırsanız ne olur?...</p>
+
 <h3 class="section">Büyük Sayılar</h3>
+
 <p>Aşağıdakini deneyin:</p>
+
 <pre>
->>>2147483648
-2147483648L</pre>
+>>>2147483647 + 1
+2147483648L
+</pre>
+
 <p>Dikkatle bakın: cevabın sonundaki "L" harfini görüyor musunuz? L, <i>Long</i> 
 integer (uzun tamsayı) anlamına gelir, bu sayılar bilgisayarın hafızasında 
 kolayca gösterilemezler. 32 bitlik çipi olan bir bilgisayar için, benim ve 
 muhtemelen sizin kullandığınız, tüm pozitif sayılar 32 bitin kombinasyonları 
 olarak temsil edilirler ve en büyük tamsayı <img alt=
-"2^31" src="../../images/inter/2_31.png"/>-1 = 2147483647'dir. Bundan büyük bir 
+"2^31" src="../../images/inter/2_31.png" />-1 = 2147483647'dir.
+<!--  wxHtml does not support the <sup> tag  -->
+Bundan büyük bir 
 tamsayı Pyhon'un (veya diğer bilgisayar programlama dillerinin) matematiksel 
 işlemleri yapabilmesi için gelişmiş teknikler kullanmasını gerektirir. Bu ise 
 bilgisayarın yavaşlamasına neden olur. Python büyük sayıların sonuna L koyarak 
 bunu bize hatırlatır. Eğer gerçekten ihtiyacınız yoksa, çok büyük sayıları 
 kullanmaktan kaçının. </p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">1,000 büyük bir sayı değildir</h3>
+
 <p>Aşağıdakini deneyin:</p>
+
 <pre>
 >>> 1,000
 (1, 0)
 >>> 1,000,000,000
 (1, 0, 0, 0)
 </pre>
+
 <p>Ne oluyor? Şimdilik söyleyeceğim, binler hanesini İngilizce konuşulan 
 ülkelerde olduğu gibi virgül ile ayırmamanızdır. Python'da virgülün ne anlama 
 geldiğini daha sonra göreceğiz. Bu arada virgül <span class="pykeyword">print</span> 
 komutu ile kullanılırsa ne olduğunu aşağıda görebilirsiniz:</p>
+
 <pre>
 >>> <span class="keyword">print</span> 5,4
 5 4
 >>> <span class="keyword">print</span> 5,              4
 5 4
 </pre>
+
 <p>Print komutunda virgül kullanıldığı zaman iki sayının arasında bir boşluk 
 bırakılır ve verilen komuttaki diğer boşluklar önemsenmez.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Bilimsel gösterim (Scientific notation)</h3>
+
 <p>Bilimsel gösterim hakkında daha önceden bilginiz olabilir: </p>
-<p><img alt="scientific notation" src="../../images/inter/sci_not.png"/></p>
+
+<p><img alt="scientific notation" src="../../images/inter/sci_not.png" /></p>
+
 <p>Bu gösterim çok küçük ve çok büyük sayıların uygun bir şekilde yazılmasını 
 sağlar.  Python'da bilimsel gösterimi kullanır, ancak <tt>x 10</tt> yerine 
 E harfini kullanır. </p>
+
 <pre>
 >>> 2e3
 2000.0
 >>> 2.5E-1
 0.25
 </pre>
+
 <p>Deneyin!</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Diğer sayı tipleri</h3>
+
 <p>Python ile karmaşık sayılar, sekiz ve 16 tabanındaki sayılarla da işlem 
 yapabilirsiniz. İleride 16 tabanındaki sayılarla işlem yapacağız. </p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Sayıları karşılaştırmak</h3>
+
 <p>Python sayıları karşılaştırıp birinin diğerinden küçük (<tt>&lt;</tt>) , 
 büyük
-(<tt>&gt;</tt>) , eşit (<tt>==</tt>) veya eşit olmadıklarını(<tt>!=</tt>) da 
+(<tt>></tt>) , eşit (<tt>==</tt>) veya eşit olmadıklarını(<tt>!=</tt>) da 
 bulabilir. </p>
+
 <pre>
-&gt;&gt;&gt; 1&lt;2
+>>> 1&lt;2
 True
-&gt;&gt;&gt; 3&lt;2
+>>> 3&lt;2
 False
-&gt;&gt;&gt; 1&gt;2
+>>> 1>2
 False
-&gt;&gt;&gt; 3&gt;2
+>>> 3>2
 True
-&gt;&gt;&gt; 2==2
+>>> 2==2
 True
-&gt;&gt;&gt; 3==2
+>>> 3==2
 False
-&gt;&gt;&gt; 2!=2
+>>> 2!=2
 False
-&gt;&gt;&gt; 3!=2
+>>> 3!=2
 True
 </pre>
+
 <p>Deneyin! Sayıların eşit olduğunu test etmek için iki eşittir işaretinin yan 
 yana kullanıldığına dikkat edin. Eğer tek bir eşittir işareti kullanılırsa 
 Python yakınacaktır.  [Başka karşılaştırma operatörleri de vardır:
-<tt>&lt;=, &gt;=</tt>. Bunları deneyip ne işe yaradıklarını 
+<tt>&lt;=, >=</tt>. Bunları deneyip ne işe yaradıklarını 
 bulabilirsiniz.]</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="../intro/24-adding.htm"><img alt="previous" src=
-"../../images/previous.png"/>Reeborg'a toplama yapmayı öğretmek</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" />Reeborg'a toplama yapmayı öğretmek</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href=
 "26-interpreter2.htm">Python komutlarının yorumlanması <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>
-

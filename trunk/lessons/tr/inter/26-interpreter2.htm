@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
@@ -9,56 +9,75 @@
 </head>
 <body>
 <h2 class="title">26. Python komutlarının yorumlanması</h2>
+
 <p>Son derste Python yorumlayıcısını kullanarak basit matematiksel hesaplamaları 
 nasıl yapacağımızı öğrendik. Bu derste Reeborg'un dünyasında gördüğümüz Python 
 komutlarının Python yorumlayıcısı tarafından nasıl işlendiğini göreceğiz. </p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Satırların ayrılması</h3>
+
 <p>Basit bir işlemle başlayalım: <tt>3*(2+2)</tt><font face="Times New Roman"><tt>ifadesini 
 girin ve Enter'a basın. </tt></font>Sonuç aşağıdaki gibi olmalıdır: </p>
+
 <pre>
 >>> 3*(2+2)
 12
 >>>
 </pre>
+
 <p>Şimdi ifadenin bir bölümünü
 <tt>3*(</tt> girin ve Enter'a basın. Sonuç aşağıdaki gibi olmalıdır:</p>
+
 <pre>
 >>> 3*(
 ...     |
 </pre>
+
 <p>dikey çizgi  "|" yanıp sönen imleçtir (körsır). Burada dikkat edilecek 
 bir kaç nokta vardır:</p>
+
 <ul>
-<li>Prompt  <tt>>>></tt> den <tt>...</tt>'ya değişti.  Python 
+<li>
+Prompt  <tt>>>></tt> den <tt>...</tt>'ya değişti.  Python 
 bu<i><b> farklı </b></i>prompt ile bizi yarım bıraktığımız ifadeyi tamamlamaya 
-davet ediyor ve girdiğimiz ifadenin eksik olduğunu düşünüyor.</li>
-<li>İmleç prompt'un hemen yanında değil 4 boşluk ilerisinde bekliyor. 
+davet ediyor ve girdiğimiz ifadenin eksik olduğunu düşünüyor.
+</li>
+<li>
+İmleç prompt'un hemen yanında değil 4 boşluk ilerisinde bekliyor. 
 Python girilen ifadenin tam olmadığını düşündüğünde, kullanıcının ifadenin 
 devamını girebilmesi için imleci içeride bekletir, bu şekilde istenirse bir blok 
 da oluşturulabilir. (Örneğin fonksiyonları tanımladığımızda da böyle bir yapıyla 
-karşılaşmıştık.)</li>
+karşılaşmıştık.)
+</li>
 </ul>
-<p>İfadenin geri kalanını aşağıdaki gibi girelim ve Enter tuşuna basalım. </p>
+
+<p>İfadenin geri kalanını aşağıdaki gibi girelim ve Enter tuşuna basalım.</p>
+
 <pre>
 >>> 3*(
 ...     2+2)
 12
 >>>
 </pre>
+
 <p>Python ifadenin tamamını girdiğimize karar verdi ve işlemi yapıp doğru sonucu 
 (12) verdi. Prompt normal haline geldi, ve yeni komutlar girmemizi bekliyor.</p>
+
 <p>Şimdi, <tt>3* </tt> ifadesini yazıp enter tuşuna basın. Benim elde ettiğim 
 sonuç:</p>
+
 <pre>
 >>> 3*
-  File <span class="string">"&lt;input&gt;"</span>, line 1
+  File <span class="string">"&lt;input>"</span>, line 1
     3*
       ^
 SyntaxError: invalid syntax
 >>>
 </pre>
+
 <p>Buradaki fark Python'a ifadenin devamı olduğuna dair bir ipucu vermemiş 
 olmamızdır. İlk durumda, parantez açmıştık ve kapatmadan enter'a basmıştık. 
 Python parantezin açılmış olmasını, ifadenin henüz tamamlanmamış olması olarak 
@@ -66,7 +85,9 @@ algılar, en azından açılmış bir parantezin kapanması gereklidir, ve kulla
 bunu tamamlama fırsatını farklı bir prompt ve imleci içeride bekleterek verir.  <tt>3* </tt>
 yazdığımızda Python başka eklenecek bir şey olmadığını varsayıp ifadeyi işletti 
 ve bu ifadeden bir sonuç alamadığını bize söyledi. </p>
+
 <p>Şimdi aşağıdaki örneği deneyin:</p>
+
 <pre>
 >>> 3*(
 ...     2+2
@@ -88,21 +109,28 @@ Aşağıdaki örnekle devam edelim:</p>
 14
 >>>
 </pre>
+
 <p>okuması ve anlaması oldukça zor, bunun yerine aşağıdakini yazmak daha 
 akıllıca olur.</p>
+
 <pre>
 >>> 3*(2 + 2) + (1 + 1)
 14
 >>>
 </pre>
+
 <p>Aşağıdaki bölüme geçmeden önce biraz daha örnek yapabilirsiniz.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Fonksiyonların Tanımlanması</h3>
+
 <p>Reeborg'un dünyasında gördüğümüz Python komutlarını (ve konularını) yeniden 
 incelemek için hazır durumdayız. İlk komut  <span class=
 "pykeyword">def</span>. 2 sayısını yazan bir fonksiyon tanımlayalım. Aşağıdaki 
 tanımlamayı sizde yapın.</p>
+
 <pre>
 >>> <span class="keyword">def</span> print2():
 ...     <span class="keyword">print</span> 2
@@ -113,14 +141,19 @@ tanımlamayı sizde yapın.</p>
 2
 >>>
 </pre>
+
+<p>Now, you have to try it on your own before reading any further.</p>
+
 <p>Tanımlama satırı yazılıp enter'a basıldıktan sonra Python'un prompt'u 
 değiştirdiğine ve içe girik olduğuna dikkat ettiniz mi? Boş bir satır bırakıp 
 enter'a basıldığında da (enter'a üst üste 2 kez 
 basıldığında) Python'un bunu tanımlamamızı bitirdiğimiz şeklinde 
 algıladığına da dikkat etmiş olmalısınız. Bu arada 
-<font face="Courier New"><b>print2() </b></font>ile <tt><span class="pykeyword">print</span> 2</tt>'nin 
-farkını da görmüş olmalısınız.  </p>
+<tt>print2()</tt> ile <tt><span class="pykeyword">print</span> 2</tt>'nin 
+farkını da görmüş olmalısınız.</p>
+
 <p>Şimdi aşağıdakini deneyelim:</p>
+
 <pre>
 >>> <span class="keyword">def</span> print_many():
 ...     <span class="keyword">print</span> 3
@@ -135,18 +168,23 @@ farkını da görmüş olmalısınız.  </p>
 0
 >>>
 </pre>
+
 <p>Fonksiyonu tanımlarken boş satır bırakmadığımız müddetçe, Python yeni satır 
 girişleri yapmamızı bekler. Boş bir satır bıraktığımızda da Python fonksiyonu 
 tamamladığımızı kabul eder. Bu nedenle boş satırların Python yorumlayıcısında 
 anlamı vardır. Ama bu durum Reeborg'un dünyası için geçerli değildir. 
 Programınızı Python yorumlayıcısında yazmıyorsanız da durum farklı olacaktır. 
-Her iki durumda da boş satırlar işleme katılmayacaktır.  </p>
+Her iki durumda da boş satırlar işleme katılmayacaktır.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section"> Eğer kafanız karıştıysa (<span class="pykeyword">if</span> you are confused)</h3>
+
 <p>Boş satırlar kafanızı karıştırdı mı? Umutsuzluğa kapılmayın, kısa zamanda 
 buna alışacaksınız. Şimdi daha önceden görmüş olduğumuz Python komutlarıyla 
 devam ediyorum ve<span class="pykeyword"> if</span>  komutu ile başlıyorum. </p>
+
 <pre>
 >>> <span class="keyword">if</span> 5 > 4:
 ...     <span class="keyword">print</span> 5 > 4
@@ -154,10 +192,12 @@ devam ediyorum ve<span class="pykeyword"> if</span>  komutu ile başlıyorum. </
 True
 >>>
 </pre>
+
 <p>5, 4'ten büyük olduğu için Python 
 <span class="pykeyword">if</span> bloğunun içindeki ifadeyi yerine getirdi ve 5 
 > 4 'ün sonucunu "True" olarak verdi. Ama bizim istediğimiz genelde bu değildir. 
 Aşağıdakini deneyin. </p>
+
 <pre>
 >>> <span class="keyword">if</span> 5 > 4:
 ...     <span class="keyword">print</span> <span class=
@@ -166,10 +206,12 @@ Aşağıdakini deneyin. </p>
 5 > 4
 >>>
 </pre>
+
 <p>İfadeleri çift tırnak ("....") içine alarak Python'da <i>string</i> adı 
 verilen ve sıradan yazı olarak işlem gören (hesaplanmayan) ifadeyi elde ettik. 
 Çift tırnağın içerisinde ne varsa bir işleme tabi tutulmadan ekranda 
 görüntülenir. Aşağıdaki gibi de string kullanabiliriz:</p>
+
 <pre>
 >>> <span class="keyword">if</span> 5 > 4:
 ...     <span class="keyword">print</span> <span class=
@@ -177,6 +219,7 @@ görüntülenir. Aşağıdaki gibi de string kullanabiliriz:</p>
 ...    
 5 is greater than 4
 </pre>
+
 <p>burada matematiksel semboller yerine kelimeler kullandık, bunun yanı sıra çift 
 tırnak yerine tek tırnak ('....') kullandık. Python çift tırnak ve tek tırnak 
 kullanımını aynı şekilde değerlendirir. Ancak tek tırnak ile başlatılan bir 
@@ -184,22 +227,27 @@ ifade tek tırnakla, çift tırnakla başlatılan bir ifade de çift tırnakla
 bitirilmelidir. Bu esnekliği aşağıdaki örneklerde olduğu gibi tek tırnakla 
 başlatılmış bir ifadenin içerisinde çift tırnak veya çift tırnakla başlatılan 
 bir ifadenin içerisinde tek tırnak yazdırmak için kullanabiliriz. </p>
+
 <pre>
 >>> <span class="keyword">print</span> "It's easy."
 It's easy.
 >>> <span class="keyword">print</span> 'He said: "It is easy".'
 He said: "It is easy".
 </pre>
+
 <p>Bir string'in içerisinde başlangıç ve bitişte kullanılan tırnağın aynısının 
 yazının içerisinde de gösterilmesi isteniyorsa bu durumda ters slaş (\) 
 kullanılır, aşağıdaki örneklerde olduğu gibi ters slaş tırnak işaretinden hemen 
 önce koyulmalıdır. </p>
+
 <pre>
 >>> <span class="keyword">print</span> 'She said: "It\'s easy".'
 She said: "It's easy".
 </pre>
+
 <p> <span class="pykeyword">if</span>'e geri dönelim ve 
 <span class="pykeyword">else</span> ile birlikte kullanalım. </p>
+
 <pre>
 >>> <span class="keyword">if</span> 5 > 4:
 ...    <span class="keyword">print</span> <span class=
@@ -210,13 +258,20 @@ She said: "It's easy".
 ...    
 5 is greater than 4
 </pre>
+
 <p>Yukarıdaki çıktı sizin için bir sürpriz olmamalı. Ancak bu kodları kendiniz 
 de mutlaka denemelisiniz. <span class="pykeyword">else</span>'i <span class="pykeyword"> if'</span>le 
 aynı hizaya getirmek için backspace tuşunu kullanmanız gerekecek. </p>
+
+<p>Make sure you try it before going further.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Biraz daha fonksiyon tanımlayalım</h3>
+
 <p>Az önce yazdığımız kodu daha yararlı hale getirelim: </p>
+
 <pre>
 >>> <span class="keyword">def</span> greater():
 ...     <span class="keyword">if</span> 5 > 4:
@@ -230,18 +285,20 @@ aynı hizaya getirmek için backspace tuşunu kullanmanız gerekecek. </p>
 >>> greater()
 5 is greater than 4
 </pre>
+
 <p>İlerideki konulara geçmeden önce yukarıdaki örneği mutlaka kendiniz deneyin, 
 ve hizalamalara dikkat edin.</p>
+
 <p>Yukarıdaki fonksiyon herhangi iki sayıyı karşılaştırabilseydi daha iyi olmaz 
 mıydı? Bunu yapabilmek için değişkenlerin kullanımını öğrenmeliyiz. </p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="25-interpreter.htm"><img alt="previous" src=
-"../../images/previous.png"/>Python toplama yapmayı zaten biliyordu</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" />Python toplama yapmayı zaten biliyordu</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href=
 "27-variables.htm">Değişkenler <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

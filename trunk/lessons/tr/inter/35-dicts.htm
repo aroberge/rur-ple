@@ -9,22 +9,28 @@
 </head>
 <body>
 <h2 class="title">35. Farklı bir tanımlama</h2>
+
 <p>Sizce aşağıdaki Reeborg için iyi bir tanımlama mı?<br />
 <br />
 <b>robot</b>: İnsanlar tarafından kontrol edilen ve kendisine verilen görevleri 
 otomatik olarak yerine getiren bir makine, daha çok tekrarlayan işler için 
 kullanılır.</p>
+
 <p>Bir hikaye yazmak istediğiniz zaman, sözlükten bir kelimenin anlamına nasıl 
 bakılacağını bilmek işinize çok yarayacaktır. Python'un da kendine özgü bir 
 sözlüğü vardır ve program yazarken işinize çok yarar.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Kaç tane yumurta gerekliydi?</h3>
+
 <p>Malzeme listesine bakmadan kaç tane yumurtaya ihtiyaç olduğunu 
 hatırlayabilir misiniz? Eğer hatırlayamadıysanız,  listenin tamamını 
 yazdırmadan bunu bulabilir misiniz? Listede malzemelerin hangi sırayla 
 yazıldığını hatırlamıyorsanız bu da size zor gelecektir. Python'da bu tür 
 durumlarda sözlükler (dictionaries) kullanılır, aşağıdaki örneği inceleyin: </p>
+
 <pre>
 >>> malzemeler2 = { <span class="string">'yumurta'</span> : 4,  <span class= "comment"># ='den sonra kıvrımlı parantez kullanıldığına dikkat edin</span>
 ...     <span class="string">'şeker'</span>: <span class="string">'100 g'</span>,
@@ -40,17 +46,22 @@ class="string">'250 g'</span>} <span class= "comment"># burada da kıvrımlı pa
 "string">'30 g'</span>, <span class=
 "string">'şeker'</span>: <span class="string">'100 g'</span>}
 </pre>
+
 <p>Sözlükteki her bir giriş "anahtar:değer" şeklindedir ve 
 elemanlar birbirlerinden 
 virgül ile ayrılırlar. <span class="keyword">print</span> ile <tt>malzemeler2 </tt>
 yazdırıldığında sıralamanın, girişteki sıralamadan farklı olduğuna dikkat edin.</p>
+
 <p>Eğer kaç tane yumurtaya ihtiyaç olduğunu bulmak istersek: </p>
+
 <pre>
 >>> <span class=
 "keyword">print</span> malzemeler2['yumurta']
 4
 </pre>
+
 <p>Eğer <tt>malzemeler2</tt>'nin içindeki tüm değerleri bulmak istersek: </p>
+
 <pre>
 >>> <span class="keyword">for</span> anahtar <span class=
 "keyword">in</span> malzemeler2:
@@ -61,7 +72,9 @@ yazdırıldığında sıralamanın, girişteki sıralamadan farklı olduğuna di
 30 g
 100 g
 </pre>
+
 <p>Hem anahtarları, hem de değerleri aşağıdaki gibi görüntüleyebiliriz:</p>
+
 <pre>
 >>> <span class="keyword">for</span> anahtar <span class=
 "keyword">in</span> malzemeler2:
@@ -73,18 +86,25 @@ yumurta:4
 kakao:30 g
 şeker:100 g
 </pre>
+
 <p>Burada herhangi bir nesneyi stringe dönüştüren <tt>str()</tt>fonksiyonunu 
 kullandık, böylece yukarıdaki görüntüyü elde ettik.</p>
+
 <p>Olamaz, kremayı eklemeyi yine unuttuk, hadi ekleyelim: </p>
+
 <pre>
 >>> malzemeler2[<span class=
 "string">"krema"</span>] = <span class=
 "string">"Çok miktarda"</span>
 </pre>
+
 <p>Deneyin!</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Her nesne anahtar olamaz</h3>
+
 <p>Sözlüklerde herhangi bir nesneyi değer olarak kullanabiliriz, ancak bu durum 
 anahtarlar için farklıdır, anahtarlar yalnızca sabit nesnelerden oluşmalıdır. 
 Bunun ne anlama geldiğini daha sonra açıklayacağım; şimdilik şu ana kadar 
@@ -92,9 +112,12 @@ gördüğümüz nesnelerin içerisinde yalnızca string ve sayıların anahtar o
 kullanabileceğini söyleyebiliriz. Listeler veya diğer sözlükler anahtar olarak 
 kullanılamazlar. Bu nesneleri farklı kombinasyonlarda, anahtar ve değer olarak, 
 kullanarak denemeler yapın ve konuyu daha iyi anlamaya çalışın.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Küçük test</h3>
+
 <p>Sözlükten bir girdinin nasıl silinebileceğini tahmin edebiliyor 
 musunuz? 
 Tahmin edebiliyorsanız, deneyin. Tahmin edemiyorsanız, büyük olasılıkla 
@@ -102,13 +125,13 @@ bir önceki dersi
 dikkatle çalışmadınız demektir. Geriye dönün ve tekrar okuyun, özellikle bir 
 listeden bir elemanın nasıl silindiğini anlatan kısmı. </p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="34-lists.htm"><img alt="previous" src=
-"../../images/previous.png"/>Çukulatalı Kek Tarifi </a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" />Çukulatalı Kek Tarifi </a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href=
 "36-tuples.htm">Son sıramız<img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

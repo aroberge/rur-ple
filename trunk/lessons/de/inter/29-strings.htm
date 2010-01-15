@@ -4,143 +4,160 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>29. Zeichen-Salami</title>
+
+<title>Zeichen-Salami</title>
 </head>
 <body>
 <h2 class="title">29. Zeichen-Salami</h2>
+
 <p>Wir haben gesehen, wie wir Variablen Zahlen zuweisen konnten. Wir können
 Variablen auch Zeichenfolgen zuweisen; zum Beispiel:</p>
+
 <pre> 
-&gt;&gt;&gt; Vorname = "Andre"
-&gt;&gt;&gt; Nachname = "Roberge"
-&gt;&gt;&gt; Name = Vorname + Nachname
-&gt;&gt;&gt; <span class="keyword">print</span> Name
+>>> Vorname = "Andre"
+>>> Nachname = "Roberge"
+>>> Name = Vorname + Nachname
+>>> <span class="keyword">print</span> Name
 AndreRoberge
 </pre>
+
 <p>Schau dir an, wie das Plus-Zeichen (<tt>+</tt>) in Python verwendet wird, um
 zwei Zeichenfolgen zu einer zu kombinieren; diese Operation nennt man 
 Zeichen-<i>Verkettung</i> (oder -<i>Konkatenation</i>). Allerdings hängen Vor- und Nachname jetzt wie
 ein Wort zusammen. Wir können das korrigieren, indem wir eine dritte
 Zeichenfolge dazwischen schieben, die nur aus einem Leerzeichen besteht.</p>
+
 <pre>
-&gt;&gt;&gt; Name = Vorname + <span class=
+>>> Name = Vorname + <span class=
 "string">" "</span> + Nachname
-&gt;&gt;&gt; <span class="keyword">print</span> Name
+>>> <span class="keyword">print</span> Name
 Andre Roberge
 </pre>
+
 <p>Eine andere Möglichkeit, dieses Ergebnis zu erhalten, ist die Verwendung von
 <tt>%s</tt>, womit wir Zahlen in eine Zeichenfolge eingesetzt hatten.</p>
+
 <pre>
-&gt;&gt;&gt; name = <span class=
+>>> name = <span class=
 "string">"%s %s"</span> % (Vorname, Nachname)
-&gt;&gt;&gt; <span class="keyword">print</span> name
+>>> <span class="keyword">print</span> name
 Andre Roberge
 </pre>
+
 <p>Schließlich testen wir die beiden Zeichenfolgen auf Gleichheit.</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">print</span> name == Name
+>>> <span class="keyword">print</span> name == Name
 True
 </pre>
+
 <p>Versuche es selbst!</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Slices</h3>
+
 <p><i>Slices</i> (sprich: ßlaißis) heißt auf deutsch Scheiben oder Schnitte, aber wir
 werden das englische Wort verwenden, weil es ein Fachausdruck ist.
 Manchmal wollen wir nur ein einzelnes Zeichen oder einen Teil der Zeichenfolge
 lesen. Dafür sind <i>Slices</i> sehr nützlich.</p>
+
 <p>Ich werde dir drei Merksätze aufschreiben und die Schreibweise der
 <i>Slices</i> zusammenfassen.
 Anschließend kannst du eine Reihe von Beispielen ausprobieren und mit den
 angegebenen Ergebnissen vergleichen. Außer den drei Merksätzen wird es keine
 weiteren Erklärungen für diesen Abschnitt geben, daher musst du ihn dir sehr
 sorgfältig anschauen, um vollständig zu verstehen, was passiert.</p>
+
 <ol>
 <li>Das erste Element einer Zeichenfolge wird als 0 (null) gezählt.</li>
 <li>Das letzte Element wird als Länge (der Zeichenfolge) minus eins gezählt,
 so dass eine Zeichenfolge mit 3 Elementen mit 0, 1 und 2 durchgezählt wird.</li>
 <li>Die Zählschritte können größer als eins sein.</li>
 </ol>
-<p>Schreibweise: <tt>[</tt>first<tt>:</tt>last<tt>:</tt>step<tt>]</tt>; 
-jeder Wert kann weggelassen werden.
-</p>
-<p>Hier sind die Beispiele:</p>
-<pre>
-&gt;&gt;&gt; alphabet = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>
-&gt;&gt;&gt; ziffern = <span class="string">'0123456789'</span>
 
-&gt;&gt;&gt; alphabet[0]
+<p>Schreibweise: <tt>[</tt>first<tt>:</tt>last<tt>:</tt>step<tt>]</tt>; 
+jeder Wert kann weggelassen werden.</p>
+
+<p>Hier sind die Beispiele:</p>
+
+<pre>
+>>> alphabet = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>
+>>> ziffern = <span class="string">'0123456789'</span>
+
+>>> alphabet[0]
 'a'
 
-&gt;&gt;&gt; alphabet[1]
+>>> alphabet[1]
 'b'
 
-&gt;&gt;&gt; alphabet[5]
+>>> alphabet[5]
 'f'
 
-&gt;&gt;&gt; ziffern[0]
+>>> ziffern[0]
 '0'
 
-&gt;&gt;&gt; ziffern[7]
+>>> ziffern[7]
 '7'
 
-&gt;&gt;&gt; ziffern[-1]
+>>> ziffern[-1]
 '9'
 
-&gt;&gt;&gt; ziffern[-2]
+>>> ziffern[-2]
 '8'
 
-&gt;&gt;&gt; alphabet[-3]
+>>> alphabet[-3]
 'x'
 
-&gt;&gt;&gt; ziffern[0:3]
+>>> ziffern[0:3]
 '012'
 
-&gt;&gt;&gt; ziffern[0:4]
+>>> ziffern[0:4]
 '0123'
 
-&gt;&gt;&gt; ziffern[0:5]
+>>> ziffern[0:5]
 '01234'
 
-&gt;&gt;&gt; ziffern[2:5]
+>>> ziffern[2:5]
 '234'
 
-&gt;&gt;&gt; alphabet[2:5]
+>>> alphabet[2:5]
 'cde'
 
-&gt;&gt;&gt; ziffern[0:10:2]
+>>> ziffern[0:10:2]
 '02468'
 
-&gt;&gt;&gt; ziffern[0::2]
+>>> ziffern[0::2]
 '02468'
 
-&gt;&gt;&gt; ziffern[0::3]
+>>> ziffern[0::3]
 '0369'
 
-&gt;&gt;&gt; ziffern[::3]
+>>> ziffern[::3]
 '0369'
 
-&gt;&gt;&gt; ziffern[::-1]
+>>> ziffern[::-1]
 '9876543210'
 
-&gt;&gt;&gt; ziffern[::-2]
+>>> ziffern[::-2]
 '97531'
 
-&gt;&gt;&gt; ziffern[::-3]
+>>> ziffern[::-3]
 '9630'
 
-&gt;&gt;&gt; alphabet[:10:2]
+>>> alphabet[:10:2]
 'acegi'
 </pre>
-<p>Mach dir deine eigenen Zeichenfolgen und probier noch ein paar Beispiele aus!
-</p>
 
-<div class="lessons_toc">
+<p>Mach dir deine eigenen Zeichenfolgen und probier noch ein paar Beispiele aus!</p>
+
+<div class="lessons_nav">
 <a href="28-variables2.htm"><img alt="previous" src=
-"../../images/previous.png"/>28. Variablen und Funktionen</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
-"30-dot.htm">30. Objektorientierte Programmierung: Punkt-Schreibweise<img alt="next"
-src="../../images/next.png"/></a>
+"../../images/previous.png" />Variablen und Funktionen</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
+"30-dot.htm">Objektorientierte Programmierung: Punkt-Schreibweise<img alt="next"
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

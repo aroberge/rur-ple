@@ -4,55 +4,65 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>32. Funktion, komm bald wieder!</title>
+
+<title>Funktion, komm bald wieder!</title>
 </head>
 <body>
-
 <h2 class="title">32. Funktion, komm bald wieder!</h2>
+
 <p>Wie du weißt, ist Reeborg nicht gerade in bester Verfassung. Er kann nur
 Linksdrehungen ausführen, hat ein Öl-Leck, sieht Mauern erst, wenn er kurz davor
 steht, und hört Piepser erst, wenn er praktisch drauf steht. Reeborg hat auch
 einen (nicht mehr ganz funktionstüchtigen) Kompass, der nur anzeigt, ob er nach
 Norden weist ... oder nicht. Um herauszufinden, ob Reeborg nach Norden blickt,
-kannst du ihn den Test <tt>facing_north()</tt> ausführen lassen </p> 
+kannst du ihn den Test <tt>facing_north()</tt> ausführen lassen </p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Probier's aus!</h3>
+
 <p>Schreibe ein kurzes Programm, dass Reeborg so lange Vierteldrehungen nach
 links machen läßt, bis er nach Norden blickt und sich abschaltet, unabhängig
 von seiner Blickrichtung am Anfang.</p>
 
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Funktionen liefern Ergebnisse.</h3>
+
 <p>Die Tests, die Reeborg ausführt, sind in Wirklichkeit Python-Funktionen. Das
 Ergebnis dieser Funktionen besteht nicht darin, einen Wert auf dem Bildschirm
 auszugeben, wie wir es bislang gesehen, sondern vielmehr darin, eine Antwort 
 (True oder False in diesem Fall) bereitzustellen, die nachher verwendet werden
 kann. Um das selbst zu programmieren, müssen wir das Schlüsselwort
 <span class="pykeyword">return</span> benutzen. Hier ist ein Beispiel:</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">def</span> addiere(a, b):
+>>> <span class="keyword">def</span> addiere(a, b):
 ...     antwort = a + b
 ...     <span class="keyword">return</span> antwort
 ...
-&gt;&gt;&gt; c = addiere(4, 5)
-&gt;&gt;&gt; <span class="keyword">print</span> c
+>>> c = addiere(4, 5)
+>>> <span class="keyword">print</span> c
 9
-&gt;&gt;&gt; <span class="comment"># Wir koennen das Funktionsergebnis direkt ausgeben.</span>
-&gt;&gt;&gt; <span class="keyword">print</span> addiere(1, 1)
+>>> <span class="comment"># Wir koennen das Funktionsergebnis direkt ausgeben.</span>
+>>> <span class="keyword">print</span> addiere(1, 1)
 2
 </pre>
+
 <p>Im Beispiel oben hätten wir in der Definition der Funktion <tt>addiere()</tt>
 eine Zeile Quelltext einsparen können:</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">def</span> addiere(a, b):
+>>> <span class="keyword">def</span> addiere(a, b):
 ...     <span class="keyword">return</span> a + b
 ...
-&gt;&gt;&gt; c = addiere(4, 5)
-&gt;&gt;&gt; <span class="keyword">print</span> c
+>>> c = addiere(4, 5)
+>>> <span class="keyword">print</span> c
 9
 </pre>
+
 <p><span class="pykeyword">return</span> kann also den Wert jedes gültigen 
 Python-Ausdrucks zurückgeben, nicht nur den Wert einer Variablen. Wenn der 
 Ausdruck, dessen Ergebnis du zurückgeben willst, kurz ist, willst du vermutlich
@@ -60,14 +70,17 @@ nicht extra eine Variable benutzen (wie <tt>antwort</tt> oben). Wie du
 allerdings noch sehen wirst, kannst du manchmal mehr als eine Variable 
 zurückgeben ... Dann kann es einfacher sein, Variablen zu verwenden statt
 Python-Ausdrücke.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Rückkehr in Reeborgs Welt.</h3>
 
 <p>Wie schon erwähnt, hat Reeborg einen defekten Kompass. Daher weiß er direkt
 nur, ob er nach Norden blickt oder nicht. Aber jetzt, da wir wissen, dass 
 Reeborg sich etwas merken kann, können wir ihm beibringen, herauszufinden, in
 welche Richtung er blickt. Zum Beispiel:</p>
+
 <pre>
 <span class="keyword">def</span> facing_south():
     turn_left()
@@ -77,7 +90,9 @@ welche Richtung er blickt. Zum Beispiel:</p>
     turn_left()
     <span class="keyword">return</span> antwort
 </pre>
+
 <p>Wir wollen sehen, wie das funktioniert, indem wir zwei Fälle untersuchen:</p>
+
 <ul>
 <li><b>Angenommen, Reeborg blickt nach Süden.</b> Nach zwei Vierteldrehungen
 nach links blickt er nach Norden. Der Test <tt>facing_north()</tt> gibt dann 
@@ -85,7 +100,6 @@ den Wert "<tt>True</tt>" zurück, den wir der Variablen <tt>antwort</tt>
 zuweisen. Nach zwei weiteren Vierteldrehungen nach links blickt Reeborg wieder
 nach Süden (seine Anfangsrichtung) und wir geben die Antwort "<tt>True</tt>"
 zurück!</li>
-
 <li><b>Angenommen, Reeborg blickt nicht nach Süden.</b> Dann blickt er nach
 zwei Vierteldrehungen <u>nicht</u> nach Norden und der Test <tt>facing_north()
 </tt> gibt den Wert "<tt>False</tt>" zurück, der der Variablen <tt>antwort</tt>
@@ -93,33 +107,40 @@ zugewiesen wird. Nach zwei weiteren Vierteldrehungen nach links blickt Reeborg
 wieder in seine Anfangsrichtung und wir geben die Antwort "<tt>´False</tt>"
 zurück!</li>
 </ul>
+
 <p>So können wir unseren neuen Test nun benutzen, wenn wir Reeborg nach Süden
 blicken lassen wollen:</p>
+
 <pre>
 <span class="keyword">while</span> <span class="keyword">not</span> facing_south():
     turn_left()
 </pre>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Mini-Quiz</h3>
+
 <p>Schreibe ein Programm, das Reeborg unabhängig von seiner Anfangsrichtung
 nach Westen blicken lässt. Teste es mit verschiedenen Anfangsrichtungen von
 Reeborg.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Mini-Quiz 2</h3>
+
 <p>Setze Reeborg an einen beliebigen Ort mit Blick in eine beliebige Richtung.
 Schreibe ein Programm, das Reeborg zu seinem üblichen Ausgangspunkt
 zurückkehren lässt mit Blick nach Osten. Dieses Programm soll für alle
 Startpositionen und Anfangsrichtungen funktionieren.</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="31-global.htm"><img alt="previous" src=
-"../../images/previous.png"/>31. Global ist fatal.</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
-"33-for.htm">33. Repeat verbirgt Schlüsselwörter.<img alt="next"
-src="../../images/next.png"/></a>
+"../../images/previous.png" />Global ist fatal.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
+"33-for.htm">Repeat verbirgt Schlüsselwörter.<img alt="next"
+src="../../images/next.png" /></a>
 </div>
-
 </body>
 </html>

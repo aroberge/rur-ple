@@ -4,17 +4,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>31. global ist fatal.</title>
+
+<title>global ist fatal.</title>
 </head>
 <body>
-
 <h2 class="title">31. <span class="pykeyword">global</span> ist fatal.</h2>
+
 <p>Angenommen, du schreibst zusammen mit einer Freundin ein langes Programm.
 Weil du gute Programmierpraxis gelernt hast, versuchst du deinen Variablen stets
 aussagekräftige Namen zu geben. Aber dann denkst du: <i>Was ist, wenn meine
 Freundin für eine ihrer Variablen den gleichen Namen nimmt wie ich? Wenn ich
 meiner Variablen einen anderen Wert zuweise, werde ich dann auch ihre
 ungewollt ändern?</i></p>
+
 <p>In Python gibt es <i>Namensräume</i> (name spaces), die dir bei der
 Vermeidung solcher Probleme behilflich sind. Namensräume verhindern, dass
 Variablen, die wir in einem Teil des Programms verwenden, andere Teile
@@ -22,28 +24,34 @@ beeinflussen. In dieser Lektion lernen wir Namensräume kennen.</p>
 
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Lokal definierte Variablen</h3>
+
 <p>Hier ein einfaches Beispiel zum Ausprobieren:</p>
+
 <pre>
-&gt;&gt;&gt; a = 1
-&gt;&gt;&gt; <span class="keyword">def</span> meine_funktion():
+>>> a = 1
+>>> <span class="keyword">def</span> meine_funktion():
 ...     a = 3
 ...     <span class="keyword">print</span> a
 ...    
 
-&gt;&gt;&gt; meine_funktion()
+>>> meine_funktion()
 3
 
-&gt;&gt;&gt; <span class="keyword">print</span> a
+>>> <span class="keyword">print</span> a
 1
 </pre>
+
 <p>Bist du überrascht, dass sich der Wert von <tt>a</tt> nicht geändert hat?
 Das ist folgendermaßen abgelaufen:</p>
+
 <p>Du hast zuerst eine Variable namens "<tt>a</tt>" mit dem Wert 1 definiert.
 Dann hast du in einer Funktion "anscheinend" den Wert von "<tt>a</tt>" zu 3
 geändert. Tatsächlich hast du eine <u>neue</u> Variable "<tt>a</tt>" in der
 Funktion erzeugt und ihr den Wert 3 gegeben. Der Wert der anderen Variablen
 "<tt>a</tt>" blieb unverändert.</p>
+
 <p>Der Python-Interpreter legt automatisch einen <i>Namensraum</i> in jeder
 Funktion an, in dem die Namen der darin definierten Variablen einen eindeutigen
 Wert haben, unabhängig davon, wie andere gleichnamige Variablen außerhalb der
@@ -51,48 +59,54 @@ Funktion definiert sind. Ein Namensraum ist wie ein kleines Notizbuch, in dem
 über alle Variablen Buch geführt wird. Gewissermaßen wird für jede Funktion ein
 Notizbuch angelegt, so dass du dir keine Sorgen machen musst, dass es anderswo
 Variablen mit dem gleichen Namen gibt.</p>
+
 <p>Die Variablen in der Funktion sind nicht meht definiert, wenn die Funktion
 beendet wurde; wir sagen, dass sie <i>ungültig</i> sind (out of scope).</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">def</span> einfache_funktion():
+>>> <span class="keyword">def</span> einfache_funktion():
 ...     lokale_variable = <span class="string">"Ich bin hier!"</span>
 ...     <span class="keyword">print</span> lokale_variable
 ...    
-&gt;&gt;&gt; einfache_funktion()
+>>> einfache_funktion()
 Ich bin hier!
 
-&gt;&gt;&gt; <span class="keyword">print</span> lokale_variable
+>>> <span class="keyword">print</span> lokale_variable
 Traceback (most recent call last):
-  File "&lt;input&gt;", line 1, in ?
+  File "&lt;input>", line 1, in ?
 NameError: name <span class="string">'lokale_variable'</span> is not defined
 </pre>
+
 <p>Der Trick mit den Namensräumen ist eine feine Sache, aber was ist, wenn du
 den Wert einer Variablen in der Funktion ändern willst? Wenn wir zum Beispiel
 nachhalten wollen, wie oft wir eine bestimmte Funktion aufrufen. Das geht, und
-zwar mit dem Schlüsselwort <span class="pykeyword">global</span>.</p> 
+zwar mit dem Schlüsselwort <span class="pykeyword">global</span>.</p>
+
 <pre>
-&gt;&gt;&gt; anzahl = 0
-&gt;&gt;&gt; <span class="keyword">def</span> zweijaehriges_kind():
+>>> anzahl = 0
+>>> <span class="keyword">def</span> zweijaehriges_kind():
 ...     <span class="keyword">global</span> anzahl
 ...     anzahl += 1
 ...     <span class="keyword">print</span> <span class="string">"Warum?          %s mal"</span> % anzahl
 ...    
-&gt;&gt;&gt; zweijaehriges_kind()
+>>> zweijaehriges_kind()
 Warum?          1 mal
 
-&gt;&gt;&gt; zweijaehriges_kind()
+>>> zweijaehriges_kind()
 Warum?          2 mal
 
-&gt;&gt;&gt; zweijaehriges_kind()
+>>> zweijaehriges_kind()
 Warum?          3 mal
 
-&gt;&gt;&gt; <span class="keyword">print</span> anzahl
+>>> <span class="keyword">print</span> anzahl
 3
 </pre>
+
 <p>Mit dem Schlüsselwort <span class="pykeyword">global</span> bestimmen wir,
 dass in der Funktion <u>keine</u> neue lokale Version der Variablen angelegt
 sondern die gleichnamige Variable außerhalb, in der so genannten "globalen" 
 Umgebung, verwendet werden soll.</p>
+
 <p>Du solltest den Gebrauch von <span class="pykeyword">global</span> vermeiden,
 wenn es irgendwie geht, weil er zu unerwünschten Änderungen in anderen Teilen
 des Programms führen kann. In der Programmierung gilt der Gebrauch von 
@@ -100,7 +114,9 @@ des Programms führen kann. In der Programmierung gilt der Gebrauch von
 
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Aus dem Gültigkeitsbereich</h3>
+
 <p>Larry und Curly gehen fröhlich zusammen spazieren. Plötzlich sieht Moe seine
 Freunde von weitem und beginnt auf sie zuzulaufen. Gerade als Moe seine Freunde
 endlich einholt, verlässt er seinen Gültigkeitsbereich und verschwindet vom
@@ -138,21 +154,25 @@ Curly.move()
 Larry.turn_off()
 </pre>
 
-<p><img alt="Moe there"  src="../../images/inter/scope1.png"/></p>
-<p><img alt="Moe gone"  src="../../images/inter/scope2.png"/></p>
+<p><img alt="Moe there"  src="../../images/inter/scope1.png" /></p>
+
+<p><img alt="Moe gone"  src="../../images/inter/scope2.png" /></p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Probier's aus!</h3>
+
 <p>Probiere dieses Programm auf eigene Faust in Reeborgs Welt aus und ändere es
 dann, sodass Moe bei seinen Freunden bleiben kann!</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="30-dot.htm"><img alt="previous" src=
-"../../images/previous.png"/>30. Objektorientierte Programmierung:
+"../../images/previous.png" />Objektorientierte Programmierung:
 Punkt-Schreibweise.</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
-"32-return.htm">32. Funktion, komm bald wieder!<img alt="next"
-src="../../images/next.png"/></a>
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
+"32-return.htm">Funktion, komm bald wieder!<img alt="next"
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

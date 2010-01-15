@@ -1,5 +1,7 @@
 /* rurple.css */
 
+body { width: 675px; }
+
 li { margin-bottom: 0.5em; }
 p, li {text-align: justify;}
 img {vertical-align: middle;}

@@ -9,9 +9,12 @@
 </head>
 <body>
 <h2 class="title">34. Çukulatalı kek tarifi</h2>
+
 <p>Sizi bilmiyorum, ama benim karnım acıktı. Güzel bir çukulatalı kek olsaydı 
 iyi olurdu.</p>
-<ul><li><u>Malzemeler</u></li>
+
+<ul>
+<li><span style="text-decoration: underline;">Malzemeler</span></li>
 <ul>
 <li>4 yumurta</li>
 <li>100 g şeker</li>
@@ -19,28 +22,37 @@ iyi olurdu.</p>
 <li>30 g kakao</li>
 </ul>
 </ul>
+
 <p>Keki yapabilmek için aşağıdakine benzer bir tarife ihtiyacımız var:</p>
+
 <ul>
 <li>Fırını 180 C'ye kadar ısıt.</li>
 <li>Yumurtaların aklarını sarılarından ayır.</li>
 <li>v.b.</li>
 </ul>
+
 <p>Tarif bir bilgisayar programına benzer: istenen sonucu elde etmek için adım 
 adım eksiksiz uygulanması gereken bir dizi emir. Bu noktada Python'a geri 
 dönüyorum.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Listeler (Lists)</h3>
+
 <p>Aşağıdakini Python yorumlayıcısı ile deneyebilirisiniz: </p>
+
 <pre>
 >>> malzemeler = [<span class="string">"4 yumurta"</span>, <span class="string">"100 g şeker"</span>, 
 ...     <span class="string">"250 g çikolata"</span>, <span class="string">"30 g kakao"</span>]
 >>> 
 </pre>
+
 <p><tt>malzemeler </tt>Pythonda kullanılan <i>listelere</i> bir örnektir. Bir 
 liste herhangi bir sayıda eleman içerebilir. Az önceki örnekte tüm elemanlar 
 string seçilmişler, listenin elemanları sayılar, başka listeler veya henüz 
 görmediğimiz Python nesneleri de olabilir. Şimdi aşağıdakini deneyin: </p>
+
 <pre>
 >>> <span class="keyword">for</span> eleman <span class=
 "keyword">in</span> malzemeler:
@@ -56,8 +68,10 @@ görmediğimiz Python nesneleri de olabilir. Şimdi aşağıdakini deneyin: </p>
 >>> malzemeler[0:2]
 [<span class="string">'4 yumurta'</span>, <span class="string">'100 g şeker'</span>]
 </pre>
+
 <p>Daha önceden gördüklerimizden biraz farklı olsa da bunlar tanıdık gelmiş 
 olmalı. Aşağıdakini de deneyin: </p>
+
 <pre>
 >>> <span class="keyword">for</span> harf <span class="keyword">in</span> malzemeler[0]:
 ...     <span class="keyword">print</span> harf
@@ -78,6 +92,7 @@ a
 >>> <span class="string">'4 yumurta'</span>[2]
 <span class="string">'y'</span>
 </pre>
+
 <p>Daha önce gördüğümüz gibi burada <tt>malzemeler[0]</tt> <span class="string">'4 
 yumurta' </span>ile eş anlamlıdır; bu nedenle <tt>malzemeler[0][2]</tt> <span class="string">'4 
 yumurta'</span>daki üçüncü (Python saymaya 0'dan başlar, hatırlayın) 
@@ -86,30 +101,37 @@ karakterdir. </p>
 <p>Yukarıdaki tarifte önemli bir malzemeyi unuttum: kekin üzerine süreceğimiz 
 krema. Bunu listeye ekleyebilir ve eklendiğini aşağıdaki gibi kontrol 
 edebilirim: </p>
+
 <pre>
 >>> malzemeler.append(<span class="string">"krema"</span>)
 >>> <span class="keyword">print</span> malzemeler
 [<span class="string">'4 yumurta'</span>, <span class="string">'100 g şeker'</span>, <span class="string">'250 g çukulata'</span>, <span class="string">'30 g kakao'</span>, <span class="string">'krema'</span>]
 </pre>
+
 <p><tt>append()</tt> liste sınıfının bir metodudur. <tt>malzemeler </tt>bu 
 sınıfın bir örneğidir. Daha önceki derslerde gördüğümüz gibi, <tt>malzemeler </tt> 
 örneğindeki <tt>append</tt> metodunu araya nokta koyarak kullanıyoruz. <tt>append</tt>'in 
 parametresi listeye eklemek istediğimiz nesnedir. Ekleme her zaman listenin 
 sonuna yapılır. </p>
+
 <p>Listelerin başka metotları da vardır; bunları yeri geldiğinde açıklayacağım. 
 Eğer bunları görmek istiyorsanız Python yorumlayıcısında <tt>dir([])</tt> yazın 
 ve Enter'a basın. Burada  <tt>[]</tt> boş bir listedir, onun yerine 
 herhangi bir liste de kullanılsa aynı sonuç alınır. <tt>append </tt>metodunu 
 görebildiniz mi. </p>
+
 <p>Listeye eleman eklemeyi öğrendik, şimdi sıra silmede. Bunun için <span class="pykeyword">del </span>komutunu kullanacağız.</p>
+
 <pre>
 >>> <span class="keyword">del</span> malzemeler[3]
 >>> <span class="keyword">print</span> malzemeler
 [<span class="string">'4 yumurta'</span>, <span class="string">'100 g şeker'</span>, <span class="string">'250 g çukulata'</span>, <span class="string">'krema'</span>]
 </pre>
+
 <p> <span class="pykeyword">del</span> komutu listelerden eleman silmekten başka 
 işlerde yapar. Örneğin, tanımlanmış bir değişkeni silebilir. 
 </p>
+
 <pre>
 >>> a = 3
 >>> <span class="keyword">print</span> a
@@ -117,31 +139,42 @@ işlerde yapar. Örneğin, tanımlanmış bir değişkeni silebilir.
 >>> <span class="keyword">del</span> a
 >>> <span class="keyword">print</span> a
 Traceback (most recent call last):
-  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+  File <span class="string">"&lt;input>"</span>, line 1, in ?
 NameError: name <span class="string">'a'</span> is not defined
 </pre>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Deneyin!</h3>
+
 <p>Reeborg'un dünyasında kendine özgü adları olan iki tane robot yaratın, biraz 
 dolaşmalarını sağlayın ve daha sonra robotlardan birisinin <span class="pykeyword">del</span> 
 komutu ile yok olmasını sağlayın. Robot ekrandan kaybolmadan önce diğer robotun 
 en azından bir adım daha atmasına ihtiyacınız olabilir.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section"> <tt>range()</tt>hakkında bir sır</h3>
+
 <p> <tt>range()</tt>hakkında bir sır öğrenmeye hazırsınız:</p>
+
 <pre>
 >>> <span class="keyword">print</span> range(6)
 [0, 1, 2, 3, 4, 5]
 </pre>
+
 <p>Doğru: <tt>range()</tt> bir liste yaratır!</p>
 
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Liste, tamsayı ve stringlerin birbirine dönüştürülmesi</h3>
+
 <p>Bir <i>veri tipini</i> diğer bir <i>veri tipine</i> dönüştürmekte kullanılan 
 Python fonksiyonları aşağıda verilmiştir:</p>
+
 <pre>
 >>>  first_number = 1304
 >>>  second_number = 987
@@ -193,24 +226,28 @@ Python fonksiyonları aşağıda verilmiştir:</p>
 >>>  len(first_list)
 3
 </pre>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Liste, string ve tamsayıları kullanarak Reeborg'a toplama 
 yaptırmak</h3>
+
 <p>Aşağıda gösterildiği gibi Reeborg'a liste, string ve tamsayıları kullanarak 
 toplama yapması için yardımcı olun. </p>
-<p><img alt="before addition" src=
-"../../images/inter/add34_start.png"/></p>
-<p><img alt="after addition" src=
-"../../images/inter/add34_end.png"/></p>
 
-<div class="lessons_toc">
+<p><img alt="before addition" src=
+"../../images/inter/add34_start.png" /></p>
+
+<p><img alt="after addition" src=
+"../../images/inter/add34_end.png" /></p>
+
+<div class="lessons_nav">
 <a href="33-for.htm"><img alt="previous" src=
-"../../images/previous.png"/></a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" /></a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="35-dicts.htm">Farklı bir tanımlama <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>
-

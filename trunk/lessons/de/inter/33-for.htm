@@ -4,24 +4,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>33. Repeat verbirgt Schlüsselwörter.</title>
+
+<title>Repeat verbirgt Schlüsselwörter.</title>
 </head>
 <body>
 <h2 class="title">33. Repeat verbirgt Schlüsselwörter.</h2>
+
 <p>Erinnerst du dich daran, dass wir Reeborg vor vielen Lektionen aufforderten,
 einige Anweisungen zu wiederholen?</p>
+
 <pre>
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
 </pre>
+
 <p>In dieser Lektion schauen wir uns an, wie wir unsere eigene 
 <tt>repeat()</tt>-Funktion definieren können.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Zwei neue Schlüsselwörter</h3>
+
 <p>Probier folgendes aus:</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">for</span> buchstabe <span class=
+>>> <span class="keyword">for</span> buchstabe <span class=
 "keyword">in</span> <span class="string">"Reeborg"</span>:
 ...     <span class="keyword">print</span> buchstabe
 ...     
@@ -33,67 +41,77 @@ o
 r
 g
 </pre>
+
 <p>Das bedeutet: jeden Buchstaben, der in der Zeichenfolge <span class="string">
 Reeborg</span> enthalten ist, soll der Python-Interpreter auf einer neuen Zeile
 ausgeben (Wörtlich übersetzt: für buchstabe in "Reeborg": drucke buchstabe).
 Wenn wir nicht jeden Buchstaben auf einer neuen Zeile stehen haben wollen, 
 sondern alle mit Leerzeichen auf einer Linie, setzen wir hinter den Buchstaben
 ein Komma, wie schon früher erwähnt.</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">for</span> buchstabe <span class=
+>>> <span class="keyword">for</span> buchstabe <span class=
 "keyword">in</span> <span class="string">"Reeborg"</span>:
 ...     <span class="keyword">print</span> buchstabe,
 ...     
 R e e b o r g
 </pre>
+
 <p>Toll! Das funktioniert mit jeder Zeichenfolge! Und wenn wir stattdessen mit
 Python zählen wollen? Das können wir ebenfalls mit einer <span 
 class="pykeyword">for</span>-Schleife zusammmen mit der nützlichen Funktion
-<tt>range()</tt> bewerkstelligen:
-</p>
+<tt>range()</tt> bewerkstelligen:</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">for</span> zahl <span class=
+>>> <span class="keyword">for</span> zahl <span class=
 "keyword">in</span> range(3):
 ...     <span class="keyword">print</span> zahl
 ...     
 0
 1
 2
-&gt;&gt;&gt; <span class="keyword">for</span> zahl <span class=
+>>> <span class="keyword">for</span> zahl <span class=
 "keyword">in</span> range(14):
 ...     <span class="keyword">print</span> zahl,
 ...    
 0 1 2 3 4 5 6 7 8 9 10 11 12 13
 </pre>
-<p>Lass dich nicht davon abhalten, selbst ein paar Beispiele auszuprobieren!
-</p>
+
+<p>Lass dich nicht davon abhalten, selbst ein paar Beispiele auszuprobieren!</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Wir definieren <tt>repeat()</tt></h3>
+
 <p>Jetzt haben wir alle Python-Zutaten zusammmen, um unsere eigene 
 <tt>repeat()</tt>-Funktion zu definieren:</p>
+
 <ul>
 <li>Wir wissen, wie man Funktionen mit Argumenten definiert.</li>
 <li>Wir können mit Variablen umgehen.</li>
 <li>Wir wissen, wie man mit <span class="pykeyword">for</span>-Schleifen
 zählt.</li>
 </ul>
+
 <p>Worauf warten wir noch?</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">def</span> repeat(f, n):
+>>> <span class="keyword">def</span> repeat(f, n):
 ...     <span class="keyword">for</span> i <span class=
 "keyword">in</span> range(n):
 ...         f()
 ...
-&gt;&gt;&gt; <span class="keyword">def</span> f():
+>>> <span class="keyword">def</span> f():
 ...     <span class="keyword">print</span> <span class=
 "string">"It's fun!"</span>
 ...    
-&gt;&gt;&gt; repeat(f, 3)
+>>> repeat(f, 3)
 It's fun!
 It's fun!
 It's fun!
 </pre>
+
 <p>Tatsächlich ist das, was wir da gerade gemacht haben, schon höhere
 Python-Programmierung! Wir haben der Funktion ein Argument übergeben, das 
 selbst eine Funktion ist. Dazu mussten wir nur den Namen der Funktion ohne
@@ -112,8 +130,10 @@ besondere Bedeutung haben, ist ein längerer, aussagekräftiger Name
 vorzuziehen. Wenn du das nicht glaubst, blättere noch mal zurück zum Ende der
 Lektion <a href="../intro/10-def.htm">10. Definitiv Wiederholungen vermeiden
 </a>.</p>
+
 <p>Also sollte ich <tt>repeat()</tt> vielleicht folgendermaßen definiert
 haben:</p>
+
 <pre>
 <span class="keyword">def</span> repeat(funktion, anzahl_wiederholungen):
     <span class="keyword">for</span> zahl <span class="keyword">in</span> range(anzahl_wiederholungen):
@@ -122,19 +142,21 @@ haben:</p>
 
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Probiers's aus!</h3>
+
 <p>Kehre zurück in Reeborgs Welt. Such dir deine Lieblingsübung aus,
 Hauptsache, es ist eine, in der mindestens zweimal <tt>repeat()</tt>
 vorkommt. Ersetze <tt>repeat()</tt> überall in deiner Lösung durch eine
 <span class="pykeyword">for</span>-Schleife. Vergewissere dich, dass deine 
 neue Lösung funktioniert!</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="32-return.htm"><img alt="previous" src=
-"../../images/previous.png"/>32. Funktion, komm bald wieder!</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
-"34-lists.htm">34. Ein Rezept für Mousse au Chocolat<img alt="next"
-src="../../images/next.png"/></a>
+"../../images/previous.png" />Funktion, komm bald wieder!</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
+"34-lists.htm">Ein Rezept für Mousse au Chocolat<img alt="next"
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

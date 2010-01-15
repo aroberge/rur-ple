@@ -8,9 +8,10 @@
 <title>体验类</title>
 </head>
 <body>
-
 <h2 class="title">38. 体验类 "<span class="pykeyword">class</span>"</h2>
+
 <p>我们已经看到如何为一个已经存在的class增加方法--我们维修了机器人，使得它能够右转.  下面是另外一个位已经存在的类增加方法.</p>
+
 <pre>
 <span class="keyword">class</span> Amazing(RefurbishedRobot):
     <span class="keyword">def</span> diag(self):
@@ -30,10 +31,15 @@ Magician.move()
 Magician.move()
 Magician.turn_off()
 </pre>
+
 <p><img alt="magic"  src="../../images/inter/magic.png" /></p>
+
 <p>T新的机器人知道所有 <tt>RefurbishedRobot</tt> 知道的方法 [比如, <tt>move(), turn_off()</tt>] ,此外他还有一个新方法 [<tt>diag()</tt>].</p>
+
 <h3 class="section">设计一个新<span class="pykeyword">class</span></h3>
+
 <p>S有时候我们想创建一个新的类,这个新的类修改了已有的类所定义的基本行为.  为此, 我们需要重新定义一个特别的方法[<tt>__init__()</tt>].  下面的例子中, 我们 "修正了漏油问题", 这样新的机器人将不会留下踪迹. 事实上, 我们做的就是留下白色的踪迹,而不是原来的海绿色踪迹, 同时划在大街的中央 [定义为风格 5] 因此它会被灰色的点线所覆盖, 就好像被机器人涂掉了一样.</p>
+
 <pre>
 <span class="keyword">class</span> Eraser(RefurbishedRobot):
     <span class="keyword">def</span> __init__(self):
@@ -45,7 +51,9 @@ Sneaky = Eraser()
     Sneaky.move()
 Sneaky.turn_off()
 </pre>
+
 <p><img alt="eraser"  src="../../images/inter/eraser.png" /></p>
+
 <p>你也许想用其他的风格 (1 到 5)来显示成其它颜色.</p>
 
 <div class="lessons_nav">

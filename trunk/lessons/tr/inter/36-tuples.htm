@@ -9,27 +9,36 @@
 </head>
 <body>
 <h2 class="title">36. Son sıramız</h2>
+
 <p>Listeler ve stringler <tt>[::]</tt> kullanımı ile dilimlendirilebilirler. Bir 
 eleman ya da karakter onun <i>indeksi</i> ile [indeks] şeklinde bir kullanımla 
 bulunabilir. Bu özelliklerinden dolayı bu nesneler <i>sıralı veri tipi </i>
 olarak bilinirler.  Python'da buna benzer başka sıralı veri tipleri de 
 vardır; bunlardan en yaygın olanı, <i>tüplerdir</i> (<i>tuples</i>).</p> 
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Virgül güçlü bir şeydir</h3>
+
 <p>Büyük bir sayı yazarken virgül kullanmayı denediğimizi hatırlayın, bir başka 
 örnek:</p>
+
 <pre>
 >>> 1,000
 (1, 0)
 </pre>
+
 <p>Python virgülle ayrılmış iki değeri bir tüpün elemanları olarak kabul etti. 
 Tüpü yazarken değerlerin etrafına parantez koyarak bunların tek bir nesne 
 olduğunu belitti. </p>
+
 <p><span class="warning">Not:</span> Kendiniz deneme yaptığınızda (aynı 
 sayılarla ya da farklı sayılarla) bir hata mesajıyla karşılaştıysanız bunu 
 şimdilik önemsemeyin, buna dersin sonunda geri döneceğiz.</p> 
+
 <p>Daha ilginç bir örnek:</p>
+
 <pre>
 >>> a = 1, 2, 3, 4, <span class="string">"yeter!"</span>
 >>> <span class="keyword">print</span> a
@@ -44,7 +53,9 @@ sayılarla ya da farklı sayılarla) bir hata mesajıyla karşılaştıysanız b
 >>> a[-1]
 <span class="string">'yeter!'</span>
 </pre>
+
 <p>Tüpleri, tüplerin içine de koyabiliriz, örnekler:</p>
+
 <pre>
 >>> b = 1, 2, 3
 
@@ -56,8 +67,10 @@ sayılarla ya da farklı sayılarla) bir hata mesajıyla karşılaştıysanız b
 >>> <span class="keyword">print</span> d
 (1, 2, (3, 4, 5))
 </pre>
+
 <p>Listeler ve tüpler kullandıkları parantez türleri dışında birbirlerine benzer 
-şeyler gibi algılanmış olabilir. Ancak aralarında çok önemli bir fark vardır: </p>
+şeyler gibi algılanmış olabilir. Ancak aralarında çok önemli bir fark vardır:</p>
+
 <pre>
 >>> my_tuple = 1, 2, 3
 >>> my_list = [1, 2, 3]
@@ -73,41 +86,49 @@ sayılarla ya da farklı sayılarla) bir hata mesajıyla karşılaştıysanız b
 
 >>> my_tuple[1] = <span class="string">"new"</span>
 Traceback (most recent call last):
-  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+  File <span class="string">"&lt;input>"</span>, line 1, in ?
 TypeError: object does not support item assignment
 </pre>
+
 <p>Bir listede bir elemanın değerini değiştirerek veya yeni bir ekleme yaparak 
 değişiklik yapılabilir, ancak bu durum tüpler için geçerli değildir. Tüplerde 
 değişiklik yapılamaz bu nedenle tüpler sabit değerlerden oluşur denilir. 
 Sayıların yanı sıra bir başka sabit veri tipi stringlerdir: </p>
+
 <pre>
 >>> my_string = <span class="string">"abcd"</span>
 >>> my_string[2]
 <span class="string">'c'</span>
 >>> my_string[2] = <span class="string">"e"</span>
 Traceback (most recent call last):
-  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?
+  File <span class="string">"&lt;input>"</span>, line 1, in ?
 TypeError: object does not support item assignment
 </pre>
+
 <p>Tüpler sabit olduklarından, sözlüklerde anahtar olarak kullanabilirler. </p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">sözlükler, listeler ve tüpler</h3>
+
 <p>Python'un bir listedeki elemanların yerlerini nasıl girildiyse aynı sırada 
 muhafaza ettiğini, ancak sözlüklerin içeriği yazdırıldığında bunların tesadüfi 
 bir sıra ile yazdırıldığını daha önceden görmüştük.  Bunu daha ayrıntılı 
 olarak Reeborg'un dünyasında görebiliriz. </p>
 
 <p>"Show/Hide world file" butonuna  
-<img alt="Show/Hide world file"  src="../../images/intro/btn_show_world_file.png"/> 
-basın, daha sonra <img alt="edit walls button"  src="../../images/intro/btn_walls.png"/> 
-butonuna basın.  </p>
+<img alt="Show/Hide world file"  src="../../images/intro/btn_show_world_file.png" /> 
+basın, daha sonra <img alt="edit walls button"  src="../../images/intro/btn_walls.png" /> 
+butonuna basın.</p>
+
 <p>Bir kaç duvar yaratın ve dünya dosyasında nelerin değiştiğini gözlemleyin. 
 Oluşturulan tüm duvarlar listenin bir elemanıdır ve bu elemanların değerleri de 
 koordinatları gösteren birer tüptür. Oluşturulan yeni duvarlar listenin sonuna
 <i>eklenirler</i>. Üstüne tıklayarak bir duvarı sildiğinizde, listede yer aldığı 
 pozisyondan kaldırılır. Hemen ardından sildiğiniz duvarı yeniden oluşturursanız, 
 listenin sonuna <i>eklenir</i>.</p>
+
 <p>Bir de biplere bakalım ve karşılaştırma yapalım. Herhangi bir köşede farenin 
 sağ butonuna basarak istediğiniz sayıda bip yerleştirebilirsiniz. Biplerin 
 sayısını değiştirdiğiniz zaman, değişiklik yerinde yapılacaktır. Eğer bip 
@@ -122,29 +143,35 @@ koordinatların olduğu tüpler) yerleştirilirken "hash" matematiksel fonksiyon
 kullanılmasındandır. Python bunu etkili bir şekilde kullanır, ancak bu bize 
 tesadüfi gözükür. </p>
 
-
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Sekizli, onaltılı ve ikili tabanda sayılar</h3>
+
 <p><span class="warning">Not:</span> Python'u öğrenmeye devam etmek için bu 
 bölümü tam olarak anlamak zorunda değilsiniz. </p>
+
 <p>Dersin başında kendiniz deneme yaptığınızda (aynı sayılarla ya da farklı 
 sayılarla) bir hata mesajıyla karşılaştıysanız bunu şimdilik önemsemeyin 
 demiştim. Bununla ilgili iki örnek daha verelim:</p>
+
 <pre>
 >>> 1,023
 (1, 19)
 
 >>> 1,099
-  File <span class="string">"&lt;input&gt;"</span>, line 1
+  File <span class="string">"&lt;input>"</span>, line 1
     1, 099
          ^
 SyntaxError: invalid token
 </pre>
+
 <p>Python 0'la başlayan bir sayıyı sekiz tabanına göre yazılmış kabul eder. </p>
+
 <p>Günlük hayatta kullandığımız sayılar 10 tabanındadır ve 10 rakam "0, 1, 2, 3, 
 4, 5, 6, 7, 8 ve 9" kullanılarak elde edilirler. Örneğin 345 aşağıdaki gibi 
 açıklanır:</p>
+
 <pre>
 345 = 3*100 + 4*10 + 5*1
 veya
@@ -152,21 +179,26 @@ veya
 veya
 345 = 3*10**2 + 4*10**1 + 5*10**0
 </pre>
+
 <p><small>[En sondakini anlamadıysanız, biraz daha matematik öğrenmeye 
 ihtiyacınız var demektir. Daha önceden "**"'ın üssü anlamına geldiğini 
 açıklamıştık.]</small> Sekiz tabanında bir sayı ise sekiz tane rakam "0, 1, 2, 
 3, 4, 5, 6 ve 7" ile oluşturulur. 8 tabanında 23 (yada Python'da 023 yada 
 "sıfır"23) şu anlama gelir:</p>
+
 <pre>
 023 = 2*8 + 3*1 = 16 + 3 = 19 (10 tabanında)
 </pre>
+
 <p>Bu yukarıda elde ettiğimiz ilk sonucu açıklar. İkinci sonuçta hata ile 
 karşılaşmamızın nedeni ise 9'un 8'li sayı sisteminde geçerli olmamasından 
 dolayıdır.</p>
+
 <p>Python'da 16 tabanına göre sayıları da kullanabilirsiniz, bu tabanda 
 kullanılan semboller:  "0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f" dir. 
 Python'a sayının 16 tabanında olduğunu belirtmek için aşağıda olduğu gibi başına 
 "0x" (sıfır ve x) koyarız.</p>
+
 <pre>
 >>> 0x33
 51
@@ -186,25 +218,32 @@ Python'a sayının 16 tabanında olduğunu belirtmek için aşağıda olduğu gi
 >>> 0x123
 291
 </pre>
+
 <p>Sonuncu örneği açıklayalım:</p>
+
 <pre>
 0x123 = 1*16*16 + 2*16 + 3*1 = 256 + 32 + 3 = 291 (10 tabanında)
 </pre>
+
 <p>16'lı sayı sisteminde, "a" 10. sembol, "f" ise 15. semboldür. Yukarıdaki 
 sonucun doğruluğunu kendiniz de kontrol edin.</p>
+
 <p>Bu dersi, özellikle bu bölümü bitirmeden önce, ikili sayı sistemi hakkında da 
 bir şeyler söyleyelim. İkili sayı sisteminde sayılar "0 ve 1" rakamları ile 
 oluşturulur. Aşağıda bir ikili sayı ve onun 10 tabanına dönüştürülmesi verildi:</p>
+
 <pre>
 101001 = 1*2**5 + 0*2**4 + 1*2**3 + 0*2**2 + 0*2**1 + 1*2**0
 veya
 101001 = 1*32 + 1*8 + 1*1 = 41 (10 tabanında)
 </pre>
+
 <p>İkili sayı sistemi çok önemlidir, aslında bilgisayarlar ikili sayı sistemi 
 ile çalışırlar. Bir ampül ve onu açıp kapatmakta kullanılan bir anahtar düşünün. 
 Eğer anahtarı açarsak akım lambaya ulaşır ve lamba yanar, eğer anahtarı 
 kapatırsak akım lambaya ulaşmayacağından lamba sönecektir. İki durum söz 
 konusudur: akım yok = 0; ve akım var =1.</p>
+
 <p>Bilgisayarların içinde lambalar yoktur ama pek çok sayıda çok küçük kablolar 
 ve anahtarlar vardır.  <small>[tabiyki başka elektronik parçalar da vardır 
 ancak onlar şu an bizim için önemli değiller.]</small> Herhangi bir anda 
@@ -215,13 +254,14 @@ gösterilebilin bir sayı olacaktır. Bilgisayar programları bu küçük anahta
 kontrol ederek akımın hangi kablolara ulaşması gerektiğini kontrol eder. Yani 
 programcılıkta aslında yaptığınız iş her ne kadar farkına varmasanız da 
 elektronik devrelerde akımı yönlendirmektir! </p>
+
 <p>8, 2'nin kübü olduğundan, sekizli sayı sistemi ve benzer şekilde onaltılı 
 sayı sistemi de bilgisayarlarda kullanılır.  Onaltılı sayı sisteminde 
 sayılar bizim için daha kısa olduğundan, ikili sayı sisteminden sonra en çok 
 kullanılan sistemdir. Bunu oyun programları yazarken renk belirlemede 
 kullanacağız!</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="35-dicts.htm"><img alt="previous" src=
 "../../images/previous.png"/>Farklı bir tanımlama</a> - <a href=
 "../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
@@ -230,4 +270,3 @@ src="../../images/next.png"/></a>
 </div>
 </body>
 </html>
-

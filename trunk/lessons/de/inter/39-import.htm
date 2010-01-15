@@ -4,18 +4,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>39. Erfinde das Rad nicht neu - importiere es!</title>
+
+<title>Erfinde das Rad nicht neu - importiere es!</title>
 </head>
 <body>
-
-
 <h2 class="section">39. Erfinde das Rad nicht neu - importiere es!</h2>
 
 <p>Erinnere dich an die Regel über das Vermeiden von Wiederholungen:</p>
 
-<dl> <dt><b>Regel # 3 </b></dt><dd>Wiederhole dich nicht beim Schreiben von
+<dl>
+<dt><b>Regel # 3 </b></dt><dd>Wiederhole dich nicht beim Schreiben von
 Programmen.<br/>Ich wiederhole: <b>wiederhole dich nicht!</b></dd> 
 </dl>
+
 <p>In dieser Lektion werden wir lernen, wie man es vermeidet, "das Rad neu zu
 erfinden".</p>
 
@@ -23,18 +24,21 @@ erfinden".</p>
 
 <p>
 Weißt du noch, wie wir die Anweisung <tt>turn_right()</tt> definierten:</p>
+
 <pre>
 <span class="keyword">def</span> turn_right():
     turn_left()
     turn_left()
     turn_left()
 </pre>
+
 <p>Dies taten wir, um nicht ständig dreimal hintereinander <tt>turn_left()</tt>
 tippen, wenn wir Reeborg anweisen wollten, sich nach rechts zu drehen.
 Allerdings gibt es immer noch eine Menge Wiederholung, denn fast jedes Mal, wenn
 wir ein neues Programm schreiben, müssen wir <tt>turn_right()</tt> wieder
 definieren. Das können wir uns aber ersparen. Schreibe das folgende Programm
 und versuche es zu starten.</p>
+
 <pre>
 <span class="keyword">from</span> toolbox <span class="keyword">import</span> turn_right
 
@@ -81,46 +85,62 @@ set_trace_style(2, <span class="string">'red'</span>)
 climb_down_west()
 turn_off()
 </pre>
-<p><img alt="import"  src="../../images/inter/import.png"/></p>
+
+<p><img alt="import"  src="../../images/inter/import.png" /></p>
+
 <p>Statt jede neue Anweisung einzeln zu importieren, wie wir das im ersten 
 Beispiel mit <tt>turn_right()</tt> getan haben, haben wir die "*"-Schreibweise
 verwendet, mit der wir alle Symbole des Moduls auf einmal importieren können.
 Bevor ich fortfahre, sollte ich wahrscheinlich einiges kommentieren:</p>
+
 <ol>
-<li>Für alle, die Python-<i>Module</i> schon kennen: "toolbox" ist kein echtes Modul,
+<li>
+Für alle, die Python-<i>Module</i> schon kennen: "toolbox" ist kein echtes Modul,
 sondern ein Pseudo-Modul, dass nur in Reeborgs Welt funktioniert. Du kannst aus
 Sicherheitsgründen keine "echten" Module importieren und sie in RUR-Programmen
 verwenden.
 </li>
-<li>Eine neue Anweisung <tt>set_trace_style()</tt> wurde benutzt. Ich hätte sie auch
+<li>
+Eine neue Anweisung <tt>set_trace_style()</tt> wurde benutzt. Ich hätte sie auch
 <tt>set_leaking_oil_colour_and_quantity()</tt> nennen können, was in Reeborgs Welt
 sinnvoller gewesen wäre ... aber nicht im allgemeinen Programmierjargon. Grob 
 gesprochen ist eine Programm<i>spur</i> eine Methode, die Ausführung der Anweisungen
 zu verfolgen. Normalerweise solltest du diese Anweisung nicht brauchen ... aber sie
 kann von Nutzen sein, um Bugs aufzuspüren oder in Beispielen wie dem von mir
-benutzten.</li>
-<li><span class="keyword">from</span> und <span class="keyword">import</span>
-sind zwei Schlüsselwörter, wie man an der Farbe sehen kann.</li>
-<li>Trotz ihrer Namen können einige der Anweisungen, die im Modul "toolbox" definiert 
+benutzten.
+</li>
+<li>
+<span class="keyword">from</span> und <span class="keyword">import</span>
+sind zwei Schlüsselwörter, wie man an der Farbe sehen kann.
+</li>
+<li>
+Trotz ihrer Namen können einige der Anweisungen, die im Modul "toolbox" definiert 
 werden, unerwartete Ergebnisse liefern, wenn der Roboter nicht die erwartete 
 Anfangsorientierung hat (nicht in die erwartete Richtung blickt). Ähnliches kann 
 passieren, wenn du "echte" Python-Module importierst; du musst dir der Annahmen
 bewusst sein, die der richtigen Anwendung der Module zugrunde liegen. Ich werde
 darauf nicht weiter eingehen; du kannst es herausfinden, indem du eigene Programme
-dafür schreibst.</li>
-<li>Meistens kannst du den Python- oder C-Quelltext der "echten" Python-Module
+dafür schreibst.
+</li>
+<li>
+Meistens kannst du den Python- oder C-Quelltext der "echten" Python-Module
 lesen, wenn du dich dafür interessierst. Das kann nützlich sein, wenn die 
 Dokumentation fehlt, oder um zu sehen, welchen Quelltext erfahrene Programmierer
-schreiben, und davon zu lernen.</li>
-<li>Da das Pseudo-Modul toolbox ein paar Einschränkungen hat, führen einige erlaubte
+schreiben, und davon zu lernen.
+</li>
+<li>
+Da das Pseudo-Modul toolbox ein paar Einschränkungen hat, führen einige erlaubte
 Anweisungen (zum Beispiel <span class="keyword">import</span> in einem Kommentar)
-zu Fehlern, die von RUR-PLE gemeldet werden.</li>
+zu Fehlern, die von RUR-PLE gemeldet werden.
+</li>
 </ol>
 
 <h3 class="section">3. Und wenn ich den gleichen Namen nochmal verwenden will?</h3>
+
 <p>Angenommen, du möchtest den Namen "turn_right" für etwas andereres verwenden
 als das, was in "toolbox" definiert ist. Das kannst du auf verschiedenen Wegen
 erreichen:</p>
+
 <ol>
 <li>Erster Weg:<br />
 <pre>
@@ -129,6 +149,7 @@ erreichen:</p>
 toolbox.turn_right()
 turn_off()
 </pre>
+
 Wenn du es so machst, musst du <tt>toolbox.</tt> vor alle Namen setzen, die in
 <tt>toolbox</tt> definiert sind. <tt>toolbox.turn_right()</tt> und
 <tt>turn_right()</tt> sind dann zwei verschiedene Anweisungen. Die erste ist im
@@ -142,19 +163,24 @@ bewegen. Ist das Zufall? Nein, Reeborg und <tt>toolbox</tt> haben etwas
 gemeinsam: beide sind Objekte, wobei <tt>toolbox</tt> ein Objekt der
 Modul-Klasse ist.<br />
 </li>
-<li>Zweiter Weg:<br />
+<li>
+Zweiter Weg:<br />
+
 <pre>
 <span class="keyword">from</span> toolbox <span class="keyword">import</span> turn_right <span class="keyword">as</span> nach_rechts
 <span class="comment"># Anwendung:</span>
 nach_rechts()
 turn_off()
 </pre>
+
 Die from..import..as-Anweisung ist nicht anderes als eine Abkürzung für:<br />
+
 <pre>
 <span class="keyword">import</span> toolbox
 nach_rechts = toolbox.turn_right
 <span class="keyword">del</span> toolbox
 </pre>
+
 Erinnerst du dich? Mit <span class="keyword">del</span> löschen wir einen Namen
 aus dem Gedächtnis des Python-Interpreters. Wenn dir die Sache komisch vorkommt,
 spiel ein bisschen damit rum :)
@@ -172,7 +198,7 @@ dass wir dann nicht mehr wissen, in welchem Zusammenhang eine Funktion des
 Moduls steht, vor allem bei Allerweltsnamen wie <tt>start()</tt>. Was soll
 gestartet werden, ein Programm, eine Mondrakete oder eine Party? Hier kommt uns
 wieder die Flexibilität der import-Anweisung zu Hilfe:</p>
-<p>
+
 <pre>
 <span class="comment"># Modul importieren</span>
 <span class="keyword">import</span> mond_rakete_countdown
@@ -181,8 +207,10 @@ wieder die Flexibilität der import-Anweisung zu Hilfe:</p>
 mond_rakete_countdown.start()
 mond_rakete_countdown.stop()
 </pre>
-Glücklicherweise können wir beim Import nicht nur einzelne Namen umbenennen,
-sondern auch das ganze Modul:
+
+<p>Glücklicherweise können wir beim Import nicht nur einzelne Namen umbenennen,
+sondern auch das ganze Modul:</p>
+
 <pre>
 <span class="comment">#  Modul mit Abkuerzung importieren</span>
 <span class="keyword">import</span> mond_rakete_countdown <span class="keyword">as</span> countdown
@@ -191,9 +219,9 @@ sondern auch das ganze Modul:
 countdown.start()
 countdown.stop()
 </pre>
-</p>
 
 <h3 class="section">5. Warum überhaupt importieren?</h3>
+
 <p>Es wird oft gesagt, dass bei Python die <i>Batterien inbegriffen</i> sind.
 Sicher haben die meisten schon mal ein elektrisches Spielzeug gekauft und sich
 geärgert, dass es nicht funktionierte, weil die Batterien noch fehlten. Ähnlich
@@ -221,13 +249,12 @@ mit einer kleinen Änderung am Quelltext recht einfach bewerkstelligen. Bitte
 nimm mit dem Autor Kontakt auf, wenn du dafür einen Bedarf hast und Hilfe
 brauchst.</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="38-class2.htm"><img alt="previous" src=
-"../../images/previous.png"/>38. Ein Hauch von Klasse</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
-"40-random.htm">40. Glücklich entkommen<img alt="next"
-src="../../images/next.png"/></a>
+"../../images/previous.png" />Ein Hauch von Klasse</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
+"40-random.htm">Glücklich entkommen<img alt="next"
+src="../../images/next.png" /></a>
 </div>
-
 </body>
 </html>

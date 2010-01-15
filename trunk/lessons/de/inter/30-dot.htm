@@ -4,85 +4,123 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link rel="stylesheet" href="../rurple.css" type="text/css"/>
-<title>30. Objektorientierte Programmierung: Punkt-Schreibweise</title>
+
+<title>Objektorientierte Programmierung: Punkt-Schreibweise</title>
 </head>
 <body>
 <h2 class="title">30. Objektorientierte Programmierung: Punkt-Schreibweise</h2>
+
 <p>Wir lernen jetzt einen modernen Programmierstil kennen, der sich 
 <em>Objektorientierte Programmierung</em> (OOP) nennt. Python ist eine
 OOP-Sprache, obwohl du hier noch nichts davon gesehen hast. Bevor wir 
 objektorientierte Programme schreiben, lernen wir erst mal, wie man die
 OOP-Schreibweise liest und versteht.</p>
+
 <!-- ======================== -->
 <hr class="line" />
+
 <h3 class="section">Ein Tag im Leben eines Hundes</h3>
+
 <p>Fido íst ein Hund. An einem normalen Tag frisst, rennt, schläft er etc. Ein
 objektorientierter Programmierer wurde das in etwa so schreiben:</p>
+
 <pre>
 Fido = Hund()
 Fido.frisst()
 Fido.rennt()
 Fido.schlaeft()
 </pre>
+
 <p>Darüber hinaus hat Fido verschiedene Qualitäten oder <i>Attribute</i>. Das
 sind <i>Variablen</i>, wie wir sie vor kurzem gesehen haben, außer dass sie zu
 Fido "gehören". Er ist groß (für einen Hund) und sein Fell ist schwarz. Unser
 OOP-Programmierer wurde das in etwa so schreiben:</p>
+
 <pre>
 Fido.groesse = <span class="string">"gross"</span>
 Fido.fellfarbe = <span class="string">"schwarz"</span>
 </pre>
+
 <p>In objektorientierter Sprache drücken wir das so aus:</p>
+
 <ul>
-<li><tt>Hund</tt> ist eine <i>Klasse</i> (von Objekten).</li>
-<li><tt>Fido</tt> ist eine <i>Instanz</i> (oder ein besonderes Objekt) der
-<i>Klasse</i> <tt>Hund</tt>.</li>
-<li>Eine Klasse kann man sich wie eine besondere Funktion vorstellen, die 
-Instanzen erzeugt.</li>
-<li><tt>frisst(), rennt()</tt> und <tt>schlaeft()</tt> sind <i>Methoden</i> der
+<li>
+<tt>Hund</tt> ist eine <i>Klasse</i> (von Objekten).
+</li>
+<li>
+<tt>Fido</tt> ist eine <i>Instanz</i> (oder ein besonderes Objekt) der
+<i>Klasse</i> <tt>Hund</tt>.
+</li>
+<li>
+Eine Klasse kann man sich wie eine besondere Funktion vorstellen, die 
+Instanzen erzeugt.
+</li>
+<li>
+<tt>frisst(), rennt()</tt> und <tt>schlaeft()</tt> sind <i>Methoden</i> der
 <i>Klasse</i> <tt>Hund</tt>; 'Methoden' sind im Wesentlichen das Gleiche wie
 'Funktionen', die wir schon kennen. Der einzige Unterschied ist, dass Methoden
-zu einer bestimmten Instanz gehören.</li>
-<li><tt>groesse</tt> und <tt>fellfarbe</tt> sind <i>Attribute</i> einer
+zu einer bestimmten Instanz gehören.
+</li>
+<li>
+<tt>groesse</tt> und <tt>fellfarbe</tt> sind <i>Attribute</i> einer
 bestimmten Instanz / eines bestimmten Objekts; Attribute können wie eine 
-"normale" Variable jeden beliebigen Wert annehmen.</li>
-<li>Die Verbindung zwischen Attributen oder Methoden mit einem Objekt wird durch
-einen "Punkt" (".") angezeigt, der zwischen ihnen steht.</li>
+"normale" Variable jeden beliebigen Wert annehmen.
+</li>
+<li>
+Die Verbindung zwischen Attributen oder Methoden mit einem Objekt wird durch
+einen "Punkt" (".") angezeigt, der zwischen ihnen steht.
+</li>
 </ul>
+
 <p>Objekte können auch andere Objekte als Attribute haben, die wiederum ihre
 eigenen Methoden und Attribute haben:</p>
+
 <pre>
 Fido.schwanz.wedelt()
 Fido.schwanz.typ = <span class="string">"buschig"</span>
 Fido.linke_vorderpfote.bewegt_sich()
 Fido.kopf.mund.eckzaehne.tun_weh()
 </pre>
+
 <p>Wir kommen später darauf zurück, wie das funktioniert. Jetzt wollen wir erst
 mal sehen, was Reeborg mit der "Punkt"-Schreibweise anfangen kann.</p>
+
+<!-- ======================== -->
 <hr class="line" />
+
 <h3 class="try">Ein gebrauchter Roboter bekommt seinen Namen.</h3>
+
 <p>Bis jetzt wurden alle Steuerungsprogramme für Reeborg ohne Verwendung der
 Objektorientierten Programmierung (OOP) geschrieben. Wir wollen mit einem 
 einfachen Programm beginnen.</p>
+
 <p>Zuerst starten wir mit einer leeren Welt und entfernen den Roboter, falls
 nötig. indem wir den Knopf "Entferne/Setze Roboter aus/in Welt" drücken
-<img alt="add/remove robot" src="../../images/inter/btn_add_robot.png"/>.</p>
+<img alt="add/remove robot" src="../../images/inter/btn_add_robot.png" /></p>
+
 <p>Nun erinnerst du dich vielleicht daran, dass RUR in RUR-PLE für 
 Roberge's <b><u>Used Robot</u></b> steht (Roberges gebrauchter Roboter); die 
 Roboter, mit denen wir arbeiten, sind alt und klapprig. <small>(Wir lernen noch,
 sie zu reparieren.)</small> So werden wir nun unsere erste Instanz der Klasse
 <tt>UsedRobot</tt> erzeugen und sie passenderweise Reeborg nennen! Wir werden
 ihn dann anweisen, einen Schritt zu gehen und sich abzuschalten.</p>
+
 <pre>
 Reeborg = UsedRobot()
 Reeborg.move()
 Reeborg.turn_off()
 </pre>
+
 <p><b>Probier's aus!</b></p>
+
+<!-- ======================== -->
 <hr class="line" />
+
 <h3 class="try">Noch mehr Roboter</h3>
+
 <p>Genau wie Funktionen können auch Methoden Argumente haben. Starte mit einer
 leeren Welt und probiere folgendes aus::</p>
+
 <pre>
 <span class=
 "comment"># Setze Roboter am Ursprung aus (Standard), aber mit interessanterer Farbe.</span>
@@ -106,6 +144,7 @@ Curly.move()
 <span class="comment"># Schaltet man einen Roboter ab, ist das Programm zu Ende.</span>
 Moe.turn_off()
 </pre>
+
 <p>Roboter gibt es in verschiedenen Farben: grau (Standard), gelb, blau,
 hellblau, grün und lila. Sie können überall in der Welt aufgestellt werden (mit
 mehr als einem Roboter an der selben Kreuzung), in Richtung einer der vier
@@ -118,7 +157,9 @@ drei unbenannten Argumente müssen in der festgelegten Reihenfolge aufgerufen
 werden, wenn sie erscheinen. Wenn wir also eine Richtung (sagen wir 'N')
 angeben, müssen wir mit Straße und Weg beginnen, so dass die Orientierung das
 dritte Argument ist.</p>
+
 <p>Nachfolgend einige erlaubte Deklarationen:</p>
+
 <pre>
 R1 = UsedRobot(2) <span class=
 "comment"># an 2. Strasse, 1. Weg mit Blick nach Osten erzeugt.</span>
@@ -129,7 +170,9 @@ R3 = UsedRobot(3, 1, <span class="string">'S'</span>) <span class=
 R4 = UsedRobot(5, colour=<span class="string">'yellow'</span>) <span class=
 "comment"># 5. Straße, 1.Weg, Farbe gelb, mit Blick nach Osten</span>
 </pre>
+
 <p>Die folgenden Deklarationen sind <b>nicht erlaubt</b>:</p>
+
 <pre>
 R5 = UsedRobot(3, <span class="string">'S'</span>) <span class=
 "comment"># Richtung ist <b>nicht</b> das 3. Argument.</span>
@@ -137,13 +180,12 @@ R6 = UsedRobot(colour=<span class="string">'yellow'</span>, 5) <span class=
 "comment"># Unbenanntes Argument folgt auf benanntes.</span>
 </pre>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="29-strings.htm"><img alt="previous" src=
-"../../images/previous.png"/>29. Zeichen-Salami.</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
-"31-global.htm">31. Global ist fatal.<img alt="next"
-src="../../images/next.png"/></a>
+"../../images/previous.png" />Zeichen-Salami.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
+"31-global.htm">Global ist fatal.<img alt="next"
+src="../../images/next.png" /></a>
 </div>
-
 </body>
 </html>

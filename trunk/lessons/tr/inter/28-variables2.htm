@@ -12,6 +12,7 @@
 
 <p>Değişkenler fonksiyon tanımlamalarında çok işe yararlar. <tt>print2</tt> 
 fonksiyonunu hatırlayın. </p>
+
 <pre>
 >>> <span class="keyword">def</span> print2():
 ...     <span class="keyword">print</span> 2
@@ -19,7 +20,9 @@ fonksiyonunu hatırlayın. </p>
 >>> print2()
 2
 </pre>
+
 <p>Bunu genelleştirirsek:</p>
+
 <pre>
 >>> <span class="keyword">def</span> print_number(n):
 ...     <span class="keyword">print</span> n
@@ -29,22 +32,29 @@ fonksiyonunu hatırlayın. </p>
 >>> print_number(78)
 78
 </pre>
+
 <p>Bir fonksiyon tanımlanırken bir değişkeni (bu durumda n) fonksiyonun adından 
 hemen sonra parantez içerisinde yazarak, buna parametre diyeceğiz, Python'a 
 fonksiyon çağrılırken parantez içerisinde verilen değer neyse onu n'e atamasını 
 söylemiş oluruz. </p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Sayıları ve Stringleri (Karakterler/Cümleler) birlikte 
 kullanmak</h3>
+
 <p>Sayıları ve stringleri bir arada yazmak istediğimizi düşünelim. Demek 
 istediğim şey <tt>print_number()</tt>fonksiyonu çalıştığında aşağıdaki gibi bir 
 sonuç vermesi: </p>
+
 <pre>
 The number you have chosen is 2.
 </pre>
+
 <p>Daha sonra göreceğiniz gibi bunu yapmanın <b>pek çok</b> yolu vardır. İşte 
 bunlardan birisi, kolay anlaşılmayan ama çok kullanışlı bir yol. </p>
+
 <pre>
 >>> <span class="keyword">def</span> print_number(n):
 ....    <span class="keyword">print</span> <span class=
@@ -53,13 +63,18 @@ bunlardan birisi, kolay anlaşılmayan ama çok kullanışlı bir yol. </p>
 >>> print_number(3)
 The number you have chosen is 3.
 </pre>
+
 <p>Python string'in içerisindeki %s'i string'i takip eden %'ten sonraki 
 değişkenin değeri ile değiştirir. Bunu kendiniz deneyin ve okumaya devam edin. </p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">İşi biraz zorlaştıralım</h3>
+
 <p> <tt>greater()</tt> fonksiyonuna geri dönelim ve onu daha genel bir hale 
 getirelim. Bunu aşağıdaki gibi yapabiliriz: </p>
+
 <pre>
 >>> <span class="keyword">def</span> greater(first, second):
 ...     <span class="keyword">if</span> first > second:
@@ -74,19 +89,25 @@ getirelim. Bunu aşağıdaki gibi yapabiliriz: </p>
 >>> greater(0, 10)
 10 is greater than 0
 </pre>
+
 <p>String'in içerisindeki %s'lere karşılık gelen değişkenleri parantez 
 içerisinde belirtmeliyiz ve başınada % işareti koymalıyız, böylece Python'a %s'lere 
 karşılık gelen değişkenlerin neler olduğunu söylemiş oluruz. </p>
+
 <p><b>Deneyin!</b></p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">İşi biraz daha zorlaştıralım</h3>
+
 <p> <tt>greater()</tt> fonksiyonunu değişkenler kullanarak sürekli aynı iki 
 sayıyı karşılaştırır halden herhangi iki sayıyı karşılaştırır hale getirdik. 
 Fonksiyon bu hali ile karşılaştırmayı yapmak için her zaman iki parametre 
 gerektirir. Bazı sayıların 0'dan büyük olup olmadığını bulan bir fonksiyon 
 yazmak isteyelim. Bu işi yapan bir başka fonksiyon yazabiliriz, ya da elimizdeki 
 fonksiyonda küçük değişiklikler yaparsak: </p>
+
 <pre>
 >>> <span class="keyword">def</span> greater(first, second=0):
 ...     <span class="keyword">if</span> first > second:
@@ -105,45 +126,55 @@ greater(5)
 greater(-2)
 >>> 0 is greater than -2
 </pre>
+
 <p>Fonksiyonu tanımlarken parantez içerisinde "<tt>second=0</tt>" yazarak, 
 fonksiyonu yalnızca bir parametre ile çağırdığımızda, ikinci değişkenin 
 değerinin 0 olmasını sağlıyoruz. Buna <i>başlangıç</i> (<i>default</i> değer) değeri de denir. 
 Bir parametreye bu şekilde bir başlangıç değeri verildiğinde buna 
 <i>adlandırılmış 
 parametre </i>denilir. </p>
+
 <p><i>Adlandırılmış</i> parametreler (birden fazla olabilirler) <b>her zaman </b>
 <i>adlandırılmamış</i> parametrelerden <b>sonra</b> kullanılırlar. Bu kurala göre 
 aşağıdaki tanımlamalar geçerlidir: </p>
+
 <pre>
 >>> <span class="keyword">def</span> four_arguments(a, b, c, d=33):
 >>> <span class="keyword">def</span> four_arguments(a, b, c=7, d=2):
 >>> <span class="keyword">def</span> four_arguments(a, b=1, c=3, d=56):
 >>> <span class="keyword">def</span> four_arguments(a=4, b=1, c=3, d=0):
 </pre>
+
 <p>Ancak aşağıdakiler geçerli değildir:</p>
+
 <pre>
 >>> <span class="keyword">def</span> four_arguments(a=1, b, c, d=33):
->>> <span class="keyword">def</span> four_arguments(a, b=2, c, d=33):
+>>> <span class="keyword">def</span> four_arguments(a, b=2, c=3, d):
 >>> <span class="keyword">def</span> four_arguments(a=5, b=1, c=3, d):
 </pre>
+
 <p>Bunları kendi fonksiyonlarınızda deneyin. </p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Önemli bir not</h3>
+
 <p>Python komutları değişken ismi olarak kullanılmaz. Aşağıdakini deneyin: </p>
+
 <pre>
 >>> <span class="keyword">def</span> = 2
 </pre>
+
 <p>ve ne olduğunu görün!</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="27-variables.htm"><img alt="previous" src=
-"../../images/previous.png"/>Değişkenler</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" />Değişkenler</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href=
 "29-strings.htm">Adınız nedir? <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>
-
