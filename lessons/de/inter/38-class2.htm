@@ -4,15 +4,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>38. Ein Hauch von Klasse</title>
+
+<title>Ein Hauch von Klasse</title>
 </head>
 <body>
-
 <h2 class="title">38. Ein Hauch von Klasse</h2>
+
 <p>Wir haben gesehen, wie wir zu einer bestehenden Klasse eine neue Methode 
 hinzufügen können, um einem Roboter die Fähigkeit zu geben, sich rechts herum zu
 drehen. Hier ist noch ein Beispiel für die Erweiterung einer Klasse um eine neue
 Methode.</p>
+
 <pre>
 <span class="keyword">class</span> SuperRobot(RepairedRobot):
     <span class="keyword">def</span> diag(self):
@@ -32,11 +34,14 @@ Zauberer.move()
 Zauberer.move()
 Zauberer.turn_off()
 </pre>
-<p><img alt="magic"  src="../../images/inter/magic.png"/></p>
+
+<p><img alt="magic"  src="../../images/inter/magic.png" /></p>
+
 <p>Der neue Roboter kennt alle Methoden von <tt>RepairedRobot</tt>, wie
 <tt>move() und turn_off()</tt>, und eine neue namens <tt>diag()</tt>.</p>
 
 <h3 class="section">Eine neue Klasse entwerfen</h3>
+
 <p>Manchmal wollen wir eine neue Klasse schreiben, die das grundlegende
 Verhalten einer bestehenden Klasse ändert. Dazu müssen wir eine spezielle 
 Methode namens <tt>__init__()</tt> neu definieren. Das folgende Beispiel ist so
@@ -46,6 +51,7 @@ weiße (style = 5) Spur ziehen lassen (statt der grünen Standardspur), die in d
 Mitte des Weges verläuft, den der Roboter geht, so dass sie im Endeffekt die
 graue gepunktete Linie verdeckt, so als ob der Roboter sie wegradieren würde.
 </p>
+
 <pre>
 <span class="keyword">class</span> Radierer(RepairedRobot):
     <span class="keyword">def</span> __init__(self):
@@ -57,16 +63,18 @@ Schleich = Radierer()
     Schleich.move()
 Schleich.turn_off()
 </pre>
-<p><img alt="eraser"  src="../../images/inter/eraser.png"/></p>
+
+<p><img alt="eraser"  src="../../images/inter/eraser.png" /></p>
+
 <p>Vielleicht möchtest du dieses Beispiel variieren und andere Farben (style
 1 bis 5) ausprobieren.</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="37-class.htm"><img alt="previous" src=
-"../../images/previous.png"/>37. Reeborg wird aufgemotzt.</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
-"39-import.htm">39. Erfinde das Rad nicht neu - importiere es!<img alt="next"
-src="../../images/next.png"/></a>
+"../../images/previous.png" />Reeborg wird aufgemotzt.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
+"39-import.htm">Erfinde das Rad nicht neu - importiere es!<img alt="next"
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

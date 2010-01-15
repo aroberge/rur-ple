@@ -4,12 +4,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>A touch of class</title>
 </head>
 <body>
-
 <h2 class="title">38. A touch of <span class="pykeyword">class</span></h2>
+
 <p>We have seen how we can add a new method to an existing class, where we wanted to repair the robot so that it knew how to turn right.  Here's another example of adding a method to an existing class.</p>
+
 <pre>
 <span class="keyword">class</span> Amazing(RefurbishedRobot):
     <span class="keyword">def</span> diag(self):
@@ -29,10 +31,15 @@ Magician.move()
 Magician.move()
 Magician.turn_off()
 </pre>
-<p><img alt="magic"  src="../../images/inter/magic.png"/></p>
+
+<p><img alt="magic"  src="../../images/inter/magic.png" /></p>
+
 <p>The new robot knows all the existing methods that the existing <tt>RefurbishedRobot</tt> knew [for example, <tt>move(), turn_off()</tt>] as well as a new one [<tt>diag()</tt>].</p>
+
 <h3 class="section">Designing a new <span class="pykeyword">class</span></h3>
+
 <p>Sometimes, we want to create a new class that changes the basic behaviour of an existing one.  To do so, we need to redefine a special method [<tt>__init__()</tt>].  The following example is such a case, where we "fix the oil leak", so that the new robot does not leave a trail.  Actually, we do more than this as we have it leave a white trail (instead of a sea green one, which is the default), centered on the street or avenue where the robot moves [defined as style number 5] so that it effectively covers the grey dotted line, as though the robot was erasing it.</p>
+
 <pre>
 <span class="keyword">class</span> Eraser(RefurbishedRobot):
     <span class="keyword">def</span> __init__(self):
@@ -44,15 +51,17 @@ Sneaky = Eraser()
     Sneaky.move()
 Sneaky.turn_off()
 </pre>
-<p><img alt="eraser"  src="../../images/inter/eraser.png"/></p>
+
+<p><img alt="eraser"  src="../../images/inter/eraser.png" /></p>
+
 <p>You may want to modify this to try other style numbers (1 to 5) with other colours.</p>
+
 <div class="lessons_nav">
 <a href="37-class.htm"><img alt="previous" src=
-"../../images/previous.png"/>Fixing up Reeborg</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"../../images/previous.png" />Fixing up Reeborg</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
 "39-import.htm">Avoiding repetitions - the important stuff <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
-
 </body>
 </html>

@@ -4,25 +4,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>35. Merk's dir  mit Python</title>
+
+<title>Merk's dir  mit Python</title>
 </head>
 <body>
 <h2 class="title">35. Merk's dir  mit Python</h2>
+
 <p>Weil der Schokoladenschaumkuchen in unserer Lektion über Listen so lecker
 war, hast du sein Rezept in ein Notizbuch eingetragen, um ihn immer wieder
 backen zu können. Wenn du das tust, stellst du zuerst die Zutaten auf den Tisch
 und nimmst dann die vorgeschriebenen Mengen. Du arbeitest also mit zwei Listen:
-Zutaten und Mengen. In Python sieht das so aus:
+Zutaten und Mengen. In Python sieht das so aus:</p>
+
 <pre>
-&gt;&gt;&gt; zutaten = [<span class="string">"Eier"</span>, <span class="string">"Zucker"</span>, <span class="string">"Halbbitterschokolade"</span>, <span class="string">"Kakaopuder"</span>]
-&gt;&gt;&gt; mengen = [<span class="string">"4"</span>, <span class="string">"100 g"</span>, <span class="string">"250 g"</span>, <span class="string">"30 ml"</span>]
-&gt;&gt;&gt; 
+>>> zutaten = [<span class="string">"Eier"</span>, <span class="string">"Zucker"</span>, <span class="string">"Halbbitterschokolade"</span>, <span class="string">"Kakaopuder"</span>]
+>>> mengen = [<span class="string">"4"</span>, <span class="string">"100 g"</span>, <span class="string">"250 g"</span>, <span class="string">"30 ml"</span>]
+>>> 
 </pre>
-</p>
+
 <p>Nimm an, du möchtest Reeborg Kochen beibringen. Wie würde er mit den beiden
-Listen die richtige Menge für eine Zutat herausfinden? Wenn du unternehmungslustig bist, versuche es selbst, wenn nicht, lies weiter:
+Listen die richtige Menge für eine Zutat herausfinden? Wenn du unternehmungslustig bist, versuche es selbst, wenn nicht, lies weiter:</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">def</span> menge_fuer(zutat):
+>>> <span class="keyword">def</span> menge_fuer(zutat):
 ...     <span class="keyword">global</span> mengen, zutaten
 ...     listen_position = 0
 ...     zutat_position = -1
@@ -39,16 +43,18 @@ Listen die richtige Menge für eine Zutat herausfinden? Wenn du unternehmungslus
 ...     <span class="keyword">else</span>:
 ...         <span class="keyword">return</span> mengen[zutat_position]
 ... 
-&gt;&gt;&gt; menge_fuer("Essig")
+>>> menge_fuer("Essig")
 Zutat "Essig" unbekannt.
 ''
-&gt;&gt;&gt; menge_fuer("Zucker")
+>>> menge_fuer("Zucker")
 '100 g'
 </pre>
-Ganz schön kompliziert, nicht wahr? Und was noch schlimmer ist: langsam. Du 
+
+<p>Ganz schön kompliziert, nicht wahr? Und was noch schlimmer ist: langsam. Du 
 merkst es bei diesem kleinen Beispiel nicht, aber wenn du Listen mit sehr vielen
 Elementen so durchsuchst, musst du sehr geduldig sein.
 </p>
+
 <p>Wie sieht es aus, wenn du nicht Reeborg backen lässt, sondern es immer wieder
 selbst tust? Dann kennst du das Rezept irgendwann auswendig. Du musst nicht mehr
 dein Notizbuch durchsuchen, sondern weißt <b>sofort</b>, dass die richtige
@@ -58,19 +64,22 @@ auch auswendig lernen könnte?
 
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Reeborg lernt das Rezept auswendig.</h3>
+
 <p>Nun, Reeborg kann das Rezept wirklich auswendig lernen. Python stellt dafür
 einen besonderen Datentyp bereit: <i>dict</i> (dictionary, Wörterbuch). Wenn
 Reeborg das Rezept auswendig kennt, benutzt er ein <i>dict</i> statt der zwei
 Listen:</p>
+
 <pre>
-&gt;&gt;&gt; zutaten_mengen = { <span class= "comment"># Siehst du die geschweifte Klammer hinter "="?</span>
+>>> zutaten_mengen = { <span class= "comment"># Siehst du die geschweifte Klammer hinter "="?</span>
 ...     <span class="string">'Eier'</span> : 4,
 ...     <span class="string">'Zucker'</span>: <span class="string">'100 g'</span>,
 ...     <span class="string">'Kakaopuder'</span>: <span class="string">'30 ml'</span>,
 ...     <span class="string">'Halbbitterschokolade'</span>: <span class="string">'250 g'</span>
 ... } <span class= "comment"># geschweifte Klammer zu.</span>
-&gt;&gt;&gt; <span class="keyword">print </span>zutaten_mengen
+>>> <span class="keyword">print </span>zutaten_mengen
 {<span class="string">'Kakaopuder'</span>: <span class=
 "string">'30 ml'</span>, <span class=
 "string">'Zucker'</span>: <span class="string">'100 g'</span>, <span class=
@@ -78,21 +87,25 @@ Listen:</p>
 "string">'Halbbitterschokolade'</span>: <span class=
 "string">'250 g'</span>}
 </pre>
+
 <p>Jedes Element in einem <i>dict</i> hat die Form "Schlüssel : Wert"; die
 Elemente werden durch Kommas voneinander getrennt. Beachte, dass die Reihenfolge
 der Elemente beim Drucken eine andere ist als die Reihenfolge, in der wir sie
-hinzugefügt haben.
-</p>
+hinzugefügt haben.</p>
+
 <p>Wenn wir jetzt die Menge der Eier wissen wollen, schreiben wir einfach:</p>
+
 <pre>
-&gt;&gt;&gt; <span class=
+>>> <span class=
 "keyword">print</span> zutaten_mengen['Eier']
 4
 </pre>
+
 <p>Wenn wir alle Werte in <tt>zutaten_mengen</tt> sehen wollen, können wir
 schreiben:</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">for</span> zutat <span class=
+>>> <span class="keyword">for</span> zutat <span class=
 "keyword">in</span> zutaten_mengen:
 ...     <span class="keyword">print</span> zutaten_mengen[zutat]
 ...    
@@ -101,9 +114,11 @@ schreiben:</p>
 30 ml
 100 g
 </pre>
+
 <p>Und das geht auch:</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">for</span> zutat <span class=
+>>> <span class="keyword">for</span> zutat <span class=
 "keyword">in</span> zutaten_mengen:
 ...     <span class="keyword">print</span> str(zutat) + <span
 class="string">":"</span> + str(zutaten_mengen[zutat])
@@ -113,17 +128,22 @@ Halbbitterschokolade:250 g
 Kakaopuder:30 ml
 Zucker:100 g
 </pre>
+
 <p>Wir haben die eingebaute Funktion <tt>str()</tt> benutzt, die jedes Objekt
 in eine Zeichenfolge umwandelt, so dass wir die ausgegebene Zeichenfolge richtig
 verketten konnten.</p>
+
 <p>Oh ... ich glaube, dass ich wieder die Garnierung vergessen habe! Dann fügen
 wir sie jetzt hinzu:</p>
+
 <pre>
-&gt;&gt;&gt; zutaten_mengen[<span class=
+>>> zutaten_mengen[<span class=
 "string">"Schlagsahne"</span>] = <span class=
 "string">"Jede Menge!"</span>
 </pre>
+
 <p>Probier's aus!</p>
+
 <p>Vielleicht fragst du dich jetzt, was das <i>dict</i> mit auswendig Lernen zu
 tun hat. Nun, genauso, wie du bei dem auswendig gelernten Kuchenrezept sofort
 weißt, wieviel Kakaopuder du brauchst, kannst du mit Hilfe des <i>dict</i>
@@ -133,9 +153,12 @@ Schlüssel den Wert zu ermitteln, <b>egal wie viele Elemente</b> das <i>dict</i>
 enthält. Das ist viel besser als bei einer Liste, bei der man um so länger
 braucht, je mehr Elemente sie enthält.
 </p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Nicht jedes Objekt ist als Schlüssel geeignet.</h3>
+
 <p>Reeborg hat eine Freundin. Sie heißt Lola und wohnt im grünen Haus am Strand.
 Damit Reeborg sie besuchen kann, merkt er sich das in seinem Gedächtnis mit
 der Zuordnung Adresse => Lola, wobei die Adresse eine Liste ist:
@@ -152,20 +175,23 @@ jetzigen Kenntnisstand sind das Zeichenfolgen und Zahlen. Als Werte in einem
 <i>dict</i> können beliebige Objekt verwendet werden. Probiere verschiedene
 Kombinationen von Objekten entweder als Schlüssel oder als Wert in einem 
 <i>dict</i> aus und sieh, was der Python-Interpreter dazu sagt!</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Mini-Quiz</h3>
+
 <p>Errätst du, wie man ein Element aus einem <i>dict</i> entfernt? Wenn ja, dann
 versuche es. Wenn nicht, dann hast du vermutlich in der vorherigen Lektion nicht
 gut aufgepasst. Lies sie nochmal durch, besonders den Abschnitt, in dem wir
 erklärt haben, wie man ein Element aus einer Liste entfernt.</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="34-lists.htm"><img alt="previous" src=
-"../../images/previous.png"/>34. Ein Rezept für Schokoladenschaumkuchen.</a> -
-<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a>
-- <a href="36-tuples.htm">36. Versteinerte Listen<img alt="next"
-src="../../images/next.png"/></a>
+"../../images/previous.png" />Ein Rezept für Schokoladenschaumkuchen.</a> -
+<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a>
+- <a href="36-tuples.htm">Versteinerte Listen<img alt="next"
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

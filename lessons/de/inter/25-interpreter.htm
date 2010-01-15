@@ -4,151 +4,186 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>25. Mit Python addieren</title>
+
+<title>Mit Python addieren</title>
 </head>
 <body>
 <h2 class="title">25. Mit Python addieren</h2>
+
 <p>In der letzten Lektion sahen wir, wie kompliziert es war, Reeborg das
 Addieren zweier Zahlen beizubringen. In dieser Lektion werden wir sehen, wie 
 einfach es ist, dasselbe direkt in Python zu tun. Das gilt auch für viele
-andere mathematische Operationen.</p> 
+andere mathematische Operationen.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Das Wichtigste zuerst</h3>
+
 <p>Klicke auf den dritten Reiter (Python: Programmieren und Lernen), um den
 Python-Interpreter auszuwählen. Dein Bildschirm sollte in etwa folgendes 
 anzeigen (bis auf die Sprache, falls du nicht Französisch eingestellt hast):</p>
+
 <p><img alt="Python interpreter" src=
-"../../images/inter/interpreter.png"/></p>
-<br/>
+"../../images/inter/interpreter.png" /></p>
+
 <p>Lass die ersten beiden Zeilen zunächst außer Acht. In der dritten Zeile 
-siehst du den Python-<i>Prompt</i>:
+siehst du den Python-<i>Prompt</i>:</p>
+
 <pre>
-&gt;&gt;&gt;
+>>>
 </pre>
-Prompt heißt Eingabeaufforderung; Python sagt dir damit, dass es auf deinen
+
+<p>Prompt heißt Eingabeaufforderung; Python sagt dir damit, dass es auf deinen
 Quelltext wartet. Jetzt wollen wir mal sehen, ob man mit Python zwei Zahlen
 einfacher addieren kann als Reeborg das gemacht hat. Setze den Cursor (die
 Schreibmarke) auf Zeile 3 rechts neben den Prompt und tippe ein:</p>
+
 <pre>
 8 plus 4
 </pre>
+
 <p>Anschließend drückst du die Eingabetaste. Damit teilst du dem Python-Interpreter
 (dem Programm, das deine Python-Anweisungen verarbeitet) mit, dass du fertig
 bist und er jetzt deine Eingabe verarbeiten kann. Der Python-Interpreter wird
 sich in seiner eigenen Sprache über deinen Quelltext beschweren, was ein 
 bisschen wie wüstes Fluchen aussieht.</p>
+
 <pre>
-&gt;&gt;&gt; 8 plus 4
-  File "&lt;input&gt;", line 1
+>>> 8 plus 4
+  File "&lt;input>", line 1
     8 plus 4
          ^
 SyntaxError: invalid syntax
-&gt;&gt;&gt;
+>>>
 </pre>
+
 <p>Der Python-Interpreter versteht also kein Deutsch. Aber du siehst sicher,
 dass er Schlüsselwörter wie <span class="pykeyword">and</span> versteht, da
 er sie in einer anderen Farbe darstellt (auch in einer anderen Farbe als in
 diesem Text, aber das ist unwichtig).</p>
-<p>Beachte, dass der Python-Interpreter dich <u>prompt</u>et (auffordert),
+<p>Beachte, dass der Python-Interpreter dich <span style="text-decoration: underline;">prompt</span>et (auffordert),
 weitere Anweisungen einzugeben. Dieses Mal versuche etwas einfacheres:</p>
+
 <pre>
 8+4
 </pre>
+
 <p>Anschließend drückst du wieder die Eingabetaste. Dann solltest du folgendes
 auf dem Bildschirm sehen:</p>
+
 <pre>
-&gt;&gt;&gt; 8+4
+>>> 8+4
 12
-&gt;&gt;&gt; 
+>>> 
 </pre>
+
 <p>Es hat geklappt! Der Python-Interpreter hat die beiden Zahlen in
 nullkommanichts addiert (was Reeborg so schwer beizubringen war). Er fordert
 dich sogar auf, noch mehr Anweisungen einzugeben. Du kannst etwas wie das hier
 eingeben, was ich aus dem Interpreter-Fenster hierher kopiert habe:</p>
+
 <pre>
-&gt;&gt;&gt; 8+4
+>>> 8+4
 12
-&gt;&gt;&gt; 8-4
+>>> 8-4
 4
-&gt;&gt;&gt; 8*4
+>>> 8*4
 32
-&gt;&gt;&gt; 8/4
+>>> 8/4
 2
 </pre>
+
 <p>Wie du siehst, kann der Python-Interpreter addieren, subtrahieren,
 multiplizieren und dividieren.</p>
+
 <h3 class="section">Noch mehr Zahlen</h3>
+
 <p>In der Schule hast du vermutlich den Merksatz "Punktrechnung geht vor
 Strichrechnung" gelernt. In Python wird genauso gerechnet; man nennt das die
 <i>Rangfolge</i> mathematischer Operationen. Das heisst, dass bei vielen Zahlen
 und mathematischen Operationen zuerst multipliziert und dividiert (von links
 nach rechts) und danach addiert und subtrahiert wird, etc. . Hier ein paar 
 Beispiele, die das vermutlich besser erklären als Worte:</p>
+
 <pre>
-&gt;&gt;&gt; 2+3*5
+>>> 2+3*5
 17
-&gt;&gt;&gt; 2+ (3*5)   <span class=
+>>> 2+ (3*5)   <span class=
 "comment"># Leerzeichen spielen hier keine Rolle.</span>
 17
-&gt;&gt;&gt; (2+3)*5
+>>> (2+3)*5
 25
-&gt;&gt;&gt; 2*4/8
+>>> 2*4/8
 1
-&gt;&gt;&gt; 2+1-4
+>>> 2+1-4
 -1
 </pre>
+
 <p>Nur zu, probiere selbst etwas aus! Mal sehen, ob du mit überraschenden
 Ergebnissen aufwarten kannst.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Überraschende Division</h3>
+
 <p>Wenn du keine überraschenden Ergebnisse gefunden hast, dann hast du nicht 
 lange gesucht. Probier zum Beispiel <tt>7/3</tt>. Kannst du mit dem Ergebnis
 was anfangen? Versuch auch mal <tt>1/2</tt>.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Ganzzahlige Division</h3>
+
 <p>In Python gibt es verschiedene Zahlentypen. Am einfachsten sind die Ganzen
 Zahlen (kurz Ganzzahlen). Wenn der Python-Interpreter eine Ganzzahl durch eine
 andere dividiert, wirft er den Divisionsrest weg und liefert eine Ganzzahl als
 Ergebnis. 7 geteilt durch 3 ergibt also 2 (der Rest 1 fällt unter den Tisch).
 Wenn wir den Rest sehen wollen, benutzen wir den Operator (das Rechenzeichen)
 "<tt>%</tt>":</p>
+
 <pre>
-&gt;&gt;&gt; 7/3
+>>> 7/3
 2
-&gt;&gt;&gt; 7%3
+>>> 7%3
 1
-&gt;&gt;&gt; 1/2
+>>> 1/2
 0
-&gt;&gt;&gt; 1%2
+>>> 1%2
 1
 </pre>
+
 <p>Um die erwarteten Ergebnisse zu erhalten, brauchen wir gebrochene Zahlen.
 In Python heißen sie <i>floats</i> und werden durch Hinzufügen eines
 Dezimaltrenners kenntlich gemacht. Wir können einen Dezimaltrenner auch an eine
 Ganzzahl hängen. Ihr Wert ändert sich dadurch nicht, aber der Python-Interpreter
 rechnet dann das Ergebnis ebenfalls mit Dezimaltrenner aus:</p>
+
 <pre>
-&gt;&gt;&gt; 1./2
+>>> 1./2
 0.5
-&gt;&gt;&gt; 1/2.
+>>> 1/2.
 0.5
-&gt;&gt;&gt; 1.00000/2
+>>> 1.00000/2
 0.5
 </pre>
+
 <h3 class="section">Noch mehr mathematische Operationen</h3>
+
 <p>In Python können wir nicht nur Grundrechenarten verwenden. Hier sind ein 
 paar Beispiele für dich, mit denen du weiter machen kannst.</p>
+
 <pre>
-&gt;&gt;&gt; 3*3*3*3
+>>> 3*3*3*3
 81
-&gt;&gt;&gt; 3**4  <span class="comment"># Potenzen</span>
+>>> 3**4  <span class="comment"># Potenzen</span>
 81
-&gt;&gt;&gt; 7.3 % 3  <span class="comment"># nochmal der Divisionsrest</span>
+>>> 7.3 % 3  <span class="comment"># nochmal der Divisionsrest</span>
 1.2999999999999998
 </pre>
+
 <p>Das letzte Ergebnis ist <i>fast</i> gleich 1.3, was wir eigentlich als Ergebnis
 erwartet haben. Der Unterschied zwischen 1.3 und 1.2999999999999998 ist winzig
 ... und hat etwas damit zu tun, wie Computer mit Dezimalbrüchen arbeiten. Ich
@@ -157,46 +192,60 @@ Allgemeinen weißt. Merk dir für's erste, dass solche kleinen Unterschiede
 zwischen dem genauen und dem mit Python (oder einer anderen Programmiersprache)
 berechneten Ergebnis meist keine Rolle spielt. Du kannst das Ergebnis mit Python
 aber auch lesbarer anzeigen, und zwar so:</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">print</span> 7.3 % 3
+>>> <span class="keyword">print</span> 7.3 % 3
 1.3
 </pre>
+
 <p>Das Schlüsselwort <span class="pykeyword">print</span> weist den
 Python-Interpreter an, uns das Ergebnis einer Berechnung "intelligent" zu
 zeigen. Manchmal stellt der Python-Interpreter Berechnungen an, ohne das
 Ergebnis zu zeigen. Mit <span class="pykeyword">print</span> können wir uns ein
 Ergebnis anzeigen lassen, das sonst nicht sichtbar gewesen wäre.</p>
+
 <p>Bist du neugierig? Was passiert, wenn du eine <span class=
 "pykeyword">print</span>-Anweisung in eins von Reeborgs Programmen
 einfügst?...</p>
+
 <h3 class="section">Große Zahlen</h3>
+
 <p>Probier das aus:</p>
+
 <pre>
-&gt;&gt;&gt; 2147483647 + 1
+>>> 2147483647 + 1
 2147483648L
 </pre>
+
 <p>Schau genau hin: Ist dir das komische "L" am Ende der Antwort aufgefallen?
 Das kennzeichnet eine <i>Long</i>-Ganzzahl, das ist eine Ganzzahl, mit der der
 zentrale Prozessor (CPU) des Computer nicht so einfach rechnen kann. Auf einem 
 Computer mit einem so genannten 32bit-Prozessor, mit dem ich arbeite und
 wahrscheinlich auch du, werden alle positiven Zahlen durch Kombinationen von 32
 bits dargestellt, daher ist die größte Zahl, die der Prozessor "versteht",
-<img alt="2^31" src="../../images/inter/2_31.png"/>-1 = 2147483647. Jede größere
+<img alt="2^31" src="../../images/inter/2_31.png" />-1 = 2147483647. 
+<!--  wxHtml does not support the <sup> tag  -->
+Jede größere
 Zahl muss von Python (wie von jeder anderen Programmiersprache) extra für den
 Prozessor aufbereitet werden. Das verlangsamt Berechnungen; der
 Python-Interpreter erinnert uns daran, indem er die Zahl mit dem Buchstaben L
 markiert. Versuche sehr große Zahlen zu vermeiden, wenn du sie nicht unbedingt 
 brauchst!</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">1,000 ist keine große Zahl.</h3>
+
 <p>Probier das aus:</p>
+
 <pre>
-&gt;&gt;&gt; 1,000
+>>> 1,000
 (1, 0)
-&gt;&gt;&gt; 1,000,000,000
+>>> 1,000,000,000
 (1, 0, 0, 0)
 </pre>
+
 <p>Was passiert hier? Für's erste nur soviel: in englischsprachigen Ländern
 werden Kommas benutzt, um große Zahlen in 1000er-Gruppen zu zerlegen, damit sie
 leichter zu lesen sind. Python versteht darunter etwas ganz anderes, mehr dazu
@@ -205,18 +254,23 @@ getrennt. Das darfst du in Python natürlich auch nicht machen, denn Zahlen mit
 einem Punkt werden dann als gebrochene Zahlen erkannt und bei mehreren Punkten
 gibt es eine Fehlermeldung. Wir können Kommas in einer 
 <span class="pykeyword">print</span>-Anweisung verwenden:</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">print</span> 5,4
+>>> <span class="keyword">print</span> 5,4
 5 4
-&gt;&gt;&gt; <span class="keyword">print</span> 5,              4
+>>> <span class="keyword">print</span> 5,              4
 5 4
 </pre>
+
 <p>Hier dienen Kommas dazu, mehrere Ausgaben durch ein einzelnes Leerzeichen zu
 trennen (und alle weiteren Leerzeichen vor und hinter den Kommas zu 
 ignorieren).</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Wissenschaftliche Schreibweise</h3>
+
 <p> Vielleicht bist du mit der wissenschaftliche Schreibweise von Zahlen
 vertraut. Wenn ja, dann weißt du, dass man mit dieser Schreibweise sehr große 
 und sehr kleine Zahlen bequem darstellen kann. (<small>Wenn nicht, kannst du
@@ -225,15 +279,16 @@ In Python kann man die wissenschaftliche Schreibweise auch anwenden; der
 Buchstaben E (oder e) ist eine Art Abkürzung für <tt>*10.0**</tt>:
 </p>
 <pre>
-&gt;&gt;&gt; 2*10.0**3
+>>> 2*10.0**3
 2000.0
-&gt;&gt;&gt; 2e3
+>>> 2e3
 2000.0
-&gt;&gt;&gt; 2.5*10.0**-1
+>>> 2.5*10.0**-1
 0.25
-&gt;&gt;&gt; 2.5E-1
+>>> 2.5E-1
 0.25
 </pre>
+
 <p><tt>2*10.0**3</tt> bedeutet: multipliziere 2 mit der dritten Potenz von
 <tt>10.0</tt> (<tt>10.0*10.0*10.0 == 1000.0</tt>). Du siehst, dass der
 Potenz-Operator <tt>**</tt> Vorrang vor Multiplikation (und Division) hat, weil
@@ -242,52 +297,58 @@ gerechnet, sondern nur die Zahl bereitgestellt, die bei <tt>2*10.0**3</tt>
 herauskommen würde. Ersetze also niemals <tt>2e**3</tt> durch
 <tt>2*10.0**3</tt>. Die Ergebnisse wären zwar die gleichen, aber
 dein Programm wäre langsamer. Nun probier ein paar Beispiele aus!</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Andere Zahlen</h3>
+
 <p>In Python kann man Ganzzahlen <i>oktal</i> (Basis 8) und <i>hexadezimal</i>
 (Basis 16) darstellen und mit <i>komplexen Zahlen</i> umgehen. Mach dir keine
 Sorgen, wenn du nicht weißt, was das ist. Ich werde später auf die
-hexadezimalen Zahlen zurückkommen und sie dann erklären.
-</p>
+hexadezimalen Zahlen zurückkommen und sie dann erklären.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Zahlen vergleichen</h3>
+
 <p>Man kann in Python Zahlen vergleichen und entscheiden, ob eine
 <i>kleiner als</i> (<tt>&lt;</tt>) die andere, <i>größer als</i>
-(<tt>&gt;</tt>) die andere, gleich (<tt>==</tt>) oder ungleich ist.
+(<tt>></tt>) die andere, gleich (<tt>==</tt>) oder ungleich ist.
 (<tt>!=</tt>).</p>
+
 <pre>
-&gt;&gt;&gt; 1&lt;2
+>>> 1&lt;2
 True
-&gt;&gt;&gt; 3&lt;2
+>>> 3&lt;2
 False
-&gt;&gt;&gt; 1&gt;2
+>>> 1>2
 False
-&gt;&gt;&gt; 3&gt;2
+>>> 3>2
 True
-&gt;&gt;&gt; 2==2
+>>> 2==2
 True
-&gt;&gt;&gt; 3==2
+>>> 3==2
 False
-&gt;&gt;&gt; 2!=2
+>>> 2!=2
 False
-&gt;&gt;&gt; 3!=2
+>>> 3!=2
 True
 </pre>
+
 <p>Probier's aus! Achte darauf, dass du zwei Gleichheitszeichen schreibst, wenn 
 du die Gleichheit von Zahlen prüfen willst. Wenn du nur ein Gleichheitszeichen
 schreibst, beschwert sich der Python-Interpreter. (Es gibt noch zwei weitere 
-Vergleichsoperatoren: <tt>&lt;=</tt> und <tt>&gt;=</tt>. Du kannst sie ausprobieren und
+Vergleichsoperatoren: <tt>&lt;=</tt> und <tt>>=</tt>. Du kannst sie ausprobieren und
 raten, was sie bedeuten).</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="../intro/24-adding.htm"><img alt="previous" src=
-"../../images/previous.png"/>24. Reeborg lernt Addieren.</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
-"26-interpreter2.htm">26. Wir interpretieren Schlüsselwörter.<img alt="next"
-src="../../images/next.png"/></a>
+"../../images/previous.png" />Reeborg lernt Addieren.</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
+"26-interpreter2.htm">Wir interpretieren Schlüsselwörter.<img alt="next"
+src="../../images/next.png" /></a>
 </div>
-
 </body>
 </html>

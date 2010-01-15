@@ -9,10 +9,17 @@
 </head>
 <body>
 <h2 class="title">27. Değişkenler</h2>
+
 <p>Beşinci derste Reeborg'a Türkçe öğretmiştik. git = move komutunu vererek 
 git'i move ile eşanlamlı hale getirmiştik. Bu eşitlikten sonra move yerine git 
 kullanılabilmişti. </p>
+
+<pre>
+git = move
+</pre>
+
 <p>Eşanlamlılar sayılar için de kullanılabilirler.</p>
+
 <pre>
 >>> n = 3
 >>> <span class="keyword">print</span> n
@@ -22,7 +29,9 @@ kullanılabilmişti. </p>
 >>> n*n
 9
 </pre>
+
 <p>Güzel, değil mi? Eşanlamlının değerini ihtiyaç duyduğumuzda değiştirebiliriz.</p>
+
 <pre>
 >>> n = 3
 >>> <span class="keyword">print</span> n
@@ -31,27 +40,34 @@ kullanılabilmişti. </p>
 >>> <span class="keyword">print</span> n
 2
 </pre>
+
 <p>Eşanlamlının değerini değiştirebildiğimiz için ona <i><b>değişken</b></i> 
 denir. Bir eşanlamlı yaratılırken, bir değişkene değer <i>atanmış</i> olur. "=" 
 sembolü eşittir şeklinde değil, eşanlamlısıdır şeklinde okunmalıdır. Bunun 
 nedeni, "eğer n 2'ye eşitse, 2'de n'e eşittir diyebiliriz", oysa bunu Python'da 
 denediğinizde durumun farklı olduğunu göreceksiniz. Aşağıdaki kodu inceleyin. </p>
+
 <pre>
 >>> n = 2    <span class="comment"># bu geçerlidir</span>
 >>> 2 = n
 SyntaxError: can't assign to literal
 </pre>
+
 <p>Eğer klavyede eşittir işareti yerine aşağıdaki gibi bir sembol olsaydı</p>
+
 <pre>
 >>> n <font size="6">←</font> 3
 >>> <span class="keyword">print</span> n
 3
 </pre>
+
 <p>Python'un yaratıcısı Guido van Rossum bu işareti eşittir işareti yerine 
 kullanırdı. Bu aynı zamanda iki sayıyı karşılaştırırken neden "<tt>==</tt>" 
 kullandığımızı da açıklıyor.</p>
+
 <p>Kısaca yukarıda gördüğümüz gibi, bir sayı bir değişkene atandıktan sonra bu 
 değişken aynen sayıyı kullandığımız şekilde kullanılabilir. Örneğin:</p>
+
 <pre>
 >>> a = 1
 >>> b = 2
@@ -59,25 +75,32 @@ değişken aynen sayıyı kullandığımız şekilde kullanılabilir. Örneğin:
 >>> <span class="keyword">print</span> c
 3
 </pre>
+
 <p>Buraya kadar gördüklerimiz kolay anlaşılır olmalı. Aşağıdaki kod ise 
 başlangıçta biraz zor görünebilir:</p>
+
 <pre>
 >>> a = 1
 >>> a = a + a   <span class="comment"># Sürpriz?</span>
 >>> <span class="keyword">print</span> a
 2
 </pre>
+
 <p>"<tt>=</tt>" 'in eşanlamlısıdır şeklinde okunması gerektiğini hatırlayın. Bu 
 nedenle sürpriz satır aşağıdaki gibi okunmalıdır:</p>
+
 <ul>
 <li>"=" işaretinin sağındakileri al [burada, <tt>a + a</tt>.]</li>
 <li>Bunun değerini hesapla.  [2; 1 + 1'den dolayı].</li>
 <li>Soldaki değişken [<tt>a</tt>] hesaplanan değerin (2) eşanlamlısıdır.</li>
 </ul>
+
 <p>Bu şekilde açıklayarak, sanki işi daha anlaşılmaz hale getirdim. Ama bu 
 kullanıma da kısa zamanda alışacaksınız.</p>
+
 <p>Bu yapı çok sık kullanıldığından dolayı, Python'da aynı işi aşağıda olduğu 
 gibi de yapabilirsiniz:</p>
+
 <pre>
 >>> a = 1
 >>> a += 3       <span class="comment"># </span><span class="string">"a = a + 3"</span>
@@ -96,43 +119,58 @@ gibi de yapabilirsiniz:</p>
 >>> <span class="keyword">print</span> a
 5
 </pre>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Sıra sizde</h3>
+
 <p>10 tabanında iki sayıyı Reeborg'a toplatmanın ne kadar zor olduğunu 
 hatırlayın. Hafızanızı tazelemek gerekirse, yapılacak iş aşağıda olduğu gibi 
 Reeborg'a toplamaları yaptırmak.</p>
+
 <p>
-3+2=5 <img alt="3+2" src="../../images/intro/add3_2_start.png"/><img alt="lead to"
-src="../../images/lead_to.png"/> <img alt="5" src=
-"../../images/intro/add3_2_end.png"/>
+3+2=5 <img alt="3+2" src="../../images/intro/add3_2_start.png" /><img alt="lead to"
+src="../../images/lead_to.png" /> <img alt="5" src=
+"../../images/intro/add3_2_end.png" />
 </p>
+
 <p>
-8+4=12 <img alt="8+4" src="../../images/intro/add8_4_start.png"/><img alt=
-"lead to" src="../../images/lead_to.png"/> <img alt="12" src=
-"../../images/intro/add8_4_end.png"/></p>
+8+4=12 <img alt="8+4" src="../../images/intro/add8_4_start.png" /><img alt=
+"lead to" src="../../images/lead_to.png" /> <img alt="12" src=
+"../../images/intro/add8_4_end.png" /></p>
+
 <p> İşinizi kolaylaştırmak için değişkenler kullanabilirsiniz, bu durumda daha 
 önceden olduğu gibi özel bir dünyaya ve bip taşımaya ihtiyacınız olmayacak. Bir 
 kaç tavsiye:</p>
+
 <ul>
-<li>toplam adında ve ilk değeri sıfıra eşitlenmiş bir değişken kullanın.</li>
-<li>Reeborg'a bipleri birer birer toplatın ve her defasında toplam'ın değerini 
-bir arttırın, <tt>toplam += 1 gibi.</tt></li>
-<li>Reeborg işini tamamladığında iki durumu düşünün: toplam 10'dan büyük mü, 
+<li>
+toplam adında ve ilk değeri sıfıra eşitlenmiş bir değişken kullanın.
+</li>
+<li>
+Reeborg'a bipleri birer birer toplatın ve her defasında toplam'ın değerini 
+bir arttırın, <tt>toplam += 1 gibi.</tt>
+</li>
+<li>
+Reeborg işini tamamladığında iki durumu düşünün: toplam 10'dan büyük mü, 
 değil mi? Eğer büyükse bip toplamından 10'u çıkartın ve kalan sayıda 
 bip'i bırakıp bir sola ilerleyin ve oraya da eldeki bir'i bırakın. Değilse, tüm 
-bipleri bırakın.</li>
-<li><span class="warning">Önemli bir tavsiye:</span> <tt>turn_right()</tt>'dan 
+bipleri bırakın.
+</li>
+<li>
+<span class="warning">Önemli bir tavsiye:</span> <tt>turn_right()</tt>'dan 
 başka bir fonksiyon tanımlamayın, bunun nedenini ilerleyen derslerde 
-göreceksiniz. </li>
+göreceksiniz.
+</li>
 </ul>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="26-interpreter2.htm"><img alt="previous" src=
-"../../images/previous.png"/>Python komutlarının yorumlanması</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" />Python komutlarının yorumlanması</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="28-variables2.htm">Değişkenler ve Fonksiyonlar <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

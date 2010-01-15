@@ -4,11 +4,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
-<title>40. Glücklich entkommen</title>
+
+<title>Glücklich entkommen</title>
 </head>
 <body>
-
 <h2 class="title">40. Glücklich entkommen</h2>
+
 <p>Reeborg der <code>RefurbishedRobot</code> (renovierte Robot) verfügt über
 einen "elektronischen Würfelbecher". Er kann "würfeln" und anhand des
 Ergebnisses entscheiden, was zu tun ist. So eine Entscheidung, die auf einem
@@ -16,6 +17,7 @@ unvorhersagbaren Ereignis beruht, nennt man eine <em>Zufalls</em>entscheidung.
 Wir schreiben jetzt ein paar Programme, die Reeborg <em>letztendlich</em> aus
 einem Labyrinth entkommen lassen, indem er Zufallsentscheidungen trifft. Dabei
 folgt er diesem grundlegenden Algorithmus:</p>
+
 <pre>
 Solange in Labyrinth, wiederhole:
     Wenn Schritt vorwärts ist möglich:
@@ -29,14 +31,16 @@ Solange in Labyrinth, wiederhole:
 Abschalten.
 </pre>
 
-Wir implementieren diesen Algorithmus mit zwei verschiedenen Methoden der
-Fehlerbehandlung. 
+<p>Wir implementieren diesen Algorithmus mit zwei verschiedenen Methoden der
+Fehlerbehandlung.</p>
 
 <h3 class="section">Methode 1</h3>
+
 <p>Unser erstes Programm verwendet Techniken, die wir schon kennen. Wir fordern
 Reeborg auf, zu prüfen, ob er vor einer Wand steht und nur dann weiter zu
 gehen, wenn das nicht der Fall ist. Diesen Ansatz nennt man "Guck bevor du
 springst" (englisch: Look before you leap, LBYL).</p>
+
 <pre>
 G = RefurbishedRobot()
 G.set_delay(0) <span class="comment"># So schnell wie moeglich bewegen</span>
@@ -54,56 +58,62 @@ G.turn_off()
 <p>Wir haben die Verzögerung auf den Minimalwert herabgesetzt (also höchste 
 Geschwindigkeit), da es eine Weile lange dauern kann, bis Reeborg den Ausgang
 findet! Wenn Reeborg "würfelt", können die Zahlen 1 bis 6 dabei herauskommen.
-Das Beispiel unten zeigt einen möglichen Ablauf.
-</p>
-<p><img alt="random maze solution" src="../../images/inter/random_maze.png"/></p>
+Das Beispiel unten zeigt einen möglichen Ablauf.</p>
+
+<p><img alt="random maze solution" src="../../images/inter/random_maze.png" /></p>
 
 <h3 class="section">Ausnahmen</h3>
+
 <p>Um auf ungewöhnliche Bedingungen zu reagieren, machen Programmierer oft
 von Ausnahmen (Exceptions) Gebrauch. Wenn du zum Beispiel versuchst, eine Zahl 
 durch 0 zu teilen, wird der Python-Interpreter das folgendermaßen bemängeln:</p>
+
 <pre>
-&gt;&gt;&gt; x = 1/0
+>>> x = 1/0
 Traceback (most recent call last):
-  File "&lt;input&gt;", line 1, in ?
+  File "&lt;input>", line 1, in ?
 ZeroDivisionError: integer division or modulo by zero
 </pre>
+
 <p>Der Python-Interpreter antwortete, indem er eine Exception namens
 ZeroDivisionError (Nullteilungsfehler)auslöste, der eine Fehlermeldung (oder
 eine Rückverfolgung, englisch Traceback) produzierte, wie oben gezeigt. Dieser
 Vorgang des Auslösens von Ausnahmen ist für den Python-Interpreter ein Weg, uns
 zu alarmieren, wenn er in Situationen gerät, mit denen er nicht umgehen kann.
 Wir können dies mit dem Schlüsselwort <span class="keyword">raise</span>
-simulieren.
-</p>
+simulieren.</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">raise</span> ZeroDivisionError
+>>> <span class="keyword">raise</span> ZeroDivisionError
 Traceback (most recent call last):
-  File "&lt;input&gt;", line 1, in ?
+  File "&lt;input>", line 1, in ?
 ZeroDivisionError
 </pre>
+
 <p>Wenn wir wissen, dass eine bestimmte Ausnahme ausgelöst werden kann, können
 wir sie "fangen" und sinnvoll darauf reagieren. Das geht so:</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">try</span>:
+>>> <span class="keyword">try</span>:
 ...     x = 1/0
 ... <span class="keyword">except</span>:
 ...     <span class="keyword">print</span> "Du hast versucht, durch 0 zu dividieren. Das ist nicht erlaubt."
 ...
 Du hast versucht, durch 0 zu dividieren. Das ist nicht erlaubt.
 </pre>
+
 <p>Das wenden wir jetzt an, um ein weiteres Programm zu schreiben, mit dem 
-wir Reeborg aus dem Labyrinth entkommen lassen.
-</p>
+wir Reeborg aus dem Labyrinth entkommen lassen.</p>
+
 <h3 class="section">Methode 2</h3>
+
 <p>Wenn Reeborg auf ein Problem stößt (vor eine Wand läuft, einen Piepser 
 aufhebt, der nicht da ist, etc.), wird eine Ausnahme ausgelöst, die im
 Normalfall das Programm beendet und von RUR-PLE "gefangen" wird, um die passende
 Fehlermeldung anzuzeigen. Wenn es sinnvoll ist, können wir die Ausnahme mit
 unserem eigenen Programm "fangen", sie ignorieren und das Programm weiterlaufen
 lassen. Dieser Ansatz wird manchmal als  "Bitte besser um Verzeihung als um
-Erlaubnis" (Better ask forgiveness than permission, BAFP) bezeichnet.
-</p>
+Erlaubnis" (Better ask forgiveness than permission, BAFP) bezeichnet.</p>
 
 <pre>
 G = RefurbishedRobot()
@@ -123,17 +133,19 @@ G.turn_off()
 
 <p>Spiel ein bisschen mit den beiden Programmen, indem du zum Beispiel Reeborg
 bei geraden und ungeraden Zahlen wenden lässt oder nur bei 1 und 2.</p>
+
 <h3 class="section">Welcher Ansatz ist besser?</h3>
+
 <p>Wenn eine Ausnahmebedingung vermutlich selten auftritt, ist der BAFP-Ansatz
 besser. Wenn sie sich aber häufig ereignet (wie hier der Fall), ist der
 LBYL-Ansatz zu empfehlen, den wir im ersten Programmbeispiel verwendet hatten.</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="38-class2.htm"><img alt="previous" src=
-"../../images/previous.png"/>39. Erfinde das Rad nicht neu - importiere es!</a>
-- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a>
-- <a href="../advanced/41-fairy_tale.htm">41. Ein Robotermärchen<img alt="next"
-src="../../images/next.png"/></a>
+"../../images/previous.png" />Erfinde das Rad nicht neu - importiere es!</a>
+- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a>
+- <a href="../advanced/41-fairy_tale.htm">Ein Robotermärchen<img alt="next"
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

@@ -9,114 +9,132 @@
 </head>
 <body>
 <h2 class="title">29. 你叫什么名字？</h2>
+
 <p>我们已经知道了怎么给变量赋值。我们同样也可以给字符串赋值，例如：</p>
+
 <pre>
-&gt;&gt;&gt; FirstName = &quot;Andre&quot;
-&gt;&gt;&gt; LastName = &quot;Roberge&quot;
-&gt;&gt;&gt; FullName = FirstName + LastName
-&gt;&gt;&gt; <span class="keyword">print</span> FullName
+>>> FirstName = "Andre"
+>>> LastName = "Roberge"
+>>> FullName = FirstName + LastName
+>>> <span class="keyword">print</span> FullName
 AndreRoberge
 </pre>
+
 <p>注意Python是怎么用加号(<tt>+</tt>)把两个字符串连结到一起了，这个操作我们成为字符串连结。注意一下名和姓中间没有空格的。我们可以通过在两个字符串中间插入第三个由单个空格组成的字符串来更正这个名字。</p>
+
 <pre>
-&gt;&gt;&gt; FullName = FirstName + <span class=
-"string">&quot; &quot;</span> + LastName
-&gt;&gt;&gt; <span class="keyword">print</span> FullName
+>>> FullName = FirstName + <span class=
+"string">" "</span> + LastName
+>>> <span class="keyword">print</span> FullName
 Andre Roberge
 </pre>
+
 <p>还有一种方法可以得到相同的结果，就是用我们用过的 <tt>%s</tt> ，来把多个变量放到一个字符串内。</p>
+
 <pre>
-&gt;&gt;&gt; name = <span class=
-"string">&quot;%s %s&quot;</span> % (FirstName, LastName)
-&gt;&gt;&gt; <span class="keyword">print</span> name
+>>> name = <span class=
+"string">"%s %s"</span> % (FirstName, LastName)
+>>> <span class="keyword">print</span> name
 Andre Roberge
 </pre>
+
 <p>最后，我们可以比较两个字符串是否相等。</p>
+
 <pre>
-&gt;&gt;&gt; <span class="keyword">print</span> name == FullName
+>>> <span class="keyword">print</span> name == FullName
 True
 </pre>
+
 <p>最后，我们可以比较两个字符串是否相等。</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">分割</h3>
-<p>有时候我们仅仅需要使用字符串里的单个字符。为此，我们需要学习<i>分割</i>。 </p>
+
+<p>有时候我们仅仅需要使用字符串里的单个字符。为此，我们需要学习<i>分割</i>。</p>
+
 <p>我会给你们三条规则，一条关于表示方法的提示，和一系列例子的结果。这些例子你可以自己用Python解释器来尝试。除了这三条规则，我<b>不会</b> 
 给你任何别的解释，因此你需要自己仔细观察来完全理解发生了什么。</p>
+
 <ol>
 <li>Python从0开始计数。</li>
 <li>在计数的时候，python不会包括你所期待的最后的数字。</li>
 <li>Python能按一定步长计数。</li>
 </ol>
-<ul><li>有用的表达方法： <tt>[</tt>first<tt>:</tt>last<tt>:</tt>step<tt>]</tt></li>;三个都是可选的。</ul>
+
+<ul><li>有用的表达方法： <tt>[</tt>first<tt>:</tt>last<tt>:</tt>step<tt>]</tt><br />;三个都是可选的。</li></ul>
+
 <p>这儿有一些例子。</p>
+
 <pre>
-&gt;&gt;&gt; alphabet = <span class="string">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
-&gt;&gt;&gt; digits = <span class="string">&#39;0123456789&#39;</span>
+>>> alphabet = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>
+>>> digits = <span class="string">'0123456789'</span>
 
-&gt;&gt;&gt; alphabet[0]
-&#39;a&#39;
+>>> alphabet[0]
+'a'
 
-&gt;&gt;&gt; alphabet[1]
-&#39;b&#39;
+>>> alphabet[1]
+'b'
 
-&gt;&gt;&gt; alphabet[5]
-&#39;f&#39;
+>>> alphabet[5]
+'f'
 
-&gt;&gt;&gt; digits[0]
-&#39;0&#39;
+>>> digits[0]
+'0'
 
-&gt;&gt;&gt; digits[7]
-&#39;7&#39;
+>>> digits[7]
+'7'
 
-&gt;&gt;&gt; digits[-1]
-&#39;9&#39;
+>>> digits[-1]
+'9'
 
-&gt;&gt;&gt; digits[-2]
-&#39;8&#39;
+>>> digits[-2]
+'8'
 
-&gt;&gt;&gt; alphabet[-3]
-&#39;x&#39;
+>>> alphabet[-3]
+'x'
 
-&gt;&gt;&gt; digits[0:3]
-&#39;012&#39;
+>>> digits[0:3]
+'012'
 
-&gt;&gt;&gt; digits[0:4]
-&#39;0123&#39;
+>>> digits[0:4]
+'0123'
 
-&gt;&gt;&gt; digits[0:5]
-&#39;01234&#39;
+>>> digits[0:5]
+'01234'
 
-&gt;&gt;&gt; digits[2:5]
-&#39;234&#39;
+>>> digits[2:5]
+'234'
 
-&gt;&gt;&gt; alphabet[2:5]
-&#39;cde&#39;
+>>> alphabet[2:5]
+'cde'
 
-&gt;&gt;&gt; digits[0:10:2]
-&#39;02468&#39;
+>>> digits[0:10:2]
+'02468'
 
-&gt;&gt;&gt; digits[0::2]
-&#39;02468&#39;
+>>> digits[0::2]
+'02468'
 
-&gt;&gt;&gt; digits[0::3]
-&#39;0369&#39;
+>>> digits[0::3]
+'0369'
 
-&gt;&gt;&gt; digits[::3]
-&#39;0369&#39;
+>>> digits[::3]
+'0369'
 
-&gt;&gt;&gt; digits[::-1]
-&#39;9876543210&#39;
+>>> digits[::-1]
+'9876543210'
 
-&gt;&gt;&gt; digits[::-2]
-&#39;97531&#39;
+>>> digits[::-2]
+'97531'
 
-&gt;&gt;&gt; digits[::-3]
-&#39;9630&#39;
+>>> digits[::-3]
+'9630'
 
-&gt;&gt;&gt; alphabet[:10:2]
-&#39;acegi&#39;
+>>> alphabet[:10:2]
+'acegi'
 </pre>
+
 <p>组成你自己的字符串并且尝试更多的例子吧！</p>
 
 <div class="lessons_nav">

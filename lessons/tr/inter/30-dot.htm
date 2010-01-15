@@ -9,34 +9,47 @@
 </head>
 <body>
 <h2 class="title">30. Nesneye dayalı programlama: "nokta" kullanımı</h2>
+
 <p>Birazdan modern bir programlama sitili olan Nesneye Dayalı Programlamayı (<em>Object-Oriented Programming</em> [OOP])öğreneceksiniz. 
 Şimdiye kadar gördüklerimizden her ne kadar anlaşılmamış olsa da Python bir OOP 
 dilidir. Nesneye dayalı programları yazmaya başlamadan önce, bu işte kullanılan 
 yazım kurallarını öğreneceğiz. </p>
+
 <!-- ======================== -->
 <hr class="line" />
+
 <h3 class="section">Bir köpeğin sıradan bir günü</h3>
+
 <p>Fido bir köpektir. Sıradan bir günde pek çok iş yapar: yemek yer, koşar, uyur 
 v.b. Bunları nesneye dayalı bir programcı aşağıdaki gibi yazabilir: </p>
+
 <pre>
 Fido = Dog()
 Fido.eats()
 Fido.runs()
 Fido.sleeps()
 </pre>
+
 <p>Bunların yanı sıra Fido'nun pek çok özelliği vardır. Bunlar daha önceden 
 gördüğümüz değişkenlerdir, ancak bunlar Fido'ya aittirler. Fido uzundur ve 
 saçları siyahtır. Bunları bir programcı aşağıdaki gibi ifade edebilir: </p>
+
 <pre>
 Fido.size = <span class="string">"tall"</span>
 Fido.hair_colour = <span class="string">"black"</span>
 </pre>
+
 <p>Nesneye dayalı programlamada aşağıdakiler vardır: </p>
+
 <ul>
-<li><tt>Köpek(Dog) </tt><i>sınıfa</i> bir örnektir. </li>
-<li><tt>Fido Dog</tt> <i>sınıfında</i> bir <i>gerçeklemedir</i>.
+<li>
+<tt>Köpek(Dog) </tt><i>sınıfa</i> bir örnektir.
 </li>
-<li><tt>Bir sınıf 
+<li>
+<tt>Fido Dog</tt> <i>sınıfında</i> bir <i>gerçeklemedir</i>.
+</li>
+<li>
+<tt>Bir sınıf 
 gerçeklemeler yaratan özel bir fonksiyon olarak düşünülebilir.</tt>
 </li>
 <li>
@@ -47,43 +60,62 @@ benzerler (tek fark metotların bir sınıf veya gerçeklemeye ait olmasıdır).
 <li>
 <tt>size</tt> ve <tt>hair_colour</tt> bir gerçekleme veya 
 nesnenin <i>özellikleridir</i>, özellikler normal bir değişkenin alabileceği 
-değerleri alırlar.</li>
-<li>Özellikler veya metotlar ile 
-nesneler arasındaki bağlantı aralarına “nokta” (“.”) konularak sağlanır.</li>
+değerleri alırlar.
+</li>
+<li>
+Özellikler veya metotlar ile 
+nesneler arasındaki bağlantı aralarına “nokta” (“.”) konularak sağlanır.
+</li>
 </ul>
+
 <p>Nesneler kendisine ait olan, kendi metot ve özellikleri olan başka nesneleri 
 de kullanabilirler:</p>
+
 <pre>
 Fido.tail.wags()
 Fido.tail.type = <span class="string">"bushy"</span>
 Fido.left_front_paw.moves()
 Fido.head.mouth.teeth.canine.hurt()
 </pre>
+
 <p>Bunun nasıl çalıştığını ileride göreceğiz. Şimdi Reeborg'un "nokta" yı nasıl 
 kullandığını görelim. </p>
+
+<!-- ======================== -->
 <hr class="line" />
+
 <h3 class="try">Kullanılmış bir robot adını alıyor</h3>
+
 <p>Şimdiye kadar yazdığımız programlarda Nesneye Dayalı Programlamayı 
 kullanmadık. Basit bir örnekle başlayalım:</p>
+
 <p>Önce, boş bir dünya ile işe başlayacağız, eğer gerekliyse robot kaldır/ekle <img alt="add/remove robot" src=
-"../../images/inter/btn_add_robot.png"/>  butonuna basarak robotu da 
+"../../images/inter/btn_add_robot.png" />  butonuna basarak robotu da 
 kaldıracağız. </p>
+
 <p>RUR-PLE' daki RUR'un Roberge's Used Robot (Roberge'ın Kullanılmış Robotu) 
 anlamına geldiğini hatırlıyor olabilirsiniz; bizim kullandığımız robotlar yaşlı 
 ve hatalıdırlar. <small>[Nasıl tamir edileceğini ileride göreceğiz]. </small>
 <tt>UsedRobot</tt> sınıfının ilk gerçeklemesini yaratacağız ve ona uygun bir 
 isim vereceğiz: Reeborg! Sonra ona bir adım atması ve kendini kapatmasını 
 söyleyeceğiz.</p>
+
 <pre>
 Reeborg = UsedRobot()
 Reeborg.move()
 Reeborg.turn_off()
 </pre>
+
 <p><b>Deneyin!</b></p>
+
+<!-- ======================== -->
 <hr class="line" />
+
 <h3 class="try">Daha Fazla Robot</h3>
+
 <p>Metotlarda, fonksiyonların da kullandığı gibi parametreler kullanabilirler. Boş 
 bir dünya ile başlayın ve aşağıdakini deneyin: </p>
+
 <pre>
 <span class=
 "comment"># başlangıç noktasına (varsayılan-default) bir robot ekle, ama rengi farklı olsun</span>
@@ -107,6 +139,7 @@ Curly.move()
 <span class="comment"># Herhangi bir robotu kapatmak programı sonlandırır.</span>
 Moe.turn_off()
 </pre>
+
 <p>Robotların farklı renkleri vardır: grey (gri, default), yellow (sarı), blue 
 (mavi),
 light blue (açık mavi), green (yeşil) ve purple (mor). Herhangi bir yere 
@@ -118,8 +151,10 @@ orientation) olduğuna dikkat edin.Adlandırılmış iki parametre sonda yer
 almalıdır (eğer adlarını yazarsanız kendi aralarında yer değiştirebilirler), 
 adlandırılmamış parametreler ise  başta aynı sıra muhafaza edilerek yer 
 almalıdır. Bu nedenle, bir yön (orientation) belirtmek istersek, öncelikle cadde 
-(street) ve sokağı (avenue) belirtmeliyiz.  </p>
+(street) ve sokağı (avenue) belirtmeliyiz.</p>
+
 <p>Aşağıdakiler geçerlidir:</p>
+
 <pre>
 R1 = UsedRobot(2) <span class=
 "comment"># 2. cadde, 1.sokak, yüzü doğuya dönük</span>
@@ -129,20 +164,22 @@ R3 = UsedRobot(3, 1, <span class="string">'S'</span>) <span class=
 "comment"># 3. cadde, 1. sokak, yüzü güneye dönük</span>
 R4 = UsedRobot(5, colour=<span class="string">'yellow'</span>) <span class=
 "comment"># 5. cadde, 1. sokak, yüzü doğuya dönük, rengi sarı</span></pre>
+
 <p>Aşağıdakiler geçerli <b>değildir</b>:</p>
+
 <pre>
 R5 = UsedRobot(3, <span class="string">'S'</span>) <span class=
 "comment"># yön 3. parametre değil</span>
 R6 = UsedRobot(colour=<span class="string">'yellow'</span>, 5) <span class=
-"comment"># adlandırılmamış parametre, adlandırılmıştan sonra kullanılmaz</span></pre>
+"comment"># adlandırılmamış parametre, adlandırılmıştan sonra kullanılmaz</span>
+</pre>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="29-strings.htm"><img alt="previous" src=
-"../../images/previous.png"/>Adınız nedir?</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" />Adınız nedir?</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="31-global.htm">Globalleştirme kötü bir şeydir <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>
-

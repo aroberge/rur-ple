@@ -9,18 +9,25 @@
 </head>
 <body>
 <h2 class="title">33. repeat() bazı Python komutlarını gizler</h2>
+
 <p>Pek çok ders önce Reeborg'a bazı işleri nasıl tekrar ettirdiğimizi 
 hatırlayın. </p>
+
 <pre>
 <span class="keyword">def</span> turn_right():
     repeat(turn_left, 3)
 </pre>
+
 <p>Bu derste kendi
 <tt>repeat()</tt>fonksiyonumuzu nasıl tanımlayacağımızı göreceğiz.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">İki yeni komut</h3>
+
 <p>Aşağıdakini deneyin:</p>
+
 <pre>
 >>> <span class="keyword">for</span> letter <span class=
 "keyword">in</span> <span class="string">"Reeborg"</span>:
@@ -34,9 +41,11 @@ o
 r
 g
 </pre>
+
 <p><span class="string">Reeborg </span>kelimesindeki tüm harflerin tek tek yeni 
 bir satırda yazılmasını Pyton'a söylemiş olduk. Eğer harflerin her birinin yeni 
 bir satırda görüntülenmesini istemezsek virgül kullanırız.</p>
+
 <pre>
 >>> <span class="keyword">for</span> letter <span class=
 "keyword">in</span> <span class="string">"Reeborg"</span>:
@@ -44,10 +53,12 @@ bir satırda görüntülenmesini istemezsek virgül kullanırız.</p>
 ...     
 R e e b o r g
 </pre>
+
 <p>Oldukça düzenli! Bu herhangi bir string ile çalışır! Bunun yerine Python'un 
 sayıları saymasını isteseydik? <span class=
 "pykeyword">for</span> döngüsünü
 <tt>range() </tt>fonksiyonu ile birlikte kullanabiliriz.</p>
+
 <pre>
 >>> <span class="keyword">for</span> number <span class=
 "keyword">in</span> range(3):
@@ -62,19 +73,26 @@ sayıları saymasını isteseydik? <span class=
 ...    
 0 1 2 3 4 5 6 7 8 9 10 11 12 13
 </pre>
+
 <p>Kendi kendinize benzer örnekleri deneyin!</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section"><tt>repeat()</tt>'in tanımlanması </h3>
+
 <p>Artık kendi
 <tt>repeat()</tt>fonksiyonumuzu tanımlamak için gerekli malzemeye sahibiz:.</p>
+
 <ul>
 <li>Parametre kullanarak fonksiyon tanımlamayı biliyoruz.</li>
 <li>Değişkenlerin nasıl kullanılacağını biliyoruz.</li>
 <li> <span class="pykeyword">for</span> döngüleri ile nasıl sayı sayılacağını 
 biliyoruz.</li>
 </ul>
+
 <p>Neden bekliyoruz ki?</p>
+
 <pre>
 >>> <span class="keyword">def</span> repeat(f, n):
 ...     <span class="keyword">for</span> i <span class=
@@ -90,6 +108,7 @@ It's fun!
 It's fun!
 It's fun!
 </pre>
+
 <p>Aslında bu yaptığımız oldukça gelişmiş bir düzeyde Python programlamadır.
 <tt>repeat()</tt> fonksiyonuna kendiside bir fonksiyon olan bir parametre 
 gönderdik. Bunu yapabilmek için fonksiyonun adından sonra parantez 
@@ -98,6 +117,7 @@ nasıl tanımladığımıza bir bakın.] Bunun yanında sayısal bir değer alan
 parametre (<tt>n</tt>) daha gönderdik.
 <tt>repeat()</tt>fonksiyonu tanımlandığında parametrelerden birisinin bir 
 fonksiyon, diğerinin bir sayı olacağını Python dikkate almaz (ve bilmez de!). </p>
+
 <p>Seçtiğim değişken isimlerinin (<tt>f, n, i</tt>) çok açıklayıcı olmadığına 
 dikkat edin. Programcılar küçük döngülerde (az önceki gibi) veya küçük 
 fonksiyonlarda tek harfli değişkenler kullanırlar böylece değişkenlerin 
@@ -106,7 +126,9 @@ bir anlamı varsa onlara daha uzun ve açıklayıcı adlar vermek tercih edilir.
 buna inanmıyorsanız, <a href=
 "../intro/10-def.htm">10. Tekrardan kesinlikle kaçının.</a>dersine gidin ve 
 dersin sonundaki Program okuma kısmını yeniden deneyin. </p>
+
 <p>Belki de <tt>repeat()</tt> fonksiyonunu aşağıdaki gibi tanımlamalıydım:</p>
+
 <pre>
 <span class="keyword">def</span> repeat(function, number_of_times):
     <span class="keyword">for</span> number <span class="keyword">in</span> range(number_of_times):
@@ -115,19 +137,20 @@ dersin sonundaki Program okuma kısmını yeniden deneyin. </p>
 
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Deneyin!</h3>
+
 <p>Reeborg'un dünyasına gidin. İçinde <tt>repeat()</tt>'in en az iki kez 
 kullanılmış olduğu herhangi bir alıştırmayı seçin. <tt>repeat()</tt>lerin yerine <span class=
-"pykeyword">for</span> döngüleri kullanarak çözüme ulaşın. </p>
+"pykeyword">for</span> döngüleri kullanarak çözüme ulaşın.</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="32-return.htm"><img alt="previous" src=
-"../../images/previous.png"/>Many returns</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" />Many returns</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="34-lists.htm">Çukulatalı kek tarifi </a> <a href=
 "34-lists.htm"><img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>
-

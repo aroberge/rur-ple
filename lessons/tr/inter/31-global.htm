@@ -8,9 +8,8 @@
 <title>Globalleştirme kötü bir şeydir</title>
 </head>
 <body>
+<h2 class="title">31. <span class="pykeyword">Globalleştirme kötü bir şeydir</font> global</span>ization is a bad thing.</h2>
 
-<h2 class="title">31. <span class="pykeyword">
-<font color="#006600" face="Times New Roman">Globalleştirme kötü bir şeydir</font> global</span>ization is a bad thing.</h2>
 <p>Bir arkadaşınızla birlikte uzun bir program yazdığınızı varsayın. İyi bir 
 programcı olduğunuz için değişken adlarını oluştururken onları açıklayan adlar 
 kullanırsınız. Sonra şunu düşünebilirsiniz: <i>Arkadaşım da benim seçtiğim 
@@ -23,8 +22,11 @@ namespaces'leri öğreneceğiz.</p>
 
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Yerel Değişkenler</h3>
+
 <p>Basit bir örnekle başlayalım:</p>
+
 <pre>
 >>> a = 1
 >>> <span class="keyword">def</span> my_function():
@@ -38,21 +40,26 @@ namespaces'leri öğreneceğiz.</p>
 >>> <span class="keyword">print</span> a
 1
 </pre>
+
 <p> <tt>a</tt>'nın değerinin değişmemesi sizin için bir sürpriz oldu mu? Burada 
 ne olduğunu açıklayalım.</p>
+
 <p>Önce "<tt>a</tt>" değişkenini tanımladınız ve ona 1 değerini verdiniz. Sonra, 
 bir fonksiyonun içerisinde "<tt>a</tt>" ya 3 değerini verdiniz. Gerçekte olan 
 şey, fonksiyonun içerisinde "<tt>a</tt>" adında yeni bir değişken tanımlamak ve 
 ona 3 değerini vermektir. Diğer  "<tt>a</tt>" nın değeri bundan etkilenmez.  </p>
+
 <p>Python her fonksiyonun içerisinde otomatik olarak namespace'leri yaratır. 
 Bunlar bu fonksiyonun dışında aynı adla tanımlanmış değişkenlerden 
 bağımsızdırlar. Namespace'i Python'un tüm değişken adlarını takip ettiği bir not 
 defterine benzetebiliriz. Python her bir fonksiyon için ayrı bir not defteri 
 oluşturduğundan aynı değişkenin başka bir fonksiyonda kullanılması bizi artık 
 endişelendirmez. </p>
+
 <p>Fonksiyonun içerisinde tanımlanmış olan değişkenler, fonksiyonun çalışması 
 bittiğinde geçerliliklerini kaybederler, buna <i>alan dışı (out of scope)</i> 
 denir. </p>
+
 <pre>
 >>> <span class="keyword">def</span> simple_function():
 ...     local_variable = <span class="string">"I'm here!"</span>
@@ -63,13 +70,15 @@ I'm here!
 
 >>> <span class="keyword">print</span> local_variable
 Traceback (most recent call last):
-  File "&lt;input&gt;", line 1, in ?
+  File "&lt;input>", line 1, in ?
 NameError: name <span class="string">'local_variable'</span> is not defined
 </pre>
+
 <p>Namespace kullanarak bu işi yapabiliyoruz, ancak bir fonksiyonun içerisindeki 
 bir değişkenin değerini değiştirmek isterseniz ne yapmalısınız? Örneğin, bir 
 fonksiyonu kaç kez çağırdığımızı takip etmek isteyelim. Bunu Python komutu olan  <span class="pykeyword">global</span>'i 
 kullanarak yapabiliriz: </p>
+
 <pre>
 >>> number_of_times = 0
 >>> <span class="keyword">def</span> two_year_old_child():
@@ -78,7 +87,7 @@ kullanarak yapabiliriz: </p>
 ...     <span class="keyword">print</span> <span class="string">"Why?     %s times"</span> % number_of_times
 ...    
 >>> two_year_old_child()
-Why?          1 times
+Why?          1 times <span class="comment"># I know, it should be "1 time", without a final 's'</span>
 
 >>> two_year_old_child()
 Why?          2 times
@@ -89,9 +98,11 @@ Why?          3 times
 >>> <span class="keyword">print</span> number_of_times
 3
 </pre>
+
 <p> <span class="pykeyword">global </span>komutunu kullanarak, Python'a 
 değişkenin yeni bir versiyonunu fonksiyonun içinde yeniden yaratmamasını ve daha 
 önceden yaratılmış olan versiyonunu kullanmasını söylüyoruz. </p>
+
 <p> <span class="pykeyword">global</span> tanımlanmış değişkenleri kullanmaktan 
 her zaman kaçının, çünkü bunlar programınızın başka kısımlarında sizin 
 istemediğiniz değişikliklere yol açabilir.   
@@ -100,7 +111,9 @@ kaçınılması gereken bir şeydir.</p>
 
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Alan Dışı (Out of scope)</h3>
+
 <p>Larry ve Curly keyifle yürüyordular. Birden Moe onları uzaktan gördü ve 
 onlara doğru koşmaya başladı. Tam onları yakalayacakken alan dışı oldu ve 
 ekrandan kayboldu. Moe'nun arkadaşlarına ulaşmasını istiyorsanız, aşağıdaki  <span class="comment">#</span> 
@@ -137,21 +150,24 @@ Curly.move()
 Larry.turn_off()
 </pre>
 
-<p><img alt="Moe there"  src="../../images/inter/scope1.png"/></p>
-<p><img alt="Moe gone"  src="../../images/inter/scope2.png"/></p>
+<p><img alt="Moe there"  src="../../images/inter/scope1.png" /></p>
+
+<p><img alt="Moe gone"  src="../../images/inter/scope2.png" /></p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Deneyin!</h3>
+
 <p>Bu programı Reeborg'un dünyasında kendi kendinize deneyin ve gerekli 
 değişiklikleri yaparak Moe'nun arkadaşlarına ulaşmasını sağlayın.</p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="30-dot.htm"><img alt="previous" src=
-"../../images/previous.png"/>Nesneye dayalı programlama:  "nokta" kullanımı</a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - <a href=
+"../../images/previous.png" />Nesneye dayalı programlama:  "nokta" kullanımı</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - <a href=
 "32-return.htm">Many returns <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>
-

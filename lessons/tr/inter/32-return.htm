@@ -8,28 +8,34 @@
 <title>Many returns</title>
 </head>
 <body>
-
 <h2 class="title">32. Many <span class="pykeyword">return</span>s</h2>
+
 <p>Bildiğiniz gibi Reeborg çok iyi bir durumda değil. Yalnızca sola dönebilir,  
 duvarları önüne geldiğinde görebilir, bipleri üstünde olduğu zaman duyabilir ve 
 yağ sızdırır. Reeborg'un birde pusulası (kırık da olsa) vardır ve bununla kuzeye 
 dönük olup olmadığını anlayabilir. Pusulayı kullanmak için<tt> facing_north</tt> 
-testini kullanabilirsiniz.  </p> 
+testini kullanabilirsiniz.  </p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Deneyin!</h3>
+
 <p>Reeborg'un yüzü kuzey'e dönünceye kadar sola dönmesini sağlayan kısa bir 
 program yazın. Reeborg'un başlangıç pozisyonu ne olursa olsun yazdığınız program 
 doğru çalışmalıdır.</p>
 
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Bir fonksiyondan sonuçları almak</h3>
+
 <p>Reeborg'un yaptığı testler aslında Python fonksiyonlarıdır. Bu fonksiyonlar 
 bizim şimdiye kadar gördüklerimizden farklı olarak, bir sonuç göstermek yerine 
 bir cevap verirler (True veya False) ve bu cevaba göre işlem yapılır.  Bizim 
 gördüğümüz fonksiyonlara benzer bir şeyler yapmak için  <span class="pykeyword">return </span>
 komutunu kullanabiliriz. Örnek: </p>
+
 <pre>
 >>> <span class="keyword">def</span> add(a, b):
 ...     answer = a + b
@@ -42,8 +48,10 @@ komutunu kullanabiliriz. Örnek: </p>
 >>> <span class="keyword">print</span> add(1, 1)
 2
 </pre>
+
 <p>Yukarıdaki örnekte <tt>add()</tt>  fonksiyonunu bir satır daha kısa bir 
 şekilde aşağıdaki gibi yazabiliriz: </p>
+
 <pre>
 >>> <span class="keyword">def</span> add(a, b):
 ...     <span class="keyword">return</span> a + b
@@ -52,6 +60,7 @@ komutunu kullanabiliriz. Örnek: </p>
 >>> <span class="keyword">print</span> c
 9
 </pre>
+
 <p> <span class="pykeyword">return</span> komutu yalnızca bir değişkenin 
 değerini değil geçerli bir Python ifadesinin sonucunu da geri döndürebilir. Eğer 
 değerini geri döndürmek istediğiniz ifade kısa ise ekstra bir değişken kullanmak 
@@ -59,14 +68,17 @@ istemeyebilirsiniz (yukarıdaki answer değişkeni gibi). Ancak, ileride
 göreceğiniz gibi bazen bir değişkenden daha fazla sonuç geri döndürmek 
 isteyebilirsiniz.  Bu durumda ifade kullanmak yerine değişken kullanmak 
 daha kolay olabilir. </p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="section">Reeborg'un dünyasına dönüş<span class="pykeyword"> (return</span>ing to Reeborg's world) </h3>
 
 <p>Dersin başında bahsettiğimiz gibi Reeborg'un kırık bir pusulası vardır. Bu 
 nedenle yalnızca kuzeye dönük olup olmadığını bilebilir. Artık, Reeborg'un 
 aklında bir şeyler tutabileceğini öğrendiğimize göre, ona hangi yöne doğru 
 baktığını öğretebiliriz. Örneğin: </p>
+
 <pre>
 <span class="keyword">def</span> facing_south():
     turn_left()
@@ -76,8 +88,11 @@ baktığını öğretebiliriz. Örneğin: </p>
     turn_left()
     <span class="keyword">return</span> answer
 </pre>
+
 <p>Bunun nasıl çalıştığını iki durumu incelerek anlayalım:</p>
-<ul><li><b>Reeborg'un güneye baktığını varsayalım.</b> İki sola dönüşten sonra, 
+
+<ul>
+<li><b>Reeborg'un güneye baktığını varsayalım.</b> İki sola dönüşten sonra, 
 	kuzeye bakar. <tt>facing_north()</tt> testi "<tt>True</tt>" değerini verir 
 	ve bu da cevap değişkenine atanır. İki kez daha sola döndükten sonra güneye 
 	bakar (orjinal pozisyonuna geri döner) ve "<tt>True</tt>" değeri geri 
@@ -87,33 +102,39 @@ sonra kuzeye bakmayacaktır ve <tt>answer </tt>değişkenine "<tt>False</tt>" de
 atanacaktır.  İki kez daha sola döndükten sonra yine güneye bakmayacak ve 
 sonrasında  "<tt>False</tt>" değeri geri döndürülecektir.</li>
 </ul>
+
 <p>Artık Reeborg'un güneye bakıp bakmadığını anlamak için yeni testimizi 
 kullanabiliriz:</p>
+
 <pre>
 <span class="keyword">while</span> <span class="keyword">not</span> facing_south():
     turn_left()
 </pre>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Küçük test</h3>
+
 <p>Reeborg'un yüzünü batıya dönmesini sağlayan bir program yazın. Reeborg'un 
 başlangıç pozisyonu ne olursa olsun yazdığınız program doğru çalışmalıdır. 
 Reeborg farklı başlangıç pozisyonlarındayken programınızı deneyin.</p>
+
 <!--==============================-->
 <hr class="line" />
+
 <h3 class="try">Küçük test 2</h3>
 <p>Boş bir dünyada Reeborg'u yüzü herhangi bir yöne doğru olacak şekilde 
 herhangi bir noktaya koyun. Reeborg'u buradan her zamanki başlangıç noktasına 
 getiren ve yüzünü doğuya çeviren bir program yazın. Bu program Reeborg nereye 
 hangi pozisyonda yerleştirilirse yerleştirilsin doğru olarak çalışmalıdır. </p>
 
-<div class="lessons_toc">
+<div class="lessons_nav">
 <a href="31-global.htm"><img alt="previous" src=
-"../../images/previous.png"/>Globalleştirme kötü bir şeydir </a> - <a href=
-"../lessons_toc.htm"><img alt="home" src="../../images/home.png"/></a> - 
+"../../images/previous.png" />Globalleştirme kötü bir şeydir </a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../../images/home.png" /></a> - 
 <a href="33-for.htm">Repeat() bazı Python komutlarını gizler <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
-
 </body>
 </html>
