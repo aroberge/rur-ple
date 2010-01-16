@@ -29,6 +29,8 @@ http://code.google.com/p/rur-ple/source/list
  - Provided an improved Chinese translation
  - Fixed wxPython 2.6/2.8 differences bugs
  - Fixed missing strings from pot file
+ - Modified default panes sizes to avoid scrollbars
+ - Replaced fixed dimensions by variables to allow configurable startup sizes
 
 
 ------------------------------------------------------------------------------

@@ -107,7 +107,7 @@ class RURApp(wx.Frame):
     def __init__(self):
         wx.Frame.__init__(self, None, -1, 
                           _("RUR: a Python Learning Environment"),
-                          size = (800, 660),
+                          size = (misc.SCREEN[0], misc.SCREEN[1]),
                           style=wx.DEFAULT_FRAME_STYLE)
         self.raw_code = ""
         self.filename = ""
@@ -168,7 +168,7 @@ class RURApp(wx.Frame):
                 # 40 = bouton "." btn_size[1] + 8
         self.window.AddPage(self.sash2, _("Python: simple editor"))
 
-        self.SetSize((800, 660))
+        self.SetSize((misc.SCREEN[0], misc.SCREEN[1]))
         self.window.SetFocus()
         self.SendSizeEvent()  # added to attempt to solve problem on MacOS
         wx.EVT_CLOSE(self, self.OnClose)
