@@ -9,7 +9,7 @@ We're working on a 10" netbook size (1024 x 600), but you could eventually play 
 = Variables =
 All values have been moved to the variable initialization section in rur_start.py and the variable is called SCREEN.
 
-{{{misc.SCREEN=[800,660,290,57,34,6]}}}
+{{{misc.SCREEN=[800,660,290,57,34,6,13,12,9]}}}
 
 where	800 is rurple window size width at startup
 	660 is rurple window size height at startup
@@ -17,8 +17,11 @@ where	800 is rurple window size width at startup
 	57 is the debugging window height at the lower right in "code and learn"
 	34 is Reeborg's world brick length
 	6 is Reeborg's world brick thickness
+	13 is the beeper position offset
+	12 is Reeborg's horizontal offset
+	9 is Reeborg's vertical offset
 
-Working values for 10" screen at 1024x600 seems to be {{{misc.SCREEN = [800,550,350,40,27,5]}}}.
+Working values for 10" screen at 1024x600 seems to be {{{misc.SCREEN = [800,550,350,40,27,5,8,8,3]}}}.
 
 = Code location =
 == Rur-ple size at startup ==
@@ -35,6 +38,15 @@ Defined in world_creation.py
 Defined in sash.py
  * line 56: {{{win.SetDefaultSize(wx.Size(misc.SCREEN[2], 600))}}}
  * line 74: {{{self.bottomWindow.SetDefaultSize(wx.Size(800, misc.SCREEN[3]))}}}
+
+== Beeper offset ==
+Defined in world_creation.py
+ * line 223: {{{beeper_info = (20, misc.SCREEN[6], 6, 3)}}}
+
+== Reeborg offset ==
+Defined in robot_factory.py
+ * line 257: {{{self.imageOffset = (misc.SCREEN[7], misc.SCREEN[8])}}}
+ * line 266: {{{self.imageOffset = (misc.SCREEN[7], misc.SCREEN[8])}}}
 
 == version 1.0.1 sizes ==
 Current released version launches with:
