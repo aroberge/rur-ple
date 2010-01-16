@@ -220,7 +220,7 @@ class Visible_world(World):
                 editWalls = False,
                 screen_offsets = (50, 50, 20, 40),
                 tile_info = (misc.SCREEN[4], misc.SCREEN[5]),
-                beeper_info = (20, 13, 6, 3),
+                beeper_info = (20, misc.SCREEN[6], 6, 3),
                 wall_colours = ("black", "brown"),
                 edit_wall_colours = ("brown", "black"),
                 grid_colour = "light grey",

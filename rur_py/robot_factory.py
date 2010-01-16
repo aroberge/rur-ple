@@ -26,6 +26,7 @@ import dialogs
 import images
 import random
 from rur_py.translation import _
+import rur_py.misc as misc
 
 #---------------------------------------------------------------------------
 
@@ -253,7 +254,7 @@ class Used_robot(Robot_brain1):
             self._image = [images.GREY_ROBOT_N, images.GREY_ROBOT_W,
                        images.GREY_ROBOT_S, images.GREY_ROBOT_E]
 
-        self.imageOffset = (12, 9)
+        self.imageOffset = (misc.SCREEN[7], misc.SCREEN[8])
 
         # image size (x, y) [all images equal]; for use in automatic scrolling
         self._image_size = self._image[0].GetWidth(), \
@@ -362,7 +363,7 @@ class New_improved_robot(Robot_brain2):
             self._image = [images.GREY_ROBOT_N, images.GREY_ROBOT_W,
                        images.GREY_ROBOT_S, images.GREY_ROBOT_E]
 
-        self.imageOffset = (12, 9)
+        self.imageOffset = (misc.SCREEN[7], misc.SCREEN[8])
 
         # image size (x, y) [all images equal]; for use in automatic scrolling
         self._image_size = self._image[0].GetWidth(), \
