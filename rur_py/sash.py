@@ -52,7 +52,7 @@ class MySashWindow(wx.Panel):
         win = wx.SashLayoutWindow(self, self.ID_WINDOW_LEFT,
                                  wx.DefaultPosition, wx.Size(300, 600),
                                  wx.NO_BORDER|wx.SW_3D)
-        win.SetDefaultSize(wx.Size(300, 600))
+        win.SetDefaultSize(wx.Size(290, 600))
         win.SetOrientation(wx.LAYOUT_VERTICAL)
         win.SetAlignment(wx.LAYOUT_LEFT)
         win.SetSashVisible(wx.SASH_RIGHT, True)
@@ -70,7 +70,7 @@ class MySashWindow(wx.Panel):
         win.SetSashVisible(wx.SASH_TOP, True)
         self.bottomWindow = win
         self.output_window = LogWindow(self.bottomWindow)
-        self.bottomWindow.SetDefaultSize(wx.Size(800, 100))
+        self.bottomWindow.SetDefaultSize(wx.Size(800, 57))
         ####################
         self.grand_parent.ch = rurChoiceWindow(self.topWindow, self.grand_parent)
         self.topWindow.SetDefaultSize(wx.Size(800, self.grand_parent.BUTTON_HEIGHT))
