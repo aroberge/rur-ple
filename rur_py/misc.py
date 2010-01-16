@@ -17,6 +17,9 @@ PRGM_DIR = ''     # user-defined programs
 WORLD_DIR = ''    # user-defined worlds
 PYTHON_DIR = ''
 
+#--- dimensions defaults
+SCREEN=[800,660,57,34,6]
+
 # TODO: Should be moved to a better place, perhaps wxcompat.
 def wxversiontuple():
      '''returns wx.version() as a tuple of ints for numeric
