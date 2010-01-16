@@ -217,14 +217,14 @@ class rur_program(Singleton):
         self.WorldDisplay.SetBackgroundColour(colour)
 
     def inputString(self, text=''):
-        dlg = wx.TextEntryDialog(self.parent, text, 'Requesting a string', '')
+        dlg = wx.TextEntryDialog(self.parent, text, _("Requesting a string"), '')
         if dlg.ShowModal() == wx.ID_OK:
             user_response = dlg.GetValue()
         dlg.Destroy()
         return user_response
     
     def inputInt(self, text=''):
-        dlg = wx.TextEntryDialog(self.parent, text, 'requesting an integer', '')
+        dlg = wx.TextEntryDialog(self.parent, text, _("Requesting an integer"), '')
         if dlg.ShowModal() == wx.ID_OK:
             user_response = dlg.GetValue()
         dlg.Destroy()

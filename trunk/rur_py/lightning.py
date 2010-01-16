@@ -15,6 +15,7 @@ TMP_DIR = gettempdir()
 import wx   
 import wx.stc as stc
 import wx.py as py    # For the interpreter
+from rur_py.translation import _
 
 BOTTOM, RIGHT = 1, 2
 #--- The following can be configured easily by the user
