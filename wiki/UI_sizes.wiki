@@ -7,8 +7,10 @@ The purpose is to make it easy for developers and people not liking the default 
 We're working on a 10" netbook size (1024 x 600), but you could eventually play with the files below to fit a smaller resolution screen at startup without having scrollbars.
 
 = Variables =
-All values have been moved to rur_py/misc.py into SCREEN.
-SCREEN=[800,660,290,57,34,6]
+All values have been moved to the variable initialization section in rur_start.py and the variable is called SCREEN.
+
+{{{misc.SCREEN=[800,660,290,57,34,6]}}}
+
 where	800 is rurple window size width at startup
 	660 is rurple window size height at startup
 	290 is the programming pane width in "code and learn" tab
@@ -16,22 +18,23 @@ where	800 is rurple window size width at startup
 	34 is Reeborg's world brick length
 	6 is Reeborg's world brick thickness
 
+Working values for 10" screen at 1024x600 seems to be {{{misc.SCREEN = [800,550,350,40,27,5]}}}.
+
 = Code location =
 == Rur-ple size at startup ==
 Defined in rur_start.py
- * line 110: size = (misc.SCREEN[0], misc.SCREEN[1])
- * line 171: self.SetSize((misc.SCREEN[0], misc.SCREEN[1])) <- this line overrides the former one
+ * line 110: {{{size = (misc.SCREEN[0], misc.SCREEN[1])}}}
+ * line 171: {{{self.SetSize((misc.SCREEN[0], misc.SCREEN[1]))}}} <- this line overrides the former one
 
 == World drawing size in pixel ==
 Defined in world_creation.py
- * line 222: tile_info = (misc.SCREEN[4], misc.SCREEN[5])
- * beepers centering is defined below and adjusted based on above parameters
- * even a much smaller world doesn't really need adjusting the beeper settings
+ * line 222: {{{tile_info = (misc.SCREEN[4], misc.SCREEN[5])}}}
+ * beepers centering is defined just below and adjusted based on above parameters
 
 == Code and Learn windows split ==
 Defined in sash.py
- * line 56: win.SetDefaultSize(wx.Size(misc.SCREEN[2], 600))
- * line 74: self.bottomWindow.SetDefaultSize(wx.Size(800, misc.SCREEN[3]))
+ * line 56: {{{win.SetDefaultSize(wx.Size(misc.SCREEN[2], 600))}}}
+ * line 74: {{{self.bottomWindow.SetDefaultSize(wx.Size(800, misc.SCREEN[3]))}}}
 
 == version 1.0.1 sizes ==
 Current released version launches with:
