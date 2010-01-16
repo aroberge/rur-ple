@@ -4,16 +4,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../rurple.css" type="text/css" />
+
 <title>Fractions - part 4</title>
 </head>
 <body>
 <h2 class="title">47. Fractions - part 4</h2>
+
 <p>As you should have checked at the end of the previous lesson, Python does not know how to add an integer to a <tt>Fraction</tt>.  We can correct that easily enough by doing the following: </p>
+
 <ol>
 <li>Before doing a mathematical operation [+, *, /, -], check to see if the "other" object is a Fraction, if not convert it before doing the operation.</li>
 <li>Tell Python how to convert integers to Fractions.</li>
 </ol>
+
 <p>The second step can be accomplished with a function <i>like</i> the following:</p>
+
 <pre>
 <span class='keyword'>def</span> convertToFraction(object):
     <span class='comment'>'''Converts "int" and "long" to Fractions'''</span>
@@ -22,8 +27,11 @@
     <span class='keyword'>else</span>:
         <span class='keyword'>raise</span> NotImplementedError
 </pre>
+
 <p>We first check if the object is an integer [<tt>int</tt> or perhaps <tt>long</tt>] and, if so, create a new Fraction from it (the integer will be the numerator of the new Fraction).  Since we want fractions to be of the form (integer/integer), we will not allow any other kind of object; by raising an exception, we inform the user that the attempted operation is not permitted.</p>
+
 <p>The first step will be something that we will add at the beginning of every operation.  Here's the new code that does just that.  [Note that we included the conversion to Fractions as a method of that class.]</p>
+
 <pre>
 <span class='linenumber'>  1 </span><span class=
 'keyword'>def</span> gcd(a, b):
@@ -181,22 +189,27 @@
 'keyword'>    assert</span> str(b/<span class=
 'number'>3</span>) ==<span class='string'> "(1)"</span>
 </pre>
+
 <!--=============================================-->
 <hr class="line" />
+
 <h3 class="section">1 + 1 = ?</h3>
+
 <p>If you think we are done, try the following:</p>
+
 <pre>
 one = Fraction(1)
 <span class="keyword">print</span> 1 + one
 </pre>
+
 <p>Can you think of what make this go wrong?</p>
 
 <div class="lessons_nav">
 <a href="46-fractions3.htm"><img alt="previous" src=
-"../../images/previous.png"/>Fractions Part 3</a> - 
-<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/>
+"../../images/previous.png" />Fractions Part 3</a> - 
+<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png" />
 </a> - <a href="48-beyond_python.htm">Beyond Python <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

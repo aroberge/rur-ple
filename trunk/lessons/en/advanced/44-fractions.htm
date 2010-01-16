@@ -9,36 +9,52 @@
 </head>
 <body>
 <h2 class="title">44. Fractions - part 1</h2>
+
 <p>Would it not be nice if we could use Python to add and multiply fractions
 just like we can do it with integers and other number types? Something
 like:</p>
+
 <pre>
-&gt;&gt;&gt; a = 1/2
-&gt;&gt;&gt; b = 1/4
-&gt;&gt;&gt; <span class="keyword">print</span> a + b
+>>> a = 1/2
+>>> b = 1/4
+>>> <span class="keyword">print</span> a + b
 3/4
 </pre>
+
 <p>Actually, we can teach Python to do something just like that! This is what
 we are going to learn to do in this multi-part lesson. It is going to be a
 rather long lesson, but we are going to learn a fair bit about some very
 <i>special</i> parts of Python.</p>
+
 <p>To help prevent having bugs in our program, we will proceed
 systematically, adding only a little bit of new code at a time, using a three
 step approach:</p>
+
 <ol>
-<li>Add some new functionality.</li>
-<li>Check that it gives us the desired result, testing with <span class=
-"pykeyword">print</span> statements.</li>
-<li>Replace the <span class="pykeyword">print</span> statements by
-<span class="pykeyword">assert</span> statements.</li>
+<li>
+Add some new functionality.
+</li>
+<li>
+Check that it gives us the desired result, testing with <span class=
+"pykeyword">print</span> statements.
+</li>
+<li>
+Replace the <span class="pykeyword">print</span> statements by
+<span class="pykeyword">assert</span> statements.
+</li>
 </ol>
+
 <p>Repeat these 3 steps as often as required! This is one example where it
 make sense to repeat yourself!</p>
+
 <!--=============================================-->
 <hr class="line" />
+
 <h3 class="section">Creating a new type</h3>
+
 <p>Without further ado, here's the basic code to define a new "fraction"
 type, and test it.</p>
+
 <pre>
 <span class='linenumber'>  1 </span><span class=
 'keyword'>class</span> Fraction(object):
@@ -64,28 +80,35 @@ type, and test it.</p>
 <span class='linenumber'> 13 </span><span class='keyword'>    print</span> a
 <span class='linenumber'> 14 </span><span class='keyword'>    print</span> b
 </pre>
+
 <p>By now, you should be able to understand what this code does on your own.
 Notice the use of a named argument on line 2 so that we could pass a single
 argument to <tt>Fraction()</tt> [as we did on line 10] and it would interpret
 it as an integer (divided by 1). If we run it, we get the following
 output:</p>
+
 <pre>
 1 2
 3 1
-&lt;__main__.Fraction object at 0x01530F30&gt;
-&lt;__main__.Fraction object at 0x01530F50&gt;
+&lt;__main__.Fraction object at 0x01530F30>
+&lt;__main__.Fraction object at 0x01530F50>
 </pre>
+
 <p>The first two lines are as expected. However, the last two, when we try to
 print the fractions <tt>a</tt> and <tt>b</tt> do not exactly look like what
 we would want. Python does not know how we want the object to appear, so it
 gives us something like the variable name it uses itself to keep track of
 these two objects. To make Python print the fractions the way we want, we
 need to tell it using one of the <i>special</i> methods.</p>
+
 <!--=============================================-->
 <hr class="line" />
+
 <h3 class="section">Representing objects as strings</h3>
+
 <p>To tell Python how we want objects to be printed, or represented as
 strings, we use the function <tt>__str__()</tt>.</p>
+
 <pre>
 <span class='linenumber'>  1 </span><span class=
 'keyword'>class</span> Fraction(object):
@@ -113,25 +136,34 @@ strings, we use the function <tt>__str__()</tt>.</p>
 <span class='linenumber'> 14 </span><span class='keyword'>    print</span> a
 <span class='linenumber'> 15 </span><span class='keyword'>    print</span> b
 </pre>
+
 <p>The result is:</p>
+
 <pre>
 (1/2)
 (3/1)
 </pre>
+
 <!--=============================================-->
 <hr class="line" />
+
 <h3 class="try">Your turn</h3>
+
 <p>Make a change to <tt>__str__()</tt> so that <span class=
 "pykeyword">if</span> the denominator is 1, only the numerator is printed.
 This means that, instead of having "<tt>(3/1)</tt>", we would simply have
 "<tt>3</tt>"; however the result for "<tt>(1/2)</tt>" should be
 unchanged.</p>
+
 <!--=============================================-->
 <hr class="line" />
+
 <h3 class="section">Using <span class="pykeyword">assert</span></h3>
+
 <p>Now that we have our desired result, we replace the <span class=
 "pykeyword">print</span> statements by <span class="pykeyword">assert</span>
 statements.</p>
+
 <pre>
 <span class='linenumber'>  1 </span><span class=
 'keyword'>class</span> Fraction(object):
@@ -161,19 +193,21 @@ statements.</p>
 <span class='newlinenumber'> 15 </span><span class=
 'keyword'>    assert</span> str(b) ==<span class='string'> "(3/1)"</span>
 </pre>
+
 <p>When we use assertions instead of printing, we need to compare the string
 representation <tt>str()</tt> to the expected result. If you run this
 program, it should not output anything; this is what we want! Note that I
 still used the format with the denominator present, "<tt>(3/1)</tt>", and not
 the format I asked you to define in the last exercise.</p>
+
 <p>Next, we teach Python to multiply fractions!</p>
 
 <div class="lessons_nav">
 <a href="43-sorting.htm"><img alt="previous" src=
-"../../images/previous.png"/>Sorting</a> - 
-<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"/>
+"../../images/previous.png" />Sorting</a> - 
+<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png" />
 </a> - <a href="45-fractions2.htm">Fractions - Part 2 <img alt="next"
-src="../../images/next.png"/></a>
+src="../../images/next.png" /></a>
 </div>
 </body>
 </html>

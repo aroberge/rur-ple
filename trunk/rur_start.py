@@ -168,7 +168,7 @@ class RURApp(wx.Frame):
                 # 40 = bouton "." btn_size[1] + 8
         self.window.AddPage(self.sash2, _("Python: simple editor"))
 
-        self.SetSize((900, 660))
+        self.SetSize((800, 660))
         self.window.SetFocus()
         self.SendSizeEvent()  # added to attempt to solve problem on MacOS
         wx.EVT_CLOSE(self, self.OnClose)

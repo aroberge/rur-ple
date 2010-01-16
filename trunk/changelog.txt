@@ -27,6 +27,8 @@ http://code.google.com/p/rur-ple/source/list
  - Added desktop files for direct access to lessons
  - Fixed Linux rules file to address issue #14
  - Provided an improved Chinese translation
+ - Fixed wxPython 2.6/2.8 differences bugs
+ - Fixed missing strings from pot file
 
 
 ------------------------------------------------------------------------------
