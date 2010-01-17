@@ -31,6 +31,7 @@ http://code.google.com/p/rur-ple/source/list
  - Fixed missing strings from pot file
  - Modified default panes sizes to avoid scrollbars
  - Replaced fixed dimensions by variables to allow configurable startup sizes
+ - Added 2 command line options to match rurple with different screen sizes (-s -sw)
 
 
 ------------------------------------------------------------------------------

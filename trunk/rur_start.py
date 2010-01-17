@@ -73,6 +73,32 @@ if __name__ == "__main__": # ensures that all wxPython stuff is loaded properly
     os.chdir(misc.HOME)
     #
     misc.MYFILES_HOME = os.getenv('USERPROFILE') or os.getenv('HOME')
+    #
+    # --- Below are the setting to customize rur-ple startup and panels sizes
+    # SCREEN[0] is rurple window size width at startup
+    # SCREEN[1] is rurple window size height at startup
+    # SCREEN[2] is the programming pane width in "code and learn" tab
+    # SCREEN[3] is the debugging window height at the lower right in "code and learn"
+    # SCREEN[4] is Reeborg's world brick length
+    # SCREEN[5] is Reeborg's world brick thickness
+    # SCREEN[6] is the beeper position offset
+    # SCREEN[7] is Reeborg's horizontal offset
+    # SCREEN[8] is Reeborg's vertical offset
+    # misc.SCREEN = [797,545,350,40,27,5,8,8,3] # 800x600 monitors
+    # misc.SCREEN = [900,545,450,40,27,5,8,8,3] # 1024x600 netbooks
+    # misc.SCREEN = [980,700,450,110,34,6,13,12,9] # for 1024x768 and above - default size
+    # misc.SCREEN = [900,660,290,57,34,6,13,12,9] # in version 1.0.1 - no longer default
+    try:
+       commandline = sys.argv[1]
+    except IndexError:
+       commandline = ""
+    if commandline == "-800x600" or commandline == "-s": # for 'small'
+	misc.SCREEN = [797,545,350,40,27,5,8,8,3]
+    elif commandline == "-1024x600" or commandline == "-sw": # for 'small wide'
+	misc.SCREEN = [900,550,450,40,27,5,8,8,3]
+    else:
+        misc.SCREEN = [980,700,450,110,34,6,13,12,9] # default size
+
 
 #--- see end of file for completion of the start of the application
 
