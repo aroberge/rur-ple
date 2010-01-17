@@ -526,25 +526,33 @@ class RURApp(wx.Frame):
         
     def load_images(self, event):
         wildcard = "All files (*.*)|*.*"
-        dlg = wx.FileDialog(self, "Choose an image: robot facing South", 
+        dlg = wx.FileDialog(self, _("Choose an image: robot facing South"), 
                            os.getcwd(), "", wildcard, wx.OPEN | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             self.fileSouth = dlg.GetPath()
-        dlg.Destroy()        
-        dlg = wx.FileDialog(self, "Choose an image: robot facing North", 
+	else:
+	    return()
+        dlg.Destroy()      
+        dlg = wx.FileDialog(self, _("Choose an image: robot facing North"), 
                            os.getcwd(), "", wildcard, wx.OPEN | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             self.fileNorth = dlg.GetPath()
+	else:
+	    return()
         dlg.Destroy()  
-        dlg = wx.FileDialog(self, "Choose an image: robot facing East", 
+        dlg = wx.FileDialog(self, _("Choose an image: robot facing East"), 
                            os.getcwd(), "", wildcard, wx.OPEN | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             self.fileEast = dlg.GetPath()
+	else:
+	    return()
         dlg.Destroy()  
-        dlg = wx.FileDialog(self, "Choose an image: robot facing West", 
+        dlg = wx.FileDialog(self, _("Choose an image: robot facing West"), 
                            os.getcwd(), "", wildcard, wx.OPEN | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             self.fileWest = dlg.GetPath()
+	else:
+	    return()
         dlg.Destroy()  
         image_south = images.GREY_ROBOT_S
         image_north = images.GREY_ROBOT_N
