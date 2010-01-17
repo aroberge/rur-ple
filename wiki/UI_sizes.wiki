@@ -1,13 +1,19 @@
 #labels Phase-Implementation
-This page points to rurple default window size and the "Code and learn" tab dimension links in the code.
+This page points to rurple default window sizes and the "Code and learn" tab dimension links in the code.
 
 = Introduction =
-The purpose is to make it easy for developers and people not liking the default split or wanting to modify it to fit different screen sizes by default. All sizes are in pixel. Rurple currently loads at 800x660 (in svn) in order to support smaller screen but still avoid scrollbars.
+The purpose is to make it easy for developers and people not liking the default split or wanting to modify it to fit different screen sizes by default. All sizes are in pixel.
 
-We're working on a 10" netbook size (1024 x 600), but you could eventually play with the files below to fit a smaller resolution screen at startup without having scrollbars.
+= Command line options = 
+There are now 3 different sizes supported by default: 
+ * default size (no option at startup) starts rurple in a 980x700 window
+ * small monitors: -800x600 or -s option
+ * netbook screens: -1024x600 or -sw option
+
+All the above sizes should appear without scrollbars in "code and learn" tab. 
 
 = Variables =
-All values have been moved to the variable initialization section in rur_start.py and the variable is called SCREEN.
+All values have been moved to the variable initialization section in rur_start.py and the variable is called misc.SCREEN. Should you want to add one mode for yourself, you just need add an elif branch before the default option in rur_start.py.
 
 {{{misc.SCREEN=[800,660,290,57,34,6,13,12,9]}}}
 where
@@ -20,8 +26,6 @@ where
  *	13 is the beeper position offset
  *	12 is Reeborg's horizontal offset
  *	9 is Reeborg's vertical offset
-
-Working values for 10" screen at 1024x600 seems to be {{{misc.SCREEN = [800,550,350,40,27,5,8,8,3]}}}.
 
 = Code location =
 == Rur-ple size at startup ==
@@ -39,11 +43,11 @@ Defined in sash.py
  * line 56: {{{win.SetDefaultSize(wx.Size(misc.SCREEN[2], 600))}}}
  * line 74: {{{self.bottomWindow.SetDefaultSize(wx.Size(800, misc.SCREEN[3]))}}}
 
-== Beeper offset ==
+== Beepers offset ==
 Defined in world_creation.py
  * line 223: {{{beeper_info = (20, misc.SCREEN[6], 6, 3)}}}
 
-== Reeborg offset ==
+== Robots offset ==
 Defined in robot_factory.py
  * line 257: {{{self.imageOffset = (misc.SCREEN[7], misc.SCREEN[8])}}}
  * line 266: {{{self.imageOffset = (misc.SCREEN[7], misc.SCREEN[8])}}}
