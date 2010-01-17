@@ -322,6 +322,7 @@ class RURApp(wx.Frame):
         self.WorldDisplay.buffer = wx.EmptyBitmap(self.world.maxWidth,
                                                self.world.maxHeight)
         self.WorldDisplay.drawImage()
+	self.WorldDisplay.Refresh() # added to fix refresh bug (issue #23)
 
     def SaveWorldFile(self, dummy):
         if self.isRunning:
