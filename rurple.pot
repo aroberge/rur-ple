@@ -1,20 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-11 19:13+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: rur-ple\n"
+"POT-Creation-Date: 2010-01-17 10:37+0800\n"
+"PO-Revision-Date: 2010-01-17 10:37+0800\n"
+"Last-Translator: André Roberge <andre.roberge@gmail.com>\n"
+"Language-Team:  <andre.roberge@gmail.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
 
 #: rur_py/bouton.py:23 rur_py/bouton.py:124
 msgid "Opens existing robot program"
@@ -136,23 +130,23 @@ msgstr ""
 msgid "Select a language"
 msgstr ""
 
-#: rur_py/browser.py:108 rur_start.py:127
+#: rur_py/browser.py:108 rur_start.py:156
 msgid "  RUR: Read and Learn  "
 msgstr ""
 
-#: rur_py/browser.py:109 rur_start.py:133
+#: rur_py/browser.py:109 rur_start.py:162
 msgid "Robot: Code and Learn"
 msgstr ""
 
-#: rur_py/browser.py:110 rur_start.py:160
+#: rur_py/browser.py:110 rur_start.py:189
 msgid "Python: Code and Learn"
 msgstr ""
 
-#: rur_py/browser.py:111 rur_start.py:166
+#: rur_py/browser.py:111 rur_start.py:195
 msgid "Python: simple editor"
 msgstr ""
 
-#: rur_py/browser.py:112 rur_start.py:106
+#: rur_py/browser.py:112 rur_start.py:135
 msgid "RUR: a Python Learning Environment"
 msgstr ""
 
@@ -160,7 +154,7 @@ msgstr ""
 msgid "html files (*.htm*)|*.htm*| All files (*.*)|*.*"
 msgstr ""
 
-#: rur_py/browser.py:147 rur_start.py:191 rur_start.py:326
+#: rur_py/browser.py:147 rur_start.py:220 rur_start.py:355
 msgid "Choose a file"
 msgstr ""
 
@@ -173,8 +167,16 @@ msgid "Hey!  You stopped me!"
 msgstr ""
 
 #: rur_py/cpu.py:184 rur_py/status_bar.py:36 rur_py/status_bar.py:88
-#: rur_start.py:395
+#: rur_start.py:424
 msgid "Program paused"
+msgstr ""
+
+#: rur_py/cpu.py:220
+msgid "Requesting a string"
+msgstr ""
+
+#: rur_py/cpu.py:227
+msgid "Requesting an integer"
 msgstr ""
 
 #: rur_py/cpu.py:243
@@ -186,7 +188,7 @@ msgid "No instruction to execute."
 msgstr ""
 
 #: rur_py/cpu.py:274 rur_py/status_bar.py:35 rur_py/status_bar.py:87
-#: rur_start.py:391
+#: rur_start.py:420
 msgid "Program is running"
 msgstr ""
 
@@ -211,13 +213,13 @@ msgid ""
 msgstr ""
 
 #: rur_py/cpu.py:310 rur_py/status_bar.py:29 rur_py/status_bar.py:34
-#: rur_py/status_bar.py:86 rur_start.py:407
+#: rur_py/status_bar.py:86 rur_start.py:436
 msgid "Program not running"
 msgstr ""
 
 #: rur_py/dialogs.py:64 rur_py/dialogs.py:70 rur_py/dialogs.py:77
-#: rur_py/dialogs.py:83 rur_py/dialogs.py:89 rur_py/robot_factory.py:324
-#: rur_py/robot_factory.py:433
+#: rur_py/dialogs.py:83 rur_py/dialogs.py:89 rur_py/robot_factory.py:325
+#: rur_py/robot_factory.py:434
 msgid "Error"
 msgstr ""
 
@@ -242,103 +244,103 @@ msgid ""
 "The existing walls and beepers will be removed."
 msgstr ""
 
-#: rur_py/lightning.py:383
+#: rur_py/lightning.py:384
 msgid "Help (F1)"
 msgstr ""
 
-#: rur_py/lightning.py:386
+#: rur_py/lightning.py:387
 msgid "New Editor (c-n)"
 msgstr ""
 
-#: rur_py/lightning.py:389
+#: rur_py/lightning.py:390
 msgid "Open (c-o)"
 msgstr ""
 
-#: rur_py/lightning.py:392
+#: rur_py/lightning.py:393
 msgid "Save (c-s)"
 msgstr ""
 
-#: rur_py/lightning.py:395
+#: rur_py/lightning.py:396
 msgid "Run (c-r)"
 msgstr ""
 
-#: rur_py/lightning.py:398
+#: rur_py/lightning.py:399
 msgid "Run with (F6)"
 msgstr ""
 
-#: rur_py/lightning.py:401
+#: rur_py/lightning.py:402
 msgid "docTest (F2)"
 msgstr ""
 
-#: rur_py/lightning.py:404
+#: rur_py/lightning.py:405
 msgid "Verbose (F3)"
 msgstr ""
 
-#: rur_py/lightning.py:407
+#: rur_py/lightning.py:408
 msgid "test suite (F4)"
 msgstr ""
 
-#: rur_py/lightning.py:410
+#: rur_py/lightning.py:411
 msgid "v. suite (F5)"
 msgstr ""
 
-#: rur_py/lightning.py:414
+#: rur_py/lightning.py:415
 msgid "Go to (c-g)"
 msgstr ""
 
-#: rur_py/lightning.py:417
+#: rur_py/lightning.py:418
 msgid "Hide/show (c-h)"
 msgstr ""
 
-#: rur_py/lightning.py:420
+#: rur_py/lightning.py:421
 msgid "Erase (c-e)"
 msgstr ""
 
-#: rur_py/lightning.py:423
+#: rur_py/lightning.py:424
 msgid "Layout (c-l)"
 msgstr ""
 
-#: rur_py/lightning.py:534 rur_py/lightning.py:545
+#: rur_py/lightning.py:535 rur_py/lightning.py:546
 msgid "Python files (*.py)|*.py|"
 msgstr ""
 
-#: rur_py/lightning.py:595
+#: rur_py/lightning.py:596
 msgid "Enter arguments list"
 msgstr ""
 
-#: rur_py/lightning.py:596
+#: rur_py/lightning.py:597
 msgid "Running script with arguments"
 msgstr ""
 
-#: rur_py/lightning.py:628
+#: rur_py/lightning.py:629
 msgid "All files (*.*)|*.*"
 msgstr ""
 
-#: rur_py/lightning.py:629
+#: rur_py/lightning.py:630
 msgid "Select file to be used in test suite"
 msgstr ""
 
-#: rur_py/lightning.py:729
+#: rur_py/lightning.py:730
 msgid "Enter line number"
 msgstr ""
 
-#: rur_py/lightning.py:729
+#: rur_py/lightning.py:730
 msgid "Go to line"
 msgstr ""
 
-#: rur_py/lightning.py:739
+#: rur_py/lightning.py:740
 msgid "raw_input() request"
 msgstr ""
 
-#: rur_py/lightning.py:747
+#: rur_py/lightning.py:748
 msgid "input() request"
 msgstr ""
 
-#: rur_py/lightning.py:763
+#: rur_py/lightning.py:764
 msgid "Interpreter"
 msgstr ""
 
-#: rur_py/lightning.py:769
+#: rur_py/lightning.py:770
 msgid "Lightning Compiler"
 msgstr ""
 
@@ -346,31 +348,31 @@ msgstr ""
 msgid "Found a word not allowed: "
 msgstr ""
 
-#: rur_py/robot_factory.py:151
+#: rur_py/robot_factory.py:152
 msgid ""
 "That move really hurt!\n"
 "Please, make sure that there is no wall in front of me!"
 msgstr ""
 
-#: rur_py/robot_factory.py:156
+#: rur_py/robot_factory.py:157
 msgid ""
 "I obey your command:\n"
 " turning myself off."
 msgstr ""
 
-#: rur_py/robot_factory.py:170
+#: rur_py/robot_factory.py:171
 msgid ""
 "put_beeper() failed.\n"
 " I am not carrying any beepers."
 msgstr ""
 
-#: rur_py/robot_factory.py:179
+#: rur_py/robot_factory.py:180
 msgid ""
 "pick_beeper failed.\n"
 "I must be next to a beeper before I can pick it up."
 msgstr ""
 
-#: rur_py/robot_factory.py:322 rur_py/robot_factory.py:431
+#: rur_py/robot_factory.py:323 rur_py/robot_factory.py:432
 msgid ""
 "Setting delay failed.\n"
 "Accepted values are between 0 and 10."
@@ -416,89 +418,93 @@ msgstr ""
 msgid "import keyword used improperly"
 msgstr ""
 
-#: rur_py/world_creation.py:447
+#: rur_py/world_creation.py:448
 msgid "Avenue"
 msgstr ""
 
-#: rur_py/world_creation.py:449
+#: rur_py/world_creation.py:450
 msgid "Street"
 msgstr ""
 
-#: rur_start.py:176
+#: rur_start.py:38
+msgid "wxPython versions less than 2.6 are not supported."
+msgstr ""
+
+#: rur_start.py:205
 msgid ""
 "Robot program has changed.\n"
 "You may save it before quitting."
 msgstr ""
 
-#: rur_start.py:177
+#: rur_start.py:206
 msgid "Program has been changed"
 msgstr ""
 
-#: rur_start.py:190 rur_start.py:300
+#: rur_start.py:219 rur_start.py:329
 msgid "World files (*.wld)|*.wld| All files (*.*)|*.*"
 msgstr ""
 
-#: rur_start.py:225 rur_start.py:233 rur_start.py:245 rur_start.py:269
-#: rur_start.py:281
+#: rur_start.py:254 rur_start.py:262 rur_start.py:274 rur_start.py:298
+#: rur_start.py:310
 #, python-format
 msgid ""
 "Problem with %s\n"
 "Please recreate world file."
 msgstr ""
 
-#: rur_start.py:226
+#: rur_start.py:255
 msgid "avenues"
 msgstr ""
 
-#: rur_start.py:227 rur_start.py:235 rur_start.py:247 rur_start.py:271
-#: rur_start.py:283
+#: rur_start.py:256 rur_start.py:264 rur_start.py:276 rur_start.py:300
+#: rur_start.py:312
 msgid "Invalid world file format"
 msgstr ""
 
-#: rur_start.py:234
+#: rur_start.py:263
 msgid "streets"
 msgstr ""
 
-#: rur_start.py:246
+#: rur_start.py:275
 msgid "robot"
 msgstr ""
 
-#: rur_start.py:270
+#: rur_start.py:299
 msgid "beepers"
 msgstr ""
 
-#: rur_start.py:282
+#: rur_start.py:311
 msgid "walls"
 msgstr ""
 
-#: rur_start.py:303
+#: rur_start.py:332
 msgid "Save new world as"
 msgstr ""
 
-#: rur_start.py:325 rur_start.py:354
+#: rur_start.py:354 rur_start.py:383
 msgid "Program files (*.rur)|*.rur| All files (*.*)|*.*"
 msgstr ""
 
-#: rur_start.py:344
+#: rur_start.py:373
 msgid "Program will not be used."
 msgstr ""
 
-#: rur_start.py:357
+#: rur_start.py:386
 msgid "Save new program as"
 msgstr ""
 
-#: rur_start.py:373
+#: rur_start.py:402
 msgid "Program will not be saved."
 msgstr ""
 
-#: rur_start.py:433
+#: rur_start.py:462
 msgid "No robot in world to give beepers to."
 msgstr ""
 
-#: rur_start.py:436
+#: rur_start.py:465
 msgid "Beepers!"
 msgstr ""
 
-#: rur_start.py:451
+#: rur_start.py:480
 msgid "World size!"
 msgstr ""
