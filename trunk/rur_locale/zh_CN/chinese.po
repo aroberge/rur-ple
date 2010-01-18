@@ -1,8 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: rur-ple\n"
-"POT-Creation-Date: 2010-01-17 10:37+0800\n"
-"PO-Revision-Date: 2010-01-17 13:27+0800\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-17 16:57+0800\n"
+"PO-Revision-Date: 2010-01-17 20:27+0800\n"
 "Last-Translator: PockeyLam <pockey@greenboard.org.cn>\n"
 "Language-Team:  <andre.roberge@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -601,4 +602,20 @@ msgstr "报警器！"
 #: rur_start.py:480
 msgid "World size!"
 msgstr "世界尺寸！"
+
+#: rur_start.py:529
+msgid "Choose an image: robot facing South"
+msgstr "选择一个图像：机器人面向南"
+
+#: rur_start.py:534
+msgid "Choose an image: robot facing North"
+msgstr "选择一个图像：机器人面向北"
+
+#: rur_start.py:539
+msgid "Choose an image: robot facing East"
+msgstr "选择一个图像：机器人面向东"
+
+#: rur_start.py:544
+msgid "Choose an image: robot facing West"
+msgstr "选择一个图像：机器人面向西"
 
