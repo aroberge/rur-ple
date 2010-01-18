@@ -86,8 +86,8 @@ if __name__ == "__main__": # ensures that all wxPython stuff is loaded properly
     # SCREEN[8] is Reeborg's vertical offset
     # misc.SCREEN = [797,545,350,40,27,5,8,8,3] # 800x600 monitors
     # misc.SCREEN = [900,545,450,40,27,5,8,8,3] # 1024x600 netbooks
-    # misc.SCREEN = [980,700,450,110,34,6,13,12,9] # for 1024x768 and above - default size
-    # misc.SCREEN = [900,660,290,57,34,6,13,12,9] # in version 1.0.1 - no longer default
+    # misc.SCREEN = [980,700,450,110,34,6,13,12,9] # for 1024x768 and above
+    # misc.SCREEN = [900,660,290,57,34,6,13,12,9] # in version 1.0.1
     try:
        commandline = sys.argv[1]
     except IndexError:
