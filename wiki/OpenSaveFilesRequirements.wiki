@@ -11,7 +11,7 @@ Currently rurple creates a .rurple folder where it stores a rurple.lang file to 
  * user/application data/rurple  on Windows (need to double check exact location)
  * to be verified for mac
 
-= sample and user's files =
+= Sample and user's files =
 As we currently have 2 open/save buttons for code and world files, and the software comes with sample files and encourages users to save their own we need to come up with a solution which doesn't make the software more complicated while keeping the same logic as when it was running from source.
 
 Taking into consideration multi-user systems and various scenari here is the solution we feel the most appropriate:
@@ -23,4 +23,4 @@ Taking into consideration multi-user systems and various scenari here is the sol
   * else
    * create one
    * copy sample files as read only files (so kids can't modify but can save as)
-  * after any upgrade overwrite those sample files (for example by adding an empy file in .config/rurple)
+  * after any upgrade overwrite those sample files (for example by adding a version file in .config/rurple)
