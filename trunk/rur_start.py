@@ -29,18 +29,17 @@
 import os
 import sys
 from rur_py.translation import _
-import rur_py.misc
+import rur_py.misc as misc  # a few global variables
 
 # do not check version when make a 'bundle' of the application
 # ref: http://www.wxpython.org/docs/api/wxversion-module.html
 if not hasattr(sys, 'frozen'):
-    if rur_py.misc.wxversiontuple() < (2,6):
+    if misc.wxversiontuple() < (2,6):
         print _("wxPython versions less than 2.6 are not supported.")
         sys.exit(1)
 
 import wx
 import wx.lib.buttons
-import rur_py.misc as misc  # a few global variables
 
 if __name__ == "__main__": # ensures that all wxPython stuff is loaded properly
     App = wx.PySimpleApp(0) # (1) redirects print output to window; 
@@ -94,20 +93,24 @@ if __name__ == "__main__": # ensures that all wxPython stuff is loaded properly
     except IndexError:
        screen_size = wx.Display().GetGeometry()
        if screen_size[2] < 800:
-           commandline = "-640x480"
+           commandline = "-xs"
        if screen_size[2] < 905:
-           commandline = "-800x600"
+           commandline = "-s"
        elif screen_size[3] < 695:
-           commandline = "-1024x600"
+           commandline = "sw"
        else:
            commandline = ''
-    if commandline == "-640x480" or commandline == "-xs": # for 'extra small'
+    if commandline == "-xs": # for 640x480
         misc.SCREEN = [637,445,260,5,20,4,5,4,-1,1]
-    elif commandline == "-800x600" or commandline == "-s": # for 'small'
+    elif commandline == "-s" and os.name == "posix": # for 800x600 on Linux
+	misc.SCREEN = [797,545,350,40,27,5,8,8,3,23]
+    elif commandline == "-s": # for 800x600 on Windows
 	misc.SCREEN = [797,545,345,24,27,5,8,8,3,23]
-    elif commandline == "-1024x600" or commandline == "-sw": # for 'small wide'
+    elif commandline == "-sw" and os.name == "posix": # for 1024x600 on Linux
+	misc.SCREEN = [900,545,450,40,27,5,8,8,3,25]
+    elif commandline == "-sw": # for 1024x600 on Windows
 	misc.SCREEN = [900,545,445,24,27,5,8,8,3,25]
-    elif commandline == "-n": # to force "normal" size
+    elif commandline == "-n": # for 1024x768 and above
         misc.SCREEN = [980,700,445,95,34,6,13,12,9,25] # default size
     else:
         misc.SCREEN = [980,700,445,95,34,6,13,12,9,25] # default size
