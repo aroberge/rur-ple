@@ -33,6 +33,9 @@ http://code.google.com/p/rur-ple/source/list
  - Replaced fixed dimensions by variables to allow configurable startup sizes
  - Added 2 command line options to match rurple with different screen sizes (-s -sw)
  - localized lesson screenshots that have text on it
+ - Added screen size detection to start rur-ple in best possible size
+ - Adjusted screen values to fit Windows XP
+ - Added a 640x480 (-xs) mode
 
 
 ------------------------------------------------------------------------------
