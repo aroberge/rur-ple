@@ -9,6 +9,7 @@
 import wx
 import images
 from rur_py.translation import _
+import rur_py.misc as misc  # a few global variables
 
 class rurChoiceWindow(wx.ScrolledWindow):
     def __init__(self, parent, great_grand_parent):
@@ -18,7 +19,7 @@ class rurChoiceWindow(wx.ScrolledWindow):
         btn_size = (32, 32)
         self.ggp.BUTTON_HEIGHT = btn_size[0] + 8
         spacer_small = (4, 4)
-        spacer_large = (25, 25)
+        spacer_large = (misc.SCREEN[9], misc.SCREEN[9])
 
         tip_list = [_("Opens existing robot program"), 
                           _("Saves robot program"), 

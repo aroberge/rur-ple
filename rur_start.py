@@ -84,6 +84,7 @@ if __name__ == "__main__": # ensures that all wxPython stuff is loaded properly
     # SCREEN[6] is the beeper position offset
     # SCREEN[7] is Reeborg's horizontal offset
     # SCREEN[8] is Reeborg's vertical offset
+    # SCREEN[9] is the bouton large spacer
     # misc.SCREEN = [797,545,350,40,27,5,8,8,3] # 800x600 monitors
     # misc.SCREEN = [900,545,450,40,27,5,8,8,3] # 1024x600 netbooks
     # misc.SCREEN = [980,700,450,110,34,6,13,12,9] # for 1024x768 and above
@@ -91,14 +92,25 @@ if __name__ == "__main__": # ensures that all wxPython stuff is loaded properly
     try:
        commandline = sys.argv[1]
     except IndexError:
-       commandline = ""
-    if commandline == "-800x600" or commandline == "-s": # for 'small'
-	misc.SCREEN = [797,545,350,40,27,5,8,8,3]
+       screen_size = wx.Display().GetGeometry()
+       if screen_size[2] < 800:
+           commandline = "-640x480"
+       if screen_size[2] < 905:
+           commandline = "-800x600"
+       elif screen_size[3] < 695:
+           commandline = "-1024x600"
+       else:
+           commandline = ''
+    if commandline == "-640x480" or commandline == "-xs": # for 'extra small'
+        misc.SCREEN = [637,445,260,5,20,4,5,4,-1,1]
+    elif commandline == "-800x600" or commandline == "-s": # for 'small'
+	misc.SCREEN = [797,545,345,24,27,5,8,8,3,23]
     elif commandline == "-1024x600" or commandline == "-sw": # for 'small wide'
-	misc.SCREEN = [900,550,450,40,27,5,8,8,3]
+	misc.SCREEN = [900,545,445,24,27,5,8,8,3,25]
+    elif commandline == "-n": # to force "normal" size
+        misc.SCREEN = [980,700,445,95,34,6,13,12,9,25] # default size
     else:
-        misc.SCREEN = [980,700,450,110,34,6,13,12,9] # default size
-
+        misc.SCREEN = [980,700,445,95,34,6,13,12,9,25] # default size
 
 #--- see end of file for completion of the start of the application
 
