@@ -24,7 +24,7 @@ import wx
 from world_creation import Visible_world
 from robot_factory import Used_robot, New_improved_robot
 import dialogs
-import misc
+import rur_py.misc as misc  # a few global variables
 
  # version dependent function keycode to make rur-ple work with
  # wxpython 2.6 to latest
