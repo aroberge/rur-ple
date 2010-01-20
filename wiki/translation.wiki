@@ -13,15 +13,17 @@ This "basic" translation includes TWO files:
 
 === The lessons ===
 ==== Images ====
- * Up until lesson 24 only 3 screenshots need to be added to reflect the localized interface. They are:
+ * Up until lesson 25 only 4 screenshots need to be added to reflect the localized interface. They are:
    * lessons/images/intro/en_code_tab.png
    * lessons/images/intro/en_robot_window.png
    * lessons/images/intro/en_status_bar.png
+   * lessons/images/inter/en_interpreter.png
  * The logic is to:
    * Take the same screenshots of the same windows in your language
      * full window screenshot is not resized: start rurple with the '-s' command line option
      * same for en_code_tab.png: no resizing
      * en_status_bar.png has 1 program and 1 world file loaded and is resized to 573 width
+     * en_interpreter width depends highly on your language to be able to display the 4 tabs
    * Rename them into language_code_filename. For example if you're an Italian translator, your language code is 'it', so the new files will be named it_code_tab.png, it_robot_window.png and it_status_bar.png
    * Place them all in the same lessons/images/intro/ folder
    * Update the image HTML code (lesson 2 and 8) to point to the localized image in the appropriate lesson.
@@ -31,4 +33,3 @@ Coming soon.
 
 ==== Tools ====
 There is an xml tag with the language in each file and a python script in the lessons folder which enable you to track XML compliance of one language and translation ratio (python checktrans.py es from the lessons folder will give you that for Spanish for example).  The way it works is that you need to copy over all English files into the Spanish folder (don't overwrite existing files, except rurple.css) and start your translation. Once a page is translated change the xml tag from en to es and the script will do the rest. 
-
