@@ -24,3 +24,4 @@ Taking into consideration multi-user systems and various scenari here is the sol
    * create one
    * copy sample files as read only files (so kids can't modify but can save as)
   * after any upgrade overwrite those sample files (for example by adding a version file in .config/rurple)
+  * ask confirmation when user is overwriting a file
