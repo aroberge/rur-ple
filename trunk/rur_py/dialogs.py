@@ -128,12 +128,12 @@ class NormalEnd(LogicException):
 
 #--- General Message
 
-def rurMessageDialog(text, title):
+def rurMessageDialog(text, title, flags = wx.OK | wx.ICON_INFORMATION):
 
-    messageDialog = wx.MessageDialog(None, text, title,
-                                     wx.OK | wx.ICON_INFORMATION)
-    messageDialog.ShowModal()
+    messageDialog = wx.MessageDialog(None, text, title, flags)
+    rc = messageDialog.ShowModal()
     messageDialog.Destroy()
+    return rc
 
 #--- New attempt using sliders
 

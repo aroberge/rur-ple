@@ -28,13 +28,21 @@
 
 import os
 import sys
+
+# Change directory so that rur-ple can be started from everywhere.
+try:
+    os.chdir(os.path.dirname(sys.argv[0]))
+except OSError, e:
+    print _('Cannot change to rur-ple directory.')
+
 from rur_py.translation import _
 import rur_py.misc as misc  # a few global variables
+import rur_py.wxutils as wxutils
 
 # do not check version when make a 'bundle' of the application
 # ref: http://www.wxpython.org/docs/api/wxversion-module.html
 if not hasattr(sys, 'frozen'):
-    if misc.wxversiontuple() < (2,6):
+    if wxutils.wxversiontuple() < (2,6):
         print _("wxPython versions less than 2.6 are not supported.")
         sys.exit(1)
 
@@ -398,24 +406,63 @@ class RURApp(wx.Frame):
         if no_error:
             wildcard = _("Program files (*.rur)|*.rur| All files (*.*)|*.*")
             fname = os.path.basename(self.filename)
-	    # misc.PRGM_DIR is replaced by MYFILES_HOME defined in misc.py
-            dlg = wx.FileDialog(self, _("Save new program as"), misc.MYFILES_HOME,
-                               fname, wildcard, wx.SAVE| wx.CHANGE_DIR )
-            if dlg.ShowModal() == wx.ID_OK:
-                self.filename = dlg.GetPath()
-                f = open(self.filename, 'w')
-                f.write(code)
-                f.close()
-                arg = self.status_bar.program_field, \
-                      os.path.basename(self.filename)
-                event_manager.SendCustomEvent(self, arg)
-                code = parser.FixLineEnding(code)
-                misc.PRGM_DIR = os.path.dirname(self.filename)
-            dlg.Destroy()
-            self.ProgramEditor.SetSavePoint()
+            save_finished = False
+            while not save_finished:
+                # misc.PRGM_DIR is replaced by MYFILES_HOME defined in misc.py
+                dlg = wx.FileDialog(self, _("Save new program as"),
+                    misc.MYFILES_HOME, fname, wildcard, wx.SAVE |
+                    wx.CHANGE_DIR )
+                returncode = dlg.ShowModal()
+                dlg.Destroy()
+
+                if returncode == wx.ID_OK:
+                    self.filename = dlg.GetPath()
+
+                    if self.OverWriteCheck(self.filename):
+                        try:
+                            f = open(self.filename, 'w')
+                            f.write(code)
+                            f.close()
+                            arg = self.status_bar.program_field, \
+                                  os.path.basename(self.filename)
+                            event_manager.SendCustomEvent(self, arg)
+                            # is the next line obsolete? It has no effect as it
+                            # occurs after the file has been written.
+                            code = parser.FixLineEnding(code)
+                            misc.PRGM_DIR = os.path.dirname(self.filename)
+                            self.ProgramEditor.SetSavePoint()
+                        except IOError, e:
+                            rD.rurMessageDialog(unicode(e[1]), (u'IO Error'),
+                                wx.OK | wx.STAY_ON_TOP)
+                            # write aborted
+                            save_finished = False
+                        else:
+                            # overwrite done
+                            save_finished = True
+                    else:
+                        # overwrite aborted
+                        save_finished = False
+                else:
+                    # save file aborted
+                    save_finished = True
+
         else:
             code = ""
             rD.rurMessageDialog(mesg, _("Program will not be saved."))
+
+    def OverWriteCheck(self, filename):
+        '''Issues a message dialog if filename is an existing file. Returns
+        False if the dialog is closed by pressing Cancel. Returns True if OK is
+        pressed or filename does not yet exist.
+        '''
+        if os.path.isfile(filename):
+            if rD.rurMessageDialog(_(u'File %s exists. Do you want to'
+                ' overwrite it?') % filename,_(u'Overwrite File?'), wx.OK
+                | wx.CANCEL | wx.ICON_EXCLAMATION | wx.STAY_ON_TOP) == wx.ID_OK:
+                return True
+            else:
+                return False
+        return True
 
 #--- Program controls
 
