@@ -24,11 +24,11 @@ import wx
 from world_creation import Visible_world
 from robot_factory import Used_robot, New_improved_robot
 import dialogs
-import rur_py.misc as misc  # a few global variables
+import wxutils
 
  # version dependent function keycode to make rur-ple work with
  # wxpython 2.6 to latest
-if misc.wxversiontuple() < (2, 7, 1, 1):
+if wxutils.wxversiontuple() < (2, 7, 1, 1):
     def keycode(event):
         return event.KeyCode()
 else:

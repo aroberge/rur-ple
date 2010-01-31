@@ -19,18 +19,3 @@ PYTHON_DIR = ''
 
 #--- dimensions defaults
 SCREEN= ''	  # rurple default sizes at startup
-
-# TODO: Should be moved to a better place, perhaps wxcompat.
-def wxversiontuple():
-     '''returns wx.version() as a tuple of ints for numeric
-     comparison of versions.
-     '''
-     try:
-         import wx
-         if hasattr(wx, 'version'):
-             return tuple(map(int, wx.version().split()[0].split('.')))
-         elif hasattr(wx, '__version__'):
-             return tuple(map(int, wx.__version__.split('.')))
-     except Exception:
-         return (0, 0, 0, 0)
-
