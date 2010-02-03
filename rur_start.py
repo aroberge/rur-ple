@@ -31,7 +31,8 @@ import sys
 
 # Change directory so that rur-ple can be started from everywhere.
 try:
-    os.chdir(os.path.dirname(sys.argv[0]))
+    #os.chdir(os.path.dirname(sys.argv[0]))
+    sys.path.append(os.path.dirname(sys.argv[0]))
 except OSError, e:
     print _('Cannot change to rur-ple directory.')
 
@@ -127,7 +128,7 @@ if __name__ == "__main__": # ensures that all wxPython stuff is loaded properly
 
 import wx.py as py           # For the interpreter
 import rur_py.images as images # load all images
-import rur_py.dialogs as rD    # contains various dialogs and exception classes
+import rur_py.dialogs as dialogs # contains dialogs and exception classes
 from rur_py.translation import _
 
 from rur_py.sash import MySashWindow
@@ -224,7 +225,7 @@ class RURApp(wx.Frame):
 
     def OnClose(self, event):
         if self.ProgramEditor.GetModify():
-            rD.rurMessageDialog(
+            dialogs.messageDialog(
              _("Robot program has changed.\nYou may save it before quitting."), 
              _("Program has been changed"))
             self.SaveProgramFile(event)
@@ -239,11 +240,13 @@ class RURApp(wx.Frame):
     def OpenWorldFile(self, dummy):
         if self.isRunning:
             return
-        wildcard = _("World files (*.wld)|*.wld| All files (*.*)|*.*") 
-        dlg = wx.FileDialog(self, _("Choose a file"), misc.WORLD_DIR, "",
-                           wildcard, wx.OPEN | wx.CHANGE_DIR)
-        if dlg.ShowModal() == wx.ID_OK:
-            self.world_filename = dlg.GetPath()
+
+        openedFileName = dialogs.openDialog(_("Choose a file"),
+            _("World files (*.wld)|*.wld| All files (*.*)|*.*"),
+            "", misc.WORLD_DIR)
+
+        if openedFileName != "":
+            self.world_filename = openedFileName
             self.ReadWorldFile()
             self.UpdateWorld()
             self.user_program.clear_trace()
@@ -251,7 +254,6 @@ class RURApp(wx.Frame):
             arg = self.status_bar.world_field, \
                   os.path.basename(self.world_filename)
             event_manager.SendCustomEvent(self, arg)
-        dlg.Destroy()
 
     def ReadWorldFile(self):
         if self.isRunning:
@@ -273,7 +275,7 @@ class RURApp(wx.Frame):
         try:
             av = self.backup_dict['avenues']
         except:
-            rD.rurMessageDialog(
+            dialogs.messageDialog(
                    _("Problem with %s\nPlease recreate world file.")%
                    _("avenues"), 
                    _("Invalid world file format"))
@@ -281,7 +283,7 @@ class RURApp(wx.Frame):
         try:
             st = self.backup_dict['streets']
         except:
-            rD.rurMessageDialog(
+            dialogs.messageDialog(
                    _("Problem with %s\nPlease recreate world file.")%
                    _("streets"), 
                    _("Invalid world file format"))
@@ -293,7 +295,7 @@ class RURApp(wx.Frame):
                 arg = self.status_bar.beeper_field, beep
                 event_manager.SendCustomEvent(self, arg)
         except:
-            rD.rurMessageDialog(
+            dialogs.messageDialog(
                    _("Problem with %s\nPlease recreate world file.")%
                    _("robot"), 
                    _("Invalid world file format"))
@@ -317,7 +319,7 @@ class RURApp(wx.Frame):
                 self.world.beepers_dict[corner] = self.backup_dict[
                                                             'beepers'][corner]
         except:
-            rD.rurMessageDialog(
+            dialogs.messageDialog(
                    _("Problem with %s\nPlease recreate world file.")%
                    _("beepers"), 
                    _("Invalid world file format"))
@@ -329,7 +331,7 @@ class RURApp(wx.Frame):
             for col, row in self.backup_dict['walls']:
                 self.world.walls_list.append((col, row))
         except:
-            rD.rurMessageDialog(
+            dialogs.messageDialog(
                    _("Problem with %s\nPlease recreate world file.")%
                    _("walls"), 
                    _("Invalid world file format"))
@@ -350,37 +352,35 @@ class RURApp(wx.Frame):
     def SaveWorldFile(self, dummy):
         if self.isRunning:
             return
-        wildcard = _("World files (*.wld)|*.wld| All files (*.*)|*.*")
-        fname = os.path.basename(self.filename)
-	# misc.WORLD_DIR is replaced by MYFILES_HOME defined in misc.py
-        dlg = wx.FileDialog(self, _("Save new world as"), misc.MYFILES_HOME,
-                               fname, wildcard, wx.SAVE| wx.CHANGE_DIR )
-        if dlg.ShowModal() == wx.ID_OK:
-            self.world_filename = dlg.GetPath()
-            f = open(self.world_filename, 'w')
-            txt = self.WorldDisplay.UpdateEditor()
-            f.write(txt)
-            f.close()
-            arg = self.status_bar.world_field, \
-                  os.path.basename(self.world_filename)
-            event_manager.SendCustomEvent(self, arg)
-            misc.WORLD_DIR = os.path.dirname(self.world_filename)
-            # save a backup copy to 'reset world'
-            self.backup_dict = {} 
-            exec txt in self.backup_dict
-        dlg.Destroy()
+        savedFileName = dialogs.checkedSaveDialog(
+            self.WorldDisplay.UpdateEditor(),
+            _("Save new world as"),
+            _("World files (*.wld)|*.wld| All files (*.*)|*.*"),
+            self.world_filename, misc.MYFILES_HOME)
+
+        self.world_filename = savedFileName
+
+        arg = self.status_bar.world_field, \
+              os.path.basename(self.world_filename)
+        event_manager.SendCustomEvent(self, arg)
+        misc.WORLD_DIR = os.path.dirname(self.world_filename)
+        # save a backup copy to 'reset world'
+        self.backup_dict = {}
+        exec txt in self.backup_dict
 
 #----- Program files methods
 
     def OpenProgramFile(self, dummy):
         if self.isRunning:
             return
-        wildcard = _("Program files (*.rur)|*.rur| All files (*.*)|*.*")
-        dlg = wx.FileDialog(self, _("Choose a file"), misc.PRGM_DIR, "",
-                           wildcard, wx.OPEN | wx.CHANGE_DIR)
-        if dlg.ShowModal() == wx.ID_OK:
+
+        openedFileName = dialogs.openDialog(_("Choose a file"),
+           _("Program files (*.rur)|*.rur| All files (*.*)|*.*"),
+            "", misc.PRGM_DIR)
+
+        if openedFileName != "":
             global code
-            self.filename = dlg.GetPath()
+            self.filename = openedFileName
             arg = self.status_bar.program_field, \
                   os.path.basename(self.filename)
             event_manager.SendCustomEvent(self, arg)
@@ -394,8 +394,7 @@ class RURApp(wx.Frame):
                 self.ProgramEditor.SetSavePoint()
             else:
                 code = ""
-                rD.rurMessageDialog(mesg, _("Program will not be used."))
-        dlg.Destroy()
+                dialogs.messageDialog(mesg, _("Program will not be used."))
     
     def SaveProgramFile(self, dummy):
         if self.isRunning:
@@ -404,65 +403,21 @@ class RURApp(wx.Frame):
         code = self.ProgramEditor.GetText()
         no_error, mesg = parser.ParseProgram(code)
         if no_error:
-            wildcard = _("Program files (*.rur)|*.rur| All files (*.*)|*.*")
-            fname = os.path.basename(self.filename)
-            save_finished = False
-            while not save_finished:
-                # misc.PRGM_DIR is replaced by MYFILES_HOME defined in misc.py
-                dlg = wx.FileDialog(self, _("Save new program as"),
-                    misc.MYFILES_HOME, fname, wildcard, wx.SAVE |
-                    wx.CHANGE_DIR )
-                returncode = dlg.ShowModal()
-                dlg.Destroy()
+            savedFileName = savedFileName = dialogs.checkedSaveDialog(
+                code,
+                _("Save new program as"),
+                _("Program files (*.rur)|*.rur| All files (*.*)|*.*"),
+                self.filename, misc.MYFILES_HOME)
 
-                if returncode == wx.ID_OK:
-                    self.filename = dlg.GetPath()
-
-                    if self.OverWriteCheck(self.filename):
-                        try:
-                            f = open(self.filename, 'w')
-                            f.write(code)
-                            f.close()
-                            arg = self.status_bar.program_field, \
-                                  os.path.basename(self.filename)
-                            event_manager.SendCustomEvent(self, arg)
-                            # is the next line obsolete? It has no effect as it
-                            # occurs after the file has been written.
-                            code = parser.FixLineEnding(code)
-                            misc.PRGM_DIR = os.path.dirname(self.filename)
-                            self.ProgramEditor.SetSavePoint()
-                        except IOError, e:
-                            rD.rurMessageDialog(unicode(e[1]), (u'IO Error'),
-                                wx.OK | wx.STAY_ON_TOP)
-                            # write aborted
-                            save_finished = False
-                        else:
-                            # overwrite done
-                            save_finished = True
-                    else:
-                        # overwrite aborted
-                        save_finished = False
-                else:
-                    # save file aborted
-                    save_finished = True
-
+            self.filename = savedFileName
+            arg = self.status_bar.program_field, \
+                  os.path.basename(self.filename)
+            event_manager.SendCustomEvent(self, arg)
+            misc.PRGM_DIR = os.path.dirname(self.filename)
+            self.ProgramEditor.SetSavePoint()
         else:
             code = ""
-            rD.rurMessageDialog(mesg, _("Program will not be saved."))
-
-    def OverWriteCheck(self, filename):
-        '''Issues a message dialog if filename is an existing file. Returns
-        False if the dialog is closed by pressing Cancel. Returns True if OK is
-        pressed or filename does not yet exist.
-        '''
-        if os.path.isfile(filename):
-            if rD.rurMessageDialog(_(u'File %s exists. Do you want to'
-                ' overwrite it?') % filename,_(u'Overwrite File?'), wx.OK
-                | wx.CANCEL | wx.ICON_EXCLAMATION | wx.STAY_ON_TOP) == wx.ID_OK:
-                return True
-            else:
-                return False
-        return True
+            dialogs.messageDialog(mesg, _("Program will not be saved."))
 
 #--- Program controls
 
@@ -523,9 +478,9 @@ class RURApp(wx.Frame):
             dummy = self.backup_dict['robot']
         except KeyError:
             msg = _("No robot in world to give beepers to.")
-            rD.rurMessageDialog(msg, 'error')
+            dialogs.messageDialog(msg, 'error')
             return
-        rD.RobotBeeperDialog(self, -1, _("Beepers!"))
+        dialogs.RobotBeeperDialog(self, -1, _("Beepers!"))
 
     def BeepersUpdateStatusBar(self):
         arg = self.status_bar.beeper_field, \
@@ -540,7 +495,7 @@ class RURApp(wx.Frame):
         if self.user_program.isRunning:
             return
         self.user_program.clear_trace()
-        rD.ResizeWorldDialog(self, -1, _("World size!"))
+        dialogs.ResizeWorldDialog(self, -1, _("World size!"))
 
     def ToggleHighlight(self, dummy):
         if self.user_program.isRunning:
@@ -588,35 +543,16 @@ class RURApp(wx.Frame):
         self.WorldDisplay.Refresh()
         
     def load_images(self, event):
-        wildcard = "All files (*.*)|*.*"
-        dlg = wx.FileDialog(self, _("Choose an image: robot facing South"), 
-                           os.getcwd(), "", wildcard, wx.OPEN | wx.CHANGE_DIR)
-        if dlg.ShowModal() == wx.ID_OK:
-            self.fileSouth = dlg.GetPath()
-	else:
-	    return()
-        dlg.Destroy()      
-        dlg = wx.FileDialog(self, _("Choose an image: robot facing North"), 
-                           os.getcwd(), "", wildcard, wx.OPEN | wx.CHANGE_DIR)
-        if dlg.ShowModal() == wx.ID_OK:
-            self.fileNorth = dlg.GetPath()
-	else:
-	    return()
-        dlg.Destroy()  
-        dlg = wx.FileDialog(self, _("Choose an image: robot facing East"), 
-                           os.getcwd(), "", wildcard, wx.OPEN | wx.CHANGE_DIR)
-        if dlg.ShowModal() == wx.ID_OK:
-            self.fileEast = dlg.GetPath()
-	else:
-	    return()
-        dlg.Destroy()  
-        dlg = wx.FileDialog(self, _("Choose an image: robot facing West"), 
-                           os.getcwd(), "", wildcard, wx.OPEN | wx.CHANGE_DIR)
-        if dlg.ShowModal() == wx.ID_OK:
-            self.fileWest = dlg.GetPath()
-	else:
-	    return()
-        dlg.Destroy()  
+        for heading in ("South", "North", "East", "West"):
+            openedFileName = dialogs.openDialog(
+                _("Choose an image: robot facing " + heading),
+                _("All files (*.*)|*.*"),
+                "", os.getcwd())
+            if openedFileName != "":
+                setattr(self, "file" + heading, openedFileName)
+            else:
+                return()
+
         image_south = images.GREY_ROBOT_S
         image_north = images.GREY_ROBOT_N
         image_east = images.GREY_ROBOT_E
