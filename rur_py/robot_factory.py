@@ -322,7 +322,7 @@ class Used_robot(Robot_brain1):
         else:
             mesg = _("""Setting delay failed.
 Accepted values are between 0 and 10.""")
-            dialogs.rurMessageDialog(mesg, _("Error"))
+            dialogs.messageDialog(mesg, _("Error"))
 
     def get_delay(self):
         return self._delay
@@ -431,7 +431,7 @@ class New_improved_robot(Robot_brain2):
         else:
             mesg = _("""Setting delay failed.
 Accepted values are between 0 and 10.""")
-            dialogs.rurMessageDialog(mesg, _("Error"))
+            dialogs.messageDialog(mesg, _("Error"))
 
     def get_delay(self):
         return self._delay
