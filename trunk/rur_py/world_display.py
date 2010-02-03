@@ -222,7 +222,7 @@ For testing only (future features):
                 self.world.editWalls = True
                 self.world.DoDrawing()
         elif code == wx.WXK_F5:
-            dialogs.rurMessageDialog(message, "Help :-)")
+            dialogs.messageDialog(message, "Help :-)")
         elif code == wx.WXK_F7:
             self.world.robot_dict['robot'] = New_improved_robot(parent = self.world)
             self.world.DoDrawing()
