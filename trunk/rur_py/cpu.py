@@ -9,7 +9,7 @@ import sys
 
 import wx
 import time # for delay in robot movement
-import dialogs as rD
+import dialogs
 import event_manager
 from rur_py.translation import _
 from robot_factory import Used_robot, New_improved_robot
@@ -46,7 +46,7 @@ class rur_program(Singleton):
             code, flag = test_import.process_file(code)
         else:
             self.code = ""
-            rD.rurMessageDialog(mesg, _("Error found in your program."))        
+            dialogs.messageDialog(mesg, _("Error found in your program."))
         self.robot_dict = r_dict
         self.isPaused = False
         self.stopped_by_user = False
@@ -176,7 +176,7 @@ class rur_program(Singleton):
         if self.stopped_by_user:
             self.stopped_by_user = False
             mesg = _("Hey!  You stopped me!")
-            raise rD.UserStopException(mesg)
+            raise dialogs.UserStopException(mesg)
             return
         if self.isStepped:
             self.isStepped = False
@@ -240,7 +240,7 @@ class rur_program(Singleton):
     def execute_program(self):
         self.clear_trace()
         if self.code=="":
-            rD.rurMessageDialog(_("All done!"), 
+            dialogs.messageDialog(_("All done!"),
                     _("No instruction to execute."))
             return
         self.parent.outputWindow.redirect()
@@ -267,7 +267,7 @@ class rur_program(Singleton):
                      'next_to_a_beeper': self.next_to_a_beeper, # compatibility with old code
                      'carries_beepers': self.carries_beepers,
                      'facing_north': self.facing_north,
-                     'HitWallException': rD.HitWallException,
+                     'HitWallException': dialogs.HitWallException,
                      'setBackgroundColour': self.setBackgroundColour,
                      'input_int': self.inputInt,
                      'input_string': self.inputString}
@@ -281,26 +281,26 @@ class rur_program(Singleton):
                 self.world.DoDrawing()
                 self.WorldDisplay.drawImage()
                 self.WorldDisplay.Refresh()
-                raise rD.NoTurnOffException(_("You forgot to turn me off!"))
-            except rD.NoTurnOffException, mesg:
-                rD.NoTurnOffError(mesg)
-            except rD.NormalEnd, mesg:
-                rD.NormalEndDialog(mesg)
-            except rD.HitWallException, mesg:
-                rD.DialogHitWallError(mesg)
-            except rD.PickBeeperException, mesg:
-                rD.DialogPickBeeperError(mesg)
-            except rD.PutBeeperException, mesg:
-                rD.DialogPutBeeperError(mesg)
-            except rD.UserStopException, mesg:
-                rD.UserStopError(mesg)
+                raise dialogs.NoTurnOffException(_("You forgot to turn me off!"))
+            except dialogs.NoTurnOffException, mesg:
+                dialogs.NoTurnOffError(mesg)
+            except dialogs.NormalEnd, mesg:
+                dialogs.NormalEndDialog(mesg)
+            except dialogs.HitWallException, mesg:
+                dialogs.DialogHitWallError(mesg)
+            except dialogs.PickBeeperException, mesg:
+                dialogs.DialogPickBeeperError(mesg)
+            except dialogs.PutBeeperException, mesg:
+                dialogs.DialogPutBeeperError(mesg)
+            except dialogs.UserStopException, mesg:
+                dialogs.UserStopError(mesg)
             except Exception, info:
                 # There should be only two remaining possibilities...
                 if "invalid syntax" in info:
                     info = _("Error found near line %s.")%info[1][1]
-                    rD.rurMessageDialog(info, _("Execution error"))
+                    dialogs.messageDialog(info, _("Execution error"))
                 else:
-                    rD.rurMessageDialog(
+                    dialogs.messageDialog(
                     _("%s\nUnrecognized instruction.")%info, 
                                _("Execution error"))
         finally:
