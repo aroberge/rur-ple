@@ -7,6 +7,7 @@
     andre.roberge@gmail.com
 """
 
+import os
 import wx
 from rur_py.translation import _
 import images
@@ -128,12 +129,85 @@ class NormalEnd(LogicException):
 
 #--- General Message
 
-def rurMessageDialog(text, title, flags = wx.OK | wx.ICON_INFORMATION):
-
+def messageDialog(text, title, flags = wx.OK | wx.ICON_INFORMATION):
+    '''
+    '''
     messageDialog = wx.MessageDialog(None, text, title, flags)
     rc = messageDialog.ShowModal()
     messageDialog.Destroy()
     return rc
+
+def openDialog(title, wildcard, filename, initdir):
+    '''
+    '''
+    fname = os.path.basename(filename)
+    dlg = wx.FileDialog(None, title, initdir,
+                           fname, wildcard, wx.OPEN | wx.CHANGE_DIR)
+    returncode = dlg.ShowModal()
+    if returncode == wx.ID_OK:
+        savedFileName = dlg.GetPath()
+    else:
+        savedFileName = ""
+    dlg.Destroy()
+    return savedFileName
+
+def saveDialog(title, wildcard, filename, initdir):
+    '''
+    '''
+    fname = os.path.basename(filename)
+    dlg = wx.FileDialog(None, title, initdir,
+                           fname, wildcard, wx.SAVE | wx.CHANGE_DIR)
+    returncode = dlg.ShowModal()
+    if returncode == wx.ID_OK:
+        savedFileName = dlg.GetPath()
+    else:
+        savedFileName = ""
+    dlg.Destroy()
+    return savedFileName
+
+def checkedSaveDialog(content, title, wildcard, filename, initdir,
+        overwrite = False):
+    '''
+    '''
+    saveFinished = False
+    while not saveFinished:
+        savedFileName = saveDialog(title, wildcard, filename, initdir)
+        if savedFileName != "":
+            if overwrite or overwriteCheck(savedFileName):
+                try:
+                    f = open(savedFileName, 'w')
+                    f.write(content)
+                    f.close()
+                except IOError, e:
+                    messageDialog(unicode(e[1]), (u'IO Error'),
+                        wx.OK | wx.STAY_ON_TOP)
+                    # write aborted
+                    saveFinished = False
+                else:
+                    # overwrite done
+                    saveFinished = True
+            else:
+                # overwrite aborted
+                saveFinished = False
+        else:
+            # save file aborted
+            saveFinished = True
+
+    return savedFileName
+
+def overwriteCheck(filename):
+    '''Issues a message dialog if filename is an existing file. Returns
+    False if the dialog is closed by pressing Cancel. Returns True if OK is
+    pressed or filename does not yet exist.
+    '''
+    if os.path.isfile(filename):
+        if messageDialog(_(u'File %s exists. Do you want to'
+            ' overwrite it?') % filename,_(u'Overwrite File?'), wx.OK
+            | wx.CANCEL | wx.ICON_EXCLAMATION | wx.STAY_ON_TOP) == wx.ID_OK:
+            return True
+        else:
+            return False
+    return True
 
 #--- New attempt using sliders
 
