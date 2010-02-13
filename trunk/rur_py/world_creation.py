@@ -13,9 +13,10 @@
     visual representation (colours and sizes of walls, beepers, etc.).
     """
 import wx
+import conf
 from rur_py.translation import _
 import robot_factory
-import rur_py.misc as misc
+import rur_py.conf as conf
 
 #---------------------------------------------------------------------------
 
@@ -214,13 +215,16 @@ class Visible_world(World):
         of that world.  It comes with default values that should be sufficient
         for all practical purpose but nonetheless allows for a large degree
         of customization. """
+
+    settings = conf.getSettings()
+
     #--- Initialisation
     def __init__(self, avenues=10, streets=10, walls = [],
                  beepers = {}, robot = {},
                 editWalls = False,
                 screen_offsets = (50, 50, 20, 40),
-                tile_info = (misc.SCREEN[4], misc.SCREEN[5]),
-                beeper_info = (20, misc.SCREEN[6], 6, 3),
+                tile_info = None,
+                beeper_info = None,
                 wall_colours = ("black", "brown"),
                 edit_wall_colours = ("brown", "black"),
                 grid_colour = "light grey",
@@ -231,6 +235,14 @@ class Visible_world(World):
                 ):
 
         World.__init__(self, avenues, streets, walls, beepers, robot)
+
+        settings = conf.getSettings()
+        
+        if tile_info == None:
+            tile_info = (settings.SCREEN[4], settings.SCREEN[5])
+
+        if beeper_info == None:
+            beeper_info = (20, settings.SCREEN[6], 6, 3)
 
         # world positioning on "screen"
         self.xOffset = screen_offsets[0] # left

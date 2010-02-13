@@ -8,18 +8,21 @@
 
 import wx
 import images
+from images import getImage
 from rur_py.translation import _
-import rur_py.misc as misc  # a few global variables
+import rur_py.conf as conf  # a few global variables
 
 class rurChoiceWindow(wx.ScrolledWindow):
     def __init__(self, parent, great_grand_parent):
+        settings = conf.getSettings()
+
         wx.ScrolledWindow.__init__(self, parent, -1)
 
         self.ggp = great_grand_parent    # rurApp instance!
         btn_size = (32, 32)
         self.ggp.BUTTON_HEIGHT = btn_size[0] + 8
         spacer_small = (4, 4)
-        spacer_large = (misc.SCREEN[9], misc.SCREEN[9])
+        spacer_large = (settings.SCREEN[9], settings.SCREEN[9])
 
         tip_list = [_("Opens existing robot program"), 
                           _("Saves robot program"), 
@@ -39,46 +42,46 @@ class rurChoiceWindow(wx.ScrolledWindow):
                           _("Load new images for robot")]
 
         button_list1 = [
-            [wx.NewId(), True, self.ggp.OpenProgramFile, images.OPEN_PROGRAM,
+            [wx.NewId(), True, self.ggp.OpenProgramFile, getImage(images.OPEN_PROGRAM),
                 btn_size, tip_list[0]],
-            [wx.NewId(), True, self.ggp.SaveProgramFile, images.SAVE_PROGRAM,
+            [wx.NewId(), True, self.ggp.SaveProgramFile, getImage(images.SAVE_PROGRAM),
                 btn_size, tip_list[1]],
             [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.OpenWorldFile, images.OPEN_WORLD,
+            [wx.NewId(), True, self.ggp.OpenWorldFile, getImage(images.OPEN_WORLD),
                 btn_size, tip_list[2]],
-            [wx.NewId(), True, self.ggp.SaveWorldFile, images.SAVE_WORLD,
+            [wx.NewId(), True, self.ggp.SaveWorldFile, getImage(images.SAVE_WORLD),
                 btn_size, tip_list[3]],
-            [wx.NewId(), True, self.ggp.ResetWorld, images.RESET_WORLD,
+            [wx.NewId(), True, self.ggp.ResetWorld, getImage(images.RESET_WORLD),
                 btn_size, tip_list[4]],
             [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.RunProgram, images.RUN_PROGRAM,
+            [wx.NewId(), True, self.ggp.RunProgram, getImage(images.RUN_PROGRAM),
                 btn_size, tip_list[5]],
-            [wx.NewId(), True, self.ggp.Step, images.STEP, btn_size, 
+            [wx.NewId(), True, self.ggp.Step, getImage(images.STEP), btn_size,
                 tip_list[6]],
-            [wx.NewId(), True, self.ggp.Pause, images.PAUSE, btn_size, 
+            [wx.NewId(), True, self.ggp.Pause, getImage(images.PAUSE), btn_size,
                 tip_list[7]],
-            [wx.NewId(), True, self.ggp.StopProgram, images.STOP, btn_size, 
+            [wx.NewId(), True, self.ggp.StopProgram, getImage(images.STOP), btn_size,
                 tip_list[8]],
             [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, None, images.SPEED, btn_size, tip_list[9]]
+            [wx.NewId(), True, None, getImage(images.SPEED), btn_size, tip_list[9]]
             ]
 
         button_list2 = [
             [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.EditWalls, images.WALL, btn_size, 
+            [wx.NewId(), True, self.ggp.EditWalls, getImage(images.WALL), btn_size,
                 tip_list[10]],
-            [wx.NewId(), True, self.ggp.ResizeWorld, images.RESIZE, btn_size, 
+            [wx.NewId(), True, self.ggp.ResizeWorld, getImage(images.RESIZE), btn_size,
                 tip_list[11]],
-            [wx.NewId(), True, self.ggp.BeepersToRobot, images.BEEPERS_ROBOT,
+            [wx.NewId(), True, self.ggp.BeepersToRobot, getImage(images.BEEPERS_ROBOT),
                 btn_size, tip_list[12]],
             [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.AddRemoveRobot, images.ADD_REMOVE_ROBOT,
+            [wx.NewId(), True, self.ggp.AddRemoveRobot, getImage(images.ADD_REMOVE_ROBOT),
                 btn_size, tip_list[13]],
             [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.ToggleWorldWindow, images.SHOW_WORLD_FILE,
+            [wx.NewId(), True, self.ggp.ToggleWorldWindow, getImage(images.SHOW_WORLD_FILE),
                 btn_size, tip_list[14]],
             [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.load_images, images.NEW_ROBOT_IMAGES,
+            [wx.NewId(), True, self.ggp.load_images, getImage(images.NEW_ROBOT_IMAGES),
                 btn_size, tip_list[15]],
             ]
         box = wx.BoxSizer(wx.HORIZONTAL)
@@ -176,31 +179,31 @@ class pythonChoiceWindow(wx.Panel):
         button_list = [
             [None, False, None, None, spacer_small, None],
             [openId, True, editor.openFile,
-                images.OPEN_PYTHON, btn_size, tip_list[0]],
+                getImage(images.OPEN_PYTHON), btn_size, tip_list[0]],
             [None, False, None, None, spacer_small, None],
             [saveId, True, editor.saveFile,
-                images.SAVE_PYTHON, btn_size, tip_list[1]],
+                getImage(images.SAVE_PYTHON), btn_size, tip_list[1]],
             [None, False, None, None, spacer_large, None],
             [runId, True, editor.run,
-                images.RUN_PROGRAM, btn_size, tip_list[2]],
+                getImage(images.RUN_PROGRAM), btn_size, tip_list[2]],
             [None, False, None, None, spacer_small, None],
             [runWithId, True, editor.run_with,
-                images.RUN_WITH, btn_size, tip_list[3]],
+                getImage(images.RUN_WITH), btn_size, tip_list[3]],
             [None, False, None, None, spacer_large, None],
             [helpId, True, editor.help,
-                images.HELP, btn_size, tip_list[4]],
+                getImage(images.HELP), btn_size, tip_list[4]],
             [None, False, None, None, spacer_large, None],
             [goToId, True, editor.goToLine,
-                images.GOTO, btn_size, tip_list[5]],
+                getImage(images.GOTO), btn_size, tip_list[5]],
             [None, False, None, None, spacer_large, None],
             [showId, True, editor.show,
-                images.SHOW_HIDE, btn_size, tip_list[6]],
+                getImage(images.SHOW_HIDE), btn_size, tip_list[6]],
             [None, False, None, None, spacer_large, None],
             [switchId, True, editor.switch_layout,
-                images.LAYOUT, btn_size, tip_list[7]],
+                getImage(images.LAYOUT), btn_size, tip_list[7]],
             [None, False, None, None, spacer_large, None],
             [clearId, True, editor.clear,
-                images.CLEAR_TEXT, btn_size, tip_list[8]]
+                getImage(images.CLEAR_TEXT), btn_size, tip_list[8]]
             ]
         box = wx.BoxSizer(wx.HORIZONTAL)
         self.btn_list = []

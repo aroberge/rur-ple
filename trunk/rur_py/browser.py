@@ -21,28 +21,26 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 import os
-import sys
-import misc
+import conf
 import wx
 import wx.html as  html
 import wx.lib.wxpTag
-import translation 
-_ = translation._
-import dialogs
+import translation
+from  translation import _
 import images
-
+from images import getImage
+import dialogs
 
 #----------------------------------------------------------------------
 
 class TestHtmlPanel(wx.Panel):
     def __init__(self, parent, grand_parent):
+
         wx.Panel.__init__(self, parent, -1, style=wx.NO_FULL_REPAINT_ON_RESIZE)
-        self.html_dir = misc.HTML_DIR
+        self.lessons_dir = conf.getLessonsNlDir()
+        
         self.parent = parent
         self.grand_parent = grand_parent
-
-        if not self.html_dir:
-            self.html_dir = os.getcwd()
 
         self.html = html.HtmlWindow(self, -1, style=wx.NO_FULL_REPAINT_ON_RESIZE)
 
@@ -54,19 +52,19 @@ class TestHtmlPanel(wx.Panel):
                      _("Select a language")]
         button_list = [
             [None,      False, None, None, spacer_small, None],
-            [wx.NewId(), True, self.OnLoadFile, images.OPEN_HTML,
+            [wx.NewId(), True, self.OnLoadFile, getImage(images.OPEN_HTML),
                 btn_size, tip_list[0]],
             [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.OnBack, images.BACK,
+            [wx.NewId(), True, self.OnBack, getImage(images.BACK),
                 btn_size, tip_list[1]],
             [None,      False, None, None, spacer_small, None],
-            [wx.NewId(), True, self.OnHome, images.HOME,
+            [wx.NewId(), True, self.OnHome, getImage(images.HOME),
                 btn_size, tip_list[2]],
             [None,      False, None, None, spacer_small, None],
-            [wx.NewId(), True, self.OnForward, images.FORWARD,
+            [wx.NewId(), True, self.OnForward, getImage(images.FORWARD),
                 btn_size, tip_list[3]],
             [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, None, images.LANGUAGES,
+            [wx.NewId(), True, None, getImage(images.LANGUAGES),
                 (58,34), tip_list[4]],
             [None,      False, None, None, spacer_small, None]
             ]
@@ -98,11 +96,11 @@ class TestHtmlPanel(wx.Panel):
         self.SetSizer(self.box)
         self.SetAutoLayout(True)
 
-        name = os.path.join(self.html_dir, 'rur.htm')
+        name = os.path.join(self.lessons_dir, 'rur.htm')
         self.html.LoadPage(name)
 
     def ChooseLanguage(self, event):
-        lastLanguage = translation.language_code
+        lastLanguage = conf.getLanguage()
         translation.select(event.GetString()) 
         # notebook tabs
         self.grand_parent.window.SetPageText(0, _("  RUR: Read and Learn  "))
@@ -124,13 +122,13 @@ class TestHtmlPanel(wx.Panel):
         # page loaded in browser
         current_page = self.html.GetOpenedPage()
         current_page = current_page.replace( "/"+lastLanguage+"/", 
-                                             "/"+translation.language_code+"/")
-        self.html_dir = self.html_dir.replace(os.path.sep + lastLanguage, 
-                                      os.path.sep + translation.language_code)
+                                             "/"+conf.getLanguage()+"/")
+        self.lessons_dir = self.lessons_dir.replace(os.path.sep + lastLanguage,
+                                      os.path.sep + conf.getLanguage())
         if os.path.isfile(current_page):
             self.html.LoadPage(current_page)
         else:
-            name = os.path.join(self.html_dir, 'rur.htm')
+            name = os.path.join(self.lessons_dir, 'rur.htm')
             self.html.LoadPage(name)
         # status bar
         self.grand_parent.status_bar.ChangeLanguage()
@@ -139,17 +137,17 @@ class TestHtmlPanel(wx.Panel):
         self.grand_parent.world.DoDrawing()
 
     def OnHome(self, event):
-        name = os.path.join(self.html_dir, 'rur.htm')
+        name = os.path.join(self.lessons_dir, 'rur.htm')
         self.html.LoadPage(name)
 
     def OnLoadFile(self, event):
-        wildcard = _("html files (*.htm*)|*.htm*| All files (*.*)|*.*")
-        dlg = wx.FileDialog(self, _("Choose a file"), self.html_dir, "",
-                           wildcard, wx.OPEN | wx.CHANGE_DIR)
-        if dlg.ShowModal() == wx.ID_OK:
-            path = dlg.GetPath()
+        openedFileName = dialogs.openDialog(_("Choose a file"),
+            _("html files (*.htm*)|*.htm*| All files (*.*)|*.*"),
+            "", self.lessons_dir)
+
+        if openedFileName != "":
+            path = openedFileName
             self.html.LoadPage(path)
-        dlg.Destroy()
 
     def OnBack(self, event):
         if not self.html.HistoryBack():

@@ -316,7 +316,11 @@ class rur_program(Singleton):
 
 class UsedRobot(object):
     def __init__(self, avenues=1, streets=1, orient_key='E',
-                 beepers=0, name=None, colour='grey', parent=Visible_world()):
+                 beepers=0, name=None, colour='grey', parent = None):
+
+        if parent == None:
+            parent = Visible_world()
+            
         true_robot = parent.addOneRobot(avenues=avenues,
                                         streets = streets,
                                         orient_key=orient_key,
@@ -359,9 +363,12 @@ class UsedRobot(object):
 
 class RefurbishedRobot(UsedRobot):
     def __init__(self, avenues=1, streets=1, orient_key='E',
-                 beepers=0, name=None, colour='grey', parent=Visible_world()):
+                 beepers=0, name=None, colour='grey', parent=None):
         #UsedRobot.__init__(self, avenues=avenues, orient_key = orient_key,
-         #        beepers=beepers, name=name, colour=colour, parent=parent)
+        #        beepers=beepers, name=name, colour=colour, parent=parent)
+        if parent == None:
+            parent = Visible_world()
+ 
         true_robot = parent.addOneRobot(avenues=avenues,
                                         streets = streets,
                                         orient_key=orient_key,

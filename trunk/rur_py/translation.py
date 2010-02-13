@@ -24,8 +24,10 @@
 # with earlier versions of rur-ple (circa 2005)
 # should deal properly with the ansi version of wxPython.
 import wx
+
 def my_unicode(str):
     return str
+
 def my_ansi(str):
     return str.encode('utf-8')
 if "unicode" in wx.PlatformInfo:
@@ -34,7 +36,7 @@ else:
     my_encode = my_ansi
 
 import os
-import misc # needed for the locating rur-ple's home directory
+import conf # needed for the locating rur-ple's home directory
 
 # You can add a new language in the following dict.
 # The first entry is the name of the language as you want it to appear in
@@ -62,18 +64,10 @@ languages = {
 # If a directory named "locale" exists, wxPython assumes it uses the
 # standard 'gettext' approach and expects some standard functions to
 # be defined - which they are not in my customized version.
-language_code = 'en'
+
+settings = conf.getSettings()
 _selected = None
 
-_user_dir = os.path.join(os.path.expanduser("~"), ".rurple")
-if not os.path.exists(_user_dir):  # first time ever
-    try:
-        os.makedirs(_user_dir)
-    except:
-        print "Could not create the user directory."
-        _user_dir = None
-
-_user_file = os.path.join(_user_dir, "rurple.lang")
 
 def build_dict(filename):
     translation = {}
@@ -108,18 +102,19 @@ def build_dict(filename):
                 msgstr = False
     return translation
 
-rur_locale = os.path.join(misc.HOME, "rur_locale")
+settings = conf.getSettings()
+rur_locale = settings.LOCALE_DIR
+
 for lang in languages:
     filename = os.path.join(rur_locale, languages[lang][2], languages[lang][3])
     languages[lang][1] = build_dict(filename)
 
-def _select_code(lang_code):
-    global _selected, _changed, language_code
+def _select_code(langCode):
+    global _selected, _changed
     for lang in languages:
-        if languages[lang][2] == lang_code:
+        if languages[lang][2] == langCode:
             _selected = languages[lang][1]
-            language_code = lang_code
-            _save_language(lang_code)
+            conf.setLanguage(langCode)
 
 def select(language):
     for lang in languages:
@@ -136,25 +131,5 @@ def _(message):
     else:
         return message
 
-def _save_language(lang):
-    try:
-        f = open(_user_file, 'w')
-        f.write(lang)
-        f.close()
-    except:
-        print "Could not save language preference"
-        print "lang = ", lang
-        print "_user_file = ", _user_file
-        pass
-
-def _load_default():
-    global language_code
-    try:
-        lang = open(_user_file, 'r').read()
-    except:
-        print "Language preference not found; default to English."
-        lang = 'en'
-    _select_code(lang)
-
-_load_default()  # import the default language at the start
-
+# import the default language at the start
+_select_code(conf.getLanguage())

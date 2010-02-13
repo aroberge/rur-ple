@@ -30,20 +30,9 @@
 
 import os
 import webbrowser
+import conf
 
-# grabs rurple.lang location in user's home directory as per rur_py/translation.py
-_user_dir = os.path.join(os.path.expanduser("~"), ".rurple")
-_user_file = os.path.join(_user_dir, "rurple.lang")
-
-# returns the content of .rurple/rurple.lang
-def language():
-    try:
-        iso_code = open(_user_file, 'r').read()
-    except:
-        iso_code = 'en'
-    return iso_code
-
-url = os.getcwd() + "/lessons/" + language() + "/lessons_toc.htm"
+url = os.getcwd() + "/lessons/" + conf.getLanguage() + "/lessons_toc.htm"
 
 # Open URL in a new tab, if a browser window is already open. 
 webbrowser.open_new_tab(url)
