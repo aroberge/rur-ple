@@ -12,10 +12,13 @@ from bouton import rurChoiceWindow
 from editor import rur_editor
 from lightning import LogWindow
 import sys
-import rur_py.misc as misc
+import rur_py.conf as conf
                             
 class MySashWindow(wx.Panel):
     def __init__(self, parent, grand_parent):
+
+        settings = conf.getSettings()
+        
         wx.Panel.__init__(self, parent, -1)
         self.grand_parent = grand_parent
         self.ID_WINDOW_TOP = wx.NewId()
@@ -53,7 +56,7 @@ class MySashWindow(wx.Panel):
         win = wx.SashLayoutWindow(self, self.ID_WINDOW_LEFT,
                                  wx.DefaultPosition, wx.Size(300, 600),
                                  wx.NO_BORDER|wx.SW_3D)
-        win.SetDefaultSize(wx.Size(misc.SCREEN[2], 600))
+        win.SetDefaultSize(wx.Size(settings.SCREEN[2], 600))
         win.SetOrientation(wx.LAYOUT_VERTICAL)
         win.SetAlignment(wx.LAYOUT_LEFT)
         win.SetSashVisible(wx.SASH_RIGHT, True)
@@ -61,7 +64,7 @@ class MySashWindow(wx.Panel):
         #### new
         # Output window at the bottom
         win =  wx.SashLayoutWindow( self, self.ID_WINDOW_BOTTOM, 
-                wx.DefaultPosition, wx.Size(800, misc.SCREEN[3]), 
+                wx.DefaultPosition, wx.Size(800, settings.SCREEN[3]),
                 wx.NO_BORDER|wx.SW_3D
                 )
         #winids.append(win.GetId())
@@ -71,7 +74,7 @@ class MySashWindow(wx.Panel):
         win.SetSashVisible(wx.SASH_TOP, True)
         self.bottomWindow = win
         self.output_window = LogWindow(self.bottomWindow)
-        self.bottomWindow.SetDefaultSize(wx.Size(800, misc.SCREEN[3]))
+        self.bottomWindow.SetDefaultSize(wx.Size(800, settings.SCREEN[3]))
         ####################
         self.grand_parent.ch = rurChoiceWindow(self.topWindow, self.grand_parent)
         self.topWindow.SetDefaultSize(wx.Size(800, self.grand_parent.BUTTON_HEIGHT))

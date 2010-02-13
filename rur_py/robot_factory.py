@@ -24,9 +24,10 @@ robot_factory includes four classes:
 
 import dialogs
 import images
+from images import getImage
 import random
 from rur_py.translation import _
-import rur_py.misc as misc
+import rur_py.conf as conf
 
 #---------------------------------------------------------------------------
 
@@ -225,6 +226,9 @@ class Used_robot(Robot_brain1):
                  beepers=0, name = 'robot', colour = 'grey', parent=None):
         Robot_brain1.__init__(self, parent, avenues, streets,
                               orient_key, beepers)
+
+        settings = conf.getSettings()
+        
         self._delay = 0.3
         self.name = name
         self.colour = colour.lower()
@@ -236,25 +240,25 @@ class Used_robot(Robot_brain1):
     #--- Robot images
         # create a list of four objects
         if self.colour == 'yellow':
-            self._image = [images.YELLOW_ROBOT_N, images.YELLOW_ROBOT_W,
-                       images.YELLOW_ROBOT_S, images.YELLOW_ROBOT_E]
+            self._image = [getImage(images.YELLOW_ROBOT_N), getImage(images.YELLOW_ROBOT_W),
+                       getImage(images.YELLOW_ROBOT_S), getImage(images.YELLOW_ROBOT_E)]
         elif self.colour == 'blue':
-            self._image = [images.BLUE_ROBOT_N, images.BLUE_ROBOT_W,
-                       images.BLUE_ROBOT_S, images.BLUE_ROBOT_E]
+            self._image = [getImage(images.BLUE_ROBOT_N), getImage(images.BLUE_ROBOT_W),
+                       getImage(images.BLUE_ROBOT_S), getImage(images.BLUE_ROBOT_E)]
         elif self.colour == 'light blue':
-            self._image = [images.LIGHT_BLUE_ROBOT_N, images.LIGHT_BLUE_ROBOT_W,
-                       images.LIGHT_BLUE_ROBOT_S, images.LIGHT_BLUE_ROBOT_E]
+            self._image = [getImage(images.LIGHT_BLUE_ROBOT_N), getImage(images.LIGHT_BLUE_ROBOT_W),
+                       getImage(images.LIGHT_BLUE_ROBOT_S), getImage(images.LIGHT_BLUE_ROBOT_E)]
         elif self.colour == 'purple':
-            self._image = [images.PURPLE_ROBOT_N, images.PURPLE_ROBOT_W,
-                       images.PURPLE_ROBOT_S, images.PURPLE_ROBOT_E]
+            self._image = [getImage(images.PURPLE_ROBOT_N), getImage(images.PURPLE_ROBOT_W),
+                       getImage(images.PURPLE_ROBOT_S), getImage(images.PURPLE_ROBOT_E)]
         elif self.colour == 'green':
-            self._image = [images.GREEN_ROBOT_N, images.GREEN_ROBOT_W,
-                       images.GREEN_ROBOT_S, images.GREEN_ROBOT_E]
+            self._image = [getImage(images.GREEN_ROBOT_N), getImage(images.GREEN_ROBOT_W),
+                       getImage(images.GREEN_ROBOT_S), getImage(images.GREEN_ROBOT_E)]
         else:
-            self._image = [images.GREY_ROBOT_N, images.GREY_ROBOT_W,
-                       images.GREY_ROBOT_S, images.GREY_ROBOT_E]
+            self._image = [getImage(images.GREY_ROBOT_N), getImage(images.GREY_ROBOT_W),
+                       getImage(images.GREY_ROBOT_S), getImage(images.GREY_ROBOT_E)]
 
-        self.imageOffset = (misc.SCREEN[7], misc.SCREEN[8])
+        self.imageOffset = (settings.SCREEN[7], settings.SCREEN[8])
 
         # image size (x, y) [all images equal]; for use in automatic scrolling
         self._image_size = self._image[0].GetWidth(), \
@@ -345,25 +349,25 @@ class New_improved_robot(Robot_brain2):
     #--- Robot images
         # create a list of four objects
         if self.colour == 'yellow':
-            self._image = [images.YELLOW_ROBOT_N, images.YELLOW_ROBOT_W,
-                       images.YELLOW_ROBOT_S, images.YELLOW_ROBOT_E]
+            self._image = [getImage(images.YELLOW_ROBOT_N), getImage(images.YELLOW_ROBOT_W),
+                       getImage(images.YELLOW_ROBOT_S), getImage(images.YELLOW_ROBOT_E)]
         elif self.colour == 'blue':
-            self._image = [images.BLUE_ROBOT_N, images.BLUE_ROBOT_W,
-                       images.BLUE_ROBOT_S, images.BLUE_ROBOT_E]
+            self._image = [getImage(images.BLUE_ROBOT_N), getImage(images.BLUE_ROBOT_W),
+                       getImage(images.BLUE_ROBOT_S), getImage(images.BLUE_ROBOT_E)]
         elif self.colour == 'light blue':
-            self._image = [images.LIGHT_BLUE_ROBOT_N, images.LIGHT_BLUE_ROBOT_W,
-                       images.LIGHT_BLUE_ROBOT_S, images.LIGHT_BLUE_ROBOT_E]
+            self._image = [getImage(images.LIGHT_BLUE_ROBOT_N), getImage(images.LIGHT_BLUE_ROBOT_W),
+                       getImage(images.LIGHT_BLUE_ROBOT_S), getImage(images.LIGHT_BLUE_ROBOT_E)]
         elif self.colour == 'purple':
-            self._image = [images.PURPLE_ROBOT_N, images.PURPLE_ROBOT_W,
-                       images.PURPLE_ROBOT_S, images.PURPLE_ROBOT_E]
+            self._image = [getImage(images.PURPLE_ROBOT_N), getImage(images.PURPLE_ROBOT_W),
+                       getImage(images.PURPLE_ROBOT_S), getImage(images.PURPLE_ROBOT_E)]
         elif self.colour == 'green':
-            self._image = [images.GREEN_ROBOT_N, images.GREEN_ROBOT_W,
-                       images.GREEN_ROBOT_S, images.GREEN_ROBOT_E]
+            self._image = [getImage(images.GREEN_ROBOT_N), getImage(images.GREEN_ROBOT_W),
+                       getImage(images.GREEN_ROBOT_S), getImage(images.GREEN_ROBOT_E)]
         else:
-            self._image = [images.GREY_ROBOT_N, images.GREY_ROBOT_W,
-                       images.GREY_ROBOT_S, images.GREY_ROBOT_E]
+            self._image = [getImage(images.GREY_ROBOT_N), getImage(images.GREY_ROBOT_W),
+                       getImage(images.GREY_ROBOT_S), getImage(images.GREY_ROBOT_E)]
 
-        self.imageOffset = (misc.SCREEN[7], misc.SCREEN[8])
+        self.imageOffset = (settings.SCREEN[7], settings.SCREEN[8])
 
         # image size (x, y) [all images equal]; for use in automatic scrolling
         self._image_size = self._image[0].GetWidth(), \

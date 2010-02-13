@@ -5,186 +5,101 @@
 #    Author: Andre Roberge    Copyright  2005
 #    andre.roberge@gmail.com
 
-import misc
+import os
 import wx
+import conf
 
-try:
-    GREY_ROBOT_S = wx.Image(misc.IMAGE_DIR+'/robot_s.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    GREY_ROBOT_N = wx.Image(misc.IMAGE_DIR+'/robot_n.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    GREY_ROBOT_E = wx.Image(misc.IMAGE_DIR+'/robot_e.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    GREY_ROBOT_W = wx.Image(misc.IMAGE_DIR+'/robot_w.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print " Problem loading robot_?.png in RobotFactory.py"
+# robots
+GREY_ROBOT_S = 'robot_s.png'
+GREY_ROBOT_N = 'robot_n.png'
+GREY_ROBOT_E = 'robot_e.png'
+GREY_ROBOT_W = 'robot_w.png'
 
-try:
-    YELLOW_ROBOT_S = wx.Image(misc.IMAGE_DIR+'/yellow_robot_s.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    YELLOW_ROBOT_N = wx.Image(misc.IMAGE_DIR+'/yellow_robot_n.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    YELLOW_ROBOT_E = wx.Image(misc.IMAGE_DIR+'/yellow_robot_e.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    YELLOW_ROBOT_W = wx.Image(misc.IMAGE_DIR+'/yellow_robot_w.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print " Problem loading yellow_robot_?.png in RobotFactory.py"
+YELLOW_ROBOT_S = 'yellow_robot_s.png'
+YELLOW_ROBOT_N = 'yellow_robot_n.png'
+YELLOW_ROBOT_E = 'yellow_robot_e.png'
+YELLOW_ROBOT_W = 'yellow_robot_w.png'
 
-try:
-    GREEN_ROBOT_S = wx.Image(misc.IMAGE_DIR+'/green_robot_s.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    GREEN_ROBOT_N = wx.Image(misc.IMAGE_DIR+'/green_robot_n.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    GREEN_ROBOT_E = wx.Image(misc.IMAGE_DIR+'/green_robot_e.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    GREEN_ROBOT_W = wx.Image(misc.IMAGE_DIR+'/green_robot_w.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print " Problem loading green_robot_?.png in RobotFactory.py"
+GREEN_ROBOT_S = 'green_robot_s.png'
+GREEN_ROBOT_N = 'green_robot_n.png'
+GREEN_ROBOT_E = 'green_robot_e.png'
+GREEN_ROBOT_W = 'green_robot_w.png'
 
-try:
-    BLUE_ROBOT_S = wx.Image(misc.IMAGE_DIR+'/blue_robot_s.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    BLUE_ROBOT_N = wx.Image(misc.IMAGE_DIR+'/blue_robot_n.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    BLUE_ROBOT_E = wx.Image(misc.IMAGE_DIR+'/blue_robot_e.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    BLUE_ROBOT_W = wx.Image(misc.IMAGE_DIR+'/blue_robot_w.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print " Problem loading blue_robot_?.png in RobotFactory.py"
+BLUE_ROBOT_S = 'blue_robot_s.png'
+BLUE_ROBOT_N = 'blue_robot_n.png'
+BLUE_ROBOT_E = 'blue_robot_e.png'
+BLUE_ROBOT_W = 'blue_robot_w.png'
 
-try:
-    LIGHT_BLUE_ROBOT_S = wx.Image(misc.IMAGE_DIR+'/light_blue_robot_s.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    LIGHT_BLUE_ROBOT_N = wx.Image(misc.IMAGE_DIR+'/light_blue_robot_n.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    LIGHT_BLUE_ROBOT_E = wx.Image(misc.IMAGE_DIR+'/light_blue_robot_e.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    LIGHT_BLUE_ROBOT_W = wx.Image(misc.IMAGE_DIR+'/light_blue_robot_w.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print " Problem loading light_blue_robot_?.png in RobotFactory.py"
+LIGHT_BLUE_ROBOT_S = 'light_blue_robot_s.png'
+LIGHT_BLUE_ROBOT_N = 'light_blue_robot_n.png'
+LIGHT_BLUE_ROBOT_E = 'light_blue_robot_e.png'
+LIGHT_BLUE_ROBOT_W = 'light_blue_robot_w.png'
 
-try:
-    PURPLE_ROBOT_S = wx.Image(misc.IMAGE_DIR+'/purple_robot_s.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    PURPLE_ROBOT_N = wx.Image(misc.IMAGE_DIR+'/purple_robot_n.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    PURPLE_ROBOT_E = wx.Image(misc.IMAGE_DIR+'/purple_robot_e.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    PURPLE_ROBOT_W = wx.Image(misc.IMAGE_DIR+'/purple_robot_w.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print " Problem loading purple_robot_?.png in RobotFactory.py"
+PURPLE_ROBOT_S = 'purple_robot_s.png'
+PURPLE_ROBOT_N = 'purple_robot_n.png'
+PURPLE_ROBOT_E = 'purple_robot_e.png'
+PURPLE_ROBOT_W = 'purple_robot_w.png'
 
-try:
-    SPLASH_SCREEN = wx.Image(misc.IMAGE_DIR+'/splash_screen.png',
-                  wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print "%s\nProblem loading splash_screen.png in start.py"%info
+#== browser
+OPEN_HTML = 'folder_html.png'
+HOME = 'folder_home.png'
+BACK = 'back.png'
+FORWARD = 'forward.png'
+LANGUAGES = 'languages.png'
 
+#== Robot world
+RUN_PROGRAM = 'run1.png'
+SPEED = 'speed.png'
+STEP = 'step.png'
+STOP = 'stop.png'
+PAUSE = 'pause.png'
+WALL = 'wall.png'
+HIGHLIGHT = 'highlight.png'
+SHOW_WORLD_FILE = 'show_world_file.png'
+OPEN_PROGRAM = 'open_program.png'
+SAVE_PROGRAM = 'save_program.png'
+OPEN_WORLD = 'open_world.png'
+SAVE_WORLD = 'save_world.png'
+EDIT_WORLD = 'edit_world.png'
+RESET_WORLD = 'reset_world.png'
+ADD_REMOVE_ROBOT = 'add_robot.png'
+BEEPERS_ROBOT = 'beepers.png'
+RESIZE = 'resize.png'
+NEW_ROBOT_IMAGES = 'new_images.png'
 
-try:
-    ICON = wx.Image(misc.IMAGE_DIR+'/rur16x16.png',
-                  wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print "Problem loading rur16x16.png in start.py"
+#== Python editor
+OPEN_PYTHON = 'open_py.png'
+SAVE_PYTHON = 'save_py.png'
+CLEAR_TEXT = 'clear_text.png'
+RUN_WITH = 'run_with.png'
+HELP = 'help.png'
+GOTO = 'goto.png'
+LAYOUT = 'layout.png'
+SHOW_HIDE = 'show_hide.png'
 
-try:
-    HIT_WALL_IMAGE = wx.Image(misc.IMAGE_DIR+'/ouch.png', wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print " Problem loading ouch.png in dialogs.py"
+# others
+SPLASH_SCREEN = 'splash_screen.png'
+ICON = 'rur16x16.png'
+HIT_WALL_IMAGE = 'ouch.png'
+MINI_SPLASH = 'splash_screen_small.png'
 
-try:
-    MINI_SPLASH = wx.Image(misc.IMAGE_DIR+'/splash_screen_small.png', wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print " Problem loading splash_screen_small.png in dialogs.py"
+settings = conf.getSettings()
 
+_imageBitmap = {}
 
-try:
-    EDIT_WORLD = wx.Image(misc.IMAGE_DIR+'/edit_world.png',
-                                wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print "Problem loading edit_world.png in WorldDisplay.py"
+def getImage(imagePath):
+    '''
+    '''
+    global _imageBitmap, settings
+    
+    if not imagePath in _imageBitmap:
+        _imageBitmap[imagePath] = wx.Image(
+            os.path.join(settings.IMAGE_DIR, imagePath),
+            wx.BITMAP_TYPE_PNG).ConvertToBitmap()
 
-try:
-    #== browser
-    OPEN_HTML = wx.Image(misc.IMAGE_DIR+'/folder_html.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    HOME = wx.Image(misc.IMAGE_DIR+'/folder_home.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    BACK = wx.Image(misc.IMAGE_DIR+'/back.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    FORWARD = wx.Image(misc.IMAGE_DIR+'/forward.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    LANGUAGES = wx.Image(misc.IMAGE_DIR+'/languages.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    #== Robot world
-    RUN_PROGRAM = wx.Image(misc.IMAGE_DIR+'/run1.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    SPEED = wx.Image(misc.IMAGE_DIR+'/speed.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    STEP = wx.Image(misc.IMAGE_DIR+'/step.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    STOP = wx.Image(misc.IMAGE_DIR+'/stop.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    PAUSE = wx.Image(misc.IMAGE_DIR+'/pause.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    SHOW_WORLD_FILE = wx.Image(misc.IMAGE_DIR+'/show_world_file.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    HIGHLIGHT = wx.Image(misc.IMAGE_DIR+'/highlight.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    OPEN_PROGRAM = wx.Image(misc.IMAGE_DIR+'/open_program.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    SAVE_PROGRAM = wx.Image(misc.IMAGE_DIR+'/save_program.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    OPEN_WORLD = wx.Image(misc.IMAGE_DIR+'/open_world.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    SAVE_WORLD = wx.Image(misc.IMAGE_DIR+'/save_world.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    WALL = wx.Image(misc.IMAGE_DIR+'/wall.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    RESET_WORLD = wx.Image(misc.IMAGE_DIR+'/reset_world.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    ADD_REMOVE_ROBOT = wx.Image(misc.IMAGE_DIR+'/add_robot.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    BEEPERS_ROBOT = wx.Image(misc.IMAGE_DIR+'/beepers.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    RESIZE = wx.Image(misc.IMAGE_DIR+'/resize.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    NEW_ROBOT_IMAGES = wx.Image(misc.IMAGE_DIR+'/new_images.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    #== Python editor
-    OPEN_PYTHON = wx.Image(misc.IMAGE_DIR+'/open_py.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    SAVE_PYTHON = wx.Image(misc.IMAGE_DIR+'/save_py.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    CLEAR_TEXT = wx.Image(misc.IMAGE_DIR+'/clear_text.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    RUN_WITH = wx.Image(misc.IMAGE_DIR+'/run_with.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    HELP = wx.Image(misc.IMAGE_DIR+'/help.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    GOTO = wx.Image(misc.IMAGE_DIR+'/goto.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    LAYOUT = wx.Image(misc.IMAGE_DIR+'/layout.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    SHOW_HIDE = wx.Image(misc.IMAGE_DIR+'/show_hide.png',
-                      wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-except Exception,info:
-    print __name__, info
-    print " Problem loading button images in RobotFactory.py"
+    return _imageBitmap[imagePath]
+
+def setImage(imagePath, image):
+    '''
+    '''
+    _imageBitmap[imagePath] = image

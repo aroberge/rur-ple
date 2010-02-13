@@ -31,13 +31,18 @@ import sys
 
 # Change directory so that rur-ple can be started from everywhere.
 try:
-    #os.chdir(os.path.dirname(sys.argv[0]))
-    sys.path.append(os.path.dirname(sys.argv[0]))
+    appdir = os.path.dirname(sys.argv[0])
+    if appdir != '':
+        os.chdir(appdir)
+    sys.path.append(os.getcwd())
+    from rur_py import conf
+    conf.getSettings()
 except OSError, e:
-    print _('Cannot change to rur-ple directory.')
+    print 'Cannot change to rur-ple directory.'
+    sys.exit(1)
 
 from rur_py.translation import _
-import rur_py.misc as misc  # a few global variables
+import rur_py.conf as conf  # a few global variables
 import rur_py.wxutils as wxutils
 
 # do not check version when make a 'bundle' of the application
@@ -49,85 +54,10 @@ if not hasattr(sys, 'frozen'):
 
 import wx
 import wx.lib.buttons
-
-if __name__ == "__main__": # ensures that all wxPython stuff is loaded properly
-    App = wx.PySimpleApp(0) # (1) redirects print output to window; 
-                            # (0) to terminal
-    cur_path = os.path.dirname(sys.argv[0])
-    if cur_path != '':
-        os.chdir(cur_path)
-    misc.HOME = os.getcwd() # sets up path for later use
-    #
-    os.chdir("rur_images")
-    misc.IMAGE_DIR = os.getcwd()
-    os.chdir(misc.HOME)
-    #
-    os.chdir("lessons")
-    from rur_py.translation import language_code
-    os.chdir(language_code)
-    misc.HTML_DIR = os.getcwd()
-    os.chdir(misc.HOME)
-    #
-    os.chdir("rur_programs")
-    misc.PRGM_DIR = os.getcwd()
-    os.chdir(misc.HOME)
-    #
-    os.chdir("world_files")
-    misc.WORLD_DIR = os.getcwd()
-    os.chdir(misc.HOME)
-    #
-    os.chdir("python_files")
-    misc.PYTHON_DIR  = os.getcwd()
-    os.chdir(misc.HOME)
-    #
-    misc.MYFILES_HOME = os.getenv('USERPROFILE') or os.getenv('HOME')
-    #
-    # --- Below are the setting to customize rur-ple startup and panels sizes
-    # SCREEN[0] is rurple window size width at startup
-    # SCREEN[1] is rurple window size height at startup
-    # SCREEN[2] is the programming pane width in "code and learn" tab
-    # SCREEN[3] is the debugging window height at the lower right in "code and learn"
-    # SCREEN[4] is Reeborg's world brick length
-    # SCREEN[5] is Reeborg's world brick thickness
-    # SCREEN[6] is the beeper position offset
-    # SCREEN[7] is Reeborg's horizontal offset
-    # SCREEN[8] is Reeborg's vertical offset
-    # SCREEN[9] is the bouton large spacer
-    # misc.SCREEN = [797,545,350,40,27,5,8,8,3] # 800x600 monitors
-    # misc.SCREEN = [900,545,450,40,27,5,8,8,3] # 1024x600 netbooks
-    # misc.SCREEN = [980,700,450,110,34,6,13,12,9] # for 1024x768 and above
-    # misc.SCREEN = [900,660,290,57,34,6,13,12,9] # in version 1.0.1
-    try:
-       commandline = sys.argv[1]
-    except IndexError:
-       screen_size = wx.Display().GetGeometry()
-       if screen_size[2] < 800:
-           commandline = "-xs"
-       if screen_size[2] < 905:
-           commandline = "-s"
-       elif screen_size[3] < 695:
-           commandline = "sw"
-       else:
-           commandline = ''
-    if commandline == "-xs": # for 640x480
-        misc.SCREEN = [637,445,260,5,20,4,5,4,-1,1]
-    elif commandline == "-s" and os.name == "posix": # for 800x600 on Linux
-	misc.SCREEN = [797,545,350,40,27,5,8,8,3,23]
-    elif commandline == "-s": # for 800x600 on Windows
-	misc.SCREEN = [797,545,345,24,27,5,8,8,3,23]
-    elif commandline == "-sw" and os.name == "posix": # for 1024x600 on Linux
-	misc.SCREEN = [900,545,450,40,27,5,8,8,3,25]
-    elif commandline == "-sw": # for 1024x600 on Windows
-	misc.SCREEN = [900,545,445,24,27,5,8,8,3,25]
-    elif commandline == "-n": # for 1024x768 and above
-        misc.SCREEN = [980,700,445,95,34,6,13,12,9,25] # default size
-    else:
-        misc.SCREEN = [980,700,445,95,34,6,13,12,9,25] # default size
-
-#--- see end of file for completion of the start of the application
-
 import wx.py as py           # For the interpreter
+
 import rur_py.images as images # load all images
+from rur_py.images import getImage
 import rur_py.dialogs as dialogs # contains dialogs and exception classes
 from rur_py.translation import _
 
@@ -135,12 +65,14 @@ from rur_py.sash import MySashWindow
 from rur_py.lightning import EditorSashWindow
 import rur_py.parser as parser
 from rur_py.bouton import pythonChoiceWindow
-code = ""    # global variable defined for convenience; contains user program
 
 from rur_py.cpu import rur_program
 import rur_py.browser as browser
 import rur_py.event_manager as event_manager
 from rur_py.status_bar import rurStatusBar
+
+# global variable defined for convenience; contains user program
+code = ""
 
 class RURnotebook(wx.Notebook):
     def __init__(self, parent):
@@ -157,7 +89,7 @@ class RURApp(wx.Frame):
     def __init__(self):
         wx.Frame.__init__(self, None, -1, 
                           _("RUR: a Python Learning Environment"),
-                          size = (misc.SCREEN[0], misc.SCREEN[1]),
+                          size = (settings.SCREEN[0], settings.SCREEN[1]),
                           style=wx.DEFAULT_FRAME_STYLE)
         self.raw_code = ""
         self.filename = ""
@@ -170,7 +102,7 @@ class RURApp(wx.Frame):
 
         # icon on top left of window
         icon = wx.EmptyIcon()
-        icon.CopyFromBitmap(images.ICON)
+        icon.CopyFromBitmap(getImage(images.ICON))
         self.SetIcon(icon)
         #
         self.Show(True)
@@ -218,7 +150,7 @@ class RURApp(wx.Frame):
                 # 40 = bouton "." btn_size[1] + 8
         self.window.AddPage(self.sash2, _("Python: simple editor"))
 
-        self.SetSize((misc.SCREEN[0], misc.SCREEN[1]))
+        self.SetSize((settings.SCREEN[0], settings.SCREEN[1]))
         self.window.SetFocus()
         self.SendSizeEvent()  # added to attempt to solve problem on MacOS
         wx.EVT_CLOSE(self, self.OnClose)
@@ -243,14 +175,14 @@ class RURApp(wx.Frame):
 
         openedFileName = dialogs.openDialog(_("Choose a file"),
             _("World files (*.wld)|*.wld| All files (*.*)|*.*"),
-            "", misc.WORLD_DIR)
+            "", settings.USER_WORLDS_DIR)
 
         if openedFileName != "":
             self.world_filename = openedFileName
             self.ReadWorldFile()
             self.UpdateWorld()
             self.user_program.clear_trace()
-            misc.WORLD_DIR = os.path.dirname(self.world_filename)
+            settings.USER_WORLDS_DIR = os.path.dirname(self.world_filename)
             arg = self.status_bar.world_field, \
                   os.path.basename(self.world_filename)
             event_manager.SendCustomEvent(self, arg)
@@ -352,18 +284,18 @@ class RURApp(wx.Frame):
     def SaveWorldFile(self, dummy):
         if self.isRunning:
             return
-        savedFileName = dialogs.checkedSaveDialog(
-            self.WorldDisplay.UpdateEditor(),
+        txt = self.WorldDisplay.UpdateEditor()
+        savedFileName = dialogs.checkedSaveDialog(txt,
             _("Save new world as"),
             _("World files (*.wld)|*.wld| All files (*.*)|*.*"),
-            self.world_filename, misc.MYFILES_HOME)
+            self.world_filename, settings.USER_WORLDS_DIR)
 
         self.world_filename = savedFileName
 
         arg = self.status_bar.world_field, \
               os.path.basename(self.world_filename)
         event_manager.SendCustomEvent(self, arg)
-        misc.WORLD_DIR = os.path.dirname(self.world_filename)
+        settings.SAMPLE_WORLDS_DIR = os.path.dirname(self.world_filename)
         # save a backup copy to 'reset world'
         self.backup_dict = {}
         exec txt in self.backup_dict
@@ -376,7 +308,7 @@ class RURApp(wx.Frame):
 
         openedFileName = dialogs.openDialog(_("Choose a file"),
            _("Program files (*.rur)|*.rur| All files (*.*)|*.*"),
-            "", misc.PRGM_DIR)
+            "", settings.USER_PROGS_DIR)
 
         if openedFileName != "":
             global code
@@ -388,7 +320,7 @@ class RURApp(wx.Frame):
             code = parser.FixLineEnding(code)
             self.ProgramEditor.SetText(code)
             no_error, mesg = parser.ParseProgram(code)
-            misc.PRGM_DIR = os.path.dirname(self.filename)
+            settings.USER_PROGS_DIR = os.path.dirname(self.filename)
             if no_error:
                 self.raw_code = code
                 self.ProgramEditor.SetSavePoint()
@@ -407,13 +339,13 @@ class RURApp(wx.Frame):
                 code,
                 _("Save new program as"),
                 _("Program files (*.rur)|*.rur| All files (*.*)|*.*"),
-                self.filename, misc.MYFILES_HOME)
+                self.filename, settings.USER_PROGS_DIR)
 
             self.filename = savedFileName
             arg = self.status_bar.program_field, \
                   os.path.basename(self.filename)
             event_manager.SendCustomEvent(self, arg)
-            misc.PRGM_DIR = os.path.dirname(self.filename)
+            settings.USER_PROGS_DIR = os.path.dirname(self.filename)
             self.ProgramEditor.SetSavePoint()
         else:
             code = ""
@@ -501,11 +433,11 @@ class RURApp(wx.Frame):
         if self.user_program.isRunning:
             return
         global code
-        if misc.line_number_flag:
-            misc.line_number_flag = False
+        if settings.line_number_flag:
+            settings.line_number_flag = False
             code = self.raw_code
         else:
-            misc.line_number_flag = True
+            settings.line_number_flag = True
             code = parser.add_line_number_info(code)
 
     def ToggleWorldWindow(self, dummy):
@@ -553,10 +485,10 @@ class RURApp(wx.Frame):
             else:
                 return()
 
-        image_south = images.GREY_ROBOT_S
-        image_north = images.GREY_ROBOT_N
-        image_east = images.GREY_ROBOT_E
-        image_west = images.GREY_ROBOT_W
+        image_south = getImage(images.GREY_ROBOT_S)
+        image_north = getImage(images.GREY_ROBOT_N)
+        image_east = getImage(images.GREY_ROBOT_E)
+        image_west = getImage(images.GREY_ROBOT_W)
         try:
             image_south = wx.Image(self.fileSouth).ConvertToBitmap()
             image_north = wx.Image(self.fileNorth).ConvertToBitmap()
@@ -565,16 +497,16 @@ class RURApp(wx.Frame):
         except Exception, info:
             print "Conversion or loading problems: can not use new images."
             print "info = %", info
-        images.GREY_ROBOT_S = image_south
-        images.GREY_ROBOT_N = image_north
-        images.GREY_ROBOT_E = image_east
-        images.GREY_ROBOT_W = image_west
+        images.setImage(images.GREY_ROBOT_S, image_south)
+        images.setImage(images.GREY_ROBOT_N, image_north)
+        images.setImage(images.GREY_ROBOT_E, image_east)
+        images.setImage(images.GREY_ROBOT_W, image_west)
         self.AddRemoveRobot(event) # remove robot with old image
         self.AddRemoveRobot(event) # and add new one
 
 class MySplashScreen(wx.SplashScreen):
     def __init__(self):
-        wx.SplashScreen.__init__(self, images.SPLASH_SCREEN,
+        wx.SplashScreen.__init__(self, getImage(images.SPLASH_SCREEN),
                 wx.SPLASH_CENTRE_ON_SCREEN|wx.SPLASH_TIMEOUT, 100, None, -1,
                 style = wx.SIMPLE_BORDER|wx.FRAME_NO_TASKBAR|wx.STAY_ON_TOP)
         wx.EVT_CLOSE(self, self.OnClose)
@@ -583,8 +515,13 @@ class MySplashScreen(wx.SplashScreen):
         dummy = RURApp()
         evt.Skip()
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
+    App = wx.PySimpleApp(0) # (1) redirects print output to window;
+                            # (0) to terminal
+                            
+    settings = conf.getSettings()
+    settings.SCREEN = wxutils.getscreen()
+
     Splash = MySplashScreen()
     Splash.Show()
     App.MainLoop()
-

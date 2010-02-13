@@ -16,6 +16,7 @@ import wx
 import wx.stc as stc
 import wx.py as py    # For the interpreter
 from rur_py.translation import _
+import rur_py.dialogs as dialogs
 
 BOTTOM, RIGHT = 1, 2
 #--- The following can be configured easily by the user
@@ -532,27 +533,25 @@ class EditorSashWindow(wx.Panel):
         wx.LayoutAlgorithm().LayoutWindow(self, self.remainingSpace)
 
     def openFile(self, event):
-        wildcard = _("Python files (*.py)|*.py|" + "All files (*.*)|*.*")
-        dlg = wx.FileDialog(self, '', os.getcwd(), "",
-                           wildcard, wx.OPEN | wx.CHANGE_DIR)
-        if dlg.ShowModal() == wx.ID_OK:
-            self.filename = dlg.GetPath()
+        self.filename = dialogs.openDialog(_("Choose a file"),
+           _("Python files (*.py)|*.py| All files (*.*)|*.*"),
+            "",  os.getcwd())
+
+        if self.filename != "":
             user_code = open(self.filename, 'r').read()
             self.PythonEditor.SetText(user_code)
-        dlg.Destroy()
+
+
+
 
     def saveFile(self, event):
         user_code = self.PythonEditor.GetText()
-        wildcard = _("Python files (*.py)|*.py|" + "All files (*.*)|*.*")
-        dlg = wx.FileDialog(self, '', os.getcwd(),
-                           "", wildcard, wx.SAVE| wx.CHANGE_DIR )
-        if dlg.ShowModal() == wx.ID_OK:
-            self.filename = dlg.GetPath()
-            f = open(self.filename, 'w')
-            user_code = fixLineEnding(user_code)
-            f.write(user_code)
-            f.close()
-        dlg.Destroy()
+        user_code = fixLineEnding(user_code)
+        self.filename = dialogs.checkedSaveDialog(user_code,
+            _("Save Python file as"),
+            _("Python files (*.py)|*.py| All files (*.*)|*.*"),
+            self.filename, os.getcwd())
+
         
     ##--- Running routines
     

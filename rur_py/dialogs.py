@@ -11,6 +11,7 @@ import os
 import wx
 from rur_py.translation import _
 import images
+from images import getImage
 
 class MyDialogs(wx.Dialog):
     '''Custom dialogs that include "interesting" image and text.'''
@@ -63,37 +64,37 @@ class DialogHitWallError(MyDialogs):
     """ Custom dialog """
     def __init__(self, excpt):
         MyDialogs.__init__(self, None, -1, _("Error"), excpt.mesg,
-                              _("Turn off"), images.HIT_WALL_IMAGE)
+                              _("Turn off"), getImage(images.HIT_WALL_IMAGE))
 
 class DialogPutBeeperError(MyDialogs):
     """ Will need to have its own image """
     def __init__(self, excpt):
         MyDialogs.__init__(self, None, -1, _("Error"), excpt.mesg,
-                              _("Turn off"), images.HIT_WALL_IMAGE)
+                              _("Turn off"), getImage(images.HIT_WALL_IMAGE))
 
 class DialogPickBeeperError(MyDialogs):
 
     """ Will need to have its own image """
     def __init__(self, excpt):
         MyDialogs.__init__(self, None, -1, _("Error"), excpt.mesg,
-                              _("Turn off"), images.HIT_WALL_IMAGE)
+                              _("Turn off"), getImage(images.HIT_WALL_IMAGE))
 
 class UserStopError(MyDialogs):
     """ Will need to have its own image """
     def __init__(self, excpt):
         MyDialogs.__init__(self, None, -1, _("Error"), excpt.mesg,
-                              _("Turn off"), images.HIT_WALL_IMAGE)
+                              _("Turn off"), getImage(images.HIT_WALL_IMAGE))
 
 class NoTurnOffError(MyDialogs):
     """ Will need to have its own image """
     def __init__(self, excpt):
         MyDialogs.__init__(self, None, -1, _("Error"), excpt.mesg,
-                              _("Turn off"), images.HIT_WALL_IMAGE)
+                              _("Turn off"), getImage(images.HIT_WALL_IMAGE))
 
 class NormalEndDialog(MyDialogs):
     def __init__(self, excpt):
         MyDialogs.__init__(self, None, -1, _("Success!"), excpt.mesg,
-                              "Ok", images.MINI_SPLASH, modal=False)
+                              "Ok", getImage(images.MINI_SPLASH), modal=False)
         self.timer = wx.Timer(self)
         self.timer.Start(2000)
         self.Bind(wx.EVT_TIMER, self.OnCloseMe)
@@ -216,8 +217,6 @@ class RobotBeeperDialog(wx.Frame):
     def __init__(self, parent, ID, title):
         wx.Frame.__init__(self, None, -1, title=title)
 
-        p = wx.Panel(self, -1, style = wx.FULL_REPAINT_ON_RESIZE )
-
         self.SetBackgroundColour("wheat")
 
         self.parent = parent
@@ -282,7 +281,6 @@ the number of beepers to put in the robot's beeper bag.""")
 class ResizeWorldDialog(wx.Frame):
     def __init__(self, parent, ID, title):
         wx.Frame.__init__(self, None, -1, title=title)
-        p = wx.Panel(self, -1, style = wx.FULL_REPAINT_ON_RESIZE )
 
         self.SetBackgroundColour("wheat")
         self.parent = parent
@@ -300,7 +298,7 @@ The existing walls and beepers will be removed.""")
         self.streets = parent.world.st
         self.avenues = parent.world.av
 
-        world_image = wx.StaticBitmap(self, -1, images.EDIT_WORLD, (60, 90))
+        world_image = wx.StaticBitmap(self, -1, getImage(images.EDIT_WORLD), (60, 90))
         length, height = world_image.GetSize()
 
         self.slider_street = wx.Slider(
