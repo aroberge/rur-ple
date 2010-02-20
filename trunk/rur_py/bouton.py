@@ -12,6 +12,10 @@ from images import getImage
 from rur_py.translation import _
 import rur_py.conf as conf  # a few global variables
 
+SPACER = 0
+BITMAP = 1
+BUTTON = 2
+    
 class rurChoiceWindow(wx.ScrolledWindow):
     def __init__(self, parent, great_grand_parent):
         settings = conf.getSettings()
@@ -21,7 +25,6 @@ class rurChoiceWindow(wx.ScrolledWindow):
         self.ggp = great_grand_parent    # rurApp instance!
         btn_size = (32, 32)
         self.ggp.BUTTON_HEIGHT = btn_size[0] + 8
-        spacer_small = (4, 4)
         spacer_large = (settings.SCREEN[9], settings.SCREEN[9])
 
         tip_list = [_("Opens existing robot program"), 
@@ -41,60 +44,65 @@ class rurChoiceWindow(wx.ScrolledWindow):
                           _("Toggle world file view"),
                           _("Load new images for robot")]
 
-        button_list1 = [
-            [wx.NewId(), True, self.ggp.OpenProgramFile, getImage(images.OPEN_PROGRAM),
-                btn_size, tip_list[0]],
-            [wx.NewId(), True, self.ggp.SaveProgramFile, getImage(images.SAVE_PROGRAM),
-                btn_size, tip_list[1]],
-            [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.OpenWorldFile, getImage(images.OPEN_WORLD),
-                btn_size, tip_list[2]],
-            [wx.NewId(), True, self.ggp.SaveWorldFile, getImage(images.SAVE_WORLD),
-                btn_size, tip_list[3]],
-            [wx.NewId(), True, self.ggp.ResetWorld, getImage(images.RESET_WORLD),
-                btn_size, tip_list[4]],
-            [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.RunProgram, getImage(images.RUN_PROGRAM),
-                btn_size, tip_list[5]],
-            [wx.NewId(), True, self.ggp.Step, getImage(images.STEP), btn_size,
-                tip_list[6]],
-            [wx.NewId(), True, self.ggp.Pause, getImage(images.PAUSE), btn_size,
-                tip_list[7]],
-            [wx.NewId(), True, self.ggp.StopProgram, getImage(images.STOP), btn_size,
-                tip_list[8]],
-            [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, None, getImage(images.SPEED), btn_size, tip_list[9]]
+        widget_list1 = [
+            [wx.NewId(), BUTTON, self.ggp.OpenProgramFile,
+                getImage(images.OPEN_PROGRAM), btn_size, tip_list[0]],
+            [wx.NewId(), BUTTON, self.ggp.SaveProgramFile,
+                getImage(images.SAVE_PROGRAM), btn_size, tip_list[1]],
+            [None,      SPACER, None, None, spacer_large, None],
+            [wx.NewId(), BUTTON, self.ggp.OpenWorldFile,
+                getImage(images.OPEN_WORLD), btn_size, tip_list[2]],
+            [wx.NewId(), BUTTON, self.ggp.SaveWorldFile,
+                getImage(images.SAVE_WORLD), btn_size, tip_list[3]],
+            [wx.NewId(), BUTTON, self.ggp.ResetWorld,
+                getImage(images.RESET_WORLD), btn_size, tip_list[4]],
+            [None,      SPACER, None, None, spacer_large, None],
+            [wx.NewId(), BUTTON, self.ggp.RunProgram,
+                getImage(images.RUN_PROGRAM), btn_size, tip_list[5]],
+            [wx.NewId(), BUTTON, self.ggp.Step,
+                getImage(images.STEP), btn_size, tip_list[6]],
+            [wx.NewId(), BUTTON, self.ggp.Pause,
+                getImage(images.PAUSE), btn_size, tip_list[7]],
+            [wx.NewId(), BUTTON, self.ggp.StopProgram,
+                getImage(images.STOP), btn_size, tip_list[8]],
+            [None,      SPACER, None, None, spacer_large, None],
+            [wx.NewId(),  BITMAP, None,
+                getImage(images.SPEED), btn_size, tip_list[9]]
             ]
 
-        button_list2 = [
-            [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.EditWalls, getImage(images.WALL), btn_size,
-                tip_list[10]],
-            [wx.NewId(), True, self.ggp.ResizeWorld, getImage(images.RESIZE), btn_size,
-                tip_list[11]],
-            [wx.NewId(), True, self.ggp.BeepersToRobot, getImage(images.BEEPERS_ROBOT),
-                btn_size, tip_list[12]],
-            [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.AddRemoveRobot, getImage(images.ADD_REMOVE_ROBOT),
-                btn_size, tip_list[13]],
-            [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.ToggleWorldWindow, getImage(images.SHOW_WORLD_FILE),
-                btn_size, tip_list[14]],
-            [None,      False, None, None, spacer_large, None],
-            [wx.NewId(), True, self.ggp.load_images, getImage(images.NEW_ROBOT_IMAGES),
-                btn_size, tip_list[15]],
+        widget_list2 =[
+            [None,      SPACER, None, None, spacer_large, None],
+            [wx.NewId(), BUTTON, self.ggp.EditWalls,
+                getImage(images.WALL), btn_size, tip_list[10]],
+            [wx.NewId(), BUTTON, self.ggp.ResizeWorld,
+                getImage(images.RESIZE), btn_size, tip_list[11]],
+            [wx.NewId(), BUTTON, self.ggp.BeepersToRobot,
+                getImage(images.BEEPERS_ROBOT), btn_size, tip_list[12]],
+            [None,      SPACER, None, None, spacer_large, None],
+            [wx.NewId(), BUTTON, self.ggp.AddRemoveRobot,
+                getImage(images.ADD_REMOVE_ROBOT), btn_size, tip_list[13]],
+            [None,      SPACER, None, None, spacer_large, None],
+            [wx.NewId(), BUTTON, self.ggp.ToggleWorldWindow,
+                getImage(images.SHOW_WORLD_FILE), btn_size, tip_list[14]],
+            [None,      SPACER, None, None, spacer_large, None],
+            [wx.NewId(), BUTTON, self.ggp.load_images,
+                getImage(images.NEW_ROBOT_IMAGES), btn_size, tip_list[15]],
             ]
         box = wx.BoxSizer(wx.HORIZONTAL)
 
         self.btn_list = []
-        for id, button, action, img, size, tip in button_list1:
-            if button:
+        for id, widget, action, img, size, tip in widget_list1:
+            if widget == BUTTON:
                 name = wx.lib.buttons.GenBitmapButton(self, id, img, size=size)
                 name.SetToolTipString(tip)
                 wx.EVT_BUTTON(self, id, action)
                 box.Add(name, 0, wx.SHAPED)
                 self.btn_list.append(name)  # create lists for later reference
-            else:
+            elif widget == BITMAP:
+                name = wx.StaticBitmap(self, -1, img, size=size)
+                box.Add(name, 0, wx.SHAPED)
+                self.btn_list.append(name)  # create lists for later reference
+            elif widget == SPACER:
                 box.Add(size, 0, wx.EXPAND)
 
         min_speed = 0
@@ -111,14 +119,18 @@ class rurChoiceWindow(wx.ScrolledWindow):
         box.Add(self.ggp.slider_speed, 0, wx.SHAPED)
         self.ggp.slider_speed.SetFocus()  # to make it same colour as background
 
-        for id, button, action, img, size, tip in button_list2:
-            if button:
+        for id, widget, action, img, size, tip in widget_list2:
+            if widget == BUTTON:
                 name = wx.lib.buttons.GenBitmapButton(self, id, img, size=size)
                 name.SetToolTipString(tip)
                 wx.EVT_BUTTON(self, id, action)
                 box.Add(name, 0, wx.SHAPED)
                 self.btn_list.append(name)  # create lists for later reference
-            else:
+            elif widget == BITMAP:
+                name = wx.StaticBitmap(self, -1, img, size=size)
+                box.Add(name, 0, wx.SHAPED)
+                self.btn_list.append(name)  # create lists for later reference
+            elif widget == SPACER:
                 box.Add(size, 0, wx.EXPAND)
         self.SetSizer(box)
         self.SetScrollRate(10, 0)
@@ -173,42 +185,39 @@ class pythonChoiceWindow(wx.Panel):
         clearId = wx.NewId()
         switchId = wx.NewId()
 
-        # temporary list until images are created
-        labels = ["Help", "Run with", "Go to", "Hide/show", "Layout"]
-        
-        button_list = [
-            [None, False, None, None, spacer_small, None],
-            [openId, True, editor.openFile,
+        widget_list = [
+            [None, SPACER, None, None, spacer_small, None],
+            [openId, BUTTON, editor.openFile,
                 getImage(images.OPEN_PYTHON), btn_size, tip_list[0]],
-            [None, False, None, None, spacer_small, None],
-            [saveId, True, editor.saveFile,
+            [None, SPACER, None, None, spacer_small, None],
+            [saveId, BUTTON, editor.saveFile,
                 getImage(images.SAVE_PYTHON), btn_size, tip_list[1]],
-            [None, False, None, None, spacer_large, None],
-            [runId, True, editor.run,
+            [None, SPACER, None, None, spacer_large, None],
+            [runId, BUTTON, editor.run,
                 getImage(images.RUN_PROGRAM), btn_size, tip_list[2]],
-            [None, False, None, None, spacer_small, None],
-            [runWithId, True, editor.run_with,
+            [None, SPACER, None, None, spacer_small, None],
+            [runWithId, BUTTON, editor.run_with,
                 getImage(images.RUN_WITH), btn_size, tip_list[3]],
-            [None, False, None, None, spacer_large, None],
-            [helpId, True, editor.help,
+            [None, SPACER, None, None, spacer_large, None],
+            [helpId, BUTTON, editor.help,
                 getImage(images.HELP), btn_size, tip_list[4]],
-            [None, False, None, None, spacer_large, None],
-            [goToId, True, editor.goToLine,
+            [None, SPACER, None, None, spacer_large, None],
+            [goToId, BUTTON, editor.goToLine,
                 getImage(images.GOTO), btn_size, tip_list[5]],
-            [None, False, None, None, spacer_large, None],
-            [showId, True, editor.show,
+            [None, SPACER, None, None, spacer_large, None],
+            [showId, BUTTON, editor.show,
                 getImage(images.SHOW_HIDE), btn_size, tip_list[6]],
-            [None, False, None, None, spacer_large, None],
-            [switchId, True, editor.switch_layout,
+            [None, SPACER, None, None, spacer_large, None],
+            [switchId, BUTTON, editor.switch_layout,
                 getImage(images.LAYOUT), btn_size, tip_list[7]],
-            [None, False, None, None, spacer_large, None],
-            [clearId, True, editor.clear,
+            [None, SPACER, None, None, spacer_large, None],
+            [clearId, BUTTON, editor.clear,
                 getImage(images.CLEAR_TEXT), btn_size, tip_list[8]]
             ]
         box = wx.BoxSizer(wx.HORIZONTAL)
         self.btn_list = []
-        for id, button, action, img, size, tip in button_list:
-            if button:
+        for id, widget, action, img, size, tip in widget_list:
+            if widget == BUTTON:
                 btn = wx.BitmapButton(self, id, img, size=size)
                 #btn = wx.lib.buttons.GenBitmapButton(self, id, img, size=size)
                 #btn = wx.Button(self, id, tip[:7], size=size)
@@ -216,7 +225,11 @@ class pythonChoiceWindow(wx.Panel):
                 self.Bind(wx.EVT_BUTTON, action, btn)
                 box.Add(btn, 0, wx.SHAPED)
                 self.btn_list.append(btn)  # create a list for later reference
-            else:
+            elif widget == BITMAP:
+                name = wx.StaticBitmap(self, -1, img, size=size)
+                box.Add(name, 0, wx.SHAPED)
+                self.btn_list.append(name)  # create lists for later reference
+            elif widget == SPACER:
                 box.Add(size, 0, wx.EXPAND)
         self.SetSizer(box)
 

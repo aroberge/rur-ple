@@ -81,9 +81,12 @@ class RURnotebook(wx.Notebook):
         wx.EVT_NOTEBOOK_PAGE_CHANGED(self, -1, self.OnPageChanged)
 
     def OnPageChanged(self, event):
-        arg = self.parent.status_bar.notebook_new_page, event.GetSelection()
-        event_manager.SendCustomEvent(self.parent, arg)
-        event.Skip()
+        status_bar = self.parent.status_bar
+        # status_bar is dead during shutdown so check if it's alive.
+        if status_bar:
+            arg = status_bar.notebook_new_page, event.GetSelection()
+            event_manager.SendCustomEvent(self.parent, arg)
+            event.Skip()
 
 class RURApp(wx.Frame):
     def __init__(self):
