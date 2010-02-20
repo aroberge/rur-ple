@@ -1,19 +1,17 @@
 # -*- coding: utf-8
 """ RUR-PLE: Roberge's Used Robot - a Python Learning Environment
-    conf.py - contains various application and user properties
+    conf.py - contains various application and user properties and some
+    methods for saving and loading configuraton data.
     Version 1.0
     Author: Andre Roberge    Copyright  2006
     andre.roberge@gmail.com
 """
-import os.path
-
 import sys
 import os
 import shutil
 import tempfile
 import ConfigParser
-
-
+import locale
 
 _Settings = None
 
@@ -145,8 +143,18 @@ def getLessonsNlDir():
     # lessons and other html files (language dependent)
     return os.path.join(getSettings().APP_HOME, "lessons", getLanguage())
 
+def getAvailableLanguages():
+    '''Retrieve available languages from directories under rur_locale.
+    @return (set): set of available languages.
+    '''
+    for d, sd, sf in os.walk(getSettings().LOCALE_DIR):
+        return [lang for lang in sd if lang[0] != '.']
 
 def _getStorage(fileName):
+    '''Creates a RawConfigParser object from the given file (ini format).
+    @param fileName (str) : name of file to load from.
+    @return (RawConfigParser): theRawConfigParser object
+    '''
     cp = ConfigParser.RawConfigParser()
     try:
         path = os.path.join(getSettings().USER_DIR, fileName)
@@ -160,8 +168,12 @@ def _getStorage(fileName):
     except IOError:
         return None
 
-
 def _saveStorage(cp, fileName):
+    '''Saves a RawConfigParser object to the given file.
+    @param cp (RawConfigParser): theRawConfigParser object to save.
+    @param fileName (str) : name of file to save to.
+    @return (bool): success status of the operation.
+    '''
     try:
         path = os.path.join(getSettings().USER_DIR, fileName)
         f = open(path, 'w')
@@ -172,10 +184,15 @@ def _saveStorage(cp, fileName):
         return False
 
 def _defaultStorage(fileName):
+    '''Creates a RawConfigParser object with default settings and saves it to
+    thr given file. The file is created if it doesn't exist.
+    @param fileName (str) : name of file to load from.
+    @return (RawConfigParser): the RawConfigParser object
+    '''
     try:
         cp = ConfigParser.RawConfigParser()
         cp.add_section('locale')
-        cp.set('locale', 'lang', 'en')
+        cp.set('locale', 'lang', _getDefaultLanguage())
         path = os.path.join(getSettings().USER_DIR, fileName)
         f = open(path, 'w')
         cp.write(f)
@@ -183,4 +200,16 @@ def _defaultStorage(fileName):
         return cp
     except IOError:
         return None
-    
+
+def _getDefaultLanguage():
+    '''Guesses the default language from the environment settings of the user.
+    @return (str): the 2-letter code of the default language.
+    '''
+    try:
+        defaultLanguage = locale.getdefaultlocale()[0].split('_')[0]
+        if not defaultLanguage in getAvailableLanguages():
+            defaultLanguage = 'en'
+    except Exception:
+        defaultLanguage = 'en'
+
+    return defaultLanguage

@@ -6,6 +6,7 @@
     Author: Andre Roberge    Copyright  2005
     andre.roberge@gmail.com
 """
+import os.path
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
@@ -32,6 +33,19 @@ from images import getImage
 import dialogs
 
 #----------------------------------------------------------------------
+
+def relPathOfPage(page):
+    '''Returns the part of the URL after the language path. Used to
+    switch between corresponding lessons of different languages.
+    '''
+    # Make sure that lessonbase has a http like path separator
+    lessonbase = conf.getSettings().LESSONS_DIR.replace(os.path.sep, '/')
+    if (page.startswith(lessonbase)):
+        lbcount = len(lessonbase.split('/'))
+        pageparts = page.split('/')
+        return '/'.join(pageparts[lbcount +1:])
+    else:
+        return ''
 
 class TestHtmlPanel(wx.Panel):
     def __init__(self, parent, grand_parent):
@@ -84,8 +98,8 @@ class TestHtmlPanel(wx.Panel):
                 subbox.Add(size, 0, wx.EXPAND)
 
         languageList = []
-        for language in translation.languages:
-            languageList.append(translation.languages[language][0])
+        for language in conf.getAvailableLanguages():
+            languageList.append(translation.languages[language][2])
         languageList.sort()
         self.ch = wx.Choice(self, -1, choices = languageList)
         self.Bind(wx.EVT_CHOICE, self.ChooseLanguage, self.ch)
@@ -100,7 +114,6 @@ class TestHtmlPanel(wx.Panel):
         self.html.LoadPage(name)
 
     def ChooseLanguage(self, event):
-        lastLanguage = conf.getLanguage()
         translation.select(event.GetString()) 
         # notebook tabs
         self.grand_parent.window.SetPageText(0, _("  RUR: Read and Learn  "))
@@ -119,17 +132,24 @@ class TestHtmlPanel(wx.Panel):
         self.grand_parent.ch.SelectLanguage()
         # choice window in Python editor
         self.grand_parent.py_ch.SelectLanguage()
+
+        self.lessons_dir = conf.getLessonsNlDir()
         # page loaded in browser
         current_page = self.html.GetOpenedPage()
-        current_page = current_page.replace( "/"+lastLanguage+"/", 
-                                             "/"+conf.getLanguage()+"/")
-        self.lessons_dir = self.lessons_dir.replace(os.path.sep + lastLanguage,
-                                      os.path.sep + conf.getLanguage())
-        if os.path.isfile(current_page):
-            self.html.LoadPage(current_page)
-        else:
-            name = os.path.join(self.lessons_dir, 'rur.htm')
-            self.html.LoadPage(name)
+        relPath = relPathOfPage(current_page)
+        if len(relPath) > 0:
+            new_page = os.path.join(self.lessons_dir, relPath)
+            if os.path.isfile(new_page):
+                self.html.LoadPage(new_page)
+            else:
+                lessonbase = conf.getSettings().LESSONS_DIR
+                new_page = os.path.join(lessonbase, 'en', relPath)
+                if os.path.isfile(new_page):
+                    self.html.LoadPage(new_page)
+                else:
+                    dialogs.messageDialog(
+                        _('Cannot find a translation for %s') % current_page,
+                        _('Translation Problem'))
         # status bar
         self.grand_parent.status_bar.ChangeLanguage()
         # world display
