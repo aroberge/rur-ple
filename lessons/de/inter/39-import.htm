@@ -165,39 +165,28 @@ Modul-Klasse ist.<br />
 </li>
 <li>
 Zweiter Weg:<br />
-
 <pre>
+<span class="comment"># Folgendes ist für deutschsprachige Programmierer nützlich:</span>
 <span class="keyword">from</span> toolbox <span class="keyword">import</span> turn_right <span class="keyword">as</span> nach_rechts
+
 <span class="comment"># Anwendung:</span>
 nach_rechts()
 turn_off()
 </pre>
-
-Die from..import..as-Anweisung ist nicht anderes als eine Abkürzung für:<br />
-
-<pre>
-<span class="keyword">import</span> toolbox
-nach_rechts = toolbox.turn_right
-<span class="keyword">del</span> toolbox
-</pre>
-
-Erinnerst du dich? Mit <span class="keyword">del</span> löschen wir einen Namen
-aus dem Gedächtnis des Python-Interpreters. Wenn dir die Sache komisch vorkommt,
-spiel ein bisschen damit rum :)
 </li>
 </ol>
 
+<p>Das Wort <tt><span class="keyword">as</span></tt> ist ein Python-Schlüsselwort.
+    Wir haben erklärt, was mit dieser Anweisung gemeint ist, als
+    wir über <i>Variablen</i> sprachen.</p>
+
 <h3 class="section">4. Was machen wir mit langen Modulnamen?</h3>
 
-<p>"toolbox" hat ja einen schönen kurzen Namen, aber was machen wir, wenn das
-Modul mond_rakete_countdown heißt? Müssen wir den Namen immer mitschleppen
-oder sollen wir ihn der Kürze halber ganz weglassen, was ja mit
-<tt><span class="keyword">from</span> ... <span class=
-"keyword">import</span> ... </tt> möglich ist? Letzteres hat oft den Nachteil,
-dass wir dann nicht mehr wissen, in welchem Zusammenhang eine Funktion des
-Moduls steht, vor allem bei Allerweltsnamen wie <tt>start()</tt>. Was soll
-gestartet werden, ein Programm, eine Mondrakete oder eine Party? Hier kommt uns
-wieder die Flexibilität der import-Anweisung zu Hilfe:</p>
+<p>Wenn du den möglichen Nutzen des Moduls "toolbox" für
+deine eigenen Programme in Betracht ziehst ... könntest du
+auf die Idee kommen, dass es zu beschränkt ist, um überhaupt
+von Nutzen zu sein. Du kannst dir das an folgendem Beispiel
+klarmachen:</p>
 
 <pre>
 <span class="comment"># Modul importieren</span>
