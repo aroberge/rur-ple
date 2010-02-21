@@ -94,37 +94,24 @@ neuen Klasse, was man an der Einrückung erkennt. Durch die Definition innerhalb
 der neuen Klasse ordnen wir die Methode dieser Klasse zu. Außerhalb der Klasse
 können wir die Methode durch Voranstellen des Klassennamens aufrufen:</p>
 
-<pre>
-RepairedRobot.turn_right(verweis_auf_das_objekt_selbst)
-</pre>
-
-<p>Wodurch können wir nun <tt>verweis_auf_das_objekt_selbst</tt> ersetzen? Nun, durch
-jedes Objekt, das durch Aufruf von <tt>RepairedRobot()</tt> erzeugt wurde, also
-jede Instanz der Klasse <tt>RepairedRobot</tt>:</p>
+<p>Im zweiten Schritt teilen wir Python mit, dass die Methode
+zu genau dem Objekt gehört, dass wir soeben erzeugt haben.
+Dazu benutzen wir die Variable <tt>verweis_auf_das_objekt_selbst</tt>,
+die auf newReeborg, newErdna, etc. verweist, je nachdem,
+welches Objekt erzeugt wurde. Wenn wir schreiben</p>
 
 <pre>
 newReeborg = RepairedRobot()
-RepairedRobot.turn_right(newReeborg)
 </pre>
 
-<p>Das heisst: nimm die Methode <tt>turn_right</tt> der Klasse RepairedRobot und
-rufe sie mit <tt>newReeborg</tt> auf. Da <tt>newReeborg</tt> aber eine Instanz
-von <tt>RepairedRobot</tt> sein <b>muss</b>, können wir kürzer schreiben:</p>
+<p>erzeugt Python eine neue Instanz (d.h. ein neuesExemplar)
+der Klasse <tt>RepairedRobot</tt> und definiert alle Methoden so,
+dass das erste Argument der Methode (<tt>verweis_auf_das_objekt_selbst</tt>)
+durch den Namen der Instanz (<tt>newReeborg</tt>) ersetzt wird.</p>
 
-<pre>
-newReeborg.turn_right()
-</pre>
-
-<p>Beide Schreibweisen sind erlaubt und vollkommen gleichwertig. An diesem Punkt
-sollte dir klar sein, was das Besondere an einer Methode ist: eine Methode ist
-eine Funktion, die innerhalb einer Klasse definiert wird, und deren erstes
-Argument <tt>verweis_auf_das_objekt_selbst</tt> eine Instanz dieser Klasse ist. 
-Dadurch "weiß" die Methode, für welche Instanz sie "arbeitet", zum Beispiel,
-ob Reeborg oder Erdna oder wer auch immer sich rechts herum drehen soll.</p>
-
-<p>Nun ist der Name <tt>verweis_auf_das_objekt_selbst</tt> ein bisschen zu lang zum
-Tippen. Üblicherweise wird ein anderer Variablenname verwendet: <tt>self</tt>
-(englisch für selbst). Wir folgen dieser Vereinbarung und schreiben:</p>
+<p>Nun ist <tt>verweis_auf_das_objekt_selbst</tt> ein ziemlich langer Name.
+Deshalb hat man sich auf einen kürzeren Namen geeinigt:
+<tt>self</tt>. Dieser Übereinkunft folgend muss ich schreiben:</p>
 
 <pre>
 <span class="keyword">class</span> RepairedRobot(UsedRobot):

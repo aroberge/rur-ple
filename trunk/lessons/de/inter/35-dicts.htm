@@ -10,82 +10,43 @@
 <body>
 <h2 class="title">35. Merk's dir  mit Python</h2>
 
-<p>Weil der Schokoladenschaumkuchen in unserer Lektion über Listen so lecker
-war, hast du sein Rezept in ein Notizbuch eingetragen, um ihn immer wieder
-backen zu können. Wenn du das tust, stellst du zuerst die Zutaten auf den Tisch
-und nimmst dann die vorgeschriebenen Mengen. Du arbeitest also mit zwei Listen:
-Zutaten und Mengen. In Python sieht das so aus:</p>
+<p>Meinst du, das dies eine gute Definition für Reeborg ist?<br />
+<br />
+<b>Roboter</b>: Eine Maschine, die automatisch Aufgaben ausführt, meistens
+von Menschen kontrolliert wird und im Allgemeinen für monotone
+Arbeiten eingesetzt wird.</p>
 
-<pre>
->>> zutaten = [<span class="string">"Eier"</span>, <span class="string">"Zucker"</span>, <span class="string">"Halbbitterschokolade"</span>, <span class="string">"Kakaopuder"</span>]
->>> mengen = [<span class="string">"4"</span>, <span class="string">"100 g"</span>, <span class="string">"250 g"</span>, <span class="string">"30 ml"</span>]
->>> 
-</pre>
-
-<p>Nimm an, du möchtest Reeborg Kochen beibringen. Wie würde er mit den beiden
-Listen die richtige Menge für eine Zutat herausfinden? Wenn du unternehmungslustig bist, versuche es selbst, wenn nicht, lies weiter:</p>
-
-<pre>
->>> <span class="keyword">def</span> menge_fuer(zutat):
-...     <span class="keyword">global</span> mengen, zutaten
-...     listen_position = 0
-...     zutat_position = -1
-...     <span class="comment"># zutat in zutaten suchen</span>
-...     <span class="keyword">for</span> z <span class="keyword">in</span> zutaten:
-...         <span class="keyword">if</span> z == zutat:
-...             zutat_position = listen_position
-...         listen_position += 1
-...     <span class="comment"># nicht gefunden: Fehler melden und "" zurueckgeben</span>
-...     <span class="keyword">if</span> zutat_position == -1:
-...         <span class="keyword">print</span> <span class="string">'Zutat "%s" unbekannt.'</span> % zutat
-...         <span class="keyword">return</span> <span class="string">""</span>
-...     <span class="comment"># gefunden: zugehoerige Menge zurueckgeben</span>
-...     <span class="keyword">else</span>:
-...         <span class="keyword">return</span> mengen[zutat_position]
-... 
->>> menge_fuer("Essig")
-Zutat "Essig" unbekannt.
-''
->>> menge_fuer("Zucker")
-'100 g'
-</pre>
-
-<p>Ganz schön kompliziert, nicht wahr? Und was noch schlimmer ist: langsam. Du 
-merkst es bei diesem kleinen Beispiel nicht, aber wenn du Listen mit sehr vielen
-Elementen so durchsuchst, musst du sehr geduldig sein.
-</p>
-
-<p>Wie sieht es aus, wenn du nicht Reeborg backen lässt, sondern es immer wieder
-selbst tust? Dann kennst du das Rezept irgendwann auswendig. Du musst nicht mehr
-dein Notizbuch durchsuchen, sondern weißt <b>sofort</b>, dass die richtige
-Menge für Kakaopuder 30 ml ist. Wäre es nicht schön, wenn Reeborg das Rezept
-auch auswendig lernen könnte?
-</p>
+<p>Wenn du einen Roman schreibst, ist es sehr nützlich zu wissen wie man eine
+Definition in einem Lexikon findet. Python bietet Lexikon-artige Strukturen,
+die sehr nützlich sind, wenn du ein Programm schreibst.</p>
 
 <!--==============================-->
 <hr class="line" />
 
-<h3 class="section">Reeborg lernt das Rezept auswendig.</h3>
+<h3 class="section">Wie viele Eier waren es doch gleich?</h3>
 
-<p>Nun, Reeborg kann das Rezept wirklich auswendig lernen. Python stellt dafür
-einen besonderen Datentyp bereit: <i>dict</i> (dictionary, Wörterbuch). Wenn
-Reeborg das Rezept auswendig kennt, benutzt er ein <i>dict</i> statt der zwei
-Listen:</p>
+<p>Unsere Zutatenliste war sehr brauchbar ... Aber weißt du, wieviele Eier
+man braucht ohne nachzuschauen? Könntest du es herausfinden ohne die ganze
+Liste auszudrucken, wenn es dir nicht einfällt? Aber wenn wir ein anderes
+Python-Objekt benutzt hätten, nämlich ein <i>dict</i>, wäre es sehr einfach
+gewesen. Hier kommt ein Beispiel:
+</p>
 
 <pre>
->>> zutaten_mengen = { <span class= "comment"># Siehst du die geschweifte Klammer hinter "="?</span>
-...     <span class="string">'Eier'</span> : 4,
+<span class= "comment"># Siehst du die geschweifte Klammer hinter dem Gleichheitszeichen?</span>
+>>> zutaten_mengen = { <span class="string">'Eier'</span> : 4,
 ...     <span class="string">'Zucker'</span>: <span class="string">'100 g'</span>,
-...     <span class="string">'Kakaopuder'</span>: <span class="string">'30 ml'</span>,
-...     <span class="string">'Halbbitterschokolade'</span>: <span class="string">'250 g'</span>
-... } <span class= "comment"># geschweifte Klammer zu.</span>
->>> <span class="keyword">print </span>zutaten_mengen
-{<span class="string">'Kakaopuder'</span>: <span class=
-"string">'30 ml'</span>, <span class=
-"string">'Zucker'</span>: <span class="string">'100 g'</span>, <span class=
-"string">'Eier'</span>: 4, <span class=
+...     <span class="string">'Kakaopulver'</span>: <span class=
+"string">'30 ml'</span>,
+<span class= "comment"># Auch hier eine geschweifte Klammer:</span>
+...     <span class="string">'Halbbitterschokolade'</span>: <span <class="string">'250 g'</span>}
+>>> <span class="keyword">print</span> zutaten_mengen
+{<span class="string">'Eier'</span>: 4, <span class=
 "string">'Halbbitterschokolade'</span>: <span class=
-"string">'250 g'</span>}
+"string">'250 g'</span>, <span class=
+"string">'Kakaopulver'</span>: <span class=
+"string">'30 ml'</span>, <span class=
+"string">'Zucker'</span>: <span class="string">'100 g'</span>}
 </pre>
 
 <p>Jedes Element in einem <i>dict</i> hat die Form "Schlüssel : Wert"; die
@@ -125,7 +86,7 @@ class="string">":"</span> + str(zutaten_mengen[zutat])
     
 Eier:4
 Halbbitterschokolade:250 g
-Kakaopuder:30 ml
+Kakaopulver:30 ml
 Zucker:100 g
 </pre>
 
@@ -144,37 +105,18 @@ wir sie jetzt hinzu:</p>
 
 <p>Probier's aus!</p>
 
-<p>Vielleicht fragst du dich jetzt, was das <i>dict</i> mit auswendig Lernen zu
-tun hat. Nun, genauso, wie du bei dem auswendig gelernten Kuchenrezept sofort
-weißt, wieviel Kakaopuder du brauchst, kannst du mit Hilfe des <i>dict</i>
-sofort ermitteln, welcher Wert zu einem Schlüssel gehört. "Sofort" heißt, daß
-man bei einem <i>dict</i> immer <b>die gleiche Zeit</b> braucht, um mit dem
-Schlüssel den Wert zu ermitteln, <b>egal wie viele Elemente</b> das <i>dict</i>
-enthält. Das ist viel besser als bei einer Liste, bei der man um so länger
-braucht, je mehr Elemente sie enthält.
-</p>
-
 <!--==============================-->
 <hr class="line" />
 
 <h3 class="section">Nicht jedes Objekt ist als Schlüssel geeignet.</h3>
 
-<p>Reeborg hat eine Freundin. Sie heißt Lola und wohnt im grünen Haus am Strand.
-Damit Reeborg sie besuchen kann, merkt er sich das in seinem Gedächtnis mit
-der Zuordnung Adresse => Lola, wobei die Adresse eine Liste ist:
-[grün, Haus, am Strand]. Eines Tages streicht Lola ihr Haus blau. Lola  hat
-immer noch die selbe Adresse, aber sie hat jetzt den Inhalt
-[blau, Haus, am Strand]. Reeborg kann sie nun nicht mehr besuchen, weil in
-seinem Gedächtnis noch der "grüne" Adresseninhalt abgelegt ist. Mit ähnlichen
-unangenehmen Überraschungen müsste ein Programmierer rechnen, wenn er Listen als
-Schlüssel in einem <i>dict</i> verwenden wollte. Daher lässt Python nur
-<i>unveränderliche</i> (immutable) Objekte als Schlüssel zu, also Objekte, deren
-Inhalt nach ihrer Erzeugung nicht mehr geändert werden kann (wie Häuser, die
-grün gebaut, aber nicht mehr blau gestrichen werden können). Nach unserem
-jetzigen Kenntnisstand sind das Zeichenfolgen und Zahlen. Als Werte in einem
-<i>dict</i> können beliebige Objekt verwendet werden. Probiere verschiedene
-Kombinationen von Objekten entweder als Schlüssel oder als Wert in einem 
-<i>dict</i> aus und sieh, was der Python-Interpreter dazu sagt!</p>
+<p>Jedes Objekt kann als Wert in einem dict enthalten sein, aber nur
+unveränderliche (<i>immutable</i>) Objekte können als Schlüssel verwendet
+werden. Wir werden etwas später sehen, was das bedeutet; für's erste heißt das,
+dass von allen Objekten, die du kennst, nur strings und Zahlen als Schlüssel
+geeignet sind, nicht aber list- und andere dict-Objekte. Probiere verschiedene
+Kombinationen dieser Objekte als Schlüssel oder Werte aus, und sieh, was
+Python davon hält!</p>
 
 <!--==============================-->
 <hr class="line" />
