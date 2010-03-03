@@ -160,14 +160,22 @@ class RURApp(wx.Frame):
 
     def OnClose(self, event):
         if self.ProgramEditor.GetModify():
-            dialogs.messageDialog(
-             _("Robot program has changed.\nYou may save it before quitting."), 
-             _("Program has been changed"))
-            self.SaveProgramFile(event)
-            # in case the user does not save the program, make it appear
-            # as though it has been saved so that the next attempt to 
-            # quit will work.
-            self.ProgramEditor.SetSavePoint() 
+                ret = dialogs.messageDialog(_(u'Save changes to %s?')
+                    % unicode(self.filename), _("About to close"), wx.YES
+                    | wx.NO | wx.CANCEL | wx.ICON_QUESTION | wx.STAY_ON_TOP)
+                if ret == wx.ID_YES:
+                    if len(self.filename) > 0:
+                        try:
+                            f = open(self.filename, 'w')
+                            f.write(content)
+                            f.close()
+                        except IOError, e:
+                            messageDialog(unicode(e[1]), (u'IO Error'),
+                                wx.OK | wx.STAY_ON_TOP)
+                    else:
+                        self.SaveProgramFile(event)
+                elif ret == wx.ID_NO:
+                    self.Destroy()
         else:
             self.Destroy()
 

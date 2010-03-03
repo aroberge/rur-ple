@@ -7,8 +7,8 @@
 """
 
 import wx
-import rur_py.event_manager as event_manager
-from rur_py.translation import _
+import event_manager
+from translation import _
 
 class rurStatusBar(wx.StatusBar):
     def __init__(self, parent):

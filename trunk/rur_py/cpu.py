@@ -11,11 +11,10 @@ import wx
 import time # for delay in robot movement
 import dialogs
 import event_manager
-from rur_py.translation import _
-from robot_factory import Used_robot, New_improved_robot
+from translation import _
 from world_creation import Visible_world
 
-import rur_py.parser as parser
+import parser
 import test_import
 
 class Singleton(object):
