@@ -102,6 +102,16 @@ class TestHtmlPanel(wx.Panel):
             languageList.append(translation.languages[language][2])
         languageList.sort()
         self.ch = wx.Choice(self, -1, choices = languageList)
+
+        # set index of current language
+        try:
+            langnum = languageList.index(translation.languages[
+                conf.getLanguage()][2])
+        except ValueError:
+            langnum = languageList.index(translation.languages['en'][2])
+
+        self.ch.SetSelection(langnum)
+
         self.Bind(wx.EVT_CHOICE, self.ChooseLanguage, self.ch)
         subbox.Add(self.ch, 0, wx.SHAPED)
 

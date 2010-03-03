@@ -9,7 +9,7 @@
 
 import os
 import wx
-from rur_py.translation import _
+from translation import _
 import images
 from images import getImage
 
@@ -209,7 +209,7 @@ def overwriteCheck(filename):
         else:
             return False
     return True
-
+        
 #--- New attempt using sliders
 
 

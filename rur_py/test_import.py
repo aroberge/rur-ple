@@ -2,7 +2,7 @@
 # test_import.py
 
 import re
-from rur_py.translation import _
+from translation import _
 
 isolate_words = re.compile(r'\W+')  # used with .split()
 

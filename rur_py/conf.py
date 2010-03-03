@@ -37,6 +37,9 @@ def getSettings():
     # images for program - excluding lessons
     props['IMAGE_DIR'] = os.path.join(APP_HOME, "rur_images")
 
+    # sounds for program - excluding lessons
+    props['SOUNDS_DIR'] = os.path.join(APP_HOME, "sounds")
+
     # sample programs
     sample_progs_dir = os.path.join(APP_HOME, "rur_programs")
     props['SAMPLE_PROGS_DIR'] = sample_progs_dir

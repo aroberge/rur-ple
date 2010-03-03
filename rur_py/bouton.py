@@ -9,8 +9,8 @@
 import wx
 import images
 from images import getImage
-from rur_py.translation import _
-import rur_py.conf as conf  # a few global variables
+from translation import _
+import conf  # a few global variables
 
 SPACER = 0
 BITMAP = 1

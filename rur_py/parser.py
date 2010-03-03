@@ -7,7 +7,7 @@
 """
 
 import re
-from rur_py.translation import _
+from translation import _
 
 def FixLineEnding(txt):
     # We are going to use Python to interpret these files.

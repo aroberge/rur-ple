@@ -14,9 +14,9 @@
     """
 import wx
 import conf
-from rur_py.translation import _
+from translation import _
 import robot_factory
-import rur_py.conf as conf
+import conf
 
 #---------------------------------------------------------------------------
 

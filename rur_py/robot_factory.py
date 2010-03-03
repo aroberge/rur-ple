@@ -26,8 +26,10 @@ import dialogs
 import images
 from images import getImage
 import random
-from rur_py.translation import _
-import rur_py.conf as conf
+from translation import _
+import conf
+from sound import play
+import os
 
 #---------------------------------------------------------------------------
 
@@ -149,6 +151,8 @@ class Robot_brain1(object):
             xx, yy = self._directions[self._facing]
             self._x += xx
             self._y += yy
+            if self.next_to_a_beeper():
+                self.at_beeper(self._x, self._y)
         else:
             mesg = _("""That move really hurt!
 Please, make sure that there is no wall in front of me!""")
@@ -182,6 +186,13 @@ Please, make sure that there is no wall in front of me!""")
 I must be next to a beeper before I can pick it up.""")
             raise dialogs.PickBeeperException(mesg)
 
+    def at_beeper(self, x, y):
+        '''Notifies interested parties about robot
+        being at a beeper.
+        '''
+        onbeepersound = os.path.join(conf.getSettings().SOUNDS_DIR, 'beep.wav')
+        if os.path.isfile(onbeepersound):
+            play(onbeepersound)
 
 class Robot_brain2(Robot_brain1):
     def __init__(self, parent=None, avenues=1, streets=1, orient_key = 'E',

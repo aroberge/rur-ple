@@ -11,8 +11,7 @@ from world_display import WorldGUI
 from bouton import rurChoiceWindow
 from editor import rur_editor
 from lightning import LogWindow
-import sys
-import rur_py.conf as conf
+import conf
                             
 class MySashWindow(wx.Panel):
     def __init__(self, parent, grand_parent):
