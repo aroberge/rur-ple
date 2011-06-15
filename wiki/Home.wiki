@@ -13,7 +13,7 @@ RUR-PLE is very similar to GVR, but RUR-PLE can use all Python features (while G
 
 == SVN repository ==
   * UI: 8 languages (English, Spanish, German, Welsh, Chinese, French, Turkish, Italian)
-  * Lessons: 5 languages (English, Chinese, German, Turkish @ 85%, Spanish up to lesson 10)
+  * Lessons: 6 languages (English, Chinese, German, Turkish @ 85%, Spanish up to lesson 10, French WIP)
   * Number of lessons: 53 not all merged (WIP) nor translated
 
 
