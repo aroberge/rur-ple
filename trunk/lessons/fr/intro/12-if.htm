@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css">
+  <title>Si seulement Reeborg pouvait décider tout seul...</title>
+
+  
+</head><body>
+<h2 class="title">12. Si seulement Reeborg pouvait décider tout seul...</h2>
+
+<p>Si, si, si...</p>
+
+<p>Attendez une minute ! Reeborg peut prendre des décisions tout seul. Je ne vous l'ai pas dit ?</p>
+
+<!--=================================================-->
+<hr width="50%">
+<h3 class="section">Premières décisions</h3>
+
+<p>Eh bien, pour dire la vérité, Reeborg a besoin d'aide pour décider :
+vous devez lui donner les choix qu'il doit décider de prendre. Par
+exemple, quand Reeborg rencontre une sonnette, vous pouvez lui donner
+certains choix à faire : vous pouvez lui demander de la ramasser comme
+ceci :</p>
+
+<pre><span class="keyword">if</span> on_beeper():<br>    pick_beeper()<br></pre>
+
+<p>[NdT : <span style="font-style: italic;">if</span> en anglais = <span style="font-style: italic;">si</span>]<br>
+</p>
+<p>Voyons ce que veut dire le code ci-dessus :</p>
+
+<ul>
+
+  <li>Le mot-clé python <span class="pykeyword">if</span> dit à Reeborg qu'une <i>condition</i>, dont la valeur est <span style="font-family: monospace;">Vrai</span><tt></tt> ou <tt>Faux</tt>,
+va suivre ;</li>
+  <li><tt>on_beeper()</tt> est une condition (ou test) qui est <span style="font-family: monospace;">Vrai</span><tt>e</tt> si Reeborg est à la même position qu'un beeper et <tt>Fausse</tt> sinon ;
+    <br>
+    <span class="important">[remarquez que ce test s'appelait <tt>next_to_a_beeper()</tt>
+dans les versions précédentes de rur-ple.]</span></li>
+  <li>Le deux-points (:) précède la suite d'instructions que Reeborg
+doit suivre <span style="font-weight: bold;">si</span><b></b> la condition est <tt>Vraie </tt>;</li>
+  <li>La suite d'instructions à suivre dans ce cas est indentée,
+comme dans le cas des definitions.</li>
+</ul>
+
+<p>L'explication peut avoir l'air compliquée quand vous la lisez mais il est en fait plutôt simple d'utiliser une instruction <span class="pykeyword">if</span>.
+Voyons cela dans un exemple simple. Supposons que nous voulions faire
+faire à Reeborg 9 pas, en ramassant toutes les sonnettes qui sont sur
+son chemin (Nous supposons qu'il ne peut y avoir au plus qu'une seule
+sonnette à chaque point). Par exemple, la position de départ peut
+ressembler à ceci :</p>
+
+<img alt="move_pick_start" src="../../images/intro/move_pick_start.png">
+<p>et nous voulons que la position finale soit :</p>
+
+<p><img alt="move_pick_start" src="../../images/intro/move_pick_end.png"></p>
+
+<p>Nous voulons donc demander à Reeborg de :</p>
+
+<ul>
+
+  <li>Faire un pas en avant ;</li>
+  <li>Voir s'il y a une sonnette ;</li>
+  <li>Ramasser la sonnette s'il y en a une ; sinon, ignorer et continuer ;</li>
+</ul>
+
+<p>en répétant les étapes ci-dessus 9 fois. Rappelez-vous que si nous demandons à Reeborg
+de ramasser une sonnette quand il n'y en a pas, il se plaindra et s'éteindra. Voici comment nous pouvons faire cela :</p>
+
+<pre><span class="keyword">def</span> move_and_pick():<br>    move()<br>    <span class="keyword">if</span> on_beeper():<br>        pick_beeper()<br><br>repeat(move_and_pick, 9)<br>turn_off()<br></pre>
+
+<p><b>Essayez-le !</b></p>
+
+<hr width="50%">
+<!--==================================================-->
+<h3 class="try">Temps de la récolte encore !</h3>
+
+<p>C'est le temps de la récolte, encore une fois ! Mais cette fois les
+graines n'ont pas toutes germé et certaines carottes manquent. Faites
+que Reeborg cueille toutes les carottes (représentées par des
+sonnettes) dans ce jardin. Le fichier monde est harvest3.wld. Revoyez
+le deuxième exercice de récolte précédent que vous avez fait. Il y a
+des chances que tout ce que vous ayez à faire est de changer
+l'instruction
+<tt>harvest_one_row()</tt> pour qu'elle ressemble à l'instruction <tt>move_and_pick()</tt>
+ci-dessus. Mais il est possible que vous ayez besoin d'un changement de
+plus&nbsp; [Par exemple, dans ma solution au problème de récolte, j'ai
+défini une instruction&nbsp; <tt>pick_and_move()</tt>
+qui avait besoin d'un changement mineur aussi].</p>
+
+<p><img alt="harvest start" src="../../images/intro/harvest3.png"></p>
+
+<p>Remarquez que votre nouveau programme devrait aussi fonctionner <b>comme il est</b> avec le fichier de monde harvest1.wld que nous avons utilisé avant. Essayez le !</p>
+
+<center><a href="11-repeat.htm"><img alt="previous" src="../../images/previous.png"> Éviter les répétitions, encore !</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="13-else.htm">Écoute moi... sinon....<img alt="next" src="../../images/next.png"></a></center>
+
+</body></html>
