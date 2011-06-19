@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css">
+  <title>Pas vrai !?</title>
+
+  
+</head><body>
+<h2 class="title">15. Pas vrai<span class="pykeyword"></span> !?</h2>
+
+<p>Supposons que nous voulions que Reeborg continue à marcher jusqu'à
+ce qu'il trouve une sonnette, et alors s'éteigne. Voici un exemple de
+position de départ :</p>
+
+<img alt="stop at beeper" src="../../images/intro/stop_at_beeper.png">
+<p>Une façon de faire cela - en <i>pseudocode</i> - serait :<br>
+<br>Si sur une sonnette,<br>
+... arrêter ;<br>autrement,<br>
+... continuer à avancer.<br>
+<br>En utilisant ce que nous avons déjà vu, nous pouvons traduire cela comme ceci :</p>
+
+<pre><span class="keyword">if</span> on_beeper():<br>    turn_off()<br><span class="keyword">else</span>:<br>    move()           <br></pre>
+Ce n'est qu'une partie de la solution puisque nous n'avons pas dit à
+Reeborg de continuer en recommençant. Ignorons cela pour l'instant.
+Voyons plutôt le <i>pseudocode</i> équivalent suivant :<br>
+
+<br>
+Si pas sur une sonnette,<br>
+
+... continuer à avancer;<br>
+autrement,<br>
+
+... arrêter.<br>
+
+<br>
+Alors que nous avons inversé l'ordre de "continuer à avancer" et
+"arrêter", vous devez être d'accord pour dire que les deux manières
+sont équivalentes. Le point clé est l'utilisation de la négation <span style="font-style: italic;">pas </span>(<span class="pykeyword">not</span> en anglais) après le <span style="font-style: italic;">si</span> dans le deuxième cas<span class="pykeyword"></span>. Python permet lui aussi de mettre certains tests à la forme négative comme ceci :
+<pre><span class="keyword">if not</span> on_beeper():<br>    move()<br><span class="keyword">else</span>:<br>    turn_off()          <br></pre>
+
+<p>Pour transformer ceci en un programme complet, en utilisant ce que
+nous avons vu jusqu'à maintenant, nous pourrions avoir besoin de <span class="pykeyword">def</span>inir une instruction, et ensuite la faire répéter assez souvent pour être sur que Reeborg puisse terminer son travail.</p>
+
+<h3 class="try">À votre tour</h3>
+
+<p>Utilisez le nouveau mot-clé Python <span class="pykeyword">not</span> pour réécrire votre programme de saut de haie.</p>
+
+<hr width="50%">
+<h3 class="suggested">Le temps de désherber et semer</h3>
+
+<p>C'est le printemps. Le père de Reeborg a semé des graines dans le
+jardin pour la récolte d'automne. À certains endroits, deux graines ont
+commencé à pousser alors qu'à d'autres&nbsp; endroits aucune n'a germé.
+L'image ci-dessous montre une situation typique (fichier :
+harvest4.wld).</p>
+
+<img alt="weeding" src="../../images/intro/harvest4.png">
+<p>Aidez Reeborg à désherber le jardin, pour qu'il n'y ait aucun
+endroit avec deux carottes (sonnettes), et re-semer pour qu'il n'y ait
+aucun endroit sans carottes.
+La situation finale devrait ressembler à ce qui suit :</p>
+
+<img alt="weeding" src="../../images/intro/harvest1.png">
+<p>Voici une <i>proposition</i>  pour une partie du code :</p>
+
+<pre><span class="comment"># présentation du vocabulaire lié au problème</span><br>next_to_a_carrot = on_beeper<br>plant_carrot = put_beeper<br>pick_carrot = pick_beeper<br><br><span class="keyword">def</span> one_carrot_only():<br>    <span class="keyword">if not</span> next_to_a_carrot():<br>        plant_carrot()      <span class="comment"># remplacer graine manquante</span><br>    <span class="keyword">else</span>:<br>        pick_carrot()<br>        <span class="keyword">if not</span> next_to_a_carrot(): <span class="comment"># oups !</span><br>            plant_carrot()  <span class="comment"># nous avions enlevé la seule qu'il y avait</span>
+</pre>
+
+<p>Remarquez que, dans la réalité, ce n'est <b>pas</b> une bonne idée d'enlever des germes et les replanter tout de suite après !</p>
+
+<center><a href="14-elif.htm"><img alt="previous" src="../../images/previous.png"> If, else, if, else, ....</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="16-while.htm">Tant que <img alt="next" src="../../images/next.png"></a>
+</center>
+
+</body></html>
