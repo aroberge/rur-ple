@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css">
+  <title>Écoute moi... sinon...</title>
+
+  
+</head><body>
+<h2 class="title">13. Écoute moi... sinon...</h2>
+
+<p>Même si apprendre à programmer peut être amusant, vous ne devriez
+pas passer
+tout votre temps devant votre ordinateur.
+<b>Si</b> la pluie tombe, continuez à lire, autrement, sortez et allez
+jouer ! (Oui, même toi grand-père !)
+</p>
+
+<!--===========================================-->
+<hr width="50%">
+<h3 class="section">Faire des choix</h3>
+
+<p>Amusons nous avec cette phrase qui commence avec <b>si</b>.</p>
+
+<p><b>Si</b> la pluie tombe,<br>
+... continuez à lire,<br>
+<span style="font-weight: bold;">autrement</span>,<br>
+... sortez et allez jouer !</p>
+
+<p>Cela commence à ressembler à un petit programme. Écrivons la comme
+si c'était un programme en Python.</p>
+
+<pre><span class="keyword">if</span> il_pleut():<br>    continuer_la_lecture()<br><span class="keyword">else</span>:<br>    sortir_et_jouer()<br></pre>
+
+<p>Vous venez d'apprendre un nouveau mot-clé de Python : <span class="pykeyword">else</span>.
+Donc s'il pleut, continuez à lire ; sinon, vous savez quoi faire !</p>
+
+<p>[NdT : <span style="font-style: italic;">else</span> en anglais = <span style="font-style: italic;">sinon</span>]<br>
+</p>
+
+<!--======================================-->
+<hr width="50%">
+<h3 class="section">"Je vois...", dit Reeborg.</h3>
+
+<p>En plus de savoir s'il y a une ou plusieurs sonnettes là où il est,
+Reeborg peut voir s'il y a un mur en face de lui, qui barre son chemin.
+Il peut aussi tourner la tête à sa gauche ou sa droite pour voir s'il y
+a un mur là. Vous pouvez lui demander de regarder avec les tests
+suivants :</p>
+
+<pre>front_is_clear()  <span class="comment"># Vrai si pas de mur en face, Faux autrement</span><br>left_is_clear()<br>right_is_clear()<br></pre>
+
+<p>Utilisons le premier pour faire explorer son monde à Reeborg. Nous
+ferons suivre à Reeborg la bordure de son monde en lui demandant
+d'avancer, s'il n'y a pas de mur en face de lui, et tourner à gauche
+autrement. Le programme simple suivant est la base de ce dont on a
+besoin :</p>
+
+<pre><span class="keyword">if</span> front_is_clear():<br>    move()<br><span class="keyword">else</span>:<br>    turn_left()<br>      <br>turn_off()<br></pre>
+
+<p>Voici le résultat de l'exécution de ce programme simple dans deux
+situations différentes. Si vous l'essayez, attention à ne pas oublier
+le deux-points (<tt>:</tt>)
+après le mot-clé <span class="pykeyword">else</span>.</p>
+
+<p><img alt="start if" src="../../images/intro/if1start.png"> <img alt="lead to" src="../../images/lead_to.png"> <img alt="end if" src="../../images/intro/if1end.png"></p>
+
+<p><img alt="start if" src="../../images/intro/if2start.png"> <img alt="lead to" src="../../images/lead_to.png"> <img alt="end if" src="../../images/intro/if2end.png"></p>
+
+<p>Maintenant, répétons l'instruction <i>conditionnelle</i> simple
+plusieurs fois pour que Reeborg fasse le tour de son monde.</p>
+
+<pre><span class="keyword">def</span> move_or_turn():<br>    <span class="keyword">if</span> front_is_clear():<br>        move()<br>    <span class="keyword">else</span>:<br>        turn_left()<br><br>repeat(move_or_turn, 20)      <br>turn_off()<br></pre>
+
+<p>Cela donne, avec un petit monde, le résultat final suivant :</p>
+
+<p><img alt="around" src="../../images/intro/around1.png"></p>
+
+<p>Nous pouvons rendre cela plus intéressant en faisant faire à Reeborg
+une "danse" s'il peut avancer, et poser une sonnette s'il doit tourner.
+C'est justement ce que fait le programme suivant, avec lequel Reeborg
+fait seulement une partie du tour de son monde :</p>
+
+<pre><span class="keyword">def</span> dance():<br>    repeat(turn_left, 4)<br><span class="keyword">def</span> move_or_turn():<br>    <span class="keyword">if</span> front_is_clear():<br>        dance()<br>        move()<br>    <span class="keyword">else</span>:<br>        turn_left()<br>        put_beeper()<br><br>repeat(move_or_turn, 18)      <br>turn_off()<br></pre>
+
+<p>Vérifiez que Reeborg transporte assez de sonnettes pour faire son
+travail ! Pour donner à Reeborg quelques sonnettes à transporter,
+essayez de cliquer sur le bouton Donner des sonnettes <img alt="beepers button" src="../../images/intro/btn_beepers.png">.</p>
+
+<p>Notez comment les instructions <tt>dance()</tt> et <tt>move()</tt>
+sont alignées après l'instruction <span class="pykeyword">if</span> et
+indentées par rapport à elle, pour indiquer qu'elles font partie du
+même <i>bloc d'instructions</i>. Les instructions <tt>turn_left()</tt>
+et
+<tt>put_beeper()</tt> sont alignées de la même manière, indentées par
+rapport à l'instruction <span class="pykeyword">else</span> à laquelle
+elles appartiennent. Voici le résultat de l'exécution de ce programme :</p>
+
+<img alt="around" src="../../images/intro/around2.png">
+<p>Maintenant, voyons ce qui se passe si au lieu d'aligner
+l'instruction <tt>put_beeper()</tt>
+avec <tt>turn_left()</tt>, nous l'alignons avec l'instruction <span class="pykeyword">else</span>, comme ceci :</p>
+
+<pre><span class="keyword">def</span> dance():<br>    repeat(turn_left, 4)<br><span class="keyword">def</span> move_or_turn():<br>    <span class="keyword">if</span> front_is_clear():<br>        dance()<br>        move()<br>    <span class="keyword">else</span>:<br>        turn_left()<br>    put_beeper()<br><br>repeat(move_or_turn, 18)      <br>turn_off()<br></pre>
+
+<p>À présent, la définition de <tt>move_or_turn()</tt> contient un
+choix
+<span class="pykeyword">if</span>/<span class="pykeyword">else</span>
+entre <b>soit</b> danser puis avancer <b>soit</b> tourner à gauche. L'instruction&nbsp;<tt>put_beeper()</tt> vient après ce choix et est donc toujours exécutée. Le résultat de l'exécution de ce program est montré ci-dessous :</p>
+
+<img alt="around" src="../../images/intro/around3.png">
+<p>Comme vous le voyez, après chaque pas en avant, une sonnette a été
+posée. Chaque coin a maintenant deux sonnettes : une posée après avoir
+avancé et une posée après être tourné à gauche.</p>
+
+<p>Maintenant, essayons d'aligner l'instruction <tt>put_beeper()</tt> avec l'instruction <span class="pykeyword">def</span> comme ceci :</p>
+
+<pre><span class="keyword">def</span> dance():<br>    repeat(turn_left, 4)<br><span class="keyword">def</span> move_or_turn():<br>    <span class="keyword">if</span> front_is_clear():<br>        dance()<br>        move()<br>    <span class="keyword">else</span>:<br>        turn_left()<br>put_beeper()<br><br>repeat(move_or_turn, 18)      <br>turn_off()<br></pre>
+
+<p>À présent, <tt>put_beeper()</tt> ne fait plus partie de la
+définition puisqu'elle n'est pas indentée pour s'aligner avec les
+autres instructions de la définition. C'est une instruction simple, la
+première en fait que Reeborg doit exécuter,
+avant de répéter l'instruction <tt>move_or_turn()</tt> 18 fois. Le résultat est le suivant :</p>
+
+<p><img alt="around" src="../../images/intro/around4.png"></p>
+
+<p>Vous voyez donc que les espaces (l'indentation des instructions dans
+les blocs) donnent des informations importantes à Reeborg. À force de
+pratique, vous apprendrez à utiliser cela à votre avantage et vous vous
+rendrez compte que grâce à l'indentation des instructions, Python vous
+permet d'écrire du code très lisible.</p>
+
+<hr width="50%">
+<h3 class="try">Saut de haies<br>
+</h3>
+
+<p>Reeborg est devenu plutôt bon en saut de haies. Il participe
+maintenant à des courses de différentes longueurs : des sprints courts
+et de longues courses. Il sait qu'il a atteint la ligne d'arrivée quand
+il trouve une sonnette. Ci-dessous, vous trouverez deux de ces courses.
+Les fichiers mondes sont hurdles1.wld et hurdles2.wld.</p>
+
+<p><img alt="hurdles start" src="../../images/intro/hurdles1_start.png"></p>
+
+<br>
+
+<p><img alt="hurdles start" src="../../images/intro/hurdles2_start.png"></p>
+
+<p>Supposons qu'aucune course ne dépasse 20 unités de longueur. Définissez une instruction
+qui ressemble un peu à ceci :</p>
+
+<pre><span class="keyword">def</span> move_jump_or_finish():<br>    <span class="keyword">if</span> on_beeper(): <span class="comment"># fin de course</span><br>        turn_off()<br>    <span class="keyword">else</span>:<br>        <span class="keyword">if</span> front_is_clear(): <span class="comment"># pas fini, et pas de haie à sauter</span><br>            move()<br>        <span class="keyword">else</span>:<br>            jump_one_hurdle()<br></pre>
+
+<p>avec une instruction <tt>jump_one_hurdle()</tt> appropriée, pour que, à part les définitions, la seule instruction que Reeborg ait besoin d'exécuter soit<br>
+<tt>repeat(move_jump_or_finish, 20)</tt></p>
+
+<p>Notez que, dans la définition ci-dessus, le code devient de plus en plus indenté quand nous introduisons des tests de plus.</p>
+
+<center><a href="12-if.htm"><img alt="previous" src="../../images/previous.png"> Si seulement Reeborg pouvait décider tout seul...</a>
+- <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> -
+<a href="14-elif.htm">If, else, if, else, ....<img alt="next" src="../../images/next.png"></a></center>
+
+</body></html>
