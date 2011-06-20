@@ -483,7 +483,7 @@ msgstr "Mot interdit utilisé dans le programme:  "
 msgid ""
 "That move really hurt!\n"
 "Please, make sure that there is no wall in front of me!"
-msgstr "Ceci a fait vraiment mal!Svp, évitez de me demander de foncer dans un mur!"
+msgstr "Pitié, ne me demandez plus de foncer dans un mur !"
 
 #: ..\rurple/rur_py/robot_factory.py:170
 #: rur_py/robot_factory.py:170
