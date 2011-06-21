@@ -5,139 +5,139 @@
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
   
-  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>Apprendre à Reeborg à faire des additions.</title></head><body>
-<h2 class="title">24. Apprendre à Reeborg à faire des additions</h2>
+  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>Apprendre Ã  Reeborg Ã  faire des additions.</title></head><body>
+<h2 class="title">24. Apprendre Ã  Reeborg Ã  faire des additions</h2>
 
-<p>Dans cette leçon, je vous guiderai pour écrire un programme qui fera
-faire à Reeborg l'addition de deux nombres. Bien que nous allons le
-faire de la façon habituelle, en utilisant des nombres écrits en base
+<p>Dans cette leÃ§on, je vous guiderai pour Ã©crire un programme qui fera
+faire Ã  Reeborg l'addition de deux nombres. Bien que nous allons le
+faire de la faÃ§on habituelle, en utilisant des nombres Ã©crits en base
 10 (que nous utilisons tous les jours), nous pourrons facilement
 utiliser le programme pour additionner des nombres dans d'autres bases !</p>
 
 <!--=========================================-->
 <hr width="50%">
-<h3 class="try">Échauffement</h3>
+<h3 class="try">Ã‰chauffement</h3>
 
 <ol>
-  <li>Écrivez un programme qui fait faire à Reeborg l'addition 3+2 de la manière suivante :<br>
+  <li>Ã‰crivez un programme qui fait faire Ã  Reeborg l'addition 3+2 de la maniÃ¨re suivante :<br>
     <img alt="3+2" src="../../images/intro/add3_2_start.png"><img alt="donne" src="../../images/lead_to.png"> <img alt="5" src="../../images/intro/add3_2_end.png"><br>
-Écrivez-le de façon qu'il puisse aussi fonctionner pour additionner 1+4.</li>
+Ã‰crivez-le de faÃ§on qu'il puisse aussi fonctionner pour additionner 1+4.</li>
   <li>Modifiez votre programme pour que Reeborg puisse calculer 13+22
-de la manière suivante, où chaque pile de sonnettes représente un
+de la maniÃ¨re suivante, oÃ¹ chaque pile de sonnettes reprÃ©sente un
 chiffre :<br>
     <img alt="13+22" src="../../images/intro/add13_22_start.png"><img alt="donne" src="../../images/lead_to.png"> <img alt="35" src="../../images/intro/add13_22_end.png"><br>
   </li>
-<li>Pouvez-vous écrire un programme pour que Reeborg puisse toujours calculer 3+2 <b>mais aussi</b> 8+4 comme suit ?<br>
+<li>Pouvez-vous Ã©crire un programme pour que Reeborg puisse toujours calculer 3+2 <b>mais aussi</b> 8+4 comme suit ?<br>
     <p><img alt="8+4" src="../../images/intro/add8_4_start.png"><img alt="donne" src="../../images/lead_to.png"> <img alt="12" src="../../images/intro/add8_4_end.png"></p>
 <br>Votre nouveau programme doit aussi faire correctement les additions
 2+5 et 9+9. Pouvez-vous voir comment faire cela ? Si oui, alors
-essayez... Cependant, si vous ne pouvez pas, ne vous découragez pas ;
-continuez à lire plutôt...</li>
+essayez... Cependant, si vous ne pouvez pas, ne vous dÃ©couragez pas ;
+continuez Ã  lire plutÃ´t...</li>
 </ol>
 
 <!--=========================================-->
 <hr width="50%">
-<h3 class="section">Révisons l'addition<br>
+<h3 class="section">RÃ©visons l'addition<br>
 </h3>
 
-<p>Ajoutons deux nombres "à la manière traditionnelle", de droite à gauche :</p>
+<p>Ajoutons deux nombres "Ã  la maniÃ¨re traditionnelle", de droite Ã  gauche :</p>
 
-<pre>  528<br>+ 634<br>------<br>   12  # additionner les unités d'abord (8+4)<br></pre>
+<pre>  528<br>+ 634<br>------<br>   12  # additionner les unitÃ©s d'abord (8+4)<br></pre>
 
-<p>Nous remarquons que nous avons un "1" à mettre en retenue au-dessus
-de la colonne des dizaines. Cette "retenue au-dessus", c'est très
-probablement là que votre programme a eu des problèmes. Réécrivons-le
-de la manière "habituelle" et continuons.</p>
+<p>Nous remarquons que nous avons un "1" Ã  mettre en retenue au-dessus
+de la colonne des dizaines. Cette "retenue au-dessus", c'est trÃ¨s
+probablement lÃ  que votre programme a eu des problÃ¨mes. RÃ©Ã©crivons-le
+de la maniÃ¨re "habituelle" et continuons.</p>
 
 <pre>   1<br>  528<br>+ 634<br>------<br> 1162  <br></pre>
 
-<p>Bien, ça a été un peu rapide, mais je suis sûr que vous avez pu
+<p>Bien, Ã§a a Ã©tÃ© un peu rapide, mais je suis sÃ»r que vous avez pu
 suivre. Dans le monde de Reeborg, nous aimerions que cette addition
-ressemble à ce qui suit :</p>
-<p><img alt="début de l'addition" src="../../images/intro/add_start.png"><img alt="donne" src="../../images/lead_to.png"> <img alt="fin de l'addition" src="../../images/intro/add_end.png"></p>
-<p>Attaquons d'abord le problème plus simple de l'addition 8+4.</p>
+ressemble Ã  ce qui suit :</p>
+<p><img alt="dÃ©but de l'addition" src="../../images/intro/add_start.png"><img alt="donne" src="../../images/lead_to.png"> <img alt="fin de l'addition" src="../../images/intro/add_end.png"></p>
+<p>Attaquons d'abord le problÃ¨me plus simple de l'addition 8+4.</p>
 
 <!--=========================================-->
 <hr width="50%">
 <h3 class="section">Additionner 8+4 en base 10</h3>
 
 <p><span class="warning">Attention :</span> L'exercice suivant peut
-être un peu difficile et est présenté plus comme un défi. Lisez le
-reste de cette leçon et décidez vous-même si vous voulez essayer, ou
-continuer directement à en apprendre plus sur Python.</p>
+Ãªtre un peu difficile et est prÃ©sentÃ© plus comme un dÃ©fi. Lisez le
+reste de cette leÃ§on et dÃ©cidez vous-mÃªme si vous voulez essayer, ou
+continuer directement Ã  en apprendre plus sur Python.</p>
 
-<p>Comme nous l'avons déjà dit, le problème de l'addition de deux
-nombres de façon que chaque pile de sonnettes représente un seul
+<p>Comme nous l'avons dÃ©jÃ  dit, le problÃ¨me de l'addition de deux
+nombres de faÃ§on que chaque pile de sonnettes reprÃ©sente un seul
 chiffre arrive quand nous devons additionner deux chiffres dont la
 somme est plus grande que 9 (en base 10). En quelque sorte, nous devons
 garder une trace de ce nombre magique (10), quels que soient les deux
-nombres que nous allons additionner. J'ai créé un monde (fichier :
+nombres que nous allons additionner. J'ai crÃ©Ã© un monde (fichier :
 adding_world.wld) assez grand pour ajouter deux nombres de 7 chiffres
-en base 10 (ou même en base 16 !). Chargez ce fichier monde et je vous
-guiderai pour que vous puissiez écrire un programme qui peut faire des
+en base 10 (ou mÃªme en base 16 !). Chargez ce fichier monde et je vous
+guiderai pour que vous puissiez Ã©crire un programme qui peut faire des
 additions correctement.</p>
 
-<p>Après avoir chargé le fichier monde, si vous regardez en bas de
-l'écran, vous verrez que Reeborg transporte 8 sonnettes. Écrivez un
-programme pour que Reeborg mette une ligne de sonnettes, une à chaque
-intersection de la 10<sup>e</sup> rue, comme illustraté ci-dessous
-(après que mon programme a fini, j'ai utilisé les touches fléchées de
-mon clavier pour écarter Reeborg du chemin car il était sur la sonnette
-de la dernière colonne : c'est pourquoi vous ne le voyez pas dans
+<p>AprÃ¨s avoir chargÃ© le fichier monde, si vous regardez en bas de
+l'Ã©cran, vous verrez que Reeborg transporte 8 sonnettes. Ã‰crivez un
+programme pour que Reeborg mette une ligne de sonnettes, une Ã  chaque
+intersection de la 10<sup>e</sup> rue, comme illustrÃ© ci-dessous
+(aprÃ¨s que mon programme a fini, j'ai utilisÃ© les touches flÃ©chÃ©es de
+mon clavier pour Ã©carter Reeborg du chemin car il Ã©tait sur la sonnette
+de la derniÃ¨re colonne : c'est pourquoi vous ne le voyez pas dans
 l'image ci-dessous).</p>
-<p><img alt="ligne de sonnettes à travers la 10e rue" src="../../images/intro/accross10.png"></p>
+<p><img alt="ligne de sonnettes Ã  travers la 10e rue" src="../../images/intro/accross10.png"></p>
 <p>Maintenant, assurez-vous d'enregistrer ce programme avant de continuer.<br>
-<br>Rechargez le fichier monde (pour que le monde soit vide à nouveau et Reeborg soit au point d'origine [intersection de la 1<sup>re</sup> avenue et la 1<sup>re</sup>rue])
-et ajoutez des sonnettes dans le coin en bas à droite pour que
-l'affichage ressemble à ce qui suit (mais avec Reeborg au point
+<br>Rechargez le fichier monde (pour que le monde soit vide Ã  nouveau et Reeborg soit au point d'origine [intersection de la 1<sup>re</sup> avenue et la 1<sup>re</sup>rue])
+et ajoutez des sonnettes dans le coin en bas Ã  droite pour que
+l'affichage ressemble Ã  ce qui suit (mais avec Reeborg au point
 d'origine).</p>
 
 <p><img alt="8+4" src="../../images/intro/add8_4_start.png"></p>
 
-<p>Faites faire à Reeborg ce qui suit :</p>
+<p>Faites faire Ã  Reeborg ce qui suit :</p>
 
 <ol>
 
-  <li>Mettre une ligne de sonnettes à travers la 10<sup>e</sup> rue comme auparavant.</li>
-  <li>Aller en bas à droite de l'écran, ramasser les deux piles (8 et 4) de sonnettes.</li>
-  <li>Disperser ces 12 sonnettes sur une colonne verticale comme illustré ci-dessous.</li>
+  <li>Mettre une ligne de sonnettes Ã  travers la 10<sup>e</sup> rue comme auparavant.</li>
+  <li>Aller en bas Ã  droite de l'Ã©cran, ramasser les deux piles (8 et 4) de sonnettes.</li>
+  <li>Disperser ces 12 sonnettes sur une colonne verticale comme illustrÃ© ci-dessous.</li>
 </ol>
-<p><img alt="8+4 dispersés à la verticale" src="../../images/intro/vertical12.png"></p>
+<p><img alt="8+4 dispersÃ©s Ã  la verticale" src="../../images/intro/vertical12.png"></p>
 <p>Maintenant, nous avons deux sonnettes au-dessus de la ligne de
-sonnettes horizontale (les unités du nombre 12) et une sonnette en plus
+sonnettes horizontale (les unitÃ©s du nombre 12) et une sonnette en plus
 sur la ligne horizontale (que nous pouvons utiliser comme la
-"retenue"). Ainsi, tout ce que vous avez à faire est de :<br>
+"retenue"). Ainsi, tout ce que vous avez Ã  faire est de :<br>
 </p>
 
 <ol>
-  <li>Faire ramasser à Reeborg les 9 sonnettes au-dessous de la ligne
-de sonnettes horizontale, et les mettre de côté (peut-être en les
+  <li>Faire ramasser Ã  Reeborg les 9 sonnettes au-dessous de la ligne
+de sonnettes horizontale, et les mettre de cÃ´tÃ© (peut-Ãªtre en les
 posant toutes sur la ligne horizontale) ;
-vous pouvez le faire en répétant les étapes suivantes : <ol><li>ramasser une sonnette</li><li>voir s'il y a une autre sonnette à ramasser, sinon</li><li>avancer... jusqu'à arriver à une intersection où il y a une autre sonnette à ramasser...</li></ol>au point auquel vous aurez atteint la ligne de sonnettes horizontale. <!--at which point you will have reached the horizontal line of beepers.-->
-Vous pouvez les déposer toutes à cette intersection.</li>
-<li>Faites-le continuer à avancer au nord au moins au-delà de la dernière sonnette, comme illustré ci-dessous :<br>
+vous pouvez le faire en rÃ©pÃ©tant les Ã©tapes suivantes : <ol><li>ramasser une sonnette</li><li>voir s'il y a une autre sonnette Ã  ramasser, sinon</li><li>avancer... jusqu'Ã  arriver Ã  une intersection oÃ¹ il y a une autre sonnette Ã  ramasser...</li></ol>au point auquel vous aurez atteint la ligne de sonnettes horizontale. <!--at which point you will have reached the horizontal line of beepers.-->
+Vous pouvez les dÃ©poser toutes Ã  cette intersection.</li>
+<li>Faites-le continuer Ã  avancer au nord au moins au-delÃ  de la derniÃ¨re sonnette, comme illustrÃ© ci-dessous :<br>
     <br>
     <p><img alt="8+4" src="../../images/intro/add8_4_middle.png"><br>
     </p>
   </li>
   <li>Faites lui faire demi-tour, ramasser <b>une</b>
-sonnette et avancer. Répéter jusqu'à ce que Reeborg arrive à
-l'intersection où il n'y a plus de sonnettes à ramasser (en dessous de
-la ligne horizontale) ; à ce point, Reeborg devrait transporter trois
+sonnette et avancer. RÃ©pÃ©ter jusqu'Ã  ce que Reeborg arrive Ã 
+l'intersection oÃ¹ il n'y a plus de sonnettes Ã  ramasser (en dessous de
+la ligne horizontale) ; Ã  ce point, Reeborg devrait transporter trois
 sonnettes.</li>
-  <li>Faites lui transporter ces sonnettes vers le bas, jusqu'à ce qu'il arrive au mur ;</li>
+  <li>Faites lui transporter ces sonnettes vers le bas, jusqu'Ã  ce qu'il arrive au mur ;</li>
   <li>Faites lui poser toutes les sonnettes (3), en ramasser une (la retenue), avancer vers l'ouest et poser la sonnette-retenue.</li>
 </ol>
-Tout ce qu'il reste à faire est d'écarter Reeborg du chemin pour afficher le résultat !<br>
+Tout ce qu'il reste Ã  faire est d'Ã©carter Reeborg du chemin pour afficher le rÃ©sultat !<br>
 
 <br>
 
 <p><img alt="8+4" src="../../images/intro/add8_4_end.png"></p>
 
-<p>Eh bien... en réalité, ces cinq étapes comme je les ai écrites vont
+<p>Eh bien... en rÃ©alitÃ©, ces cinq Ã©tapes comme je les ai Ã©crites vont
 avoir besoin de pas mal de code et vous pourrez trouver cela un peu
-difficile à faire. Mais vous y arriverez si vous procédez
-méthodiquement. Essayez !</p>
+difficile Ã  faire. Mais vous y arriverez si vous procÃ©dez
+mÃ©thodiquement. Essayez !</p>
 
 <!--=========================================-->
 <hr width="50%">
@@ -145,33 +145,33 @@ méthodiquement. Essayez !</p>
 <p>Alors, vous avez fini par faire calculer 8+4 par votre programme.
 Formidable ! Maintenant essayez-le avec 3+5. Est-ce que cela fonctionne
 ? Il y a des chances que non... puisqu'il n'y a pas besoin de retenue.
-Pouvez-vous réfléchir à une façon de le faire ? Peut-être que vous
+Pouvez-vous rÃ©flÃ©chir Ã  une faÃ§on de le faire ? Peut-Ãªtre que vous
 pourrez en utilisant seulement ce que nous avons appris jusqu'ici...
-Pour la solution que <i>j</i>'ai écrite <i>moi</i>, j'ai eu besoin d'un mot-clé Python que nous n'avons pas encore vu :
+Pour la solution que <i>j</i>'ai Ã©crite <i>moi</i>, j'ai eu besoin d'un mot-clÃ© Python que nous n'avons pas encore vu :
 <span class="pykeyword">break</span>.</p>
 <p>[NdT : <i>break</i> = <i>interrompre</i>]<br> </p>
 <!--=========================================-->
 <hr width="50%">
-<h3 class="suggested">Défi final</h3>
+<h3 class="suggested">DÃ©fi final</h3>
 
 <p>Si vous savez ce que veut dire additionner des nombres dans des
 bases autres que la base 10, essayez de modifier votre programme (ou le
 fichier monde ?...) pour pouvoir additionner des nombres dans une base
-différente.</p>
+diffÃ©rente.</p>
 
 <!--=========================================-->
 <hr width="50%">
 <h3 class="section">Et ensuite ?</h3>
 
-<p>Jusqu'ici, dans le monde de Reeborg, nous avons vu les mots-clés Python
+<p>Jusqu'ici, dans le monde de Reeborg, nous avons vu les mots-clÃ©s Python
 suivants :<br>
 <span class="pykeyword">def, elif, else, if, not, pass, while</span>.
-Nous avons fini par écrire un programme plutôt compliqué pour que
+Nous avons fini par Ã©crire un programme plutÃ´t compliquÃ© pour que
 Reeborg puisse additionner deux nombres. Il est temps d'abandonner le
 monde de Reeborg pour voir comment additionner deux nombres bien plus
 facilement avec du Python "pur". Ne vous en faites pas : nous
 reviendrons dans le monde de Reeborg de temps en temps, et nous verrons
-comment notre connaissance améliorée de Python peut aider Reeborg.</p>
-<center><a href="23-trash.htm"><img alt="précédent" src="../../images/previous.png">Après la tempête</a> - <a href="../lessons_toc.htm"><img alt="début" src="../../images/home.png"></a>
-- <a href="../inter/25-interpreter.htm">Python sait déjà comment additionner.<img alt="suivant" src="../../images/next.png"></a></center>
+comment notre connaissance amÃ©liorÃ©e de Python peut aider Reeborg.</p>
+<center><a href="23-trash.htm"><img alt="prÃ©cÃ©dent" src="../../images/previous.png">AprÃ¨s la tempÃªte</a> - <a href="../lessons_toc.htm"><img alt="dÃ©but" src="../../images/home.png"></a>
+- <a href="../inter/25-interpreter.htm">Python sait dÃ©jÃ  comment additionner.<img alt="suivant" src="../../images/next.png"></a></center>
 </body></html>
