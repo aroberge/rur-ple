@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>Étonnant - 5e partie</title></head><body>
+<h2 class="title">21. Étonnant - 5e partie</h2>
+
+<h3 class="section">Plus de complications</h3>
+
+<p>Considérons le monde suivant</p>
+
+<p><img alt="around the world: start" src="../../images/intro/around4start.png"></p>
+
+<p>Est-ce que le programme écrit précédemment fonctionne avec ? Essayez-le ?</p>
+
+<p>Comme vous l'avez sûrement deviné, si vous ne l'avez pas essayé <small>(vous devriez pourtant, vraiment !)</small>, il ne fonctionne pas. Pour cela, il faut remplacer le
+<span class="pykeyword">if</span> que nous venions d'ajouter par un <span class="pykeyword">while</span>. Essayez ! N'oubliez pas d'enregistrer.</p>
+
+<!--=====================================-->
+<hr width="50%">
+<h3 class="section">Clarifions notre intention<br>
+</h3>
+
+<p>Le programme que nous avons conçu semble fonctionner dans toutes les
+situations que nous risquons de recontrer. Ce programme, rappelons-le,
+doit permettre à Reeborg d'explorer son monde, en en faisant le tour
+une fois. Bien que le programme est plutôt court, et que sa structure
+devrait être claire jusque là, elle pourrait ne pas être évidente pour
+quelqu'un qui le voit pour la première fois. Ce serait sûrement une
+bonne idée d'y ajouter des commentaires et/ou de présenter des mots
+plus significatifs. Commençons par ajouter des commentaires, en plus
+grande quantité que ce dont nous pensons avoir besoin.</p>
+
+<pre><span class="comment"># nous définissons une instruction utile</span><br><span class="keyword">def</span> turn_right():<br>    repeat(turn_left, 3)<br><br><span class="comment"># nous marquons le point de départ en posant une sonnette</span><br>put_beeper()<br><br><span class="comment"># Nous trouvons alors le chemin dégagé et commençons à avancer.</span><br><span class="keyword">while not</span> front_is_clear():<br>    turn_left()<br>move()<br><br><span class="comment"># Nous savons que nous avons fait le tour du monde</span><br><span class="comment"># quand nous retournons à la sonnette que nous avions posée.</span><br><br><span class="keyword">while not</span> on_beeper():<br>    <span class="keyword">if</span> right_is_clear(): <span class="comment"># continuer à droite</span><br>        turn_right()<br>        move()<br>    <span class="keyword">elif</span> front_is_clear(): <span class="comment"># avancer en suivant le mur à droite</span><br>        move()<br>    <span class="keyword">else</span>:<span class="comment"> # suivre le mur en tournant à gauche</span><br>        turn_left()<br><br>turn_off()<br></pre>
+
+<p>Bien que cela clarifie en quelque sorte notre intention pour chaque
+instruction, cela ne nous aide pas vraiment à résumer la méthode (aussi
+appelée <i>algorithm</i>e) utilisée pour résoudre le problème. Ces
+commentaires ne sont donc pas aussi utile aux autres lecteurs que nous
+l'aurions aimé. En relisant les commentaires, nous remarquons que le
+programme est divisé en deux parties :<br>
+1) marquer le point de départ ;<br>
+2) suivre le mur de droite jusqu'à ce que nous revenions au départ.<br>Réécrivons le programme pour que ces deux parties deviennent plus claires, et écrivons les commentaires différemment.</p>
+
+<pre><span class="comment"># Ce programme demande à Reeborg de faire le tour de son monde</span><br><span class="comment"># dans le sens inverse des aiguilles d'une montre, s'arrêtant quand il retourne </span><br><span class="comment"># à son point de départ.</span><br><br><span class="keyword">def</span> turn_right():<br>    repeat(turn_left, 3)<br><br><span class="keyword">def</span> mark_starting_point_and_move():<br>    put_beeper()<br>    <span class="keyword">while not</span> front_is_clear():<br>        turn_left()<br>    move()<br><br><span class="keyword">def</span> follow_right_wall():<br>    <span class="keyword">if</span> right_is_clear(): <br>        turn_right()<br>        move()<br>    <span class="keyword">elif</span> front_is_clear(): <br>        move()<br>    <span class="keyword">else</span>: <br>        turn_left()<br><br>found_starting_point = next_to_a_beeper   <span class="comment"># la sonnette marque le point de départ.</span><br><br><span class="comment">#=== Fin des définitions ; début de la solution</span><br><br>mark_starting_point_and_move()<br>            <br><span class="keyword">while not</span> found_starting_point(): <br>    follow_right_wall()<br>      <br>turn_off()<br></pre>
+
+<p>N'est-ce pas plus clair ? Maintenant, supposons qu'il y ait une
+sonnette à chaque coin au commencement. Nous pourrions alors choisir de
+marquer le point de départ en <i>enlevant</i>
+une sonnette. Nous aurions besoin de faire quelques petits changements
+dans les définitions, mais la solution en tant que telle n'aurait pas
+besoin d'être changée.</p>
+
+<!--======================================-->
+<hr width="50%">
+<h3 class="try">Première surprise</h3>
+
+<p>Modifiez le programme que vous venez d'écrire pour enlever l'instruction <tt>put_beeper()</tt>. Après l'avoir enregistré, essayez ce programme légèrement modifié avec la course de haies suivante (fichier : hurdles3.wld) :<br>
+</p>
+
+<p><img alt="hurdles" src="../../images/intro/hurdles3_start.png"></p>
+
+<p>Surprise ! Au lieu de terminer face à une direction inhabituelle (en
+s'inclinant face au public après avoir gagné par exemple), le programme
+que nous venons d'écrire peut résoudre le problème des haies. Il
+fonctionne aussi avec celui des haies inégales (fichier :
+hurdles4.wld)
+de l'image ci-dessous - que le programme écrit auparavant pour sauter
+les haies ne pouvait pas&nbsp; résoudre !</p>
+
+<p><img alt="hurdles" src="../../images/intro/hurdles4_start.png"></p>
+
+<!--======================================-->
+<hr width="50%">
+<h3 class="try">Surprise étonnante</h3>
+
+<p>Essayez le même programme modifié encore une fois avec le problème
+du labyrinthe que nous avons présenté dans l'une des premières leçons
+(fichier : maze1.wld) et illustraté ci-dessous :</p>
+
+<p><img alt="maze" src="../../images/intro/maze1_start.png"></p>
+
+<p>Comme vous le verrez, notre programme simple peut trouver la sortie de ce labyrinthe ! Étonnant !</p>
+
+<!--======================================-->
+<hr width="50%">
+<h3 class="section">Conclusion</h3>
+
+<p>Nous avons commencé avec un problème simple à résoudre (faire le
+tour d'un monde rectangulaire) et, en améliorant petit à petit (c'est
+ce qui s'appelle le <i>perfectionnement par étapes</i>), nous avons
+réussi à écrire un programme qui a pu être utilisé pour résoudre
+plusieurs autres problèmes en apparence complètement différents. À
+chaque étape, nous n'avons fait que des petites modifications, en
+s'assurant que la solution fonctionnait, avant de passer à des
+problèmes plus complexes. Nous avons aussi utilisé des noms plus
+descriptifs pour des parties de l'<i>algorithme</i> qui ont rendu le
+programme plus facile à lire et, espérons-le, à comprendre. C'est une
+stratégie que vous devriez utiliser quand vous écrirez vos propres
+programmes :</p>
+
+<dl>
+
+  <dt><b>Règle N° 5</b></dt>
+  <dd>Étapes à suivre en écrivant un programme :</dd>
+  <ul>
+    <li>commencer simplement ;</li>
+    <li>introduire de petits changements, un à la fois ;</li>
+    <li>s'assurer que chacune des modifications que vous avez introduites n'invalide
+pas le travail que vous aviez fait avant ;</li>
+    <li>ajouter des commentaires appropriés qui ne font pas que répéter ce que fait chaque instruction ; et</li>
+    <li>choisir des noms descriptifs.</li>
+  </ul>
+</dl>
+
+<center><a href="20-amazing4.htm"><img alt="previous" src="../../images/previous.png"> Étonnant - 4e partie</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="22-rain.htm">Il pleut ! <img alt="next" src="../../images/next.png"></a>
+</center>
+
+</body></html>
