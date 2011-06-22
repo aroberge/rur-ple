@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content=
+"text/html; charset=iso-8859-1">
+<link rel='stylesheet' href='rurple.css' type='text/css'>
+<title>Résumé des instructions</title>
+</head>
+<body>
+<h2 class="title">Apprendre le Python : un Jeu d'Enfants avec RUR-PLE !</h2>
+<h6>André Roberge, © 2005-20011<br>
+Traduction française : <a href="mailto:nh2@libretlemcen.org">Amine Brikci-Nigassa</a></h6>
+<h3 class="section">Résumé des instructions</h3>
+<p>Actions de Reeborg</p>
+<pre>
+move() <span class="comment"># avancer</span>
+turn_left() <span class="comment"># tourner à gauche</span>
+pick_beeper() <span class="comment"># ramasser une sonnette</span>
+put_beeper() <span class="comment"># poser une sonnette</span>
+turn_off() <span class="comment"># s'éteindre</span>
+</pre>
+Tests:
+<pre>
+front_is_clear() <span class="comment"># rien devant</span>
+left_is_clear() <span class="comment"># rien à gauche</span>
+right_is_clear() <span class="comment"># rien à droite</span>
+facing_north() <span class="comment"># face au Nord</span>
+carries_beepers() <span class="comment"># transporte des sonnettes</span>
+on_beeper() <span class="comment"># équivalent à next_to_a_beeper(), sur une sonnette</span>
+</pre>
+Fonctions intégrées spéciales :
+<pre>
+repeat(fonction, nombre_de_fois) <span class="comment"># répete l'exécution de la fonction, un nombre_de_fois donné</span>
+<span class="comment"># Noter que c'est équivalent à</span>
+<span class="keyword">for</span> nombre <span class="keyword">in</span> range(nombre_de_fois):
+    fonction()
+</pre>
+<p>Programmation Orientée-Objet :</p>
+<pre>
+Reeborg = UsedRobot()
+Reeborg.move()
+Reeborg.turn_left()
+Reeborg.pick_beeper()
+Reeborg.put_beeper()
+Reeborg.front_is_clear()
+Reeborg.left_is_clear()
+Reeborg.right_is_clear()
+Reeborg.facing_north()
+Reeborg.carries_beepers()
+Reeborg.on_beeper() <span class="comment"># équivalent à :</span> Reeborg.next_to_a_beeper()
+</pre>
+<p>Options avancées :</p>
+<pre>
+set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
+<span class="comment"># Régler le style de traçage</span>
+<span class="comment"># Tout nom de couleur reconnu par wxPython est acceptable</span>
+<span class="comment"># style est un chiffre entre 1 et 5</span>
+
+set_delay(temps)
+<span class="comment"># Régler le délai</span>
+<span class="comment"># 0 &lt; temps &lt; 10 (en secondes)</span>
+
+Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span class="string">'E'</span>,
+                 beepers=0, name=<span class="string">'robot'</span>, colour=<span class="string">'grey'</span>)
+<span class="comment"># orient_key peut être <span class="string">'E'</span> ou <span class="string">'e'</span>, <span class="string">'W'</span> ou <span class="string">'w'</span>, <span class="string">'S'</span> ou <span class="string">'s'</span>, <span class="string">'N'</span> ou <span class="string">'n'</span>.</span>
+
+<span class="comment"># Couleurs de <b>robot</b> disponibles : <span class="string">'yellow'</span>, 
+# <span class="string">'blue'</span>, <span class="string">'light blue'</span>, <span class="string">'purple'</span> et <span class="string">'green'</span>.  
+# Toute autre couleur donnera le (<span class="string">'grey'</span>) par défaut.</span>
+
+<span class="comment"># Notez qu'un "numéro de série" peut être ajouté au 
+# "nom" du robot, pour que chaque robot durant toute une session de jeu/travail
+# avec rur-ple aie un nom unique.</span>
+
+Reeborg.set_trace_style(style=1, colour=<span class="string">'sea green'</span>) 
+Reeborg.set_delay(temps)
+</pre>
+<p>Robot nouveau et amélioré !</p>
+<pre>
+Guido = RefurbishedRobot()  <span class="comment"># hérite de UsedRobot</span>
+
+<span class="comment"># Méthodes additionelles:</span>
+Guido.turn_right()
+Guido.facing_east()
+Guido.facing_south()
+Guido.facing_west()
+Guido.roll_dice(n=6) <span class="comment"># lance les dés pour donner un entier au hasard entre 1 et n.</span>
+</pre>
+
+<center><a href="rur.htm"><img alt="début" src=
+"../images/home.png"></a></center>
+</body>
+</html>
