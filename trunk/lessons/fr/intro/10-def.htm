@@ -5,205 +5,205 @@
 
   
   <link rel="stylesheet" href="../rurple.css" type="text/css">
-  <title>Éviter absolument les répétitions</title>
+  <title>Ã‰viter absolument les rÃ©pÃ©titions</title>
 
   
 </head><body>
-<h2 class="title">10. Éviter absolument les répétitions</h2>
+<h2 class="title">10. Ã‰viter absolument les rÃ©pÃ©titions</h2>
 
-<p>Préparez-vous : cette leçon est plutôt longue. Nous allons voir
-comment définir de nouvelles commandes de robot. Nous verrons aussi une
-troisième règle utile pour l'écriture de programmes :</p>
+<p>PrÃ©parez-vous : cette leÃ§on est plutÃ´t longue. Nous allons voir
+comment dÃ©finir de nouvelles commandes de robot. Nous verrons aussi une
+troisiÃ¨me rÃ¨gle utile pour l'Ã©criture de programmes :</p>
 
 <dl>
 
-  <dt><b>Règle N°3</b></dt>
-  <dd>Quand vous écrivez des programmes, ne vous répétez pas.<br>
-Je répète : <b>Ne vous répétez pas !</b></dd>
+  <dt><b>RÃ¨gle NÂ°3</b></dt>
+  <dd>Quand vous Ã©crivez des programmes, ne vous rÃ©pÃ©tez pas.<br>
+Je rÃ©pÃ¨te : <b>Ne vous rÃ©pÃ©tez pas !</b></dd>
 </dl>
 
 <!--=============================================-->
 <hr width="50%"><a name="Three" id="Three"></a>
 <h3 class="section">Trois gauches peuvent faire une droite</h3>
 
-<p>Si vous y réfléchissez attentivement, vous pourrez trouver que faire
-faire à Reeborg trois rotations à gauche à la suite donne le même
-résultat que s'il faisait une seule rotation à droite. Essayez de
+<p>Si vous y rÃ©flÃ©chissez attentivement, vous pourrez trouver que faire
+faire Ã  Reeborg trois rotations Ã  gauche Ã  la suite donne le mÃªme
+rÃ©sultat que s'il faisait une seule rotation Ã  droite. Essayez de
 comprendre, en dessinant sur une feuille de papier, ce que le programme
-suivant ferait faire à Reeborg. sans utiliser votre ordinateur :<br>
+suivant ferait faire Ã  Reeborg. sans utiliser votre ordinateur :<br>
 </p>
 
 <pre>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br>turn_left()<br>turn_left()<br>turn_off()<br></pre>
 
-<h3 class="try">À votre tour<br>
+<h3 class="try">Ã€ votre tour<br>
 </h3>
 
-<p>Écrivez et enregistrez le programme ci-dessus, et voyez si ce que
-Reeborg fait est ce à quoi vous vous attendiez.</p>
+<p>Ã‰crivez et enregistrez le programme ci-dessus, et voyez si ce que
+Reeborg fait est ce Ã  quoi vous vous attendiez.</p>
 
-<h3 class="try">Encore à vous !</h3>
+<h3 class="try">Encore Ã  vous !</h3>
 
 <p>Changez le programme que vous venez d'enregistrer pour qu'il fasse
 tourner Reeborg dans le sens des aiguilles d'une montre autour d'un
-carré comme dans l'image ci-dessous :<br>
+carrÃ© comme dans l'image ci-dessous :<br>
 </p>
 
 <p><img alt="square with right turns" src="../../images/intro/square2right.png"></p>
 
 <!--=====================================================-->
 <hr width="50%"><a name="Define" id="Define"></a>
-<h3 class="section">Définir ce qu'est la droite<br>
+<h3 class="section">DÃ©finir ce qu'est la droite<br>
 </h3>
 
-<p>Nous avons déjà vu comment Reeborg peut tourner à droite en
-combinant trois rotations à gauche à la suite. Si nous voulons faire
-une série de rotations à droite, il devient plutôt ennuyeux d'écrire et
-lire le code obtenu. C'est parce que nous nous répétons ; en d'autres
-mots, la même suite d'instructions apparaît à différents endroits dans
-le programme. Pour éviter de telles duplications, la possibilité de
-programmer Reeborg en Python est très utile.</p>
+<p>Nous avons dÃ©jÃ  vu comment Reeborg peut tourner Ã  droite en
+combinant trois rotations Ã  gauche Ã  la suite. Si nous voulons faire
+une sÃ©rie de rotations Ã  droite, il devient plutÃ´t ennuyeux d'Ã©crire et
+lire le code obtenu. C'est parce que nous nous rÃ©pÃ©tons ; en d'autres
+mots, la mÃªme suite d'instructions apparaÃ®t Ã  diffÃ©rents endroits dans
+le programme. Pour Ã©viter de telles duplications, la possibilitÃ© de
+programmer Reeborg en Python est trÃ¨s utile.</p>
 
-<p>En Python, on peut donner un nom simple à une série d'instructions.
-Par exemple, nous pouvons <b>définir</b> la commande qui permet de
-faire tourner à droite Reeborg comme ceci :</p>
+<p>En Python, on peut donner un nom simple Ã  une sÃ©rie d'instructions.
+Par exemple, nous pouvons <b>dÃ©finir</b> la commande qui permet de
+faire tourner Ã  droite Reeborg comme ceci :</p>
 
 <p><img alt="defining turn right" src="../../images/intro/fr_turnright_txt.png"></p>
 
-<p>Au moins cinq importants points sont à noter :</p>
+<p>Au moins cinq points importants sont Ã  noter :</p>
 
 <ul>
 
-  <li>Comme nous l'avons déjà vu, le symbole <tt><span class="comment">#</span></tt>,
-qui apparaît en vert, indique que le reste de la ligne peut être ignoré
+  <li>Comme nous l'avons dÃ©jÃ  vu, le symbole <tt><span class="comment">#</span></tt>,
+qui apparaÃ®t en vert, indique que le reste de la ligne peut Ãªtre ignorÃ©
 par Reeborg (ou Python). Le texte qui suit <tt><span class="comment">#</span></tt>
-est appelé un <b>commentaire</b>
-et est utilisé pour expliquer aux autres <b>programmeurs</b>, ou pour
-nous rappeler à nous-même, ce que fait une ligne de code ou une suite
-de lignes de code. Il est aussi affiché en vert, pour nous aider à
-faire la différence entre commentaires et instructions. Python, et
+est appelÃ© un <b>commentaire</b>
+et est utilisÃ© pour expliquer aux autres <b>programmeurs</b>, ou pour
+nous rappeler Ã  nous-mÃªme, ce que fait une ligne de code ou une suite
+de lignes de code. Il est aussi affichÃ© en vert, pour nous aider Ã 
+faire la diffÃ©rence entre commentaires et instructions. Python, et
 Reeborg, ignorent ces commentaires.</li>
-  <li>Deuxièmement, la définition commence avec le <b>mot-clé</b> de
-Python <span class="pykeyword">def</span> qui apparaît&nbsp; en bleu
-dans l'éditeur. Un <b>mot-clé</b> de Python est un mot dont le sens
-est défini par Python lui-même.
-Le mot-clé <span class="pykeyword">def</span> est suivi du nom de la
-nouvelle commande, deux parenthèses, et un deux-points.</li>
-  <li>Troisièmement, définir une instruction n'est pas la même chose
-que créer un
-synonyme comme nous l'avons vu avant. Quand nous créons un synonyme,
-nous le faisons avec un signe égal "=" entre les synonymes, et
-l'absence des parenthèses indique que ce n'est pas une instruction.</li>
-  <li>Quatrièmement, chacune des instructions qui fait partie de la
-nouvelle définition est <b>indentée</b> (décalée vers la droite), du <b>même
+  <li>DeuxiÃ¨mement, la dÃ©finition commence avec le <b>mot-clÃ©</b> de
+Python <span class="pykeyword">def</span> qui apparaÃ®t&nbsp; en bleu
+dans l'Ã©diteur. Un <b>mot-clÃ©</b> de Python est un mot dont le sens
+est dÃ©fini par Python lui-mÃªme.
+Le mot-clÃ© <span class="pykeyword">def</span> est suivi du nom de la
+nouvelle commande, deux parenthÃ¨ses, et un deux-points.</li>
+  <li>TroisiÃ¨mement, dÃ©finir une instruction n'est pas la mÃªme chose
+que crÃ©er un
+synonyme comme nous l'avons vu avant. Quand nous crÃ©ons un synonyme,
+nous le faisons avec un signe Ã©gal "=" entre les synonymes, et
+l'absence des parenthÃ¨ses indique que ce n'est pas une instruction.</li>
+  <li>QuatriÃ¨mement, chacune des instructions qui fait partie de la
+nouvelle dÃ©finition est <b>indentÃ©e</b> (dÃ©calÃ©e vers la droite), du <b>mÃªme
 nombre d'espaces</b>. Sinon, Python se plaindra et ne fera pas ce que
 nous voulons. L'indentation est faite en laissant un certain nombre
-d'espaces au début de chaque ligne. On utilise habituellement une
+d'espaces au dÃ©but de chaque ligne. On utilise habituellement une
 indentation de quatre espaces pour un <i>bloc de
-code</i> donné. Pour vous aider, l'éditeur de programme est réglé pour
-afficher des lignes pointillées à des intervalles de quatre espaces.<br>
+code</i> donnÃ©. Pour vous aider, l'Ã©diteur de programme est rÃ©glÃ© pour
+afficher des lignes pointillÃ©es Ã  des intervalles de quatre espaces.<br>
     <img alt="Showing indentation guides" src="../../images/intro/fr_indentation.png"></li>
-  <li>Cinquièmement, à la fin de la ligne où il y a le mot-clé <span class="pykeyword">def</span>, nous ajoutons un deux-points "<tt>:</tt>"
-qui indique à Python qu'un bloc de code va commencer. C'est ce que nous
-faisons avec d'autres mots-clés qui commencent des blocs de code, comme
-<span class="pykeyword">if</span> dans l'exemple ci-dessus, que nous présenterons correctement dans quelques leçons.</li>
+  <li>CinquiÃ¨mement, Ã  la fin de la ligne oÃ¹ il y a le mot-clÃ© <span class="pykeyword">def</span>, nous ajoutons un deux-points "<tt>:</tt>"
+qui indique Ã  Python qu'un bloc de code va commencer. C'est ce que nous
+faisons avec d'autres mots-clÃ©s qui commencent des blocs de code, comme
+<span class="pykeyword">if</span> dans l'exemple ci-dessus, que nous prÃ©senterons correctement dans quelques leÃ§ons.</li>
 </ul>
 
-<p>Cela fait pas mal d'informations présentées en une fois. C'est
-probablement le bon moment pour vérifier si vous avez bien compris
-comment utiliser ce mot-clé.</p>
+<p>Cela fait pas mal d'informations prÃ©sentÃ©es en une fois. C'est
+probablement le bon moment pour vÃ©rifier si vous avez bien compris
+comment utiliser ce mot-clÃ©.</p>
 
-<h3 class="try">À votre tour<br>
+<h3 class="try">Ã€ votre tour<br>
 </h3>
 
-<p>Écrivez un programme qui 1) définit cette nouvelle commande pour
-tourner à droite et
+<p>Ã‰crivez un programme qui 1) dÃ©finit cette nouvelle commande pour
+tourner Ã  droite et
 2)
-l'utilise pour faire tracer à Reeborg un carré dans le sens des
-aiguilles d'une montre comme précédemment. Remarquez que le programme
+l'utilise pour faire tracer Ã  Reeborg un carrÃ© dans le sens des
+aiguilles d'une montre comme prÃ©cÃ©demment. Remarquez que le programme
 final est plus court que l'original et qu'il est plus facile de
 comprendre le chemin que suit Reeborg.</p>
 
-<h3 class="try">Encore à votre tour !</h3>
+<h3 class="try">Encore Ã  votre tour !</h3>
 
-<p>Définissez l'instruction <tt>step_back()</tt> pour que le programme suivant :</p>
+<p>DÃ©finissez l'instruction <tt>step_back()</tt> pour que le programme suivant :</p>
 
 <pre><span class="comment"># step_back() defined up here</span><br>move()<br>step_back()<br>turn_off()<br></pre>
 
-<p>fasse avancer Reeborg d'un pas en avant puis revenir à sa position de départ <em>face à la même direction qu'au début</em>,
+<p>fasse avancer Reeborg d'un pas en avant puis revenir Ã  sa position de dÃ©part <em>face Ã  la mÃªme direction qu'au dÃ©but</em>,
 comme dans l'image suivante :</p>
 
 <p><img alt="back up" src="../../images/intro/back_up.png"></p>
 
-<p><em>Conseil :</em> Soyez sûr de ne pas oublier d'indenter les commandes qui font partie de votre nouvelle définition.</p>
+<p><em>Conseil :</em> Soyez sÃ»r de ne pas oublier d'indenter les commandes qui font partie de votre nouvelle dÃ©finition.</p>
 
-<h3 class="try">À votre tour, encore une fois !</h3>
+<h3 class="try">Ã€ votre tour, encore une fois !</h3>
 
-<p>Définissez l'instruction <tt>turn_around()</tt> pour que les nouvelles commandes suivantes puissent fonctionner comme prévu :</p>
+<p>DÃ©finissez l'instruction <tt>turn_around()</tt> pour que les nouvelles commandes suivantes puissent fonctionner comme prÃ©vu :</p>
 
 <pre><span class="keyword">def</span> step_back():<br>    turn_around()<br>    move()<br>    turn_around()<br><br><span class="keyword">def</span> turn_right():<br>    turn_around()<br>    turn_left()<br></pre>
 
 <!--===========================================================-->
 <hr width="50%"><a name="Newspaper" id="Newspaper"></a>
-<h3 class="section">Livraison du journal, revisitée</h3>
+<h3 class="section">Livraison du journal, revisitÃ©e</h3>
 
-<p>Dans le chapitre précédent, un des derniers exercices que vous aviez
-à faire était d'écrire un programme pour que Reeborg livre un journal.
+<p>Dans le chapitre prÃ©cÃ©dent, un des derniers exercices que vous aviez
+Ã  faire Ã©tait d'Ã©crire un programme pour que Reeborg livre un journal.
 Voici un rappel en image de ce que Reeborg devait faire :</p>
 
 <center><img alt="newspaper start" src="../../images/intro/newspaper_start.png"></center>
 
 <center><img alt="lead to" src="../../images/lead_to.png"> <img alt="newspaper end" src="../../images/intro/newspaper_end.png"></center>
 
-<p>Votre solution à cet exercice ressemblait probablement à ceci :</p>
+<p>Votre solution Ã  cet exercice ressemblait probablement Ã  ceci :</p>
 
-<pre>move()<br><span class="comment"># monter une marche</span><br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br><span class="comment"># monter une marche</span><br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br><span class="comment"># </span><span class="comment">monter une marche</span><span class="comment"></span><br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br><span class="comment"># </span><span class="comment">monter une marche</span><span class="comment"></span><br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br><span class="comment"># poser le journal et faire demi-tour</span><br>put_beeper()<br>turn_left()<br>turn_left()<br><span class="comment"># descendre une marche</span><br>move()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br><span class="comment"># descendre une marche</span><br>move()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br><span class="comment"># descendre une marche</span><br>move()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br><span class="comment"># descendre une marche</span><br>move()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br><span class="comment"># avancer et s'arrêter</span><br>move()<br>turn_off()<br></pre>
+<pre>move()<br><span class="comment"># monter une marche</span><br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br><span class="comment"># monter une marche</span><br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br><span class="comment"># </span><span class="comment">monter une marche</span><span class="comment"></span><br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br><span class="comment"># </span><span class="comment">monter une marche</span><span class="comment"></span><br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br>move()<br>move()<br><span class="comment"># poser le journal et faire demi-tour</span><br>put_beeper()<br>turn_left()<br>turn_left()<br><span class="comment"># descendre une marche</span><br>move()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br><span class="comment"># descendre une marche</span><br>move()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br><span class="comment"># descendre une marche</span><br>move()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br><span class="comment"># descendre une marche</span><br>move()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>turn_left()<br>turn_left()<br><span class="comment"># avancer et s'arrÃªter</span><br>move()<br>turn_off()<br></pre>
 
 <p>C'est beaucoup de frappe au clavier... et il y a beaucoup de
-répétitions. Quand vous arriviez à la fin du programme, vous ne pouviez
-plus voir son début à l'écran. Vous avez peut-être remarqué que j'ai
-ajouté quelques commentaires qui m'ont aidé à repérer où je suis dans
-le travail à faire. Ces commentaires sont plus proches de ce qu'on
+rÃ©pÃ©titions. Quand vous arriviez Ã  la fin du programme, vous ne pouviez
+plus voir son dÃ©but Ã  l'Ã©cran. Vous avez peut-Ãªtre remarquÃ© que j'ai
+ajoutÃ© quelques commentaires qui m'ont aidÃ© Ã  repÃ©rer oÃ¹ je suis dans
+le travail Ã  faire. Ces commentaires sont plus proches de ce qu'on
 pense quand on pose le plan d'une solution :</p>
 
 <ul>
 
   <li>Monter quatre marches.</li>
-  <li>Lâcher le journal.</li>
+  <li>LÃ¢cher le journal.</li>
   <li>Faire demi-tour.</li>
   <li>Descendre quatre marches.</li>
 </ul>
-Essayons d'écrire ce plan d'une forme <em>Pythonique</em> :
+Essayons d'Ã©crire ce plan d'une forme <em>Pythonique</em> :
 <pre> <br>climb_up_four_stairs()<br>put_beeper()<br>turn_around()<br>climb_down_four_stairs()<br></pre>
 
-<p>Ce n'est pas une solution tout à fait complète [par exemple, il manque une instruction&nbsp;
+<p>Ce n'est pas une solution tout Ã  fait complÃ¨te [par exemple, il manque une instruction&nbsp;
 <tt>turn_off()</tt>], mais cela en est assez proche et c'est beaucoup
-plus facile à lire que ce que nous avions avant, en supposant que ces
-nouvelles instructions soient définies. Voici quelques unes des
-définitions dont on a besoin :</p>
+plus facile Ã  lire que ce que nous avions avant, en supposant que ces
+nouvelles instructions soient dÃ©finies. Voici quelques unes des
+dÃ©finitions dont on a besoin :</p>
 
 <pre><span class="keyword">def</span> turn_around():<br>    turn_left()<br>    turn_left()<br><br><span class="keyword">def</span> turn_right():<br>    turn_left()<br>    turn_left()      <br>    turn_left()<br><br><span class="keyword">def</span> climb_up_one_stair():<br>    turn_left()<br>    move()<br>    turn_right()<br>    move()<br>    move()<br><br><span class="keyword">def</span> climb_up_four_stairs():<br>    climb_up_one_stair()<br>    climb_up_one_stair()<br>    climb_up_one_stair()<br>    climb_up_one_stair()<br></pre>
 
-<h3 class="try">À votre tour<br>
+<h3 class="try">Ã€ votre tour<br>
 </h3>
 
-<p>Ajoutez les définitions manquantes pour que le programme final ressemble à ce que j'ai appelé la version <em>Pythonique</em>. Vous aurez besoin d'ajouter quelques instructions simples en plus, dont un <tt>turn_off()</tt> à la fin. Rappelez-vous d'enregistrer votre programme en utilisant un nom différent de celui de votre solution d'origine.</p>
+<p>Ajoutez les dÃ©finitions manquantes pour que le programme final ressemble Ã  ce que j'ai appelÃ© la version <em>Pythonique</em>. Vous aurez besoin d'ajouter quelques instructions simples en plus, dont un <tt>turn_off()</tt> Ã  la fin. Rappelez-vous d'enregistrer votre programme en utilisant un nom diffÃ©rent de celui de votre solution d'origine.</p>
 
-<h3 class="try">Encore à votre tour !</h3>
+<h3 class="try">Encore Ã  votre tour !</h3>
 
 <p>Prenez le temps de comparer votre solution d'origine au programme de
-livraison de journal ainsi qu'à ce dernier programme. Lequel est le
-plus facile à lire ?</p>
+livraison de journal ainsi qu'Ã  ce dernier programme. Lequel est le
+plus facile Ã  lire ?</p>
 
 <!--=================================================-->
 <hr width="50%"><a name="ReadChallenge" id="ReadChallenge"></a>
 <h3 class="suggested">Exercice de lecture<br>
 </h3>
 
-<p>Des noms bien choisis peuvent vraiment aider à comprendre ce que
-fait un programme. De même, des noms mal choisis peuvent le rendre
-vraiment difficile à comprendre [Voir la Règle N°4].
+<p>Des noms bien choisis peuvent vraiment aider Ã  comprendre ce que
+fait un programme. De mÃªme, des noms mal choisis peuvent le rendre
+vraiment difficile Ã  comprendre [Voir la RÃ¨gle NÂ°4].
 Essayez de comprendre le sens du programme suivant sans utiliser
-l'ordinateur pour l'exécuter.</p>
+l'ordinateur pour l'exÃ©cuter.</p>
 
 <pre><span class="keyword">def</span> a():<br>    turn_left()<br>    turn_left()<br><br><span class="keyword">def</span> b():<br>    turn_left()<br>    a()<br><br><span class="keyword">def</span> c():<br>    move()<br>    move()<br><br><span class="keyword">def</span> d():<br>    c()<br>    b()<br><br><span class="keyword">def</span> e():<br>    d()<br>    d()<br>    d()<br>    d()<br><br>turn_left()<br>e()<br>b()<br>turn_off()<br></pre>
 
@@ -212,7 +212,7 @@ l'ordinateur pour l'exécuter.</p>
 
 <center>
 <a href="9-walls.htm"><img alt="previous" src="../../images/previous.png"> Construction des murs</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
-- <a href="11-repeat.htm">Éviter les répétitions, encore une fois ! <img alt="next" src="../../images/next.png"></a>
+- <a href="11-repeat.htm">Ã‰viter les rÃ©pÃ©titions, encore une fois ! <img alt="next" src="../../images/next.png"></a>
 </center>
 
 </body></html>
