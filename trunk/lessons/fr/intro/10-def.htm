@@ -48,7 +48,7 @@ tourner Reeborg dans le sens des aiguilles d'une montre autour d'un
 carré comme dans l'image ci-dessous :<br>
 </p>
 
-<p><img alt="square with right turns" src="../../images/intro/square2right.png"></p>
+<p><img alt="carré en tournant à droite" src="../../images/intro/square2right.png"></p>
 
 <!--=====================================================-->
 <hr width="50%"><a name="Define" id="Define"></a>
@@ -65,9 +65,9 @@ programmer Reeborg en Python est très utile.</p>
 
 <p>En Python, on peut donner un nom simple à une série d'instructions.
 Par exemple, nous pouvons <b>définir</b> la commande qui permet de
-faire tourner à droite Reeborg comme ceci :</p>
+  faire tourner à droite (en anglais <i>turn right</i>) Reeborg comme ceci :</p>
 
-<p><img alt="defining turn right" src="../../images/intro/fr_turnright_txt.png"></p>
+<p><img alt="définition de turn_right()" src="../../images/intro/fr_turnright_txt.png"></p>
 
 <p>Au moins cinq points importants sont à noter :</p>
 
@@ -101,7 +101,7 @@ d'espaces au début de chaque ligne. On utilise habituellement une
 indentation de quatre espaces pour un <i>bloc de
 code</i> donné. Pour vous aider, l'éditeur de programme est réglé pour
 afficher des lignes pointillées à des intervalles de quatre espaces.<br>
-    <img alt="Showing indentation guides" src="../../images/intro/fr_indentation.png"></li>
+    <img alt="Guides d'indentation" src="../../images/intro/fr_indentation.png"></li>
   <li>Cinquièmement, à la fin de la ligne où il y a le mot-clé <span class="pykeyword">def</span>, nous ajoutons un deux-points "<tt>:</tt>"
 qui indique à Python qu'un bloc de code va commencer. C'est ce que nous
 faisons avec d'autres mots-clés qui commencent des blocs de code, comme
@@ -125,22 +125,22 @@ comprendre le chemin que suit Reeborg.</p>
 
 <h3 class="try">Encore à votre tour !</h3>
 
-<p>Définissez l'instruction <tt>step_back()</tt> pour que le programme suivant :</p>
+<p>Définissez l'instruction <tt>pas_en_arriere()</tt> pour que le programme suivant :</p>
 
-<pre><span class="comment"># step_back() defined up here</span><br>move()<br>step_back()<br>turn_off()<br></pre>
+<pre><span class="comment"># pas_en_arriere() défini ci-dessus</span><br>move()<br>pas_en_arriere()<br>turn_off()<br></pre>
 
 <p>fasse avancer Reeborg d'un pas en avant puis revenir à sa position de départ <em>face à la même direction qu'au début</em>,
 comme dans l'image suivante :</p>
 
-<p><img alt="back up" src="../../images/intro/back_up.png"></p>
+<p><img alt="marche arrière" src="../../images/intro/back_up.png"></p>
 
 <p><em>Conseil :</em> Soyez sûr de ne pas oublier d'indenter les commandes qui font partie de votre nouvelle définition.</p>
 
 <h3 class="try">À votre tour, encore une fois !</h3>
 
-<p>Définissez l'instruction <tt>turn_around()</tt> pour que les nouvelles commandes suivantes puissent fonctionner comme prévu :</p>
+  <p>Définissez l'instruction <tt>demi_tour()</tt> pour que les nouvelles commandes suivantes puissent fonctionner comme prévu&nbsp;:</p>
 
-<pre><span class="keyword">def</span> step_back():<br>    turn_around()<br>    move()<br>    turn_around()<br><br><span class="keyword">def</span> turn_right():<br>    turn_around()<br>    turn_left()<br></pre>
+<pre><span class="keyword">def</span> demi_tour():<br>    demi_tour()<br>    move()<br>    demi_tour()<br><br><span class="keyword">def</span> turn_right():<br>    demi_tour()<br>    turn_left()<br></pre>
 
 <!--===========================================================-->
 <hr width="50%"><a name="Newspaper" id="Newspaper"></a>
@@ -173,7 +173,7 @@ pense quand on pose le plan d'une solution :</p>
   <li>Descendre quatre marches.</li>
 </ul>
 Essayons d'écrire ce plan d'une forme <em>Pythonique</em> :
-<pre> <br>climb_up_four_stairs()<br>put_beeper()<br>turn_around()<br>climb_down_four_stairs()<br></pre>
+<pre> <br>monter_quatre_marches()<br>put_beeper()<br>demi_tour()<br>descendre_quatre_marches()<br></pre>
 
 <p>Ce n'est pas une solution tout à fait complète [par exemple, il manque une instruction&nbsp;
 <tt>turn_off()</tt>], mais cela en est assez proche et c'est beaucoup
@@ -181,7 +181,7 @@ plus facile à lire que ce que nous avions avant, en supposant que ces
 nouvelles instructions soient définies. Voici quelques unes des
 définitions dont on a besoin :</p>
 
-<pre><span class="keyword">def</span> turn_around():<br>    turn_left()<br>    turn_left()<br><br><span class="keyword">def</span> turn_right():<br>    turn_left()<br>    turn_left()      <br>    turn_left()<br><br><span class="keyword">def</span> climb_up_one_stair():<br>    turn_left()<br>    move()<br>    turn_right()<br>    move()<br>    move()<br><br><span class="keyword">def</span> climb_up_four_stairs():<br>    climb_up_one_stair()<br>    climb_up_one_stair()<br>    climb_up_one_stair()<br>    climb_up_one_stair()<br></pre>
+<pre><span class="keyword">def</span> demi_tour():<br>    turn_left()<br>    turn_left()<br><br><span class="keyword">def</span> turn_right():<br>    turn_left()<br>    turn_left()      <br>    turn_left()<br><br><span class="keyword">def</span> monter_une_marche():<br>    turn_left()<br>    move()<br>    turn_right()<br>    move()<br>    move()<br><br><span class="keyword">def</span> monter_quatre_marches():<br>    monter_une_marche()<br>    monter_une_marche()<br>    monter_une_marche()<br>    monter_une_marche()<br></pre>
 
 <h3 class="try">À votre tour<br>
 </h3>
@@ -211,8 +211,8 @@ l'ordinateur pour l'exécuter.</p>
 <tt>a(), b(), c(), d()</tt> et <tt>e().</tt></p>
 
 <center>
-<a href="9-walls.htm"><img alt="previous" src="../../images/previous.png"> Construction des murs</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
-- <a href="11-repeat.htm">Éviter les répétitions, encore une fois ! <img alt="next" src="../../images/next.png"></a>
+<a href="9-walls.htm"><img alt="précédent" src="../../images/previous.png"> Construction des murs</a> - <a href="../lessons_toc.htm"><img alt="début" src="../../images/home.png"></a>
+- <a href="11-repeat.htm">Éviter les répétitions, encore une fois ! <img alt="suivant" src="../../images/next.png"></a>
 </center>
 
 </body></html>
