@@ -5,54 +5,54 @@
 
   
   <link rel="stylesheet" href="../rurple.css" type="text/css">
-  <title>Éviter les répétitions, encore une fois !</title>
+  <title>Ã‰viter les rÃ©pÃ©titions, encore une fois !</title>
 
   
 </head><body>
-<h2 class="title">11. Éviter les répétitions, encore une fois !</h2>
+<h2 class="title">11. Ã‰viter les rÃ©pÃ©titions, encore une fois !</h2>
 
-<p>La règle N°3 que nous avons vue dans la leçon précédente est si
-importante que je sens que je dois la répéter pour vous aider à bien
+<p>La rÃ¨gle NÂ°3 que nous avons vue dans la leÃ§on prÃ©cÃ©dente est si
+importante que je sens que je dois la rÃ©pÃ©ter pour vous aider Ã  bien
 vous en rappeler.</p>
 
 <dl>
 
-  <dt><b>Règle N°3</b></dt>
-  <dd>Quand vous écrivez des programmes, ne vous répétez pas.<br>
-Je répète : <b>Ne vous répétez pas !</b></dd>
+  <dt><b>RÃ¨gle NÂ°3</b></dt>
+  <dd>Quand vous Ã©crivez des programmes, ne vous rÃ©pÃ©tez pas.<br>
+Je rÃ©pÃ¨te : <b>Ne vous rÃ©pÃ©tez pas !</b></dd>
 </dl>
 
 <!--================================================-->
 <hr width="50%"><a name="Repeat" id="Repeat"></a>
-<h3 class="section">Répétez !</h3>
+<h3 class="section">RÃ©pÃ©tez !</h3>
 
-<p>Dans votre dernière solution à l'exercice de livraison du journal,
-il y avait peut-être encore pas mal de répétitions. Par exemple, la
+<p>Dans votre derniÃ¨re solution Ã  l'exercice de livraison du journal,
+il y avait peut-Ãªtre encore pas mal de rÃ©pÃ©titions. Par exemple, la
 commande
-<tt>turn_left()</tt> a dû apparaître trois fois de suite dans la
-définition
-de <tt>turn_right()</tt>. De la même manière, <tt>climb_up_one_stair()</tt>
-a dû apparaître quatre fois dans la définition de <tt>climb_up_four_stairs()</tt>.
-Ceci semble aller à l'encontre de notre règle qui dicte de ne pas se
-répéter. Un moyen d'éviter ce genre de répétitions est de demander à
-Reeborg de répéter des instructions
-grâce à une commande spéciale.</p>
+<tt>turn_left()</tt> a dÃ» apparaÃ®tre trois fois de suite dans la
+dÃ©finition
+de <tt>turn_right()</tt>. De la mÃªme maniÃ¨re, <tt>monter_une_marche()</tt>
+a dÃ» apparaÃ®tre quatre fois dans la dÃ©finition de <tt>monter_quatre_marches()</tt>.
+Ceci semble aller Ã  l'encontre de notre rÃ¨gle qui dicte de ne pas se
+rÃ©pÃ©ter. Un moyen d'Ã©viter ce genre de rÃ©pÃ©titions est de demander Ã 
+Reeborg de rÃ©pÃ©ter des instructions
+grÃ¢ce Ã  une commande spÃ©ciale.</p>
 
-<p>Pour que Reeborg répète une instruction, nous utilisons la commande
+<p>Pour que Reeborg rÃ©pÃ¨te une instruction, nous utilisons la commande
 <tt>repeat()</tt> comme suit :<br>
 <tt>repeat(<em>nom de l'instruction</em>, <em>nombre de fois</em>)</tt></p>
 
 <p>Remarquez que le <em>nom de l'instruction</em> est le nom sans les
-parenthèses () à la fin. Par exemple, nous pouvons écrire :<br>
+parenthÃ¨ses () Ã  la fin. Par exemple, nous pouvons Ã©crire :<br>
 </p>
 
 <pre><span class="keyword">def</span> turn_right():<br>    repeat(turn_left, 3)<br></pre>
 
-<h3 class="try">À votre tour<br>
+<h3 class="try">Ã€ votre tour<br>
 </h3>
 
-<p>Utilisez <tt>repeat()</tt> partout où vous pouvez pour écrire une
-version plus courte de l'exercice de livraison du journal. Vérifiez
+<p>Utilisez <tt>repeat()</tt> partout oÃ¹ vous pouvez pour Ã©crire une
+version plus courte de l'exercice de livraison du journal. VÃ©rifiez
 bien que votre nouveau programme fonctionne comme attendu.<br>
 </p>
 
@@ -60,91 +60,93 @@ bien que votre nouveau programme fonctionne comme attendu.<br>
 <hr width="50%"><a name="Challenges2" id="Challenges2"></a>
 <h3 class="suggested">Exercices</h3>
 
-<p>Nous terminons cette leçon avec quelques exercices. Respectant le
-sujet de cette leçon (mais pas le titre !), les deux premiers exercices
-sont des répétitions de deux exercices de la fin de la leçon sur la
-construction des murs. Pour les résoudre, vous devez utiliser les
+<p>Nous terminons cette leÃ§on avec quelques exercices. Respectant le
+sujet de cette leÃ§on (mais pas le titre !), les deux premiers exercices
+sont des rÃ©pÃ©titions de deux exercices de la fin de la leÃ§on sur la
+construction des murs. Pour les rÃ©soudre, vous devez utiliser les
 nouveaux concepts [<span class="pykeyword">def</span>, <tt>repeat()</tt>]
-que vous avez vus dans cette leçon et celle d'avant.</p>
+que vous avez vus dans cette leÃ§on et celle d'avant.</p>
 
 <h3 class="suggested">Saut de haies</h3>
 
-<p>Reeborg participe à une course de haies. Écrivez un nouveau
-programme qui lui fait suivre le chemin indiqué ci-dessous pour
-atteindre la ligne d'arrivée. Le fichier monde est hurdles1.wld.</p>
+<p>Reeborg participe Ã  une course de haies. Ã‰crivez un nouveau
+programme qui lui fait suivre le chemin indiquÃ© ci-dessous pour
+atteindre la ligne d'arrivÃ©e. Le fichier monde est hurdles1.wld.</p>
 
-<center><img alt="hurdles start" src="../../images/intro/hurdles1_start.png"></center>
+<center><img alt="haies - dÃ©part" src="../../images/intro/hurdles1_start.png"></center>
 
-<center><img alt="lead to" src="../../images/lead_to.png"> <img alt="hurdles end" src="../../images/intro/hurdles1_end.png"></center>
+<center><img alt="donne" src="../../images/lead_to.png"> <img alt="haies - arrivÃ©e" src="../../images/intro/hurdles1_end.png"></center>
 
-<p>Il peut être utile de définir, entre autresn une nouvelle
+<p>Il peut Ãªtre utile de dÃ©finir, entre autres une nouvelle
 instruction,
-<tt>jump_hurdle()</tt>, qui correspondrait au chemin suivant :</p>
+<tt>sauter_haie()</tt>, qui correspondrait au chemin suivant :</p>
 
-<center><img alt="jump one hurdle start" src="../../images/intro/jump1start.png"> <img alt="lead to" src="../../images/lead_to.png"> <img alt="jump one hurdle end" src="../../images/intro/jump1end.png"></center>
+<center><img alt="sauter une haie dÃ©but" src="../../images/intro/jump1start.png"> <img alt="donne" src="../../images/lead_to.png"> <img alt="sauter une haie fin" src="../../images/intro/jump1end.png"></center>
 
 <p>Comparez votre nouvelle solution avec celle d'avant [Vous l'avez
-bien enregistrée, n'est-ce pas ?]</p>
+bien enregistrÃ©e, n'est-ce pas ?]</p>
 
 <hr width="50%">
-<h3 class="suggested">Le temps des récoltes<br>
+<h3 class="suggested">Le temps des rÃ©coltes<br>
 </h3>
 
-<p>C'est le temps des récoltes ! Faites cueillir à Reeborg toutes les
-carottes (représentées
+<p>C'est le temps des rÃ©coltes ! Faites cueillir Ã  Reeborg toutes les
+carottes (reprÃ©sentÃ©es
 par&nbsp;
 les sonnettes) dans ce jardin. Le fichier monde est harvest1.wld.</p>
 
-<p><img src="../../images/intro/harvest1.png" alt="harvest start"></p>
+<p><img src="../../images/intro/harvest1.png" alt="rÃ©colte dÃ©part"></p>
 
-<p>Votre programme devrait définir les instructions suivantes :</p>
+<p>Votre programme devrait dÃ©finir les instructions suivantes :</p>
 
-<pre>move_to_first_row()<br>harvest_two_rows()<br>move_right_to_next_row()<br></pre>
+<pre>aller_a_premiere_rangee()<br>recolter_deux_rangees()<br>aller_a_droite_vers_prochaine_rangee()<br></pre>
 
-<p>Vous pouvez vouloir découper un peu plus ces instructions. Par
+<p>Vous pouvez vouloir dÃ©couper un peu plus ces instructions. Par
 exemple, vous <b><i>pourriez</i></b> avoir:</p>
 
-<pre><span class="keyword">def</span> harvest_two_rows():<br>    harvest_one_row()<br>    move_left_to_next_row()<br>    harvest_one_row()<br></pre>
+<pre><span class="keyword">def</span> recolter_deux_rangees():<br>    recolter_une_rangee()<br>    aller_a_gauche_vers_prochaine_rangee()<br>    recolter_une_rangee()<br></pre>
 
-<p>avec une définition appropriée pour <code>harvest_one_row()</code>.
-Cependant, vous pourriez aussi choisir votre manière de découper les
-instructions nécessaires. Avec les trois instructions nécessaires
-définies, ma version du programme, sans les définitions, est écrite
-(avec toujours quelques répétitions) comme ceci :</p>
+<p>avec une dÃ©finition appropriÃ©e pour <code>recolter_une_rangee()</code>.
+Cependant, vous pourriez aussi choisir votre maniÃ¨re de dÃ©couper les
+instructions nÃ©cessaires. Avec les trois instructions nÃ©cessaires
+dÃ©finies, ma version du programme, sans les dÃ©finitions, est Ã©crite
+(avec toujours quelques rÃ©pÃ©titions) comme ceci :</p>
 
-<pre>move_to_first_row()<br>harvest_two_rows()<br>move_right_to_next_row()<br>harvest_two_rows()<br>move_right_to_next_row()<br>harvest_two_rows()<br>turn_off()<br></pre>
+<pre>aller_a_premiere_rangee()<br>recolter_deux_rangees()<br>aller_a_droite_vers_prochaine_rangee()<br>recolter_deux_rangees()<br>
+aller_a_droite_vers_prochaine_rangee()<br>recolter_deux_rangees()<br>turn_off()<br></pre>
 
 <p>Encore une fois, comparez votre nouvelle solution avec celle que
-vous aviez avant pour le problème de la récolte.</p>
+vous aviez avant pour le problÃ¨me de la rÃ©colte.</p>
 
-<h3 class="suggested">Encore le temps des récoltes !</h3>
+<h3 class="suggested">Encore le temps des rÃ©coltes !</h3>
 
-<p>C'est encore le temps des récoltes ! Mais cette fois, les rangées
-dans le jardin ont été plantées en diagonales. Faites cueillir à
-Reeborg toutes les carottes (représentées par des sonnettes) dans le
+<p>C'est encore le temps des rÃ©coltes ! Mais cette fois, les rangÃ©es
+dans le jardin ont Ã©tÃ© plantÃ©es en diagonales. Faites cueillir Ã 
+Reeborg toutes les carottes (reprÃ©sentÃ©es par des sonnettes) dans le
 jardin (voir ci-dessous). Le fichier monde est harvest4.wld.</p>
 
-<p><img src="../../images/intro/harvest2.png" alt="harvest start"></p>
+<p><img src="../../images/intro/harvest2.png" alt="rÃ©colte dÃ©part"></p>
 
-<p>Comme dans l'exemple précédent, votre programme pourrait définir les
+<p>Comme dans l'exemple prÃ©cÃ©dent, votre programme pourrait dÃ©finir les
 instructions suivantes :</p>
 
-<pre>move_to_first_row()<br>harvest_two_rows()<br>move_right_to_next_row()<br></pre>
+<pre>aller_a_premiere_rangee()<br>recolter_deux_rangees()<br>aller_a_droite_vers_prochaine_rangee()<br></pre>
 
-<p>Ces instructions <b><u>ne</u></b>  seront <b><u>pas</u></b> définies
-de la même façon qu'avant. Mais une fois que vous avez défini ces
-instructions, votre programme devrait être écrit de la même façon que
-l'exemple précédent :</p>
+<p>Ces instructions <b><u>ne</u></b>  seront <b><u>pas</u></b> dÃ©finies
+de la mÃªme faÃ§on qu'avant. Mais une fois que vous avez dÃ©fini ces
+instructions, votre programme devrait Ãªtre Ã©crit de la mÃªme faÃ§on que
+l'exemple prÃ©cÃ©dent :</p>
 
-<pre>move_to_first_row()<br>harvest_two_rows()<br>move_right_to_next_row()<br>harvest_two_rows()<br>move_right_to_next_row()<br>harvest_two_rows()<br>turn_off()<br></pre>
+<pre>aller_a_premiere_rangee()<br>recolter_deux_rangees()<br>aller_a_droite_vers_prochaine_rangee()<br>
+recolter_deux_rangees()<br>aller_a_droite_vers_prochaine_rangee()<br>recolter_deux_rangees()<br>turn_off()<br></pre>
 
-<p>Attention à ne pas rentrer dans un mur ! Pensez à l'endroit où vous
-voulez commencer la récolte, et dans quelle direction vous allez
-récolter. Vous pouvez tracer un chemin sur une feuille de papier pour
+<p>Attention Ã  ne pas rentrer dans un mur ! Pensez Ã  l'endroit oÃ¹ vous
+voulez commencer la rÃ©colte, et dans quelle direction vous allez
+rÃ©colter. Vous pouvez tracer un chemin sur une feuille de papier pour
 vous aider.</p>
 
-<center><a href="10-def.htm"><img alt="previous" src="../../images/previous.png"> Éviter absolument les répétitions</a> -
-<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>-
-<a href="12-if.htm">Si seulement Reeborg pouvait décider tout seul... <img alt="next" src="../../images/next.png"></a></center>
+<center><a href="10-def.htm"><img alt="precedent" src="../../images/previous.png"> Ã‰viter absolument les rÃ©pÃ©titions</a> -
+<a href="../lessons_toc.htm"><img alt="dÃ©but" src="../../images/home.png"></a>-
+<a href="12-if.htm">Si seulement Reeborg pouvait dÃ©cider tout seul... <img alt="suivant" src="../../images/next.png"></a></center>
 
 </body></html>
