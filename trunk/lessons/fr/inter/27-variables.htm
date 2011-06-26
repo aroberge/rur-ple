@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../rurple.css" type="text/css"><title>27. Variables</title></head><body>
+<h2 class="title">27. Variables</h2>
+<p>Vous souvenez-vous quand nous avions introduit des synonymes&nbsp;?
+C'était dans la cinquième leçon, quand nous avions dit que nous
+pouvions apprendre à Reeborg à reconnaître d'autres langues. L'
+exemple que nous avions utilisé était le mot français pour "move".</p>
+<pre>avance = move<br></pre>
+<p>Des synonymes peuvent aussi être utilisés pour les nombres :</p>
+<pre>&gt;&gt;&gt; n = 3<br>&gt;&gt;&gt; <span class="keyword">print</span> n<br>3<br>&gt;&gt;&gt; 2*n<br>6<br>&gt;&gt;&gt; n*n<br>9<br></pre>
+<p>Pas mal, non ? Maintenant, nous pouvons changer la valeur d'un synonyme quand c'est nécessaire.</p>
+<pre>&gt;&gt;&gt; n = 3<br>&gt;&gt;&gt; <span class="keyword">print</span> n<br>3<br>&gt;&gt;&gt; n = 2<br>&gt;&gt;&gt; <span class="keyword">print</span> n<br>2<br></pre>
+<p>Puisque la valeur d'un synonyme peut varier (changer), nous appelons cela une <i>variable</i>.
+Quand vous créez un synonyme, nous disons que vous <i>affectez</i> une valeur à une variable. Le symbole utilisé "<tt>=</tt>" devrait être lu "est un synonyme de" au lieu de "est égal à" comme vous avez l'habitude de le faire. C'est parce que si "n
+est égal à 2", alors certainement "2 est égal à n". Essayons pour voir ce que Python en fait.</p>
+<pre>&gt;&gt;&gt; n = 2    <span class="comment"># c'est bon</span>
+&gt;&gt;&gt; 2 = n
+SyntaxError: can't assign to literal
+</pre>
+<p>Si un symbole différent du signe égal existait sur les claviers normaux, comme</p>
+<pre>&gt;&gt;&gt; n <font size="6">&#8592;</font> 3<br>&gt;&gt;&gt; <span class="keyword">print</span> n<br>3<br></pre>
+<p>alors il est très probable que Guido van Rossum, l'inventeur de
+Python, l'aurait utilisé à la place pour dire "est un synonyme de".
+Mais ce n'est pas le cas et nous devons donc utiliser le signe égal.
+Cela explique aussi pourquoi nous devons utiliser un double signe égal "<tt>==</tt>" quand nous voulons tester si deux nombres sont égaux.</p>
+<p>Comme nous l'avons déjà vu rapidement ci-dessus, une fois qu'un
+nombre est affecté à une variable, cette variable peut être utilisée de
+la même façon que nous utiliserions un nombre. Par exemple&nbsp;:</p>
+<pre>&gt;&gt;&gt; a = 1<br>&gt;&gt;&gt; b = 2<br>&gt;&gt;&gt; c = a + b<br>&gt;&gt;&gt; <span class="keyword">print</span> c<br>3<br></pre>
+<p>Ce que nous venons de voir devrait être assez facile à comprendre.
+Ce qui suit pourrait être un peu plus difficile à première vue&nbsp;:</p>
+<pre>&gt;&gt;&gt; a = 1<br>&gt;&gt;&gt; a = a + a   <span class="comment"># Étonnant ?</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a<br>2<br></pre>
+<p>Vous devez vous rappeler que "<tt>=</tt>" doit être lu "est un synonyme pour". Ainsi, la ligne "étonnante" devrait être comprise comme ceci&nbsp;:</p>
+<il><li>Prendre ce qui est à droite du signe "=" [dans ce cas, <tt>a + a</tt>].</li></il><li>Calculer sa valeur [2&nbsp;; provient de l'addition 1 + 1].</li><il><li>Quelle que soit la réponse, la variable du côté gauche [<tt>a</tt> dans ce cas] est un synonyme pour la réponse.</li>
+
+</il><p>Écrire tout cela comme je l'ai fait lui donne l'air compliqué.
+En fait, vous vous y habituerez rapidement et très bientôt cela ne vous
+étonnera plus du tout.</p>
+<p>Comme cette méthode pour changer la valeur d'une variable se
+rencontre très souvent, Python permet d'utiliser une notation
+"condensée"&nbsp;:</p>
+<pre>&gt;&gt;&gt; a = 1<br>&gt;&gt;&gt; a += 3       <span class="comment"># même chose que</span> <span class="string">"a = a + 3"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a<br>4<br><br>&gt;&gt;&gt; a -= 2       <span class="comment"># même chose que</span> <span class="string">"a = a - 2"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a<br>2<br><br>&gt;&gt;&gt; a *= 5       <span class="comment"># même chose que </span><span class="string">"a = a * 5"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a<br>10<br><br>&gt;&gt;&gt; a /= 2       <span class="comment"># même chose que</span> <span class="string">"a = a/2"</span>
+&gt;&gt;&gt; <span class="keyword">print</span> a<br>5<br></pre>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">À votre tour<br>
+</h3>
+<p>Rappelez-vous combien il était difficile pour Reeborg d'additionner
+deux nombres en base 10&nbsp;? Juste pour vous rafraîchir la mémoire,
+nous aimerions que Reeborg puisse additionner deux nombres comme
+suit&nbsp;:</p>
+<p>
+3+2=5 <img alt="3+2" src="../../images/intro/add3_2_start.png"><img alt="donne" src="../../images/lead_to.png"> <img alt="5" src="../../images/intro/add3_2_end.png">
+</p>
+<p>
+8+4=12 <img alt="8+4" src="../../images/intro/add8_4_start.png"><img alt="donne" src="../../images/lead_to.png"> <img alt="12" src="../../images/intro/add8_4_end.png"></p>
+<p>Vous pouvez utiliser des variables pour faciliter la tâche. De cette
+manière, vous n'avez pas besoin d'utiliser un monde spécial, comme nous
+le devions avant, ni de faire transporter des sonnettes avec lesquelles
+commencer. Voici quelques suggestions&nbsp;:</p>
+<ul>
+<li>Utilisez une variable nommée <tt>somme</tt> dont la valeur est d'abord mise à 0.</li>
+<li>Faites ramasser à Reeborg les sonnettes une par une, en augmentant à chaque fois la valeur de <tt>somme</tt> de 1, en utilisant peut-être la notation <br>
+<tt>sum += 1</tt></li>
+<li>Quand Reeborg a fini, prenez en compte deux cas : voyez si <tt>somme</tt>
+est plus grande que 10 ou pas. Si elle l'est, faites que Reeborg dépose
+toutes les sonnettes moins 10, se déplace de côté et en pose une (la
+retenue). Si elle n'est pas plus grande que 10, faites que Reeborg
+dépose toutes les sonnettes.</li>
+<li><span class="warning">Suggestion importante :</span> Ne définissez aucune fonction autre que <tt>turn_right()</tt>.  Vous verrez pourquoi dans quelques leçons.</li>
+</ul>
+<center><a href="26-interpreter2.htm"><img alt="précédent" src="../../images/previous.png">Interpréter les mots-clés Python</a> - <a href="../lessons_toc.htm"><img alt="début" src="../../images/home.png"></a> - <a href="28-variables2.htm">Variables et fonctions.<img alt="suivant" src="../../images/next.png"></a></center>
+</body></html>
