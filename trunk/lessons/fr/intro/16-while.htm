@@ -11,69 +11,69 @@
 </head><body>
 <h2 class="title">16. Tant que...</h2>
 
-<p>Quand nous voulons répéter des instructions jusqu'à ce qu'une
-certaine condition soit satisfaite, Python nous donne une façon plus
-simple d'écrire cela en utilisant un nouveau mot-clé :
+<p>Quand nous voulons rÃ©pÃ©ter des instructions jusqu'Ã  ce qu'une
+certaine condition soit satisfaite, Python nous donne une faÃ§on plus
+simple d'Ã©crire cela en utilisant un nouveau mot-clÃ© :
 <span class="pykeyword">while</span>. Je vais vous montrer d'abord ce
-que cela donne en utilisant du <i>pseudocode</i> pour réécrire un
-exemple que nous avons déjà vu.<br>
+que cela donne en utilisant du <i>pseudocode</i> pour rÃ©Ã©crire un
+exemple que nous avons dÃ©jÃ  vu.<br>
 <br>
 Tant que pas sur une sonnette,<br>
-... continuer à avancer ;<br>
+... continuer Ã  avancer ;<br>
 autrement,<br>
-... arrêter.<br>
+... arrÃªter.<br>
 <br>
-Vous serez d'accord pour dire que cela exprime la même idée qu'avant.
-En utilisant du code Python, voici comment nous l'écririons réellement :</p>
+Vous serez d'accord pour dire que cela exprime la mÃªme idÃ©e qu'avant.
+En utilisant du code Python, voici comment nous l'Ã©cririons rÃ©ellement :</p>
 
 <pre><span class="keyword">while not</span> on_beeper():<br>    move()<br> <br>turn_off()           <br></pre>
 
 <p>Plus besoin de <tt>repeat</tt>. <b>Essayez !</b></p>
 
 <hr width="50%">
-<h3 class="try">À votre tour</h3>
+<h3 class="try">Ã€ votre tour</h3>
 
-<p>Utilisez <span class="pykeyword">while</span> et <span class="pykeyword">not</span> pour réécrire le programme de saut de
+<p>Utilisez <span class="pykeyword">while</span> et <span class="pykeyword">not</span> pour rÃ©Ã©crire le programme de saut de
 haies pour que vous n'ayez pas besoin d'utiliser un nombre arbitraire
-de répétitions des instructions. En d'autres termes, le coeur de votre
-programme devrait ressembler à ce qui suit :</p>
+de rÃ©pÃ©titions des instructions. En d'autres termes, le coeur de votre
+programme devrait ressembler Ã  ce qui suit :</p>
 
-<pre><span class="keyword">while not</span> next_to_a_beeper():<br>    move_or_jump()<br> <br>turn_off()           <br></pre>
+<pre><span class="keyword">while not</span> on_beeper():<br>    avancer_ou_sauter()<br> <br>turn_off()           <br></pre>
 
-<p>Assurez vous que ça marche !</p>
+<p>Assurez vous que Ã§a marche !</p>
 
-<h3 class="suggested">Le temps de désherber et semer</h3>
+<h3 class="suggested">Le temps de dÃ©sherber et semer</h3>
 
-<p>C'est encore le printemps. Le père de Reeborg a semé des graines
+<p>C'est encore le printemps. Le pÃ¨re de Reeborg a semÃ© des graines
 dans le
-jardin pour la récolte d'automne. Tout comme la dernière fois, à
+jardin pour la rÃ©colte d'automne. Tout comme la derniÃ¨re fois, Ã 
 certains endroits, deux graines ont
-commencé à pousser alors qu'à d'autres&nbsp; endroits aucune n'a germé.
+commencÃ© Ã  pousser alors qu'Ã  d'autres&nbsp; endroits aucune n'a germÃ©.
 L'image ci-dessous montre une situation typique (fichier :
 harvest4.wld).</p>
 
-<p><img alt="weeding" src="../../images/intro/harvest4.png"></p>
+<p><img alt="dÃ©sherber" src="../../images/intro/harvest4.png"></p>
 
-<p>Aidez Reeborg à désherber le jardin, pour qu'il n'y ait aucun
+<p>Aidez Reeborg Ã  dÃ©sherber le jardin, pour qu'il n'y ait aucun
 endroit
 avec deux carottes (sonnettes), et re-semer pour qu'il n'y ait aucun
 endroit sans carottes.</p>
 
-<p>Voici une <i>proposition</i> pour une partie du code utilisant&nbsp;<span class="pykeyword">while</span> :</p>
+<p>Voici une <i>proposition</i> pour une partie du code utilisant&nbsp;<span class="pykeyword">while</span>&nbsp;:</p>
 
-<pre><span class="comment"># </span><span class="comment">présentation du vocabulaire lié au problème</span><br>next_to_a_carrot = on_beeper<br>plant_carrot = put_beeper<br>pick_carrot = pick_beeper<br><br><span class="keyword">def</span> one_carrot_only():<br>    <span class="keyword">while</span> next_to_a_carrot():<br>        pick_carrot()      <span class="comment"># les enlever toutes !</span>           <br>    plant_carrot()         <span class="comment"># replanter une seule !</span>
+<pre><span class="comment"># </span><span class="comment">prÃ©sentation du vocabulaire liÃ© au problÃ¨me</span><br>pres_d_une_carotte = on_beeper<br>planter_une_carotte = put_beeper<br>enlever_une_carotte = pick_beeper<br><br><span class="keyword">def</span> une_seule_carotte():<br>    <span class="keyword">while</span> pres_d_une_carotte():<br>        enlever_une_carotte()      <span class="comment"># les enlever toutes !</span>           <br>    planter_une_carotte()         <span class="comment"># replanter une seule !</span>
 </pre>
 
-<p>Ce morceau de code est un peu plus court que le précédent (trois
+<p>Ce morceau de code est un peu plus court que le prÃ©cÃ©dent (trois
 lignes dans la <span class="pykeyword">def</span>inition au lieu de
 six).
-De plus, il peut fonctionner même quand plus de deux graines ont germé
-au même endroit ! <b>Essayez-le !</b><br>
-<small>Rappelez vous que, dans la réalité, ce n'est <span style="font-weight: bold;">pas</span> une bonne idée d'enlever des
-germes et les replanter tout de suite après !</small></p>
+De plus, il peut fonctionner mÃªme quand plus de deux graines ont germÃ©
+au mÃªme endroit ! <b>Essayez-le !</b><br>
+<small>Rappelez vous que, dans la rÃ©alitÃ©, ce n'est <span style="font-weight: bold;">pas</span> une bonne idÃ©e d'enlever des
+germes et les replanter tout de suite aprÃ¨s !</small></p>
 
-<center><a href="15-not.htm"><img alt="previous" src="../../images/previous.png"> Pas vrai !?</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
-- <a href="17-amazing1.htm">Étonnant -
-1re partie <img alt="next" src="../../images/next.png"></a></center>
+<center><a href="15-not.htm"><img alt="prÃ©cÃ©dent" src="../../images/previous.png"> Pas vrai !?</a> - <a href="../lessons_toc.htm"><img alt="dÃ©but" src="../../images/home.png"></a>
+- <a href="17-amazing1.htm">Ã‰tonnant -
+1re partie <img alt="suivant" src="../../images/next.png"></a></center>
 
 </body></html>
