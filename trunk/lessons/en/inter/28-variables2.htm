@@ -86,11 +86,19 @@ This is how we can do it</p>
 10 is greater than 0
 </pre>
 
-<p>Note that we must put parentheses <tt>()</tt> around the two variable that
+<p>Note that we must put parentheses <tt>()</tt> around the two variables that
 follow the percent <tt>%</tt> sign so that Python knows that we mean to use
 them to replace the two <tt>%s</tt> that are inside the string.</p>
 
 <p><b>Try it!</b></p>
+
+<p><b>Remark:</b> You tried and tested the function with many values? You must have noticed your program has a little defect, haven't you? When programming, you must pay attention to particular cases:</p>
+
+<pre>&gt;&gt;&gt; greater(10, 10)<br>10 is greater than 10<br></pre>
+
+<p>Do you see what I mean now? I deliberately omitted the case when the two numbers are equal in order to simplify, but now, it's your turn to fix this omission. You may use the <span class="keyword">elif</span>
+keyword to do that (you didn't forget it, I hope? if you did look back a few lesson). You will see the solution in what follows but like always, try first!<br>
+</p>
 
 <!--==============================-->
 <hr class="line" />
@@ -110,9 +118,12 @@ follows:</p>
 ...     <span class="keyword">if</span> first > second:
 ...         <span class="keyword">print</span> <span class=
 "string">"%s is greater than %s"</span> % (first, second)
-...     <span class="keyword">else</span>:
+...     <span class="keyword">elif</span> second > first:
 ...         <span class="keyword">print</span> <span class=
 "string">"%s is greater than %s"</span> % (second, first)
+...     <span class="keyword">else</span>:
+...         <span class="keyword">print</span> <span class=
+"string">"%s is equal to itself!"</span> % first
 ...     
 >>> greater(5, 4)
 5 is greater than 4
