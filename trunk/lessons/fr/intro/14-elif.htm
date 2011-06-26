@@ -6,28 +6,28 @@
 <link rel="stylesheet" href="../rurple.css" type="text/css"><title>If, else, if, else, ....</title></head><body>
 <h2 class="title">14. <span class="pykeyword">if, else, <small>if,
 else,</small></span>...</h2>
-<p>Dans l'exerice des haies précédent <small>(vous l'avez essayé, n'est-ce pas ?)</small>
-il fallait écrire un <span class="pykeyword">if</span>/<span class="pykeyword">else</span>
-à l'intérieur d'un autre, parce que nous voulions donner trois choix à
-Reeborg : finir, avancer ou sauter. Vous avez dû remarqué que cela nous
-a obligé à indenter de plus en plus le code. Imaginez ce qui se
-passerait si nous voulions donner à Reeborg 10 choix mutuellement
-exclusifs ; le code deviendrait difficile à lire. Pour nous aider dans
-de telles situations, Guido van Rossum, le créateur de Python, a choisi
-un mot-clé qui représente la combinaison d'une instruction <span class="pykeyword">else</span> suivie par une clause <span class="pykeyword">if</span>. Ce mot-clé est <span class="pykeyword">elif</span>, que l'on peut considérer comme une sorte d'abréviation de <span class="pykeyword">else if</span>. Avec ce nouveau mot-clé, le code précédent peut être écrit comme ceci :</p>
-<pre><span class="keyword">def</span> move_jump_or_finish():<br>    <span class="keyword">if</span> on_beeper():<br>        turn_off()<br>    <span class="keyword">elif</span> front_is_clear():<br>        move()<br>    <span class="keyword">else</span>:<br>        jump_one_hurdle()<br></pre>
-<p>Nous voyons mieux maintenant, puisqu'ils sont indentés de la même façon, qu'il y a trois choix possibles. L'instruction suivant <span class="pykeyword">else</span>
-est exécutée seulement si toutes les conditions précédentes sont
-fausses ; elle n'a pas de condition associée. Si nous avons plus de
-trois choix, tout ce que nous devons faire est d'ajouter d'autres
+<p>Dans l'exercice des haies prÃ©cÃ©dent <small>(vous l'avez essayÃ©, n'est-ce pas ?)</small>
+il fallait Ã©crire un <span class="pykeyword">if</span>/<span class="pykeyword">else</span>
+Ã  l'intÃ©rieur d'un autre, parce que nous voulions donner trois choix Ã 
+Reeborg : finir, avancer ou sauter. Vous avez dÃ» remarquÃ© que cela nous
+a obligÃ© Ã  indenter de plus en plus le code. Imaginez ce qui se
+passerait si nous voulions donner Ã  Reeborg 10 choix mutuellement
+exclusifs ; le code deviendrait difficile Ã  lire. Pour nous aider dans
+de telles situations, Guido van Rossum, le crÃ©ateur de Python, a choisi
+un mot-clÃ© qui reprÃ©sente la combinaison d'une instruction <span class="pykeyword">else</span> suivie par une clause <span class="pykeyword">if</span>. Ce mot-clÃ© est <span class="pykeyword">elif</span>, que l'on peut considÃ©rer comme une sorte d'abrÃ©viation de <span class="pykeyword">else if</span>. Avec ce nouveau mot-clÃ©, le code prÃ©cÃ©dent peut Ãªtre Ã©crit comme ceci&nbsp;:</p>
+<pre><span class="keyword">def</span> avancer_sauter_ou_terminer():<br>    <span class="keyword">if</span> on_beeper():<br>        turn_off()<br>    <span class="keyword">elif</span> front_is_clear():<br>        move()<br>    <span class="keyword">else</span>:<br>        sauter_une_haie()<br></pre>
+<p>Nous voyons mieux maintenant, puisqu'ils sont indentÃ©s de la mÃªme faÃ§on, qu'il y a trois choix possibles. L'instruction suivant <span class="pykeyword">else</span>
+est exÃ©cutÃ©e seulement si toutes les conditions prÃ©cÃ©dentes sont
+fausses ; elle n'a pas de condition associÃ©e. Si nous avons plus de
+trois choix, tout ce que nous devrons faire est d'ajouter d'autres
 instructions <span class="pykeyword">elif</span></p>
-<pre><span class="keyword">def</span> move_jump_or_finish():<br>    <span class="keyword">if</span> on_beeper():<br>        turn_off()<br>    <span class="keyword">elif</span> front_is_clear():<br>        move()<br>    <span class="keyword">elif</span> right_is_clear(): <span class="comment"># toujours faux</span>
-        <span class="keyword">pass</span> <br>    <span class="keyword">else</span>:<br>        jump_one_hurdle()<br></pre>
-<p>Comme Reeborg suit le mur du bas, <tt>right_is_clear()</tt> est toujours faux, donc l'instruction <span class="pykeyword">pass</span> (qui est l'équivalent en Python de "ne rien faire") est toujours ignorée. Remarquez que si nous avions utilisé <tt>left_is_clear()</tt> à la place, Reeborg serait resté collé sur place pour toujours dès qu'il serait arrivé à la première haie. <b>Essayez-le vous même !</b></p>
-<h3 class="try">À votre tour</h3>
-<p>Essayez d'écrire un programme en utilisant <span class="pykeyword">if, elif, else</span>
-qui fonctionne correctement avec les deux courses de haies précédentes
+<pre><span class="keyword">def</span> avancer_sauter_ou_terminer():<br>    <span class="keyword">if</span> on_beeper():<br>        turn_off()<br>    <span class="keyword">elif</span> front_is_clear():<br>        move()<br>    <span class="keyword">elif</span> right_is_clear(): <span class="comment"># toujours faux</span>
+        <span class="keyword">pass</span> <br>    <span class="keyword">else</span>:<br>        sauter_une_haie()<br></pre>
+<p>Comme Reeborg suit le mur du bas, <tt>right_is_clear()</tt> est toujours faux, donc l'instruction <span class="pykeyword">pass</span> (qui est l'Ã©quivalent en Python de "ne rien faire") est toujours ignorÃ©e. Remarquez que si nous avions utilisÃ© <tt>left_is_clear()</tt> Ã  la place, Reeborg serait restÃ© collÃ© sur place pour toujours dÃ¨s qu'il serait arrivÃ© Ã  la premiÃ¨re haie. <b>Essayez-le vous mÃªme !</b></p>
+<h3 class="try">Ã€ votre tour</h3>
+<p>Essayez d'Ã©crire un programme en utilisant <span class="pykeyword">if, elif, else</span>
+qui fonctionne correctement avec les deux courses de haies prÃ©cÃ©dentes
 ainsi qu'avec la suivante (dans le fichier hurdles3.wld) :</p>
-<img alt="hurdles start" src="../../images/intro/hurdles3_start.png">
-<center><a href="13-else.htm"><img alt="previous" src="../../images/previous.png"> Écoute moi... sinon...</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> - <a href="15-not.htm">Pas vrai !? <img alt="next" src="../../images/next.png"></a></center>
+<img alt="dÃ©but haies" src="../../images/intro/hurdles3_start.png">
+<center><a href="13-else.htm"><img alt="prÃ©cÃ©dent" src="../../images/previous.png"> Ã‰coute moi... sinon...</a> - <a href="../lessons_toc.htm"><img alt="dÃ©but" src="../../images/home.png"></a> - <a href="15-not.htm">Pas vrai !? <img alt="suivant" src="../../images/next.png"></a></center>
 </body></html>
