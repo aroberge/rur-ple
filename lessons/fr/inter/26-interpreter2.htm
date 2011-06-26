@@ -7,165 +7,165 @@
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
   
-  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>26. Interpréter les mots-clés Python</title></head><body>
-<h2 class="title">26. Interpréter les mots-clés Python</h2>
+  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>26. InterprÃ©ter les mots-clÃ©s Python</title></head><body>
+<h2 class="title">26. InterprÃ©ter les mots-clÃ©s Python</h2>
 
-<p>Dans la leçon précédente, nous avons vu comment utiliser
-l'interpréteur Python pour faire quelques calculs mathématiques
-simples. Dans cette leçon, nous verrons comment l'interpréteur traite
-certains mots-clés Python que nous avons vus dans le monde de Reeborg.</p>
+<p>Dans la leÃ§on prÃ©cÃ©dente, nous avons vu comment utiliser
+l'interprÃ©teur Python pour faire quelques calculs mathÃ©matiques
+simples. Dans cette leÃ§on, nous verrons comment l'interprÃ©teur traite
+certains mots-clÃ©s Python que nous avons vus dans le monde de Reeborg.</p>
 
 <!--==============================-->
 <hr width="50%">
 <h3 class="section">Couper les lignes</h3>
 
-<p>Commençons avec quelque chose de simple : entrez l'expression <tt>3*(2+2)</tt>
-à l'invite de l'interpréteur et pressez "Entrée". Le résultat devrait ressembler à ce qui suit :</p>
+<p>CommenÃ§ons avec quelque chose de simple : entrez l'expression <tt>3*(2+2)</tt>
+Ã  l'invite de l'interprÃ©teur et pressez "EntrÃ©e". Le rÃ©sultat devrait ressembler Ã  ce qui suit :</p>
 
 <pre>&gt;&gt;&gt; 3*(2+2)<br>12<br>&gt;&gt;&gt;<br></pre>
 
-<p>Maintenant, entrez seulement une partie de la même expression comme ceci :
-<tt>3*(</tt>, et appuyez sur "Entrée". Le résultat devrait ressembler à ce qui suit :</p>
+<p>Maintenant, entrez seulement une partie de la mÃªme expression comme ceci :
+<tt>3*(</tt>, et appuyez sur "EntrÃ©e". Le rÃ©sultat devrait ressembler Ã  ce qui suit :</p>
 
 <pre>&gt;&gt;&gt; 3*(<br>...     |<br></pre>
 
-<p>La ligne verticale "|" représente un curseur clignotant. Il y a deux choses importantes à noter :</p>
+<p>La ligne verticale "|" reprÃ©sente un curseur clignotant. Il y a deux choses importantes Ã  noter :</p>
 
 <ul>
 
-  <li>L'invite a changé de <tt>&gt;&gt;&gt;</tt> à <tt>...</tt>
-Nous obtenons une invite puisque Python nous invite à ajouter quelque
-chose au texte que nous avons entré. Nous obtenons une invite <b><i>différente</i></b>, ce qui est pour Python une façon de nous dire qu'il pense que l'expression que nous avons entrée n'est pas complète.</li>
+  <li>L'invite a changÃ© de <tt>&gt;&gt;&gt;</tt> Ã  <tt>...</tt>
+Nous obtenons une invite puisque Python nous invite Ã  ajouter quelque
+chose au texte que nous avons entrÃ©. Nous obtenons une invite <b><i>diffÃ©rente</i></b>, ce qui est pour Python une faÃ§on de nous dire qu'il pense que l'expression que nous avons entrÃ©e n'est pas complÃ¨te.</li>
   <li>Le
-curseur n'est pas immédiatement après l'invite mais est déplacé de 4
-espaces à droite. Quand Python voit que l'expression entrée n'est pas
-complète,
-il propose de structurer le code avec de l'indentation pour suggérer que <i>peut-être</i> nous devrions ajouter un bloc d'instructions qui serait indenté
-(comme ce que nous avons vu quand nous avons défini des fonctions par exemple).</li>
+curseur n'est pas immÃ©diatement aprÃ¨s l'invite mais est dÃ©placÃ© de 4
+espaces Ã  droite. Quand Python voit que l'expression entrÃ©e n'est pas
+complÃ¨te,
+il propose de structurer le code avec de l'indentation pour suggÃ©rer que <i>peut-Ãªtre</i> nous devrions ajouter un bloc d'instructions qui serait indentÃ©
+(comme ce que nous avons vu quand nous avons dÃ©fini des fonctions par exemple).</li>
 </ul>
 
 <p>Continuons en entrant le reste de l'expression sur la ligne suivante
-et en pressant la touche "Entrée". Voici le résultat sur mon ordinateur
+et en pressant la touche "EntrÃ©e". Voici le rÃ©sultat sur mon ordinateur
 :</p>
 
 <pre>&gt;&gt;&gt; 3*(<br>...     2+2)<br>12<br>&gt;&gt;&gt;<br></pre>
 
-<p>Python a conclu que nous avons entré l'expression complète et il l'a
-calculée en conséquence, en nous donnant le résultat correct (12) et en
-nous disant qu'il était prêt pour une entrée de plus en ajoutant
-l'invite habituelle juste après.</p>
+<p>Python a conclu que nous avons entrÃ© l'expression complÃ¨te et il l'a
+calculÃ©e en consÃ©quence, en nous donnant le rÃ©sultat correct (12) et en
+nous disant qu'il Ã©tait prÃªt pour une entrÃ©e de plus en ajoutant
+l'invite habituelle juste aprÃ¨s.</p>
 
-<p>Maintenant, essayez d'entrer <tt>3*</tt> suivis par la touche "Entrée". Voici le résultat que j'obtiens :</p>
+<p>Maintenant, essayez d'entrer <tt>3*</tt> suivis par la touche "EntrÃ©e". Voici le rÃ©sultat que j'obtiens :</p>
 
 <pre>&gt;&gt;&gt; 3*<br>  File <span class="string">"&lt;input&gt;"</span>, line 1<br>    3*<br>      ^<br>SyntaxError: invalid syntax<br>&gt;&gt;&gt;<br></pre>
 
-<p>La différence ici est que nous n'avons donné aucune indication à
+<p>La diffÃ©rence ici est que nous n'avons donnÃ© aucune indication Ã 
 Python
 que nous avions l'intention d'ajouter plus de texte. Dans le premier
-cas, nous avions une parenthèse gauche ouvrante "(" sans la parenthèse
+cas, nous avions une parenthÃ¨se gauche ouvrante "(" sans la parenthÃ¨se
 droite fermante correspondante ")".
 Python
 en a conclu qu nous avions l'intention d'ajouter plus de texte, dont au
-moins la ")"... et il nous a donné l'occasion de le faire. Dans le
-deuxième cas, Python
-a juste supposé que nous n'avions rien de plus à ajouter, a essayé de
-comprendre ce que nous avons écrit, <tt>3*</tt>, et nous a informé qu'il ne le pouvait pas.</p>
+moins la ")"... et il nous a donnÃ© l'occasion de le faire. Dans le
+deuxiÃ¨me cas, Python
+a juste supposÃ© que nous n'avions rien de plus Ã  ajouter, a essayÃ© de
+comprendre ce que nous avons Ã©crit, <tt>3*</tt>, et nous a informÃ© qu'il ne le pouvait pas.</p>
 
 <p>Maintenant, essayez de reproduire l'exemple ci-dessous :</p>
 
 <pre>&gt;&gt;&gt; 3*(<br>...     2+2<br>...<br>...<br>...     )<br>12<br>&gt;&gt;&gt;<br></pre>
 <p>Tant que Python "pense" que nous n'avons pas fini, il refusera de
-calculer l'expression et continuera de nous proposer l'invite modifiée.
+calculer l'expression et continuera de nous proposer l'invite modifiÃ©e.
 Nous pouvons continuer avec un autre exemple "idiot"&nbsp;:<br></p>
 <pre>&gt;&gt;&gt; 3*(<br>...     2+2<br>...     )+(<br>...     1+1<br>...     )<br>14<br>&gt;&gt;&gt;<br></pre>
-<p>qui nous est, admettons le, plus difficile à lire et comprendre que d'avoir simplement&nbsp;:</p>
+<p>qui nous est, admettons le, plus difficile Ã  lire et comprendre que d'avoir simplement&nbsp;:</p>
 <pre>&gt;&gt;&gt; 3*(2 + 2) + (1 + 1)<br>14<br>&gt;&gt;&gt;<br></pre>
 
-<p>Maintenant, n'hésitez pas à essayer quelques autres exemples vous-même avant de lire la suite.</p>
+<p>Maintenant, n'hÃ©sitez pas Ã  essayer quelques autres exemples vous-mÃªme avant de lire la suite.</p>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">Définir des fonctions</h3>
+<h3 class="section">DÃ©finir des fonctions</h3>
 
-<p>Nous somme maintenant prêts à réviser quelques mots-clés (et
+<p>Nous somme maintenant prÃªts Ã  rÃ©viser quelques mots-clÃ©s (et
 concepts) de Python que nous avons vu dans le monde de Reeborg. Le
-premier mot-clé est <span class="pykeyword">def</span>. Définissons une fonction plutôt idiote qui imprime le nombre 2. Essayez de reproduire le résultat montré ci-dessous :</p>
+premier mot-clÃ© est <span class="pykeyword">def</span>. DÃ©finissons une fonction plutÃ´t idiote qui imprime le nombre 2. Essayez de reproduire le rÃ©sultat montrÃ© ci-dessous :</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">def</span> print2():<br>...     <span class="keyword">print</span> 2<br>...    <br>&gt;&gt;&gt; print2()<br>2<br>&gt;&gt;&gt; print2()<br>2<br>&gt;&gt;&gt;<br></pre>
 
-<p>Maintenant vous devez l'essayer vous même avant de lire la suite.</p>
+<p>Maintenant vous devez l'essayer vous mÃªme avant de lire la suite.</p>
 
-<p>Notez combien il nous a été utile que Python indente déjà le code
-dans notre fonction ? Notez aussi comment il a interprété une ligne
-vide comme une indication que nous avions terminé de définir notre
-fonction. Avez-vous aussi remarqué comment il reconnaît que "<tt>print2</tt>", sans espaces entre "print" et "2" est différent de "<tt><span class="pykeyword">print</span> 2</tt>"?</p>
+<p>Notez combien il nous a Ã©tÃ© utile que Python indente dÃ©jÃ  le code
+dans notre fonction ? Notez aussi comment il a interprÃ©tÃ© une ligne
+vide comme une indication que nous avions terminÃ© de dÃ©finir notre
+fonction. Avez-vous aussi remarquÃ© comment il reconnaÃ®t que "<tt>print2</tt>", sans espaces entre "print" et "2" est diffÃ©rent de "<tt><span class="pykeyword">print</span> 2</tt>"?</p>
 
 <p>Maintenant, essayez ce qui suit :</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">def</span> print_plusieurs():<br>...     <span class="keyword">print</span> 3<br>...     <span class="keyword">print</span> 2<br>...     <span class="keyword">print</span> 1<br>...     <span class="keyword">print</span> 0<br>...    <br>&gt;&gt;&gt; print_plusieurs()<br>3<br>2<br>1<br>0<br>&gt;&gt;&gt;<br></pre>
 
-<p>Tant que nous continuons à ajouter des lignes non vides à
-l'intérieur du corps de la fonction,&nbsp;
-Python nous demande d'en ajouter plus. Dès que nous ajoutons une ligne
+<p>Tant que nous continuons Ã  ajouter des lignes non vides Ã 
+l'intÃ©rieur du corps de la fonction,&nbsp;
+Python nous demande d'en ajouter plus. DÃ¨s que nous ajoutons une ligne
 vide, Python suppose que nous avons fini. Donc, les lignes vides
-peuvent être interprétées comme ayant un sens par l'interpréteur Python
-; ce n'était pas le cas dans le monde de Reeborg. Ce ne sera pas le cas
-non plus dans les programmes écrits en dehors de l'interpréteur Python
-(dans ces deux cas, les lignes vides sont ignorées). Notez que le
-comportement de l'interpréteur Python avec les lignes vides (dans une
-définition de fonction) est différent de ce que nous avions vu plus tôt
-quand nous ouvrions une parenthèse sans la fermer ; dans ce cas, Python
-"savait" que nous avions quelque chose à ajouter, et il ignorait les
+peuvent Ãªtre interprÃ©tÃ©es comme ayant un sens par l'interprÃ©teur Python
+; ce n'Ã©tait pas le cas dans le monde de Reeborg. Ce ne sera pas le cas
+non plus dans les programmes Ã©crits en dehors de l'interprÃ©teur Python
+(dans ces deux cas, les lignes vides sont ignorÃ©es). Notez que le
+comportement de l'interprÃ©teur Python avec les lignes vides (dans une
+dÃ©finition de fonction) est diffÃ©rent de ce que nous avions vu plus tÃ´t
+quand nous ouvrions une parenthÃ¨se sans la fermer ; dans ce cas, Python
+"savait" que nous avions quelque chose Ã  ajouter, et il ignorait les
 lignes vides.</p>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="section"><i>Si</i> vous vous êtes embrouillé</h3>
-<p>Ce que nous venons de voir sur les lignes vides vous a embrouillé
+<h3 class="section"><i>Si</i> vous vous Ãªtes embrouillÃ©</h3>
+<p>Ce que nous venons de voir sur les lignes vides vous a embrouillÃ©
 ?...
-Ne désespérez pas, vous vous y habituerez rapidement ! Je continuerai
-seulement en utilisant d'autres mots-clés Python que nous avons déjà
-vu, en commençant par <span class="pykeyword">if</span>.</p>
+Ne dÃ©sespÃ©rez pas, vous vous y habituerez rapidement ! Je continuerai
+seulement en utilisant d'autres mots-clÃ©s Python que nous avons dÃ©jÃ 
+vu, en commenÃ§ant par <span class="pykeyword">if</span>.</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:<br>...     <span class="keyword">print</span> 5 &gt; 4<br>...    <br>True<br>&gt;&gt;&gt;<br></pre>
-<p>Comme 5 est plus grand que 4, Python exécute l'instruction qui est dans le bloc <span class="pykeyword">if</span> et qui lui demande d'afficher <b>le
-résultat de</b> "5 &gt; 4", qui est <tt>True</tt> (<i>Vrai</i>). Ce n'est probablement pas ce que nous voulions en
-général. Essayez ce qui suit à la place&nbsp;:</p>
+<p>Comme 5 est plus grand que 4, Python exÃ©cute l'instruction qui est dans le bloc <span class="pykeyword">if</span> et qui lui demande d'afficher <b>le
+rÃ©sultat de</b> "5 &gt; 4", qui est <tt>True</tt> (<i>Vrai</i>). Ce n'est probablement pas ce que nous voulions en
+gÃ©nÃ©ral. Essayez ce qui suit Ã  la place&nbsp;:</p>
 <pre>&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:<br>...     <span class="keyword">print</span> <span class="string">"5 &gt; 4"</span><br>...    <br>5 &gt; 4<br>&gt;&gt;&gt;<br></pre>
-<p>Entourer du texte avec des guillemets le transforme en ce qui s'appelle une <i>chaîne de caractères</i> (en anglais
-<i>string</i>), qui est ce que Python appelle du <i>texte ordinaire</i> (<i>regular text</i>) et qu'il n'essaie pas de calculer. Nous pouvons aussi écrire&nbsp;:</p>
+<p>Entourer du texte avec des guillemets le transforme en ce qui s'appelle une <i>chaÃ®ne de caractÃ¨res</i> (en anglais
+<i>string</i>), qui est ce que Python appelle du <i>texte ordinaire</i> (<i>regular text</i>) et qu'il n'essaie pas de calculer. Nous pouvons aussi Ã©crire&nbsp;:</p>
 <pre>&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:<br>...     <span class="keyword">print</span> <span class="string">'5 est plus grand que 4'</span><br>...    <br>5 est plus grand que 4<br></pre>
-<p>Ici, nous avons utilisé des mots au lieu d'un symbole mathématique et, ce qui est plus important, des apostrophes <tt>(')</tt> au lieu de guillemets <tt>(")</tt>pour
+<p>Ici, nous avons utilisÃ© des mots au lieu d'un symbole mathÃ©matique et, ce qui est plus important, des apostrophes <tt>(')</tt> au lieu de guillemets <tt>(")</tt>pour
 entourer le texte&nbsp;; Python nous donne le choix d'utiliser l'un ou
-l'autre comme il nous plaît. Cela nous permet d'inclure des apostrophes
+l'autre comme il nous plaÃ®t. Cela nous permet d'inclure des apostrophes
 ou des guillemets dans le texte que nous voulons faire afficher&nbsp;:</p>
 <pre>&gt;&gt;&gt; <span class="keyword">print</span> "C'est facile."<br>It's easy.<br>&gt;&gt;&gt; <span class="keyword">print</span> 'Il a dit : "Cela est facile".'<br>Il a dit : "Cela est facile".<br></pre>
-<p>Si nous voulons inclure à la fois des apostrophes et des guillemets
-dans une même chaîne de caractères, nous devons utiliser une barre
-oblique inversée <tt>(\)</tt> en tant que <i>caractère d'échappement</i> avant le caractère (apostrophe ou guillemet) qui est de même type que celui qui délimite la chaîne&nbsp;:</p>
+<p>Si nous voulons inclure Ã  la fois des apostrophes et des guillemets
+dans une mÃªme chaÃ®ne de caractÃ¨res, nous devons utiliser une barre
+oblique inversÃ©e <tt>(\)</tt> en tant que <i>caractÃ¨re d'Ã©chappement</i> avant le caractÃ¨re (apostrophe ou guillemet) qui est de mÃªme type que celui qui dÃ©limite la chaÃ®ne&nbsp;:</p>
 <pre>&gt;&gt;&gt; <span class="keyword">print</span> 'Elle a dit : "C\'est facile".'<br>Elle a dit : "C'est facile".<br></pre>
 
-<p>Revenons à <span class="pykeyword">if</span> et ajoutons un
-<span class="pykeyword">else</span> également.</p>
+<p>Revenons Ã  <span class="pykeyword">if</span> et ajoutons un
+<span class="pykeyword">else</span> Ã©galement.</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">if</span> 5 &gt; 4:<br>...    <span class="keyword">print</span> <span class="string">"5 est plus grand que 4"</span><br>... <span class="keyword">else</span>:<br>...    <span class="keyword">print</span> <span class="string">"4 est plus grand que 5"</span><br>...    <br>5 est plus grand que 4<br></pre>
 <p>Si vous regardez l'affichage ci-dessus, il ne devrait rien y avoir
 de surprenant. Cependant, vous devriez absolument essayer de le
-reproduire vous-même&nbsp;: vous aurez besoin d'utiliser la touche
-retour-arrière pour aligner le mot-clé <span class="pykeyword">else</span> avec le <span class="pykeyword">if</span>.</p>
+reproduire vous-mÃªme&nbsp;: vous aurez besoin d'utiliser la touche
+retour-arriÃ¨re pour aligner le mot-clÃ© <span class="pykeyword">else</span> avec le <span class="pykeyword">if</span>.</p>
 <p>Assurez-vous de bien l'essayer avant de continuer.</p>
 
 <!--==============================-->
 <hr width="50%">
 <h3 class="section"><span class="pykeyword">def</span>inir plus de
 fonctions.</h3>
-<p>Nous pouvons mettre le <i>fragment</i> de code précédent dans une fonction utile&nbsp;:</p>
+<p>Nous pouvons mettre le <i>fragment</i> de code prÃ©cÃ©dent dans une fonction utile&nbsp;:</p>
 <pre>&gt;&gt;&gt; <span class="keyword">def</span> plus_grand():<br>...     <span class="keyword">if</span> 5 &gt; 4:<br>...         <span class="keyword">print</span> <span class="string">"5 est plus grand que 4"</span><br>...     <span class="keyword">else</span>:<br>...         <span class="keyword">print</span> <span class="string">"4 est plus grand que 5"</span><br>...    <br>&gt;&gt;&gt; <span class="comment"># maintenant utilisons la !</span><br>&gt;&gt;&gt; plus_grand()<br>5 est plus grand que 4<br></pre>
 
-<p>Vous devez essayer de reproduite le résultat ci-dessus vous-même (et
-apprendre à faire une bonne indentation) avant de continuer.</p>
+<p>Vous devez essayer de reproduire le rÃ©sultat ci-dessus vous-mÃªme (et
+apprendre Ã  faire une bonne indentation) avant de continuer.</p>
 
 <p>Maintenant, ne serait-ce pas bien si nous pouvions utiliser <tt>plus_grand()</tt> pour comparer n'importe quelle paire de nombres automatiquement ? Pour cela, nous devons apprendre ce que sont les variables.</p>
-<center><a href="25-interpreter.htm"><img alt="précédent" src="../../images/previous.png">Python sait déjà additionner</a> - <a href="../lessons_toc.htm"><img alt="début" src="../../images/home.png"></a>
+<center><a href="25-interpreter.htm"><img alt="prÃ©cÃ©dent" src="../../images/previous.png">Python sait dÃ©jÃ  additionner</a> - <a href="../lessons_toc.htm"><img alt="dÃ©but" src="../../images/home.png"></a>
 - <a href="27-variables.htm">Variables.<img alt="suivant" src="../../images/next.png"></a></center>
 </body></html>
