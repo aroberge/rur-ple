@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>31. La globalisation est une mauvaise chose</title></head><body>
+<h2 class="title">31. La <span class="pykeyword">global</span>isation est une mauvaise chose.</h2>
+
+<p>Supposons que vous et un de vos amis écrivez ensemble un long
+programme. Comme vous avez appris les bonnes pratiques en
+programmation, vous essayez toujours d'utiliser des noms descriptifs
+pour vos variables. Mais alors vous vous demandez : <i>Et si mon ami
+utilisait les mêmes noms que moi pour une de ses variables ? Si je
+change la valeur de ma variable, ne changerai-je pas la sienne sans le
+vouloir ?</i></p>
+
+<p>Python donne des moyens de vous aider à éviter ce genre de problèmes en utilisant les <i>espaces de noms</i>.
+Cela empêche une variable que nous voulons utiliser dans une petite
+partie d'un programme d'affecter d'autres parties. Nous allons commencer à étudier les espaces de noms dans cette leçon.</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Variables définies localement.</h3>
+
+<p>Voici un exemple à essayer :</p>
+
+<pre>&gt;&gt;&gt; a = 1<br>&gt;&gt;&gt; <span class="keyword">def</span> ma_fonction():<br>...     a = 3<br>...     <span class="keyword">print</span> a<br>...    <br><br>&gt;&gt;&gt; ma_fonction()<br>3<br><br>&gt;&gt;&gt; <span class="keyword">print</span> a<br>1<br></pre>
+
+<p>Trouvez vous étonnant que la valeur de <tt>a</tt> n'a pas changé ?
+Voici ce qui s'est passé.</p>
+
+<p>Vous avez commencé en définissant un nom de variable "<tt>a</tt>" avec sa valeur mise à 1. Ensuite, à l'intérieur d'une fonction, vous avez "apparemment" changé la valeur de "<tt>a</tt>" en 3. En réalité, ce que vous avez fait était de créer une <u>nouvelle</u>
+variable "<tt>a</tt>" à l'intérieur de la fonction, et vous lui avez donné une valeur de 3.
+La valeur de l'autre variable "<tt>a</tt>" est restée inchangée.</p>
+
+<p>Python crée automatiquement un <i>espace de nom</i> à l'intérieur de
+chaque fonction, où les noms des variables définies prennent une valeur
+unique,
+indépendante de la façon dont les autres variables avec le même nom en
+dehors de la fonction pourraient être définies. Un espace de nom est
+comme un petit cahier dans lequel Python garde trace de tous les noms
+de variables. C'est comme si Python créait un cahier unique pour chaque
+fonction, pour que vous n'ayez pas à vous soucier de savoir si d'autres
+variables avec le même nom existent autre part.</p>
+
+<p>Les variables utilisées à l'intérieur d'une fonction ne sont plus
+définies quand la fonction se termine ; nous disons qu'elles sont <i>hors de portée</i>.</p>
+
+<pre>&gt;&gt;&gt; <span class="keyword">def</span> fonction_simple():<br>...     variable_locale = <span class="string">"Je suis ici !"</span><br>...     <span class="keyword">print</span> variable_locale<br>...    <br>&gt;&gt;&gt; fonction_simple()<br>Je suis ici !<br><br>&gt;&gt;&gt; <span class="keyword">print</span> variable_locale<br>Traceback (most recent call last):<br>  File "&lt;input&gt;", line 1, in ?<br>NameError: name <span class="string">'variable_locale'</span> is not defined<br></pre>
+
+<p>Cette astuce d'espace de nom est sympathique, mais si nous voulions
+changer la valeur d'une variable à l'intérieur d'une fonction ? Par
+exemple, supposons que nous voulions garder trace du nombre de fois que
+nous appelons une certaine fonction. Nous pouvons le faire en utilisant
+le mot-clé Python <span class="pykeyword">global</span>.</p>
+
+<pre>&gt;&gt;&gt; nombre_de_fois = 0<br>&gt;&gt;&gt; <span class="keyword">def</span> enfant_de_deux_ans():<br>...     <span class="keyword">global</span> nombre_de_fois<br>...     nombre_de_fois += 1<br>...     <span class="keyword">print</span> <span class="string">"Pourquoi ?          %s fois"</span> % nombre_de_fois<br>...    <br>&gt;&gt;&gt; enfant_de_deux_ans()<br>Pourquoi ?          1 fois<br><br>&gt;&gt;&gt; enfant_de_deux_ans()<br>Pourquoi ?          2 fois<br><br>&gt;&gt;&gt; enfant_de_deux_ans()<br>Pourquoi ?          3 fois<br><br>&gt;&gt;&gt; <span class="keyword">print</span> nombre_de_fois<br>3<br></pre><p>En utilisant le mot-clé <span class="pykeyword">global</span>, nous disons à Python de <u>ne pas</u>
+créer de nouvelle version de la variable localement à l'intérieur de la
+fonction, mais d'utiliser plutôt la variable qui porte ce nom "en
+dehors", dans ce qui s'appelle l'environnement "global".</p>
+
+<p>Vous devriez toujours essayer de trouver des moyens d'éviter d'utiliser des variables <span class="pykeyword">global</span>es
+si vous le pouvez, car elles peuvent introduire des changements
+indésirables dans d'autres parties du programme. En programmation, la <span class="pykeyword">global</span>isation est généralement une mauvaise chose.</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Hors de portée</h3>
+
+<p>Larry et Curly marchent ensemble joyeusement. Soudain, Moe voit ses
+amis de loin et se met à courir vers eux. Juste au moment où il finit
+par rattraper Larry et Curly, il devient hors de portée et disparaît de
+l'écran. Si vous voulez qu'il reste avec ses amis, vous devrez
+supprimer trois symboles <span class="comment">#</span>.</p>
+
+<pre>Larry = UsedRobot(colour=<span class="string">'blue'</span>)<br>Curly = UsedRobot(1, 3, colour=<span class="string">'green'</span>)<br><br><span class="comment"># Utilisation de deux mots-clés que vous n'avez pas encore vus !</span><br><span class="keyword">for</span> i <span class="keyword">in</span> range(3):<br>    Larry.move()<br>    Curly.move()<br><br><span class="keyword">def</span> attendez_moi():<br>    <span class="comment">#global Moe</span><br>    Moe = UsedRobot(1, 2, colour=<span class="string">'yellow'</span>)<br>    <span class="comment"># Utilisation des deux mêmes nouveaux mots-clés, encore !</span><br>    <span class="keyword">for</span> i <span class="keyword">in</span> range(3):<br>        Moe.move()<br>        Larry.move()<br>        Moe.move()<br>        Curly.move()<br><br>attendez_moi()<br><span class="comment"># première image ci-dessous ; Moe est là.</span><br>Larry.move()<br><span class="comment"># deuxième image ci-dessous ; Moe a disparu.</span><br>Curly.move()<br><span class="comment">#Moe.move()</span><br>Larry.move()<br>Curly.move()<br><span class="comment">#Moe.move()</span><br>Larry.turn_off()<br></pre>
+
+<p><img alt="Moe est là" src="../../images/future/scope1.png"></p>
+
+<p><img alt="Moe a disparu" src="../../images/future/scope2.png"></p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Essayez !</h3>
+
+<p>Essayez ce programme vous-même, dans le monde de Reeborg, puis changez le pour que Moe puisse rester avec ses amis !</p>
+
+<center><a href="30-dot.htm"><img alt="previous" src="../../images/previous.png">Programmation Orientée Objet : notation "pointée".</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="32-return.htm">Nombreux retours<img alt="next" src="../../images/next.png"></a></center>
+
+</body></html>
