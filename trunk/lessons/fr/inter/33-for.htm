@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css">
+  <title>33. repeat() cache quelques mots-cl&#233;s Python</title>
+
+  
+</head><body>
+<h2 class="title">33. <span class="keyword">repeat()</span> cache quelques mots-cl&#233;s Python</h2>
+
+<p>Vous rappelez-vous comment, plusieurs le&#231;ons auparavant, nous avons demand&#233; &#224; Reeborg de r&#233;p&#233;ter certaines
+instructions ?</p>
+
+<pre><span class="keyword">def</span> turn_right():<br>    repeat(turn_left, 3)<br></pre>
+
+<p>Dans cette le&#231;on, nous allons voir comment nous pouvons d&#233;finir notre propre fonction <tt>repeat()</tt>.<!--==============================--> </p>
+
+<hr width="50%">
+<h3 class="section">Deux nouveaux mots-cl&#233;s</h3>
+
+<p>Essayez ce qui suit :</p>
+
+<pre>&gt;&gt;&gt; <span class="keyword">for</span> lettre <span class="keyword">in</span> <span class="string">"Reeborg"</span>:<br>...     <span class="keyword">print</span> lettre<br>...     <br>R<br>e<br>e<br>b<br>o<br>r<br>g<br></pre>
+<p><i>Pour</i> (<span class="pykeyword">for</span>) chaque lettre qui appara&#238;t <i>dans</i> (<span class="pykeyword">in</span>) la cha&#238;ne <span class="string">Reeborg</span>,
+nous demandons &#224; l'interpr&#233;teur Python de l'<i>imprimer</i> (<span class="pykeyword">print</span>)
+sur une nouvelle ligne. Si nous ne voulons pas que les lettres soient
+imprim&#233;es sur une nouvelle ligne, mais simplement s&#233;par&#233;es d'une espace
+sur la m&#234;me ligne, nous utiliserons une virgule, comme nous l'avons
+d&#233;j&#224; dit dans une situation diff&#233;rente.</p>
+<pre>&gt;&gt;&gt; <span class="keyword">for</span> lettre <span class="keyword">in</span> <span class="string">"Reeborg"</span>:<br>...     <span class="keyword">print</span> lettre,<br>...     <br>R e e b o r g<br></pre>
+
+<p>Pas mal ! Cela fonctionnera avec n'importe quelle cha&#238;ne ! Et maintenant, si nous voulons plut&#244;t que
+Python
+compte avec des nombres ? Nous pourrons &#233;galement utiliser une boucle <span class="pykeyword">for</span>, avec la fonction tr&#232;s utile
+<tt>range()</tt></p>
+
+<pre>&gt;&gt;&gt; <span class="keyword">for</span> nombre <span class="keyword">in</span> range(3):<br>...     <span class="keyword">print</span> nombre<br>...     <br>0<br>1<br>2<br>&gt;&gt;&gt; <span class="keyword">for</span> nombre <span class="keyword">in</span> range(14):<br>...     <span class="keyword">print</span> nombre,<br>...    <br>0 1 2 3 4 5 6 7 8 9 10 11 12 13<br></pre>
+
+<p>N'h&#233;sitez pas &#224; essayer plus d'exemples tout seul !</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">D&#233;finir <tt>repeat()</tt></h3>
+<p>Nous avons maintenant tous les ingr&#233;dients de Python n&#233;cessaires pour d&#233;finir notre propre fonction
+<tt>repeat()</tt>&nbsp;:</p>
+<ul>
+
+  <li>Nous savons d&#233;finir des fonctions avec des param&#232;tres.</li>
+  <li>Nous savons utiliser des variables.</li>
+  <li>Nous savons compter en utilisant des boucles <span class="pykeyword">for</span>.</li>
+</ul>
+
+<p>Qu'est-ce que nous attendons ?</p>
+
+<pre>&gt;&gt;&gt; <span class="keyword">def</span> repeat(f, n):<br>...     <span class="keyword">for</span> i <span class="keyword">in</span> range(n):<br>...         f()<br>...<br>&gt;&gt;&gt; <span class="keyword">def</span> f():<br>...     <span class="keyword">print</span> <span class="string">"C'est amusant !"</span><br>...    <br>&gt;&gt;&gt; repeat(f, 3)<br>C'est amusant !<br>C'est amusant !<br>C'est amusant !<br></pre>
+
+<p>En fait, ce que nous venons de faire est de la programmation Python avanc&#233;e ! Nous avons <i>pass&#233;</i> un param&#232;tre &#224; la fonction
+<tt>repeat()</tt> qui est lui-m&#234;me une fonction. Pour cela, nous avons
+d&#251; mettre le nom de la fonction sans les parenth&#232;ses [Revoyez comment
+nous avions d&#233;fini <tt>turn_right()</tt> dans le monde de Reeborg]. Nous avons aussi pass&#233; un autre param&#232;tre (<tt>n</tt>) destin&#233; &#224; &#234;tre une valeur num&#233;rique (pour que <tt>range()</tt> nous donne ce que nous voulions). Quand nous avons d&#233;fini la fonction
+<tt>repeat()</tt>, Python ne se souciait pas (et ne savait pas !) que l'un des param&#232;tres allait &#234;tre une fonction et l'autre un nombre.</p>
+
+<p>Notez aussi que les noms de variable que j'ai choisis (<tt>f, n, i</tt>)
+ne sont pas tr&#232;s descriptifs. Les programmeurs utilisent souvent des
+variables &#224; une seule lettre dans les boucles courtes (comme ci-dessus)
+ou les fonctions courtes o&#249; l'on peut voir en une fois toutes les
+instructions qui utilisent ces variables. Toutefois, si les variables
+ont une signification particuli&#232;re, il est toujours pr&#233;f&#233;rable de leur
+donner un nom plus long, plus descriptif. Si vous ne me croyez pas
+r&#233;essayez l'exercice de lecture de la fin de la le&#231;on <a href="../intro/10-def.htm">10. &#201;vitez absolument les r&#233;p&#233;titions.</a></p>
+
+<p>Donc j'aurais peut-&#234;tre d&#251; d&#233;finir <tt>repeat()</tt> comme ceci :</p>
+
+<pre><span class="keyword">def</span> repeat(fonction, nombre_de_fois):<br>    <span class="keyword">for</span> nombre <span class="keyword">in</span> range(nombre_de_fois):<br>        fonction()<br></pre>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Essayez !</h3>
+
+<p>Revenez au monde de Reeborg. Choisissez votre exercice favori, pourvu que ce soit l'un de ceux o&#249; vous avez utilis&#233; <tt>repeat()</tt> au moins deux fois dans votre
+solution.
+Remplacez <tt>repeat()</tt> partout dans votre solution par une boucle <span class="pykeyword">for</span>. V&#233;rifiez que votre nouvelle solution
+fonctionne !</p>
+
+<center><a href="32-return.htm"><img alt="previous" src="../../images/previous.png">Nombreux retours</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="34-lists.htm">Recette du g&#226;teau &#224; la mousse au chocolat<img alt="next" src="../../images/next.png"></a></center>
+
+</body></html>
