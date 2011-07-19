@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../rurple.css" type="text/css"><title>Fractions - part 4</title></head><body>
+<h2 class="title">Fractions - 4e partie</h2>
+<p>Ainsi que vous l'avez vérifié à la fin de la leçon précédente, Python ne sait pas comment additionner un entier à une <tt>Fraction</tt>.  Nous pouvons corriger cela assez facilement en faisant ce qui suit : </p>
+<ol>
+<li>Avant de faire une opération mathématique [+, *, /, -], vérifier si
+"l'autre" objet est une Fraction, si non, le convertir avant de faire
+l'operation.</li>
+<li>Dire à Python comment convertir des entiers en Fractions.</li>
+</ol>
+<p>La deuxième étape peut être accomplie avec une fonction <i>ressemblant</i> à ce qui suit :</p>
+<pre><span class="keyword">def</span> convertirEnFraction(objet):<br>    <span class="comment">'''Convertit "int" et "long" en Fractions'''</span>
+<span class="keyword">    if</span> isinstance(objet, (int, long)):<br>        <span class="keyword">return</span> Fraction(objet)<br>    <span class="keyword">else</span>:<br>        <span class="keyword">raise</span> NotImplementedError<br></pre>
+<p>Nous commençons par vérifier si l'objet est un entier [<tt>int</tt> ou peut-être <tt>long</tt>]
+et, si c'est le cas, créons une nouvelle Fraction à partir de cet objet
+(l'entier sera le numérateur de la nouvelle Fraction). Puisque nous
+voulons que les fractions soient de la forme (entier/entier), nous ne
+permettrons aucun autre type d'objet ; en levant une exception, nous
+informons l'utilisateur qu'il a tenté une opération qui n'est pas
+permise.</p>
+<p>La première étape sera une chose que nous ajouterons au début de
+chaque opération. Voici le nouveau code qui fait justement cela [Notez
+que nous avons inclu la conversion en Fractions comme une méthode de
+cette classe].</p>
+<pre><span class="linenumber">  1 </span><span class="keyword">def</span> gcd(a, b):<br><span class="linenumber">  2 </span>    <span class="comment">'''gcd retourne le plus grand commun diviseur (greatest common divisor) <br><span class="linenumber">  3 </span>        de 2 entiers donnés.'''</span>
+<span class="linenumber">  4 </span><span class="keyword">    while</span> b:<br><span class="linenumber">  5 </span>        a, b = b, a%b<br><span class="linenumber">  6 </span>    <span class="keyword">return</span> a<br><span class="linenumber">  7 </span>
+<span class="linenumber">  8 </span><span class="keyword">class</span> Fraction(object):<br><span class="linenumber">  9 </span>    <span class="keyword">def</span> __init__(self, numerateur, denominateur=<span class="number">1</span>):<br><span class="linenumber"> 10 </span>        num, denom = self.simplifier(numerateur, denominateur)<br><span class="linenumber"> 11 </span>        self.num = num<br><span class="linenumber"> 12 </span>        self.denom = denom<br><span class="linenumber"> 13 </span>        <br><span class="linenumber"> 14 </span>    <span class="keyword">def</span> __str__(self):<br><span class="linenumber"> 15 </span>        <span class="keyword">if</span> self.denom ==<span class="number"> 1</span>:<br><span class="linenumber"> 16 </span>            <span class="keyword">return</span><span class="string"> "(%s)"</span>%self.num<br><span class="linenumber"> 17 </span>        <span class="keyword">return</span><span class="string"> "(%s/%s)"</span>%(self.num, self.denom)<br><span class="linenumber"> 18 </span>
+<span class="linenumber"> 19 </span>    <span class="keyword">def</span> __mul__(self, autre):<br><span class="newlinenumber"> 20 </span>        <span class="keyword">if</span><span class="keyword"> not</span> isinstance(autre, Fraction):<br><span class="newlinenumber"> 21 </span>            autre = self.convertirEnFraction(autre)<br><span class="linenumber"> 22 </span>        num = self.num * autre.num<br><span class="linenumber"> 23 </span>        denom = self.denom * autre.denom<br><span class="linenumber"> 24 </span><span class="keyword">        return</span> Fraction(num, denom)<br><span class="linenumber"> 25 </span>
+<span class="linenumber"> 26 </span>    <span class="keyword">def</span> __div__(self, autre):<br><span class="newlinenumber"> 27 </span>        <span class="keyword">if</span><span class="keyword"> not</span> isinstance(autre, Fraction):<br><span class="newlinenumber"> 28 </span>            autre = self.convertirEnFraction(autre)<br><span class="linenumber"> 29 </span>        num = self.num * autre.denom<br><span class="linenumber"> 30 </span>        denom = self.denom * autre.num<br><span class="linenumber"> 31 </span><span class="keyword">        return</span> Fraction(num, denom)<br><span class="linenumber"> 32 </span>
+<span class="linenumber"> 33 </span>    <span class="keyword">def</span> __add__(self, autre):<br><span class="newlinenumber"> 34 </span>        <span class="keyword">if</span><span class="keyword"> not</span> isinstance(autre, Fraction):<br><span class="newlinenumber"> 35 </span>            autre = self.convertirEnFraction(autre)<br><span class="linenumber"> 36 </span>        denom = self.denom * autre.denom<br><span class="linenumber"> 37 </span>        num = self.num*autre.denom + self.denom*autre.num<br><span class="linenumber"> 38 </span><span class="keyword">        return</span> Fraction(num, denom)<br><span class="linenumber"> 39 </span>
+<span class="linenumber"> 40 </span>    <span class="keyword">def</span> __sub__(self, autre):<br><span class="newlinenumber"> 41 </span>        <span class="keyword">if</span><span class="keyword"> not</span> isinstance(autre, Fraction):<br><span class="newlinenumber"> 42 </span>            other = self.convertirEnFraction(autre)<br><span class="linenumber"> 43 </span>        denom = self.denom * autre.denom<br><span class="linenumber"> 44 </span>        num = self.num*autre.denom - self.denom*autre.num<br><span class="linenumber"> 45 </span><span class="keyword">        return</span> Fraction(num, denom)<br><span class="linenumber"> 46 </span>
+<span class="linenumber"> 47 </span>    <span class="keyword">def</span> simplifier(self, a, b):<br><span class="linenumber"> 48 </span>        <span class="comment">'''divise deux entiers par leur facteur commun.'''</span>
+<span class="linenumber"> 49 </span>        facteur_commun = gcd(a, b)<br><span class="linenumber"> 50 </span>        a /= facteur_commun<br><span class="linenumber"> 51 </span>        b /= facteur_commun<br><span class="linenumber"> 52 </span><span class="keyword">        return</span> a, b<br><span class="linenumber"> 53 </span>
+<span class="newlinenumber"> 54 </span>    <span class="keyword">def</span> convertirEnFraction(self, objet):<br><span class="newlinenumber"> 55 </span>        <span class="comment">'''Convertit "int" et "long" en Fractions'''</span>
+<span class="newlinenumber"> 56 </span><span class="keyword">        if</span> isinstance(objet, (int, long)):<br><span class="newlinenumber"> 57 </span>            <span class="keyword">return</span> Fraction(objet)<br><span class="newlinenumber"> 58 </span>        <span class="keyword">else</span>:<br><span class="newlinenumber"> 59 </span>            <span class="keyword">raise</span> NotImplementedError<br><span class="linenumber"> 60 </span>
+<span class="linenumber"> 61 </span><span class="comment">#== zone de test ci-dessous ===<br></span><span class="linenumber"> 62 </span>
+<span class="linenumber"> 63 </span><span class="keyword">if</span> __name__ ==<span class="string"> "__main__"</span>:<br><span class="linenumber"> 64 </span>    a = Fraction(<span class="number">1</span>,<span class="number"> 2</span>)<br><span class="linenumber"> 65 </span>    b = Fraction(<span class="number">3</span>,<span class="number"> 1</span>)<br><span class="linenumber"> 66 </span><span class="keyword">    assert</span> str(a) ==<span class="string"> "(1/2)"</span>
+<span class="linenumber"> 67 </span><span class="keyword">    assert</span> str(b) ==<span class="string"> "(3)"</span>
+<span class="linenumber"> 68 </span><span class="keyword">    assert</span> str(a*b) ==<span class="string"> "(3/2)"</span>
+<span class="linenumber"> 69 </span>    c = Fraction(<span class="number">1</span>,<span class="number"> 3</span>)<br><span class="linenumber"> 70 </span><span class="keyword">    assert</span> str(b*c) ==<span class="string"> "(1)"</span>
+<span class="linenumber"> 71 </span>    d = Fraction(<span class="number">5</span>,<span class="number"> 10</span>)<br><span class="linenumber"> 72 </span><span class="keyword">    assert</span> str(d) ==<span class="string"> "(1/2)"</span>
+<span class="linenumber"> 73 </span><span class="keyword">    assert</span> str(a/b) ==<span class="string"> "(1/6)"</span>
+<span class="linenumber"> 74 </span><span class="keyword">    assert</span> str(a/a) ==<span class="string"> "(1)"</span>
+<span class="linenumber"> 75 </span><span class="keyword">    assert</span> str(a+a) ==<span class="string"> "(1)"</span>
+<span class="linenumber"> 76 </span><span class="keyword">    assert</span> str(b+b) ==<span class="string"> "(6)"</span>
+<span class="linenumber"> 77 </span><span class="keyword">    assert</span> str(a+b) ==<span class="string"> "(7/2)"</span>
+<span class="linenumber"> 78 </span><span class="keyword">    assert</span> str(c+c) ==<span class="string"> "(2/3)"</span>
+<span class="linenumber"> 79 </span><span class="keyword">    assert</span> str(a-a) ==<span class="string"> "(0)"</span>
+<span class="linenumber"> 80 </span><span class="keyword">    assert</span> str(a-b) ==<span class="string"> "(-5/2)"</span>
+<span class="linenumber"> 81 </span><span class="keyword">    assert</span> str(a-c) ==<span class="string"> "(1/6)"</span>
+<span class="newlinenumber"> 82 </span><span class="keyword">    assert</span> str(a+<span class="number">1</span>) ==<span class="string"> "(3/2)"</span>
+<span class="newlinenumber"> 83 </span><span class="keyword">    assert</span> str(a*<span class="number">2</span>) ==<span class="string"> "(1)"</span>
+<span class="newlinenumber"> 84 </span><span class="keyword">    assert</span> str(b-<span class="number">1</span>) ==<span class="string"> "(2)"</span>
+<span class="newlinenumber"> 85 </span><span class="keyword">    assert</span> str(b/<span class="number">3</span>) ==<span class="string"> "(1)"</span>
+</pre>
+<!--=============================================-->
+<hr width="50%">
+<h3 class="section">1 + 1 = ?</h3>
+<p>Si vous pensez que nous avons fini, essayez ce qui suit :</p>
+<pre>un = Fraction(1)<br><span class="keyword">print</span> 1 + un<br></pre>
+<p>Pouvez-vous réfléchir à ce qui fait que cela ne va pas ?<br>
+</p>
+
+<center><a href="fractions3.htm"><img alt="précédent" src="../../images/previous.png"> Fractions - 3e partie </a> - <a href="../lessons_toc.htm"><img alt="début" src="../../images/home.png"></a>
+
+<!-- - <a href="fractions4.htm">Fractions - 4e partie <img alt="suivant" src="../../images/next.png"></a> --> </center>
+</body></html>
