@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css">
+  <title>Arrangeons Reeborg</title>
+
+  
+</head><body>
+<h2 class="title">Arrangeons Reeborg</h2>
+<p>Comme nous l'avons vu, nous pouvons créer de nouveaux robots en utilisant la notation&nbsp;:</p>
+<pre>Reeborg = UsedRobot()<br>Erdna = UsedRobot(2, 2)<br></pre>
+<p>Cependant, ces robots sont juste pareils à l'original qui n'a pas de nom&nbsp;: ils ne peuvent tourner qu'à gauche.
+Pour leur apprendre à tourner à droite, nous pouvons définir une fonction similaire à ce que nous avons déjà fait&nbsp;:</p>
+<pre><span class="keyword">def</span> Reeborg_turn_right():<br>    <span class="keyword">for</span> i <span class="keyword">in</span> range(3):<br>        Reeborg.turn_left()<br></pre>
+<p>Toutefois, il y a au moins deux problèmes avec cette façon de faire&nbsp;:</p>
+<ul>
+
+  <li>Nous devons définir une fonction similaire pour chacun des robots que nous créons (Reeborg, Erdna, ...).</li>
+  <li><tt>Reeborg</tt> et <tt>turn</tt> sont séparés par un caractère souligné "<tt>_</tt>" pour la fonction que nous avons définie [pour tourner à droite] et par un point "<tt>.</tt>" pour la méthode incorporée [pour tourner à gauche]. Cela ne fait pas très beau...</li>
+</ul>
+<p>Une meilleure approche est de définir une nouvelle <span class="pykeyword">class</span>e
+qui <i>héritera</i> de la classe <tt>UsedRobot</tt>. C'est ce que nous ferons dans la prochaine section.</p>
+<h3 class="section">Concevons une nouvelle classe<span class="pykeyword"></span></h3>
+<p>Je vais d'abord vous montrer comment nous pouvons arranger notre
+robot pour qu'il sache tourner à droite, et je vous expliquerai ensuite
+ce que j'ai fait.</p>
+
+<pre><span class="keyword">class</span> RobotRetabli(UsedRobot):<br>    <span class="keyword">def</span> turn_right(<span class="warning">synonyme_utilise_pour_se_rapporter_a_cet_objet</span>):<br>        <span class="keyword">for</span> i <span class="keyword">in</span> range(3):<br>            <span class="warning">synonyme_utilise_pour_se_rapporter_a_cet_objet</span>.turn_left()<br></pre>
+<p>Voici comment nous pouvons utiliser cette nouvelle classe d'objets&nbsp;:</p>
+<pre>nouveauReeborg = RobotRetabli()<br>nouvelleErdna = RobotRetabli(2, 2)<br><br>nouveauReeborg.turn_left()    <span class="comment"># comme avant</span><br>nouveauReeborg.turn_right()   <span class="comment"># nouvelle méthode!</span><br><br>nouvelleErdna.turn_right()    <span class="comment"># celle-ci fonctionne aussi !</span>
+</pre>
+<p>Et maintenant, c'est le moment d'expliquer. Le mot-clé Python <span class="pykeyword">class</span>
+indique que nous allons définir un nouveau type de "fonction", une qui crée des objets.
+Ce qui suit <span class="pykeyword">class</span> est&nbsp;: <tt>RobotRetabli(UsedRobot)</tt>.
+<tt>RobotRetabli</tt> est le nom de notre nouvelle classe&nbsp;; en écrivant <tt>UsedRobot</tt>
+entre les parenthèses, nous nous assurons que la nouvelle classe <tt>RepairedRobot</tt> <i>hérite</i>
+de toutes les méthodes et tous les attributs qu'avait <tt>UsedRobot</tt>. Donc, quand nous écrivons&nbsp;:</p>
+<pre>nouveauReeborg = RobotRetabli()<br></pre>
+
+<p>nous créons un nouveau robot "nommé" <tt>nouveauReeborg</tt> qui peut faire (au moins toutes) les mêmes choses que le vieux</p>
+
+<pre>Reeborg = UsedRobot()<br></pre>
+
+<p>pouvait faire.</p>
+<p>Ensuite, à l'intérieur de la nouvelle <span class="pykeyword">class</span>e,
+comme indiqué par le bloc indenté, nous définissons une nouvelle méthode, <tt>turn_right()</tt>.
+En la définissant à l'intérieur de la <span class="pykeyword">class</span>e,
+nous franchissons la première étape pour nous assurer que tous les robots qui sont créés en appelant
+<tt>RobotRetabli()</tt> seront capables de tourner à droite&nbsp;!</p>
+<p>La deuxième étape nécessaire est de dire à Python que la méthode va "appartenir" à l'objet
+particulier qui a été créé. Pour cela, nous utilisons la variable <tt>synonyme_utilise_pour_se_rapporter_a_cet_objet</tt>
+qui va se rapporter à nouveauReeborg, nouvelleErdna, etc., dépendamment de l'objet qui est créé. Quand nous écrivons<br>
+</p>
+<pre>nouveauReeborg = RobotRetabli()<br></pre>
+
+<p>Python crée une nouvelle instance de la classe <tt>RobotRetabli</tt>
+et définit toutes les méthodes, en remplaçant le premier paramètre de la méthode
+(<tt>synonyme_utilise_pour_se_rapporter_a_cet_objet</tt>) par le nom de l'instance (<tt>nouveauReeborg</tt>).</p>
+<p>Maintenant, <tt>synonyme_utilise_pour_se_rapporter_a_cet_objet</tt> est un nom plutôt long à taper.
+Par convention, un autre nom de variable est utilisé&nbsp;: <tt>self</tt>.
+Donc, pour suivre la convention normale, j'aurais dû écrire&nbsp;:</p>
+<pre><span class="keyword">class</span> RobotRetabli(UsedRobot):<br>    <span class="keyword">def</span> turn_right(self):<br>        <span class="keyword">for</span> i <span class="keyword">in</span> range(3):<br>            self.turn_left()<br></pre>
+
+<center><a href="36-tuples.htm"><img alt="previous" src="../../images/previous.png">Notre dernière séquence</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="38-class2.htm">Une touche de classe<img alt="next" src="../../images/next.png"></a></center>
+
+</body></html>
