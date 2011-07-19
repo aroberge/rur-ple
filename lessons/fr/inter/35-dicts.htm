@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css">
+  <title>35. Une autre sorte de définition</title>
+
+  
+</head><body>
+<h2 class="title">35. Une autre sorte de définition</h2>
+
+<p>Pensez-vous que ce qui suit est une bonne définition de ce qu'est
+Reeborg&nbsp;?<br>
+<br>
+<b>robot</b>: une machine qui peut faire des tâches automatiquement,
+normalement contrôlée par les humains et principalement utilisée pour
+effectuer des tâches répétitives.</p>
+
+<p>Savoir chercher la définition d'un mot dans un dictionnaire est très utile quand vous voulez écrire une histoire. Python
+a son propre type de dictionnaires qui sont très utiles quand vous écrivez des programmes.</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Combien d'&#339;ufs déjà ?</h3>
+<p>Notre liste d'ingrédients était très utile... Mais, sans voir, vous
+rappelez-vous de combien d'&#339;ufs nous avions besoin&nbsp;? Pourriez-vous
+le trouver sans avoir à imprimer toute la liste si vous ne vous en
+souvenez pas&nbsp;?
+À moins que vous ne vous souveniez de l'ordre dans lequel étaient les
+ingrédients, vous pourrez trouver cela difficile. Cependant, si nous
+avions utilisé un objet Python différent, à savoir un <i>dictionnaire</i> (en abrégé, un <i>dict</i>), cela aurait été très facile. Voici un exemple&nbsp;:</p>
+<pre>&gt;&gt;&gt; ingredients2 = { <span class="string">'oeufs'</span> : 4,  <span class="comment"># notez l'accolade après le signe =</span><br>...     <span class="string">'sucre'</span>: <span class="string">'100 g'</span>,<br>...     <span class="string">'poudre de cacao'</span>: <span class="string">'30 ml'</span>,<br>...     <span class="string">'chocolat noir'</span>: <span class="string">'250 g'</span>} <span class="comment"># une accolade ici aussi.</span><br>&gt;&gt;&gt; <span class="keyword">print</span> ingredients2<br>{'<span class="string">chocolat noir</span>': '<span class="string">250 g</span>', '<span class="string">poudre de cacao</span>': '<span class="string">30 ml</span>', '<span class="string">oeufs</span>': 4, '<span class="string">sucre</span>': '<span class="string">100 g</span>'}<br></pre>
+
+<p>Chaque entrée dans un dictionnaire est de la forme "clé : valeur",
+avec une virgule séparant chaque entrée de la suivante. Remarquez que,
+quand nous imprimons <span class="keyword"></span><tt>ingredients2</tt>, l'ordre dans lequel les items apparaissent est différent de l'ordre dans lequel nous les avons mis.</p>
+<p>Maintenant, si nous voulons le nombre d'&#339;ufs, nous faisons simplement&nbsp;:</p>
+<pre>&gt;&gt;&gt; <span class="keyword">print</span> ingredients2['oeufs']<br>4<br></pre>
+<p>Si nous voulons trouver toutes les valeurs contenues dans <tt>ingredients2</tt>, nous pouvons faire ce qui suit&nbsp;:</p>
+<pre>&gt;&gt;&gt; <span class="keyword">for</span> cle <span class="keyword">in</span> ingredients2:<br>...     <span class="keyword">print</span> ingredients2[cle]<br>...    <br>4<br>250 g<br>30 ml<br>100 g<br></pre>
+<p>Nous pouvons aussi faire ce qui suit&nbsp;:</p>
+<pre>&gt;&gt;&gt; <span class="keyword">for</span> cle <span class="keyword">in</span> ingredients2:<br>...     <span class="keyword">print</span> str(cle) + <span class="string">":"</span> + str(ingredients2[cle])<br>... <br>chocolat noir:250 g<br>poudre de cacao:30 ml<br>oeufs:4<br>sucre:100 g<br></pre>
+
+<p>Nous avons utilisé la fonction interne <tt>str()</tt> qui convertit tout objet en une chaîne, pour pouvoir faire la concaténation correcte quand nous avons imprimé.</p>
+<p>Oh-oh... on dirait que j'ai oublié la garniture encore une fois&nbsp;! Ajoutons-la&nbsp;:</p>
+<pre>&gt;&gt;&gt; ingredients2[<span class="string">"creme Chantilly"</span>] = <span class="string">"Plein !"</span>
+</pre>
+
+<p>Essayez !</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Les objets ne peuvent pas tous être des clés</h3>
+<p>Alors qu'on peut mettre n'importe quel objet comme valeur dans un dictionnaire, seuls les objets <i>immuables</i>
+peuvent être utilisés comme clés. Nous verrons un peu plus tard ce que
+cela signifie ; pour l'instant, cela veut dire que, de tous les objets
+que nous avons vus, seuls les chaînes et les nombres peuvent être
+utilisés comme clés dans un dictionnaire. On ne peut utiliser des
+listes et on ne peut pas utiliser d'autres dictionnaires. Essayez
+diverses combinaisons de ces objets soit comme clés soit comme valeurs
+et voyez ce que Python vous dira&nbsp;!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Mini-quiz</h3>
+
+<p>Pouvez-vous deviner comment enlever une entrée d'un dictionnaire ?
+Si oui, alors essayez. Sinon, cela veut probablement dire que vous
+n'avez pas été très attentif lors de la dernière leçon. Revenez en
+arrière et lisez-la, particulièrement la partie où nous avons expliqué
+comment supprimer un item d'une liste.</p>
+
+<center><a href="34-lists.htm"><img alt="previous" src="../../images/previous.png">Recette du gâteau à la mousse au chocolat</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="36-tuples.htm">Notre dernière séquence<img alt="next" src="../../images/next.png"></a></center>
+
+</body></html>
