@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>36. Notre dernière séquence</title></head><body>
+<h2 class="title">36. Notre dernière séquence</h2>
+
+<p>Les listes et les chaînes peuvent toutes deux être <i>découpées</i>, en utilisant la notation <tt>[::]</tt>.
+Chaque item peut être retrouvé grâce à son <i>indice</i>,
+c'est-à-dire avec la notation <tt>[indice]</tt>. Parce qu'ils ont cette propriété, les types de données listes et chaînes sont
+appelés des <i>séquences.</i> Python a d'autres types de données similaires qui sont des séquences&nbsp;; l'un des plus connus
+et le dernier que nous allons voir est appelé le <i>tuple</i>.</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">La virgule est puissante</h3>
+<p>Vous vous souvenez que nous avons essayé d'utiliser une virgule en écrivant un grand nombre&nbsp;? Voici un autre exemple&nbsp;:</p>
+<pre>&gt;&gt;&gt; 1,000<br>(1, 0)<br></pre>
+
+<p>Python a pris les deux valeurs séparées par une virgule pour les
+éléments d'un tuple. Quand il écrit un tuple, Python met des
+parenthèses autour de lui pour indiquer que c'est un seul objet.</p>
+
+<p><span class="warning">Remarque :</span> si vous obtenez un message
+d'erreur en essayant un exemple semblable à celui que nous avons montré
+(mais avec des nombres différents) ou si vous obtenez un résultat que
+vous ne pouvez pas expliquer par ce que vous avez vu ici, ignorez-le
+pour le moment. Nous y reviendrons à la fin de cette leçon.</p>
+
+<p>Voici un exemple plus intéressant peut-être.</p>
+
+<pre>&gt;&gt;&gt; a = 1, 2, 3, 4, <span class="string">"assez !"</span><br>&gt;&gt;&gt; <span class="keyword">print</span> a<br>(1, 2, 3, 4, <span class="string">'assez !'</span>)<br><br>&gt;&gt;&gt; a[0]<br>1<br><br>&gt;&gt;&gt; a[1:4]<br>(2, 3, 4)<br><br>&gt;&gt;&gt; a[-1]<br><span class="string">'assez !'</span>
+</pre>
+<p>Nous pouvons aussi mettre des tuples à l'intérieur des tuples. Voici deux exemples&nbsp;:</p>
+<pre>&gt;&gt;&gt; b = 1, 2, 3<br><br>&gt;&gt;&gt; c = 4, 5, b<br>&gt;&gt;&gt; <span class="keyword">print</span> c<br>(4, 5, (1, 2, 3))<br><br>&gt;&gt;&gt; d = 1, 2, (3, 4, 5)<br>&gt;&gt;&gt; <span class="keyword">print</span> d<br>(1, 2, (3, 4, 5))<br></pre>
+<p>Mis à part l'utilisation des parenthèses () à la place des crochets [], les tuples et les listes pourraient <i>sembler</i> pareils.
+Mais ils diffèrent d'une manière très importante&nbsp;:</p>
+<pre>&gt;&gt;&gt; mon_tuple = 1, 2, 3<br>&gt;&gt;&gt; ma_liste = [1, 2, 3]<br><br>&gt;&gt;&gt; <span class="keyword">print</span> mon_tuple<br>(1, 2, 3)<br>&gt;&gt;&gt; <span class="keyword">print</span> ma_liste<br>[1, 2, 3]<br><br>&gt;&gt;&gt; ma_liste[1] = <span class="string">"nouveau"</span><br>&gt;&gt;&gt; <span class="keyword">print</span> ma_liste<br>[1, <span class="string">'nouveau'</span>, 3]<br><br>&gt;&gt;&gt; mon_tuple[1] = <span class="string">"nouveau"</span><br>Traceback (most recent call last):<br>  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?<br>TypeError: object does not support item assignment<br></pre>
+<p>Alors que nous pouvons modifier une liste, en changeant un des ses
+éléments (ou en en ajoutant), nous ne pouvons pas modifier un
+tuple&nbsp;: il est dit <i>immuable</i>.
+En plus des nombres, un autre type de données immuable que nous avons vu est la chaîne de caractères&nbsp;:</p>
+<pre>&gt;&gt;&gt; ma_chaine = <span class="string">"abcd"</span><br>&gt;&gt;&gt; ma_chaine[2]<br><span class="string">'c'</span><br>&gt;&gt;&gt; ma_chaine[2] = <span class="string">"e"</span><br>Traceback (most recent call last):<br>  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?<br>TypeError: object does not support item assignment<br></pre>
+<p>Puisque les tuples sont immuables, cela veut dire qu'ils peuvent être utilisés comme des clés dans un dictionnaire&nbsp;!</p>
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Dictionnaires, listes et tuples</h3>
+
+<p>Nous avons déjà vu que Python garde une liste des éléments dans le
+même ordre que quand nous les créons, mais qu'il imprime à l'écran un
+dictionnaire dans un ordre qui paraît aléatoire. Nous pouvons voir cela
+se produire dans le monde de Reeborg.</p>
+
+<p>Cliquez le bouton "Montrer/Cacher le fichier monde" <img alt="Show/Hide world file" src="../../images/intro/btn_show_world_file.png"> pour afficher le fichier monde sur le côté droit. Maintenant, cliquez le bouton "Éditer les murs" <img alt="edit walls button" src="../../images/intro/btn_walls.png">. </p>
+
+<p>Créez quelques murs, et voyez ce qui se passe dans le fichier monde.
+Chaque mur créé est un élément d'une liste dont la valeur est un tuple
+avec les coordonnées du mur. Chaque mur créé est ajouté à la fin de la
+liste. Quand vous effacez un mur, en cliquant sur un mur existant, il
+est supprimé de la liste à cet endroit. Si vous cliquez une autre fois
+immédiatement pour recréer&nbsp; ce mur, il apparaît dans la liste, où
+il est encore une fois ajouté à la fin.</p>
+<p>Comparez cela avec les sonnettes. Vous pouvez cliquer avec le bouton droit
+sur n'importe quelle intersection de rue pour indiquer le nombre de sonnettes
+à y mettre. Si vous changez la valeur des sonnettes à une intersection donnée,
+elles sont modifiées sur-place. Si vous ajoutez des sonnettes à un endroit où
+il n'y en avait pas avant, les nouvelles sonnettes <b>ne</b> sont <b>pas</b>,
+en général, ajoutées à la fin. Vous pourriez avoir besoin de plusieurs
+intersections avec des sonnettes pour observer cela. Assurez-vous que
+vous en avez beaucoup. Sélectionnez une intersection avec des sonnettes
+et mettez la valeur à zéro, en regardant le fichier monde. Comme pour
+les murs, l'entrée disparaît. Maintenant, remettez immédiatement
+quelques sonnettes à cette même intersection. La nouvelle entrée
+apparaît à l'endroit d'origine, et non à la fin comme c'était le cas
+pour les listes. C'est parce que l'ordre dans lequel les items
+apparaissent dans un dictionnaire est basé sur une fonction
+mathématique (de "hachage") de la "clé" du dictionnaire (le tuple avec
+les coordonnées dans ce cas) que Python sait utiliser efficacement,
+mais qui le fait apparaître comme aléatoire pour nous.</p>
+<center><a href="35-dicts.htm"><img alt="previous" src="../../images/previous.png">Une autre sorte de définition</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="37-class.htm">Arrangeons Reeborg<img alt="next" src="../../images/next.png"></a></center>
+
+</body></html>
