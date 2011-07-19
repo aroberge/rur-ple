@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css">
+  <title>Une touche de classe</title>
+
+  
+</head><body>
+<h2 class="title">Une touche de <span class="pykeyword">class</span>e</h2>
+
+<p>Nous avons vu comment nous pouvions ajouter une nouvelle méthode à
+une classe existante, dans laquelle nous voulions réparer le robot pour
+qu'il sache comment tourner à droite. Voici un autre exemple d'ajout
+d'une méthode à une classe existante.</p>
+
+
+<pre><span class="keyword">class</span> Etonnant(RefurbishedRobot):<br>    <span class="keyword">def</span> diag(self):<br>        self.set_trace_style(1, <span class="string">'white'</span>)<br>        self.turn_left()<br>        self.move()<br>        self.turn_right()<br>        self.move()<br>        self.set_trace_style(1, <span class="string">'sea green'</span>)<br><br>Magicien = Etonnant()<br>Magicien.move()<br>Magicien.move()<br>Magicien.diag()<br>Magicien.diag()<br>Magicien.move()<br>Magicien.move()<br>Magicien.turn_off()<br></pre>
+
+<p><img alt="magie" src="../../images/future/magic.png"></p>
+
+<p>Le nouveau robot connaît toutes les méthodes existantes que le <tt>RefurbishedRobot</tt>
+existant connaissait [par exemple <tt>move(), turn_off()</tt>] ainsi qu'une nouvelle [<tt>diag()</tt>].</p>
+
+<h3 class="section">Concevons une nouvelle classe<span class="pykeyword"></span></h3>
+
+<p>Parfois, nous voulons créer une nouvelle classe qui change le
+comportement de base d'une classe existante. Pour cela, nous devons
+redéfinir une méthode spéciale [<tt>__init__()</tt>]. L'exemple suivant
+est l'un de ces cas, où nous "réparons la fuite d'huile", pour que le
+nouveau robot ne laisse pas de trace. En fait, nous faisons plus que
+cela puisque nous lui faisons laisser une trace blanche
+(au lieu de la trace bleu-vert par défaut), centrée sur la rue ou
+l'avenue où le robot avance [définie comme le style numéro 5] pour
+qu'elle recouvre efficacement la ligne pointillée grise, comme si le
+robot l'effaçait.</p>
+
+<pre><span class="keyword">class</span> Effaceur(RefurbishedRobot):<br>    <span class="keyword">def</span> __init__(self):<br>        RefurbishedRobot.__init__(self)<br>        self.set_trace_style(5, <span class="string">'white'</span>)<br><br>Chipeur = Effaceur()<br><span class="keyword">while</span> Chipeur.front_is_clear():<br>    Chipeur.move()<br>Chipeur.turn_off()<br></pre>
+<p><img alt="effaceur" src="../../images/future/eraser.png"><br>
+</p>
+<p>Vous pourrez vouloir le modifier pour essayer d'autres numéros de styles (1 à 5) avec d'autres couleurs.</p>
+
+
+<center><a href="37-class.htm"><img alt="previous" src="../../images/previous.png">Arrangeons Reeborg</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="39-import.htm">Éviter les répétitions - les choses importantes.<img alt="next" src="../../images/next.png"></a></center>
+
+</body></html>
