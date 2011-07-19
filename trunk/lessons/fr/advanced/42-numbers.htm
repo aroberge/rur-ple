@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css">
+  <title>Numérations octale, hexadécimale et binaire</title>
+
+  
+</head><body>
+<h2 class="title">Numérations octale, hexadécimale et binaire<br>
+</h2>
+
+<p><span class="warning">Remarque :</span> Vous n'avez pas besoin de comprendre complètement le contenu de cette section pour continuer votre apprentissage de Python.</p>
+
+<p>Dans la leçon 36, je vous ai dit que certains messages d'erreur ou
+d'autres résultats inattendus pouvaient se produire si vous essayiez
+avec des nombres différents de ceux que j'ai essayé. Voici deux
+exemples :</p>
+
+<pre>&gt;&gt;&gt; 1,023<br>(1, 19)<br><br>&gt;&gt;&gt; 1,099<br>  File <span class="string">"&lt;input&gt;"</span>, line 1<br>    1, 099<br>         ^<br>SyntaxError: invalid token<br></pre>
+
+<p>Ce qui se produit ici est que Python interprète tout nombre qui
+commence par zéro comme étant un nombre octal, c'est-à-dire un nombre
+exprimé en base 8.</p>
+
+<p>Les nombres "habituels" sont exprimés en base 10. Ils sont faits des
+dix symboles habituels : "0, 1, 2, 3, 4, 5, 6, 7, 8 et 9". Un nombre
+comme 345 est interprété comme signifiant :</p>
+
+<pre>345 = 3*100 + 4*10 + 5*1<br>ou<br>345 = 3*10*10 + 4*10 + 5*1<br>ou<br>345 = 3*10**2 + 4*10**1 + 5*10**0<br></pre>
+
+<p><small>[Si la dernière expression ne veut rien dire pour vous, cela
+signifie que vous avez encore des choses à apprendre en mathématiques à
+l'école ! Nous avons vu auparavant ce que "**" signifie.]</small> En
+comparison, un nombre en base 8 est fait des huit symboles suivants :
+"0, 1, 2, 3, 4, 5, 6 et 7". Un nombre comme "23" (ou 023 en Python ;
+qui se lit "zéro"23) en base 8 signifie :</p>
+
+
+<pre>023 = 2*8 + 3*1 = 16 + 3 = 19 (en base 10)<br></pre>
+
+<p>Cela devra expliquer le premier résultat que nous avons montré
+ci-dessus. Le deuxième provient du fait que "9" n'est pas un symbole
+permis en base 8.</p>
+
+<p>Confus ?... Ajoutons à votre confusion, dans l'espoir de clarifier
+les choses ! Python connaît aussi les nombres hexadécimaux (nombres en
+base
+16). Ils sont habituellement écrits avec une combinaison des seize
+symboles suivants : "0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f".
+Nous indiquons à Python que nous utilisons un nombre hexadécimal en le
+commençant par&nbsp; les deux caractères "0x" (zéro suivi de x) comme
+suit :</p>
+
+<pre>&gt;&gt;&gt; 0x33<br>51<br><br>&gt;&gt;&gt; 0xa<br>10<br><br>&gt;&gt;&gt; 0xf<br>15<br><br>&gt;&gt;&gt; 0x10<br>16<br><br>&gt;&gt;&gt; 0x111<br>273<br><br>&gt;&gt;&gt; 0x123<br>291<br></pre>
+
+<p>Voyons si nous comprenons, en commençant par le dernier :</p>
+
+<pre>0x123 = 1*16*16 + 2*16 + 3*1 = 256 + 32 + 3 = 291 (en base 10)<br></pre>
+
+<p>En base 16, "a" est le 10e symbole et "f" est le 15e. Assurez-vous
+de vérifier que les résultats que je vous ai montré ci-dessus sont
+corrects !</p>
+<p>Avant de quitter cette leçon, et particulièrement cette section, je devrais dire
+quelques mots concernant les nombres binaires, ou nombres exprimés en base 2.
+Les nombres binaires sont faits des deux symboles suivants : "0 et 1".
+Voici un nombre binaire et sa traduction en base&nbsp;10&nbsp;:</p>
+<pre>101001 = 1*2**5 + 0*2**4 + 1*2**3 + 0*2**2 + 0*2**1 + 1*2**0<br>ou<br>101001 = 1*32 + 1*8 + 1*1 = 41 (en base 10)<br></pre>
+
+<p>Les nombres binaires sont très importants ... non, ils sont <b>essentiels</b>
+pour les ordinateurs. La raison est plutôt simple à comprendre, si nous nous en tenons à une description très basique.<br>
+</p>
+
+<p>Pensez à une ampoule électrique et un interrupteur. Si
+l'interrupteur est allumé, l'ampoule donne de la lumière ; c'est parce
+qu'un courant électrique la traverse. Si l'interrupteur est éteint,
+l'ampoule ne donne pas de lumière ; aucun courant électrique ne la
+traverse. Il y a seulement deux possibilités. La convention habituelle
+est la suivante : pas de courant&nbsp; = 0 ;
+du courant passe = 1.</p>
+
+<p>Maintenant, à l'intérieur des ordinateurs, nous n'avons pas
+d'ampoules électriques, mais il y a des câbles et des interrupteurs
+miniatures <small>[et d'autres composants électroniques qui ne sont pas importants pour notre discussion]</small>.
+L'état d'un ordinateur à un certain moment peut être donné en termes de
+quels câbles (disons le 3e, le 5e, le 17e, ...) ont un courant qui les
+traverse. Cela pourrait être représenté comme une série de zéros (0 =
+câbles sans courant) et de uns (1 = câbles avec courant). Cet état
+correspond à un certain nombre... exprimé en base 2 ! Les programmes
+d'ordinateurs contrôlent essentiellement les minuscules interrupteurs
+qui font que les courants qui passent à travers les câbles de
+l'ordinateur changent avec le temps.</p>
+
+<p>Maintenant, parce que 8 est une puissance de 2 (8=2*2*2), les
+nombres octaux sont une autre représentation utile des nombres naturels
+pour les ordinateurs. C'est aussi vrai pour les nombres hexadécimaux
+(16=2*2*2*2). Parce qu'ils sont plus courts à écrire (pour nous), les
+nombres hexadécimaux sont les plus souvent utilisés, après les nombres
+décimaux, par les programmeurs. Vous aurez probablement à les utiliser
+quand vous commencerez à écrire vos propres jeux avec Python!</p>
+
+<center>
+<a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a></center>
+
+</body></html>
