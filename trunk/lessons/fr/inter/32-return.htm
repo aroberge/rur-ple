@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>32. Nombreux retours</title></head><body>
+<h2 class="title">32. Nombreux retours</h2>
+
+<p>Comme vous le savez, Reeborg n'est pas vraiment en pleine forme. Il peut tourner seulement
+à gauche, il a une fuite d'huile, il peut voir les murs seulement quand
+ils sont juste à côté de lui et entendre les sonnettes seulement quand
+il est littéralement debout sur elles. Reeborg a aussi une boussole (un
+peu cassée) qu'il peut utiliser pour savoir s'il est face au nord... ou
+pas. Pour savoir s'il est face au nord, vous pouvez demander à Reeborg
+de faire le test <tt>facing_north()</tt>. </p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Essayez !</h3>
+
+<p>Écrivez un programme court qui assure que Reeborg va tourner à
+gauche jusqu'à ce qu'il soit face au nord et alors s'éteint, quelle que
+soit son orientation de départ.</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Obtention de résultats d'une fonction</h3>
+
+<p>Les tests que Reeborg effectue sont en réalité des fonctions en
+Python. Le résultat de ces fonctions n'est pas d'afficher une valeur,
+comme nous l'avons vu jusqu'ici, mais plutôt d'obtenir une réponse
+(vrai ou faux dans ce cas) qui peut être utilisée par la suite. Pour
+faire quelque chose de semblable nous-mêmes, nous devons utiliser le
+mot-clé Python <span class="pykeyword">return</span>.
+Voici un exemple :</p>
+
+<pre>&gt;&gt;&gt; <span class="keyword">def</span> additionner(a, b):<br>...     reponse = a + b<br>...     <span class="keyword">return</span> reponse<br>...<br>&gt;&gt;&gt; c = additionner(4, 5)<br>&gt;&gt;&gt; <span class="keyword">print</span> c<br>9<br>&gt;&gt;&gt; <span class="comment"># Nous pouvons afficher directement la sortie de la fonction.</span><br>&gt;&gt;&gt; <span class="keyword">print</span> additionner(1, 1)<br>2<br></pre>
+
+<p>Dans l'exemple ci-dessus, nous aurions pu définir la fonction <tt>additionner()</tt>
+avec une ligne de code en moins, comme suit :</p>
+
+<pre>&gt;&gt;&gt; <span class="keyword">def</span> additionner(a, b):<br>...     <span class="keyword">return</span> a + b<br>...<br>&gt;&gt;&gt; c = additionner(4, 5)<br>&gt;&gt;&gt; <span class="keyword">print</span> c<br>9<br></pre>
+
+<p>Donc <span class="pykeyword">return</span> peut "retourner" le
+résultat de toute expression en Python valide, pas seulement la valeur
+d'une variable. Si l'expression que vous voulez "retourner" est courte,
+vous pourrez ne pas vouloir utiliser une variable supplémentaire (comme
+<tt>réponse</tt> ci-dessus). Cependant, comme vous le verrez plus tard,
+vous pouvez parfois "retourner" plus qu'une seule variable... Alors, il
+pourra être plus facile à lire d'utiliser des noms de variables au lieu
+d'expressions en Python.</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="section">Retour au monde de
+Reeborg</h3>
+<p>Comme nous l'avons dit au début de cette leçon, Reeborg a une
+boussole cassée. Pour cette raison, il sait seulement directement s'il
+est face au nord ou s'il ne l'est pas. Cependant, maintenant que nous
+savons que Reeborg peut se souvenir des choses, nous pouvons lui
+apprendre à trouver à quelle direction il fait face. Par exemple : </p>
+
+<pre><span class="comment"># facing south = face au sud </span><br><span class="keyword">def</span> facing_south():<br>    turn_left()<br>    turn_left()<br>    reponse = facing_north()<br>    turn_left()<br>    turn_left()<br>    <span class="keyword">return</span> reponse<br></pre>
+
+<p>Voyons comment cela fonctionne en examinant deux cas :</p>
+
+<ul>
+  <li><b>Supposons que Reeborg est face au sud.</b> Après deux rotations à gauche, il se retrouvera face au nord. Le test <tt>facing_north()</tt> donnera la valeur "<tt>True</tt>" (<i>vrai</i>) qui sera affectée à la variable <tt>reponse</tt>.
+Après deux autres rotations à gauche, Reeborg se retrouvera à nouveau
+face au sud (son orientation de départ), et nous retournerons la
+réponse "<tt>True</tt>"!</li>
+<li><b>Supposons que Reeborg <u>n'est pas</u> face au sud.</b> Alors, après deux rotations à gauche, il <u>ne sera pas</u> face au nord, et le test <tt>facing_north()</tt>
+donnera la valeur "<tt>False</tt>" (<i>faux</i>) qui sera affectée à la variable  <tt>reponse</tt>.
+Après deux autres rotations à gauche, Reeborg se retrouvera à nouveau
+dans son orientation de départ, et nous retournerons la
+réponse "<tt>False</tt>" !</li>
+</ul>
+<p>Ainsi, nous pouvons utiliser notre nouveau test si nous voulons que Reeborg soit face au sud&nbsp;:</p>
+<pre><span class="keyword">while</span> <span class="keyword">not</span> facing_south():<br>    turn_left()<br></pre>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Mini-quiz</h3>
+
+<p>Écrivez un programme qui oriente Reeborg face à l'ouest, quelle que
+soit son orientation de départ. Essayez-le avec toutes les orientations
+de départ possibles.</p>
+
+<!--==============================-->
+<hr width="50%">
+<h3 class="try">Mini-quiz 2</h3>
+
+<p>Placez Reeborg à n'importe quel endroit, face à n'importe quelle
+direction dans un monde vide. Écrivez un programme qui commande à
+Reeborg de revenir à l'origine, sa position de départ habituelle, face
+à l'est. Le même programme devra fonctionner quelle que soit la
+position et l'orientation de départ.</p>
+
+<center><a href="31-global.htm"><img alt="previous" src="../../images/previous.png">La globalisation est une mauvaise chose</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="33-for.htm">repeat() cache quelques mots-clés<img alt="next" src="../../images/next.png"></a></center>
+
+</body></html>
