@@ -4,19 +4,19 @@
 
 
   
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   
-  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>34. Recette du gâteau à la mousse au chocolat</title></head><body>
-<h2 class="title">34. Recette du gâteau à la mousse au chocolat</h2>
+  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>34. Recette du gÃ¢teau Ã  la mousse au chocolat</title></head><body>
+<h2 class="title">34. Recette du gÃ¢teau Ã  la mousse au chocolat</h2>
 
-<p>Je ne sais pas vous, mais moi je commence à avoir faim. Ce serait si
-bon d'avoir un délicieux gâteau à la mousse au chocolat à manger. Nous
+<p>Je ne sais pas vous, mais moi je commence Ã  avoir faim. Ce serait si
+bon d'avoir un dÃ©licieux gÃ¢teau Ã  la mousse au chocolat Ã  manger. Nous
 avons besoin de&nbsp;:</p>
 
 <ul>
 
-  <li><u>Liste des ingrédients</u></li>
+  <li><u>Liste des ingrÃ©dients</u></li>
   <ul>
     <li>4 &#339;ufs</li>
     <li>100 g de sucre</li>
@@ -25,59 +25,59 @@ avons besoin de&nbsp;:</p>
   </ul>
 </ul>
 
-<p>Pour faire le gâteau, nous avons besoin de la recette. Quelque chose comme&nbsp;:</p>
+<p>Pour faire le gÃ¢teau, nous avons besoin de la recette. Quelque chose comme&nbsp;:</p>
 
 <ul>
 
-  <li>Préchauffer le four à 180°C (350°F).</li>
-  <li>Séparer les blancs d'&#339;ufs des jaunes.</li>
+  <li>PrÃ©chauffer le four Ã  180Â°C (350Â°F).</li>
+  <li>SÃ©parer les blancs d'&#339;ufs des jaunes.</li>
   <li>etc.</li>
 </ul>
 
-<p>Une recette ressemble beaucoup à un programme d'ordinateur : c'est une série
-d'instructions qui doivent être suivies dans un ordre précis pour accomplir
-une tâche, et obtenir un résultat désiré. Je pense que nous avons tant à apprendre en programmation
-que je vais arrêter la leçon de cuisine pour l'instant et revenir à Python.</p>
+<p>Une recette ressemble beaucoup Ã  un programme d'ordinateur : c'est une sÃ©rie
+d'instructions qui doivent Ãªtre suivies dans un ordre prÃ©cis pour accomplir
+une tÃ¢che, et obtenir un rÃ©sultat dÃ©sirÃ©. Je pense que nous avons tant Ã  apprendre en programmation
+que je vais arrÃªter la leÃ§on de cuisine pour l'instant et revenir Ã  Python.</p>
 
 <!--==============================-->
 <hr width="50%">
 <h3 class="section">Listes</h3>
-<p>Voici pour vous quelques petites choses à essayer avec l'interpréteur Python&nbsp;:</p>
+<p>Voici pour vous quelques petites choses Ã  essayer avec l'interprÃ©teur Python&nbsp;:</p>
 <pre>&gt;&gt;&gt; ingredients = [<span class="string">"4 oeufs"</span>, <span class="string">"100 g de sucre"</span>, <br>...     <span class="string">"250 g de chocolat noir"</span>, <span class="string">"30 ml de poudre de cacao"</span>]<br>&gt;&gt;&gt; <br></pre>
 <p><tt>ingredients</tt> est un exemple de <i>liste</i> Python. Une liste en Python peut contenir autant d'<i>items</i>
-que l'on désire en mettre.
-Dans l'exemple que nous avons choisi, tous les ingrédients sont des
-chaînes&nbsp; mais les items d'une liste peuvent être des nombres, ou
-même
+que l'on dÃ©sire en mettre.
+Dans l'exemple que nous avons choisi, tous les ingrÃ©dients sont des
+chaÃ®nes&nbsp; mais les items d'une liste peuvent Ãªtre des nombres, ou
+mÃªme
 d'autres listes ou encore d'autres objets Python que nous n'avons pas
 encore vus. Maintenant, essayez ce qui suit&nbsp;:</p>
 <pre>&gt;&gt;&gt; <span class="keyword">for</span> chaque_item <span class="keyword">in</span> ingredients:<br>...    <span class="keyword">print</span> chaque_item<br>4 oeufs<br>100 g de sucre<br>250 g de chocolat noir<br>30 ml de poudre de cacao<br><br>&gt;&gt;&gt; ingredients[0]<br><span class="string">'4 oeufs'</span><br><br>&gt;&gt;&gt; ingredients[0:2]<br>[<span class="string">'4 oeufs'</span>, <span class="string">'100 g de sucre'</span>]<br></pre>
-<p>Cela devrait vous sembler familier, bien que légèrement différent de ce que nous avons déjà vu. Essayez aussi ce qui suit&nbsp;:</p>
+<p>Cela devrait vous sembler familier, bien que lÃ©gÃ¨rement diffÃ©rent de ce que nous avons dÃ©jÃ  vu. Essayez aussi ce qui suit&nbsp;:</p>
 <pre>&gt;&gt;&gt; <span class="keyword">for</span> caractere <span class="keyword">in</span> ingredients[0]:<br>...     <span class="keyword">print</span> caractere<br>...    <br>4<br> <br>o<br>e<br>u<br>f<br>s<br><br>&gt;&gt;&gt; ingredients[0][2]<br><span class="string">'o'</span><br><br>&gt;&gt;&gt; <span class="string">'4 oeufs'</span>[2]<br><span class="string">'o'</span>
 </pre>
-<p>Comme nous venons de le voir, <tt>ingredients[0]</tt> est synonyme de la chaîne <span class="string">'4 oeufs'</span>&nbsp;; donc <tt>ingredients[0][2]</tt>
-est le troisième caractère (rappelez-vous que Python compte en commençant par zéro) dans la chaîne <span class="string">'4 oeufs'</span>.</p>
-<p>Maintenant, dans la recette ci-dessus, j'ai oublié un ingrédient délicieux&nbsp;: la<i> crême Chantilly</i> à mettre en garniture. Je peux l'ajouter, et vérifier que cela a été ajouté comme suit&nbsp;:</p>
+<p>Comme nous venons de le voir, <tt>ingredients[0]</tt> est synonyme de la chaÃ®ne <span class="string">'4 oeufs'</span>&nbsp;; donc <tt>ingredients[0][2]</tt>
+est le troisiÃ¨me caractÃ¨re (rappelez-vous que Python compte en commenÃ§ant par zÃ©ro) dans la chaÃ®ne <span class="string">'4 oeufs'</span>.</p>
+<p>Maintenant, dans la recette ci-dessus, j'ai oubliÃ© un ingrÃ©dient dÃ©licieux&nbsp;: la<i> crÃªme Chantilly</i> Ã  mettre en garniture. Je peux l'ajouter, et vÃ©rifier que cela a Ã©tÃ© ajoutÃ© comme suit&nbsp;:</p>
 <pre>&gt;&gt;&gt; ingredients.append(<span class="string">"creme Chantilly"</span>)<br>&gt;&gt;&gt; <span class="keyword">print</span> ingredients<br>[<span class="string">'4 oeufs'</span>, <span class="string">'100 g de sucre'</span>, <span class="string">'250 g de chocolat noir'</span>, <span class="string">'30 ml de poudre de cacao'</span>, <span class="string">'creme Chantilly'</span>]<br></pre>
 
-<p><tt>append()</tt> est une méthode qui fait partie de la classe "list". <tt>ingredients</tt>
-est une instance de cette classe. Nous <i>invoquons</i> la méthode <tt>append</tt>
-sur l'instance <tt>ingredients</tt> en la connectant avec un point ".", comme nous l'avons vu dans les leçons précédentes. Le <i>paramètre</i> de <tt>append</tt>
-est l'objet que nous voulons ajouter à la liste. Il est toujours mis à la fin de la liste. </p>
+<p><tt>append()</tt> est une mÃ©thode qui fait partie de la classe "list". <tt>ingredients</tt>
+est une instance de cette classe. Nous <i>invoquons</i> la mÃ©thode <tt>append</tt>
+sur l'instance <tt>ingredients</tt> en la connectant avec un point ".", comme nous l'avons vu dans les leÃ§ons prÃ©cÃ©dentes. Le <i>paramÃ¨tre</i> de <tt>append</tt>
+est l'objet que nous voulons ajouter Ã  la liste. Il est toujours mis Ã  la fin de la liste. </p>
 
-<p>Les listes ont beaucoup d'autres méthodes ; je les présenterai quand
-nous en aurons besoin. Si vous voulez les voir toutes, vous n'avez qu'à
-taper <tt>dir([])</tt> à l'interpréteur Python. Notez que <tt>[]</tt> est une liste vide, mais toute liste vous donnerait le même résultat dans ce cas. Avez-vous repéré la méthode <tt>append</tt> ?</p>
+<p>Les listes ont beaucoup d'autres mÃ©thodes ; je les prÃ©senterai quand
+nous en aurons besoin. Si vous voulez les voir toutes, vous n'avez qu'Ã 
+taper <tt>dir([])</tt> Ã  l'interprÃ©teur Python. Notez que <tt>[]</tt> est une liste vide, mais toute liste vous donnerait le mÃªme rÃ©sultat dans ce cas. Avez-vous repÃ©rÃ© la mÃ©thode <tt>append</tt> ?</p>
 
-<p>Maintenant que nous savons comment ajouter des items à des listes,
-nous devons apprendre à les supprimer. Pour cela, nous devons utiliser
-le mot-clé Python <span class="pykeyword">del</span>.
+<p>Maintenant que nous savons comment ajouter des items Ã  des listes,
+nous devons apprendre Ã  les supprimer. Pour cela, nous devons utiliser
+le mot-clÃ© Python <span class="pykeyword">del</span>.
 </p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">del</span> ingredients[3]<br>&gt;&gt;&gt; <span class="keyword">print</span> ingredients<br>[<span class="string">'4 oeufs'</span>, <span class="string">'100 g de sucre'</span>, <span class="string">'250 g de chocolat noir'</span>, <span class="string">'creme Chantilly'</span>]<br></pre>
 
-<p>Le mot-clé Python <span class="pykeyword">del</span> peut faire beaucoup plus que supprimer des items d'une liste. Par exemple, il peut faire oublier à Python
-une variable qui avait été définie.
+<p>Le mot-clÃ© Python <span class="pykeyword">del</span> peut faire beaucoup plus que supprimer des items d'une liste. Par exemple, il peut faire oublier Ã  Python
+une variable qui avait Ã©tÃ© dÃ©finie.
 </p>
 
 <pre>&gt;&gt;&gt; a = 3<br>&gt;&gt;&gt; <span class="keyword">print</span> a<br>3<br>&gt;&gt;&gt; <span class="keyword">del</span> a<br>&gt;&gt;&gt; <span class="keyword">print</span> a<br>Traceback (most recent call last):<br>  File <span class="string">"&lt;input&gt;"</span>, line 1, in ?<br>NameError: name <span class="string">'a'</span> is not defined<br></pre>
@@ -86,39 +86,39 @@ une variable qui avait été définie.
 <hr width="50%">
 <h3 class="try">Essayez !</h3>
 
-<p>Dans le monde de Reeborg, écrivez un programme simple qui crée deux
+<p>Dans le monde de Reeborg, Ã©crivez un programme simple qui crÃ©e deux
 robots, chacun avec son propre nom, leur fait faire quelques pas et
-essaie de faire disparaître l'un d'eux en utilisant le mot-clé <span class="pykeyword">del</span>.
-Vous devrez peut-être faire faire au moins un pas de plus au robot
-restant (avant de l'éteindre) pour que l'autre robot disparaisse de
-l'écran.</p>
+essaie de faire disparaÃ®tre l'un d'eux en utilisant le mot-clÃ© <span class="pykeyword">del</span>.
+Vous devrez peut-Ãªtre faire faire au moins un pas de plus au robot
+restant (avant de l'Ã©teindre) pour que l'autre robot disparaisse de
+l'Ã©cran.</p>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">Un mot à propos de <tt>range()</tt></h3>
+<h3 class="section">Un mot Ã  propos de <tt>range()</tt></h3>
 
-<p>Vous êtes maintenant prêt à connaître un secret à propos de la fonction Python <tt>range()</tt> :</p>
+<p>Vous Ãªtes maintenant prÃªt Ã  connaÃ®tre un secret Ã  propos de la fonction Python <tt>range()</tt> :</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">print</span> range(6)<br>[0, 1, 2, 3, 4, 5]<br></pre>
 
-<p>C'est cela : <tt>range()</tt> crée simplement une liste !</p>
+<p>C'est cela : <tt>range()</tt> crÃ©e simplement une liste !</p>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">Conversion entre listes, entiers et chaînes</h3>
-<p>Voici quelques fonctions internes utiles permettant de faire des conversions entre un <i>type de données</i> et un autre.</p>
-<pre>&gt;&gt;&gt;  premier_nombre = 1304<br>&gt;&gt;&gt;  deuxieme_nombre = 987<br>&gt;&gt;&gt;  <br>&gt;&gt;&gt;  <span class="comment"># conversion d'un entier en une chaîne en utilisant str()</span><br>&gt;&gt;&gt;  premiere_chaine = str(premier_nombre)<br>&gt;&gt;&gt;  premiere_chaine<br>'1304'<br>&gt;&gt;&gt;  deuxieme_chaine = str(deuxieme_nombre)<br>&gt;&gt;&gt;  deuxieme_chaine<br>'987'<br><br>&gt;&gt;&gt;  <span class="comment"># conversion d'une chaîne en un nombre en utilisant int()</span><br>&gt;&gt;&gt;  int(premiere_chaine)<br>1304<br><br>&gt;&gt;&gt;  <span class="comment"># conversion d'une chaîne en une liste en utilisant list()</span><br>&gt;&gt;&gt;  premiere_liste = list(premiere_chaine)<br>&gt;&gt;&gt;  premiere_liste<br>['1', '3', '0', '4']<br><br>&gt;&gt;&gt;  deuxieme_liste = list(deuxieme_chaine)<br>&gt;&gt;&gt;  deuxieme_liste<br>['9', '8', '7']<br><br>&gt;&gt;&gt;  <span class="comment"># utilisation de join() pour créer une chaîne à partir d'une liste de chaînes</span><br>&gt;&gt;&gt;  '...'.join(deuxieme_liste)<br>'9...8...7'<br>&gt;&gt;&gt;  <span class="comment"># join() permet aussi d'insérer quelque chose entre les caractères d'une chaîne</span><br>&gt;&gt;&gt;  '-'.join(premiere_chaine)<br>'1-3-0-4'<br>&gt;&gt;&gt;  <span class="comment"># utiliser la chaîne vide '' pour joindre les éléments...</span><br>&gt;&gt;&gt;  ''.join(premiere_liste)<br>&gt;&gt;&gt;  '1304'<br>&gt;&gt;&gt;  ''.join(deuxieme_liste)<br>&gt;&gt;&gt;  '987'<br><br>&gt;&gt;&gt;  <span class="comment"># extraire le dernier élément d'une liste avec pop()</span><br>&gt;&gt;&gt;  <span class="comment"># Remarque : pop() est, en quelque sorte, le contraire de append() </span><br>&gt;&gt;&gt;  premiere_liste<br>['1', '3', '0', '4']<br>&gt;&gt;&gt;  dernier_element = premiere_liste.pop()<br>&gt;&gt;&gt;  dernier_element<br>'4'<br>&gt;&gt;&gt;  premiere_liste<br>['1', '3', '0']<br><br>&gt;&gt;&gt;  <span class="comment"># la fonction len() donne le nombre </span><br>&gt;&gt;&gt;  <span class="comment"># d'items dans une liste </span><br>&gt;&gt;&gt;  len(premiere_liste)<br>3<br></pre>
+<h3 class="section">Conversion entre listes, entiers et chaÃ®nes</h3>
+<p>Voici quelques fonctions internes utiles permettant de faire des conversions entre un <i>type de donnÃ©es</i> et un autre.</p>
+<pre>&gt;&gt;&gt;  premier_nombre = 1304<br>&gt;&gt;&gt;  deuxieme_nombre = 987<br>&gt;&gt;&gt;  <br>&gt;&gt;&gt;  <span class="comment"># conversion d'un entier en une chaÃ®ne en utilisant str()</span><br>&gt;&gt;&gt;  premiere_chaine = str(premier_nombre)<br>&gt;&gt;&gt;  premiere_chaine<br>'1304'<br>&gt;&gt;&gt;  deuxieme_chaine = str(deuxieme_nombre)<br>&gt;&gt;&gt;  deuxieme_chaine<br>'987'<br><br>&gt;&gt;&gt;  <span class="comment"># conversion d'une chaÃ®ne en un nombre en utilisant int()</span><br>&gt;&gt;&gt;  int(premiere_chaine)<br>1304<br><br>&gt;&gt;&gt;  <span class="comment"># conversion d'une chaÃ®ne en une liste en utilisant list()</span><br>&gt;&gt;&gt;  premiere_liste = list(premiere_chaine)<br>&gt;&gt;&gt;  premiere_liste<br>['1', '3', '0', '4']<br><br>&gt;&gt;&gt;  deuxieme_liste = list(deuxieme_chaine)<br>&gt;&gt;&gt;  deuxieme_liste<br>['9', '8', '7']<br><br>&gt;&gt;&gt;  <span class="comment"># utilisation de join() pour crÃ©er une chaÃ®ne Ã  partir d'une liste de chaÃ®nes</span><br>&gt;&gt;&gt;  '...'.join(deuxieme_liste)<br>'9...8...7'<br>&gt;&gt;&gt;  <span class="comment"># join() permet aussi d'insÃ©rer quelque chose entre les caractÃ¨res d'une chaÃ®ne</span><br>&gt;&gt;&gt;  '-'.join(premiere_chaine)<br>'1-3-0-4'<br>&gt;&gt;&gt;  <span class="comment"># utiliser la chaÃ®ne vide '' pour joindre les Ã©lÃ©ments...</span><br>&gt;&gt;&gt;  ''.join(premiere_liste)<br>&gt;&gt;&gt;  '1304'<br>&gt;&gt;&gt;  ''.join(deuxieme_liste)<br>&gt;&gt;&gt;  '987'<br><br>&gt;&gt;&gt;  <span class="comment"># extraire le dernier Ã©lÃ©ment d'une liste avec pop()</span><br>&gt;&gt;&gt;  <span class="comment"># Remarque : pop() est, en quelque sorte, le contraire de append() </span><br>&gt;&gt;&gt;  premiere_liste<br>['1', '3', '0', '4']<br>&gt;&gt;&gt;  dernier_element = premiere_liste.pop()<br>&gt;&gt;&gt;  dernier_element<br>'4'<br>&gt;&gt;&gt;  premiere_liste<br>['1', '3', '0']<br><br>&gt;&gt;&gt;  <span class="comment"># la fonction len() donne le nombre </span><br>&gt;&gt;&gt;  <span class="comment"># d'items dans une liste </span><br>&gt;&gt;&gt;  len(premiere_liste)<br>3<br></pre>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="try">Aidez Reeborg à additionner avec les listes, chaînes et entiers</h3>
+<h3 class="try">Aidez Reeborg Ã  additionner avec les listes, chaÃ®nes et entiers</h3>
 
-<p>Aidez Reeborg à additionner deux nombres, comme illustré ci-dessous,
-en utilisant ce que nous venons de voir sur les listes, chaînes et
+<p>Aidez Reeborg Ã  additionner deux nombres, comme illustrÃ© ci-dessous,
+en utilisant ce que nous venons de voir sur les listes, chaÃ®nes et
 entiers.</p>
 
 <p><img alt="avant addition" src="../../images/inter/add34_start.png"></p>
-<p><img alt="après addition" src="../../images/inter/add34_end.png"></p>
-<center><a href="33-for.htm"><img alt="précédent" src="../../images/previous.png">repeat() cache des mots-clés Python</a>
-- <a href="../lessons_toc.htm"><img alt="début" src="../../images/home.png"></a> - <a href="35-dicts.htm">Une autre sorte de définition<img alt="suivant" src="../../images/next.png"></a></center>
+<p><img alt="aprÃ¨s addition" src="../../images/inter/add34_end.png"></p>
+<center><a href="33-for.htm"><img alt="prÃ©cÃ©dent" src="../../images/previous.png">repeat() cache des mots-clÃ©s Python</a>
+- <a href="../lessons_toc.htm"><img alt="dÃ©but" src="../../images/home.png"></a> - <a href="35-dicts.htm">Une autre sorte de dÃ©finition<img alt="suivant" src="../../images/next.png"></a></center>
 </body></html>
