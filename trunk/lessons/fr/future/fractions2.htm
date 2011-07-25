@@ -2,26 +2,26 @@
 <html><head>
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="../rurple.css" type="text/css"><title>Fractions - part 2</title></head><body>
 <h2 class="title">Fractions - 2e partie</h2>
 <p>Pour multiplier deux fractions, comme <tt>(1/2) * (3/4)</tt>, nous
-devons multiplier les numérateurs ensemble, faire la même chose pour
-les dénominateurs, pour obtenir une nouvelle fraction. Par&nbsp;
+devons multiplier les numÃ©rateurs ensemble, faire la mÃªme chose pour
+les dÃ©nominateurs, pour obtenir une nouvelle fraction. Par&nbsp;
 exemple :</p>
 <pre>1   3   3<br>- * - = -<br>2   4   8<br></pre>
-<p>Parfois, quand nous multiplions des fractions, le résultat peut être exprimé dans une forme plus simple. Par exemple :</p>
+<p>Parfois, quand nous multiplions des fractions, le rÃ©sultat peut Ãªtre exprimÃ© dans une forme plus simple. Par exemple :</p>
 <pre>2    11   22   1<br>-- * -- = -- = -<br>11   6    66   3<br></pre>
-<p>Dans cette leçon, nous allons enseigner à Python comment multiplier deux fractions, et aussi comment simplifier le résultat.</p>
+<p>Dans cette leÃ§on, nous allons enseigner Ã  Python comment multiplier deux fractions, et aussi comment simplifier le rÃ©sultat.</p>
 <!--=============================================-->
 <hr width="50%">
 <h3 class="section">Multiplier deux fractions</h3>
-<p>Avec les deux fractions définies dans la dernière section, essayez de faire ce qui suit :<br>
+<p>Avec les deux fractions dÃ©finies dans la derniÃ¨re section, essayez de faire ce qui suit :<br>
 </p>
 <pre><span class="keyword">    print</span> a*b<br></pre>
 <p><b>Essayez !</b> Vous obtiendrez un message d'erreur, comme Python ne sait pas ce que cela veut dire d'avoir le symbole "<tt>*</tt>" entre deux objets de la classe
 <tt>Fraction</tt>. Pour que Python comprenne qu'utiliser le symbole
-"<tt>*</tt>" entre deux fractions signifie que nous voulons multiplier ces deux fractions, nous utilisons la fonction privée <tt>__mul__()</tt>. Voici notre nouveau code :</p>
+"<tt>*</tt>" entre deux fractions signifie que nous voulons multiplier ces deux fractions, nous utilisons la fonction privÃ©e <tt>__mul__()</tt>. Voici notre nouveau code :</p>
 <pre><span class="linenumber">  1 </span><span class="keyword">class</span> Fraction(object):<br><span class="linenumber">  2 </span>    <span class="keyword">def</span> __init__(self, numerateur, denominateur=<span class="number">1</span>):<br><span class="linenumber">  3 </span>        self.num = numerateur<br><span class="linenumber">  4 </span>        self.denom = denominateur<br><span class="linenumber">  5 </span>        <br><span class="linenumber">  6 </span>    <span class="keyword">def</span> __str__(self):<br><span class="notelinenumber">  7 </span>        <span class="keyword">if</span> self.denom ==<span class="number"> 1</span>:<br><span class="notelinenumber">  8 </span>            <span class="keyword">return</span><span class="string"> "(%s)"</span>%self.num<br><span class="linenumber">  9 </span>        <span class="keyword">return</span><span class="string"> "(%s/%s)"</span>%(self.num, self.denom)<br><span class="linenumber"> 10 </span>
 <span class="newlinenumber"> 11 </span>    <span class="keyword">def</span> __mul__(self, autre):<br><span class="newlinenumber"> 12 </span>        num = self.num * autre.num<br><span class="newlinenumber"> 13 </span>        denom = self.denom * autre.denom<br><span class="newlinenumber"> 14 </span><span class="keyword">        return</span> Fraction(num, denom)<br><span class="linenumber"> 15 </span>
 <span class="linenumber"> 16 </span><span class="comment">#== zone de test ci-dessous ===<br></span><span class="linenumber"> 17 </span>
@@ -29,51 +29,51 @@ exemple :</p>
 <span class="notelinenumber"> 22 </span><span class="keyword">    assert</span> str(b) ==<span class="string"> "(3)"</span>
 <span class="newlinenumber"> 23 </span><span class="keyword">    print</span> a*b<br></pre>
 <p>D'abord, j'ai fait quelques changements mineurs dans les lignes 7, 8
-et 22, pour que le dénominateur n'apparaisse pas quand il est égal à 1.
-C'est légèrement différent de l'exercice I suggéré dans la dernière
-leçon, puisque j'ai choisi de garder les parenthèses pour indiquer que
-c'était toujours un objet de la classe <tt>Fraction</tt>
+et 22, pour que le dÃ©nominateur n'apparaisse pas quand il est Ã©gal Ã  1.
+C'est lÃ©gÃ¨rement diffÃ©rent de l'exercice I suggÃ©rÃ© dans la derniÃ¨re
+leÃ§on, puisque j'ai choisi de garder les parenthÃ¨ses pour indiquer que
+c'Ã©tait toujours un objet de la classe <tt>Fraction</tt>
 et non simplement un entier.</p>
-<p>Ensuite, j'ai dit à Python que, pour multiplier deux fractions, on multiplie les numérateurs
-ensemble [ligne 12], on fait la même chose avec les dénominateurs [ligne 13]
-et que le résultat est un nouvel objet <tt>Fraction</tt> [ligne 14]. Si vous essayez d'exécuter ce programme, le résultat [donné par la ligne 23] sera "<tt>(3/2)</tt>", qui est ce que nous voulions.</p>
+<p>Ensuite, j'ai dit Ã  Python que, pour multiplier deux fractions, on multiplie les numÃ©rateurs
+ensemble [ligne 12], on fait la mÃªme chose avec les dÃ©nominateurs [ligne 13]
+et que le rÃ©sultat est un nouvel objet <tt>Fraction</tt> [ligne 14]. Si vous essayez d'exÃ©cuter ce programme, le rÃ©sultat [donnÃ© par la ligne 23] sera "<tt>(3/2)</tt>", qui est ce que nous voulions.</p>
 <p>Maintenant, transformons l'instruction print qui fonctionne en une instruction assert [ligne 23],
-et ajoutons un nouveau test [lignes 24 et 25], comme indiqué ci-dessous.</p>
+et ajoutons un nouveau test [lignes 24 et 25], comme indiquÃ© ci-dessous.</p>
 <pre><span class="linenumber"> 16 </span><span class="comment">#== zone de test ci-dessous ===<br></span><span class="linenumber"> 17 </span>
 <span class="linenumber"> 18 </span><span class="keyword">if</span> __name__ ==<span class="string"> "__main__"</span>:<br><span class="linenumber"> 19 </span>    a = Fraction(<span class="number">1</span>,<span class="number"> 2</span>)<br><span class="linenumber"> 20 </span>    b = Fraction(<span class="number">3</span>,<span class="number"> 1</span>)<br><span class="linenumber"> 21 </span><span class="keyword">    assert</span> str(a) ==<span class="string"> "(1/2)"</span>
 <span class="linenumber"> 22 </span><span class="keyword">    assert</span> str(b) ==<span class="string"> "(3)"</span>
 <span class="notelinenumber"> 23 </span><span class="keyword">    assert</span> str(a*b) ==<span class="string"> "(3/2)"</span>
 <span class="newlinenumber"> 24 </span>    c = Fraction(<span class="number">1</span>,<span class="number"> 3</span>)<br><span class="newlinenumber"> 25 </span><span class="keyword">    print</span> b*c<br></pre>
-<p>Si nous exécutons ce programme, nous obtiendrons la sortie "<tt>(3/3)</tt>" que <i>nous</i> reconnaissons comme étant la même chose que <tt>1 </tt>;
-ce serait bien si Python pouvait faire de même. Pour cela,&nbsp; nous
-utiliserons un algorithme qui a été inventé il y a plus de 2000 ans !</p>
+<p>Si nous exÃ©cutons ce programme, nous obtiendrons la sortie "<tt>(3/3)</tt>" que <i>nous</i> reconnaissons comme Ã©tant la mÃªme chose que <tt>1 </tt>;
+ce serait bien si Python pouvait faire de mÃªme. Pour cela,&nbsp; nous
+utiliserons un algorithme qui a Ã©tÃ© inventÃ© il y a plus de 2000 ans !</p>
 <!--=============================================-->
 <hr width="50%">
 <h3 class="section">Algorithme d'Euclide</h3>
-<p>En 300 avant J.-C., (c'est-à-dire 300 ans avant l'an 0), le philosophe grec Euclide a publié
-une série de 13 livres intitulés <i>Éléments</i>.
-Ces livres contenaient ce qui était connu à l'époque sur les
-mathématiques et la géométrie. Parmi d'autres chose, un algorithme pour
+<p>En 300 avant J.-C., (c'est-Ã -dire 300 ans avant l'an 0), le philosophe grec Euclide a publiÃ©
+une sÃ©rie de 13 livres intitulÃ©s <i>Ã‰lÃ©ments</i>.
+Ces livres contenaient ce qui Ã©tait connu Ã  l'Ã©poque sur les
+mathÃ©matiques et la gÃ©omÃ©trie. Parmi d'autres chose, un algorithme pour
 trouver le <i>plus grand commun diviseur</i> (ou le plus grand facteur
-commun) y était inclus. Il est très probable que cet algorithme était
+commun) y Ã©tait inclus. Il est trÃ¨s probable que cet algorithme Ã©tait
 connu avant la naissance d'Euclide ; certaines personnes pensent qu'il
-a été découvert il y a environ 2500 ans ! Guido van Rossum, le créateur
+a Ã©tÃ© dÃ©couvert il y a environ 2500 ans ! Guido van Rossum, le crÃ©ateur
 de Python,
-a écrit une petite fonction qui implémente l'algorithme d'Euclide :</p>
-<pre><span class="keyword">def</span> gcd(a, b):<br>    <span class="comment">'''gcd retourne le plus grand commun diviseur (greatest common divisor) <br>       de 2 entiers donnés.'''</span>
+a Ã©crit une petite fonction qui implÃ©mente l'algorithme d'Euclide :</p>
+<pre><span class="keyword">def</span> gcd(a, b):<br>    <span class="comment">'''gcd retourne le plus grand commun diviseur (greatest common divisor) <br>       de 2 entiers donnÃ©s.'''</span>
 <span class="keyword">    while</span> b:<br>        a, b = b, a%b<br>    <span class="keyword">return</span> a<br></pre>
 <p>Je n'expliquerai pas l'algorithme d'Euclide ici. Cela vous sera
-laissé comme exercice. Cependant, je l'utiliserai pour définir une
-nouvelle fonction pour simplifier les résultats.</p>
+laissÃ© comme exercice. Cependant, je l'utiliserai pour dÃ©finir une
+nouvelle fonction pour simplifier les rÃ©sultats.</p>
 <pre><span class="keyword">def</span> simplifier(a, b):<br>    <span class="comment">'''divise deux entiers par leur facteur commun.'''</span>
     facteur_commun = gcd(a, b)
     a /= facteur_commun
     b /= facteur_commun
 <span class="keyword">    return</span> a, b<br></pre>
-<p>Maintenant, voici la nouvelle définition de classe :<br>
+<p>Maintenant, voici la nouvelle dÃ©finition de classe :<br>
 </p>
 <pre><span class="newlinenumber">  1 </span><span class="keyword">def</span> gcd(a, b):<br><span class="newlinenumber">  2 </span>    <span class="comment">'''gcd retourne le plus grand commun diviseur (greatest common divisor) </span>
-<span class="newlinenumber">  3 </span><span class="comment">        de 2 nombres donnés.'''</span>
+<span class="newlinenumber">  3 </span><span class="comment">        de 2 nombres donnÃ©s.'''</span>
 <span class="newlinenumber">  4 </span><span class="keyword">    while</span> b:<br><span class="newlinenumber">  5 </span>        a, b = b, a%b<br><span class="newlinenumber">  6 </span>    <span class="keyword">return</span> a<br><span class="linenumber">  7 </span>
 <span class="linenumber">  8 </span><span class="keyword">class</span> Fraction(object):<br><span class="linenumber">  9 </span>    <span class="keyword">def</span> __init__(self, numerateur, denominateur=<span class="number">1</span>):<br><span class="notelinenumber"> 10 </span>        num, denom = self.simplifier(numerateur, denominateur)<br><span class="notelinenumber"> 11 </span>        self.num = num<br><span class="notelinenumber"> 12 </span>        self.denom = denom<br><span class="linenumber"> 13 </span>        <br><span class="linenumber"> 14 </span>    <span class="keyword">def</span> __str__(self):<br><span class="linenumber"> 15 </span>        <span class="keyword">if</span> self.denom ==<span class="number"> 1</span>:<br><span class="linenumber"> 16 </span>            <span class="keyword">return</span><span class="string"> "(%s)"</span>%self.num<br><span class="linenumber"> 17 </span>        <span class="keyword">return</span><span class="string"> "(%s/%s)"</span>%(self.num, self.denom)<br><span class="linenumber"> 18 </span>
 <span class="linenumber"> 19 </span>    <span class="keyword">def</span> __mul__(self, autre):<br><span class="linenumber"> 20 </span>        num = self.num * autre.num<br><span class="linenumber"> 21 </span>        denom = self.denom * autre.denom<br><span class="newlinenumber"> 22 </span>        num, denom = self.simplifier(num, denom)<br><span class="linenumber"> 23 </span><span class="keyword">        return</span> Fraction(num, denom)<br><span class="linenumber"> 24 </span>
@@ -86,18 +86,18 @@ nouvelle fonction pour simplifier les résultats.</p>
 <span class="newlinenumber"> 40 </span>    c = Fraction(<span class="number">1</span>,<span class="number"> 3</span>)<br><span class="newlinenumber"> 41 </span><span class="keyword">    assert</span> str(b*c) ==<span class="string"> "(1)"</span>
 <span class="notelinenumber"> 42 </span>    d = Fraction(<span class="number">5</span>,<span class="number"> 10</span>)<br><span class="notelinenumber"> 43 </span><span class="keyword">    assert</span> str(d) ==<span class="string"> "(1/2)"</span>
 </pre>
-<p>En lignes 1 à 6, nous avons introduit notre fonction <tt>gcd()</tt>. En la mettant en dehors de la définition de la <span class="pykeyword">class</span>e, nous la rendons facilement disponible pour les autres programmeurs s'ils <span class="pykeyword">import</span>ent notre fichier.  Simplement pour montrer l'autre alternative, nous avons mis la méthode <tt>simplifier()</tt> à l'intérieur de la définition de la <span class="pykeyword">class</span>e, en lignes 25 à 30.  Nous utilisons <tt>simplifier()</tt> en ligne 22 et la testons en lignes 39, 40 et 41.</p>
-<p>Nous utilisons également <tt>simplifier()</tt> quand nous
+<p>En lignes 1 Ã  6, nous avons introduit notre fonction <tt>gcd()</tt>. En la mettant en dehors de la dÃ©finition de la <span class="pykeyword">class</span>e, nous la rendons facilement disponible pour les autres programmeurs s'ils <span class="pykeyword">import</span>ent notre fichier.  Simplement pour montrer l'autre alternative, nous avons mis la mÃ©thode <tt>simplifier()</tt> Ã  l'intÃ©rieur de la dÃ©finition de la <span class="pykeyword">class</span>e, en lignes 25 Ã  30.  Nous utilisons <tt>simplifier()</tt> en ligne 22 et la testons en lignes 39, 40 et 41.</p>
+<p>Nous utilisons Ã©galement <tt>simplifier()</tt> quand nous
 initialisons une nouvelle fraction, en ligne 10 [avec d'autres
 changements mineurs en lignes 11 et 12] pour que la fraction
-nouvellement créée soit toujours dans sa forme simplifiée. Cela est
-testé en lignes 42 et 43. </p>
+nouvellement crÃ©Ã©e soit toujours dans sa forme simplifiÃ©e. Cela est
+testÃ© en lignes 42 et 43. </p>
 <p>Regardez bien les changement que nous avons faits. Tout fonctionne
-correctement, mais il y a une ligne que nous avons ajoutée qui n'était
-pas requise puisqu'elle fait que Python essaie de calculer la même
-chose deux fois. <b>Pouvez-vous voir laquelle ?</b> Essayez de la trouver, avant de passer à la leçon suivante
+correctement, mais il y a une ligne que nous avons ajoutÃ©e qui n'Ã©tait
+pas requise puisqu'elle fait que Python essaie de calculer la mÃªme
+chose deux fois. <b>Pouvez-vous voir laquelle ?</b> Essayez de la trouver, avant de passer Ã  la leÃ§on suivante
 dans laquelle nous allons diviser des fractions.</p>
-<center><a href="fractions.htm"><img alt="précédent" src="../../images/previous.png"> Fractions - 1re partie </a> - <a href="../lessons_toc.htm"><img alt="début" src="../../images/home.png"></a>
+<center><a href="fractions.htm"><img alt="prÃ©cÃ©dent" src="../../images/previous.png"> Fractions - 1re partie </a> - <a href="../lessons_toc.htm"><img alt="dÃ©but" src="../../images/home.png"></a>
 
 - <a href="fractions3.htm">Fractions - 3e partie <img alt="suivant" src="../../images/next.png"></a></center>
 </body></html>
