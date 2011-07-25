@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head>
   
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   
   <link rel="stylesheet" href="../rurple.css" type="text/css">
@@ -11,127 +11,127 @@
 </head><body>
 <h2 class="title">28. Variables et fonctions</h2>
 
-<p>Les variables, que nous avons vues dans la leçon précédente, sont
-particulièrement utiles dans les définitions de fonctions. Vous vous
+<p>Les variables, que nous avons vues dans la leÃ§on prÃ©cÃ©dente, sont
+particuliÃ¨rement utiles dans les dÃ©finitions de fonctions. Vous vous
 rappelez de notre fonction <tt>print2</tt>&nbsp;?</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">def</span> print2():<br>...     <span class="keyword">print</span> 2<br>...    <br>&gt;&gt;&gt; print2()<br>2<br></pre>
 
-<p>Nous pouvons la rendre plus générale comme ceci :</p>
+<p>Nous pouvons la rendre plus gÃ©nÃ©rale comme ceci :</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">def</span> print_nombre(n):<br>...     <span class="keyword">print</span> n<br>...    <br>&gt;&gt;&gt; print_nombre(2)<br>2<br>&gt;&gt;&gt; print_nombre(78)<br>78<br></pre>
 
-<p>En écrivant une variable en tant que <i>paramètre</i> (ou <i>argument</i>)
-entre les deux parenthèses quand nous définisssons la fonction, nous
-disons à Python que, quelle que soit la valeur que nous utilisons quand
-nous <i>appelons</i> la fonction elle doit être affectée à la variable
+<p>En Ã©crivant une variable en tant que <i>paramÃ¨tre</i> (ou <i>argument</i>)
+entre les deux parenthÃ¨ses quand nous dÃ©finisssons la fonction, nous
+disons Ã  Python que, quelle que soit la valeur que nous utilisons quand
+nous <i>appelons</i> la fonction elle doit Ãªtre affectÃ©e Ã  la variable
 (<tt>n</tt> dans ce cas).</p>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">Combiner nombres et chaînes</h3>
+<h3 class="section">Combiner nombres et chaÃ®nes</h3>
 
-<p>Supposons que nous voulions afficher à la fois des nombres et des
-chaînes de caractères, c'est-à-dire que nous voulions que la sortie de
+<p>Supposons que nous voulions afficher Ã  la fois des nombres et des
+chaÃ®nes de caractÃ¨res, c'est-Ã -dire que nous voulions que la sortie de
 la fonction <tt>print_nombre()</tt> soit quelque chose comme&nbsp;:</p>
 
 <pre>Le nombre que vous avez choisi est 2.<br></pre>
 
-<p>Il y a <b><u>plusieurs</u></b> façons de le faire comme vous le
+<p>Il y a <b><u>plusieurs</u></b> faÃ§ons de le faire comme vous le
 verrez plus tard.
-Voici une manière qui n'est pas évidente, mais qui est très utile à
-connaître.</p>
+Voici une maniÃ¨re qui n'est pas Ã©vidente, mais qui est trÃ¨s utile Ã 
+connaÃ®tre.</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">def</span> print_nombre(n):<br>....    <span class="keyword">print</span> <span class="string">"Le nombre que vous avez choisi est %s."</span> % n<br>....    <br>&gt;&gt;&gt; print_nombre(3)<br>Le nombre que vous avez choisi est 3.<br></pre>
 
-<p>Python remplace la combinaison <tt>%s</tt> qui est dans la chaîne
-de caractère par la valeur de la variable qui suit le <tt>%</tt> après
-la chaîne. Essayez le vous même, et continuez à lire.</p>
+<p>Python remplace la combinaison <tt>%s</tt> qui est dans la chaÃ®ne
+de caractÃ¨re par la valeur de la variable qui suit le <tt>%</tt> aprÃ¨s
+la chaÃ®ne. Essayez le vous mÃªme, et continuez Ã  lire.</p>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">Passons à de plus grandes choses</h3>
+<h3 class="section">Passons Ã  de plus grandes choses</h3>
 
-<p>Revenons à notre fonction <tt>plus_grand()</tt> et rendons la plus
-générale.
+<p>Revenons Ã  notre fonction <tt>plus_grand()</tt> et rendons la plus
+gÃ©nÃ©rale.
 Voici comment nous pouvons le faire :<br>
 </p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">def</span> plus_grand(premier, second):<br>...     <span class="keyword">if</span> premier &gt; second:<br>...         <span class="keyword">print</span> <span class="string">"%s est plus grand que %s"</span> % (premier, second)<br>...     <span class="keyword">else</span>:<br>...         <span class="keyword">print</span> <span class="string">"%s est plus grand que %s"</span> % (second, premier)<br>...     <br>&gt;&gt;&gt; plus_grand(5, 4)<br>5 est plus grand que 4<br>&gt;&gt;&gt; plus_grand(0, 10)<br>10 est plus grand que 0<br></pre>
 
-<p>Notez que nous devons mettre des parenthèses <tt>()</tt> autour des
+<p>Notez que nous devons mettre des parenthÃ¨ses <tt>()</tt> autour des
 deux variables qui suivent&nbsp; le signe pour-cent <tt>%</tt> pour
 que Python sache que nous voulons qu'elles remplacent les deux <tt>%s</tt>
-qui sont dans la chaîne de caractères.</p>
+qui sont dans la chaÃ®ne de caractÃ¨res.</p>
 
 <p><b>Essayez !</b></p>
 
-<p><b>Remarque&nbsp;:</b> Vous avez essayé et testé la fonction avec
-plusieurs valeurs&nbsp;? Vous avez dû remarqué que votre programme
-avait un petit défaut, non&nbsp;? Quand vous programmez, attention aux
+<p><b>Remarque&nbsp;:</b> Vous avez essayÃ© et testÃ© la fonction avec
+plusieurs valeurs&nbsp;? Vous avez dÃ» remarquÃ© que votre programme
+avait un petit dÃ©faut, non&nbsp;? Quand vous programmez, attention aux
 cas particuliers&nbsp;:</p>
 
 <pre>&gt;&gt;&gt; plus_grand(10, 10)<br>10 est plus grand que 10<br></pre>
 
-<p>Vous voyez ce que je veux dire maintenant ? J'ai fait exprès
-d'oublier le cas où les deux nombres sont égaux pour simplifier, mais
-maintenant, c'est à vous de corriger cet oubli. Vous pourrez utiliser
-le mot-clé <span class="keyword">elif</span>
-pour cela (vous ne l'avez pas oublié, j'espère ? sinon revenez en
-arrière de quelques leçons). Vous verrez la solution dans la suite mais
+<p>Vous voyez ce que je veux dire maintenant ? J'ai fait exprÃ¨s
+d'oublier le cas oÃ¹ les deux nombres sont Ã©gaux pour simplifier, mais
+maintenant, c'est Ã  vous de corriger cet oubli. Vous pourrez utiliser
+le mot-clÃ© <span class="keyword">elif</span>
+pour cela (vous ne l'avez pas oubliÃ©, j'espÃ¨re ? sinon revenez en
+arriÃ¨re de quelques leÃ§ons). Vous verrez la solution dans la suite mais
 comme d'habitude, essayez d'abord !<br>
 </p>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">Passons à des choses encore plus grandes</h3>
+<h3 class="section">Passons Ã  des choses encore plus grandes</h3>
 
 <p>Nous venons de voir comment, en utilisant des variables, nous
-pouvons rendre notre fonction <tt>plus_grand()</tt> plus générale
-qu'avant, quand elle pouvait seulement comparer les deux mêmes valeurs.
-Maintenant, telle qu'elle est écrite, elle a toujours besoin de deux <i>paramètres</i>&nbsp;:
-les deux nombres à comparer. Supposons que nous voulions que Python
-décide si certains nombres sont plus grands que la valeur particulière
-0 (zéro). Nous pourrions écrire une autre fonction pour le faire... ou
-nous pourrions modifier légèrement notre fonction existante comme
+pouvons rendre notre fonction <tt>plus_grand()</tt> plus gÃ©nÃ©rale
+qu'avant, quand elle pouvait seulement comparer les deux mÃªmes valeurs.
+Maintenant, telle qu'elle est Ã©crite, elle a toujours besoin de deux <i>paramÃ¨tres</i>&nbsp;:
+les deux nombres Ã  comparer. Supposons que nous voulions que Python
+dÃ©cide si certains nombres sont plus grands que la valeur particuliÃ¨re
+0 (zÃ©ro). Nous pourrions Ã©crire une autre fonction pour le faire... ou
+nous pourrions modifier lÃ©gÃ¨rement notre fonction existante comme
 suit&nbsp;:</p>
 
-<pre>&gt;&gt;&gt; <span class="keyword">def</span> plus_grand(premier, second=0):<br>...     <span class="keyword">if</span> premier &gt; second:<br>...         <span class="keyword">print</span> <span class="string">"%s est plus grand que %s"</span> % (premier, second)<br>...     <span class="keyword">elif</span> premier &lt; second:<br>...         <span class="keyword">print</span> <span class="string">"%s est plus grand que %s"</span> % (second, premier)<br>...     <span class="keyword">else</span>:<br>...         <span class="keyword">print</span> <span class="string">"%s est égal à lui-même !"</span> % premier<br>...     <br>&gt;&gt;&gt; plus_grand(5, 4)<br>5 est plus grand que 4<br>&gt;&gt;&gt; plus_grand(1, 10)<br>10 est plus grand que 1<br>plus_grand(5)<br>&gt;&gt;&gt; 5 est plus grand que 0<br>plus_grand(-2)<br>&gt;&gt;&gt; 0 est plus grand que -2<br></pre>
+<pre>&gt;&gt;&gt; <span class="keyword">def</span> plus_grand(premier, second=0):<br>...     <span class="keyword">if</span> premier &gt; second:<br>...         <span class="keyword">print</span> <span class="string">"%s est plus grand que %s"</span> % (premier, second)<br>...     <span class="keyword">elif</span> premier &lt; second:<br>...         <span class="keyword">print</span> <span class="string">"%s est plus grand que %s"</span> % (second, premier)<br>...     <span class="keyword">else</span>:<br>...         <span class="keyword">print</span> <span class="string">"%s est Ã©gal Ã  lui-mÃªme !"</span> % premier<br>...     <br>&gt;&gt;&gt; plus_grand(5, 4)<br>5 est plus grand que 4<br>&gt;&gt;&gt; plus_grand(1, 10)<br>10 est plus grand que 1<br>plus_grand(5)<br>&gt;&gt;&gt; 5 est plus grand que 0<br>plus_grand(-2)<br>&gt;&gt;&gt; 0 est plus grand que -2<br></pre>
 
-<p>En écrivant "<tt>second=0</tt>" entre les parenthèses dans la
-définition de la fonction, nous demandons à Python d'utiliser cette
-valeur pour la deuxième variable
-si nous appelons la fonction avec seulement un paramètre. Quand nous
-donnons une valeur par défaut comme cela à un paramètre, nous appelons
-cela un paramètre nommé.</p>
+<p>En Ã©crivant "<tt>second=0</tt>" entre les parenthÃ¨ses dans la
+dÃ©finition de la fonction, nous demandons Ã  Python d'utiliser cette
+valeur pour la deuxiÃ¨me variable
+si nous appelons la fonction avec seulement un paramÃ¨tre. Quand nous
+donnons une valeur par dÃ©faut comme cela Ã  un paramÃ¨tre, nous appelons
+cela un paramÃ¨tre nommÃ©.</p>
 
-<p>Les paramètres nommés (il peut y en avoir plus d'un) <b><u>doivent</u></b>
+<p>Les paramÃ¨tres nommÃ©s (il peut y en avoir plus d'un) <b><u>doivent</u></b>
 toujours
-apparaître <b><u>après</u></b> les paramètres non nommés. Par
-conséquent, les définitions suivantes [seule la première ligne est
-montrée ci-dessous] seraient permises&nbsp;:</p>
+apparaÃ®tre <b><u>aprÃ¨s</u></b> les paramÃ¨tres non nommÃ©s. Par
+consÃ©quent, les dÃ©finitions suivantes [seule la premiÃ¨re ligne est
+montrÃ©e ci-dessous] seraient permises&nbsp;:</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">def</span> quatre_parametres(a, b, c, d=33):<br>&gt;&gt;&gt; <span class="keyword">def</span> quatre_parametres(a, b, c=7, d=2):<br>&gt;&gt;&gt; <span class="keyword">def</span> quatre_parametres(a, b=1, c=3, d=56):<br>&gt;&gt;&gt; <span class="keyword">def</span> quatre_parametres(a=4, b=1, c=3, d=0):<br></pre>
 
-<p>mais les définitions suivantes ne seraient <b><u>pas</u></b>
-autorisées&nbsp;:</p>
+<p>mais les dÃ©finitions suivantes ne seraient <b><u>pas</u></b>
+autorisÃ©es&nbsp;:</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">def</span> quatre_parametres(a=1, b, c, d=33):<br>&gt;&gt;&gt; <span class="keyword">def</span> quatre_parametres(a, b=2, c=3, d):<br>&gt;&gt;&gt; <span class="keyword">def</span> quatre_parametres(a=5, b=1, c=3, d):<br></pre>
 
-<p>Essayez les tout en écrivant vos propres définitions de fonctions.</p>
+<p>Essayez les tout en Ã©crivant vos propres dÃ©finitions de fonctions.</p>
 
 <!--==============================-->
 <hr width="50%">
-<h3 class="section">Dernière mise en garde</h3>
+<h3 class="section">DerniÃ¨re mise en garde</h3>
 
-<p>Python ne vous permet pas d'utiliser l'un de ses mots-clés comme une
+<p>Python ne vous permet pas d'utiliser l'un de ses mots-clÃ©s comme une
 variable. Essayez ce qui suit&nbsp;:</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">def</span> = 2<br></pre>
 
 <p>et voyez ce que vous obtenez&nbsp;!</p>
 
-<center><a href="27-variables.htm"><img alt="précédent" src="../../images/previous.png">Variables.</a> - <a href="../lessons_toc.htm"><img alt="début" src="../../images/home.png"></a>
+<center><a href="27-variables.htm"><img alt="prÃ©cÃ©dent" src="../../images/previous.png">Variables.</a> - <a href="../lessons_toc.htm"><img alt="dÃ©but" src="../../images/home.png"></a>
 - <a href="29-strings.htm">Quel est votre nom ?<img alt="suivant" src="../../images/next.png"></a></center>
 
 </body></html>
