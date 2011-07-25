@@ -2,70 +2,70 @@
 <html><head>
 
   
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   
-  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>30. Programmation Orientée-Objet&nbsp;: notation "pointée"</title></head><body>
-<h2 class="title">30. Programmation Orientée-Objet&nbsp;: notation "pointée"</h2>
+  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>30. Programmation OrientÃ©e-Objet&nbsp;: notation "pointÃ©e"</title></head><body>
+<h2 class="title">30. Programmation OrientÃ©e-Objet&nbsp;: notation "pointÃ©e"</h2>
 
-<p>Nous allons bientôt étudier un style de programmation moderne appelé <em>Programmation Orientée-Objet</em>
+<p>Nous allons bientÃ´t Ã©tudier un style de programmation moderne appelÃ© <em>Programmation OrientÃ©e-Objet</em>
 [POO]. Python est un langage de POO,
 bien que vous n'auriez jamais pu le deviner avec ce que nous avons vu
-jusqu'ici. Avant de commencer à écrire des programmes orientés-objet,
+jusqu'ici. Avant de commencer Ã  Ã©crire des programmes orientÃ©s-objet,
 nous allons d'abord apprendre comment lire et comprendre la notation
-utilisée.</p>
+utilisÃ©e.</p>
 
 <!-- ======================== -->
 <hr width="50%">
-<h3 class="section">La journée d'un chien</h3>
-<p>Fido est un chien. Pendant une journée typique, il fait diverses
+<h3 class="section">La journÃ©e d'un chien</h3>
+<p>Fido est un chien. Pendant une journÃ©e typique, il fait diverses
 actions : il mange, court, dort, etc. Voici comment un programmeur de
-POO écrirait cela&nbsp;:</p>
+POO Ã©crirait cela&nbsp;:</p>
 <pre>Fido = Chien()<br>Fido.mange()<br>Fido.court()<br>Fido.dort()<br></pre>
 
-<p>De plus, Fido a diverses qualités, ou <i>attributs</i>. Ce sont des <i>variables</i>,
+<p>De plus, Fido a diverses qualitÃ©s, ou <i>attributs</i>. Ce sont des <i>variables</i>,
 comme celles que nous avons vues auparavant, sauf qu'elles
-"appartiennent" à Fido. Il est grand (pour un chien) et ses poils sont
-noirs. Voici comment le programmeur pourrait écrire la même chose :</p>
+"appartiennent" Ã  Fido. Il est grand (pour un chien) et ses poils sont
+noirs. Voici comment le programmeur pourrait Ã©crire la mÃªme chose :</p>
 
 <pre>Fido.taille = <span class="string">"grand"</span><br>Fido.couleur_poils = <span class="string">"noir"</span>
 </pre>
 
-<p>Dans le langage orienté-objet, nous avons ce qui suit :</p>
+<p>Dans le langage orientÃ©-objet, nous avons ce qui suit :</p>
 
 <ul>
 
   <li><tt>Chien</tt> est un exemple de <i>classe</i> (d'objets).</li>
   <li><tt>Fido</tt> est une <i>instance</i> (ou objet particulier) de la <i>classe</i> <tt>Chien</tt>.</li>
-  <li>Une classe peut être vue comme une fonction spéciale qui crée des instances.</li>
-  <li><tt>mange(), court()</tt> et <tt>dort()</tt> sont des <i>méthodes</i>
+  <li>Une classe peut Ãªtre vue comme une fonction spÃ©ciale qui crÃ©e des instances.</li>
+  <li><tt>mange(), court()</tt> et <tt>dort()</tt> sont des <i>mÃ©thodes</i>
 de la <i>classe</i> <tt>Chien</tt><span style="font-family: monospace;">.</span>
-Les "méthodes" sont comme les "fonctions" que nous avons vues
-auparavant (la seule différence est qu'elles appartiennent à une
-classe/instance donnée).</li>
+Les "mÃ©thodes" sont comme les "fonctions" que nous avons vues
+auparavant (la seule diffÃ©rence est qu'elles appartiennent Ã  une
+classe/instance donnÃ©e).</li>
   <li><tt>taille</tt> et <tt>couleur_poils</tt> sont des <i>attributs</i> d'une instance (d'un objet). Les attributs peuvent prendre toutes les valeurs qu'une variable "normale" peut prendre.</li>
-  <li>La connexion entre les attributs ou les méthodes et l'objet est indiquée par un "point" (".") placé entre eux.</li>
+  <li>La connexion entre les attributs ou les mÃ©thodes et l'objet est indiquÃ©e par un "point" (".") placÃ© entre eux.</li>
 </ul>
 
-<p>Les objets peuvent aussi avoir d'autres objets qui leur appartiennent, chacun avec leurs propres méthodes ou attributs :</p>
+<p>Les objets peuvent aussi avoir d'autres objets qui leur appartiennent, chacun avec leurs propres mÃ©thodes ou attributs :</p>
 
 <pre>Fido.queue.remue()<br>Fido.queue.type = <span class="string">"touffue"</span><br>Fido.patte_avant_gauche.bouge()<br>Fido.tete.bouche.dents.canine.fait_mal()<br></pre>
 
 <p>Nous verrons comment cela fonctionne plus tard. Pour le moment, voyons comment Reeborg peut utiliser la notation
-"pointée".</p>
+"pointÃ©e".</p>
 
 <hr width="50%">
-<h3 class="try">Un robot usé obtient son nom</h3>
+<h3 class="try">Un robot usÃ© obtient son nom</h3>
 
-<p>Jusqu'ici, tous les programmes que nous avons écrits commandaient à Reeborg d'accomplir
-des tâches sans utiliser la notation de la Programmation Orienté-Objet (POO). Commençons avec un exemple simple.</p>
+<p>Jusqu'ici, tous les programmes que nous avons Ã©crits commandaient Ã  Reeborg d'accomplir
+des tÃ¢ches sans utiliser la notation de la Programmation OrientÃ©-Objet (POO). CommenÃ§ons avec un exemple simple.</p>
 
 
-<p>D'abord, nous débutons avec un monde vide, en enlevant le robot s'il le faut grâce au bouton&nbsp; ajouter/supprimer un robot <img alt="ajouter/supprimer robot" src="../../images/intro/btn_add_robot.png"></p>
+<p>D'abord, nous dÃ©butons avec un monde vide, en enlevant le robot s'il le faut grÃ¢ce au bouton&nbsp; ajouter/supprimer un robot <img alt="ajouter/supprimer robot" src="../../images/intro/btn_add_robot.png"></p>
 
-<p>Maintenant, vous vous rappelez peut-être que les initiales RUR dans RUR-PLE signifient : <b><u>Robot Usé</u></b> de Roberge (<span style="font-style: italic;">Roberge's </span><b style="font-style: italic;"><u>Used
-Robot</u></b>). Les robots que nous utilisons sont vieux et défectueux <small>[Nous apprendrons à les réparer plus tard]</small>. Aussi, nous allons créer notre première instance de la classe
-<tt>UsedRobot</tt> et la nommer, à propos, Reeborg ! Nous lui ordonnerons alors de faire un pas puis de s'éteindre.</p>
+<p>Maintenant, vous vous rappelez peut-Ãªtre que les initiales RUR dans RUR-PLE signifient : <b><u>Robot UsÃ©</u></b> de Roberge (<span style="font-style: italic;">Roberge's </span><b style="font-style: italic;"><u>Used
+Robot</u></b>). Les robots que nous utilisons sont vieux et dÃ©fectueux <small>[Nous apprendrons Ã  les rÃ©parer plus tard]</small>. Aussi, nous allons crÃ©er notre premiÃ¨re instance de la classe
+<tt>UsedRobot</tt> et la nommer, Ã  propos, Reeborg ! Nous lui ordonnerons alors de faire un pas puis de s'Ã©teindre.</p>
 
 <pre>Reeborg = UsedRobot()<br>Reeborg.move()<br>Reeborg.turn_off()<br></pre>
 
@@ -74,33 +74,33 @@ Robot</u></b>). Les robots que nous utilisons sont vieux et défectueux <small>[N
 <hr width="50%">
 <h3 class="try">Plus de robots</h3>
 
-<p>Les méthodes, tout comme les fonctions, peuvent avoir des paramètres. Commencez par un monde vide et essayez ce qui suit :</p>
+<p>Les mÃ©thodes, tout comme les fonctions, peuvent avoir des paramÃ¨tres. Commencez par un monde vide et essayez ce qui suit :</p>
 
-<pre><span class="comment"># ajouter robot au point d'origine [par défaut], mais avec une couleur plus intéressante</span><br>Larry = UsedRobot(colour=<span class="string">'blue'</span>)<br><span class="comment"># deuxième robot, couleur par défaut (gris) face au Nord</span><br>Curly = UsedRobot(1, 3, <span class="string">'N'</span>)<br><span class="comment"># troisième robot transportant des sonnettes</span><br>Moe = UsedRobot(1, 2, beepers=9, colour=<span class="string">'yellow'</span>)<br><br>Larry.move()<br>Curly.move()<br>Moe.move()<br>Larry.move()<br>Curly.move()<br>Moe.move()<br><br>Curly.turn_left()<br>Larry.move()<br>Curly.move()<br><span class="comment"># L'extinction de n'importe quel robot termine le programme</span><br>Moe.turn_off()<br></pre>
-<p>Les robots se présentent dans une variété de couleurs : gris (par
-défaut), jaune, bleu, bleu clair, vert et violet [NdT&nbsp;: en
+<pre><span class="comment"># ajouter robot au point d'origine [par dÃ©faut], mais avec une couleur plus intÃ©ressante</span><br>Larry = UsedRobot(colour=<span class="string">'blue'</span>)<br><span class="comment"># deuxiÃ¨me robot, couleur par dÃ©faut (gris) face au Nord</span><br>Curly = UsedRobot(1, 3, <span class="string">'N'</span>)<br><span class="comment"># troisiÃ¨me robot transportant des sonnettes</span><br>Moe = UsedRobot(1, 2, beepers=9, colour=<span class="string">'yellow'</span>)<br><br>Larry.move()<br>Curly.move()<br>Moe.move()<br>Larry.move()<br>Curly.move()<br>Moe.move()<br><br>Curly.turn_left()<br>Larry.move()<br>Curly.move()<br><span class="comment"># L'extinction de n'importe quel robot termine le programme</span><br>Moe.turn_off()<br></pre>
+<p>Les robots se prÃ©sentent dans une variÃ©tÃ© de couleurs : gris (par
+dÃ©faut), jaune, bleu, bleu clair, vert et violet [NdT&nbsp;: en
 anglais, respectivement, <i>grey, yellow,
 blue,
 light blue, green</i> et <i>purple</i>].
-Ils peuvent être positionnés n'importe où dans le monde (avec plus d'un
-robot à la même intersection), face à n'importe laquelle des quatre
-directions ('E' <small>[par défaut]</small>, 'N', 'S', 'W') ou transporter un certain nombre de sonnettes depuis le début. Notez qu'il y a deux paramètres <b>nommés</b>
-(beepers et colour) et trois <b>non-nommés</b>
+Ils peuvent Ãªtre positionnÃ©s n'importe oÃ¹ dans le monde (avec plus d'un
+robot Ã  la mÃªme intersection), face Ã  n'importe laquelle des quatre
+directions ('E' <small>[par dÃ©faut]</small>, 'N', 'S', 'W') ou transporter un certain nombre de sonnettes depuis le dÃ©but. Notez qu'il y a deux paramÃ¨tres <b>nommÃ©s</b>
+(beepers et colour) et trois <b>non-nommÃ©s</b>
 (rue, avenue et
-orientation). Les deux paramètres nommés doivent apparaître en dernier
-(leur ordre peut être interchangé si nous écrivons leur nom). Les
-paramètres non-nommés, s'ils apparaissent, doivent être dans le même
-ordre. Donc, si nous voulons spécifier une orientation (disons 'N'),
-nous devons d'abord spécifier une rue et une avenue pour que
-l'orientation soit le troisième paramètre.</p>
-<p>Les déclarations suivantes sont permises :</p>
+orientation). Les deux paramÃ¨tres nommÃ©s doivent apparaÃ®tre en dernier
+(leur ordre peut Ãªtre interchangÃ© si nous Ã©crivons leur nom). Les
+paramÃ¨tres non-nommÃ©s, s'ils apparaissent, doivent Ãªtre dans le mÃªme
+ordre. Donc, si nous voulons spÃ©cifier une orientation (disons 'N'),
+nous devons d'abord spÃ©cifier une rue et une avenue pour que
+l'orientation soit le troisiÃ¨me paramÃ¨tre.</p>
+<p>Les dÃ©clarations suivantes sont permises :</p>
 
-<pre>R1 = UsedRobot(2) <span class="comment"># créé à la 2e rue, 1re avenue, face à l'Est</span><br>R2 = UsedRobot(2, 3) <span class="comment"># 2e rue, 3e avenue, face à l'Est</span><br>R3 = UsedRobot(3, 1, <span class="string">'S'</span>) <span class="comment"># 3e rue, 1re avenue, face au Sud</span><br>R4 = UsedRobot(5, colour=<span class="string">'yellow'</span>) <span class="comment"># 5e rue, 1re avenue, face à l'Est</span>
+<pre>R1 = UsedRobot(2) <span class="comment"># crÃ©Ã© Ã  la 2e rue, 1re avenue, face Ã  l'Est</span><br>R2 = UsedRobot(2, 3) <span class="comment"># 2e rue, 3e avenue, face Ã  l'Est</span><br>R3 = UsedRobot(3, 1, <span class="string">'S'</span>) <span class="comment"># 3e rue, 1re avenue, face au Sud</span><br>R4 = UsedRobot(5, colour=<span class="string">'yellow'</span>) <span class="comment"># 5e rue, 1re avenue, face Ã  l'Est</span>
 </pre>
 
-<p>Les déclarations suivantes ne sont <b>pas permises </b>:</p>
+<p>Les dÃ©clarations suivantes ne sont <b>pas permises </b>:</p>
 
-<pre>R5 = UsedRobot(3, <span class="string">'S'</span>) <span class="comment"># l'orientation n'est <span style="font-family: mon;"><span style="font-weight: bold;">pas</span></span> le 3e paramètre</span><br>R6 = UsedRobot(colour=<span class="string">'yellow'</span>, 5) <span class="comment"># paramètre non-nommé mis après le nommé</span>
+<pre>R5 = UsedRobot(3, <span class="string">'S'</span>) <span class="comment"># l'orientation n'est <span style="font-family: mon;"><span style="font-weight: bold;">pas</span></span> le 3e paramÃ¨tre</span><br>R6 = UsedRobot(colour=<span class="string">'yellow'</span>, 5) <span class="comment"># paramÃ¨tre non-nommÃ© mis aprÃ¨s le nommÃ©</span>
 </pre>
 
 <center><a href="29-strings.htm"><img alt="previous" src="../../images/previous.png">Quel est ton nom ?</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
