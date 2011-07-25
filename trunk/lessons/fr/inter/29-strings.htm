@@ -3,57 +3,57 @@
 
 
   
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   
   <link rel="stylesheet" href="../rurple.css" type="text/css"><title>29. Quel est votre nom ?</title></head><body>
 <h2 class="title">29. Quel est votre nom ?</h2>
-<p>Nous avons vu comment nous pouvions affecter des nombres à des
-variables. Nous pouvons aussi affecter des chaînes de caractères à des
+<p>Nous avons vu comment nous pouvions affecter des nombres Ã  des
+variables. Nous pouvons aussi affecter des chaÃ®nes de caractÃ¨res Ã  des
 variables&nbsp;; par exemple&nbsp;:</p>
-<pre>&gt;&gt;&gt; Prenom = "André"<br>&gt;&gt;&gt; Nom = "Roberge"<br>&gt;&gt;&gt; NomComplet = Prenom + Nom<br>&gt;&gt;&gt; <span class="keyword">print</span> NomComplet<br>AndréRoberge<br></pre>
+<pre>&gt;&gt;&gt; Prenom = "AndrÃ©"<br>&gt;&gt;&gt; Nom = "Roberge"<br>&gt;&gt;&gt; NomComplet = Prenom + Nom<br>&gt;&gt;&gt; <span class="keyword">print</span> NomComplet<br>AndrÃ©Roberge<br></pre>
 
-<p>[NdT : Remarquez qu'à la première ligne, le nom de la variable est
-écrit sans accent (vous vous souvenez, n'est-ce-pas ? on avait dit que
+<p>[NdT : Remarquez qu'Ã  la premiÃ¨re ligne, le nom de la variable est
+Ã©crit sans accent (vous vous souvenez, n'est-ce-pas ? on avait dit que
 comme pour les synonymes et les noms de fonctions, seules les lettres
-de l'alphabet anglais sont autorisées), mais la chaîne de caractères
-peut contenir n'importe quel caractère, alors André peut être écrit
+de l'alphabet anglais sont autorisÃ©es), mais la chaÃ®ne de caractÃ¨res
+peut contenir n'importe quel caractÃ¨re, alors AndrÃ© peut Ãªtre Ã©crit
 avec son accent (c'est plus joli)...]<br>
 </p>
-<p>Notez comment le "signe plus" (<tt>+</tt>) est utilisé par Python pour combiner deux chaînes en une&nbsp;; cette opération est appelée <i>concaténation</i>. Mais notez aussi qu'il n'y a pas d'espace entre le prénom et le nom.
-Nous pouvons corriger cela en ajoutant entre les deux une troisième chaîne composée d'un seul caractère espace.</p>
-<pre>&gt;&gt;&gt; NomComplet = Prenom + <span class="string">" "</span> + Nom<br>&gt;&gt;&gt; <span class="keyword">print</span> NomComplet<br>André Roberge<br></pre>
+<p>Notez comment le "signe plus" (<tt>+</tt>) est utilisÃ© par Python pour combiner deux chaÃ®nes en une&nbsp;; cette opÃ©ration est appelÃ©e <i>concatÃ©nation</i>. Mais notez aussi qu'il n'y a pas d'espace entre le prÃ©nom et le nom.
+Nous pouvons corriger cela en ajoutant entre les deux une troisiÃ¨me chaÃ®ne composÃ©e d'un seul caractÃ¨re espace.</p>
+<pre>&gt;&gt;&gt; NomComplet = Prenom + <span class="string">" "</span> + Nom<br>&gt;&gt;&gt; <span class="keyword">print</span> NomComplet<br>AndrÃ© Roberge<br></pre>
 
-<p>Une autre façon d'obtenir le même résultat est d'utiliser la notation <tt>%s</tt>
-que nous avions utilisée pour mettre des variables numériques à l'intérieur d'une chaîne.</p>
+<p>Une autre faÃ§on d'obtenir le mÃªme rÃ©sultat est d'utiliser la notation <tt>%s</tt>
+que nous avions utilisÃ©e pour mettre des variables numÃ©riques Ã  l'intÃ©rieur d'une chaÃ®ne.</p>
 
-<pre>&gt;&gt;&gt; nom_complet = <span class="string">"%s %s"</span> % (Prenom, Nom)<br>&gt;&gt;&gt; <span class="keyword">print</span> nom_complet<br>André Roberge<br></pre>
+<pre>&gt;&gt;&gt; nom_complet = <span class="string">"%s %s"</span> % (Prenom, Nom)<br>&gt;&gt;&gt; <span class="keyword">print</span> nom_complet<br>AndrÃ© Roberge<br></pre>
 
-<p>Enfin, nous pouvons comparer pour voir si les deux chaînes sont égales.</p>
+<p>Enfin, nous pouvons comparer pour voir si les deux chaÃ®nes sont Ã©gales.</p>
 
 <pre>&gt;&gt;&gt; <span class="keyword">print</span> nom_compler == NomComplet<br>True<br></pre>
 
-<p>Essayez le vous-même !</p>
+<p>Essayez le vous-mÃªme !</p>
 
 <!--==============================-->
 <hr width="50%">
 <h3 class="section">Tranches</h3>
 
-<p>Parfois, nous voulons utiliser seulement un caractère dans une
-chaîne, ou une petite partie d'une chaîne (ce qu'on appelle une
-sous-chaîne). Pour cela, nous allons apprendre ce qu'est le <i>découpage en tranches</i> (en anglais <i>slicing</i>).</p>
+<p>Parfois, nous voulons utiliser seulement un caractÃ¨re dans une
+chaÃ®ne, ou une petite partie d'une chaÃ®ne (ce qu'on appelle une
+sous-chaÃ®ne). Pour cela, nous allons apprendre ce qu'est le <i>dÃ©coupage en tranches</i> (en anglais <i>slicing</i>).</p>
 
-<p>Je vais vous donner trois règles à retenir, et une astuce concernant
-la notation, puis je vous donnerai le résultat de tout une série
-d'exemples que vous pourrez essayer avec l'interpréteur Python. Mis à
-part ces trois règles, je ne vous donnerai <b>aucune</b> autre
-explication pour cette section, donc vous devrez l'examiner très
+<p>Je vais vous donner trois rÃ¨gles Ã  retenir, et une astuce concernant
+la notation, puis je vous donnerai le rÃ©sultat de tout une sÃ©rie
+d'exemples que vous pourrez essayer avec l'interprÃ©teur Python. Mis Ã 
+part ces trois rÃ¨gles, je ne vous donnerai <b>aucune</b> autre
+explication pour cette section, donc vous devrez l'examiner trÃ¨s
 attentivement pour comprendre totalement ce qui se passe.</p>
 
 <ol>
 
-  <li>Python commence à compter à partir de zéro.</li>
-  <li>Python n'inclut pas ce que vous pensez être le dernier nombre quand il compte.</li>
+  <li>Python commence Ã  compter Ã  partir de zÃ©ro.</li>
+  <li>Python n'inclut pas ce que vous pensez Ãªtre le dernier nombre quand il compte.</li>
   <li>Python peut compter par pas.</li>
 </ol>
 
@@ -67,9 +67,9 @@ attentivement pour comprendre totalement ce qui se passe.</p>
 
 <pre>&gt;&gt;&gt; alphabet = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span><br>&gt;&gt;&gt; chiffres = <span class="string">'0123456789'</span><br><br>&gt;&gt;&gt; alphabet[0]<br>'a'<br><br>&gt;&gt;&gt; alphabet[1]<br>'b'<br><br>&gt;&gt;&gt; alphabet[5]<br>'f'<br><br>&gt;&gt;&gt; chiffres[0]<br>'0'<br><br>&gt;&gt;&gt; chiffres[7]<br>'7'<br><br>&gt;&gt;&gt; chiffres[-1]<br>'9'<br><br>&gt;&gt;&gt; chiffres[-2]<br>'8'<br><br>&gt;&gt;&gt; alphabet[-3]<br>'x'<br><br>&gt;&gt;&gt; chiffres[0:3]<br>'012'<br><br>&gt;&gt;&gt; chiffres[0:4]<br>'0123'<br><br>&gt;&gt;&gt; chiffres[0:5]<br>'01234'<br><br>&gt;&gt;&gt; chiffres[2:5]<br>'234'<br><br>&gt;&gt;&gt; alphabet[2:5]<br>'cde'<br><br>&gt;&gt;&gt; chiffres[0:10:2]<br>'02468'<br><br>&gt;&gt;&gt; chiffres[0::2]<br>'02468'<br><br>&gt;&gt;&gt; chiffres[0::3]<br>'0369'<br><br>&gt;&gt;&gt; chiffres[::3]<br>'0369'<br><br>&gt;&gt;&gt; chiffres[::-1]<br>'9876543210'<br><br>&gt;&gt;&gt; chiffres[::-2]<br>'97531'<br><br>&gt;&gt;&gt; chiffres[::-3]<br>'9630'<br><br>&gt;&gt;&gt; alphabet[:10:2]<br>'acegi'<br></pre>
 
-<p>Fabriquez vos propres chaînes de caractères et essayez quelques exemples de plus par vous-même !</p>
+<p>Fabriquez vos propres chaÃ®nes de caractÃ¨res et essayez quelques exemples de plus par vous-mÃªme !</p>
 
 <center><a href="28-variables2.htm"><img alt="previous" src="../../images/previous.png">Variables et fonctions</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
-- <a href="30-dot.htm">Programmation Orientée-Objet : notation "pointée".<img alt="next" src="../../images/next.png"></a></center>
+- <a href="30-dot.htm">Programmation OrientÃ©e-Objet : notation "pointÃ©e".<img alt="next" src="../../images/next.png"></a></center>
 
 </body></html>
