@@ -3,22 +3,22 @@
 
 
   
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   
-  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>Éviter les répétitions - les choses importantes</title></head><body>
-<h2 class="section">Éviter les répétitions : les choses <span class="pykeyword">import</span>antes</h2>
+  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>Ã‰viter les rÃ©pÃ©titions - les choses importantes</title></head><body>
+<h2 class="section">Ã‰viter les rÃ©pÃ©titions : les choses <span class="pykeyword">import</span>antes</h2>
 
-<p>Rappelez-vous de la règle à propos d'éviter les répétitions :</p>
+<p>Rappelez-vous de la rÃ¨gle Ã  propos d'Ã©viter les rÃ©pÃ©titions :</p>
 
 <dl>
 
-  <dt><b>Règle N°3 </b></dt>
-  <dd>Quand vous écrivez des programmes, ne vous répétez pas.<br>
-Je répète : <b>ne vous répétez pas !</b></dd>
+  <dt><b>RÃ¨gle NÂ°3 </b></dt>
+  <dd>Quand vous Ã©crivez des programmes, ne vous rÃ©pÃ©tez pas.<br>
+Je rÃ©pÃ¨te : <b>ne vous rÃ©pÃ©tez pas !</b></dd>
 </dl>
 
-<p>Ce que nous allons voir dans ce chapitre est un moyen d'éviter de "réinventer la roue".</p>
+<p>Ce que nous allons voir dans ce chapitre est un moyen d'Ã©viter de "rÃ©inventer la roue".</p>
 
 <h3 class="section">1. Rappel : trois gauches peuvent faire une droite</h3>
 
@@ -26,70 +26,70 @@ Je répète : <b>ne vous répétez pas !</b></dd>
 
 <pre><span class="keyword">def</span> turn_right():<br>    turn_left()<br>    turn_left()<br>    turn_left()<br></pre>
 
-<p>Nous avons fait cela pour éviter d'avoir à taper <tt>turn_left()</tt>
-trois fois de suite à chaque fois que nous voulions commander à Reeborg
-de tourner à droite.
-Cependant, nous avons toujours beaucoup de répétitions puisque presque
-à chaque fois que nous écrivons un nouveau programme, nous nous mettons
-à définir <tt>turn_right()</tt> encore une fois.
-Il y a toutefois un moyen d'éviter cela. Créez le programme suivant et essayez de l'exécuter.</p>
+<p>Nous avons fait cela pour Ã©viter d'avoir Ã  taper <tt>turn_left()</tt>
+trois fois de suite Ã  chaque fois que nous voulions commander Ã  Reeborg
+de tourner Ã  droite.
+Cependant, nous avons toujours beaucoup de rÃ©pÃ©titions puisque presque
+Ã  chaque fois que nous Ã©crivons un nouveau programme, nous nous mettons
+Ã  dÃ©finir <tt>turn_right()</tt> encore une fois.
+Il y a toutefois un moyen d'Ã©viter cela. CrÃ©ez le programme suivant et essayez de l'exÃ©cuter.</p>
 
 <pre><span class="keyword">from</span> useful <span class="keyword">import</span> turn_right<br><br>turn_right()<br>turn_off()<br></pre>
 
-<h3 class="section">2. À propos de <i>useful</i></h3>
+<h3 class="section">2. Ã€ propos de <i>useful</i></h3>
 
-<p>J'ai créé pour vous un faux <i>module</i> nommé "useful"
+<p>J'ai crÃ©Ã© pour vous un faux <i>module</i> nommÃ© "useful"
 contenant quelques instructions nouvellement <tt><span class="pykeyword">def</span></tt>inies.
 Au lieu d'expliquer ce que chaque nouvelle instruction fait, voici un
-programme exemple avec la capture d'écran correspondante.</p>
+programme exemple avec la capture d'Ã©cran correspondante.</p>
 
 <pre><span class="keyword">from</span> useful <span class="keyword">import</span> *<br><br>turn_left()<br>move()<br>set_trace_style(1, <span class="string">'red'</span>)<br>turn_right()<br>set_trace_style(2, <span class="string">'blue'</span>)<br>move()<br>set_trace_style(1, <span class="string">'green'</span>)<br>climb_up_east()<br>set_trace_style(2, <span class="string">'blue'</span>)<br>move()<br>set_trace_style(1, <span class="string">'orange'</span>)<br>turn_around()<br>set_trace_style(2, <span class="string">'sea green'</span>)<br>climb_up_west()<br>set_trace_style(1, <span class="string">'red'</span>)<br>turn_around()<br>set_trace_style(0, <span class="string">'blue'</span>) <span class="comment"># 0 = invisible</span><br>repeat(move, 4)<br>set_trace_style(1, <span class="string">'green'</span>)<br>climb_down_east()<br>set_trace_style(2, <span class="string">'blue'</span>)<br>move()<br>set_trace_style(1, <span class="string">'black'</span>)<br>turn_around()<br>set_trace_style(2, <span class="string">'red'</span>)<br>climb_down_west()<br>turn_off()<br></pre>
 
 <p><img alt="import" src="../../images/intro/import.png"></p>
 
-<p>Au lieu d'importer chaque nouvelle instruction une à une, comme nous l'avons fait dans le premier exemple avec <tt>turn_right()</tt>, nous avons utilisé la notation "*"
-pour indiquer "toutes les définitions". Avant de continuer, je devrais peut-être faire quelques commentaires :</p>
+<p>Au lieu d'importer chaque nouvelle instruction une Ã  une, comme nous l'avons fait dans le premier exemple avec <tt>turn_right()</tt>, nous avons utilisÃ© la notation "*"
+pour indiquer "toutes les dÃ©finitions". Avant de continuer, je devrais peut-Ãªtre faire quelques commentaires :</p>
 
 <ol>
 
   <li>Pour ceux qui connaissent les <i>modules</i> Python,
 "useful" n'est pas un vrai module, mais un faux qui ne fonctionnera que
-dans le monde de Reeborg. Vous ne serez autorisé à importer aucun
-module "réel" pour l'utiliser dans des programmes RUR. Cela a été fait
-pour des raisons de sécurité.</li>
-  <li>Une nouvelle instruction, <tt>set_trace_style()</tt> a été utilisée [régler le style de trace]. J'aurais pu l'appeler<br>
+dans le monde de Reeborg. Vous ne serez autorisÃ© Ã  importer aucun
+module "rÃ©el" pour l'utiliser dans des programmes RUR. Cela a Ã©tÃ© fait
+pour des raisons de sÃ©curitÃ©.</li>
+  <li>Une nouvelle instruction, <tt>set_trace_style()</tt> a Ã©tÃ© utilisÃ©e [rÃ©gler le style de trace]. J'aurais pu l'appeler<br>
     <tt>set_leaking_oil_colour_and_quantity()</tt>
-[régler la couleur de l'huile de fuite et sa quantité], ce qui aurait
+[rÃ©gler la couleur de l'huile de fuite et sa quantitÃ©], ce qui aurait
 plus de sens dans le monde de Reeborg... mais pas dans le jargon de la
-programmation en général. En gros, une <i>trace</i> d'un programme est
-un moyen de suivre la séquence d'instructions au cours de leur
-exécution. En général, vous ne devriez pas en avoir besoin... mais cela
-peut devenir très utile pour pister les bugs, ou pour les exemples
-comme ceux que j'ai utilisés.</li>
+programmation en gÃ©nÃ©ral. En gros, une <i>trace</i> d'un programme est
+un moyen de suivre la sÃ©quence d'instructions au cours de leur
+exÃ©cution. En gÃ©nÃ©ral, vous ne devriez pas en avoir besoin... mais cela
+peut devenir trÃ¨s utile pour pister les bugs, ou pour les exemples
+comme ceux que j'ai utilisÃ©s.</li>
   <li><span class="keyword">from</span> et <span class="keyword">import</span>
-sont deux mots-clés Python, comme le montre la couleur utilisée pour les écrire.</li>
-  <li>Malgré
-leurs noms, certaines des instructions définies dans "useful" peuvent
-donner des résultats inattendus si le robot n'est pas dans
-l'orientation prévue au moment de commencer leur exécution. Il peut se
-produire à peu près la même chose quand vous importez des "vrais"
-modules Python ; vous devez être au courant des suppositions qui sont
+sont deux mots-clÃ©s Python, comme le montre la couleur utilisÃ©e pour les Ã©crire.</li>
+  <li>MalgrÃ©
+leurs noms, certaines des instructions dÃ©finies dans "useful" peuvent
+donner des rÃ©sultats inattendus si le robot n'est pas dans
+l'orientation prÃ©vue au moment de commencer leur exÃ©cution. Il peut se
+produire Ã  peu prÃ¨s la mÃªme chose quand vous importez des "vrais"
+modules Python ; vous devez Ãªtre au courant des suppositions qui sont
 faites pour la bonne utilisation du module. Je ne vous parlerai <b>pas</b>
 des suppositions faites dans le faux module "useful".
-Vous pouvez les découvrir en essayant d'écrire divers programmes par vous même.</li>
+Vous pouvez les dÃ©couvrir en essayant d'Ã©crire divers programmes par vous mÃªme.</li>
   <li>Vous
 pouvez normalement lire le code Python (ou C) des modules dans la vraie
-vie, si vous cherchez à le faire. Cela peut être utile en l'absence de
+vie, si vous cherchez Ã  le faire. Cela peut Ãªtre utile en l'absence de
 documentation, ou pour apprendre comment les programmeurs plus
-expérimentés écrivent leur code.</li>
-  <li>À cause de la nature restreinte du faux module importé, certaines instructions légitimes (par exemple, quand le mot-clé <span class="keyword">import</span> apparaît dans un commentaire) <i>peuvent</i> donner une erreur rapportée par rur-ple.</li>
+expÃ©rimentÃ©s Ã©crivent leur code.</li>
+  <li>Ã€ cause de la nature restreinte du faux module importÃ©, certaines instructions lÃ©gitimes (par exemple, quand le mot-clÃ© <span class="keyword">import</span> apparaÃ®t dans un commentaire) <i>peuvent</i> donner une erreur rapportÃ©e par rur-ple.</li>
 </ol>
 
-<h3 class="section">3. Et si je veux utiliser le même nom</h3>
+<h3 class="section">3. Et si je veux utiliser le mÃªme nom</h3>
 
 <p>Supposez que vous vouliez utiliser le nom "turn_right" pour
-signifier autre chose que ce qui est défini dans useful. Il y a
-quelques façons de le faire.</p>
+signifier autre chose que ce qui est dÃ©fini dans useful. Il y a
+quelques faÃ§ons de le faire.</p>
 
 <ol>
 
@@ -97,56 +97,56 @@ quelques façons de le faire.</p>
 useful</tt>. En faisant cela, vous devez ajouter <tt>useful.</tt> avant le nom de chaque instruction. Par exemple<br>
     <tt>useful.turn_right()</tt> et <br>
     <tt>turn_right()</tt><br>
-représentent deux commandes différentes. La première est définie dans
-le module useful alors que la seconde devra être définie par vous-même
-autre part. En <i>préfixant</i> <tt>useful.</tt> avant chaque instruction, un lecteur peut immédiatement rapporter que ces instructions sont définies autre part [<i>Nous verrons une autre signification de l'ajout de quelque chose comme <tt>useful.</tt> au nom d'une instruction plus tard quand nous parlerons de Programmation Orientée Objet (POO)</i>].<br>
+reprÃ©sentent deux commandes diffÃ©rentes. La premiÃ¨re est dÃ©finie dans
+le module useful alors que la seconde devra Ãªtre dÃ©finie par vous-mÃªme
+autre part. En <i>prÃ©fixant</i> <tt>useful.</tt> avant chaque instruction, un lecteur peut immÃ©diatement rapporter que ces instructions sont dÃ©finies autre part [<i>Nous verrons une autre signification de l'ajout de quelque chose comme <tt>useful.</tt> au nom d'une instruction plus tard quand nous parlerons de Programmation OrientÃ©e Objet (POO)</i>].<br>
   </li>
-  <li>Une deuxième manière de faire une chose semblable est la suivante :<br>
+  <li>Une deuxiÃ¨me maniÃ¨re de faire une chose semblable est la suivante :<br>
     <pre><span class="comment"># Ce qui suit est utile pour les francophones :</span><br><span class="keyword">from</span> useful <span class="keyword">import</span> turn_right <span class="keyword">as</span> vire_a_droite<br><br><span class="comment"># Utilisation :</span><br>vire_a_droite()<br>turn_off()<br>    </pre>
   </li>
 </ol>Le mot <tt><span class="keyword">as</span></tt> est <i>presque</i>
-un mot-clé
-Python. Il est très probable qu'il deviendra un mot-clé dans une future
+un mot-clÃ©
+Python. Il est trÃ¨s probable qu'il deviendra un mot-clÃ© dans une future
 version de Python. Nous expliquerons ce que signifie cette instruction
 quand nous parlerons des <i>variables.</i>
-<h3 class="section">4. Peut-être pas si utile après tout...</h3>
+<h3 class="section">4. Peut-Ãªtre pas si utile aprÃ¨s tout...</h3>
 
-<p>Si vous considérez l'utilité potentielle du module "useful" dans
-l'écriture de vos propres programmes... vous pourriez penser qu'il est
-trop limité pour être utile après tout. Vous pouvez refléter cela en
-écrivant ce qui suit :</p>
+<p>Si vous considÃ©rez l'utilitÃ© potentielle du module "useful" dans
+l'Ã©criture de vos propres programmes... vous pourriez penser qu'il est
+trop limitÃ© pour Ãªtre utile aprÃ¨s tout. Vous pouvez reflÃ©ter cela en
+Ã©crivant ce qui suit :</p>
 
 <p>
 </p>
 
-<pre><span class="comment"># Importer le module</span><br><span class="keyword">import</span> useful <span class="keyword">as</span> pas_si_useful_apres_tout<br><br><span class="comment"># Utiliser les diverses instructions :</span><br>pas_si_useful_apres_tout.turn_right()<br>pas_si_useful_apres_tout.turn_around()<br>turn_off()<br></pre>Dans la vraie vie, l'utilisation normale de ce type d'instruction <tt><span class="keyword">import</span></tt> ressemble plus à ce qui suit :
-<pre><span class="comment"># Importer le module</span><br><span class="keyword">import</span> module_avec_un_nom_très_très_très_long <span class="keyword">as</span> nom_court<br><br><span class="comment"># Utiliser les diverses instructions :</span><br>nom_court.instruction1()<br>nom_court.instruction2()<br></pre>
+<pre><span class="comment"># Importer le module</span><br><span class="keyword">import</span> useful <span class="keyword">as</span> pas_si_useful_apres_tout<br><br><span class="comment"># Utiliser les diverses instructions :</span><br>pas_si_useful_apres_tout.turn_right()<br>pas_si_useful_apres_tout.turn_around()<br>turn_off()<br></pre>Dans la vraie vie, l'utilisation normale de ce type d'instruction <tt><span class="keyword">import</span></tt> ressemble plus Ã  ce qui suit :
+<pre><span class="comment"># Importer le module</span><br><span class="keyword">import</span> module_avec_un_nom_trÃ¨s_trÃ¨s_trÃ¨s_long <span class="keyword">as</span> nom_court<br><br><span class="comment"># Utiliser les diverses instructions :</span><br>nom_court.instruction1()<br>nom_court.instruction2()<br></pre>
 
 
 <h3 class="section">5. Pourquoi donc importer ?</h3>
 <p>On dit souvent qu'avec Python on a les <i>piles fournies</i> (<i>batteries included</i>).
-Ce qui veut dire que Python inclut beaucoup de modules utiles écrits
-par des gens très intelligents. Ces modules ont été complètement testés
-pour être sans bugs et écrits d'une manière très efficace. Quand vous
-en apprendrez plus sur Python et vous voudrez écrire vos propres
-programmes "compliqués", il sera très profitable de déterminer d'abord
-si un module adéquat existe déjà qui pourrait vous aider dans votre
-tâche. Je vous présenterai quelques modules utiles dans des leçons
-ultérieures.</p>
-<p>Remarque importante pour les enseignants : comme il en a été fait
+Ce qui veut dire que Python inclut beaucoup de modules utiles Ã©crits
+par des gens trÃ¨s intelligents. Ces modules ont Ã©tÃ© complÃ¨tement testÃ©s
+pour Ãªtre sans bugs et Ã©crits d'une maniÃ¨re trÃ¨s efficace. Quand vous
+en apprendrez plus sur Python et vous voudrez Ã©crire vos propres
+programmes "compliquÃ©s", il sera trÃ¨s profitable de dÃ©terminer d'abord
+si un module adÃ©quat existe dÃ©jÃ  qui pourrait vous aider dans votre
+tÃ¢che. Je vous prÃ©senterai quelques modules utiles dans des leÃ§ons
+ultÃ©rieures.</p>
+<p>Remarque importante pour les enseignants : comme il en a Ã©tÃ© fait
 allusion ci-dessus, la raison de la restriction de l'utilisation des
-instructions d'importation est d'éviter que quelqu'un mette la main sur
-un script dangereux et le passe à une victime trop confiante. Remarquez
-que cela peut toujours être fait dans la fenêtre de l'éditeur Python
-mais, espérons-le, d'ici là les élèves en sauront assez pour vérifier
-les programmes donnés par des "amis" avant de les essayer. Cela étant
-dit, si vous êtes familier avec Python il est assez facile d'introduire
+instructions d'importation est d'Ã©viter que quelqu'un mette la main sur
+un script dangereux et le passe Ã  une victime trop confiante. Remarquez
+que cela peut toujours Ãªtre fait dans la fenÃªtre de l'Ã©diteur Python
+mais, espÃ©rons-le, d'ici lÃ  les Ã©lÃ¨ves en sauront assez pour vÃ©rifier
+les programmes donnÃ©s par des "amis" avant de les essayer. Cela Ã©tant
+dit, si vous Ãªtes familier avec Python il est assez facile d'introduire
 un petit changement dans le code source de rur-ple pour permettre
-n'importe quelle instruction d'importation. Cela peut être utile dans
+n'importe quelle instruction d'importation. Cela peut Ãªtre utile dans
 la configuration d'une classe. Veuillez contacter l'auteur si vous avez
 besoin de faire cela et n'y arrivez pas tout seul.</p>
 
 <center><a href="38-class2.htm"><img alt="previous" src="../../images/previous.png">Une touche de classe</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
-- <a href="40-random.htm">Évasions aléatoires<img alt="next" src="../../images/next.png"></a></center>
+- <a href="40-random.htm">Ã‰vasions alÃ©atoires<img alt="next" src="../../images/next.png"></a></center>
 
 </body></html>
