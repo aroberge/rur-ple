@@ -1,98 +1,98 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
   
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   
   <link rel="stylesheet" href="../rurple.css" type="text/css">
-  <title>Évasions aléatoires</title>
+  <title>Ã‰vasions alÃ©atoires</title>
 
   
 </head><body>
-<h2 class="title">Évasions aléatoires</h2>
+<h2 class="title">Ã‰vasions alÃ©atoires</h2>
 <p>Reeborg le <code>RefurbishedRobot</code> transporte en lui quelques
-"dés électroniques". Il peut "lancer les dés" et décider quoi faire en se basant
-sur le résultat. Une telle décision, basée sur un résultat imprévisible comme
-le lancer de dés, est dite <em>aléatoire</em>. Nous allons écrire deux programmes
-qui vont <em>éventuellement</em> permettre à Reeborg de sortir d'un labyrinthe
-en prenant des décisions aléatoires. Voici l'algorithme de base que va suivre Reeborg&nbsp;:</p>
+"dÃ©s Ã©lectroniques". Il peut "lancer les dÃ©s" et dÃ©cider quoi faire en se basant
+sur le rÃ©sultat. Une telle dÃ©cision, basÃ©e sur un rÃ©sultat imprÃ©visible comme
+le lancer de dÃ©s, est dite <em>alÃ©atoire</em>. Nous allons Ã©crire deux programmes
+qui vont <em>Ã©ventuellement</em> permettre Ã  Reeborg de sortir d'un labyrinthe
+en prenant des dÃ©cisions alÃ©atoires. Voici l'algorithme de base que va suivre Reeborg&nbsp;:</p>
 <ul>
 
   <li>Reeborg voit s'il peut avancer d'un pas.</li>
   <ul>
     <li>Si oui, Reeborg avance d'un pas, et voit s'il est sorti du labyrinthe.</li>
     <ul>
-      <li>Si oui, Reeborg s'éteint.</li>
+      <li>Si oui, Reeborg s'Ã©teint.</li>
       <li>Si non, Reeborg continue, en essayant de trouver son chemin vers la sortie.</li>
     </ul>
   </ul>
   <li>Reeborg
-n'est pas sorti du labyrinthe ; il lance ses dés et décide dans quelle
-direction il fera son prochain pas (à gauche, à droite, ou dans la
-direction où il se trouve déjà), et tourne dans cette direction si
-nécessaire.</li>
-  <li>Reeborg retourne au début de cet algorithme, en voyant s'il peut faire un pas en avant, etc.<br>
+n'est pas sorti du labyrinthe ; il lance ses dÃ©s et dÃ©cide dans quelle
+direction il fera son prochain pas (Ã  gauche, Ã  droite, ou dans la
+direction oÃ¹ il se trouve dÃ©jÃ ), et tourne dans cette direction si
+nÃ©cessaire.</li>
+  <li>Reeborg retourne au dÃ©but de cet algorithme, en voyant s'il peut faire un pas en avant, etc.<br>
 </li>
 </ul>
-Nous allons implémenter cet algorithme en utilisant deux types d'approches différents pour gérer les problèmes potentiels.
-<h3 class="section">Évasion aléatoire 1</h3>
+Nous allons implÃ©menter cet algorithme en utilisant deux types d'approches diffÃ©rents pour gÃ©rer les problÃ¨mes potentiels.
+<h3 class="section">Ã‰vasion alÃ©atoire 1</h3>
 <p>Notre premier programme va se baser sur les techniques que nous
-avons vues jusqu'à présent. Nous demandons à Reeborg de vérifier la
-présence d'un mur en face de lui et de n'avancer que s'il n'y en a
-aucun. C'est parfois décrit comme l'approche <i>Regarder avant de sauter</i> (<i>Look
+avons vues jusqu'Ã  prÃ©sent. Nous demandons Ã  Reeborg de vÃ©rifier la
+prÃ©sence d'un mur en face de lui et de n'avancer que s'il n'y en a
+aucun. C'est parfois dÃ©crit comme l'approche <i>Regarder avant de sauter</i> (<i>Look
 before you leap - LBYL</i>).</p>
-<pre>G = RefurbishedRobot()<br>G.set_delay(0) <span class="comment"># avancer aussi vite que possible</span><br><span class="keyword">while</span> True:<br>    <span class="keyword">if</span> G.front_is_clear():<br>        G.move()<br>        <span class="keyword">if</span> G.on_beeper():<br>            G.turn_off()<br>    r = G.roll_dice()   <span class="comment"># "roll dice" = "lancer les dés"</span><br>    <span class="keyword">if</span> r <span class="keyword">in</span> [1, 2]:<br>        G.turn_left()<br>    <span class="keyword">elif</span> r <span class="keyword">in</span> [3, 4]:<br>        G.turn_right()<br></pre>
-Nous avons mis le délai de temps à sa valeur minimale (donc à la
+<pre>G = RefurbishedRobot()<br>G.set_delay(0) <span class="comment"># avancer aussi vite que possible</span><br><span class="keyword">while</span> True:<br>    <span class="keyword">if</span> G.front_is_clear():<br>        G.move()<br>        <span class="keyword">if</span> G.on_beeper():<br>            G.turn_off()<br>    r = G.roll_dice()   <span class="comment"># "roll dice" = "lancer les dÃ©s"</span><br>    <span class="keyword">if</span> r <span class="keyword">in</span> [1, 2]:<br>        G.turn_left()<br>    <span class="keyword">elif</span> r <span class="keyword">in</span> [3, 4]:<br>        G.turn_right()<br></pre>
+Nous avons mis le dÃ©lai de temps Ã  sa valeur minimale (donc Ã  la
 vitesse maximale) car cela peut prendre un moment de trouver la sortie
 ! Quand Reeborg
-"lance les dés", 6 résultats différents sont possibles (les nombres de
-1 à 6).
-L'exemple ci-dessous montre un résultat possible.
+"lance les dÃ©s", 6 rÃ©sultats diffÃ©rents sont possibles (les nombres de
+1 Ã  6).
+L'exemple ci-dessous montre un rÃ©sultat possible.
 
-<p><img alt="laby : solution aléatoire" src="../../images/future/random_maze.png"></p>
+<p><img alt="laby : solution alÃ©atoire" src="../../images/future/random_maze.png"></p>
 
 <h3 class="section">Exceptions</h3>
 
-<p>Pour gérer les conditions inhabituelles, les programmeurs Python utilisent souvent les
-"Exceptions". Par exemple, si vous essayez de diviser un nombre par zéro,
-Python va se plaindre de la façon suivante :</p>
+<p>Pour gÃ©rer les conditions inhabituelles, les programmeurs Python utilisent souvent les
+"Exceptions". Par exemple, si vous essayez de diviser un nombre par zÃ©ro,
+Python va se plaindre de la faÃ§on suivante :</p>
 
 <pre>&gt;&gt;&gt; x = 1/0<br>Traceback (most recent call last):<br>  File "&lt;input&gt;", line 1, in ?<br>ZeroDivisionError: integer division or modulo by zero<br></pre>
-<p>Python a répondu en "levant" une "Exception"
-particulière (ZeroDivisionError) qui a aboutit au message d'erreur (ou Traceback)
-affiché ci-dessus. Ce processus de "lever" (<i>raise</i>
-en anglais) des exceptions est une façon pour le programme Python
+<p>Python a rÃ©pondu en "levant" une "Exception"
+particuliÃ¨re (ZeroDivisionError) qui a aboutit au message d'erreur (ou Traceback)
+affichÃ© ci-dessus. Ce processus de "lever" (<i>raise</i>
+en anglais) des exceptions est une faÃ§on pour le programme Python
 d'alerter l'utilisateur sur des situations qu'il ne sait pas comment
-gérer. Nous pouvons simuler cela en utilisant le mot-clé Python <span class="keyword">raise</span></p>
+gÃ©rer. Nous pouvons simuler cela en utilisant le mot-clÃ© Python <span class="keyword">raise</span></p>
 <pre>&gt;&gt;&gt; <span class="keyword">raise</span> ZeroDivisionError<br>Traceback (most recent call last):<br>  File "&lt;input&gt;", line 1, in ?<br>ZeroDivisionError<br></pre>
-<p>Quand nous savons qu'une exception particulière risque d'être levée, nous pouvons l'"intercepter" (<i>catch</i> en anglais) et la gérer d'une manière sensée. Voici comment nous pouvons faire cela :</p>
-<pre>&gt;&gt;&gt; <span class="keyword">try</span>:<br>...     x = 1/0<br>... <span class="keyword">except</span>:<br>...     <span class="keyword">print</span> "Vous avez essayé de diviser par zéro. Ce n'est pas permis."<br>...<br>Vous avez essayé de diviser par zéro. Ce n'est pas permis.<br></pre>
+<p>Quand nous savons qu'une exception particuliÃ¨re risque d'Ãªtre levÃ©e, nous pouvons l'"intercepter" (<i>catch</i> en anglais) et la gÃ©rer d'une maniÃ¨re sensÃ©e. Voici comment nous pouvons faire cela :</p>
+<pre>&gt;&gt;&gt; <span class="keyword">try</span>:<br>...     x = 1/0<br>... <span class="keyword">except</span>:<br>...     <span class="keyword">print</span> "Vous avez essayÃ© de diviser par zÃ©ro. Ce n'est pas permis."<br>...<br>Vous avez essayÃ© de diviser par zÃ©ro. Ce n'est pas permis.<br></pre>
 
-<p>Utilisons cela afin d'écrire un deuxième programme pour faire sortir Reeborg du labyrinthe.</p>
+<p>Utilisons cela afin d'Ã©crire un deuxiÃ¨me programme pour faire sortir Reeborg du labyrinthe.</p>
 
-<h3 class="section">Évasion aléatoire 2</h3>
-<p>Quand Reeborg rencontre un problème (se cogner contre un mur, essayer de ramasser une sonnette
-inexistante, etc.), une exception est levée. Normalement elle termine le programme du robot et est 
-"interceptée" par RUR-PLE pour afficher la boîte de dialogue d'erreur appropriée. Si c'est bien cela,
-nous pouvons écrire notre propre programme pour intercepter cette exception et l'ignorer pour
+<h3 class="section">Ã‰vasion alÃ©atoire 2</h3>
+<p>Quand Reeborg rencontre un problÃ¨me (se cogner contre un mur, essayer de ramasser une sonnette
+inexistante, etc.), une exception est levÃ©e. Normalement elle termine le programme du robot et est 
+"interceptÃ©e" par RUR-PLE pour afficher la boÃ®te de dialogue d'erreur appropriÃ©e. Si c'est bien cela,
+nous pouvons Ã©crire notre propre programme pour intercepter cette exception et l'ignorer pour
 permettre au programme de continuer. C'est ce que nous faisons dans le programme ci-dessous.
-Cela est parfois décrit comme l'approche <i>Mieux vaut demander le pardon que la permission</i> (<i>Better to ask forgiveness than permission - BAFP</i>).
+Cela est parfois dÃ©crit comme l'approche <i>Mieux vaut demander le pardon que la permission</i> (<i>Better to ask forgiveness than permission - BAFP</i>).
 </p>
 <pre>G = RefurbishedRobot()<br>G.set_delay(0)<span class="comment"></span><br><span class="keyword">while</span> True:<br>    <span class="keyword">try</span>:<br>        G.move()<br>        <span class="keyword">if</span> G.next_to_a_beeper():<br>            G.turn_off()<br>    <span class="keyword">except</span> HitWallException:    <span class="comment"># exception "se cogner contre un mur" </span><br>        <span class="keyword">pass</span><br>    r = G.roll_dice(3) <span class="comment"># valeurs possibles : 1, 2, 3</span><br>    <span class="keyword">if</span> r == 1:<br>        G.turn_left()<br>    <span class="keyword">elif</span> r == 2:<br>        G.turn_right()<br></pre>
 
-<p>Dans l'exemple ci-dessus, nous avons utilisé des dés d'un genre
-différent, avec seulement trois résultats possibles. Vous pouvez
-demander à Reeborg d'utiliser des dés avec n'importe quel nombre de
-résultats possibles pour concevoir votre propre programme.</p>
+<p>Dans l'exemple ci-dessus, nous avons utilisÃ© des dÃ©s d'un genre
+diffÃ©rent, avec seulement trois rÃ©sultats possibles. Vous pouvez
+demander Ã  Reeborg d'utiliser des dÃ©s avec n'importe quel nombre de
+rÃ©sultats possibles pour concevoir votre propre programme.</p>
 
-<h3 class="section">Quelle approche est préférable ?</h3>
+<h3 class="section">Quelle approche est prÃ©fÃ©rable ?</h3>
 
-<p>Si l'on ne s'attend pas à ce qu'une condition exceptionnelle se
-produise souvent, la deuxième approche (BAFP) est préférée. Mais si la
-condition exceptionnelle risque de se produire fréquemment (comme c'est
-le cas ici), l'approche que nous avons utilisée dans la première
-solution (LBYL) est recommandée.</p>
+<p>Si l'on ne s'attend pas Ã  ce qu'une condition exceptionnelle se
+produise souvent, la deuxiÃ¨me approche (BAFP) est prÃ©fÃ©rÃ©e. Mais si la
+condition exceptionnelle risque de se produire frÃ©quemment (comme c'est
+le cas ici), l'approche que nous avons utilisÃ©e dans la premiÃ¨re
+solution (LBYL) est recommandÃ©e.</p>
 
-<center><a href="39-import.htm"><img alt="previous" src="../../images/previous.png">Éviter les répétitions - les choses importantes</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> </center>
+<center><a href="39-import.htm"><img alt="previous" src="../../images/previous.png">Ã‰viter les rÃ©pÃ©titions - les choses importantes</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a> </center>
 
 </body></html>
