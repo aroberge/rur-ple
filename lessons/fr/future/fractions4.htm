@@ -3,31 +3,31 @@
 
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="../rurple.css" type="text/css"><title>Fractions - part 4</title></head><body>
 <h2 class="title">Fractions - 4e partie</h2>
-<p>Ainsi que vous l'avez vérifié à la fin de la leçon précédente, Python ne sait pas comment additionner un entier à une <tt>Fraction</tt>.  Nous pouvons corriger cela assez facilement en faisant ce qui suit : </p>
+<p>Ainsi que vous l'avez vÃ©rifiÃ© Ã  la fin de la leÃ§on prÃ©cÃ©dente, Python ne sait pas comment additionner un entier Ã  une <tt>Fraction</tt>.  Nous pouvons corriger cela assez facilement en faisant ce qui suit : </p>
 <ol>
-<li>Avant de faire une opération mathématique [+, *, /, -], vérifier si
+<li>Avant de faire une opÃ©ration mathÃ©matique [+, *, /, -], vÃ©rifier si
 "l'autre" objet est une Fraction, si non, le convertir avant de faire
 l'operation.</li>
-<li>Dire à Python comment convertir des entiers en Fractions.</li>
+<li>Dire Ã  Python comment convertir des entiers en Fractions.</li>
 </ol>
-<p>La deuxième étape peut être accomplie avec une fonction <i>ressemblant</i> à ce qui suit :</p>
+<p>La deuxiÃ¨me Ã©tape peut Ãªtre accomplie avec une fonction <i>ressemblant</i> Ã  ce qui suit :</p>
 <pre><span class="keyword">def</span> convertirEnFraction(objet):<br>    <span class="comment">'''Convertit "int" et "long" en Fractions'''</span>
 <span class="keyword">    if</span> isinstance(objet, (int, long)):<br>        <span class="keyword">return</span> Fraction(objet)<br>    <span class="keyword">else</span>:<br>        <span class="keyword">raise</span> NotImplementedError<br></pre>
-<p>Nous commençons par vérifier si l'objet est un entier [<tt>int</tt> ou peut-être <tt>long</tt>]
-et, si c'est le cas, créons une nouvelle Fraction à partir de cet objet
-(l'entier sera le numérateur de la nouvelle Fraction). Puisque nous
+<p>Nous commenÃ§ons par vÃ©rifier si l'objet est un entier [<tt>int</tt> ou peut-Ãªtre <tt>long</tt>]
+et, si c'est le cas, crÃ©ons une nouvelle Fraction Ã  partir de cet objet
+(l'entier sera le numÃ©rateur de la nouvelle Fraction). Puisque nous
 voulons que les fractions soient de la forme (entier/entier), nous ne
 permettrons aucun autre type d'objet ; en levant une exception, nous
-informons l'utilisateur qu'il a tenté une opération qui n'est pas
+informons l'utilisateur qu'il a tentÃ© une opÃ©ration qui n'est pas
 permise.</p>
-<p>La première étape sera une chose que nous ajouterons au début de
-chaque opération. Voici le nouveau code qui fait justement cela [Notez
-que nous avons inclu la conversion en Fractions comme une méthode de
+<p>La premiÃ¨re Ã©tape sera une chose que nous ajouterons au dÃ©but de
+chaque opÃ©ration. Voici le nouveau code qui fait justement cela [Notez
+que nous avons inclu la conversion en Fractions comme une mÃ©thode de
 cette classe].</p>
-<pre><span class="linenumber">  1 </span><span class="keyword">def</span> gcd(a, b):<br><span class="linenumber">  2 </span>    <span class="comment">'''gcd retourne le plus grand commun diviseur (greatest common divisor) <br><span class="linenumber">  3 </span>        de 2 entiers donnés.'''</span>
+<pre><span class="linenumber">  1 </span><span class="keyword">def</span> gcd(a, b):<br><span class="linenumber">  2 </span>    <span class="comment">'''gcd retourne le plus grand commun diviseur (greatest common divisor) <br><span class="linenumber">  3 </span>        de 2 entiers donnÃ©s.'''</span>
 <span class="linenumber">  4 </span><span class="keyword">    while</span> b:<br><span class="linenumber">  5 </span>        a, b = b, a%b<br><span class="linenumber">  6 </span>    <span class="keyword">return</span> a<br><span class="linenumber">  7 </span>
 <span class="linenumber">  8 </span><span class="keyword">class</span> Fraction(object):<br><span class="linenumber">  9 </span>    <span class="keyword">def</span> __init__(self, numerateur, denominateur=<span class="number">1</span>):<br><span class="linenumber"> 10 </span>        num, denom = self.simplifier(numerateur, denominateur)<br><span class="linenumber"> 11 </span>        self.num = num<br><span class="linenumber"> 12 </span>        self.denom = denom<br><span class="linenumber"> 13 </span>        <br><span class="linenumber"> 14 </span>    <span class="keyword">def</span> __str__(self):<br><span class="linenumber"> 15 </span>        <span class="keyword">if</span> self.denom ==<span class="number"> 1</span>:<br><span class="linenumber"> 16 </span>            <span class="keyword">return</span><span class="string"> "(%s)"</span>%self.num<br><span class="linenumber"> 17 </span>        <span class="keyword">return</span><span class="string"> "(%s/%s)"</span>%(self.num, self.denom)<br><span class="linenumber"> 18 </span>
 <span class="linenumber"> 19 </span>    <span class="keyword">def</span> __mul__(self, autre):<br><span class="newlinenumber"> 20 </span>        <span class="keyword">if</span><span class="keyword"> not</span> isinstance(autre, Fraction):<br><span class="newlinenumber"> 21 </span>            autre = self.convertirEnFraction(autre)<br><span class="linenumber"> 22 </span>        num = self.num * autre.num<br><span class="linenumber"> 23 </span>        denom = self.denom * autre.denom<br><span class="linenumber"> 24 </span><span class="keyword">        return</span> Fraction(num, denom)<br><span class="linenumber"> 25 </span>
@@ -63,10 +63,10 @@ cette classe].</p>
 <h3 class="section">1 + 1 = ?</h3>
 <p>Si vous pensez que nous avons fini, essayez ce qui suit :</p>
 <pre>un = Fraction(1)<br><span class="keyword">print</span> 1 + un<br></pre>
-<p>Pouvez-vous réfléchir à ce qui fait que cela ne va pas ?<br>
+<p>Pouvez-vous rÃ©flÃ©chir Ã  ce qui fait que cela ne va pas ?<br>
 </p>
 
-<center><a href="fractions3.htm"><img alt="précédent" src="../../images/previous.png"> Fractions - 3e partie </a> - <a href="../lessons_toc.htm"><img alt="début" src="../../images/home.png"></a>
+<center><a href="fractions3.htm"><img alt="prÃ©cÃ©dent" src="../../images/previous.png"> Fractions - 3e partie </a> - <a href="../lessons_toc.htm"><img alt="dÃ©but" src="../../images/home.png"></a>
 
 <!-- - <a href="fractions4.htm">Fractions - 4e partie <img alt="suivant" src="../../images/next.png"></a> --> </center>
 </body></html>
