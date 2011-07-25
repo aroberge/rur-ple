@@ -2,7 +2,7 @@
 <html><head>
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="../rurple.css" type="text/css"><title>Fractions - part 1</title></head><body>
 <h2 class="title">Fractions - 1re partie</h2>
 <p>Ce serait bien si nous pouvions utiliser Python pour additionner et
@@ -10,73 +10,73 @@ multiplier des fractions tout comme nous pouvons le faire avec des
 entiers et d'autres types de nombres, n'est-ce pas ? Quelque chose
 comme :</p>
 <pre>&gt;&gt;&gt; a = 1/2<br>&gt;&gt;&gt; b = 1/4<br>&gt;&gt;&gt; <span class="keyword">print</span> a + b<br>3/4<br></pre>
-<p>En fait, nous pouvons enseigner à Python à faire quelque chose comme
-ça ! C'est ce que nous allons apprendre à faire dans cette leçon en
-plusieurs parties. Cela va être une leçon plutôt longue, mais nous
-allons apprendre pas mal de choses sur des parties très <i>privées</i> de Python.</p>
-<p>Pour éviter d'avoir des bugs dans notre programme, nous allons
-procéder de façon systématique, en ajoutant seulement un petit peu de
-code nouveau à la fois, en utilisant une approche en trois étapes :</p>
+<p>En fait, nous pouvons enseigner Ã  Python Ã  faire quelque chose comme
+Ã§a ! C'est ce que nous allons apprendre Ã  faire dans cette leÃ§on en
+plusieurs parties. Cela va Ãªtre une leÃ§on plutÃ´t longue, mais nous
+allons apprendre pas mal de choses sur des parties trÃ¨s <i>privÃ©es</i> de Python.</p>
+<p>Pour Ã©viter d'avoir des bugs dans notre programme, nous allons
+procÃ©der de faÃ§on systÃ©matique, en ajoutant seulement un petit peu de
+code nouveau Ã  la fois, en utilisant une approche en trois Ã©tapes :</p>
 <ol>
-<li>Ajouter une nouvelle fonctionnalité.</li>
-<li>Vérifier que cela donne le résultat désiré, en testant avec des instructions <span class="pykeyword">print</span>.<br>
+<li>Ajouter une nouvelle fonctionnalitÃ©.</li>
+<li>VÃ©rifier que cela donne le rÃ©sultat dÃ©sirÃ©, en testant avec des instructions <span class="pykeyword">print</span>.<br>
 </li>
 <li>Remplacer les instructions <span class="pykeyword">print</span> par des instructions <span class="pykeyword">assert</span>.</li>
 </ol>
-<p>Répétez ces 3 étapes aussi souvent que nécessaire ! C'est un exemple de cas où il est normal de vous répéter !<br>
+<p>RÃ©pÃ©tez ces 3 Ã©tapes aussi souvent que nÃ©cessaire ! C'est un exemple de cas oÃ¹ il est normal de vous rÃ©pÃ©ter !<br>
 </p>
 <!--=============================================-->
 <hr width="50%">
-<h3 class="section">Créer un nouveau type</h3>
-<p>Sans plus attendre, voici le code de base pour définir un nouveau type "fraction" et le tester.</p>
+<h3 class="section">CrÃ©er un nouveau type</h3>
+<p>Sans plus attendre, voici le code de base pour dÃ©finir un nouveau type "fraction" et le tester.</p>
 <pre><span class="linenumber">  1 </span><span class="keyword">class</span> Fraction(object):<br><span class="newlinenumber">  2 </span>    <span class="keyword">def</span> __init__(self, numerateur, denominateur=<span class="number">1</span>):<br><span class="linenumber">  3 </span>        self.num = numerateur<br><span class="linenumber">  4 </span>        self.denom = denominateur<br><span class="linenumber">  5 </span>
 <span class="linenumber">  6 </span><span class="comment">#== zone de test ci-dessous ===<br></span><span class="linenumber">  7 </span>
 <span class="linenumber">  8 </span><span class="keyword">if</span> __name__ ==<span class="string"> "__main__"</span>:<br><span class="linenumber">  9 </span>    a = Fraction(<span class="number">1</span>,<span class="number"> 2</span>)<br><span class="newlinenumber"> 10 </span>    b = Fraction(<span class="number">3</span>)<br><span class="linenumber"> 11 </span><span class="keyword">    print</span> a.num, a.denom<br><span class="linenumber"> 12 </span><span class="keyword">    print</span> b.num, b.denom<br><span class="linenumber"> 13 </span><span class="keyword">    print</span> a<br><span class="linenumber"> 14 </span><span class="keyword">    print</span> b<br></pre>
-<p>Jusqu'ici, vous devriez être capable de comprendre ce que fait ce code par vous-même.
-Remarquez l'utilisation d'un paramètre nommé à la ligne 2 pour que nous puissions passer un seul paramètre à <tt>Fraction()</tt>
-[comme nous le faisons en ligne 10] qui sera interprété comme un entier
-(divisé par 1). Si nous l'exécutons, nous obtiendrons la sortie
+<p>Jusqu'ici, vous devriez Ãªtre capable de comprendre ce que fait ce code par vous-mÃªme.
+Remarquez l'utilisation d'un paramÃ¨tre nommÃ© Ã  la ligne 2 pour que nous puissions passer un seul paramÃ¨tre Ã  <tt>Fraction()</tt>
+[comme nous le faisons en ligne 10] qui sera interprÃ©tÃ© comme un entier
+(divisÃ© par 1). Si nous l'exÃ©cutons, nous obtiendrons la sortie
 suivante :</p>
 <pre>1 2<br>3 1<br>&lt;__main__.Fraction object at 0x01530F30&gt;<br>&lt;__main__.Fraction object at 0x01530F50&gt;<br></pre>
-<p>Les deux premières lignes sont comme nous les attendions. Mais les
-deux dernières, où nous avons essayé d'imprimer les fractions <tt>a</tt> et <tt>b</tt>,
-ne ressemblent pas exactement à ce que nous aurions aimé. Python ne
+<p>Les deux premiÃ¨res lignes sont comme nous les attendions. Mais les
+deux derniÃ¨res, oÃ¹ nous avons essayÃ© d'imprimer les fractions <tt>a</tt> et <tt>b</tt>,
+ne ressemblent pas exactement Ã  ce que nous aurions aimÃ©. Python ne
 sait pas comment nous voulons que l'objet apparaisse, alors il nous
-donne quelque chose comme le nom de variable qu'il utilise lui-même
+donne quelque chose comme le nom de variable qu'il utilise lui-mÃªme
 pour garder une trace de ces deux objets. Pour faire en sorte que
-Python imprime les fractions de la manière que nous voulons, nous
-devons lui dire d'utiliser l'une des méthodes <i>privées</i>.</p>
+Python imprime les fractions de la maniÃ¨re que nous voulons, nous
+devons lui dire d'utiliser l'une des mÃ©thodes <i>privÃ©es</i>.</p>
 <!--=============================================-->
 <hr width="50%">
-<h3 class="section">Représenter les objets comme des chaînes</h3>
-<p>Pour dire à Python comment nous voulons que les objets soient
-imprimés, ou représentés comme des chaînes, nous utilisons la fonction <tt>__str__()</tt>.</p>
+<h3 class="section">ReprÃ©senter les objets comme des chaÃ®nes</h3>
+<p>Pour dire Ã  Python comment nous voulons que les objets soient
+imprimÃ©s, ou reprÃ©sentÃ©s comme des chaÃ®nes, nous utilisons la fonction <tt>__str__()</tt>.</p>
 <pre><span class="linenumber">  1 </span><span class="keyword">class</span> Fraction(object):<br><span class="linenumber">  2 </span>    <span class="keyword">def</span> __init__(self, numerateur, denominateur=<span class="number">1</span>):<br><span class="linenumber">  3 </span>        self.num = numerateur<br><span class="linenumber">  4 </span>        self.denom = denominateur<br><span class="linenumber">  5 </span>        <br><span class="newlinenumber">  6 </span>    <span class="keyword">def</span> __str__(self):<br><span class="newlinenumber">  7 </span>        <span class="keyword">return</span><span class="string"> "(%s/%s)"</span>%(self.num, self.denom)<br><span class="linenumber">  8 </span>
 <span class="linenumber">  9 </span><span class="comment">#== zone de test ci-dessous ===<br></span><span class="linenumber"> 10 </span>
 <span class="linenumber"> 11 </span><span class="keyword">if</span> __name__ ==<span class="string"> "__main__"</span>:<br><span class="linenumber"> 12 </span>    a = Fraction(<span class="number">1</span>,<span class="number"> 2</span>)<br><span class="linenumber"> 13 </span>    b = Fraction(<span class="number">3</span>)<br><span class="linenumber"> 14 </span><span class="keyword">    print</span> a<br><span class="linenumber"> 15 </span><span class="keyword">    print</span> b<br></pre>
-<p>Le résultat est :</p>
+<p>Le rÃ©sultat est :</p>
 <pre>(1/2)<br>(3/1)<br></pre>
 <!--=============================================-->
 <hr width="50%">
-<h3 class="try">À votre tour</h3>
-<p>Faites une modification à <tt>__str__()</tt> pour que si le dénominateur <span class="pykeyword"></span>est 1, seul le numérateur est imprimé. Cela veut dire que, au lieu d'avoir "<tt>(3/1)</tt>", nous aurions simplement "<tt>3</tt>". Toutefois le résultat pour "<tt>(1/2)</tt>" devra rester inchangé.</p>
+<h3 class="try">Ã€ votre tour</h3>
+<p>Faites une modification Ã  <tt>__str__()</tt> pour que si le dÃ©nominateur <span class="pykeyword"></span>est 1, seul le numÃ©rateur est imprimÃ©. Cela veut dire que, au lieu d'avoir "<tt>(3/1)</tt>", nous aurions simplement "<tt>3</tt>". Toutefois le rÃ©sultat pour "<tt>(1/2)</tt>" devra rester inchangÃ©.</p>
 <!--=============================================-->
 <hr width="50%">
 <h3 class="section">Utilisation de <span class="pykeyword">assert</span></h3>
-<p>Maintenant que nous avons notre résultat désiré, nous remplaçons les instructions <span class="pykeyword">print</span> par des instructions <span class="pykeyword">assert</span>.</p>
+<p>Maintenant que nous avons notre rÃ©sultat dÃ©sirÃ©, nous remplaÃ§ons les instructions <span class="pykeyword">print</span> par des instructions <span class="pykeyword">assert</span>.</p>
 <pre><span class="linenumber">  1 </span><span class="keyword">class</span> Fraction(object):<br><span class="linenumber">  2 </span>    <span class="keyword">def</span> __init__(self, numerateur, denominateur=<span class="number">1</span>):<br><span class="linenumber">  3 </span>        self.num = numerateur<br><span class="linenumber">  4 </span>        self.denom = denominateur<br><span class="linenumber">  5 </span>        <br><span class="linenumber">  6 </span>    <span class="keyword">def</span> __str__(self):<br><span class="linenumber">  7 </span>        <span class="keyword">return</span><span class="string"> "(%s/%s)"</span>%(self.num, self.denom)<br><span class="linenumber">  8 </span>
 <span class="linenumber">  9 </span><span class="comment">#== zone de test ci-dessous ===<br></span><span class="linenumber"> 10 </span>
 <span class="linenumber"> 11 </span><span class="keyword">if</span> __name__ ==<span class="string"> "__main__"</span>:<br><span class="linenumber"> 12 </span>    a = Fraction(<span class="number">1</span>,<span class="number"> 2</span>)<br><span class="linenumber"> 13 </span>    b = Fraction(<span class="number">3</span>)<br><span class="newlinenumber"> 14 </span><span class="keyword">    assert</span> str(a) ==<span class="string"> "(1/2)"</span>
 <span class="newlinenumber"> 15 </span><span class="keyword">    assert</span> str(b) ==<span class="string"> "(3/1)"</span>
 </pre>
-<p>Quand nous utilisons des assertions au lieu d'imprimer, nous devons comparer la représentation en chaîne <tt>str()</tt>
-au résultat attendu. Si vous exécutez ce programme, il ne devrait rien
+<p>Quand nous utilisons des assertions au lieu d'imprimer, nous devons comparer la reprÃ©sentation en chaÃ®ne <tt>str()</tt>
+au rÃ©sultat attendu. Si vous exÃ©cutez ce programme, il ne devrait rien
 donner en sortie ; c'est ce que nous voulons ! Remarquez que j'ai
-encore utilisé le format avec le dénominateur toujours présent, "<tt>(3/1)</tt>", et non le format que je vous ai demandé de définir dans le dernier exercice.</p>
-<p>Dans la suite, nous enseignerons à Python à multiplier des fractions !</p>
-<center><!-- <a href=".htm"><img alt="précédent"
+encore utilisÃ© le format avec le dÃ©nominateur toujours prÃ©sent, "<tt>(3/1)</tt>", et non le format que je vous ai demandÃ© de dÃ©finir dans le dernier exercice.</p>
+<p>Dans la suite, nous enseignerons Ã  Python Ã  multiplier des fractions !</p>
+<center><!-- <a href=".htm"><img alt="prÃ©cÃ©dent"
 
- src="../../images/previous.png"></a> - --> <a href="../lessons_toc.htm"><img alt="début" src="../../images/home.png"></a>
+ src="../../images/previous.png"></a> - --> <a href="../lessons_toc.htm"><img alt="dÃ©but" src="../../images/home.png"></a>
 
 - <a href="fractions2.htm">Fractions - 2e partie <img alt="suivant" src="../../images/next.png"></a></center>
 </body></html>
