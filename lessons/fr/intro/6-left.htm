@@ -1,23 +1,23 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
   
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   
   <link rel="stylesheet" href="../rurple.css" type="text/css">
-  <title>Virer à gauche</title>
+  <title>Virer Ã  gauche</title>
 
   
 </head><body>
-<h2 class="title">6. Virer à gauche.</h2>
+<h2 class="title">6. Virer Ã  gauche.</h2>
 
-<p>Comme nous l'avons dèjà dit, Reeborg peut tourner dans toutes les
-directions... à condition que ce soit à sa gauche et à 90 degrés. C'est
-parce que ses créateurs n'avaient pas assez de moyens&nbsp; pour
-fabriquer un meilleur mécanisme de direction. Pour demander à Reeborg
-de <i>tourner à gauche</i>, en anglais <i>turn left</i>, vous écrivez... <tt>turn_left()</tt> !</p>
+<p>Comme nous l'avons dÃ¨jÃ  dit, Reeborg peut tourner dans toutes les
+directions... Ã  condition que ce soit Ã  sa gauche et Ã  90 degrÃ©s. C'est
+parce que ses crÃ©ateurs n'avaient pas assez de moyens&nbsp; pour
+fabriquer un meilleur mÃ©canisme de direction. Pour demander Ã  Reeborg
+de <i>tourner Ã  gauche</i>, en anglais <i>turn left</i>, vous Ã©crivez... <tt>turn_left()</tt> !</p>
 
-<p>Par exemple, si Reeborg démarre de sa position de départ habituelle, ce
+<p>Par exemple, si Reeborg dÃ©marre de sa position de dÃ©part habituelle, ce
 simple programme :<br>
 </p>
 
@@ -26,70 +26,70 @@ simple programme :<br>
 <p>va donner l'affichage suivant :</p>
 
 <img alt="simple left turn" src="../../images/intro/turn_left_end.png">
-<h3 class="try">À votre tour</h3>
+<h3 class="try">Ã€ votre tour</h3>
 
-<p>Faites tracer un carré simple à Reeborg, en utilisant le programme suivant :</p>
+<p>Faites tracer un carrÃ© simple Ã  Reeborg, en utilisant le programme suivant :</p>
 
 <pre>move()<br>turn_left()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>move()<br>turn_left()<br>turn_off()<br></pre>
 
 <p>Rappelez-vous que vous devez enregistrer votre programme avant de pouvoir l'utiliser. <b>Essayez-le !</b></p>
 
 <p>Remarquez que, si l'anglais n'est pas votre langue favorite, vous
-pouvez toujours créer un synonyme dans votre langue, tant que vous le
-définissez au début, avant de l'utiliser. Mais le synonyme que vous
+pouvez toujours crÃ©er un synonyme dans votre langue, tant que vous le
+dÃ©finissez au dÃ©but, avant de l'utiliser. Mais le synonyme que vous
 donnez doit utiliser l'alphabet anglais (des lettres sans accents). Par
-exemple, en français, on peut
-<b>définir</b> <tt>vire_a_gauche = turn_left</tt> et <b>utiliser</b>
-<tt>vire_a_gauche()</tt> pour ordonner au robot de tourner à gauche.</p>
+exemple, en franÃ§ais, on peut
+<b>dÃ©finir</b> <tt>vire_a_gauche = turn_left</tt> et <b>utiliser</b>
+<tt>vire_a_gauche()</tt> pour ordonner au robot de tourner Ã  gauche.</p>
 
 <h3 class="try">Encore votre tour !<br>
 </h3>
 
-<p>Écrivez un programme qui fera tourner Reeborg dans le sens inverse
-des aiguilles d'une montre autour d'un carré en faisant 2 pas en avant
-puis en tournant à gauche puis en répétant jusqu'à ce qu'il revienne à
-sa position de départ fàce à l'est, sa direction d'origine, comme
-montré ci-dessous :<br>
+<p>Ã‰crivez un programme qui fera tourner Reeborg dans le sens inverse
+des aiguilles d'une montre autour d'un carrÃ© en faisant 2 pas en avant
+puis en tournant Ã  gauche puis en rÃ©pÃ©tant jusqu'Ã  ce qu'il revienne Ã 
+sa position de dÃ©part fÃ ce Ã  l'est, sa direction d'origine, comme
+montrÃ© ci-dessous :<br>
 </p>
 <img alt="left square" src="../../images/intro/left_square2.png">
-<h3><font color="#663333">Expérience</font></h3>
+<h3><font color="#663333">ExpÃ©rience</font></h3>
 
-<p>N'hésitez pas à essayer d'écrire d'autres programmes pour faire déplacer Reeborg en suivant divers chemins dans son monde.</p>
+<p>N'hÃ©sitez pas Ã  essayer d'Ã©crire d'autres programmes pour faire dÃ©placer Reeborg en suivant divers chemins dans son monde.</p>
 
 <!--==================================================-->
 <hr width="50%"><a name="Home" id="Home"></a>
-<h3 class="section">Retour à la maison<br>
+<h3 class="section">Retour Ã  la maison<br>
 </h3>
 
-<p>Quand vous entrez dans le monde de Reeborg, il est habituellement à
-l'intersection de la première avenue et la première rue, face à l'Est.
+<p>Quand vous entrez dans le monde de Reeborg, il est habituellement Ã 
+l'intersection de la premiÃ¨re avenue et la premiÃ¨re rue, face Ã  l'Est.
 Cliquez sur le bouton "Montrer/Cacher le fichier monde" <img alt="Show/Hide world file" src="../../images/intro/btn_show_world_file.png">,
-qui est tout à droite. Vous verrez que l'affichage change, avec du
-texte qui apparaît du côté droit. Remarquez notamment la ligne qui dit <tt>robot = (1, 1,
+qui est tout Ã  droite. Vous verrez que l'affichage change, avec du
+texte qui apparaÃ®t du cÃ´tÃ© droit. Remarquez notamment la ligne qui dit <tt>robot = (1, 1,
 'E',
 0)</tt>.
 Elle indique la position de Reeborg dans son monde. Le premier nombre
-est l'avenue sur laquelle est Reeborg, le deuxième est la rue, et la
+est l'avenue sur laquelle est Reeborg, le deuxiÃ¨me est la rue, et la
 lettre entre apostrophes <tt>''</tt> indique la direction en face de
-Reeborg (E = Est, N = Nord, W = Ouest, S = Sud), l'Est étant vers la
-droite, le Nord vers le haut, etc. Le quatrième nombre (0) est le
+Reeborg (E = Est, N = Nord, W = Ouest, S = Sud), l'Est Ã©tant vers la
+droite, le Nord vers le haut, etc. Le quatriÃ¨me nombre (0) est le
 nombre de <em>sonnettes</em> que Reeborg transporte ; nous parlerons des sonnettes un peu plus tard.</p>
 
-<p>Comme vous l'avez déjà vu, vous pouvez déplacer Reeborg en utilisant
+<p>Comme vous l'avez dÃ©jÃ  vu, vous pouvez dÃ©placer Reeborg en utilisant
 les touches de direction haut et gauche de votre clavier. Quand vous le
-déplacez comme cela, il ne laisse aucune trace de ses mouvements, mais
-vous remarquerez que le texte entre les parenthèses dans <tt>robot = (...)</tt> change pendant que Reeborg
+dÃ©placez comme cela, il ne laisse aucune trace de ses mouvements, mais
+vous remarquerez que le texte entre les parenthÃ¨ses dans <tt>robot = (...)</tt> change pendant que Reeborg
 bouge pour indiquer sa nouvelle position dans ce monde.</p>
 
-<h3 class="try">À votre tour</h3>
+<h3 class="try">Ã€ votre tour</h3>
 
-<p>En utilisant le clavier, déplacez Reeborg jusqu'à ce qu'il se
-retrouve à l'intersection de la troisième avenue et la quatrième rue,
-face au Sud, comme indiqué ci-dessous. Ensuite, écrivez un programme
-qui fera démarrer Reeborg de cette nouvelle position pour retourner à
-l'intersection de la première avenue et la première rue, face à l'Est,
-comme indiqué ci-dessous. Essayez de lui faire faire moins de pas et de
-rotations pour faire cela que ce qui est montré ci-dessous.</p>
+<p>En utilisant le clavier, dÃ©placez Reeborg jusqu'Ã  ce qu'il se
+retrouve Ã  l'intersection de la troisiÃ¨me avenue et la quatriÃ¨me rue,
+face au Sud, comme indiquÃ© ci-dessous. Ensuite, Ã©crivez un programme
+qui fera dÃ©marrer Reeborg de cette nouvelle position pour retourner Ã 
+l'intersection de la premiÃ¨re avenue et la premiÃ¨re rue, face Ã  l'Est,
+comme indiquÃ© ci-dessous. Essayez de lui faire faire moins de pas et de
+rotations pour faire cela que ce qui est montrÃ© ci-dessous.</p>
 
 <p><img alt="back home start" src="../../images/intro/back_home_start.png">
 <img alt="lead to" src="../../images/lead_to.png"> <img alt="back home end" src="../../images/intro/back_home.png"></p>
