@@ -1,21 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head>
   
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   
   <link rel="stylesheet" href="../rurple.css" type="text/css">
-  <title>Étonnant - 2e partie</title>
+  <title>Ã‰tonnant - 2e partie</title>
 
   
 </head><body>
-<h2 class="title">18. Étonnant - 2e partie</h2>
+<h2 class="title">18. Ã‰tonnant - 2e partie</h2>
 
-<p>Voici la cause du problème que nous avons vu à la fin de la 1re partie : nous posions
+<p>Voici la cause du problÃ¨me que nous avons vu Ã  la fin de la 1re partie : nous posions
 une sonnette et, avant d'avoir l'occasion d'avancer, testions pour voir s'il n'y avait pas
-de sonnette à cet endroit. Puisqu'il y avait déjà là une sonnette depuis le début, nous n'avions
+de sonnette Ã  cet endroit. Puisqu'il y avait dÃ©jÃ  lÃ  une sonnette depuis le dÃ©but, nous n'avions
 jamais l'occasion d'entrer dans la <i>boucle</i> 
-<span class="pykeyword">while</span>. Peut-être que nous pouvons changer le programme pour ajouter
+<span class="pykeyword">while</span>. Peut-Ãªtre que nous pouvons changer le programme pour ajouter
 un <tt>move()</tt> avant de commencer la boucle, comme suit :</p>
 
 <pre>put_beeper()<br>move()<br><span class="keyword">while not</span> on_beeper():<br>    <span class="keyword">if</span> front_is_clear():<br>        move()<br>    <span class="keyword">else</span>:<br>        turn_left()<br><br>turn_off()<br></pre>
@@ -27,36 +27,36 @@ un <tt>move()</tt> avant de commencer la boucle, comme suit :</p>
 <h3 class="section">Un monde pas si simple<br>
 </h3>
 
-<p>Essayons le programme que nous avons écrit sur un monde légèrement
-plus compliqué, comme celui qui suit, que vous pouvez facilement
+<p>Essayons le programme que nous avons Ã©crit sur un monde lÃ©gÃ¨rement
+plus compliquÃ©, comme celui qui suit, que vous pouvez facilement
 reproduire. Vous pourriez vouloir enregistrer le monde dans un fichier
 monde avant d'essayer votre programme.</p>
 
 <p><img alt="around the world: start" src="../../images/intro/around2start.png"></p>
 
-<p>Quand vous essayerez votre programme, vous verrez que le résultat
+<p>Quand vous essayerez votre programme, vous verrez que le rÃ©sultat
 n'est pas exactement ce que nous voulions : Reeborg prend un raccourci,
 et ne fait pas tout le tour.</p>
 
 <p><img alt="around the world: end" src="../../images/intro/around2end.png"></p>
 
-<p>Le problème est que nous avions supposé que Reeborg devait seulement
-avancer ou tourner à gauche pour faire le tour du monde. Nous n'avons
+<p>Le problÃ¨me est que nous avions supposÃ© que Reeborg devait seulement
+avancer ou tourner Ã  gauche pour faire le tour du monde. Nous n'avons
 jamais pris en compte les situations
-dans lesquelles nous aurions voulu qu'il tourne à droite. Ce que
-Reeborg doit faire est vérifier d'abord à sa droite pour voir s'il y a
-encore un mur ; si ce n'est pas le cas, il doit tourner à droite. Voici
-un programme modifié qui <i>essaie</i>
+dans lesquelles nous aurions voulu qu'il tourne Ã  droite. Ce que
+Reeborg doit faire est vÃ©rifier d'abord Ã  sa droite pour voir s'il y a
+encore un mur ; si ce n'est pas le cas, il doit tourner Ã  droite. Voici
+un programme modifiÃ© qui <i>essaie</i>
 de faire justement cela :</p>
 
 <pre><span class="keyword">def</span> turn_right():<br>    repeat(turn_left, 3)<br><br>put_beeper()<br>move()<br><span class="keyword">while not</span> on_beeper():<br>    <span class="keyword">if</span> right_is_clear():<br>        turn_right()<br>    <span class="keyword">elif</span> front_is_clear():<br>        move()<br>    <span class="keyword">else</span>:<br>        turn_left()<br><br>turn_off()<br></pre>
 
 <p>Est-ce que cela fonctionne ? Lisez-le attentivement pour vous
-décider. Ensuite, essayez-le pour confirmer votre opinion, ou alors
-faites les changements qui vous semblent adéquats.</p>
+dÃ©cider. Ensuite, essayez-le pour confirmer votre opinion, ou alors
+faites les changements qui vous semblent adÃ©quats.</p>
 
-<center><a href="17-amazing1.htm"><img alt="previous" src="../../images/previous.png"> Étonnant - 1re partie</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
-- <a href="19-amazing3.htm">Étonnant - 3e partie <img alt="next" src="../../images/next.png"></a>
+<center><a href="17-amazing1.htm"><img alt="previous" src="../../images/previous.png"> Ã‰tonnant - 1re partie</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="19-amazing3.htm">Ã‰tonnant - 3e partie <img alt="next" src="../../images/next.png"></a>
 </center>
 
 </body></html>
