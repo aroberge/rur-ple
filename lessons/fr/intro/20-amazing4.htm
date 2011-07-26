@@ -1,27 +1,27 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head>
   
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   
   <link rel="stylesheet" href="../rurple.css" type="text/css">
-  <title>Étonnant - 4e partie</title>
+  <title>Ã‰tonnant - 4e partie</title>
 
   
 </head><body>
-<h2 class="title">20. Étonnant - 4e partie</h2>
+<h2 class="title">20. Ã‰tonnant - 4e partie</h2>
 
-<p>Comme vous l'avez sûrement compris, nous avons mal réfléchi avant de
-demander à Reeborg d'avancer dès qu'il a posé une sonnette. Nous devons
-vérifier d'abord s'il y a un mur qui l'empêche d'avancer. Voici une
-solution au problème.</p>
+<p>Comme vous l'avez sÃ»rement compris, nous avons mal rÃ©flÃ©chi avant de
+demander Ã  Reeborg d'avancer dÃ¨s qu'il a posÃ© une sonnette. Nous devons
+vÃ©rifier d'abord s'il y a un mur qui l'empÃªche d'avancer. Voici une
+solution au problÃ¨me.</p>
 
-<pre><span class="keyword">def</span> turn_right():<br>    repeat(turn_left, 3)<br><br>put_beeper()<br><span class="comment"># début des changements</span><br><span class="keyword">if not</span> front_is_clear():<br>    turn_left()<br><span class="comment"># fin des changements</span><br>move()<br><span class="keyword">while not</span> on_beeper():<br>    <span class="keyword">if</span> right_is_clear():<br>        turn_right()<br>        move()<br>    <span class="keyword">elif</span> front_is_clear():<br>        move()<br>    <span class="keyword">else</span>:<br>        turn_left()<br><br>turn_off()<br></pre>
+<pre><span class="keyword">def</span> turn_right():<br>    repeat(turn_left, 3)<br><br>put_beeper()<br><span class="comment"># dÃ©but des changements</span><br><span class="keyword">if not</span> front_is_clear():<br>    turn_left()<br><span class="comment"># fin des changements</span><br>move()<br><span class="keyword">while not</span> on_beeper():<br>    <span class="keyword">if</span> right_is_clear():<br>        turn_right()<br>        move()<br>    <span class="keyword">elif</span> front_is_clear():<br>        move()<br>    <span class="keyword">else</span>:<br>        turn_left()<br><br>turn_off()<br></pre>
 
-<p>Essayez le maintenant et voyez comme il fonctionne. Pouvez-vous imaginer des situations où il pourrait ne pas marcher ?</p>
+<p>Essayez le maintenant et voyez comme il fonctionne. Pouvez-vous imaginer des situations oÃ¹ il pourrait ne pas marcher ?</p>
 
-<center><a href="19-amazing3.htm"><img alt="previous" src="../../images/previous.png"> Étonnant - 3e partie</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
-- <a href="21-amazing5.htm">Étonnant - 5e partie <img alt="next" src="../../images/next.png"></a>
+<center><a href="19-amazing3.htm"><img alt="previous" src="../../images/previous.png"> Ã‰tonnant - 3e partie</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
+- <a href="21-amazing5.htm">Ã‰tonnant - 5e partie <img alt="next" src="../../images/next.png"></a>
 </center>
 
 </body></html>
