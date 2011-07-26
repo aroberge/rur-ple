@@ -2,48 +2,48 @@
 <html><head>
 
   
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   
-  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>Étonnant - 1re partie</title></head><body>
+  <link rel="stylesheet" href="../rurple.css" type="text/css"><title>Ã‰tonnant - 1re partie</title></head><body>
 <a name="amazing" id="amazing"></a>
-<h2 class="title">17. Étonnant - 1re partie</h2>
+<h2 class="title">17. Ã‰tonnant - 1re partie</h2>
 
-<p>Dans cette leçon en plusieurs parties, nous allons écrire un
-programme complet pour résoudre des problèmes de plus en plus complexes.</p>
+<p>Dans cette leÃ§on en plusieurs parties, nous allons Ã©crire un
+programme complet pour rÃ©soudre des problÃ¨mes de plus en plus complexes.</p>
 
 <hr width="50%">
-<h3 class="section">Solution étonnante : premiers pas</h3>
+<h3 class="section">Solution Ã©tonnante : premiers pas</h3>
 
-<p>Commençons par un problème simple : faire que Reeborg fasse le tour
+<p>CommenÃ§ons par un problÃ¨me simple : faire que Reeborg fasse le tour
 de son monde une fois, en supposant qu'il n'y a pas d'obstacle sur son
-chemin. Nous l'avons déjà fait avant, quand nous avons découvert le
-test <tt>front_is_clear()</tt>. Voici le plan d'une solution qui suppose que Reeborg transporte au moins une sonnette au début :</p>
+chemin. Nous l'avons dÃ©jÃ  fait avant, quand nous avons dÃ©couvert le
+test <tt>front_is_clear()</tt>. Voici le plan d'une solution qui suppose que Reeborg transporte au moins une sonnette au dÃ©but :</p>
 
-<pre>1. Poser une sonnette pour marquer le point de départ.<br>2. Avancer jusqu'à arriver face à un mur.<br>3. Tourner à gauche quand le mur est en face.<br>4. Répéter les étapes 2. et 3. jusqu'à ce qu'on trouve la sonnette que nous avions posée.<br>5. S'éteindre quand la sonnette est trouvée.<br></pre>
+<pre>1. Poser une sonnette pour marquer le point de dÃ©part.<br>2. Avancer jusqu'Ã  arriver face Ã  un mur.<br>3. Tourner Ã  gauche quand le mur est en face.<br>4. RÃ©pÃ©ter les Ã©tapes 2. et 3. jusqu'Ã  ce qu'on trouve la sonnette que nous avions posÃ©e.<br>5. S'Ã©teindre quand la sonnette est trouvÃ©e.<br></pre>
 
-<p>L'étape clé est la 4e, qui a une instruction de répétition avec un test. Cette instruction peut s'écrire :</p>
+<p>L'Ã©tape clÃ© est la 4e, qui a une instruction de rÃ©pÃ©tition avec un test. Cette instruction peut s'Ã©crire :</p>
 
 <pre><span class="keyword">while not</span> on_beeper():<br></pre>
 
-<p>suivant ce qui devrait être les étapes 2 et 3. Traduisons maintenant toute la solution en code correct :</p>
+<p>suivant ce qui devrait Ãªtre les Ã©tapes 2 et 3. Traduisons maintenant toute la solution en code correct :</p>
 
 <pre>put_beeper()<br><span class="keyword">while not</span> on_beeper():<br>    <span class="keyword">if</span> front_is_clear():<br>        move()<br>    <span class="keyword">else</span>:<br>        turn_left()<br><br>turn_off()<br></pre>
 
-<p>Prenez le temps de réfléchir à ce que le programme ci-dessus ordonne
-à Reeborg de faire, si la position de départ est celle de l'image
+<p>Prenez le temps de rÃ©flÃ©chir Ã  ce que le programme ci-dessus ordonne
+Ã  Reeborg de faire, si la position de dÃ©part est celle de l'image
 ci-dessous :</p>
 
 <p><img alt="around the world: start" src="../../images/intro/around1start.png"></p>
 
-<p>Nous n'avons pas obtenu le résultat désiré, qui est indiqué
+<p>Nous n'avons pas obtenu le rÃ©sultat dÃ©sirÃ©, qui est indiquÃ©
 ci-dessous. Avez-vous compris pourquoi ? Si non, retournez et
-réfléchissez-y.</p>
+rÃ©flÃ©chissez-y.</p>
 
 <p><img alt="around the world: start" src="../../images/intro/around1end.png"></p>
 
 <center><a href="16-while.htm"><img alt="previous" src="../../images/previous.png">Tant que</a> - <a href="../lessons_toc.htm"><img alt="home" src="../../images/home.png"></a>
-- <a href="18-amazing2.htm">Étonnant - 2e partie<img alt="next" src="../../images/next.png"></a>
+- <a href="18-amazing2.htm">Ã‰tonnant - 2e partie<img alt="next" src="../../images/next.png"></a>
 </center>
 
 </body></html>
