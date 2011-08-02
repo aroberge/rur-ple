@@ -6,53 +6,53 @@
 </head><body>
 <h2>Le sens des synonymes</h2>
 
-<p>Rappelez-vous que je vous ai présenté dans une leçon précédente la
+<p>Rappelez-vous que je vous ai prÃ©sentÃ© dans une leÃ§on prÃ©cÃ©dente la
 notion de synonyme en Python
-(À ce moment là, nous enseignions à Reeborg un synonyme en français :
+(Ã€ ce moment lÃ , nous enseignions Ã  Reeborg un synonyme en franÃ§ais :
 avance =
-move). Ce que j'appelle un synonyme est normalement appelé une
-variable. Et la notion de variables, et la façon dont elles changent,
-peut parfois être confuse pour les débutants. Je vais essayer de vous
+move). Ce que j'appelle un synonyme est normalement appelÃ© une
+variable. Et la notion de variables, et la faÃ§on dont elles changent,
+peut parfois Ãªtre confuse pour les dÃ©butants. Je vais essayer de vous
 expliquer certains aspects en utilisant une petite histoire.</p>
 
-<p>John, Pierre et Antonio sont trois bons amis qui habitent la même maison.
+<p>John, Pierre et Antonio sont trois bons amis qui habitent la mÃªme maison.
 John est originaire d'Angleterre, Pierre de France et Antonio d'Espagne.</p>
 
-<p>Un jour, John parlait en anglais à Pierre. Durant cette
-conversation, John dit le mot "once", en parlant d'un événement qui
+<p>Un jour, John parlait en anglais Ã  Pierre. Durant cette
+conversation, John dit le mot "once", en parlant d'un Ã©vÃ©nement qui
 s'est produit une seule fois. Pierre traduit ce concept dans son esprit
 par "une_fois".</p>
 
-<p>Plus tard dans la journée, John parlait en espagnol avec Antonio. Il
-mentionna son nombre favori : "once" (11 en espagnol). Voici à quoi
-cela ressemble dans l'interpréteur Python :</p>
+<p>Plus tard dans la journÃ©e, John parlait en espagnol avec Antonio. Il
+mentionna son nombre favori : "once" (11 en espagnol). Voici Ã  quoi
+cela ressemble dans l'interprÃ©teur Python :</p>
 
 <pre>&gt;&gt;&gt; once = 1<br>&gt;&gt;&gt; une_fois = once<br><br>&gt;&gt;&gt; print 'once = ', once, '     une_fois = ', une_fois<br>once =  1      une_fois =  1<br><br>&gt;&gt;&gt; once = 11<br><br>&gt;&gt;&gt; print 'once = ', once, '     une_fois = ', une_fois<br>once =  11      une_fois =  1<br></pre>
 
-<p>Les différents mots des langues humaines sont associés à des <i>concepts</i>
+<p>Les diffÃ©rents mots des langues humaines sont associÃ©s Ã  des <i>concepts</i>
 ou des <i><b>objets</b></i>
-qui sont indépendants des mots utilisés pour les représenter. Ainsi,
-"une_fois" est associé au nombre 1, à travers son association avec le
+qui sont indÃ©pendants des mots utilisÃ©s pour les reprÃ©senter. Ainsi,
+"une_fois" est associÃ© au nombre 1, Ã  travers son association avec le
 mot "once". Cependant, "once" est juste un mot,
-pas un <i><b>objet</b></i>. Donc, quand "once" prend une valeur différente plus tard, le concept représenté par "une_fois" reste inchangé.</p>
-<p>Jetons un &#339;il sur une histoire différente. Pierre fait une liste de courses pour l'épicerie,
+pas un <i><b>objet</b></i>. Donc, quand "once" prend une valeur diffÃ©rente plus tard, le concept reprÃ©sentÃ© par "une_fois" reste inchangÃ©.</p>
+<p>Jetons un &#339;il sur une histoire diffÃ©rente. Pierre fait une liste de courses pour l'Ã©picerie,
 avec deux articles (deux items) : "bananes" et "poires". Il la colle alors sur la porte du frigo.
-Plus tard dans la journée, John passe par là et remarque la liste aussi (<i>a groceries list</i>),
+Plus tard dans la journÃ©e, John passe par lÃ  et remarque la liste aussi (<i>a groceries list</i>),
 qu'il associe avec le mot groceries. Plus tard encore, Pierre ajoute
-"pommes" à la liste. Il remarque qu'Antonio a déjà acheté des poires et
+"pommes" Ã  la liste. Il remarque qu'Antonio a dÃ©jÃ  achetÃ© des poires et
 se souvient qu'ils ont aussi besoin d'oranges. Il barre alors l'item
 "poires" et le remplace par "oranges". Voici ce que cela donne en
 Python :</p>
-<pre>&gt;&gt;&gt; epicerie = ["bananes", "poires"]<br>&gt;&gt;&gt; groceries = epicerie<br>&gt;&gt;&gt; print epicerie<br>['bananes', 'poires']<br>&gt;&gt;&gt; print groceries<br>['bananes', 'poires']<br><br>&gt;&gt;&gt; epicerie.append("poires")<br>&gt;&gt;&gt; print epicerie<br>['bananes', 'poires', 'pommes']<br><br>&gt;&gt;&gt; epicerie[1]="oranges"<br>&gt;&gt;&gt; print epicerie<br>['bananes', 'oranges', 'pommes']<br><br>&gt;&gt;&gt; print groceries<br>['bananes', 'oranges', 'pommes']<br></pre>
+<pre>&gt;&gt;&gt; epicerie = ["bananes", "poires"]<br>&gt;&gt;&gt; groceries = epicerie<br>&gt;&gt;&gt; print epicerie<br>['bananes', 'poires']<br>&gt;&gt;&gt; print groceries<br>['bananes', 'poires']<br><br>&gt;&gt;&gt; epicerie.append("pommes")<br>&gt;&gt;&gt; print epicerie<br>['bananes', 'poires', 'pommes']<br><br>&gt;&gt;&gt; epicerie[1]="oranges"<br>&gt;&gt;&gt; print epicerie<br>['bananes', 'oranges', 'pommes']<br><br>&gt;&gt;&gt; print groceries<br>['bananes', 'oranges', 'pommes']<br></pre>
 
-<p>Pierre et John se réfèrent au <b>même objet</b> dans leur propre langue. Quand cet objet change, il change pour les deux de la même manière.</p>
+<p>Pierre et John se rÃ©fÃ¨rent au <b>mÃªme objet</b> dans leur propre langue. Quand cet objet change, il change pour les deux de la mÃªme maniÃ¨re.</p>
 
 <p>Cependant, si John avait fait sa propre copie de la liste, il
-n'aurait pas été au courant des changements faits par Pierre sur
+n'aurait pas Ã©tÃ© au courant des changements faits par Pierre sur
 l'autre liste.</p>
 
 <pre>&gt;&gt;&gt; epicerie = ["bananes", "poires"]<br>&gt;&gt;&gt; groceries = list(epicerie)<br>&gt;&gt;&gt; epicerie.append("pommes")<br>&gt;&gt;&gt; epicerie[1] = "oranges"<br>&gt;&gt;&gt; print epicerie<br>['bananes', 'oranges', 'pommes']<br>&gt;&gt;&gt; print groceries<br>['bananes', 'poires']<br></pre>
 
 <center>
-<a href="../rur.htm"><img alt="début" src="../../images/home.png"></a></center>
+<a href="../rur.htm"><img alt="dÃ©but" src="../../images/home.png"></a></center>
 </body></html>
