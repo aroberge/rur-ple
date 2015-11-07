@@ -1,0 +1,605 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rur-ple\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2006-05-22 02:38-0400\n"
+"Last-Translator: MuHun Kim <yale2a11@gmail.com>\n"
+"Language-Team:  <andre.roberge@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Korean\n"
+"X-Poedit-Basepath: C:\\documents and settings\\André\\desktop\\python\\rurple\n"
+"X-Poedit-SearchPath-0: ..\\rurple\n"
+
+#: ..\rurple/RUR_start.py:97
+#: ..\rurple/rur_py/browser.py:114
+#: rur_py/browser.py:114
+msgid "RUR: a Python Learning Environment"
+msgstr "RUR: 파이썬 배우기"
+
+#: ..\rurple/RUR_start.py:118
+#: ..\rurple/rur_py/browser.py:110
+#: rur_py/browser.py:110
+msgid "  RUR: Read and Learn  "
+msgstr "  RUR: 읽고 배우기  "
+
+#: ..\rurple/RUR_start.py:124
+#: ..\rurple/rur_py/browser.py:111
+#: rur_py/browser.py:111
+msgid "Robot: Code and Learn"
+msgstr "Robot: 코드 배우기"
+
+#: ..\rurple/RUR_start.py:150
+#: ..\rurple/rur_py/browser.py:112
+#: rur_py/browser.py:112
+msgid "Python: Code and Learn"
+msgstr "Python: 코드 배우기"
+
+#: ..\rurple/RUR_start.py:155
+#: ..\rurple/rur_py/browser.py:113
+#: rur_py/browser.py:113
+msgid "Python: simple editor"
+msgstr "Python: 편집기"
+
+#: ..\rurple/RUR_start.py:165
+msgid ""
+"Robot program has changed.\n"
+"You may save it before quitting."
+msgstr ""
+"프로그램이 저장되지 않았습니다\n"
+"종료되기 전에 저장할 수 있습니다."
+
+#: ..\rurple/RUR_start.py:166
+msgid "Program has been changed"
+msgstr "프로그램이 수정되었습니다"
+
+#: ..\rurple/RUR_start.py:179
+#: ..\rurple/RUR_start.py:287
+msgid "World files (*.wld)|*.wld| All files (*.*)|*.*"
+msgstr "월드 파일 (*.wld)|*.wld| 모든파일 (*.*)|*.*"
+
+#: ..\rurple/RUR_start.py:180
+#: ..\rurple/RUR_start.py:311
+#: ..\rurple/rur_py/browser.py:147
+#: rur_py/browser.py:147
+msgid "Choose a file"
+msgstr "파일 선택"
+
+#: ..\rurple/RUR_start.py:213
+#: ..\rurple/RUR_start.py:221
+#: ..\rurple/RUR_start.py:233
+#: ..\rurple/RUR_start.py:256
+#: ..\rurple/RUR_start.py:268
+#, python-format
+msgid ""
+"Problem with %s\n"
+"Please recreate world file."
+msgstr ""
+"%s 에 문제가 있습니다.\n"
+"월드파일을 다시 만들어 주세요."
+
+#: ..\rurple/RUR_start.py:214
+msgid "avenues"
+msgstr "도로"
+
+#: ..\rurple/RUR_start.py:215
+#: ..\rurple/RUR_start.py:223
+#: ..\rurple/RUR_start.py:235
+#: ..\rurple/RUR_start.py:258
+#: ..\rurple/RUR_start.py:270
+msgid "Invalid world file format"
+msgstr "지원되지 않는 파일 포멧입니다"
+
+#: ..\rurple/RUR_start.py:222
+msgid "streets"
+msgstr "거리"
+
+#: ..\rurple/RUR_start.py:234
+msgid "robot"
+msgstr "로봇"
+
+#: ..\rurple/RUR_start.py:257
+msgid "beepers"
+msgstr "비퍼"
+
+#: ..\rurple/RUR_start.py:269
+msgid "walls"
+msgstr "벽"
+
+#: ..\rurple/RUR_start.py:289
+msgid "Save new world as"
+msgstr "다른 이름으로 저장"
+
+#: ..\rurple/RUR_start.py:310
+#: ..\rurple/RUR_start.py:340
+msgid "Program files (*.rur)|*.rur| All files (*.*)|*.*"
+msgstr "프로그램 파일 (*.rur)|*.rur| 모든 팡리 (*.*)|*.*"
+
+#: ..\rurple/RUR_start.py:342
+msgid "Save new program as"
+msgstr "다른 이름으로 저장"
+
+#: ..\rurple/RUR_start.py:358
+msgid "Program will not be saved."
+msgstr "프로그램이 저장되지 않았습니다."
+
+#: ..\rurple/RUR_start.py:377
+#: ..\rurple/rur_py/cpu.py:283
+#: ..\rurple/rur_py/status_bar.py:34
+#: ..\rurple/rur_py/status_bar.py:86
+#: rur_py/cpu.py:283
+#: rur_py/status_bar.py:34
+#: rur_py/status_bar.py:86
+msgid "Program is running"
+msgstr "프로그램이 실행중 입니다."
+
+#: ..\rurple/RUR_start.py:381
+#: ..\rurple/rur_py/cpu.py:174
+#: ..\rurple/rur_py/status_bar.py:35
+#: ..\rurple/rur_py/status_bar.py:87
+#: rur_py/cpu.py:174
+#: rur_py/status_bar.py:35
+#: rur_py/status_bar.py:87
+msgid "Program paused"
+msgstr "프로그램 일시정지"
+
+#: ..\rurple/RUR_start.py:393
+#: ..\rurple/rur_py/cpu.py:326
+#: ..\rurple/rur_py/status_bar.py:28
+#: ..\rurple/rur_py/status_bar.py:33
+#: ..\rurple/rur_py/status_bar.py:85
+#: rur_py/cpu.py:326
+#: rur_py/status_bar.py:28
+#: rur_py/status_bar.py:33
+#: rur_py/status_bar.py:85
+msgid "Program not running"
+msgstr "프로그램이 실행되지 않습니다"
+
+#: ..\rurple/RUR_start.py:419
+msgid "No robot in world to give beepers to."
+msgstr "No robot in world to give beepers to."
+
+#: ..\rurple/RUR_start.py:422
+msgid "Beepers!"
+msgstr "비퍼들!"
+
+#: ..\rurple/RUR_start.py:437
+msgid "World size!"
+msgstr "월드 크기!"
+
+#: ..\rurple/rur_py/bouton.py:22
+#: ..\rurple/rur_py/bouton.py:123
+#: rur_py/bouton.py:22
+#: rur_py/bouton.py:123
+msgid "Opens existing robot program"
+msgstr "로봇 프로그램을 불러오기"
+
+#: ..\rurple/rur_py/bouton.py:23
+#: ..\rurple/rur_py/bouton.py:124
+#: rur_py/bouton.py:23
+#: rur_py/bouton.py:124
+msgid "Saves robot program"
+msgstr "로봇 프로그램 저장하기"
+
+#: ..\rurple/rur_py/bouton.py:24
+#: ..\rurple/rur_py/bouton.py:125
+#: rur_py/bouton.py:24
+#: rur_py/bouton.py:125
+msgid "Opens existing world file"
+msgstr "월드 파일을 불러오기"
+
+#: ..\rurple/rur_py/bouton.py:25
+#: ..\rurple/rur_py/bouton.py:126
+#: rur_py/bouton.py:25
+#: rur_py/bouton.py:126
+msgid "Saves world file"
+msgstr "월드 파일 저장하기"
+
+#: ..\rurple/rur_py/bouton.py:26
+#: ..\rurple/rur_py/bouton.py:127
+#: rur_py/bouton.py:26
+#: rur_py/bouton.py:127
+msgid "Resets world - from open file"
+msgstr "열려있는 파일 - 월드 초기화"
+
+#: ..\rurple/rur_py/bouton.py:27
+#: ..\rurple/rur_py/bouton.py:128
+#: rur_py/bouton.py:27
+#: rur_py/bouton.py:128
+msgid "Runs robot program"
+msgstr "로봇 프로그램 실행"
+
+#: ..\rurple/rur_py/bouton.py:28
+#: ..\rurple/rur_py/bouton.py:129
+#: rur_py/bouton.py:28
+#: rur_py/bouton.py:129
+msgid "Steps through robot program instructions"
+msgstr "프로그램 단계마다 멈추기"
+
+#: ..\rurple/rur_py/bouton.py:29
+#: ..\rurple/rur_py/bouton.py:130
+#: rur_py/bouton.py:29
+#: rur_py/bouton.py:130
+msgid "Pause program"
+msgstr "프로그램 일시정지"
+
+#: ..\rurple/rur_py/bouton.py:30
+#: ..\rurple/rur_py/bouton.py:131
+#: rur_py/bouton.py:30
+#: rur_py/bouton.py:131
+msgid "Stops program"
+msgstr "프로그램 정지"
+
+#: ..\rurple/rur_py/bouton.py:31
+#: ..\rurple/rur_py/bouton.py:132
+#: rur_py/bouton.py:31
+#: rur_py/bouton.py:132
+msgid "Adjust robot speed"
+msgstr "로봇 속도 조절"
+
+#: ..\rurple/rur_py/bouton.py:32
+#: ..\rurple/rur_py/bouton.py:133
+#: rur_py/bouton.py:32
+#: rur_py/bouton.py:133
+msgid "Edit walls"
+msgstr "벽 수정"
+
+#: ..\rurple/rur_py/bouton.py:33
+#: ..\rurple/rur_py/bouton.py:134
+#: rur_py/bouton.py:33
+#: rur_py/bouton.py:134
+msgid "Resize world"
+msgstr "월드 크기 변경"
+
+#: ..\rurple/rur_py/bouton.py:34
+#: ..\rurple/rur_py/bouton.py:135
+#: rur_py/bouton.py:34
+#: rur_py/bouton.py:135
+msgid "Give beepers to robot"
+msgstr "로봇에게 비퍼주기"
+
+#: ..\rurple/rur_py/bouton.py:35
+#: ..\rurple/rur_py/bouton.py:136
+#: rur_py/bouton.py:35
+#: rur_py/bouton.py:136
+msgid "Remove/add robot from/to world"
+msgstr "월드에 로봇을 삭제/추가 하기"
+
+#: ..\rurple/rur_py/bouton.py:36
+#: ..\rurple/rur_py/bouton.py:137
+#: rur_py/bouton.py:36
+#: rur_py/bouton.py:137
+msgid "Toggle world file view"
+msgstr "토글 월드 파일 보기"
+
+#: ..\rurple/rur_py/bouton.py:151
+#: ..\rurple/rur_py/bouton.py:232
+#: rur_py/bouton.py:151
+#: rur_py/bouton.py:232
+msgid "Open Python file"
+msgstr "파이썬 파일 열기"
+
+#: ..\rurple/rur_py/bouton.py:152
+#: ..\rurple/rur_py/bouton.py:233
+#: rur_py/bouton.py:152
+#: rur_py/bouton.py:233
+msgid "Save Python file"
+msgstr "파이썬 파일 저장하기"
+
+#: ..\rurple/rur_py/bouton.py:153
+#: ..\rurple/rur_py/bouton.py:234
+#: rur_py/bouton.py:153
+#: rur_py/bouton.py:234
+msgid "Run Python program"
+msgstr "파이썬 프로그램 실행"
+
+#: ..\rurple/rur_py/bouton.py:154
+#: ..\rurple/rur_py/bouton.py:235
+#: rur_py/bouton.py:154
+#: rur_py/bouton.py:235
+msgid "Run program with argument list"
+msgstr "인수목록으로 프로그램 실행하기"
+
+#: ..\rurple/rur_py/bouton.py:155
+#: ..\rurple/rur_py/bouton.py:236
+#: rur_py/bouton.py:155
+#: rur_py/bouton.py:236
+msgid "Help"
+msgstr "도움말"
+
+#: ..\rurple/rur_py/bouton.py:156
+#: ..\rurple/rur_py/bouton.py:237
+#: rur_py/bouton.py:156
+#: rur_py/bouton.py:237
+msgid "Go to line number"
+msgstr "줄 번호로 이동하기"
+
+#: ..\rurple/rur_py/bouton.py:157
+#: ..\rurple/rur_py/bouton.py:238
+#: rur_py/bouton.py:157
+#: rur_py/bouton.py:238
+msgid "Hide or show output window"
+msgstr "숨기거나 출력 창을 표시하기"
+
+#: ..\rurple/rur_py/bouton.py:158
+#: ..\rurple/rur_py/bouton.py:239
+#: rur_py/bouton.py:158
+#: rur_py/bouton.py:239
+msgid "Change layout"
+msgstr "레이아웃 변경"
+
+#: ..\rurple/rur_py/bouton.py:159
+#: ..\rurple/rur_py/bouton.py:240
+#: rur_py/bouton.py:159
+#: rur_py/bouton.py:240
+msgid "Clear text"
+msgstr "텍스트 정리"
+
+#: ..\rurple/rur_py/browser.py:51
+#: ..\rurple/rur_py/browser.py:116
+#: rur_py/browser.py:51
+#: rur_py/browser.py:116
+msgid "Open local html file"
+msgstr "html 파일 열기"
+
+#: ..\rurple/rur_py/browser.py:51
+#: ..\rurple/rur_py/browser.py:116
+#: rur_py/browser.py:51
+#: rur_py/browser.py:116
+msgid "Go back in browser history"
+msgstr "브라우저 역사로 돌아가기"
+
+#: ..\rurple/rur_py/browser.py:52
+#: ..\rurple/rur_py/browser.py:117
+#: rur_py/browser.py:52
+#: rur_py/browser.py:117
+msgid "Home"
+msgstr "Home"
+
+#: ..\rurple/rur_py/browser.py:52
+#: ..\rurple/rur_py/browser.py:117
+#: rur_py/browser.py:52
+#: rur_py/browser.py:117
+msgid "Go forward in browser history"
+msgstr "브라우저 역사 앞으로 가기"
+
+#: ..\rurple/rur_py/browser.py:53
+#: ..\rurple/rur_py/browser.py:118
+#: rur_py/browser.py:53
+#: rur_py/browser.py:118
+msgid "Select a language"
+msgstr "언어 선택"
+
+#: ..\rurple/rur_py/browser.py:146
+#: rur_py/browser.py:146
+msgid "html files (*.htm*)|*.htm*| All files (*.*)|*.*"
+msgstr "html files (*.htm*)|*.htm*| All files (*.*)|*.*"
+
+#: ..\rurple/rur_py/cpu.py:50
+#: rur_py/cpu.py:50
+msgid "Error found in your program."
+msgstr "프로그램에서 에러를 찾았습니다."
+
+#: ..\rurple/rur_py/cpu.py:168
+#: rur_py/cpu.py:168
+msgid "Hey!  You stopped me!"
+msgstr "어이, 자네! 나를 왜 멈추게 했나!"
+
+#: ..\rurple/rur_py/cpu.py:241
+#: rur_py/cpu.py:241
+msgid "All done!"
+msgstr "모두 끝!"
+
+#: ..\rurple/rur_py/cpu.py:242
+#: rur_py/cpu.py:242
+msgid "No instruction to execute."
+msgstr "명령이 실행되지 않았습니다"
+
+#: ..\rurple/rur_py/cpu.py:294
+#: rur_py/cpu.py:294
+msgid "You forgot to turn me off!"
+msgstr "나를 멈추는것을 잊어 버렸어!"
+
+#: ..\rurple/rur_py/cpu.py:316
+#: rur_py/cpu.py:316
+#, python-format
+msgid "Error found near line %s."
+msgstr "%s 줄에 오류를 찾았습니다."
+
+#: ..\rurple/rur_py/cpu.py:317
+#: ..\rurple/rur_py/cpu.py:321
+#: rur_py/cpu.py:317
+#: rur_py/cpu.py:321
+msgid "Execution error"
+msgstr "실행 오류"
+
+#: ..\rurple/rur_py/cpu.py:320
+#: rur_py/cpu.py:320
+#, python-format
+msgid ""
+"%s\n"
+"Unrecognized instruction."
+msgstr ""
+"%s\n"
+"인식 할수 없는 명령입니다"
+
+#: ..\rurple/rur_py/dialogs.py:76
+#: ..\rurple/rur_py/dialogs.py:82
+#: ..\rurple/rur_py/dialogs.py:89
+#: ..\rurple/rur_py/dialogs.py:95
+#: ..\rurple/rur_py/dialogs.py:101
+#: ..\rurple/rur_py/robot_factory.py:338
+#: ..\rurple/rur_py/robot_factory.py:447
+#: rur_py/dialogs.py:76
+#: rur_py/dialogs.py:82
+#: rur_py/dialogs.py:89
+#: rur_py/dialogs.py:95
+#: rur_py/dialogs.py:101
+#: rur_py/robot_factory.py:338
+#: rur_py/robot_factory.py:447
+msgid "Error"
+msgstr "오류"
+
+#: ..\rurple/rur_py/dialogs.py:77
+#: ..\rurple/rur_py/dialogs.py:83
+#: ..\rurple/rur_py/dialogs.py:90
+#: ..\rurple/rur_py/dialogs.py:96
+#: ..\rurple/rur_py/dialogs.py:102
+#: rur_py/dialogs.py:77
+#: rur_py/dialogs.py:83
+#: rur_py/dialogs.py:90
+#: rur_py/dialogs.py:96
+#: rur_py/dialogs.py:102
+msgid "Turn off"
+msgstr "종료"
+
+#: ..\rurple/rur_py/dialogs.py:106
+#: rur_py/dialogs.py:106
+msgid "Success!"
+msgstr "성공!"
+
+#: ..\rurple/rur_py/dialogs.py:193
+#: rur_py/dialogs.py:193
+msgid ""
+"Select the desired value, or sum of values as\n"
+"the number of beepers to put in the robot's beeper bag."
+msgstr ""
+"목표값 또는 합계 값을 선택하세요\n"
+"비퍼의 수는 로봇의 가방에 놓습니다."
+
+#: ..\rurple/rur_py/dialogs.py:231
+#: rur_py/dialogs.py:231
+msgid ""
+"Select the desired world dimensions (streets and avenues).\n"
+"The existing walls and beepers will be removed."
+msgstr ""
+"원하는 월드크기를 선택합니다 (거리와 도로)\n"
+"기존의 벽과 비퍼가 사라집니다."
+
+#: ..\rurple/rur_py/parser.py:47
+#: rur_py/parser.py:47
+msgid "Found a word not allowed: "
+msgstr "금지된 단어를 찾았습니다 "
+
+#: ..\rurple/rur_py/robot_factory.py:165
+#: rur_py/robot_factory.py:165
+msgid ""
+"That move really hurt!\n"
+"Please, make sure that there is no wall in front of me!"
+msgstr ""
+"매우 아프군요!\n"
+"제발, 내 앞에 벽이 없도록 해주세요!"
+
+#: ..\rurple/rur_py/robot_factory.py:170
+#: rur_py/robot_factory.py:170
+msgid ""
+"I obey your command:\n"
+" turning myself off."
+msgstr ""
+"내 자신을 종료하고\n"
+" 나는 당신의 명령을 따를겁니다"
+
+#: ..\rurple/rur_py/robot_factory.py:184
+#: rur_py/robot_factory.py:184
+msgid ""
+"put_beeper() failed.\n"
+" I am not carrying any beepers."
+msgstr ""
+"put_beeper() failed.\n"
+" put_beeper() 실패했습니다."
+
+#: ..\rurple/rur_py/robot_factory.py:193
+#: rur_py/robot_factory.py:193
+msgid ""
+"pick_beeper failed.\n"
+"I must be next to a beeper before I can pick it up."
+msgstr ""
+"pick_beeper 실패했습니다.\n"
+"비퍼가 다음에 있어야 비퍼를 주울수 있습니다."
+
+#: ..\rurple/rur_py/robot_factory.py:336
+#: ..\rurple/rur_py/robot_factory.py:445
+#: rur_py/robot_factory.py:336
+#: rur_py/robot_factory.py:445
+msgid ""
+"Setting delay failed.\n"
+"Accepted values are between 0 and 10."
+msgstr ""
+"지연 설정을 실패했습니다.\n"
+"허용되는 값은 0에서 10사이입니다."
+
+#: ..\rurple/rur_py/status_bar.py:27
+#: ..\rurple/rur_py/status_bar.py:92
+#: rur_py/status_bar.py:27
+#: rur_py/status_bar.py:92
+msgid "No program loaded"
+msgstr "프로그램 로드가 안됬습니다"
+
+#: ..\rurple/rur_py/status_bar.py:29
+#: ..\rurple/rur_py/status_bar.py:67
+#: ..\rurple/rur_py/status_bar.py:99
+#: rur_py/status_bar.py:29
+#: rur_py/status_bar.py:67
+#: rur_py/status_bar.py:99
+#, python-format
+msgid "Robot has %s beeper"
+msgstr "로봇이 %s 개의 비퍼를 가지고 있습니다"
+
+#: ..\rurple/rur_py/status_bar.py:30
+#: ..\rurple/rur_py/status_bar.py:106
+#: rur_py/status_bar.py:30
+#: rur_py/status_bar.py:106
+msgid "Default world"
+msgstr "기본 월드"
+
+#: ..\rurple/rur_py/status_bar.py:62
+#: ..\rurple/rur_py/status_bar.py:97
+#: rur_py/status_bar.py:62
+#: rur_py/status_bar.py:97
+msgid "No robot in this world"
+msgstr "로봇이 월드에 없습니다"
+
+#: ..\rurple/rur_py/status_bar.py:76
+#: ..\rurple/rur_py/status_bar.py:104
+#: rur_py/status_bar.py:76
+#: rur_py/status_bar.py:104
+#, python-format
+msgid "World file: %s"
+msgstr "월드 파일: %s"
+
+#: ..\rurple/rur_py/status_bar.py:79
+#: ..\rurple/rur_py/status_bar.py:90
+#: rur_py/status_bar.py:79
+#: rur_py/status_bar.py:90
+#, python-format
+msgid "Program File: %s"
+msgstr "프로그램 파일: %s"
+
+#: ..\rurple/rur_py/status_bar.py:101
+#: rur_py/status_bar.py:101
+#, python-format
+msgid "Robot has %s beepers"
+msgstr "로봇이 %s 개의 비퍼를 가지고 있음"
+
+#: ..\rurple/rur_py/test_import.py:98
+#: ..\rurple/rur_py/test_import.py:107
+#: rur_py/test_import.py:98
+#: rur_py/test_import.py:107
+msgid " not found in module useful."
+msgstr " 유용한 모듈을 찾지 못하였습니다."
+
+#: ..\rurple/rur_py/test_import.py:142
+#: rur_py/test_import.py:142
+msgid "import keyword used improperly"
+msgstr "불러온 키워드를 잘못 사용했습니다"
+
+#: ..\rurple/rur_py/world_creation.py:464
+#: rur_py/world_creation.py:464
+msgid "Avenue"
+msgstr "도로"
+
+#: ..\rurple/rur_py/world_creation.py:466
+#: rur_py/world_creation.py:466
+msgid "Street"
+msgstr "거리"
