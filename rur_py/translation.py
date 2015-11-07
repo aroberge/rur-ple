@@ -133,7 +133,7 @@ languages = {
     "kl" : ["greenlandic", {}, my_encode(u"kalaallisut")],
     "km" : ["central Khmer", {}, my_encode(u"ភាសាខ្មែរ")],
     "kn" : ["kannada", {}, my_encode(u"ಕನ್ನಡ")],
-    "ko" : ["korean", {}, my_encode(u"한국어 (韓國語), 조선말 (朝鮮語)")],
+    "ko" : ["korean", {}, my_encode(u"한국어")],
     "kr" : ["kanuri", {}, my_encode(u"Kanuri")],
     "ks" : ["kashmiri", {}, my_encode(u"कश्मीरी, كشميري")],
     "ku" : ["kurdish", {}, my_encode(u"Kurdî, كوردی")],
