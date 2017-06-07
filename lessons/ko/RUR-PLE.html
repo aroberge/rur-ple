@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0034)http://rur-ple.xwmooc.org/#lessons -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="./RUR-PLE_files/rurple.css" type="text/css">
+
+<title>RUR-PLE</title>
+
+<script async="" src="./RUR-PLE_files/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59802572-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+<body>
+<h2 class="title"> 러플(RUR-PLE), 파이썬 배우기: 러플로 아이들이 놀기!</h2>
+<h6>
+<img src="./RUR-PLE_files/splash_screen_small.png" alt=""> <br> André Roberge, © 2004-2010</h6> 
+<p><a href="./RUR-PLE_files/RUR-PLE.html">러플 학습</a><br>
+<a href="http://rur-ple.xwmooc.org/lessons_toc.htm">학습 목차</a> <br>
+<a href="http://rur-ple.xwmooc.org/summary.htm">명령문 요약</a><br>
+</p>
+
+<p><i>컴퓨터 프래그래밍을 배우는 것은 <br>
+남녀노소 모두에게 재미있고, 즐거워야 합니다.<br><br>
+
+러플(RUR-PLE)은 파이썬 컴퓨터 프로그래밍 언어를 재미있고, 즐겁게 배울 수 있도록 설계된 환경입니다. 
+러플을 사용하려면 <a href="http://wxpython.org/">wxPython</a>가 필요합니다. <br>
+러플을 학습하려면 사이트에서 <a href="http://rur-ple.xwmooc.org/RUR-PLE_Korean_ver_1_1.pdf">한국어 러플 책을 다운로드</a>하거나, 
+러플을 아직 설치하지 않으셨다면, <a href="https://sourceforge.net/project/showfiles.php?group_id=125834"> 러플을 설치하세요.</a> <br>
+정보교육 xwmooc 사이트에서 다른 내용과 함께 한국어로된 <a href="http://wiki.xwmooc.net/"> 더많은 자료를 </a> 접할 수 있습니다. <br>
+</i></p>
+
+<p>로봇이 다양한 작업을 수행하도록 프로그램된 인공의 환경하에서, 파이썬 구문(Python syntax)를 통해서 프로그램을 작성한다는 진정한 의미를 깨닫게 될 것입니다. 또한 내장된 인터프리터를 통해서 학습한 프로그래밍 기술을 좀더 전통적인 환경에서도 적용할 수 있습니다. 지금 당장 이런 말들이 여러분에게 큰 의미를 주지는 않지만, 걱정하지 마세요.
+</p>
+
+<p>프로그램을 배우는 것은 재미있을 수 있지만, 여러분도 약간의 작업이 될 수 있습니다. 저는 여러분에게 가이드로서 여러분이 프로그램을 배울 수 있도록 도와드릴 수 있지만, 자신이 직접 프로그램을 작성하지 않는다면 여러분은 프로그램을 영영 배우지 못할 것입니다. 다음의 규칙을 따르는 것은 중요합니다.</p>
+
+<dl>
+<dt><b>규칙 # 1</b></dt>
+<dd>컴퓨터 프로그램을 배우는 것은 마치 음악 악기를 배우는 것과 같습니다: 여러분이 <b>직접 프로그램을 해봐야 합니다</b>. 단지 읽는 것만으로는 부족합니다.
+<p>당신이 알아야 할 두번째 - 좋은 컴퓨터프로그램을 만들기 위한 가장 중요한 일급비밀입니다.</p></dd>
+</dl>
+<dl>
+<dt><b>규칙 # 2</b></dt>
+<dd><b>다른 사람</b>이 읽기 쉬운 프로그램을 작성하세요.</dd>
+</dl>
+
+<p>자신이 직접 컴퓨터 프로그램을 작성하는데, 다른 분들이 자신이 직접 작성한 프로그램처럼 이해하기 쉽게 작성하세요.  사람의 언어가 사람들간에 커뮤니케이션이 되도록 진화하였듯이, 컴퓨터 언어는 여러분이 컴퓨터와 커뮤니케이션 하도록 설계되었습니다.  하지만, 컴퓨터 언어는 사람의 언어보다 무척이나 간단하지만, 다른 프로그래머와 프로그램을 공유하기 위해서 사용되기도 합니다. 마치 잘 쓰여진 국어 소설을 읽어서 국어 작문 실력을 향상하듯이, 잘 쓰여진 컴퓨터 프로그램을 읽음으로써 프로그래밍 기술을 향상시킬 수 있습니다. 하지만, 프로그램을 어떻게 하는지를 배우기 위해서는 자신이 직접 프로그램을 작성해야 합니다.</p>
+
+<p>컴퓨터 프로그램을 작성하는 것을 시작하기 위해서, 리보그(Reeborg)로 불리는 로봇을 만들고, 컴퓨터 화면에 작업을 수행할 것입니다. 그러면서 자연스럽게 보편적인 프로그래밍 개념과 파이썬 언어에 대해서 배울 것입니다. 후에는, 리봇이 작업을 수행하는 것에서 벗어나, 컴퓨터를 사용하여 다른 것들을 배울 것입니다.</p>
+
+<a name="lessons"><h3 class="section">학습</h3></a>
+<p> 학습을 여러군데에서 할 수 있지만, 러플(RUR-PLE)내부의 브라우저로 학습을 진행하지 <b><i>마세요.</i></b>
+여러분이 좋아하는 웹브라우져로 학습하기를 권장합니다. 왜냐하면, 러플 내부의 브라우져로 학습하게 되면 html 스타일이 적용되지 않아 학습 내용이 잘 보여지지 않을 수도 있기 때문입니다.<br>
+<a href="http://rur-ple.xwmooc.org/lessons_toc.htm">학습 목차</a>
+</p>
+
+
+
+</body></html>
